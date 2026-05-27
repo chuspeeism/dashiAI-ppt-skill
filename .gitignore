@@ -1,0 +1,4 @@
+.DS_Store
+*.backup
+node_modules/
+output/

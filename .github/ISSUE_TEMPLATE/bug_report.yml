@@ -1,0 +1,55 @@
+name: Bug report
+description: Report a reproducible layout, rendering, or workflow bug.
+title: "bug: "
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting a bug. Screenshots and the generated HTML are the fastest way to make this actionable.
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Describe the issue clearly.
+      placeholder: "The footer overlaps the final card on slide 6..."
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+      placeholder: "The content should stay above the footer."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: How can we reproduce it?
+      description: Include the prompt, source document, generated deck, or a minimal example.
+      placeholder: |
+        1. Use this prompt...
+        2. Generate a Swiss style deck...
+        3. Open slide 6...
+    validations:
+      required: true
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots or files
+      description: Drag screenshots or attach the generated index.html if possible.
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      placeholder: "Claude Code / Codex / Cursor, macOS 15, Chrome 125..."
+  - type: dropdown
+    id: theme
+    attributes:
+      label: Theme
+      options:
+        - Style A · Editorial magazine
+        - Style B · Swiss international
+        - Both / unsure
+    validations:
+      required: true

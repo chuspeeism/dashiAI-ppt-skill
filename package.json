@@ -1,0 +1,20 @@
+{
+  "name": "guizang-ppt-skill",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "render:deck": "tsx scripts/render-deck.jsx",
+    "render:demo": "tsx scripts/render-deck.jsx examples/component-decks/swiss-demo.jsx output/component-demo/ppt/index.html",
+    "render:examples": "tsx scripts/render-deck.jsx examples/component-decks/ai-ops-review.jsx output/examples/ai-ops-review/ppt/index.html && tsx scripts/render-deck.jsx examples/component-decks/climate-field-report.jsx output/examples/climate-field-report/ppt/index.html && tsx scripts/render-deck.jsx examples/component-decks/retail-launch-brief.jsx output/examples/retail-launch-brief/ppt/index.html",
+    "validate:swiss": "node scripts/validate-swiss-deck.mjs",
+    "test": "npm run render:demo && npm run validate:swiss -- output/component-demo/ppt/index.html"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.20.0"
+  }
+}

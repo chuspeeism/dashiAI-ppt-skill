@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the README
+    url: https://github.com/op7418/guizang-ppt-skill#readme
+    about: Start here for installation and usage.
+  - name: English README
+    url: https://github.com/op7418/guizang-ppt-skill/blob/main/README.en.md
+    about: English installation and usage notes.

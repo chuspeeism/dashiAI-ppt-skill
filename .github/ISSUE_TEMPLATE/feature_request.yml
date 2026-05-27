@@ -1,0 +1,39 @@
+name: Feature request
+description: Suggest a new layout, workflow, platform, or capability.
+title: "feat: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+      description: Please describe the real deck-making situation behind the request.
+      placeholder: "When making product benchmark decks, I often need..."
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: What do you want the Skill to do?
+      placeholder: "Add a layout for..."
+    validations:
+      required: true
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples or references
+      description: Screenshots, links, rough sketches, or deck examples are welcome.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Layout / template
+        - Image generation workflow
+        - Data visualization
+        - Installation / packaging
+        - Documentation
+        - Runtime interaction
+        - Other
+    validations:
+      required: true
