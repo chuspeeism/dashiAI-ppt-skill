@@ -1351,8 +1351,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       text: "这页面向真实 PPT 场景，重点是对齐目标、确认线索，并形成可追踪结论。 销售目标校准 · 目标目标线索",
       backgroundColorToken: "--focus-mark",
       colorToken: "--theme-xhs-navy",
-      scope: "theme",
-      theme: "dark",
     },
     "element:rp02:18": {
       id: "element:rp02:18",
@@ -2348,7 +2346,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "能力边界页 · 边界<span>边界</span>证据<br>动作由 Owner 跟进<br>能力边界边界",
       text: "能力边界页 · 边界边界证据 动作由 Owner 跟进 能力边界边界",
       fontSizeToken: "--fs-h2",
-      colorToken: "--ink",
     },
     "text:xhs3_04:7": {
       id: "text:xhs3_04:7",
@@ -2499,9 +2496,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "<span>结论提炼</span><strong>INSIGHT</strong>",
       text: "结论提炼 INSIGHT",
       fontSizeToken: null,
-      colorToken: "--theme-decor-1",
-      scope: "theme",
-      theme: "dark",
     },
     "element:xhs3_14:10": {
       id: "element:xhs3_14:10",
@@ -2522,7 +2516,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "<span>负责人</span><strong>ACTION MAP</strong>",
       text: "负责人 ACTION MAP",
       fontSizeToken: null,
-      colorToken: "--theme-decor-1",
     },
     "text:xhs3_15:1": {
       id: "text:xhs3_15:1",
@@ -2851,8 +2844,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       text: "WORK",
       fontSizeToken: null,
       colorToken: "--accent-on",
-      scope: "theme",
-      theme: "light",
     },
     "text:xhs3_23:8": {
       id: "text:xhs3_23:8",
@@ -2913,8 +2904,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       text: "EXER",
       fontSizeToken: "--fs-h2",
       colorToken: "--focus-fg",
-      scope: "theme",
-      theme: "light",
     },
     "text:style1_04:3": {
       id: "text:style1_04:3",
@@ -3094,9 +3083,6 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-25",
       html: "演讲收束边界<br>演讲收束<span>边界</span>P6",
       text: "演讲收束边界 演讲收束边界P6",
-      colorToken: "--theme-x3-accent",
-      scope: "theme",
-      theme: "colorful",
     },
     "element:xhs3_25:1": {
       id: "element:xhs3_25:1",
