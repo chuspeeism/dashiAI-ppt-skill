@@ -12,12 +12,31 @@ export function Style2_04Editorial() {
     <Style2Slide layout="ST2-04" tone="light" className="st2-editorial">
       <Frame>
         <div className="st2-ed-top">
-          <div><div className="st2-kicker">04 — 主題報導　FEATURE</div><h1>三種<span>取景視角</span>，<br />正在重寫鏡頭語言。</h1></div>
-          <div className="st2-page">P. 014 — 015<br />February · 2026</div>
+          <div>
+            <div className="st2-kicker" data-editable-id="text:style2_04:1">04 — 主題報導　FEATURE</div>
+            <h1 data-editable-id="text:style2_04:2">三種<span>取景視角</span>，<br />正在重寫鏡頭語言。</h1>
+          </div>
+          <div className="st2-page" data-editable-id="text:style2_04:3">P. 014 — 015<br />February · 2026</div>
         </div>
-        <div className="st2-lede"><p><span>過</span>去十年間，鏡頭的位置一直由攝影機決定；如今，它由演算法、無人機與觀眾的指尖共同決定。我們挑出三個正在改變影像語法的取景視角，試圖回答一個問題。</p><p>這不是一份完整的清單，而是一份可以爭辯的觀察。三段短文之後，我們把判斷留給讀者。</p></div>
+        <div className="st2-lede">
+          <p className="st2-lede-main" data-editable-skip="true">
+            <span className="st2-drop" data-editable-id="text:style2_04:4">過</span>
+            <span className="st2-lede-copy" data-editable-id="text:style2_04:4-body">去十年間，鏡頭的位置一直由攝影機決定；如今，它由演算法、無人機與觀眾的指尖共同決定。我們挑出三個正在改變影像語法的取景視角，試圖回答一個問題。</span>
+          </p>
+          <p data-editable-id="text:style2_04:5">這不是一份完整的清單，而是一份可以爭辯的觀察。三段短文之後，我們把判斷留給讀者。</p>
+        </div>
         <div className="st2-ed-cols">
-          {cols.map(([num, title, body, pin]) => <div className="st2-ed-col" key={num}><div className="num">{num}<small>VIEW</small></div><h3>{title}</h3><p>{body}</p><div className="pin">— {pin}</div></div>)}
+          {cols.map(([num, title, body, pin], index) => {
+            const base = 6 + index * 4;
+            return (
+              <div className="st2-ed-col" key={num}>
+                <div className="num" data-editable-id={`text:style2_04:${base}`}>{num}<small>VIEW</small></div>
+                <h3 data-editable-id={`text:style2_04:${base + 1}`}>{title}</h3>
+                <p data-editable-id={`text:style2_04:${base + 2}`}>{body}</p>
+                <div className="pin" data-editable-id={`text:style2_04:${base + 3}`}>— {pin}</div>
+              </div>
+            );
+          })}
         </div>
       </Frame>
     </Style2Slide>

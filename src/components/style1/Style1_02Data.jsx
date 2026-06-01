@@ -2,11 +2,11 @@ import React from 'react';
 import { GridBg, Mascot, Style1Slide } from './primitives.jsx';
 
 const colors = [
-  ['cloud', 'cyan', '49%', '电光青', 'Electric Cyan'],
-  ['heart', 'pink', '38%', '果冻粉', 'Jelly Pink'],
-  ['flower', 'lime', '31%', '草坪绿', 'Lawn Green'],
-  ['drop', 'orange', '24%', '落日橙', 'Sunset Orange'],
-  ['star', 'purple', '18%', '葡萄紫', 'Grape Purple'],
+  ['st1-data-cloud', 'cloud', 'cyan', '49%', '电光青', 'Electric Cyan'],
+  ['st1-data-heart', 'heart', 'pink', '38%', '果冻粉', 'Jelly Pink'],
+  ['st1-data-flower', 'flower', 'lime', '31%', '草坪绿', 'Lawn Green'],
+  ['st1-data-drop', 'drop', 'orange', '24%', '落日橙', 'Sunset Orange'],
+  ['st1-data-star', 'star', 'purple', '18%', '葡萄紫', 'Grape Purple'],
 ];
 
 export function Style1_02Data() {
@@ -14,13 +14,13 @@ export function Style1_02Data() {
     <Style1Slide layout="ST1-02" className="st1-data">
       <GridBg />
       <div className="st1-data-head">
-        <h2>设计师最常使用的<br />五种<span>color</span>。</h2>
+        <h2>设计师最常使用的<br />五种<span>Color</span>。</h2>
         <div className="st1-meta">n = 2,847 设计师<br />2026 / Q1 调研<br />Source · Jelly Lab</div>
       </div>
       <div className="st1-chart">
-        {colors.map(([kind, color, pct, name, en]) => (
+        {colors.map(([slotId, kind, color, pct, name, en]) => (
           <div className="st1-chart-col" key={name}>
-            <Mascot kind={kind} className={color} />
+            <Mascot kind={kind} slotId={slotId} className={color} />
             <div className="st1-pct">{pct}</div>
             <div className={`st1-bar ${color}`} style={{ height: pct }} />
             <div className="st1-name">{name}</div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { MediaPlaceholder } from '../blacktech/primitives.jsx';
 import { SlideShell } from '../shell/index.jsx';
 
 export function Xhs2Slide({ layout, tone = 'dark', accent = 'yellow', children, footer, className = '' }) {
@@ -57,7 +58,9 @@ export function Card({ kicker, title, body, tone = '', children }) {
 }
 
 export function Placeholder({ label, ratio = '16/9', light = false }) {
-  return <div className={`xhs2-ph ${light ? 'light' : ''}`} style={{ aspectRatio: ratio }}><Lines lines={label} /></div>;
+  const slotLabel = Array.isArray(label) ? label.join('-') : label;
+  const slotId = `xhs2-media-${String(slotLabel || ratio).replace(/\s+/g, '-').toLowerCase()}`;
+  return <MediaPlaceholder className={`xhs2-ph xhs2-media-placeholder ${light ? 'light' : ''}`.trim()} slotId={slotId} style={{ aspectRatio: ratio }} />;
 }
 
 export function CardGrid({ items, columns = 3 }) {
@@ -94,4 +97,3 @@ export function Split({ layout, label, page, title, body, side, tone = 'dark', a
     </Xhs2Slide>
   );
 }
-

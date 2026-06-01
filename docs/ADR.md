@@ -24,7 +24,7 @@
 
 ## ADR-006: 导入布局按页登记
 
-`src/components/blacktech/`、`report/`、`xhs/`、`xhs2/`、`xhs3/`、`htmlfx/`、`vision/`、`style1/` 和 `style2/` 分别存放从外部 HTML deck 提炼出的页面布局组件。`src/options.jsx` 当前登记 `bt01`-`bt12`、`rp01`-`rp16`、`xhs01`-`xhs26`、`xhs2_01`-`xhs2_34`、`xhs3_01`-`xhs3_25`、`hfx01`-`hfx05`、`vision01`-`vision09`、`style1_01`-`style1_06`、`style2_01`-`style2_06`。
+`src/components/blacktech/`、`report/`、`xhs/`、`xhs2/`、`xhs3/`、`style1/` 和 `style2/` 分别存放从外部 HTML deck 提炼出的页面布局组件。`src/options.jsx` 当前登记 80 个布局,覆盖 `bt01`-`bt12`、12 个 report 布局、10 个 xhs 布局、9 个 xhs2 布局、`xhs3_01`-`xhs3_25`、`style1_01`-`style1_06`、`style2_01`-`style2_06`。
 
 ## ADR-007: 新布局继续按文件拆分
 
@@ -32,7 +32,7 @@
 
 ## ADR-008: 提交前刷新全布局总览
 
-`.githooks/pre-commit` 会运行 `npm run showcase:update`。showcase 需要同步覆盖全部已登记布局,当前覆盖 139 个布局。
+`.githooks/pre-commit` 会运行 `npm run showcase:update`。showcase 需要同步覆盖全部已登记布局,当前覆盖 80 个布局。
 
 ## ADR-009: 旧布局参考资料保留为历史参考
 
@@ -57,3 +57,11 @@
 ## ADR-014: 预览页支持局部内容替换
 
 静态预览页允许用户直接替换媒体、编辑文字和切换图表。媒体占位接受图片或视频文件并内嵌到导出的 HTML 中;文字编辑状态在导出 PDF/HTML 前写入页面;图表组件通过 `data-chart-switch` 暴露可选图表形态。
+
+## ADR-015: 文案与组合逻辑进入 ViewModel
+
+`slide(layoutKey, props)` 不再直接返回 React element,而是返回 slide model。`src/view-model/` 负责把 deck model 解析为 slide view model、token 当前值、页面顺序和运行时可编辑状态。`src/renderDeck.jsx` 只消费 Deck ViewModel 渲染组件;浏览器端 `deck-view-model` 负责统一保存主题、字体、字号、页面排序、文案编辑、媒体替换、shader 和图表选择,导出 HTML/PDF/PPTX 前都会同步这份状态。
+
+## ADR-016: VM 文案 key 不依赖页面顺序
+
+文本覆盖统一使用 `text:<slideKey>:<slot>`。默认 `slideKey` 是 layout key,只有同一个 deck 内重复使用相同布局时才追加出现序号;运行时按单页局部序号生成 slot,不要使用全局递增序号或当前页码。这样拖拽排序、增删前置页面、导出 HTML/PDF/PPTX 时,文案仍能命中同一个布局页面。

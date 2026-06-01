@@ -1,10 +1,11 @@
 import React from 'react';
+import { MediaPlaceholder } from '../blacktech/primitives.jsx';
 import { Mark, ReportSlide } from './primitives.jsx';
 
 export function Report01Cover() {
   return (
-    <ReportSlide layout="RP01" tone="dark" className="rp-cover-slide rp-red">
-      <div className="rp-cover">
+    <ReportSlide layout="RP01" tone="dark" className="rp-cover-slide rp-red rp-has-right-media">
+      <div className="rp-cover rp-cover-media-layout">
         <div className="rp-cover-hero">
           <Mark />
           <div>
@@ -18,17 +19,8 @@ export function Report01Cover() {
             <span>MARA OKONKWO · 市场负责人</span>
           </div>
         </div>
-        <div className="rp-cover-art rp-blue">
-          <span className="rp-half" />
-          <span className="rp-dot" />
-        </div>
-        <div className="rp-cover-art rp-ink">
-          <div className="rp-cover-bars">
-            {[52, 78, 38, 92, 64, 46, 84, 28].map((height, index) => <span key={index} style={{ height: `${height}%` }} />)}
-          </div>
-        </div>
+        <MediaPlaceholder slotId="rp01-media" className="rp-media-half rp-cover-media" />
       </div>
     </ReportSlide>
   );
 }
-

@@ -1,4 +1,4 @@
-# Guizang PPT Skill
+# Dashi PPT Skill
 
 一个用**登记选项 + React 组件生成层**生成静态 HTML 横向翻页 PPT 的本地 skill。
 
@@ -21,7 +21,7 @@ output/my-deck/ppt/
 - `fontSet`: 从字体组合中选一个
 - 每一页: 从页面版式选项中选一个
 
-主题、字体、字号、间距和动效 token 在 [src/tokens/](/Users/jadon7/Documents/SynologyDrive/code/项目研究/guizang-ppt-skill-main/src/tokens/index.js)。页面版式登记在 [src/options.jsx](/Users/jadon7/Documents/SynologyDrive/code/项目研究/guizang-ppt-skill-main/src/options.jsx)。可组合基础组件按职责放在 [src/components/](/Users/jadon7/Documents/SynologyDrive/code/项目研究/guizang-ppt-skill-main/src/components/index.jsx),项目布局 preset 分别在 `components/blacktech/`、`components/report/`、`components/xhs/`、`components/xhs2/` 和 `components/xhs3/`。
+主题、字体、字号、间距和动效 token 在 [src/tokens/](/Users/jadon7/Documents/SynologyDrive/code/项目研究/guizang-ppt-skill-main/src/tokens/index.js)。页面版式登记在 [src/options.jsx](/Users/jadon7/Documents/SynologyDrive/code/项目研究/guizang-ppt-skill-main/src/options.jsx)。可组合基础组件按职责放在 [src/components/](/Users/jadon7/Documents/SynologyDrive/code/项目研究/guizang-ppt-skill-main/src/components/index.jsx),项目布局 preset 分别在 `components/blacktech/`、`components/report/`、`components/xhs/`、`components/xhs2/`、`components/xhs3/`、`components/style1/` 和 `components/style2/`。
 
 ## 快速开始
 
@@ -40,7 +40,7 @@ npm run showcase:update
 渲染指定 deck:
 
 ```bash
-npm run render:deck -- examples/component-decks/ai-ops-review.jsx output/ai-ops/ppt/index.html
+npm run render:deck -- examples/component-decks/all-layouts-showcase.jsx output/all-layouts/ppt/index.html
 ```
 
 按用户目标渲染组件组合 deck:
@@ -49,7 +49,7 @@ npm run render:deck -- examples/component-decks/ai-ops-review.jsx output/ai-ops/
 npm run render:goal -- examples/goal-decks/annual-review.json output/goal-demo/ppt/index.html
 ```
 
-渲染内置三份不同主题示例:
+渲染当前默认 demo:
 
 ```bash
 npm run render:examples
@@ -60,11 +60,8 @@ npm run render:examples
 | 文件 | 内容主题 | 选项特点 |
 |---|---|---|
 | `examples/goal-decks/annual-review.json` | 年度经营复盘目标计划 | 由 `render:goal` 根据 role/layout + props 组合组件 |
-| `examples/component-decks/ai-ops-review.jsx` | AI 运营系统季度复盘 | IKB + Inter + 时间线/KPI/排行 |
 | `examples/component-decks/all-layouts-showcase.jsx` | 全部布局总览 | 顺序展示当前全部已登记布局 |
-| `examples/component-decks/climate-field-report.jsx` | 城市微气候田野报告 | Green + Compact + 图片主视觉/六宫格/时间线 |
-| `examples/component-decks/retail-launch-brief.jsx` | 零售新品上市简报 | Lemon + System + 排行/KPI/上市节奏 |
-| `examples/component-decks/swiss-demo.jsx` | 组件选项机制演示 | 可用环境变量切换 theme/fontSet |
+| `examples/goal-decks/portfolio.json` | 个人作品集 | 由 `render:goal` 根据用户目标组合组件 |
 
 ## 当前选项
 
@@ -73,6 +70,9 @@ npm run render:examples
 - `light`: 浅色背景
 - `dark`: 深色背景
 - `colorful`: 多彩
+- `acidIndigo`: 酸绿靛蓝
+- `vermilionPaper`: 赤橙米白
+- `neonTerminal`: 霓光终端
 
 字体组合:
 
@@ -86,13 +86,21 @@ npm run render:examples
 - `medium`: 中字号
 - `small`: 小字号
 
+字重:
+
+- `light`: 轻字重
+- `regular`: 标准字重
+- `bold`: 粗字重
+
 页面版式:
 
 - `bt01` 到 `bt12`: 黑科技技能分享项目提炼出的 12 个布局组件
-- `rp01` 到 `rp16`: 汇报 PPT 项目提炼出的 16 个布局组件
-- `xhs01` 到 `xhs26`: 小红书分享项目提炼出的 26 个布局组件
-- `xhs2_01` 到 `xhs2_34`: 小红书分享 2 项目提炼出的 34 个布局组件
+- `rp01`、`rp02`、`rp03`、`rp04`、`rp08`、`rp09`、`rp10`、`rp11`、`rp13`、`rp14`、`rp15`、`rp16`: 汇报 PPT 项目保留的 12 个布局组件
+- `xhs01`、`xhs02`、`xhs04`、`xhs12`、`xhs15`、`xhs17`、`xhs18`、`xhs19`、`xhs22`、`xhs25`: 小红书分享项目保留的 10 个布局组件
+- `xhs2_01`、`xhs2_02`、`xhs2_03`、`xhs2_04`、`xhs2_05`、`xhs2_11`、`xhs2_15`、`xhs2_33`、`xhs2_34`: 小红书分享 2 项目保留的 9 个布局组件
 - `xhs3_01` 到 `xhs3_25`: 小红书分享 3 项目提炼出的 25 个布局组件
+- `style1_01` 到 `style1_06`: 潮流色彩报告布局组件
+- `style2_01` 到 `style2_06`: 幕間影像年鑑布局组件
 
 ## 项目结构
 
@@ -121,6 +129,8 @@ src/
     xhs/
     xhs2/
     xhs3/
+    style1/
+    style2/
 scripts/
   render-deck.jsx
   validate-swiss-deck.mjs
@@ -142,10 +152,8 @@ references/
 
 ```bash
 npm test
-npm run render:examples
-npm run validate:swiss -- output/examples/ai-ops-review/ppt/index.html
-npm run validate:swiss -- output/examples/climate-field-report/ppt/index.html
-npm run validate:swiss -- output/examples/retail-launch-brief/ppt/index.html
+npm run render:goal -- examples/goal-decks/annual-review.json output/goal-demo/ppt/index.html
+npm run validate:swiss -- output/goal-demo/ppt/index.html
 ```
 
 多个 subagent 做测试时,不要只换配色。每个测试 deck 应该换内容主题、风格要求和页面组合,再比较呈现结果。
@@ -158,5 +166,5 @@ npm run validate:swiss -- output/examples/retail-launch-brief/ppt/index.html
 提交前 hook 还会运行 `npm run showcase:update`,确保 `all-layouts-showcase.jsx` 覆盖当前全部已登记布局,并刷新 `output/all-components-showcase/ppt/index.html`。
 
 - [ADR](docs/ADR.md): 当前架构决策记录
-- [项目文件作用说明](docs/project-files.md): 当前 226 个源码文件的主要作用
+- [项目文件作用说明](docs/project-files.md): 当前 208 个源码文件的主要作用
 <!-- project-docs:end -->

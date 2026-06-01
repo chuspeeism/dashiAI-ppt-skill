@@ -10,8 +10,7 @@ This file tracks source decks imported into the component system and the design 
 | `/Users/jadon7/Downloads/claude design 测试/0524 备份/小红书分享` | 26 | Imported as `xhs01`-`xhs26` |
 | `/Users/jadon7/Downloads/claude design 测试/0524 备份/小红书分享 2` | 34 | Imported as `xhs2_01`-`xhs2_34` |
 | `/Users/jadon7/Downloads/claude design 测试/0524 备份/小红书分享3` | 25 | Imported as `xhs3_01`-`xhs3_25` |
-| `/Users/jadon7/Downloads/claude design 测试/0524 备份/html 特性效果` | 5 in `index.zh.html` | Imported as `hfx01`-`hfx05`; target says 235 pages, current HTML evidence only shows 5 `section` pages |
-| `/Users/jadon7/Downloads/claude design 测试/小灶账号愿景` | 9 | Imported as `vision01`-`vision09` |
+| `/Users/jadon7/Downloads/claude design 测试/0524 备份/html 特性效果` | 5 in `index.zh.html` | Imported source had `hfx01`-`hfx05`; current project keeps `hfx02` only |
 | `/Users/jadon7/Downloads/claude design 测试/style1` | 6 | Imported as `style1_01`-`style1_06` |
 | `/Users/jadon7/Downloads/claude design 测试/style2` | 6 | Imported as `style2_01`-`style2_06` |
 
@@ -123,50 +122,20 @@ Known tokenization losses:
 - Original page numbering had some `022/025` inconsistencies; imported pages normalize the sequence to `001/025` through `025/025`.
 - Local image assets are copied into `assets/imported/xhs3/` and then into rendered output, rather than relying on the original Downloads directory.
 
-## `html 特性效果` -> `hfx01`-`hfx05`
+## `html 特性效果` -> `hfx02`
 
 Source file: `/Users/jadon7/Downloads/claude design 测试/0524 备份/html 特性效果/index.zh.html`
 
 Imported pages:
 
-- `hfx01`: Flowing Pixels cover with Spline background iframe
 - `hfx02`: Orbit Runner game intro with arcade copy, stats, and game visual area
-- `hfx03`: Earthrise cover with Spline background iframe, orbital lines, and venture copy
-- `hfx04`: full-bleed embedded scene iframe
-- `hfx05`: molecular-field split layout with molecule picker and static ball-stick visual
 
 Known tokenization losses:
 
 - The user target says 235 pages, but the current readable source directory only contains 5 `<section>` slides in `index.zh.html` and `index.html`; no 235-page source artifact was found in this directory during import.
-- Original `hfx01` and `hfx03` rely on live remote Spline scenes. The imported components preserve those remote iframe backgrounds, but any Spline loading state, native pointer behavior, and logo masks are simplified.
+- `hfx01`, `hfx03`, `hfx04`, and `hfx05` were removed from the active component registry and demo after review.
 - Original `hfx02` wires a live Rive runtime and 13 MB `.riv`/data files. The imported page keeps the layout and game-card affordance but replaces the live game with tokenized CSS orbital visuals.
-- Original `hfx04` remains a remote full-screen iframe; visual fidelity depends on that external URL being available when the deck is opened.
-- Original `hfx05` uses runtime molecule generation/Three.js-style interaction. The imported page keeps the split typography, molecule selector, legend, and ball-stick composition, but the molecule is static and not fetch-driven.
 - Source pages used exact 1920x1080 pixel CSS and embedded subset fonts; imported components use project font/type tokens and responsive CSS, so exact letterform, line break, and object placement will differ.
-
-## `小灶账号愿景` -> `vision01`-`vision09`
-
-Source file: `/Users/jadon7/Downloads/claude design 测试/小灶账号愿景/slides.jsx`
-
-Imported pages:
-
-- `vision01`: green sticker cover
-- `vision02`: alternate cover
-- `vision03`: creator profile
-- `vision04`: content menu
-- `vision05`: platform metrics
-- `vision06`: top-performing content cards
-- `vision07`: north-star vision
-- `vision08`: roadmap
-- `vision09`: ending/signature
-
-Known tokenization losses:
-
-- Original uses runtime React tweaks and a canvas-like hex texture; imported components use static CSS texture and the project token system.
-- Original uses many fixed 1920x1080 pixel positions; imported layouts use responsive CSS, so exact spacing and wrapping are approximate.
-- Original typography relies on Space Grotesk/JB Mono style choices; imported pages map title, body, and number roles to current project font tokens.
-- Original per-deck tweak controls are not carried over as a separate panel; the global preview token controls remain the active switching surface.
-- Original sticker scatter, barcode-like logo detail, and small decorative artifacts are simplified into reusable `vision-*` primitives.
 
 ## `style1` -> `style1_01`-`style1_06`
 

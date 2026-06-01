@@ -13,13 +13,13 @@ export function Style1_05Cast() {
   return (
     <Style1Slide layout="ST1-05" tone="dark" className="st1-cast">
       <div className="st1-cast-head">
-        <div><div className="st1-eyebrow">Section 05 · The Cast</div><h2>五位<span>color</span>主角，<br />各有各的脾气。</h2></div>
+        <div><div className="st1-eyebrow">Section 05 · The Cast</div><h2>五位<span>Color</span>主角，<br />各有各的脾气。</h2></div>
         <div className="st1-meta">Jelly Lab<br />Mascot Family<br />2026 / V.04</div>
       </div>
       <div className="st1-lineup">
         {cast.map(([num, kind, color, cn, en, hex]) => (
           <div className="st1-cast-card" key={num}>
-            <div className="stage"><span>{num}</span><Mascot kind={kind} className={color} /></div>
+            <div className="stage"><span>{num}</span><Mascot kind={kind} slotId={`st1-cast-${num}`} className={color} /></div>
             <div className="cn">{cn}</div><div className="en">{en}</div><div className="hex">{hex}</div>
           </div>
         ))}

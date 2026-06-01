@@ -1,4 +1,5 @@
 import React from 'react';
+import { MediaPlaceholder } from '../blacktech/primitives.jsx';
 import { SlideShell } from '../shell/index.jsx';
 
 export function XhsSlide({ layout, tone = 'dark', accent = 'lime', className = '', children, footer }) {
@@ -57,10 +58,10 @@ export function XhsCard({ kicker, title, body, tone = '', children }) {
 }
 
 export function Placeholder({ label, ratio = '16/10' }) {
+  const slotLabel = Array.isArray(label) ? label.join('-') : label;
+  const slotId = `xhs-media-${String(slotLabel || ratio).replace(/\s+/g, '-').toLowerCase()}`;
   return (
-    <div className="xhs-placeholder" style={{ aspectRatio: ratio }}>
-      {label}
-    </div>
+    <MediaPlaceholder className="xhs-placeholder xhs-media-placeholder" slotId={slotId} style={{ aspectRatio: ratio }} />
   );
 }
 
@@ -100,4 +101,3 @@ export function SplitStatement({ layout, tone = 'dark', accent = 'lime', eyebrow
     </XhsSlide>
   );
 }
-

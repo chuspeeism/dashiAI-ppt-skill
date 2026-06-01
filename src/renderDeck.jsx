@@ -4,46 +4,56 @@ import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import {
   DEFAULT_FONT,
+  DEFAULT_FONT_WEIGHT,
   DEFAULT_SPACING,
   DEFAULT_THEME,
   DEFAULT_TYPE_SCALE,
+  FONT_WEIGHT_OPTIONS,
   FONT_OPTIONS,
+  LAYOUT_OPTIONS,
   SPACING_OPTIONS,
   THEME_OPTIONS,
   TYPE_SCALE_OPTIONS,
   resolveOption,
 } from './options.jsx';
+import {
+  buildDeckViewModel,
+  renderDeckView,
+  serializeDeckViewModel,
+} from './view-model/index.jsx';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 
 export function renderDeck(deck, { outFile }) {
-  if (deck.style && deck.style !== 'swiss') {
-    throw new Error('Only style "swiss" is supported by the component workflow.');
-  }
-
-  const { key: themeName, option: theme } = resolveOption(THEME_OPTIONS, deck.theme, DEFAULT_THEME, 'theme');
-  const { key: fontName, option: font } = resolveOption(FONT_OPTIONS, deck.fontSet, DEFAULT_FONT, 'fontSet');
-  const { key: typeScaleName, option: typeScale } = resolveOption(TYPE_SCALE_OPTIONS, deck.typeScale, DEFAULT_TYPE_SCALE, 'typeScale');
-  const { key: spacingName, option: spacing } = resolveOption(SPACING_OPTIONS, deck.spacing, DEFAULT_SPACING, 'spacing');
-  const template = fs.readFileSync(path.join(ROOT, 'assets/template-swiss.html'), 'utf8');
-  const slides = renderToStaticMarkup(<>{React.Children.toArray(deck.slides)}</>);
-  let html = insertSlides(template, slides);
-  html = html.replace('<html lang="zh-CN">', `<html lang="zh-CN" data-theme="${themeName}">`);
-  html = html.replace('<title>[必填] 替换为 PPT 标题 · Deck Title</title>', `<title>${escapeHtml(deck.title)}</title>`);
-  html = replaceCssVars(html, { ...theme.vars, ...font.vars, ...typeScale.vars, ...spacing.vars });
-  html = replaceOptionLabels(html, { themeLabel: theme.label, fontLabel: font.label, fontName });
-  html = injectPreviewOptions(html, {
-    themes: serializeOptions(THEME_OPTIONS),
-    fonts: serializeOptions(FONT_OPTIONS),
-    typeScales: serializeOptions(TYPE_SCALE_OPTIONS),
-    spacings: serializeOptions(SPACING_OPTIONS),
-    current: {
-      theme: themeName,
-      font: fontName,
-      typeScale: typeScaleName,
-      spacing: spacingName,
-    },
+  const viewModel = buildDeckViewModel(deck, {
+    layouts: LAYOUT_OPTIONS,
+    themes: THEME_OPTIONS,
+    fonts: FONT_OPTIONS,
+    fontWeights: FONT_WEIGHT_OPTIONS,
+    typeScales: TYPE_SCALE_OPTIONS,
+    spacings: SPACING_OPTIONS,
+    defaultTheme: DEFAULT_THEME,
+    defaultFont: DEFAULT_FONT,
+    defaultFontWeight: DEFAULT_FONT_WEIGHT,
+    defaultTypeScale: DEFAULT_TYPE_SCALE,
+    defaultSpacing: DEFAULT_SPACING,
+    resolveOption,
   });
+  const { key: themeName, option: theme } = viewModel.tokens.theme;
+  const { key: fontName, option: font } = viewModel.tokens.font;
+  const { option: fontWeight } = viewModel.tokens.fontWeight;
+  const { option: typeScale } = viewModel.tokens.typeScale;
+  const { option: spacing } = viewModel.tokens.spacing;
+  const template = fs.readFileSync(path.join(ROOT, 'assets/template-swiss.html'), 'utf8');
+  const slides = renderToStaticMarkup(<>{renderDeckView(viewModel)}</>);
+  let html = insertSlides(template, slides);
+  html = html.replace('<html lang="zh-CN">', `<html lang="zh-CN" data-theme="${themeName}" data-style-variant="${viewModel.styleVariant}">`);
+  html = html.replace('<title>[必填] 替换为 PPT 标题 · Deck Title</title>', `<title>${escapeHtml(viewModel.model.title)}</title>`);
+  html = replaceCssVars(html, { ...theme.vars, ...font.vars, ...fontWeight.vars, ...typeScale.vars, ...spacing.vars });
+  html = replaceOptionLabels(html, { themeLabel: theme.label, fontLabel: font.label, fontName });
+  html = injectPreviewOptions(html, viewModel.options);
+  html = injectDeckViewModel(html, serializeDeckViewModel(viewModel));
+  html = injectDeveloperAdjustments(html, deck.developerAdjustments);
   html = injectUnicornSceneJson(html);
   html = html.replace('<link rel="preconnect" href="https://fonts.googleapis.com">', '<link rel="icon" href="data:,">\n<link rel="preconnect" href="https://fonts.googleapis.com">');
 
@@ -82,26 +92,39 @@ function replaceCssVars(html, vars) {
   return next;
 }
 
-function serializeOptions(registry) {
-  return Object.fromEntries(
-    Object.entries(registry).map(([key, option]) => [
-      key,
-      {
-        label: option.label,
-        vars: option.vars,
-        classes: option.classes,
-        dataAnimate: option.dataAnimate,
-      },
-    ]),
-  );
-}
-
 function injectPreviewOptions(html, options) {
   const json = escapeScriptJson(JSON.stringify(options));
   return html.replace(
     /<script id="preview-options" type="application\/json">[\s\S]*?<\/script>/,
     `<script id="preview-options" type="application/json">${json}</script>`,
   );
+}
+
+function injectDeckViewModel(html, viewModel) {
+  const json = escapeScriptJson(JSON.stringify(viewModel));
+  return html.replace(
+    /<script id="deck-view-model" type="application\/json">[\s\S]*?<\/script>/,
+    `<script id="deck-view-model" type="application/json">${json}</script>`,
+  );
+}
+
+function injectDeveloperAdjustments(html, adjustments) {
+  if (!adjustments) return html;
+  const json = escapeScriptJson(JSON.stringify(normalizeDeveloperAdjustments(adjustments)));
+  return html.replace(
+    /<script id="embedded-dev-state" type="application\/json">[\s\S]*?<\/script>/,
+    `<script id="embedded-dev-state" type="application/json">${json}</script>`,
+  );
+}
+
+function normalizeDeveloperAdjustments(adjustments) {
+  const changes = Array.isArray(adjustments.changes)
+    ? Object.fromEntries(adjustments.changes.map(change => [change.id, change]))
+    : adjustments.changes || {};
+  return {
+    version: adjustments.version || 1,
+    changes,
+  };
 }
 
 function injectUnicornSceneJson(html) {
@@ -125,6 +148,10 @@ function copyRuntimeAssets(outDir) {
   fs.mkdirSync(assetsDir, { recursive: true });
   fs.mkdirSync(imagesDir, { recursive: true });
   fs.copyFileSync(path.join(ROOT, 'assets/motion.min.js'), path.join(assetsDir, 'motion.min.js'));
+  copyFileIfExists(path.join(ROOT, 'node_modules/pptxgenjs/dist/pptxgen.bundle.js'), path.join(assetsDir, 'vendor/pptxgen.bundle.js'));
+  copyFileIfExists(path.join(ROOT, 'node_modules/html-to-image/dist/html-to-image.js'), path.join(assetsDir, 'vendor/html-to-image.js'));
+  copyDirectoryIfExists(path.join(ROOT, 'node_modules/remixicon/fonts'), path.join(assetsDir, 'vendor/remixicon'));
+  writeRemixIconNames(path.join(assetsDir, 'vendor/remixicon'));
   copyDirectoryIfExists(path.join(ROOT, 'assets/imported'), path.join(assetsDir, 'imported'));
   copyDirectoryIfExists(path.join(ROOT, 'assets/screenshot-backgrounds'), path.join(assetsDir, 'screenshot-backgrounds'));
   copyDirectoryIfExists(path.join(ROOT, 'assets/unicorn'), path.join(assetsDir, 'unicorn'));
@@ -138,10 +165,28 @@ function copyRuntimeAssets(outDir) {
 </svg>`);
 }
 
+function copyFileIfExists(from, to) {
+  if (fs.existsSync(from)) {
+    fs.mkdirSync(path.dirname(to), { recursive: true });
+    fs.copyFileSync(from, to);
+  }
+}
+
 function copyDirectoryIfExists(from, to) {
   if (fs.existsSync(from)) {
     fs.cpSync(from, to, { recursive: true });
   }
+}
+
+function writeRemixIconNames(remixiconDir) {
+  const glyphFile = path.join(remixiconDir, 'remixicon.glyph.json');
+  if (!fs.existsSync(glyphFile)) return;
+  const glyphs = JSON.parse(fs.readFileSync(glyphFile, 'utf8'));
+  const names = Object.keys(glyphs).sort();
+  fs.writeFileSync(
+    path.join(remixiconDir, 'remixicon-names.js'),
+    `window.__REMIX_ICON_NAMES__=${escapeScriptJson(JSON.stringify(names))};\n`,
+  );
 }
 
 function escapeRegExp(value) {

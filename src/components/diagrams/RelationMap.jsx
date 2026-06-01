@@ -22,8 +22,8 @@ export function RelationMap({ title, points, relations }) {
           <span style={{ position: 'absolute', left: -6, top: -6, width: 12, height: 12, borderRadius: '50%', background: point.accent ? 'var(--focus-mark)' : 'var(--ink)', border: '2px solid var(--paper)' }} />
           <span style={{ position: 'absolute', left: 7, top: 0, width: 24, height: 1, background: point.accent ? 'var(--focus-mark)' : 'var(--ink)', opacity: point.accent ? .75 : .45 }} />
           <span style={{ position: 'absolute', left: 31, top: -18, minWidth: 76, background: 'rgba(var(--paper-rgb),.9)', padding: '6px 7px', whiteSpace: 'nowrap' }}>
-            <span style={{ display: 'block', fontFamily: 'var(--sans),var(--sans-zh)', fontSize: 12, lineHeight: 1.05, color: point.accent ? 'var(--focus-mark)' : 'var(--ink)' }}>{point.name}</span>
-            <span style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: 9, lineHeight: 1, letterSpacing: '.12em', color: 'var(--text-helper)', marginTop: 4, textTransform: 'uppercase' }}>{point.meta}</span>
+            <span style={{ display: 'block', fontFamily: 'var(--sans),var(--sans-zh)', fontSize: 'var(--fs-caption)', lineHeight: 1.05, color: point.accent ? 'var(--focus-mark)' : 'var(--ink)' }}>{point.name}</span>
+            <span style={{ display: 'block', fontFamily: 'var(--mono)', fontSize: 'calc(var(--fs-caption) * .75)', lineHeight: 1, letterSpacing: '.12em', color: 'var(--text-helper)', marginTop: 4, textTransform: 'uppercase' }}>{point.meta}</span>
           </span>
         </div>
       ))}

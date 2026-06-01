@@ -29,12 +29,10 @@ const descriptions = {
   'assets/unicorn/tech_background_remix_scene.json': '可选 shader 背景使用的 Unicorn Studio 本地场景文件。',
   'docs/ADR.md': '架构决策记录,描述当前生成链路和组件化边界。',
   'docs/project-files.md': '项目文件作用说明,由脚本根据当前文件列表生成。',
-  'examples/component-decks/ai-ops-review.jsx': 'AI 运营复盘示例 deck,演示技术/运营复盘主题的页面组合。',
   'examples/component-decks/all-layouts-showcase.jsx': '全部布局总览示例 deck,顺序渲染当前全部已登记布局。',
+  'examples/component-decks/showcase-copy-overrides.js': '全布局总览示例 deck 的文本覆盖数据,使用稳定 VM 文案 key 替换默认文案。',
   'examples/goal-decks/annual-review.json': '按用户目标组合组件的 JSON 计划示例,供 render:goal 渲染。',
-  'examples/component-decks/climate-field-report.jsx': '城市微气候田野报告示例 deck,演示生态/田野主题的页面组合。',
-  'examples/component-decks/retail-launch-brief.jsx': '零售新品上市简报示例 deck,演示消费/上市主题的页面组合。',
-  'examples/component-decks/swiss-demo.jsx': '组件选项机制 demo deck,可用环境变量切换主题和字体。',
+  'examples/goal-decks/portfolio.json': '个人作品集 JSON 计划示例,供 render:goal 验证不同主题和页面组合。',
   'package-lock.json': 'npm 依赖锁定文件。',
   'package.json': 'npm 脚本和 React/tsx 依赖声明。',
   'references/checklist.md': '原项目执行检查清单,包含 Style B 生成和 QA 约束。',
@@ -66,24 +64,6 @@ const descriptions = {
   'src/components/blacktech/BT12Closing.jsx': '黑科技技能分享第 12 页收尾布局组件。',
   'src/components/blacktech/index.jsx': '黑科技技能分享布局组件统一导出口。',
   'src/components/blacktech/primitives.jsx': '黑科技技能分享布局共享基础件,包含可替换页眉页脚、媒体占位、caption、shader 背景和可切换图表。',
-  'src/components/htmlfx/Hfx01Cover.jsx': 'html 特性效果第 1 页 Spline 3D 封面布局组件。',
-  'src/components/htmlfx/Hfx02OrbitRunner.jsx': 'html 特性效果第 2 页轨道跑者游戏介绍布局组件。',
-  'src/components/htmlfx/Hfx03Earthrise.jsx': 'html 特性效果第 3 页 Earthrise 太空封面布局组件。',
-  'src/components/htmlfx/Hfx04SceneEmbed.jsx': 'html 特性效果第 4 页全屏嵌入场景布局组件。',
-  'src/components/htmlfx/Hfx05MolecularField.jsx': 'html 特性效果第 5 页分子结构可视化布局组件。',
-  'src/components/htmlfx/index.jsx': 'html 特性效果布局组件统一导出口。',
-  'src/components/htmlfx/primitives.jsx': 'html 特性效果布局共享基础件。',
-  'src/components/vision/Vision01Cover.jsx': '小灶账号愿景第 1 页绿色贴纸封面布局组件。',
-  'src/components/vision/Vision02CoverAlt.jsx': '小灶账号愿景第 2 页封面变体布局组件。',
-  'src/components/vision/Vision03Who.jsx': '小灶账号愿景第 3 页创作者介绍布局组件。',
-  'src/components/vision/Vision04Menu.jsx': '小灶账号愿景第 4 页内容菜单布局组件。',
-  'src/components/vision/Vision05Metrics.jsx': '小灶账号愿景第 5 页平台指标布局组件。',
-  'src/components/vision/Vision06Specials.jsx': '小灶账号愿景第 6 页爆款内容陈列布局组件。',
-  'src/components/vision/Vision07Vision.jsx': '小灶账号愿景第 7 页北极星愿景布局组件。',
-  'src/components/vision/Vision08Roadmap.jsx': '小灶账号愿景第 8 页路线图布局组件。',
-  'src/components/vision/Vision09End.jsx': '小灶账号愿景第 9 页收尾签名布局组件。',
-  'src/components/vision/index.jsx': '小灶账号愿景布局组件统一导出口。',
-  'src/components/vision/primitives.jsx': '小灶账号愿景布局共享基础件。',
   'src/components/style1/Style1_01Cover.jsx': 'style1 潮流色彩报告第 1 页封面布局组件。',
   'src/components/style1/Style1_02Data.jsx': 'style1 潮流色彩报告第 2 页数据柱状图布局组件。',
   'src/components/style1/Style1_03Naming.jsx': 'style1 潮流色彩报告第 3 页颜色命名排版布局组件。',
@@ -139,9 +119,11 @@ const descriptions = {
   'src/components/swiss/Timeline.jsx': '纵向时间线 + KPI 组件,对应 S02。',
   'src/components/swiss/index.jsx': 'Swiss 组件统一导出口,供 LAYOUT_OPTIONS 引用。',
   'src/components/swiss/primitives.jsx': 'Swiss 组件共享基础件,包含 slide 外壳、画布卡、页眉、图标和 KPI 行。',
-  'src/options.jsx': '选项注册表,集中登记主题色、字体组合、字号、间距、动效和页面版式。',
+  'src/options.jsx': '选项注册表,集中登记主题色、字体组合、字号、间距、动效和页面版式,slide() 返回可组合的 slide model。',
   'src/deckComposer.jsx': '目标 deck 编排器,把用户目标 JSON 计划映射为已登记布局组件组合。',
-  'src/renderDeck.jsx': '核心渲染器,把 React slides 注入模板并替换 CSS 变量、注入预览控制器选项。',
+  'src/renderDeck.jsx': '核心渲染器,先构建 Deck ViewModel,再把 React slides 注入模板并替换 CSS 变量、注入预览控制器选项。',
+  'src/view-model/context.jsx': 'Slide ViewModel 的 React Context,让 SlideShell 能给每页注入稳定 VM 标识。',
+  'src/view-model/index.jsx': 'Deck ViewModel 构建层,把 deck model 解析为 slide view model、token 状态和可序列化运行时模型。',
 };
 
 const generatedFiles = ['docs/ADR.md', 'docs/project-files.md'];
@@ -205,7 +187,7 @@ function renderAdr() {
 
 ## ADR-006: 导入布局按页登记
 
-\`src/components/blacktech/\`、\`report/\`、\`xhs/\`、\`xhs2/\`、\`xhs3/\`、\`htmlfx/\`、\`vision/\`、\`style1/\` 和 \`style2/\` 分别存放从外部 HTML deck 提炼出的页面布局组件。\`src/options.jsx\` 当前登记 \`bt01\`-\`bt12\`、\`rp01\`-\`rp16\`、\`xhs01\`-\`xhs26\`、\`xhs2_01\`-\`xhs2_34\`、\`xhs3_01\`-\`xhs3_25\`、\`hfx01\`-\`hfx05\`、\`vision01\`-\`vision09\`、\`style1_01\`-\`style1_06\`、\`style2_01\`-\`style2_06\`。
+\`src/components/blacktech/\`、\`report/\`、\`xhs/\`、\`xhs2/\`、\`xhs3/\`、\`style1/\` 和 \`style2/\` 分别存放从外部 HTML deck 提炼出的页面布局组件。\`src/options.jsx\` 当前登记 80 个布局,覆盖 \`bt01\`-\`bt12\`、12 个 report 布局、10 个 xhs 布局、9 个 xhs2 布局、\`xhs3_01\`-\`xhs3_25\`、\`style1_01\`-\`style1_06\`、\`style2_01\`-\`style2_06\`。
 
 ## ADR-007: 新布局继续按文件拆分
 
@@ -213,7 +195,7 @@ function renderAdr() {
 
 ## ADR-008: 提交前刷新全布局总览
 
-\`.githooks/pre-commit\` 会运行 \`npm run showcase:update\`。showcase 需要同步覆盖全部已登记布局,当前覆盖 139 个布局。
+\`.githooks/pre-commit\` 会运行 \`npm run showcase:update\`。showcase 需要同步覆盖全部已登记布局,当前覆盖 80 个布局。
 
 ## ADR-009: 旧布局参考资料保留为历史参考
 
@@ -238,6 +220,14 @@ function renderAdr() {
 ## ADR-014: 预览页支持局部内容替换
 
 静态预览页允许用户直接替换媒体、编辑文字和切换图表。媒体占位接受图片或视频文件并内嵌到导出的 HTML 中;文字编辑状态在导出 PDF/HTML 前写入页面;图表组件通过 \`data-chart-switch\` 暴露可选图表形态。
+
+## ADR-015: 文案与组合逻辑进入 ViewModel
+
+\`slide(layoutKey, props)\` 不再直接返回 React element,而是返回 slide model。\`src/view-model/\` 负责把 deck model 解析为 slide view model、token 当前值、页面顺序和运行时可编辑状态。\`src/renderDeck.jsx\` 只消费 Deck ViewModel 渲染组件;浏览器端 \`deck-view-model\` 负责统一保存主题、字体、字号、页面排序、文案编辑、媒体替换、shader 和图表选择,导出 HTML/PDF/PPTX 前都会同步这份状态。
+
+## ADR-016: VM 文案 key 不依赖页面顺序
+
+文本覆盖统一使用 \`text:<slideKey>:<slot>\`。默认 \`slideKey\` 是 layout key,只有同一个 deck 内重复使用相同布局时才追加出现序号;运行时按单页局部序号生成 slot,不要使用全局递增序号或当前页码。这样拖拽排序、增删前置页面、导出 HTML/PDF/PPTX 时,文案仍能命中同一个布局页面。
 `;
 }
 
@@ -284,8 +274,6 @@ function describe(file) {
   if (file.startsWith('scripts/')) return '本地命令脚本。';
   if (file.startsWith('src/tokens/')) return '组件生成层 token 选项。';
   if (file.startsWith('src/components/blacktech/')) return '黑科技技能分享布局组件。';
-  if (file.startsWith('src/components/htmlfx/')) return 'html 特性效果布局组件。';
-  if (file.startsWith('src/components/vision/')) return '小灶账号愿景布局组件。';
   if (file.startsWith('src/components/style1/')) return 'style1 潮流色彩报告布局组件。';
   if (file.startsWith('src/components/style2/')) return 'style2 幕間影像年鑑布局组件。';
   if (file.startsWith('src/components/xhs3/')) return '小红书分享3布局组件。';
@@ -296,6 +284,7 @@ function describe(file) {
   if (file.startsWith('src/components/charts/')) return '图表组件,负责条形图、折线图、指标卡片和可切换图表。';
   if (file.startsWith('src/components/timelines/')) return '时间线与流程组件。';
   if (file.startsWith('src/components/cards/')) return '卡片组件。';
+  if (file === 'src/components/decorations/Icon.jsx') return 'RemixIcon 图标组件,用于页面内可替换 icon slot。';
   if (file.startsWith('src/components/decorations/')) return '装饰组件,包含图标和分割线等视觉元素。';
   if (file.startsWith('src/components/diagrams/')) return '图解组件,负责地图、关系图和系统图等结构表达。';
   if (file.startsWith('src/')) return 'React 生成层源码。';

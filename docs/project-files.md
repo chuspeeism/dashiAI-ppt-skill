@@ -105,10 +105,11 @@
 |   `-- project-files.md - 项目文件作用说明,由脚本根据当前文件列表生成。
 |-- examples/
 |   |-- component-decks/
-|   |   `-- all-layouts-showcase.jsx - 全部布局总览示例 deck,顺序渲染当前全部已登记布局。
+|   |   |-- all-layouts-showcase.jsx - 全部布局总览示例 deck,顺序渲染当前全部已登记布局。
+|   |   `-- showcase-copy-overrides.js - 全布局总览示例 deck 的文本覆盖数据,使用稳定 VM 文案 key 替换默认文案。
 |   `-- goal-decks/
 |       |-- annual-review.json - 按用户目标组合组件的 JSON 计划示例,供 render:goal 渲染。
-|       `-- portfolio.json - 项目源码或配置文件。
+|       `-- portfolio.json - 个人作品集 JSON 计划示例,供 render:goal 验证不同主题和页面组合。
 |-- references/
 |   |-- checklist.md - 原项目执行检查清单,包含 Style B 生成和 QA 约束。
 |   |-- component-workflow.md - 组件选项工作流参考,说明新增选项和 subagent 测试要求。
@@ -151,20 +152,12 @@
 |   |   |   |-- HBarChart.jsx - 图表组件,负责条形图、折线图、指标卡片和可切换图表。
 |   |   |   `-- index.jsx - 图表组件,负责条形图、折线图、指标卡片和可切换图表。
 |   |   |-- decorations/
-|   |   |   |-- Icon.jsx - 装饰组件,包含图标和分割线等视觉元素。
+|   |   |   |-- Icon.jsx - RemixIcon 图标组件,用于页面内可替换 icon slot。
 |   |   |   |-- index.jsx - 装饰组件,包含图标和分割线等视觉元素。
 |   |   |   `-- Rule.jsx - 装饰组件,包含图标和分割线等视觉元素。
 |   |   |-- diagrams/
 |   |   |   |-- index.jsx - 图解组件,负责地图、关系图和系统图等结构表达。
 |   |   |   `-- RelationMap.jsx - 图解组件,负责地图、关系图和系统图等结构表达。
-|   |   |-- htmlfx/
-|   |   |   |-- Hfx01Cover.jsx - html 特性效果第 1 页 Spline 3D 封面布局组件。
-|   |   |   |-- Hfx02OrbitRunner.jsx - html 特性效果第 2 页轨道跑者游戏介绍布局组件。
-|   |   |   |-- Hfx03Earthrise.jsx - html 特性效果第 3 页 Earthrise 太空封面布局组件。
-|   |   |   |-- Hfx04SceneEmbed.jsx - html 特性效果第 4 页全屏嵌入场景布局组件。
-|   |   |   |-- Hfx05MolecularField.jsx - html 特性效果第 5 页分子结构可视化布局组件。
-|   |   |   |-- index.jsx - html 特性效果布局组件统一导出口。
-|   |   |   `-- primitives.jsx - html 特性效果布局共享基础件。
 |   |   |-- media/
 |   |   |   |-- ImageGrid.jsx - 媒体组件,负责图片/视频框、截图槽位和媒体网格。
 |   |   |   |-- index.jsx - 媒体组件,负责图片/视频框、截图槽位和媒体网格。
@@ -180,14 +173,10 @@
 |   |   |   |-- Report02Overview.jsx - React 生成层源码。
 |   |   |   |-- Report03Agenda.jsx - React 生成层源码。
 |   |   |   |-- Report04Q1Brand.jsx - React 生成层源码。
-|   |   |   |-- Report05Q2Demand.jsx - React 生成层源码。
-|   |   |   |-- Report06Q3Content.jsx - React 生成层源码。
-|   |   |   |-- Report07Q4Retention.jsx - React 生成层源码。
 |   |   |   |-- Report08Pipeline.jsx - React 生成层源码。
 |   |   |   |-- Report09Channels.jsx - React 生成层源码。
 |   |   |   |-- Report10BrandLift.jsx - React 生成层源码。
 |   |   |   |-- Report11ContentEngine.jsx - React 生成层源码。
-|   |   |   |-- Report12Community.jsx - React 生成层源码。
 |   |   |   |-- Report13Worked.jsx - React 生成层源码。
 |   |   |   |-- Report14Misses.jsx - React 生成层源码。
 |   |   |   |-- Report15Priorities.jsx - React 生成层源码。
@@ -225,18 +214,6 @@
 |   |   |-- timelines/
 |   |   |   |-- index.jsx - 时间线与流程组件。
 |   |   |   `-- Pipeline.jsx - 时间线与流程组件。
-|   |   |-- vision/
-|   |   |   |-- index.jsx - 小灶账号愿景布局组件统一导出口。
-|   |   |   |-- primitives.jsx - 小灶账号愿景布局共享基础件。
-|   |   |   |-- Vision01Cover.jsx - 小灶账号愿景第 1 页绿色贴纸封面布局组件。
-|   |   |   |-- Vision02CoverAlt.jsx - 小灶账号愿景第 2 页封面变体布局组件。
-|   |   |   |-- Vision03Who.jsx - 小灶账号愿景第 3 页创作者介绍布局组件。
-|   |   |   |-- Vision04Menu.jsx - 小灶账号愿景第 4 页内容菜单布局组件。
-|   |   |   |-- Vision05Metrics.jsx - 小灶账号愿景第 5 页平台指标布局组件。
-|   |   |   |-- Vision06Specials.jsx - 小灶账号愿景第 6 页爆款内容陈列布局组件。
-|   |   |   |-- Vision07Vision.jsx - 小灶账号愿景第 7 页北极星愿景布局组件。
-|   |   |   |-- Vision08Roadmap.jsx - 小灶账号愿景第 8 页路线图布局组件。
-|   |   |   `-- Vision09End.jsx - 小灶账号愿景第 9 页收尾签名布局组件。
 |   |   |-- xhs/
 |   |   |   |-- index.jsx - React 生成层源码。
 |   |   |   |-- primitives.jsx - React 生成层源码。
@@ -251,15 +228,19 @@
 |   |   |   `-- Xhs3Deck.jsx - 小红书分享3布局组件。
 |   |   `-- index.jsx - React 生成层源码。
 |   |-- tokens/
+|   |   |-- font-weights.js - 组件生成层 token 选项。
 |   |   |-- fonts.js - 组件生成层 token 选项。
 |   |   |-- index.js - 组件生成层 token 选项。
 |   |   |-- motion.js - 组件生成层 token 选项。
 |   |   |-- spacing.js - 组件生成层 token 选项。
 |   |   |-- themes.js - 组件生成层 token 选项。
 |   |   `-- typography.js - 组件生成层 token 选项。
+|   |-- view-model/
+|   |   |-- context.jsx - Slide ViewModel 的 React Context,让 SlideShell 能给每页注入稳定 VM 标识。
+|   |   `-- index.jsx - Deck ViewModel 构建层,把 deck model 解析为 slide view model、token 状态和可序列化运行时模型。
 |   |-- deckComposer.jsx - 目标 deck 编排器,把用户目标 JSON 计划映射为已登记布局组件组合。
-|   |-- options.jsx - 选项注册表,集中登记主题色、字体组合、字号、间距、动效和页面版式。
-|   `-- renderDeck.jsx - 核心渲染器,把 React slides 注入模板并替换 CSS 变量、注入预览控制器选项。
+|   |-- options.jsx - 选项注册表,集中登记主题色、字体组合、字号、间距、动效和页面版式,slide() 返回可组合的 slide model。
+|   `-- renderDeck.jsx - 核心渲染器,先构建 Deck ViewModel,再把 React slides 注入模板并替换 CSS 变量、注入预览控制器选项。
 |-- .gitignore - 忽略本地依赖、生成产物和系统临时文件。
 |-- AGENTS.md - 项目级 Agent 记忆,记录本仓库长期遵守的实现约束。
 |-- package-lock.json - npm 依赖锁定文件。

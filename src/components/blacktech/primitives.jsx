@@ -150,7 +150,7 @@ export function Poster({ variant = 'halftone', slotId, children, className = '' 
   );
 }
 
-export function MediaPlaceholder({ slotId, children, className = '' }) {
+export function MediaPlaceholder({ slotId, children, className = '', style }) {
   return (
     <div
       className={`bt-media-slot bt-image-slot bt-unicorn-frame ${className}`.trim()}
@@ -164,6 +164,7 @@ export function MediaPlaceholder({ slotId, children, className = '' }) {
       data-unicorn-theme-color="focus"
       role="button"
       tabIndex={0}
+      style={style}
     >
       <UnicornImageScene />
       {children}

@@ -1,5 +1,5 @@
 {
-  "name": "guizang-ppt-skill",
+  "name": "dashi-ppt-skill",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -15,8 +15,11 @@
     "test": "npm run render:demo && npm run validate:swiss -- output/component-demo/ppt/index.html"
   },
   "dependencies": {
+    "html-to-image": "^1.11.13",
+    "pptxgenjs": "^4.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "remixicon": "^4.9.1",
     "unicornstudio-react": "^2.1.9"
   },
   "devDependencies": {

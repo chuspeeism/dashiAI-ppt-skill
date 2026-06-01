@@ -1,4 +1,5 @@
 import React from 'react';
+import { MediaPlaceholder } from '../blacktech/primitives.jsx';
 import { SlideShell } from '../shell/index.jsx';
 
 export const xhs3Image = (name) => `assets/imported/xhs3/images/${name}`;
@@ -61,9 +62,33 @@ export function Card({ kicker, title, body, tone = '', children }) {
 }
 
 export function MediaCard({ src, label, meta, ratio = '3/4', tone = '', className = '' }) {
+  const slotId = label || src;
   return (
-    <figure className={`xhs3-media ${tone} ${className}`.trim()} style={{ aspectRatio: ratio }}>
-      <img src={src} alt="" data-media-slot={label || src} draggable={false} />
+    <figure
+      className={`xhs3-media ${tone} ${className}`.trim()}
+      style={{ aspectRatio: ratio }}
+      data-media-slot={slotId}
+      data-media-kind="image-video"
+      role="button"
+      tabIndex={0}
+    >
+      <img src={src} alt="" draggable={false} />
+      {label || meta ? (
+        <figcaption>
+          {label ? <span>{label}</span> : null}
+          {meta ? <small><Lines lines={meta} /></small> : null}
+        </figcaption>
+      ) : null}
+    </figure>
+  );
+}
+
+export function PlaceholderMediaCard({ label, meta, ratio = '3/4', tone = '', className = '' }) {
+  const slotLabel = label || meta || ratio;
+  const slotId = `xhs3-media-${String(Array.isArray(slotLabel) ? slotLabel.join('-') : slotLabel).replace(/\s+/g, '-').toLowerCase()}`;
+  return (
+    <figure className={`xhs3-media xhs3-media-placeholder-card ${tone} ${className}`.trim()} style={{ aspectRatio: ratio }}>
+      <MediaPlaceholder slotId={slotId} className="xhs3-media-placeholder" />
       {label || meta ? (
         <figcaption>
           {label ? <span>{label}</span> : null}

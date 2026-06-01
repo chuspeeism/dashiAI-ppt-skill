@@ -3,6 +3,7 @@
   "goal": "面向管理层汇报全年经营结果、关键风险和下一年动作",
   "audience": "管理层 / 业务负责人",
   "owner": "战略与经营团队",
+  "randomSeed": "annual-review-20260601-a7k",
   "theme": "dark",
   "fontSet": "cnReport",
   "typeScale": "medium",

@@ -1,4 +1,5 @@
 import React from 'react';
+import { MediaPlaceholder } from '../blacktech/primitives.jsx';
 import { ChartSwitch } from '../charts/index.jsx';
 import { SlideShell } from '../shell/index.jsx';
 
@@ -52,37 +53,6 @@ export function TopBar({ eyebrow }) {
   );
 }
 
-export function QuarterArt({ variant }) {
-  if (variant === 'bars') {
-    return (
-      <div className="rp-art rp-art-bars">
-        {[38, 64, 86, 44, 72, 100, 56, 34, 78, 50].map((height, index) => (
-          <span key={index} style={{ height: `${height}%` }} />
-        ))}
-      </div>
-    );
-  }
-  if (variant === 'rings') {
-    return (
-      <div className="rp-art rp-art-rings">
-        <span /><span /><span /><span /><span />
-      </div>
-    );
-  }
-  if (variant === 'overlap') {
-    return (
-      <div className="rp-art rp-art-overlap">
-        <span /><span />
-      </div>
-    );
-  }
-  return (
-    <div className="rp-art rp-art-semi">
-      <span /><i />
-    </div>
-  );
-}
-
 export function StatGrid({ stats }) {
   return (
     <div className="rp-stat-grid">
@@ -101,9 +71,9 @@ export function ChartBars({ rows }) {
   return <ChartSwitch title="渠道管道额" rows={rows} className="rp-chart-switch" />;
 }
 
-export function QuarterPage({ layout, tone, eyebrow, titleTop, titleAccent, body, meta, art }) {
+export function QuarterPage({ layout, tone, eyebrow, titleTop, titleAccent, body, meta }) {
   return (
-    <ReportSlide layout={layout} tone={tone} className={`rp-${tone}`}>
+    <ReportSlide layout={layout} tone={tone} className={`rp-${tone} rp-has-right-media`}>
       <div className="rp-page">
         <div className="rp-qsection">
           <div className="rp-qcopy">
@@ -116,7 +86,7 @@ export function QuarterPage({ layout, tone, eyebrow, titleTop, titleAccent, body
               {meta.map(([label, value]) => <div key={label}>{label} · <strong>{value}</strong></div>)}
             </div>
           </div>
-          <QuarterArt variant={art} />
+          <MediaPlaceholder slotId={`${layout.toLowerCase()}-media`} className="rp-media-half" />
         </div>
       </div>
     </ReportSlide>
