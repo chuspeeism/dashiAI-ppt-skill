@@ -1349,7 +1349,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       slideId: "rp02-14",
       slideKey: "rp02",
       layout: "RP02",
-      backgroundColorToken: "--inverse-fg",
+      backgroundColorToken: "transparent",
       colorToken: "--text-primary",
     },
     "text:rp02:10": {
@@ -2465,7 +2465,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-20",
       html: "这页面向真实 PPT 场景，重点是对齐范围、确认排期，并形成可追踪结论。",
       text: "这页面向真实 PPT 场景，重点是对齐范围、确认排期，并形成可追踪结论。",
-      colorToken: "--text-primary",
+      colorToken: "--surface-fg",
       scope: "theme",
       theme: "dark",
     },
@@ -2477,7 +2477,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-20",
       html: "治理任务列表不做泛泛介绍，只承载会中判断、负责人和下一步动作。",
       text: "治理任务列表不做泛泛介绍，只承载会中判断、负责人和下一步动作。",
-      colorToken: "--text-primary",
+      colorToken: "--surface-fg",
     },
     "text:xhs3_20:14": {
       id: "text:xhs3_20:14",
@@ -2597,7 +2597,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "WORK",
       text: "WORK",
       fontSizeToken: null,
-      colorToken: "--accent-on",
+      colorToken: "--ink",
     },
     "text:xhs3_23:8": {
       id: "text:xhs3_23:8",
@@ -2618,7 +2618,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "AGENDA",
       text: "AGENDA",
       fontSizeToken: "--fs-h2",
-      colorToken: "--focus-fg",
+      colorToken: "--ink",
     },
     "text:xhs3_23:10": {
       id: "text:xhs3_23:10",
@@ -2639,7 +2639,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "EXER",
       text: "EXER",
       fontSizeToken: "--fs-h2",
-      colorToken: "--focus-fg",
+      colorToken: "--ink",
     },
     "text:style1_04:3": {
       id: "text:style1_04:3",
@@ -2833,6 +2833,17 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "068 / 080",
       text: "068 / 080",
       colorToken: "--grey-3",
+    },
+    "text:style2_01:3": {
+      id: "text:style2_01:3",
+      slide: 84,
+      slideId: "style2_01-84",
+      slideKey: "style2_01",
+      layout: "ST2-01",
+      html: "06",
+      text: "06",
+      scope: "theme",
+      theme: "light",
     },
     "text:style2_02:3": {
       id: "text:style2_02:3",
