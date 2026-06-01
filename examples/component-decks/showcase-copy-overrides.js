@@ -1349,7 +1349,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       slideId: "rp02-14",
       slideKey: "rp02",
       layout: "RP02",
-      backgroundColorToken: "--inverse-fg",
+      backgroundColorToken: "transparent",
       colorToken: "--text-primary",
     },
     "text:rp02:10": {
@@ -1980,7 +1980,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS2-04",
       html: "议题卡片矩阵进入反馈<br>问题",
       text: "议题卡片矩阵进入反馈 问题",
-      colorToken: "--focus-fg",
+      colorToken: "--surface-fg",
     },
     "text:xhs2_04:8": {
       id: "text:xhs2_04:8",
@@ -2000,7 +2000,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS2-04",
       html: "案例<br>议题卡片矩阵问题",
       text: "案例 议题卡片矩阵问题",
-      colorToken: "--focus-fg",
+      colorToken: "--surface-fg",
     },
     "element:xhs2_04:10": {
       id: "element:xhs2_04:10",
@@ -2028,7 +2028,9 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS2-04",
       html: "议题卡片<br>议题卡片矩阵案例",
       text: "议题卡片 议题卡片矩阵案例",
-      colorToken: "--focus-fg",
+      colorToken: "--surface-fg",
+      scope: "theme",
+      theme: "light",
     },
     "text:xhs2_05:5": {
       id: "text:xhs2_05:5",
