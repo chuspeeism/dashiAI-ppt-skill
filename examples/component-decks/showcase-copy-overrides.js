@@ -1399,7 +1399,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "RP03",
       html: "<span>年度核心问题 · 目标</span><span>Q4</span>",
       text: "年度核心问题 · 目标 Q4",
-      backgroundColorToken: "--accent",
+      backgroundColorToken: "--grey-3",
       colorToken: "--accent-on",
     },
     "text:rp03:4": {
@@ -1422,6 +1422,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "<span>对齐受众和依据</span><span>23人</span>",
       text: "对齐受众和依据 23人",
       colorToken: "--accent-on",
+      backgroundColorToken: "--grey-2",
     },
     "text:rp03:6": {
       id: "text:rp03:6",
@@ -1432,6 +1433,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "<span>时间点由 Owner 跟进</span><span>3项</span>",
       text: "时间点由 Owner 跟进 3项",
       colorToken: "--accent-on",
+      backgroundColorToken: "--text-placeholder",
     },
     "text:rp08:9": {
       id: "text:rp08:9",
