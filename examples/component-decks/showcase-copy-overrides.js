@@ -2182,7 +2182,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       slideId: "xhs3_08-51",
       slideKey: "xhs3_08",
       layout: "XHS3-08",
-      backgroundColorToken: "--grey-1",
+      backgroundColorToken: "--theme-panel-bg",
       colorToken: "--text-primary",
     },
     "text:xhs3_08:4": {
@@ -2352,6 +2352,24 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-16",
       colorToken: "--grey-3",
     },
+    "element:xhs3_16:6": {
+      id: "element:xhs3_16:6",
+      slide: 59,
+      slideId: "xhs3_16-59",
+      slideKey: "xhs3_16",
+      layout: "XHS3-16",
+      backgroundColorToken: "--ink",
+    },
+    "text:xhs3_16:6": {
+      id: "text:xhs3_16:6",
+      slide: 59,
+      slideId: "xhs3_16-59",
+      slideKey: "xhs3_16",
+      layout: "XHS3-16",
+      html: "深度伪造诈骗边界",
+      text: "深度伪造诈骗边界",
+      colorToken: "--theme-bg",
+    },
     "text:xhs3_16:8": {
       id: "text:xhs3_16:8",
       slide: 59,
@@ -2427,7 +2445,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-18",
       html: "信任缺口<span>受众</span>P6<br>信任缺口页 · 受众",
       text: "信任缺口 受众 P6 信任缺口页 · 受众",
-      colorToken: "--ink",
+      colorToken: "--theme-panel-bg",
     },
     "text:xhs3_20:6": {
       id: "text:xhs3_20:6",
