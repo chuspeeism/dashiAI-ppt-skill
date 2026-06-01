@@ -2807,7 +2807,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       slideId: "xhs3_23-66",
       slideKey: "xhs3_23",
       layout: "XHS3-23",
-      colorToken: "--ink",
+      colorToken: "--focus-mark",
       scope: "theme",
       theme: "light",
     },
