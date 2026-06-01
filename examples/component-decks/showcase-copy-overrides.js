@@ -1341,7 +1341,9 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "BT02",
       html: "这页面向真实 PPT 场景，重点是对齐目标、确认线索，并形成可追踪结论。<br>销售目标校准 · 目标<strong>目标</strong>线索",
       text: "这页面向真实 PPT 场景，重点是对齐目标、确认线索，并形成可追踪结论。 销售目标校准 · 目标目标线索",
-      colorToken: "--ink",
+      colorToken: "--accent-on",
+      scope: "theme",
+      theme: "dark",
     },
     "element:rp02:18": {
       id: "element:rp02:18",
