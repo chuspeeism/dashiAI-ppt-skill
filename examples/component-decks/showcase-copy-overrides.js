@@ -1351,7 +1351,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       slideId: "rp02-14",
       slideKey: "rp02",
       layout: "RP02",
-      backgroundColorToken: "transparent",
+      backgroundColorToken: "--inverse-fg",
       colorToken: "--text-primary",
     },
     "text:rp02:10": {
@@ -2275,7 +2275,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       slideId: "xhs3_08-51",
       slideKey: "xhs3_08",
       layout: "XHS3-08",
-      backgroundColorToken: "--theme-panel-bg",
+      backgroundColorToken: "--grey-1",
       colorToken: "--text-primary",
     },
     "text:xhs3_08:4": {
@@ -2538,7 +2538,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-18",
       html: "信任缺口<span>受众</span>P6<br>信任缺口页 · 受众",
       text: "信任缺口 受众 P6 信任缺口页 · 受众",
-      colorToken: "--theme-panel-bg",
+      colorToken: "--ink",
     },
     "text:xhs3_20:6": {
       id: "text:xhs3_20:6",
@@ -2690,7 +2690,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "WORK",
       text: "WORK",
       fontSizeToken: null,
-      colorToken: "--ink",
+      colorToken: "--accent-on",
     },
     "text:xhs3_23:8": {
       id: "text:xhs3_23:8",
@@ -2711,7 +2711,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "AGENDA",
       text: "AGENDA",
       fontSizeToken: "--fs-h2",
-      colorToken: "--ink",
+      colorToken: "--focus-fg",
     },
     "text:xhs3_23:10": {
       id: "text:xhs3_23:10",
@@ -2732,7 +2732,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "EXER",
       text: "EXER",
       fontSizeToken: "--fs-h2",
-      colorToken: "--ink",
+      colorToken: "--focus-fg",
     },
     "text:style1_04:3": {
       id: "text:style1_04:3",
@@ -2867,6 +2867,24 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "<span>展示视觉系统如何落到海报、封面、社媒和销售物料。</span><span>SALES TARGET PIPELINE · NOTE</span>",
       text: "展示视觉系统如何落到海报、封面、社媒和销售物料。 SALES TARGET PIPELINE · NOTE",
     },
+    "text:style1_05:3": {
+      id: "text:style1_05:3",
+      slide: 82,
+      slideId: "style1_05-82",
+      slideKey: "style1_05",
+      layout: "ST1-05",
+      html: "INSIGHT 82<br>ACTION MAP<br>CHECK LIST",
+      text: "INSIGHT 82 ACTION MAP CHECK LIST",
+    },
+    "text:style1_05:24": {
+      id: "text:style1_05:24",
+      slide: 82,
+      slideId: "style1_05-82",
+      slideKey: "style1_05",
+      layout: "ST1-05",
+      html: "<span>用角色化方式解释每个品牌色承担的情绪和功能。</span><span>USER SCENE · ACTION</span>",
+      text: "用角色化方式解释每个品牌色承担的情绪和功能。 USER SCENE · ACTION",
+    },
     "text:xhs3_24:5": {
       id: "text:xhs3_24:5",
       slide: 67,
@@ -2875,6 +2893,16 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       layout: "XHS3-24",
       html: "工具<div>选型范围</div>",
       text: "工具 选型范围",
+    },
+    "text:xhs3_25:4": {
+      id: "text:xhs3_25:4",
+      slide: 68,
+      slideId: "xhs3_25-68",
+      slideKey: "xhs3_25",
+      layout: "XHS3-25",
+      html: "INSIGHT 68",
+      text: "INSIGHT 68",
+      colorToken: "--report-red",
     },
     "text:xhs3_25:5": {
       id: "text:xhs3_25:5",
@@ -2927,6 +2955,16 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       text: "068 / 080",
       colorToken: "--grey-3",
     },
+    "text:style2_01:2": {
+      id: "text:style2_01:2",
+      slide: 84,
+      slideId: "style2_01-84",
+      slideKey: "style2_01",
+      layout: "ST2-01",
+      html: "CAPABILITY AGENDA",
+      text: "CAPABILITY AGENDA",
+      colorToken: "--theme-panel-bg",
+    },
     "text:style2_01:3": {
       id: "text:style2_01:3",
       slide: 84,
@@ -2937,6 +2975,16 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       text: "06",
       scope: "theme",
       theme: "light",
+    },
+    "text:style2_01:7": {
+      id: "text:style2_01:7",
+      slide: 84,
+      slideId: "style2_01-84",
+      slideKey: "style2_01",
+      layout: "ST2-01",
+      html: "讨论结束后，风险和动作进入待办。",
+      text: "讨论结束后，风险和动作进入待办。",
+      colorToken: "--report-paper",
     },
     "text:style2_02:3": {
       id: "text:style2_02:3",
@@ -2957,6 +3005,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "5项<small>REVI</small>",
       text: "5项REVI",
       fontSizeToken: "--fs-display",
+      colorToken: "--report-amber",
     },
     "text:style2_04:14": {
       id: "text:style2_04:14",
@@ -2967,6 +3016,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "4周<small>BOAR</small>",
       text: "4周BOAR",
       fontSizeToken: "--fs-display",
+      colorToken: "--report-accent-red",
     },
     "text:style2_04:4": {
       id: "text:style2_04:4",
@@ -2997,6 +3047,7 @@ export const SHOWCASE_DEV_ADJUSTMENTS = {
       html: "Q4<small>ANNU</small>",
       text: "Q4ANNU",
       fontSizeToken: "--fs-display",
+      colorToken: "--accent-bright",
     },
     "text:style2_06:4": {
       id: "text:style2_06:4",
