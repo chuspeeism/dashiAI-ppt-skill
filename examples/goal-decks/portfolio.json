@@ -1,121 +1,77 @@
 {
-  "title": "个人作品集",
+  "title": "AI 产品作品集",
   "goal": "用 5 页横向翻页 PPT 呈现个人定位、代表项目、方法能力、成果数据和合作方式",
   "audience": "招聘方 / 潜在客户 / 合作伙伴",
   "owner": "Portfolio Owner",
-  "randomSeed": "portfolio-20260601-p4x",
-  "theme": "light",
+  "randomSeed": "portfolio-20260609-p4x",
+  "themePack": "theme01",
   "slides": [
     {
-      "role": "cover",
+      "layout": "theme01_page001",
       "props": {
-        "chrome": {
-          "left": "PORTFOLIO / COVER",
-          "right": "SECTION 00",
-          "bottomLeft": "SELECTED WORKS -- 2026",
-          "bottomRight": "START"
-        },
-        "ghostword": "WORKS",
-        "eyebrow": "个人作品集",
-        "accent": "Selected Works",
-        "titleTop": "作品集",
-        "titleAlt": "2026",
-        "titleBottom": "精选项目",
-        "captions": [
-          ["Role", "产品设计 / 前端实现"],
-          ["Scope", "品牌网站 · 数据产品 · AI 工具"],
-          ["Contact", "hello@example.com"]
-        ],
-        "footerLeft": "PORTFOLIO · SELECTED WORKS · 2026",
-        "footerRight": "OPEN FOR PROJECTS"
+        "kicker": "作品集 · VOL.01",
+        "titleTop": "AI 产品",
+        "titleBottom": "作品集",
+        "en": "Selected AI Product Works",
+        "lead": "把业务目标、用户路径和工程实现合成可交付结果。",
+        "chips": ["产品设计", "前端实现", "AI 工作流"],
+        "footnote": "Portfolio Owner · Selected Works · 2026"
       }
     },
     {
-      "role": "statement",
+      "layout": "theme01_page010",
       "props": {
-        "chrome": {
-          "left": "01 · POSITIONING",
-          "right": "PAGE 02/05",
-          "bottomLeft": "PORTFOLIO / POINT OF VIEW",
-          "bottomRight": "READ"
-        },
-        "eyebrow": "01",
-        "accent": "个人定位",
-        "quote": ["把复杂问题，", "做成清晰可用的产品体验。"],
-        "body": ["我的优势不是只做漂亮界面，而是把业务目标、用户路径和工程实现合成一个可交付结果。", "作品集中的项目都围绕清晰可用展开。"],
-        "strong": "清晰可用",
-        "footerLeft": "POSITIONING -- DESIGN / PRODUCT / FRONTEND",
-        "footerRight": "selected works →"
+        "kicker": "# 方法能力",
+        "title": "横纵拆解法",
+        "en": "Product × Engineering",
+        "cn": "从用户场景和实现路径同时拆解问题",
+        "result": "清晰需求 · 稳定交付"
       }
     },
     {
-      "role": "breakdown",
+      "layout": "theme01_page006",
       "props": {
-        "chrome": {
-          "left": "02 · SELECTED PROJECTS",
-          "right": "PAGE 03/05",
-          "bottomLeft": "MEDIA SLOT",
-          "bottomRight": "LIST"
-        },
-        "eyebrow": "02",
-        "accent": "代表项目",
-        "title": "四类项目展示完整能力。",
-        "body": ["左侧图片可替换为项目截图、界面拼贴或品牌视觉。", "右侧用项目类型说明能力覆盖面。"],
-        "items": [
-          ["1.", "SaaS 数据看板", "重构核心信息架构，让运营指标更容易扫描和追踪。"],
-          ["2.", "AI 工作流工具", "把模型能力包装成稳定流程，降低团队重复操作。"],
-          ["3.", "品牌官网系统", "建立内容结构、视觉规范和可复用页面组件。"],
-          ["4.", "移动端活动页", "围绕转化路径设计首屏、互动和落地承接。"]
+        "kicker": "Selected Impact",
+        "value": "12",
+        "unit": "个",
+        "sub": "覆盖 SaaS 看板、AI 工作流工具、品牌官网和移动活动页。",
+        "highlightWord": "AI 工作流",
+        "secondaries": [
+          { "value": "88", "unit": "%", "label": "任务完成效率" },
+          { "value": "74", "unit": "%", "label": "页面转化提升" },
+          { "value": "68", "unit": "%", "label": "组件复用率" }
         ],
-        "captions": [
-          ["Product", "信息架构"],
-          ["Visual", "界面系统"],
-          ["Build", "前端交付"]
+        "caption": "作品集 · 用结果证明价值"
+      }
+    },
+    {
+      "layout": "theme01_page030",
+      "props": {
+        "kicker": "# 代表项目",
+        "title": "项目里程碑",
+        "en": "Selected Project Timeline",
+        "cn": "从需求识别到上线交付",
+        "events": [
+          { "date": "2024 · Q1", "round": "SaaS 看板", "amount": "上线", "unit": "", "note": "核心指标体系", "color": "#5b8def" },
+          { "date": "2024 · Q3", "round": "AI 工具", "amount": "落地", "unit": "", "note": "多步骤工作流", "color": "#46b083" },
+          { "date": "2025 · Q2", "round": "组件系统", "amount": "复用", "unit": "", "note": "设计到前端闭环", "color": "#e8503a" }
         ]
       }
     },
     {
-      "role": "metrics",
+      "layout": "theme01_page089",
       "props": {
-        "chrome": {
-          "left": "03 · IMPACT",
-          "right": "PAGE 04/05",
-          "bottomLeft": "MEDIA / CHART",
-          "bottomRight": "DATA"
-        },
-        "eyebrow": "03",
-        "accent": "成果数据",
-        "title": "用结果证明作品价值。",
-        "noteTitle": "Chart · portfolio impact",
-        "noteBody": ["可替换为真实项目", "上线后的核心指标。"],
-        "chartTitle": "SELECTED IMPACT",
-        "chartRows": [
-          ["任务完成效率", 88, "focus"],
-          ["页面转化提升", 74],
-          ["组件复用率", 68],
-          ["交付周期压缩", 61]
+        "kicker": "# 联系方式",
+        "title": "合作方式与项目说明",
+        "en": "Contact & Scope",
+        "cn": "可以从一个具体项目开始沟通",
+        "lead": "适合需要把 AI 能力、产品体验和前端交付打通的项目。",
+        "sources": [
+          { "label": "项目类型", "note": "SaaS 产品、AI 工具、数据看板、品牌系统" },
+          { "label": "合作方式", "note": "需求拆解、界面设计、前端实现、上线迭代" },
+          { "label": "联系邮箱", "note": "hello@example.com" }
         ],
-        "body": ["高亮指标代表最能体现价值的核心成果。", "其他指标用于补充说明设计、产品和工程协同带来的实际收益。"]
-      }
-    },
-    {
-      "role": "closing",
-      "props": {
-        "chrome": {
-          "left": "END · CONTACT",
-          "right": "PAGE 05/05",
-          "bottomLeft": "NEXT STEP",
-          "bottomRight": "THANK YOU"
-        },
-        "eyebrow": "— CONTACT —",
-        "titleTop": "期待",
-        "titleAlt": "一起",
-        "titleMiddle": "做出",
-        "titleBottom": "好作品",
-        "body": ["如果方向匹配，可以从一个具体项目开始沟通。", "邮箱：hello@example.com"],
-        "inline": "hello@example.com",
-        "footerLeft": "PORTFOLIO · SELECTED WORKS · 2026",
-        "footerRight": "CONTACT → hello@example.com"
+        "disclaimer": "示例文案仅用于 Skill 测试。"
       }
     }
   ]

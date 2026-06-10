@@ -1,6 +1,8 @@
 #!/bin/sh
 set -e
 
+npm run manifest:update
 node scripts/update-project-docs.mjs
-git add README.md docs/ADR.md docs/project-files.md
+git add README.md docs/ADR.md docs/project-files.md layout-manifest.json
+npm run skill:sync
 npm run showcase:update

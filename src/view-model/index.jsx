@@ -1,7 +1,7 @@
 import React from 'react';
 import { SlideViewModelProvider } from './context.jsx';
 
-const SLIDE_MODEL_TYPE = 'guizang.slide-model';
+const SLIDE_MODEL_TYPE = 'dashi.slide-model';
 
 export function createSlideModel(layout, props = {}) {
   if (!layout || typeof layout !== 'string') {
@@ -19,29 +19,39 @@ export function isSlideModel(value) {
 }
 
 export function buildDeckViewModel(deck, registries) {
-  const theme = registries.resolveOption(registries.themes, deck.theme, registries.defaultTheme, 'theme');
   const model = normalizeDeckModel(deck);
   const layoutAliases = registries.layoutAliases || {};
   const slideKeys = createSlideKeys(model.slides, layoutAliases);
-  const slides = model.slides.map((slide, index) => buildSlideViewModel(slide, index, registries.layouts, slideKeys[index], layoutAliases));
+  const slides = model.slides.map((slide, index) => buildSlideViewModel(
+    slide,
+    index,
+    registries.layouts,
+    registries.themePacks,
+    slideKeys[index],
+    layoutAliases,
+    registries.defaultThemePack,
+  ));
+  const themePack = registries.resolveOption(
+    registries.themePacks,
+    model.themePack || slides[0]?.themePack,
+    registries.defaultThemePack,
+    'theme pack',
+  );
   const state = {
     slideOrder: slides.map((slide) => slide.id),
     text: normalizeTextState(model.text, slides, layoutAliases),
     media: model.media || {},
-    chart: model.chart || {},
-    icon: model.icon || {},
-    shader: model.shader || {},
     props: model.props || {},
   };
 
   return {
     model,
-    theme,
+    themePack,
     slides,
     options: {
-      themes: serializeOptions(registries.themes),
+      themePacks: serializeThemePacks(filterThemePacksForSlides(registries.themePacks, slides)),
       current: {
-        theme: theme.key,
+        themePack: themePack.key,
       },
     },
     state,
@@ -65,28 +75,23 @@ export function serializeDeckViewModel(viewModel) {
   return {
     version: 1,
     title: viewModel.model.title,
-    theme: viewModel.theme.key,
+    themePack: viewModel.themePack.key,
     slides: viewModel.slides.map((slide) => ({
       id: slide.id,
       key: slide.key,
       layout: slide.layout,
       dataLayout: slide.dataLayout,
+      themePack: slide.themePack,
       label: slide.label,
       logicalIndex: slide.logicalIndex,
       props: toJson(slide.sourceProps),
       copy: toJson(slide.copy),
       media: toJson(slide.media),
-      chart: toJson(slide.chart),
-      icon: toJson(slide.icon),
-      shader: toJson(slide.shader),
     })),
     state: {
       slideOrder: viewModel.slides.map((slide) => slide.id),
       text: viewModel.state.text || {},
       media: viewModel.state.media || {},
-      chart: viewModel.state.chart || {},
-      icon: viewModel.state.icon || {},
-      shader: viewModel.state.shader || {},
       props: viewModel.state.props || {},
     },
   };
@@ -112,12 +117,9 @@ function createJsonSerializer() {
 function normalizeDeckModel(deck) {
   return {
     title: deck.title || 'Untitled Deck',
-    theme: deck.theme,
+    themePack: deck.themePack,
     text: deck.text || {},
     media: deck.media || {},
-    chart: deck.chart || {},
-    icon: deck.icon || {},
-    shader: deck.shader || {},
     props: deck.props || {},
     slides: (deck.slides || []).map((slide, index) => normalizeSlideModel(slide, index)),
   };
@@ -152,7 +154,7 @@ function normalizeSlideModel(slide, index) {
   };
 }
 
-function buildSlideViewModel(slide, index, layoutOptions, slideKey, layoutAliases = {}) {
+function buildSlideViewModel(slide, index, layoutOptions, themePacks, slideKey, layoutAliases = {}, defaultThemePack) {
   if (slide.legacy) {
     return {
       id: slide.id,
@@ -160,10 +162,12 @@ function buildSlideViewModel(slide, index, layoutOptions, slideKey, layoutAliase
       index,
       element: slide.element,
       sourceProps: {},
+      themePack: defaultThemePack,
       context: {
         id: slide.id,
         key: slideKey,
         index,
+        themePack: defaultThemePack,
         legacy: true,
         textKeyPrefix: `text:${slideKey}:`,
       },
@@ -174,38 +178,59 @@ function buildSlideViewModel(slide, index, layoutOptions, slideKey, layoutAliase
   if (!option) {
     throw new Error(`Unknown layout "${slide.layout}". Choose one of: ${Object.keys(layoutOptions).join(', ')}`);
   }
+  const slideThemePack = findLayoutThemePack(resolvedLayout, themePacks) || defaultThemePack;
+  const label = slide.label || inferSlideLabel(slide, index) || option.label;
   return {
     id: slide.id,
     key: slideKey,
     index,
     layout: resolvedLayout,
-    label: option.label,
+    label,
     dataLayout: option.dataLayout,
+    themePack: slideThemePack,
     component: option.component,
     props: slide.props || {},
     sourceProps: slide.props || {},
     copy: slide.copy || {},
     media: slide.media || {},
-    chart: slide.chart || {},
-    icon: slide.icon || {},
-    shader: slide.shader || {},
     logicalIndex: slide.logicalIndex,
     context: {
       id: slide.id,
       key: slideKey,
       index,
       layout: resolvedLayout,
-      label: option.label,
+      label,
       dataLayout: option.dataLayout,
+      themePack: slideThemePack,
       logicalIndex: slide.logicalIndex,
       copy: slide.copy || {},
       media: slide.media || {},
-      chart: slide.chart || {},
-      icon: slide.icon || {},
-      shader: slide.shader || {},
       textKeyPrefix: `text:${slideKey}:`,
     },
   };
+}
+
+function filterThemePacksForSlides(themePacks, slides) {
+  const used = new Set(slides.map(slide => slide.themePack).filter(Boolean));
+  if (!used.size) return themePacks;
+  return Object.fromEntries(
+    Object.entries(themePacks).filter(([key]) => used.has(key)),
+  );
+}
+
+function inferSlideLabel(slide, index) {
+  const props = slide.props || {};
+  const candidates = [
+    props.head?.cn,
+    props.titleCN,
+    props.title,
+    Array.isArray(props.titleLines) ? props.titleLines.join(' ') : null,
+    props.headline,
+    props.heading,
+    props.bigWord,
+    props.brand,
+  ];
+  return candidates.find(value => typeof value === 'string' && value.trim()) || `第 ${index + 1} 页`;
 }
 
 function createSlideKeys(slides, layoutAliases = {}) {
@@ -288,15 +313,18 @@ function resolveLayoutAliasKey(target, layoutAliases, layoutToKeys) {
   return keys?.length === 1 ? keys[0] : null;
 }
 
-function serializeOptions(registry) {
+function findLayoutThemePack(layout, themePacks = {}) {
+  return Object.entries(themePacks)
+    .find(([, option]) => option.layouts?.includes(layout))?.[0] || null;
+}
+
+function serializeThemePacks(registry) {
   return Object.fromEntries(
     Object.entries(registry).map(([key, option]) => [
       key,
       {
         label: option.label,
-        vars: option.vars,
-        classes: option.classes,
-        dataAnimate: option.dataAnimate,
+        layouts: option.layouts || [],
       },
     ]),
   );

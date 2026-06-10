@@ -1,0 +1,114 @@
+{
+  "sourceRoot": "/Volumes/大师的AI小灶 共享盘/PPT Skill 共享文件/定稿版本 html",
+  "replaceAllExistingThemes": true,
+  "themes": [
+    {
+      "key": "theme01",
+      "name": "01-轻拟态质感",
+      "source": "01大师-轻拟态质感-带封面",
+      "entry": "AI融资调研报告.html",
+      "cover": "01 大师-轻拟态质感.jpg",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme02",
+      "name": "02-炫光紫绿",
+      "source": "02 大师-炫光紫绿-带封面",
+      "entry": "index.html",
+      "cover": "02 大师-炫光紫绿.jpg",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme03",
+      "name": "03-深浅代码风",
+      "source": "03 大师-深浅代码风-二次处理",
+      "entry": "report-deck.html",
+      "cover": "03 大师-深浅代码风.jpg",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme04",
+      "name": "04-玻璃糖果",
+      "source": "04 大师-玻璃糖果-二次处理",
+      "entry": "小红书风格AI融资报告.html",
+      "cover": "04 大师-玻璃糖果.jpg",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme05",
+      "name": "05-脉冲卡片",
+      "source": "05 - （汤帅 - Jadon电脑）",
+      "entry": "pulse-deck.html",
+      "cover": "05 - （汤帅 - Jadon电脑）.png",
+      "mode": "replace",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme06",
+      "name": "06-深色数据图谱",
+      "source": "06 - （汤帅1️⃣ - Jadon电脑）",
+      "entry": "美国AI大额融资调研报告.html",
+      "cover": "06 - （汤帅1️⃣ - Jadon电脑）.png",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme07",
+      "name": "07-冷白调研图谱",
+      "source": "07 - （汤帅 - 自己电脑）",
+      "entry": "美国AI融资调研报告.html",
+      "cover": "07 - （汤帅 - 自己电脑）.png",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme08",
+      "name": "08-黑金实验质感",
+      "source": "08 - （汤帅 - Jadon电脑）",
+      "entry": "deck.html",
+      "cover": "08 - （汤帅 - Jadon电脑）.png",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme09",
+      "name": "09-深蓝杂志",
+      "source": "09 theme",
+      "entry": "index.html",
+      "cover": "09 文奎 theme.png",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme10",
+      "name": "10-金色指数图表",
+      "source": "10 theme",
+      "entry": "财富指数模板.html",
+      "cover": "10 文奎 theme2.png",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme11",
+      "name": "11-高能增长图谱",
+      "source": "11 theme",
+      "entry": "燃点 增长引擎 v3.html",
+      "cover": "11 文奎 theme3.png",
+      "mode": "new",
+      "expectedPages": 0
+    },
+    {
+      "key": "theme12",
+      "name": "12-声波霓虹",
+      "source": "12 theme",
+      "entry": "声浪 SoundWave.html",
+      "cover": "12 文奎 theme4.png",
+      "mode": "replace",
+      "expectedPages": 0
+    }
+  ]
+}

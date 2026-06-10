@@ -17,4 +17,15 @@ const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
 const deck = composeDeck(spec);
 
 renderDeck(deck, { outFile });
+copyGoalSpec(specPath, outFile);
 console.log(`Rendered ${deck.slides.length} slide(s): ${outFile}`);
+
+function copyGoalSpec(from, to) {
+  const outDir = path.dirname(to);
+  const deckDir = path.basename(outDir) === 'ppt' ? path.dirname(outDir) : outDir;
+  const target = path.join(deckDir, 'goal.json');
+  fs.mkdirSync(deckDir, { recursive: true });
+  if (path.resolve(from) !== path.resolve(target)) {
+    fs.copyFileSync(from, target);
+  }
+}

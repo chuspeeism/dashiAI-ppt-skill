@@ -1,4 +1,15 @@
 .DS_Store
 *.backup
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 node_modules/
 output/
+.codex/
+.playwright-cli/
+uploads/
+screens/
+screenshots/
+shots/
+scratch/

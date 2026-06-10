@@ -13,6 +13,7 @@ export function SlideShell({ layout, tone = 'light', hero = false, animate = 'ca
       data-vm-slide-key={viewModel?.key}
       data-vm-layout={viewModel?.layout}
       data-vm-index={viewModel?.index}
+      data-theme-pack={viewModel?.themePack}
       data-logical-slide={viewModel?.logicalIndex}
     >
       {children}

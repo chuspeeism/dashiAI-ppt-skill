@@ -1,0 +1,190 @@
+/* ============================================================================
+   theme.css — scoped design tokens + base classes for the report deck.
+   Aesthetic: editorial / brutalist grotesque, light warm-gray field,
+   electric-blue + lime accents, monospace micro-labels.
+
+   SCOPING CONTRACT
+   - All custom properties live on `.rd-slide` (the root of every slide
+     component), NOT on :root — nothing leaks to a host app's globals.
+   - Every class is prefixed `.rd-` so it can't collide after migration.
+   - Slides are pure: they only use these classes + inline styles. The deck
+     navigation chrome (deck-stage) and the Tweaks panel are separate.
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&family=Noto+Sans+SC:wght@300;400;500;700;900&display=swap');
+
+/* ---- token scope ---------------------------------------------------------- */
+.rd-slide {
+  /* palette */
+  --rd-bg:      #d6d6d3;
+  --rd-ink:     #161513;
+  --rd-ink-2:   #5c5b57;
+  --rd-ink-3:   #908f8a;
+  --rd-line:    rgba(22,21,19,0.20);
+  --rd-line-2:  rgba(22,21,19,0.10);
+  --rd-blue:    #2742ec;
+  --rd-blue-ink:#f3f5ff;
+  --rd-lime:    #c2f53d;
+  --rd-panel:   #1a1916;     /* dark surface */
+
+  /* type families */
+  --rd-sans: "Archivo","Noto Sans SC",system-ui,sans-serif;
+  --rd-mono: "Space Mono",ui-monospace,"SFMono-Regular",monospace;
+
+  /* type scale (1920×1080 canvas) */
+  --rd-display: 104px;
+  --rd-title:   62px;
+  --rd-headline:46px;
+  --rd-sub:     34px;
+  --rd-body:    27px;
+  --rd-cap:     24px;
+  --rd-label:   24px;
+
+  /* rhythm */
+  --rd-pad-x: 120px;
+  --rd-pad-y: 92px;
+  --rd-gap:   40px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: var(--rd-bg);
+  color: var(--rd-ink);
+  font-family: var(--rd-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  overflow: hidden;
+}
+.rd-slide *,
+.rd-slide *::before,
+.rd-slide *::after { box-sizing: border-box; }
+
+/* ---- dark theme modifier (scoped — only flips tokens on this slide) -------- */
+.rd-slide.rd-dark {
+  --rd-bg:     #161513;
+  --rd-ink:    #f3f2ee;
+  --rd-ink-2:  #b8b6b0;
+  --rd-ink-3:  #84827c;
+  --rd-line:   rgba(243,242,238,0.22);
+  --rd-line-2: rgba(243,242,238,0.10);
+  --rd-panel:  #f3f2ee;
+}
+
+/* ---- frame / layout helpers ---------------------------------------------- */
+.rd-frame {
+  position: absolute;
+  inset: 0;
+  padding: var(--rd-pad-y) var(--rd-pad-x);
+  display: flex;
+  flex-direction: column;
+}
+.rd-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--rd-line);
+}
+.rd-hairline { height: 1px; background: var(--rd-line); width: 100%; }
+
+/* ---- micro-label (blue box) ---------------------------------------------- */
+.rd-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--rd-mono);
+  font-weight: 700;
+  font-size: var(--rd-label);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  line-height: 1;
+  padding: 9px 12px 8px;
+  background: var(--rd-blue);
+  color: var(--rd-blue-ink);
+  white-space: nowrap;
+}
+.rd-tag--lime { background: var(--rd-lime); color: var(--rd-ink); }
+.rd-tag--ghost { background: transparent; color: var(--rd-ink-2); padding-left: 0; padding-right: 0; }
+
+/* free-standing mono caption (no box) */
+.rd-mono {
+  font-family: var(--rd-mono);
+  font-size: var(--rd-cap);
+  letter-spacing: 0.06em;
+  color: var(--rd-ink-2);
+  text-transform: uppercase;
+}
+
+/* ---- headings ------------------------------------------------------------- */
+.rd-display {
+  font-family: var(--rd-sans);
+  font-weight: 900;
+  font-size: var(--rd-display);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  margin: 0;
+  text-wrap: balance;
+}
+.rd-title {
+  font-weight: 800;
+  font-size: var(--rd-title);
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+.rd-headline {
+  font-weight: 800;
+  font-size: var(--rd-headline);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0;
+}
+.rd-sub {
+  font-weight: 700;
+  font-size: var(--rd-sub);
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  margin: 0;
+}
+.rd-blue { color: var(--rd-blue); }
+.rd-lime-ink { color: var(--rd-ink); }
+
+/* ---- body ----------------------------------------------------------------- */
+.rd-body {
+  font-size: var(--rd-body);
+  line-height: 1.5;
+  color: var(--rd-ink-2);
+  margin: 0;
+  text-wrap: pretty;
+}
+.rd-cap {
+  font-size: var(--rd-cap);
+  line-height: 1.45;
+  color: var(--rd-ink-2);
+  margin: 0;
+}
+
+/* ---- big figure ----------------------------------------------------------- */
+.rd-figure {
+  font-weight: 800;
+  font-size: 168px;
+  line-height: 0.86;
+  letter-spacing: -0.03em;
+  font-feature-settings: "tnum" 1;
+}
+
+/* ---- entrance animation --------------------------------------------------
+   Base state is the *visible* end-state so content always renders (print,
+   reduced-motion, and non-painting capture contexts included). The motion is
+   added only as a transform-based enhancement that never hides content. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-deck-active] .rd-anim   { animation: rd-rise 0.55s cubic-bezier(.2,.7,.2,1) both; }
+  [data-deck-active] .rd-anim-2 { animation-delay: 0.07s; }
+  [data-deck-active] .rd-anim-3 { animation-delay: 0.14s; }
+  [data-deck-active] .rd-anim-4 { animation-delay: 0.21s; }
+}
+@keyframes rd-rise {
+  from { transform: translateY(16px); }
+  to   { transform: translateY(0); }
+}

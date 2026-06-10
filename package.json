@@ -7,12 +7,14 @@
     "docs:update": "node scripts/update-project-docs.mjs",
     "render:deck": "tsx scripts/render-deck.jsx",
     "render:goal": "tsx scripts/render-goal-deck.jsx",
-    "render:all-layouts": "tsx scripts/render-deck.jsx examples/component-decks/all-layouts-showcase.jsx output/all-components-showcase/ppt/index.html",
-    "showcase:update": "node scripts/validate-layout-showcase.mjs && npm run render:all-layouts && npm run validate:swiss -- output/all-components-showcase/ppt/index.html",
-    "render:demo": "tsx scripts/render-deck.jsx examples/component-decks/all-layouts-showcase.jsx output/component-demo/ppt/index.html",
-    "render:examples": "npm run render:demo",
+    "render:themes": "tsx scripts/render-deck.jsx examples/component-decks/all-themes-showcase.jsx output/theme-preview/ppt/index.html",
+    "showcase:update": "node scripts/validate-layout-showcase.mjs && npm run render:themes && npm run validate:swiss -- output/theme-preview/ppt/index.html",
+    "themes:import": "tsx scripts/import-claude-themes.jsx",
+    "manifest:update": "tsx scripts/update-layout-manifest.jsx",
+    "skill:sync": "node scripts/sync-skill.mjs",
     "validate:swiss": "node scripts/validate-swiss-deck.mjs",
-    "test": "npm run render:demo && npm run validate:swiss -- output/component-demo/ppt/index.html"
+    "validate:goal-copy": "node scripts/validate-goal-copy.mjs",
+    "test": "npm run render:themes && npm run validate:swiss -- output/theme-preview/ppt/index.html"
   },
   "dependencies": {
     "gsap": "^3.15.0",
@@ -20,7 +22,7 @@
     "pptxgenjs": "^4.0.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "remixicon": "^4.9.1"
+    "three": "^0.177.0"
   },
   "devDependencies": {
     "tsx": "^4.20.0"
