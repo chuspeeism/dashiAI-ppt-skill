@@ -41,7 +41,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'slope',     // 'slope' | 'bars'
   metricCount: 5,         // metrics shown (3–5)
   focusEnabled: true,     // highlight one metric
@@ -53,6 +53,18 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Forward View · 2025' },
+  { key: 'title', label: '标题', type: 'text', default: '2025 前瞻' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '关键指标与观察信号' },
+  { key: 'lead', label: '导言', type: 'text', default: '将 2024 的结构外推到 2025：资本可能从规模扩张转向效率验证，少数确定性方向继续获得资本，叙事型估值面临重定价。' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '+38%' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '垂直应用收入兑现 · 2025E 情景增速' },
+  { key: 'scenarioTag', label: 'scenarioTag', type: 'text', default: '情景推演 · 2024 = 100' },
+  { key: 'closing', label: '结语', type: 'text', default: '增量来自兑现，而非叙事。' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '2024 → 2025E 指标推演（指数，2024 = 100）' },
+  { key: 'baselineLabel', label: 'baselineLabel', type: 'text', default: '2024 基线 · 100' },
+  { key: 'axisFrom', label: 'axisFrom', type: 'text', default: '2024' },
+  { key: 'axisTo', label: 'axisTo', type: 'text', default: '2025E' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'slope',
     options: [{ value: 'slope', label: '推演线' }, { value: 'bars', label: '偏离条' }],
     description: '前瞻图表样式：2024→2025E 推演线（扇形）/ 围绕基线的偏离条。' },
@@ -207,7 +219,7 @@ function SlopeChart({ copy, metrics, focus, focusEnabled, showValues, showBand }
 
 export default function ForwardPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, scenarioTag: p.scenarioTag !== undefined ? p.scenarioTag : COPY.scenarioTag, closing: p.closing !== undefined ? p.closing : COPY.closing, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, baselineLabel: p.baselineLabel !== undefined ? p.baselineLabel : COPY.baselineLabel, axisFrom: p.axisFrom !== undefined ? p.axisFrom : COPY.axisFrom, axisTo: p.axisTo !== undefined ? p.axisTo : COPY.axisTo, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-fwd', CSS);
   const vars = themeVars(p.accentColor);

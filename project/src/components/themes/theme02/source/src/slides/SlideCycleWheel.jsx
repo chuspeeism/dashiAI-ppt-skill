@@ -1,19 +1,20 @@
 /**
- * SlideCycleWheel.jsx — 循环飞轮（关系图 · 环形循环 + 两翼说明）.
+ * SlideCycleWheel.jsx — 循环飞轮（关系图 · 分段圆环 + 右侧环节卡列）.
  * Independent, prop-driven. Renders its own theme styles.
  *
- * 参考「分段环形 + 旋转箭头 + 两翼文字」逻辑板式：一个分段圆环表达循环/飞轮，
- * 中心为主题，每段一个环节，对应的说明卡片沿该段方向外侧排布。
+ * 版式（v2 重设计）：左侧为分段圆环飞轮（等分扇环 + 段间旋转箭头 + 中心主题），
+ * 右侧为一列与环节一一对应的说明卡（编号 / 色点 / 标题 / 说明 / 标签）。
+ * 卡列采用确定性网格排布，3–5 个环节下构图均稳定，无遮挡。
  *
  * ── Props (see slideCycleWheelDefaults) ─────────────────────────────────────
  *   kicker, title, titleEm, index   strings
  *   center       {label, sub}        中心主题文案
  *   segments     Array<{label,en,desc,tags:string[]}>  环节 (text)
- *   segmentCount number   环节数量（3–4）
+ *   segmentCount number   环节数量（3–5）
  *   focusEnabled boolean  高亮某一环节
  *   focusIndex   number   0-based 被强调环节
  *   showArrows   boolean  段间旋转箭头
- *   showCards    boolean  两翼说明卡片
+ *   showCards    boolean  右侧环节说明卡列
  *   showTags     boolean  卡片内标签
  *   gxnScheme    object?  预览注入的配色（palette）；缺省回退主题绿
  */
@@ -53,7 +54,7 @@ export const slideCycleWheelControls = [
   { key: 'showArrows', type: 'toggle', label: '旋转箭头', default: true,
     describe: '段间旋转箭头显隐' },
   { key: 'showCards', type: 'toggle', label: '说明卡片', default: true,
-    describe: '两翼说明卡片显隐' },
+    describe: '右侧环节说明卡列显隐' },
   { key: 'showTags', type: 'toggle', label: '卡片标签', default: true,
     visibleWhen: (p) => p.showCards, describe: '卡片内标签显隐' },
 ];
@@ -64,15 +65,14 @@ export function SlideCycleWheel(props) {
   const segs = p.segments.slice(0, count);
   const fIdx = p.focusEnabled ? Math.max(0, Math.min(count - 1, p.focusIndex)) : -1;
   const palette = (p.gxnScheme && p.gxnScheme.palette) || GXN_PALETTE;
+  const colorOf = (i) => palette[i % palette.length];
 
-  // ── SVG ring geometry — clean segmented donut (à la bklit-UI ring chart) ──
-  // Equal arcs of 360/count° (120° at 3, 90° at 4, 72° at 5 …) drawn as FILLED
-  // rounded annular sectors with a tight inter-slice gap — the same technique as
-  // the deck's ShareChart donut. A small clockwise chevron sits in each gap so
-  // the ring still reads as a spinning flywheel.
-  const S = 600, C = S / 2, ro = 250, ri = 150;
+  // ── SVG ring geometry — clean segmented donut ─────────────────────────────
+  // Equal arcs of 360/count° drawn as FILLED rounded annular sectors with a
+  // tight inter-slice gap; a clockwise chevron sits in each gap so the ring
+  // reads as a spinning flywheel.
+  const S = 640, C = S / 2, ro = 264, ri = 158;
   const Rc = (ro + ri) / 2;              // centerline radius — labels + chevrons
-  const Rl = Rc;
   const start = -Math.PI / 2;            // first segment starts at top
   const span = (Math.PI * 2) / count;
   const GAPA = 0.055;                    // angular gap per side (radians)
@@ -105,7 +105,7 @@ export function SlideCycleWheel(props) {
     return { ...s, i, a0, a1, mid: (a0 + a1) / 2, bound: a1 };
   });
 
-  const cxp = 50, cyp = 53, rCardX = 33, rCardY = 36;
+  const wheelSize = p.showCards ? 620 : 700;
 
   return (
     <div className={cx(THEME_CLASS, 'gxn-slide')}>
@@ -113,85 +113,112 @@ export function SlideCycleWheel(props) {
       <div className="gxn-pad">
         <SlideHeader kicker={p.kicker} title={p.title} titleEm={p.titleEm} index={p.index} />
 
-        <div className="gxn-rise-2" style={{ position: 'relative', flex: 1, marginTop: 8, minHeight: 0 }}>
-          {/* wheel */}
-          <svg viewBox={`0 0 ${S} ${S}`}
-               style={{ position: 'absolute', left: `${cxp}%`, top: `${cyp}%`, transform: 'translate(-50%,-50%)',
-                        width: 'min(560px, 52vh)', height: 'min(560px, 52vh)', overflow: 'visible' }}>
-            <defs>
-              <filter id="gxn-cw-glow" x="-40%" y="-40%" width="180%" height="180%">
-                <feGaussianBlur stdDeviation="8" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
-              </filter>
-            </defs>
-            {segGeom.map((s) => {
-              const col = palette[s.i % palette.length];
-              const isF = s.i === fIdx; const dim = fIdx >= 0 && !isF;
-              const lab = PT(Rl, s.mid);
-              return (
-                <g key={s.i} opacity={dim ? 0.4 : 1}>
-                  <path d={sector(s.a0, s.a1)} fill={col} filter={isF ? 'url(#gxn-cw-glow)' : undefined} />
-                  <text x={lab[0]} y={lab[1] - 5} textAnchor="middle" dominantBaseline="central"
-                        fontFamily="'Noto Sans SC',sans-serif" fontWeight="700" fontSize="30" fill="#07090b">{s.label}</text>
-                  <text x={lab[0]} y={lab[1] + 24} textAnchor="middle" dominantBaseline="central"
-                        fontFamily="'Space Mono',monospace" fontSize="16" fill="rgba(7,9,11,0.7)" letterSpacing="1">{s.en}</text>
-                </g>
-              );
-            })}
-            {/* clockwise chevron in each gap — keeps the flywheel rotation read */}
-            {p.showArrows && segGeom.map((s) => {
-              const ab = s.bound;
-              const M = PT(Rc, ab);
-              const t = [Math.cos(ab), Math.sin(ab)];   // clockwise tangent
-              const n = [Math.sin(ab), -Math.cos(ab)];  // outward radial
-              const dim = fIdx >= 0;
-              const tip = [M[0] + t[0] * 9, M[1] + t[1] * 9];
-              const bk = [M[0] - t[0] * 6, M[1] - t[1] * 6];
-              const w = 8.5;
-              const t1 = [bk[0] + n[0] * w, bk[1] + n[1] * w];
-              const t2 = [bk[0] - n[0] * w, bk[1] - n[1] * w];
-              return <polyline key={s.i} points={`${f2(t1)} ${f2(tip)} ${f2(t2)}`}
-                               fill="none" stroke="rgba(var(--gxn-glow),0.9)" strokeWidth="4"
-                               strokeLinecap="round" strokeLinejoin="round" opacity={dim ? 0.7 : 1} />;
-            })}
-            {/* center hub */}
-            <circle cx={C} cy={C} r={ri - 18} fill="#0a0d10" stroke="rgba(var(--gxn-glow),0.55)" strokeWidth="2" />
-            <text x={C} y={C - 8} textAnchor="middle" dominantBaseline="central"
-                  fontFamily="'Noto Sans SC',sans-serif" fontWeight="700" fontSize="40" fill="#eef3f1">{p.center.label}</text>
-            <text x={C} y={C + 34} textAnchor="middle" dominantBaseline="central"
-                  fontFamily="'Space Mono',monospace" fontSize="20" fill="var(--gxn-accent)" letterSpacing="2">{p.center.sub}</text>
-          </svg>
+        <div className="gxn-rise-2" style={{ flex: 1, marginTop: 28, minHeight: 0, display: 'flex',
+          alignItems: 'center', justifyContent: 'center', gap: 72 }}>
 
-          {/* flanking cards */}
-          {p.showCards && segGeom.map((s) => {
-            const cos = Math.sin(s.mid);   // x-direction on screen
-            const left = cxp + rCardX * Math.sin(s.mid);
-            const top = cyp - rCardY * Math.cos(s.mid);
-            const isF = s.i === fIdx; const dim = fIdx >= 0 && !isF;
-            const rightSide = cos >= -0.05;
-            const col = palette[s.i % palette.length];
-            return (
-              <div key={s.i} className={cx('gxn-panel', isF && 'is-focus')} style={{
-                position: 'absolute', left: `${left}%`, top: `${top}%`, transform: 'translate(-50%,-50%)',
-                width: 300, padding: '22px 26px', display: 'flex', flexDirection: 'column', gap: 10,
-                textAlign: rightSide ? 'left' : 'right', alignItems: rightSide ? 'flex-start' : 'flex-end',
-                opacity: dim ? 0.5 : 1, transition: 'opacity .3s ease',
-              }}>
-                <span style={{ display: 'flex', alignItems: 'center', gap: 10, flexDirection: rightSide ? 'row' : 'row-reverse' }}>
-                  <span style={{ width: 12, height: 12, borderRadius: 4, background: col, boxShadow: `0 0 12px -1px ${col}` }} />
-                  <span style={{ fontSize: 30, fontWeight: 700, color: 'var(--gxn-text)' }}>{s.label}</span>
-                </span>
-                <span style={{ fontSize: 23, lineHeight: 1.45, color: 'var(--gxn-dim)' }}>{s.desc}</span>
-                {p.showTags && s.tags && s.tags.length > 0 && (
-                  <span style={{ display: 'flex', flexWrap: 'wrap', gap: 8, justifyContent: rightSide ? 'flex-start' : 'flex-end' }}>
-                    {s.tags.map((t, k) => (
-                      <span key={k} className="gxn-mono" style={{ fontSize: 20, color: 'var(--gxn-accent)', padding: '5px 13px',
-                        borderRadius: 999, border: '1px solid rgba(var(--gxn-glow),0.35)', background: 'rgba(var(--gxn-glow),0.05)' }}>{t}</span>
-                    ))}
-                  </span>
-                )}
-              </div>
-            );
-          })}
+          {/* wheel */}
+          <div style={{ flex: p.showCards ? '0 0 auto' : '0 0 auto', display: 'flex',
+            alignItems: 'center', justifyContent: 'center', minHeight: 0 }}>
+            <svg viewBox={`0 0 ${S} ${S}`} style={{ width: wheelSize, height: wheelSize, overflow: 'visible' }}>
+              <defs>
+                <filter id="gxn-cw-glow" x="-40%" y="-40%" width="180%" height="180%">
+                  <feGaussianBlur stdDeviation="8" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge>
+                </filter>
+              </defs>
+              {/* faint orbit guide behind the ring */}
+              <circle cx={C} cy={C} r={ro + 26} fill="none" stroke="rgba(255,255,255,0.07)" strokeWidth="1" strokeDasharray="2 8" />
+              {segGeom.map((s) => {
+                const col = colorOf(s.i);
+                const isF = s.i === fIdx; const dim = fIdx >= 0 && !isF;
+                const lab = PT(Rc, s.mid);
+                const out = PT(ro + 44, s.mid);
+                const side = Math.sin(s.mid); // >0 right, <0 left
+                const anchor = Math.abs(side) < 0.35 ? 'middle' : (side > 0 ? 'start' : 'end');
+                return (
+                  <g key={s.i} opacity={dim ? 0.4 : 1} style={{ transition: 'opacity .3s ease' }}>
+                    <path d={sector(s.a0, s.a1)} fill={col} filter={isF ? 'url(#gxn-cw-glow)' : undefined} />
+                    {/* number inside the band — always fits, any angle */}
+                    <text x={lab[0]} y={lab[1]} textAnchor="middle" dominantBaseline="central"
+                          fontFamily="'Space Mono',monospace" fontWeight="700" fontSize="34"
+                          fill="#07090b">{String(s.i + 1).padStart(2, '0')}</text>
+                    {/* callout labels outside the ring — only when the card rail is hidden */}
+                    {!p.showCards && (
+                      <g>
+                        <text x={out[0]} y={out[1] - (Math.abs(side) < 0.35 ? (PT(1, s.mid)[1] < C ? 14 : -2) : 10)}
+                              textAnchor={anchor} dominantBaseline="central"
+                              fontFamily="'Noto Sans SC',sans-serif" fontWeight="700" fontSize="30" fill="#eef3f1">{s.label}</text>
+                        <text x={out[0]} y={out[1] + (Math.abs(side) < 0.35 ? (PT(1, s.mid)[1] < C ? 44 : 28) : 20)}
+                              textAnchor={anchor} dominantBaseline="central"
+                              fontFamily="'Space Mono',monospace" fontSize="16" fill={col} letterSpacing="1">{s.en}</text>
+                      </g>
+                    )}
+                  </g>
+                );
+              })}
+              {/* clockwise chevron in each gap — keeps the flywheel rotation read */}
+              {p.showArrows && segGeom.map((s) => {
+                const ab = s.bound;
+                const M = PT(Rc, ab);
+                const t = [Math.cos(ab), Math.sin(ab)];   // clockwise tangent
+                const n = [Math.sin(ab), -Math.cos(ab)];  // outward radial
+                const tip = [M[0] + t[0] * 9, M[1] + t[1] * 9];
+                const bk = [M[0] - t[0] * 6, M[1] - t[1] * 6];
+                const w = 8.5;
+                const t1 = [bk[0] + n[0] * w, bk[1] + n[1] * w];
+                const t2 = [bk[0] - n[0] * w, bk[1] - n[1] * w];
+                return <polyline key={s.i} points={`${f2(t1)} ${f2(tip)} ${f2(t2)}`}
+                                 fill="none" stroke="rgba(var(--gxn-glow),0.9)" strokeWidth="4"
+                                 strokeLinecap="round" strokeLinejoin="round" opacity={fIdx >= 0 ? 0.7 : 1} />;
+              })}
+              {/* center hub */}
+              <circle cx={C} cy={C} r={ri - 18} fill="#0a0d10" stroke="rgba(var(--gxn-glow),0.55)" strokeWidth="2" />
+              <circle cx={C} cy={C} r={ri - 30} fill="none" stroke="rgba(var(--gxn-glow),0.18)" strokeWidth="1" strokeDasharray="3 6" />
+              <text x={C} y={C - 8} textAnchor="middle" dominantBaseline="central"
+                    fontFamily="'Noto Sans SC',sans-serif" fontWeight="700" fontSize="40" fill="#eef3f1">{p.center.label}</text>
+              <text x={C} y={C + 34} textAnchor="middle" dominantBaseline="central"
+                    fontFamily="'Space Mono',monospace" fontSize="20" fill="var(--gxn-accent)" letterSpacing="2">{p.center.sub}</text>
+            </svg>
+          </div>
+
+          {/* segment card rail — deterministic vertical stack, no overlap */}
+          {p.showCards && (
+            <div style={{ flex: '0 1 720px', maxWidth: 720, alignSelf: 'stretch', minHeight: 0,
+              display: 'grid', gridTemplateRows: `repeat(${count}, 1fr)`, gap: 18 }}>
+              {segGeom.map((s) => {
+                const isF = s.i === fIdx; const dim = fIdx >= 0 && !isF;
+                const col = colorOf(s.i);
+                return (
+                  <div key={s.i} className={cx('gxn-panel', isF && 'is-focus')} style={{
+                    display: 'flex', alignItems: 'center', gap: 26, padding: '0 32px', minHeight: 0,
+                    opacity: dim ? 0.5 : 1, transition: 'opacity .3s ease',
+                  }}>
+                    <span className="gxn-num" style={{ fontSize: 40, fontWeight: 700, lineHeight: 1,
+                      color: isF ? col : 'var(--gxn-faint)', flex: '0 0 auto',
+                      textShadow: isF ? `0 0 22px ${col}` : 'none' }}>{String(s.i + 1).padStart(2, '0')}</span>
+                    <span style={{ width: 3, alignSelf: 'stretch', margin: '16px 0', borderRadius: 2,
+                      background: `linear-gradient(180deg, ${col}, transparent)`, flex: '0 0 auto' }} />
+                    <span style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 0, flex: 1 }}>
+                      <span style={{ display: 'flex', alignItems: 'baseline', gap: 14, minWidth: 0 }}>
+                        <span style={{ fontSize: 29, fontWeight: 700, color: 'var(--gxn-text)', whiteSpace: 'nowrap' }}>{s.label}</span>
+                        <span className="gxn-mono" style={{ fontSize: 17, letterSpacing: '.08em', color: col,
+                          whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>{s.en}</span>
+                      </span>
+                      <span style={{ fontSize: 22, lineHeight: 1.4, color: 'var(--gxn-dim)' }}>{s.desc}</span>
+                    </span>
+                    {p.showTags && s.tags && s.tags.length > 0 && (
+                      <span style={{ display: 'flex', flexDirection: 'column', gap: 8, flex: '0 0 auto', alignItems: 'flex-start' }}>
+                        {s.tags.map((t, k) => (
+                          <span key={k} className="gxn-mono" style={{ fontSize: 18, color: 'var(--gxn-accent)', padding: '4px 12px',
+                            borderRadius: 999, border: '1px solid rgba(var(--gxn-glow),0.35)', background: 'rgba(var(--gxn-glow),0.05)',
+                            whiteSpace: 'nowrap' }}>{t}</span>
+                        ))}
+                      </span>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          )}
         </div>
       </div>
     </div>

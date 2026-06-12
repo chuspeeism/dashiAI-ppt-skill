@@ -42,7 +42,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   nodeCount: 4,          // timeline company nodes (2–4)
   focusEnabled: true,    // highlight one watched company
   focusIndex: 0,         // which company is the focus (0-based)
@@ -53,6 +53,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'IPO Watch' },
+  { key: 'segment', label: 'segment', type: 'text', default: '策略 · 观察 IPO 窗口' },
+  { key: 'title', label: '标题', type: 'text', default: '估值锚重定价' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '策略 · 观察 IPO 窗口' },
+  { key: 'lead', label: '导言', type: 'text', default: '头部公司 IPO 表现会影响整个 AI 一级市场估值锚；如果头部上市后估值承压，一级市场会同步下修预期。' },
+  { key: 'closing', label: '结语', type: 'text', default: '公开市场会重新定价 AI 叙事。' },
+  { key: 'axisLabel', label: '坐标标签', type: 'text', default: 'IPO 观察序列 · 估值锚定者' },
+  { key: 'metricsTitle', label: 'metricsTitle', type: 'text', default: '观察指标 · Signals' },
   { key: 'nodeCount', label: '节点数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
     description: '时间轴上的观察公司节点数量（2–4）。' },
   { key: 'focusEnabled', label: '重点信息', type: 'toggle', default: true,
@@ -156,7 +164,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','pos','accent'
 
 export default function RepricingPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, axisLabel: p.axisLabel !== undefined ? p.axisLabel : COPY.axisLabel, metricsTitle: p.metricsTitle !== undefined ? p.metricsTitle : COPY.metricsTitle, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-rp', CSS);
   const vars = themeVars(p.accentColor);

@@ -42,7 +42,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'pressure', // 'pressure' | 'bars'
   segmentCount: 3,       // pressure indicators shown (2–3)
   focusEnabled: true,    // highlight one indicator
@@ -54,6 +54,19 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Open Source Risk' },
+  { key: 'marker', label: 'marker', type: 'text', default: '开源与大厂竞争' },
+  { key: 'segment', label: 'segment', type: 'text', default: '风险 · 开源与大厂竞争' },
+  { key: 'title', label: '标题', type: 'text', default: '壁垒被压缩' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '风险 · 开源与大厂竞争' },
+  { key: 'lead', label: '导言', type: 'text', default: '开源模型降低能力门槛，大厂生态压缩初创公司的独立空间；初创公司必须找到数据、工作流或行业入口壁垒。' },
+  { key: 'closing', label: '结语', type: 'text', default: '没有壁垒的模型能力会迅速商品化。' },
+  { key: 'bandTitle', label: 'bandTitle', type: 'text', default: '初创公司独立空间 · 被两侧压缩' },
+  { key: 'bandLeft', label: 'bandLeft', type: 'text', default: '开源可替代' },
+  { key: 'bandRight', label: 'bandRight', type: 'text', default: '大厂生态覆盖' },
+  { key: 'bandCore', label: 'bandCore', type: 'text', default: '剩余壁垒' },
+  { key: 'bandCoreSub', label: 'bandCoreSub', type: 'text', default: '数据 · 工作流 · 行业入口' },
+  { key: 'metersTitle', label: 'metersTitle', type: 'text', default: '竞争压力 · 逼近壁垒线' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'pressure',
     options: [{ value: 'pressure', label: '压力计' }, { value: 'bars', label: '占比条' }],
     description: '主图表样式：逼近壁垒线的压力计 / 资金占比条。' },
@@ -174,7 +187,7 @@ const BAR_FILL = [
 
 export default function MoatPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, bandTitle: p.bandTitle !== undefined ? p.bandTitle : COPY.bandTitle, bandLeft: p.bandLeft !== undefined ? p.bandLeft : COPY.bandLeft, bandRight: p.bandRight !== undefined ? p.bandRight : COPY.bandRight, bandCore: p.bandCore !== undefined ? p.bandCore : COPY.bandCore, bandCoreSub: p.bandCoreSub !== undefined ? p.bandCoreSub : COPY.bandCoreSub, metersTitle: p.metersTitle !== undefined ? p.metersTitle : COPY.metersTitle, indicators: p.indicators !== undefined ? p.indicators : COPY.indicators };
   ensureFonts();
   injectScopedStyle('aic-mt', CSS);
   const vars = themeVars(p.accentColor);

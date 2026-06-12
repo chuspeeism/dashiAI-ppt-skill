@@ -1,7 +1,7 @@
 export const theme = {
   "key": "theme04",
   "name": "04-玻璃糖果",
-  "mode": "new"
+  "mode": "replace"
 };
 export const pages = [
   {

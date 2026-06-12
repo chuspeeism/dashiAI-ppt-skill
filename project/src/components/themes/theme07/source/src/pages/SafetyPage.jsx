@@ -52,7 +52,7 @@ const LAYER_FILL = [
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'layers',   // 'layers' | 'bars'
   layerCount: 3,         // defense layers shown (2–4)
   metricCount: 4,        // metric cards shown (2–4)
@@ -64,6 +64,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'AI Safety' },
+  { key: 'segment', label: 'segment', type: 'text', default: 'AI 安全赛道' },
+  { key: 'title', label: '标题', type: 'text', default: '评测、红队与合规' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'AI 安全赛道' },
+  { key: 'lead', label: '导言', type: 'text', default: 'AI 安全覆盖模型评测、红队测试、内容安全和合规监测；监管收紧会把它从可选预算变成刚性预算。' },
+  { key: 'closing', label: '结语', type: 'text', default: '安全能力会成为企业采购门槛。' },
+  { key: 'chartTitle', label: 'chartTitle', type: 'text', default: '安全防线 · 资金 / 亿美元' },
+  { key: 'splitTitle', label: 'splitTitle', type: 'text', default: '防线资金占比' },
+  { key: 'stripTitle', label: 'stripTitle', type: 'text', default: '风险拦截示意' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'layers',
     options: [{ value: 'layers', label: '防线分层' }, { value: 'bars', label: '占比条' }],
     description: '主图表样式：分层防线堆叠 / 资金占比条。' },
@@ -192,7 +201,7 @@ const SPLIT_FILL = [
 
 export default function SafetyPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, splitTitle: p.splitTitle !== undefined ? p.splitTitle : COPY.splitTitle, stripTitle: p.stripTitle !== undefined ? p.stripTitle : COPY.stripTitle, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, layers: p.layers !== undefined ? p.layers : COPY.layers };
   ensureFonts();
   injectScopedStyle('aic-saf', CSS);
   const vars = themeVars(p.accentColor);

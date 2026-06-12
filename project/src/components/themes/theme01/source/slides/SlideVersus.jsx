@@ -100,7 +100,7 @@ export default function SlideVersus(props) {
                 borderBottom: `2px solid ${hexA(c, on ? 0.5 : 0.3)}` }}>
                 {hasLogo ? (
                   <div style={{ flex: '0 0 auto', width: 72, height: 72 }}>
-                    <ImageSlot src={p.images[ci] || ''} placeholder={co.name} fit={p.imageFit}
+                    <ImageSlot slot={ci} src={p.images[ci] || ''} placeholder={co.name} fit={p.imageFit}
                       ratioMode="fill" accent={c} radius={16} style={{ height: '100%' }} />
                   </div>
                 ) : (

@@ -33,7 +33,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   backgroundVariant: 'gradient', // 'gradient' | 'solid' | 'dark'
   heroMotif: 'both',             // 'lens' | 'number' | 'both'
   numberSlant: true,
@@ -42,6 +42,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'AI CAPITAL LAB · 2024' },
+  { key: 'reportTag', label: '标签', type: 'text', default: '2024 · 调研报告' },
+  { key: 'titleL1', label: '标题行1', type: 'text', default: '美国大额融资' },
+  { key: 'titleL2', label: '标题行2', type: 'text', default: 'AI 公司调研报告' },
+  { key: 'sub', label: '次标题', type: 'text', default: '数据口径：2024 全年 · 单笔 ≥ 1 亿美元' },
+  { key: 'thesis', label: '论点', type: 'text', default: '在资本与算力的浪潮里，每一笔融资都是一次方向的押注。' },
+  { key: 'closing', label: '结语', type: 'text', default: '从资本流向，看 AI 产业下一阶段的真实重心。' },
+  { key: 'featureNumber', label: '特征数字', type: 'text', default: '2024' },
+  { key: 'featureLabel', label: '特征标签', type: 'text', default: 'DATA YEAR' },
   { key: 'backgroundVariant', label: '背景风格', type: 'radio', default: 'gradient',
     options: [
       { value: 'gradient', label: '光晕' },
@@ -158,7 +167,7 @@ const DISCS = [
 
 export default function CoverPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, reportTag: p.reportTag !== undefined ? p.reportTag : COPY.reportTag, titleL1: p.titleL1 !== undefined ? p.titleL1 : COPY.titleL1, titleL2: p.titleL2 !== undefined ? p.titleL2 : COPY.titleL2, sub: p.sub !== undefined ? p.sub : COPY.sub, thesis: p.thesis !== undefined ? p.thesis : COPY.thesis, closing: p.closing !== undefined ? p.closing : COPY.closing, featureNumber: p.featureNumber !== undefined ? p.featureNumber : COPY.featureNumber, featureLabel: p.featureLabel !== undefined ? p.featureLabel : COPY.featureLabel, specs: p.specs !== undefined ? p.specs : COPY.specs };
   ensureFonts();
   injectScopedStyle('aic-cover', CSS);
 

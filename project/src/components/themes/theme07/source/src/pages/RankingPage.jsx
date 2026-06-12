@@ -40,7 +40,7 @@ const TRACK_COLOR = {
 const TRACK_ORDER = ['通用大模型', '基础设施', '具身智能', '垂直应用'];
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 10,          // companies shown (5–10)
   focusEnabled: true,    // emphasize the top rows
   focusCount: 3,         // how many top rows are emphasized (前 N 名)
@@ -50,6 +50,12 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Top Funded Companies' },
+  { key: 'title', label: '标题', type: 'text', default: 'Top 10 融资公司' },
+  { key: 'sub', label: '次标题', type: 'text', default: '头部玩家资金排名' },
+  { key: 'lead', label: '导言', type: 'text', default: '头部公司融资额显著领先，通用大模型占据榜单上方位置。' },
+  { key: 'note', label: 'note', type: 'text', default: '口径：以最大单笔融资计 · 单位 亿美元' },
+  { key: 'closing', label: '结语', type: 'text', default: '头部融资规模既反映技术叙事，也反映资源绑定能力。' },
   { key: 'rowCount', label: '公司数量', type: 'slider', default: 10, min: 5, max: 10, step: 1,
     description: '榜单展示的公司数量（5–10）。' },
   { key: 'focusEnabled', label: '重点信息', type: 'toggle', default: true,
@@ -118,7 +124,7 @@ const CSS = `
 
 export default function RankingPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, companies: p.companies !== undefined ? p.companies : COPY.companies };
   ensureFonts();
   injectScopedStyle('aic-rank', CSS);
   const vars = themeVars(p.accentColor);

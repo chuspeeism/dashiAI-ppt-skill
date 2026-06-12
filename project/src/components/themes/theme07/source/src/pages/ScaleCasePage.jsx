@@ -56,7 +56,7 @@ const TIER_TONE = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 5,           // table rows shown (3–5)
   showRepresentative: true, // 代表对象 column
   showJudgment: true,    // 判断 column
@@ -69,6 +69,17 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Scale AI Case' },
+  { key: 'title', label: '标题', type: 'text', default: '数据基础设施' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'Scale AI 案例页' },
+  { key: 'marker', label: 'marker', type: 'text', default: '数据' },
+  { key: 'company', label: 'company', type: 'text', default: 'Scale AI' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Scale AI 代表数据标注、RLHF 和评测数据需求；模型越依赖高质量数据，数据基础设施越有价值。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '主营 标注 / 反馈 / 评测 · 政府客户占比 18%' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '10' },
+  { key: 'anchorUnit', label: '锚点单位', type: 'text', default: '亿美元' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '最大单笔融资 · 企业客户 1200 家' },
+  { key: 'closing', label: '结语', type: 'text', default: '数据质量是模型竞争的底层变量。' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 5, min: 3, max: 5, step: 1,
     description: '表格展示的行数量（3–5）。' },
   { key: 'showRepresentative', label: '代表对象列', type: 'toggle', default: true,
@@ -184,7 +195,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function ScaleCasePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, marker: p.marker !== undefined ? p.marker : COPY.marker, company: p.company !== undefined ? p.company : COPY.company, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, rows: p.rows !== undefined ? p.rows : COPY.rows, flow: p.flow !== undefined ? p.flow : COPY.flow };
   ensureFonts();
   injectScopedStyle('aic-scl', CSS);
   const vars = themeVars(p.accentColor);

@@ -52,7 +52,7 @@ const SEG_FILL = [
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
   chartType: 'bars',       // 'bars' | 'donut'
@@ -67,6 +67,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Autonomous AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '自动驾驶与车载 AI' },
+  { key: 'title', label: '标题', type: 'text', default: '车载模型升级' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '自动驾驶与车载 AI' },
+  { key: 'lead', label: '导言', type: 'text', default: '车载 AI 从感知模块转向端到端模型和座舱智能；资本更关注数据闭环和量产路径。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 29 亿美元 · 6 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '自动驾驶回暖，但更看重工程兑现。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '车载 AI' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '场景拆分 / 亿美元' },
+  { key: 'archTitle', label: 'archTitle', type: 'text', default: '车载 AI 架构' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -207,7 +217,7 @@ function Placeholder({ i }) {
 
 export default function AutonomyPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, archTitle: p.archTitle !== undefined ? p.archTitle : COPY.archTitle, arch: p.arch !== undefined ? p.arch : COPY.arch, segments: p.segments !== undefined ? p.segments : COPY.segments };
   ensureFonts();
   injectScopedStyle('aic-auto', CSS);
   const vars = themeVars(p.accentColor);

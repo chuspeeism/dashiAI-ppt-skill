@@ -34,7 +34,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   stepCount: 5,          // contribution steps shown (3–5)
   showTotal: true,       // final cumulative total column
   showConnectors: true,  // dashed step-to-step connector lines
@@ -46,6 +46,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Funding Waterfall' },
+  { key: 'title', label: '标题', type: 'text', default: '赛道贡献拆分' },
+  { key: 'sub', label: '次标题', type: 'text', default: '融资额贡献瀑布' },
+  { key: 'lead', label: '导言', type: 'text', default: '全年 970 亿美元由模型、应用、基础设施、芯片和其他方向共同构成。' },
+  { key: 'closing', label: '结语', type: 'text', default: '大模型制造热度，基础设施和应用承接兑现。' },
+  { key: 'chartLabel', label: 'chartLabel', type: 'text', default: '各赛道累计贡献 / 亿美元' },
+  { key: 'totalLabel', label: 'totalLabel', type: 'text', default: '全年合计' },
+  { key: 'totalUnit', label: 'totalUnit', type: 'text', default: '亿美元' },
   { key: 'stepCount', label: '台阶数量', type: 'slider', default: 5, min: 3, max: 5, step: 1,
     description: '瀑布图的贡献台阶数量（3–5）；合计自动重算。' },
   { key: 'showTotal', label: '合计列', type: 'toggle', default: true,
@@ -116,7 +124,7 @@ const M = { l: 8, r: 8, t: 56, b: 64 };
 
 export default function WaterfallPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, totalLabel: p.totalLabel !== undefined ? p.totalLabel : COPY.totalLabel, totalUnit: p.totalUnit !== undefined ? p.totalUnit : COPY.totalUnit, steps: p.steps !== undefined ? p.steps : COPY.steps };
   ensureFonts();
   injectScopedStyle('aic-wf', CSS);
   const vars = themeVars(p.accentColor);

@@ -3,9 +3,8 @@
  * Independent, prop-driven. Renders its own theme styles.
  *
  * A horizontal band of numbered steps, each = an (optional) ratio-tolerant
- * image slot above a caption block (index · tag · title · note). A connector
- * thread links the steps left-to-right. The step count and the number of
- * image slots are independently tunable; slots fill the FIRST `imageCount`
+ * image slot above a caption block (index · tag · title · note). The step
+ * count and the number of image slots are independently tunable; slots fill the FIRST `imageCount`
  * steps, the rest render as image-free text cards — so the same component
  * works as a pure-text progression (imageCount = 0) up to a full filmstrip.
  *
@@ -16,7 +15,6 @@
  *   imageCount   number   0–stepCount image slots (fill the first N steps)
  *   focusEnabled boolean  emphasise one step (others dim)
  *   focusIndex   number   0-based step to emphasise
- *   showConnector boolean show the connecting thread between steps
  *   showLead     boolean  show/hide the intro lead line
  *   images       array    image sources (preview wiring)
  *   onSlotActivate, onSlotClear  fn?  preview slot wiring
@@ -40,7 +38,6 @@ export const slideStoryboardDefaults = {
   imageCount: 4,
   focusEnabled: true,
   focusIndex: 2,
-  showConnector: true,
   showLead: true,
   images: [],
 };
@@ -50,8 +47,6 @@ export const slideStoryboardControls = [
     maxFrom: (p) => (p.steps ? p.steps.length : 4), describe: '进程带中的步骤数量' },
   { key: 'imageCount', type: 'number', label: '图片数量', default: 4, min: 0, step: 1,
     maxFrom: (p) => p.stepCount || 4, describe: '配图槽位数量（自前向后填充；0 = 纯文字步骤）' },
-  { key: 'showConnector', type: 'toggle', label: '连接线', default: true,
-    describe: '显示/隐藏步骤之间的连接线' },
   { key: 'focusEnabled', type: 'toggle', label: '重点强调', default: true,
     describe: '是否高亮其中一个步骤' },
   { key: 'focusIndex', type: 'number', label: '强调项', default: 2, min: 0, step: 1,
@@ -76,15 +71,6 @@ export function SlideStoryboard(props) {
                      subtitle={p.showLead ? p.lead : null} index={p.index} />
 
         <div className="gxn-rise-2" style={{ flex: 1, marginTop: 40, minHeight: 0, position: 'relative' }}>
-          {/* connector thread behind the cards */}
-          {p.showConnector && (
-            <div style={{
-              position: 'absolute', left: 40, right: 40, top: '50%', height: 2,
-              transform: 'translateY(-50%)',
-              background: 'linear-gradient(90deg, transparent, rgba(var(--gxn-glow),0.35) 12%, rgba(var(--gxn-glow),0.35) 88%, transparent)',
-            }} />
-          )}
-
           <div style={{ position: 'relative', height: '100%', display: 'grid', gap: 30,
                         gridTemplateColumns: `repeat(${n}, 1fr)`, alignItems: 'stretch' }}>
             {steps.map((s, i) => {

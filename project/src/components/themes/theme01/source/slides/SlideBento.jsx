@@ -72,7 +72,7 @@ const GLASS = { ...TILE, background: 'rgba(255,255,255,.52)', backdropFilter: 'b
 function ImageRegion({ n, images, fit }) {
   const slot = (i, style) => (
     <div key={i} style={{ ...style, minHeight: 0, minWidth: 0 }}>
-      <ImageSlot src={images[i] || ''} placeholder={`影像 ${i + 1}`} fit={fit} ratioMode="fill"
+      <ImageSlot slot={i} src={images[i] || ''} placeholder={`影像 ${i + 1}`} fit={fit} ratioMode="fill"
         accent="#5b8def" radius={24} style={{ height: '100%' }} />
     </div>
   );

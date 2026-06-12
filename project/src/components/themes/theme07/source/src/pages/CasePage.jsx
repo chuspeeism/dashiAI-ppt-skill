@@ -41,7 +41,7 @@ const COPY = {
 const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 3,            // number of case cards (1–3)
   imageCount: 3,           // how many cards carry an image slot (0–n)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
@@ -53,6 +53,12 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Case Studies' },
+  { key: 'title', label: '标题', type: 'text', default: '典型案例' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '深度剖析' },
+  { key: 'sub', label: '次标题', type: 'text', default: '三类资本逻辑的代表公司' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Anthropic、xAI 和 CoreWeave 分别代表安全模型、实时数据生态和算力基础设施三类资本逻辑。' },
+  { key: 'closing', label: '结语', type: 'text', default: '不同案例共同指向同一个问题：技术优势能否转成可持续收入。' },
   { key: 'cardCount', label: '卡片数量', type: 'slider', default: 3, min: 1, max: 3, step: 1,
     description: '展示的案例卡数量（1–3）。' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 3, min: 0, max: 3, step: 1,
@@ -167,7 +173,7 @@ function Placeholder({ i, ratioAR }) {
 
 export default function CasePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, cases: p.cases !== undefined ? p.cases : COPY.cases };
   ensureFonts();
   injectScopedStyle('aic-case', CSS);
   const vars = themeVars(p.accentColor);

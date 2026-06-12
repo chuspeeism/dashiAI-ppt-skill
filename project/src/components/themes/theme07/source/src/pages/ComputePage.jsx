@@ -41,7 +41,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'cluster',  // 'cluster' | 'bars'
   gridDensity: 12,       // cluster columns (8–16); rows derived
   metricCount: 4,        // metric cards shown (2–4)
@@ -53,6 +53,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'GPU Cloud' },
+  { key: 'segment', label: 'segment', type: 'text', default: 'GPU 云与算力租赁' },
+  { key: 'title', label: '标题', type: 'text', default: '算力供给稀缺' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'GPU 云与算力租赁' },
+  { key: 'lead', label: '导言', type: 'text', default: 'GPU 云公司受益于训练和推理双重需求；壁垒来自供给锁定、客户绑定和资本开支效率。' },
+  { key: 'closing', label: '结语', type: 'text', default: '算力是 AI 时代最直接的硬资源。' },
+  { key: 'chartTitle', label: 'chartTitle', type: 'text', default: '算力集群 · 资源利用' },
+  { key: 'splitTitle', label: 'splitTitle', type: 'text', default: '资源构成 / 占比' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'cluster',
     options: [{ value: 'cluster', label: '集群网格' }, { value: 'bars', label: '占比条' }],
     description: '主图表样式：算力集群热力网格 / 资源占比条。' },
@@ -174,7 +182,7 @@ function util(i, total) {
 
 export default function ComputePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, splitTitle: p.splitTitle !== undefined ? p.splitTitle : COPY.splitTitle, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, split: p.split !== undefined ? p.split : COPY.split };
   ensureFonts();
   injectScopedStyle('aic-cmp', CSS);
   const vars = themeVars(p.accentColor);

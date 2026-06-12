@@ -47,7 +47,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 2,           // hero gallery slots (0–3)
   imageRatio: 'auto',      // 'portrait' | 'landscape' | 'square' | 'auto'
   cardCount: 4,            // capability cards (2–4)
@@ -60,6 +60,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'About the Lab' },
+  { key: 'segment', label: 'segment', type: 'text', default: '研究团队与方法' },
+  { key: 'title', label: '标题', type: 'text', default: '关于 AI Capital Lab' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '研究团队与方法' },
+  { key: 'lead', label: '导言', type: 'text', default: 'AI Capital Lab 专注于 AI 产业的资本流向研究，用横纵分析法把融资数据转化为结构化判断，服务投资人、创业者与产业研究者。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '横纵分析法 · 多源交叉 · 持续追踪' },
+  { key: 'closing', label: '结语', type: 'text', default: '从资本流向，看 AI 产业的真实重心。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '研究团队' },
+  { key: 'listTitle', label: 'listTitle', type: 'text', default: '我们做什么' },
+  { key: 'contactTitle', label: 'contactTitle', type: 'text', default: '联系' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 2, min: 0, max: 3, step: 1,
     description: '主视觉区图片槽数量（0–3）；为 0 时以品牌图形填充，1 张可跟随原图比例，多张自动排成画廊。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'auto',
@@ -191,7 +201,7 @@ function Placeholder({ i }) {
 
 export default function AboutLabPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, listTitle: p.listTitle !== undefined ? p.listTitle : COPY.listTitle, contactTitle: p.contactTitle !== undefined ? p.contactTitle : COPY.contactTitle, cards: p.cards !== undefined ? p.cards : COPY.cards, contacts: p.contacts !== undefined ? p.contacts : COPY.contacts };
   ensureFonts();
   injectScopedStyle('aic-about', CSS);
   const vars = themeVars(p.accentColor);

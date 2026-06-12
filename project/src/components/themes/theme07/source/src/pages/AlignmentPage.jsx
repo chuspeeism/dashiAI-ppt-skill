@@ -43,7 +43,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
   segmentCount: 3,         // defense pillars (2–3)
@@ -57,6 +57,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Model Alignment' },
+  { key: 'segment', label: 'segment', type: 'text', default: '模型安全公司' },
+  { key: 'title', label: '标题', type: 'text', default: '安全与对齐工具' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '模型安全公司' },
+  { key: 'lead', label: '导言', type: 'text', default: '模型安全和对齐公司吸引长期资本关注；安全对齐既是技术壁垒，也是大客户信任入口。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 21 亿美元 · 5 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '可信 AI 会成为企业级 AI 的基础设施。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '安全对齐' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '安全防线 · 融资 / 亿美元' },
+  { key: 'shieldLabel', label: 'shieldLabel', type: 'text', default: '可信 AI 防线' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -192,7 +202,7 @@ function Placeholder({ i }) {
 
 export default function AlignmentPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, shieldLabel: p.shieldLabel !== undefined ? p.shieldLabel : COPY.shieldLabel, segments: p.segments !== undefined ? p.segments : COPY.segments };
   ensureFonts();
   injectScopedStyle('aic-al', CSS);
   const vars = themeVars(p.accentColor);

@@ -28,7 +28,7 @@ const COPY = {
 };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'bars',     // 'bars' | 'grid'
   focusEnabled: true,
   focusIndex: 7,         // 8月
@@ -38,6 +38,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Monthly Heatmap' },
+  { key: 'title', label: '标题', type: 'text', default: '市场月度热力' },
+  { key: 'sub', label: '次标题', type: 'text', default: '12 个月融资节奏' },
+  { key: 'lead', label: '导言', type: 'text', default: '月度数据展示全年热度并非均匀释放，而是由 5 月、8 月、9 月等峰值月份拉高。' },
+  { key: 'anchorLead', label: '锚点数字', type: 'text', default: '118' },
+  { key: 'anchorUnit', label: '锚点单位', type: 'text', default: '亿美元' },
+  { key: 'anchorNote', label: '锚点注释', type: 'text', default: '全年峰值 · 8 月单月最高，9 月、5 月紧随其后' },
+  { key: 'closing', label: '结语', type: 'text', default: '融资节奏的核心不是平均值，而是峰值背后的超级交易。' },
+  { key: 'axisLabel', label: '坐标标签', type: 'text', default: '月度融资额 / 亿美元' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'bars',
     options: [{ value: 'bars', label: '热力柱' }, { value: 'grid', label: '热力格' }],
     description: '月度热度的呈现方式：竖向热力柱 / 方格热力图。' },
@@ -113,7 +122,7 @@ const VMAX = 132;
 
 export default function MonthlyPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, axisLabel: p.axisLabel !== undefined ? p.axisLabel : COPY.axisLabel, months: p.months !== undefined ? p.months : COPY.months, peaks: p.peaks !== undefined ? p.peaks : COPY.peaks };
   ensureFonts();
   injectScopedStyle('aic-month', CSS);
   const vars = themeVars(p.accentColor);

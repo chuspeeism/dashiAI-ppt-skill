@@ -106,7 +106,7 @@ export default function SlideSpotlightTags(props) {
 
   const imgCol = hasImg ? (
     <div style={{ position: 'relative', flex: '0 0 50%', minWidth: 0, display: 'flex', alignItems: 'stretch' }}>
-      <ImageSlot src={p.images[0] || ''} placeholder="人物 / 公司特写" fit={p.imageFit}
+      <ImageSlot slot={0} src={p.images[0] || ''} placeholder="人物 / 公司特写" fit={p.imageFit}
         ratioMode="fill" accent={ac} radius={28} style={{ height: '100%' }} />
       {/* sticker tags hugging the inner seam */}
       <div style={{ position: 'absolute', top: 0, bottom: 0, [imgRight ? 'left' : 'right']: 0, width: 0, zIndex: 4 }}>

@@ -100,7 +100,7 @@ export default function SlideImageBanner(props) {
         ) : (
           Array.from({ length: cnt }).map((_, i) => (
             <div key={i} style={{ flex: 1, minWidth: 0 }}>
-              <ImageSlot src={p.images[i] || ''} placeholder={`满版图片 ${i + 1}`} fit={p.imageFit}
+              <ImageSlot slot={i} src={p.images[i] || ''} placeholder={`满版图片 ${i + 1}`} fit={p.imageFit}
                 ratioMode="fill" accent={ac} radius={0} style={{ height: '100%', borderRadius: 0, border: 'none' }} />
             </div>
           ))

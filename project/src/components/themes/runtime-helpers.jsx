@@ -17,6 +17,7 @@ export function normalizeRuntimePages(rawPages, { themeKey, layoutPrefix }) {
       Component: entry.Component || entry.component || entry.Comp || entry.C,
       controls: entry.controls || entry.spec?.controls || meta.controls || [],
       defaultProps,
+      staticHtml: entry.staticHtml || false,
       bgClass: entry.bgClass || entry.backgroundClass || '',
     };
   });

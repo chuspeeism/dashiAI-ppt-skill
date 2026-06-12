@@ -34,19 +34,35 @@
 - 封面候选: `theme04_page001` 到 `theme04_page005`,一个 deck 只选 1 页
 - 视觉来源: `<skill-root>/project/src/components/themes/theme04`
 
+## theme05
+
+- 主题名: 05-PULSE 色谱图表
+- 页面数: 94
+- 页面 key: `theme05_page001` 到 `theme05_page094`
+- 封面候选: `theme05_page001` 到 `theme05_page005`,一个 deck 只选 1 页
+- 视觉来源: `<skill-root>/project/src/components/themes/theme05`
+
+## theme06
+
+- 主题名: 06-深色数据图谱
+- 页面数: 83
+- 页面 key: `theme06_page001` 到 `theme06_page083`
+- 封面候选: `theme06_page001` 到 `theme06_page005`,一个 deck 只选 1 页
+- 视觉来源: `<skill-root>/project/src/components/themes/theme06`
+
 ## theme07
 
 - 主题名: 07-冷白调研图谱
-- 页面数: 70
-- 页面 key: `theme07_page001` 到 `theme07_page070`
+- 页面数: 74
+- 页面 key: `theme07_page001` 到 `theme07_page074`
 - 封面候选: `theme07_page001` 到 `theme07_page005`,一个 deck 只选 1 页
 - 视觉来源: `<skill-root>/project/src/components/themes/theme07`
 
 ## theme08
 
 - 主题名: 08-黑金实验质感
-- 页面数: 82
-- 页面 key: `theme08_page001` 到 `theme08_page082`
+- 页面数: 86
+- 页面 key: `theme08_page001` 到 `theme08_page086`
 - 封面候选: `theme08_page001` 到 `theme08_page005`,一个 deck 只选 1 页
 - 视觉来源: `<skill-root>/project/src/components/themes/theme08`
 

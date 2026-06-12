@@ -50,7 +50,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
   stepCount: 4,            // pipeline nodes (3–5)
@@ -65,6 +65,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Low-Code AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '低代码 AI 平台' },
+  { key: 'title', label: '标题', type: 'text', default: '企业流程嵌入' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '低代码 AI 平台' },
+  { key: 'lead', label: '导言', type: 'text', default: '低代码 AI 平台帮助企业把模型能力嵌入内部流程；关键不是模型能力，而是交付速度和治理能力。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 19 亿美元 · 6 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '能被业务团队使用的平台更容易扩散。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '低代码' },
+  { key: 'flowTitle', label: 'flowTitle', type: 'text', default: '流程编排 · Orchestration' },
+  { key: 'metricTitle', label: 'metricTitle', type: 'text', default: '客户与留存 · Retention' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -219,7 +229,7 @@ function Placeholder({ i }) {
 
 export default function LowCodePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, metricTitle: p.metricTitle !== undefined ? p.metricTitle : COPY.metricTitle, steps: p.steps !== undefined ? p.steps : COPY.steps, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-lc', CSS);
   const vars = themeVars(p.accentColor);

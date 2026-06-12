@@ -453,9 +453,10 @@ export function deckOverrideCSS(deck = {}) {
   transition: transform .16s cubic-bezier(.22,.61,.36,1);
   will-change: transform;
 }
-@media (prefers-reduced-motion: reduce){
-  .${THEME_CLASS} .gxn-panel.is-focus{ transform:none; }
-}
+/* NOTE: magnet hover is a pointer-driven micro-interaction (follows the cursor,
+   no autonomous/looping motion), so it is intentionally exempt from
+   prefers-reduced-motion. Autonomous loops (ticket breath, neon flow, aurora,
+   entrance rise) remain gated by reduce-motion elsewhere in this file. */
 `;
   }
   return css;

@@ -3,43 +3,57 @@ export const GENERATED_THEME_PACKS = [
     "key": "theme01",
     "label": "01-轻拟态质感",
     "name": "01-轻拟态质感",
-    "mode": "new",
+    "mode": "replace",
     "pageCount": 84
   },
   {
     "key": "theme02",
     "label": "02-炫光紫绿",
     "name": "02-炫光紫绿",
-    "mode": "new",
+    "mode": "replace",
     "pageCount": 74
   },
   {
     "key": "theme03",
     "label": "03-深浅代码风",
     "name": "03-深浅代码风",
-    "mode": "new",
+    "mode": "replace",
     "pageCount": 77
   },
   {
     "key": "theme04",
     "label": "04-玻璃糖果",
     "name": "04-玻璃糖果",
-    "mode": "new",
+    "mode": "replace",
     "pageCount": 74
+  },
+  {
+    "key": "theme05",
+    "label": "05-PULSE 色谱图表",
+    "name": "05-PULSE 色谱图表",
+    "mode": "new",
+    "pageCount": 94
+  },
+  {
+    "key": "theme06",
+    "label": "06-深色数据图谱",
+    "name": "06-深色数据图谱",
+    "mode": "new",
+    "pageCount": 83
   },
   {
     "key": "theme07",
     "label": "07-冷白调研图谱",
     "name": "07-冷白调研图谱",
-    "mode": "new",
-    "pageCount": 70
+    "mode": "replace",
+    "pageCount": 74
   },
   {
     "key": "theme08",
     "label": "08-黑金实验质感",
     "name": "08-黑金实验质感",
-    "mode": "new",
-    "pageCount": 82
+    "mode": "replace",
+    "pageCount": 86
   },
   {
     "key": "theme09",
@@ -11891,7 +11905,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12014,7 +12028,7 @@ export const GENERATED_THEME_PAGES = [
       "showTags": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12052,7 +12066,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12171,7 +12185,7 @@ export const GENERATED_THEME_PAGES = [
       "statCount": 3,
       "showMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12209,7 +12223,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12336,7 +12350,7 @@ export const GENERATED_THEME_PAGES = [
       "showSubtitle": true,
       "showTags": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12374,7 +12388,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12518,7 +12532,7 @@ export const GENERATED_THEME_PAGES = [
       "metaCount": 3,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12556,7 +12570,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12687,7 +12701,7 @@ export const GENERATED_THEME_PAGES = [
       "showDesc": true,
       "showMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12725,7 +12739,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12842,7 +12856,7 @@ export const GENERATED_THEME_PAGES = [
       "focusIndex": 0,
       "showIndex": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12880,7 +12894,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13023,7 +13037,7 @@ export const GENERATED_THEME_PAGES = [
       "showRail": true,
       "showLead": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13061,7 +13075,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13222,7 +13236,7 @@ export const GENERATED_THEME_PAGES = [
         "secondary": "事件笔数"
       },
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13260,7 +13274,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13427,7 +13441,7 @@ export const GENERATED_THEME_PAGES = [
       "showPeakTag": true,
       "showScale": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13465,7 +13479,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13614,7 +13628,7 @@ export const GENERATED_THEME_PAGES = [
       "centerLabel": "亿美元 · 全年合计",
       "finding": "通用大模型占据近半壁江山，反映投资人押注 AGI 叙事；基础设施与芯片合计超四分之一，上游热度不减。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13652,7 +13666,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13825,7 +13839,7 @@ export const GENERATED_THEME_PAGES = [
       "showValueLabels": true,
       "footnote": "注：部分公司全年有多轮融资，此处仅列其最大单笔。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13863,7 +13877,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -14016,7 +14030,7 @@ export const GENERATED_THEME_PAGES = [
       "showConnector": true,
       "showMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -14054,7 +14068,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -14188,7 +14202,7 @@ export const GENERATED_THEME_PAGES = [
       ],
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -14226,7 +14240,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -14336,7 +14350,7 @@ export const GENERATED_THEME_PAGES = [
       "showLead": true,
       "showRule": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -14374,7 +14388,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -14516,7 +14530,7 @@ export const GENERATED_THEME_PAGES = [
       "showDesc": true,
       "showAxisLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -14554,7 +14568,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -14743,7 +14757,7 @@ export const GENERATED_THEME_PAGES = [
       "showLegend": true,
       "showAxisLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -14781,7 +14795,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -14957,7 +14971,7 @@ export const GENERATED_THEME_PAGES = [
       "showSub": true,
       "showVerdict": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -14995,7 +15009,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -15171,7 +15185,7 @@ export const GENERATED_THEME_PAGES = [
       "showFlow": true,
       "showNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -15209,7 +15223,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -15354,7 +15368,7 @@ export const GENERATED_THEME_PAGES = [
       "showValueLabels": true,
       "showTargetMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -15392,7 +15406,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -15533,7 +15547,7 @@ export const GENERATED_THEME_PAGES = [
       "showDelta": true,
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -15571,7 +15585,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -15695,7 +15709,7 @@ export const GENERATED_THEME_PAGES = [
       "showLead": true,
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -15733,7 +15747,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -15873,7 +15887,7 @@ export const GENERATED_THEME_PAGES = [
       "showLabels": true,
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -15911,7 +15925,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -16073,7 +16087,7 @@ export const GENERATED_THEME_PAGES = [
       "heroExtra": "tags",
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -16111,7 +16125,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -16254,7 +16268,7 @@ export const GENERATED_THEME_PAGES = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -16292,7 +16306,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -16424,7 +16438,7 @@ export const GENERATED_THEME_PAGES = [
       "focusIndex": 0,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -16462,7 +16476,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -16616,7 +16630,7 @@ export const GENERATED_THEME_PAGES = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -16654,7 +16668,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -16793,7 +16807,7 @@ export const GENERATED_THEME_PAGES = [
       "showTags": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -16831,7 +16845,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -16995,7 +17009,7 @@ export const GENERATED_THEME_PAGES = [
       "showStat": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -17033,7 +17047,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -17157,7 +17171,7 @@ export const GENERATED_THEME_PAGES = [
       "showLead": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -17195,7 +17209,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -17332,7 +17346,7 @@ export const GENERATED_THEME_PAGES = [
       "showTags": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -17370,7 +17384,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -17509,7 +17523,7 @@ export const GENERATED_THEME_PAGES = [
       "showCaptions": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -17547,7 +17561,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -17702,7 +17716,7 @@ export const GENERATED_THEME_PAGES = [
       "showAvgBar": true,
       "showTotal": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -17740,7 +17754,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -17876,7 +17890,7 @@ export const GENERATED_THEME_PAGES = [
       "showLegend": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -17914,7 +17928,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -18084,7 +18098,7 @@ export const GENERATED_THEME_PAGES = [
       "showLegend": true,
       "showRowNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -18122,7 +18136,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -18261,7 +18275,7 @@ export const GENERATED_THEME_PAGES = [
         "note": "人才、资本、算力的虹吸效应进一步强化，“地理护城河”短期难以撼动。"
       },
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -18299,7 +18313,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -18457,7 +18471,7 @@ export const GENERATED_THEME_PAGES = [
       "showWidthLabels": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -18495,7 +18509,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -18627,7 +18641,7 @@ export const GENERATED_THEME_PAGES = [
       "showRate": true,
       "showDetail": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -18665,7 +18679,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -18834,7 +18848,7 @@ export const GENERATED_THEME_PAGES = [
       "showLabels": true,
       "showAxisTitles": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -18872,7 +18886,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -19011,7 +19025,7 @@ export const GENERATED_THEME_PAGES = [
       "showValueLabels": true,
       "showGrid": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -19049,7 +19063,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -19203,7 +19217,7 @@ export const GENERATED_THEME_PAGES = [
       "showLegend": true,
       "showNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -19241,7 +19255,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -19379,7 +19393,7 @@ export const GENERATED_THEME_PAGES = [
       "showNote": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -19417,7 +19431,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -19536,7 +19550,7 @@ export const GENERATED_THEME_PAGES = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -19574,7 +19588,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -19702,7 +19716,7 @@ export const GENERATED_THEME_PAGES = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -19740,7 +19754,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -19881,7 +19895,7 @@ export const GENERATED_THEME_PAGES = [
       "showStepNo": true,
       "showDesc": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -19919,7 +19933,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -20050,7 +20064,7 @@ export const GENERATED_THEME_PAGES = [
       "showRail": true,
       "showDivider": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -20088,7 +20102,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -20235,7 +20249,7 @@ export const GENERATED_THEME_PAGES = [
       "showLevel": true,
       "showDesc": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -20273,7 +20287,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -20378,7 +20392,7 @@ export const GENERATED_THEME_PAGES = [
       "showAttribution": true,
       "showRule": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -20416,7 +20430,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -20613,7 +20627,7 @@ export const GENERATED_THEME_PAGES = [
       "showLegend": true,
       "valueSuffix": "B",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -20651,7 +20665,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -20790,7 +20804,7 @@ export const GENERATED_THEME_PAGES = [
       "overlayStyle": "panel",
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -20828,7 +20842,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -21020,7 +21034,7 @@ export const GENERATED_THEME_PAGES = [
       "focusIndex": 0,
       "highlightCol": 3,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -21058,7 +21072,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -21181,7 +21195,7 @@ export const GENERATED_THEME_PAGES = [
       "showVs": true,
       "focusSide": "none",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -21219,7 +21233,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -21372,7 +21386,7 @@ export const GENERATED_THEME_PAGES = [
       "showQuote": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -21410,7 +21424,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -21476,13 +21490,6 @@ export const GENERATED_THEME_PAGES = [
         "desc": "配图槽位数量（自前向后填充；0 = 纯文字步骤）"
       },
       {
-        "key": "showConnector",
-        "label": "连接线",
-        "type": "toggle",
-        "default": true,
-        "desc": "显示/隐藏步骤之间的连接线"
-      },
-      {
         "key": "focusEnabled",
         "label": "重点强调",
         "type": "toggle",
@@ -21537,11 +21544,10 @@ export const GENERATED_THEME_PAGES = [
       "imageCount": 4,
       "focusEnabled": true,
       "focusIndex": 2,
-      "showConnector": true,
       "showLead": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -21579,7 +21585,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -21737,7 +21743,7 @@ export const GENERATED_THEME_PAGES = [
       "showAnnotation": true,
       "annotation": "通用大模型一年内融资规模翻倍并拉开身位，垂直应用与基础设施同步放量，资本向上游与头部赛道集中的趋势进一步强化。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -21775,7 +21781,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -21899,7 +21905,7 @@ export const GENERATED_THEME_PAGES = [
       "footnote": "资本的下一阶段，将从「赌叙事」转向「看兑现」。",
       "showFootnote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -21937,7 +21943,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -22052,7 +22058,7 @@ export const GENERATED_THEME_PAGES = [
       "showRail": true,
       "showLead": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -22090,7 +22096,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -22229,7 +22235,7 @@ export const GENERATED_THEME_PAGES = [
       "showAnnotation": true,
       "annotation": "5 月与 8 月形成两次峰值，与多家头部公司集中关账有关；年末回落但仍高于上半年，节奏呈「双峰脉冲」。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -22267,7 +22273,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -22413,7 +22419,7 @@ export const GENERATED_THEME_PAGES = [
       "faceTexture": "gloss",
       "gxnScheme": {},
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -22451,7 +22457,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -22585,7 +22591,7 @@ export const GENERATED_THEME_PAGES = [
       "showBackdrop": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -22623,7 +22629,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -22780,7 +22786,7 @@ export const GENERATED_THEME_PAGES = [
       "showValueLabels": true,
       "showGrid": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -22818,7 +22824,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -22993,7 +22999,7 @@ export const GENERATED_THEME_PAGES = [
       "showLabels": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -23031,7 +23037,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -23165,7 +23171,7 @@ export const GENERATED_THEME_PAGES = [
       "showShare": true,
       "showNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -23203,7 +23209,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -23288,7 +23294,7 @@ export const GENERATED_THEME_PAGES = [
         "label": "说明卡片",
         "type": "toggle",
         "default": true,
-        "desc": "两翼说明卡片显隐"
+        "desc": "右侧环节说明卡列显隐"
       },
       {
         "key": "showTags",
@@ -23361,7 +23367,7 @@ export const GENERATED_THEME_PAGES = [
       "showCards": true,
       "showTags": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -23398,7 +23404,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -23539,7 +23545,7 @@ export const GENERATED_THEME_PAGES = [
       "showValueLabels": true,
       "showDelta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -23577,7 +23583,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -23725,7 +23731,7 @@ export const GENERATED_THEME_PAGES = [
       "showIndex": true,
       "showDesc": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -23762,7 +23768,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -23899,7 +23905,7 @@ export const GENERATED_THEME_PAGES = [
       "showDesc": true,
       "showGhost": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -23936,7 +23942,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -24121,7 +24127,7 @@ export const GENERATED_THEME_PAGES = [
       "showConnectors": true,
       "coreFlow": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -24158,7 +24164,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -24315,7 +24321,7 @@ export const GENERATED_THEME_PAGES = [
       "showValueLabels": true,
       "showLegend": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -24353,7 +24359,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -24512,7 +24518,7 @@ export const GENERATED_THEME_PAGES = [
       "showRankAxis": true,
       "showEndLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -24550,7 +24556,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -24682,7 +24688,7 @@ export const GENERATED_THEME_PAGES = [
       "showCaptions": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -24720,7 +24726,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -24854,7 +24860,7 @@ export const GENERATED_THEME_PAGES = [
       "showCenter": true,
       "showSub": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -24892,7 +24898,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -25153,7 +25159,7 @@ export const GENERATED_THEME_PAGES = [
       "showLegend": true,
       "valueSuffix": "亿",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -25191,7 +25197,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -25343,7 +25349,7 @@ export const GENERATED_THEME_PAGES = [
       "showNote": true,
       "showRule": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -25381,7 +25387,7 @@ export const GENERATED_THEME_PAGES = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -25499,7 +25505,7 @@ export const GENERATED_THEME_PAGES = [
       "showSignature": true,
       "showMark": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -59655,14 +59661,23716 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
+    "key": "theme05_page001",
+    "themeKey": "theme05",
+    "pageNumber": 1,
+    "layout": "THEME05-001",
+    "slot": "excover1",
+    "label": "封面 精益智造",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#E0301E",
+        "options": [
+          "#E0301E",
+          "#E8741C",
+          "#F2C00C",
+          "#2F9450",
+          "#2742C2"
+        ],
+        "desc": "眉标、指标英文与装饰元素的强调色。"
+      },
+      {
+        "key": "showRail",
+        "label": "右侧指标栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示右侧深色四项指标参数栏；关闭后标题区铺满整页。"
+      },
+      {
+        "key": "specCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "右侧指标栏展示的指标行数量。"
+      },
+      {
+        "key": "showSwatch",
+        "label": "色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧指标栏底部的四色色卡。"
+      },
+      {
+        "key": "showFooter",
+        "label": "底部色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "页面底部贯穿的文件信息与色谱条。"
+      }
+    ],
+    "defaultProps": {
+      "accentColor": "#E0301E",
+      "showRail": true,
+      "specCount": 4,
+      "showSwatch": true,
+      "showFooter": true
+    }
+  },
+  {
+    "key": "theme05_page002",
+    "themeKey": "theme05",
+    "pageNumber": 2,
+    "layout": "THEME05-002",
+    "slot": "excover2",
+    "label": "封面 创意破圈",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showTopRule",
+        "label": "顶部分隔线",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题上方贯穿的品牌实验室分隔线。"
+      },
+      {
+        "key": "showNumber",
+        "label": "编号徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题上方的 “NO. 02” 编号徽标。"
+      },
+      {
+        "key": "chipCount",
+        "label": "色块数量",
+        "type": "slider",
+        "default": 5,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "标题下方的彩色色块条数量。"
+      },
+      {
+        "key": "showBanner",
+        "label": "底部标语条",
+        "type": "toggle",
+        "default": true,
+        "desc": "页面底部的深色标语横幅。"
+      }
+    ],
+    "defaultProps": {
+      "showTopRule": true,
+      "showNumber": true,
+      "chipCount": 5,
+      "showBanner": true
+    }
+  },
+  {
+    "key": "theme05_page003",
+    "themeKey": "theme05",
+    "pageNumber": 3,
+    "layout": "THEME05-003",
+    "slot": "excover3",
+    "label": "封面 链通全国",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#E8741C",
+        "options": [
+          "#E8741C",
+          "#E0301E",
+          "#F2C00C",
+          "#2F9450",
+          "#2742C2"
+        ],
+        "desc": "中部眉标的强调色。"
+      },
+      {
+        "key": "showYear",
+        "label": "年份水印",
+        "type": "toggle",
+        "default": true,
+        "desc": "左上角的大号年份水印 2026—2028。"
+      },
+      {
+        "key": "showSummary",
+        "label": "右上摘要",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的战略摘要文本块。"
+      },
+      {
+        "key": "showBotBand",
+        "label": "底部色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "页面底部贯穿的色谱条。"
+      }
+    ],
+    "defaultProps": {
+      "accentColor": "#E8741C",
+      "showYear": true,
+      "showSummary": true,
+      "showBotBand": true
+    }
+  },
+  {
+    "key": "theme05_page004",
+    "themeKey": "theme05",
+    "pageNumber": 4,
+    "layout": "THEME05-004",
+    "slot": "excover4",
+    "label": "封面 把握消费趋势",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "accentColor",
+        "label": "高亮色",
+        "type": "color",
+        "default": "#E0301E",
+        "options": [
+          "#E0301E",
+          "#E8741C",
+          "#F2C00C",
+          "#2F9450",
+          "#7A3C9A"
+        ],
+        "desc": "菜单当前选中行的高亮底色。"
+      },
+      {
+        "key": "showFrame",
+        "label": "内边框",
+        "type": "toggle",
+        "default": true,
+        "desc": "页面四周的双线内边框装饰。"
+      },
+      {
+        "key": "menuCount",
+        "label": "菜单行数",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "底部模拟菜单的条目数量。"
+      },
+      {
+        "key": "showFoot",
+        "label": "底部标语",
+        "type": "toggle",
+        "default": true,
+        "desc": "页脚的口号与操作提示两行文本。"
+      }
+    ],
+    "defaultProps": {
+      "accentColor": "#E0301E",
+      "showFrame": true,
+      "menuCount": 4,
+      "showFoot": true
+    }
+  },
+  {
+    "key": "theme05_page005",
+    "themeKey": "theme05",
+    "pageNumber": 5,
+    "layout": "THEME05-005",
+    "slot": "cover",
+    "label": "封面 Cover",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与装饰条的强调色，取自色谱。"
+      },
+      {
+        "key": "showSidePanel",
+        "label": "侧栏参数面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示右侧规格参数面板。"
+      },
+      {
+        "key": "sidePanelTheme",
+        "label": "侧栏主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          "dark",
+          "light"
+        ],
+        "desc": "侧栏深色 / 浅色两种配色。"
+      },
+      {
+        "key": "metaCount",
+        "label": "参数行数",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "侧栏展示的规格行数量。"
+      },
+      {
+        "key": "showSwatches",
+        "label": "色谱色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "侧栏底部的七色色谱色卡。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "底部色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "页面底部贯穿的色谱条带。"
+      },
+      {
+        "key": "showTagline",
+        "label": "装饰标语",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的一句装饰性结语。"
+      }
+    ],
+    "defaultProps": {
+      "accentColor": "#d8402e",
+      "showSidePanel": true,
+      "sidePanelTheme": "dark",
+      "metaCount": 4,
+      "showSwatches": true,
+      "showColorBand": true,
+      "showTagline": true
+    }
+  },
+  {
+    "key": "theme05_page006",
+    "themeKey": "theme05",
+    "pageNumber": 6,
+    "layout": "THEME05-006",
+    "slot": "spec",
+    "label": "摘要 Overview",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "左侧图示槽位数量（0–2），图片按上传比例自适应。"
+      },
+      {
+        "key": "specRowCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "右侧规格指标表的行数。"
+      },
+      {
+        "key": "showHighlight",
+        "label": "关键数据高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "正文中关键数字使用强调色高亮。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "正文高亮使用的强调色。"
+      },
+      {
+        "key": "chartType",
+        "label": "占比图样式",
+        "type": "radio",
+        "default": "bar",
+        "options": [
+          "bar",
+          "cells"
+        ],
+        "desc": "占比可视化：整条堆叠 (bar) 或分段色块 (cells)。"
+      },
+      {
+        "key": "showProportionBar",
+        "label": "底部占比图",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示底部赛道占比可视化。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "specRowCount": 4,
+      "showHighlight": true,
+      "accentColor": "#2c44a0",
+      "chartType": "bar",
+      "showProportionBar": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page007",
+    "themeKey": "theme05",
+    "pageNumber": 7,
+    "layout": "THEME05-007",
+    "slot": "grid",
+    "label": "结构 Contents",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "卡片数量",
+        "type": "slider",
+        "default": 7,
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "desc": "展示的章节卡数量。"
+      },
+      {
+        "key": "columns",
+        "label": "列数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "网格列数，行数自动换行。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出显示某一张卡片。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点卡序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 8,
+        "step": 1,
+        "desc": "被突出显示的卡片序号（从 1 起）。"
+      },
+      {
+        "key": "showCardGraphic",
+        "label": "色块图形",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片内的抽象色块构图。"
+      },
+      {
+        "key": "showCardIndex",
+        "label": "序号",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片右上角的两位序号。"
+      },
+      {
+        "key": "showCardCode",
+        "label": "卡片代号",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片右下角的大号代号。"
+      },
+      {
+        "key": "showNote",
+        "label": "装饰注释",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题右侧的装饰性说明文字。"
+      }
+    ],
+    "defaultProps": {
+      "cardCount": 7,
+      "columns": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showCardGraphic": true,
+      "showCardIndex": true,
+      "showCardCode": true,
+      "showNote": true
+    }
+  },
+  {
+    "key": "theme05_page008",
+    "themeKey": "theme05",
+    "pageNumber": 8,
+    "layout": "THEME05-008",
+    "slot": "split",
+    "label": "方法 Methodology",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "menuItemCount",
+        "label": "菜单项数量",
+        "type": "slider",
+        "default": 6,
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "desc": "右侧控制菜单的行数。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "高亮项",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否高亮某一条菜单项。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮项序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "desc": "被高亮的菜单项序号（从 1 起）。"
+      },
+      {
+        "key": "panelColor",
+        "label": "面板色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#2c44a0",
+          "#7a3c90",
+          "#3c9a52",
+          "#d8402e",
+          "#1a1814"
+        ],
+        "desc": "右侧菜单面板背景色（取深色保证文字可读）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "左侧眉标的强调色。"
+      },
+      {
+        "key": "specRowCount",
+        "label": "左侧条目数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "左侧方法说明的条目数量。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的小色谱条带。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的品牌标识。"
+      }
+    ],
+    "defaultProps": {
+      "menuItemCount": 6,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "panelColor": "#2c44a0",
+      "accentColor": "#d8402e",
+      "specRowCount": 4,
+      "showColorBand": true,
+      "showWordmark": true
+    }
+  },
+  {
+    "key": "theme05_page009",
+    "themeKey": "theme05",
+    "pageNumber": 9,
+    "layout": "THEME05-009",
+    "slot": "trend",
+    "label": "趋势 Trend",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "bar",
+        "options": [
+          {
+            "value": "bar",
+            "label": "柱状"
+          },
+          {
+            "value": "line",
+            "label": "折线"
+          },
+          {
+            "value": "area",
+            "label": "面积"
+          }
+        ],
+        "desc": "主图表呈现方式：柱状 / 折线 / 面积。"
+      },
+      {
+        "key": "pointCount",
+        "label": "数据点数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "图表与指标列表展示的数据点（时间截面）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个数据点（峰值 / 关键截面）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点数据点",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的数据点序号（从 1 起）。"
+      },
+      {
+        "key": "showSecondary",
+        "label": "副数据系列",
+        "type": "toggle",
+        "default": true,
+        "desc": "叠加第二条数据系列（虚线）。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的逐项数据指标列表。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "重点标注与眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "bar",
+      "pointCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showSecondary": true,
+      "showMetrics": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page010",
+    "themeKey": "theme05",
+    "pageNumber": 10,
+    "layout": "THEME05-010",
+    "slot": "share",
+    "label": "占比 Share",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "donut",
+        "options": [
+          {
+            "value": "donut",
+            "label": "环形"
+          },
+          {
+            "value": "bar",
+            "label": "条形"
+          },
+          {
+            "value": "stack",
+            "label": "堆叠"
+          }
+        ],
+        "desc": "占比图呈现方式：环形 / 条形 / 堆叠。"
+      },
+      {
+        "key": "segmentCount",
+        "label": "分段数量",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "参与占比拆分的分段数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分段",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个分段（环形居中显示该项）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分段序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被突出的分段序号（从 1 起）。"
+      },
+      {
+        "key": "showLegend",
+        "label": "图例列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带数值的图例列表。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "图例下方的一句装饰性结论。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与重点项的强调色。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "donut",
+      "segmentCount": 5,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showLegend": true,
+      "showConclusion": true,
+      "accentColor": "#d8402e",
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page011",
+    "themeKey": "theme05",
+    "pageNumber": 11,
+    "layout": "THEME05-011",
+    "slot": "chain",
+    "label": "产业链 Value Chain",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layerCount",
+        "label": "层级数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "纵向堆叠的结构层级数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点层级",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一层级。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点层级序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的层级序号（从 1 起）。"
+      },
+      {
+        "key": "showItems",
+        "label": "层级标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "每个层级内部的要素标签。"
+      },
+      {
+        "key": "showSidePanel",
+        "label": "侧栏分布",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的分布占比面板。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与重点层级标记的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "侧栏底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "layerCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showItems": true,
+      "showSidePanel": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page012",
+    "themeKey": "theme05",
+    "pageNumber": 12,
+    "layout": "THEME05-012",
+    "slot": "cases",
+    "label": "案例 Cases",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "案例卡数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "横向排列的案例卡数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一张案例卡。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点卡序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的案例卡序号（从 1 起）。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "底部图片槽数量（0–3）；按各图比例自适应排布，构图自动均衡。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "卡内指标",
+        "type": "toggle",
+        "default": true,
+        "desc": "案例卡内部的指标列表。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标的强调色。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "cardCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "imageCount": 2,
+      "showMetrics": true,
+      "showGalleryCaption": true,
+      "accentColor": "#d8402e",
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page013",
+    "themeKey": "theme05",
+    "pageNumber": 13,
+    "layout": "THEME05-013",
+    "slot": "heat",
+    "label": "热力 Heatmap",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cellCount",
+        "label": "数据格数量",
+        "type": "slider",
+        "default": 12,
+        "min": 6,
+        "max": 12,
+        "step": 1,
+        "desc": "参与展示的周期格（月份）数量。"
+      },
+      {
+        "key": "columns",
+        "label": "网格列数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 6,
+        "step": 1,
+        "desc": "热力网格的列数，决定排布形状。"
+      },
+      {
+        "key": "colorScale",
+        "label": "色阶模式",
+        "type": "radio",
+        "default": "warm",
+        "options": [
+          {
+            "value": "warm",
+            "label": "暖色"
+          },
+          {
+            "value": "cool",
+            "label": "冷色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "数值映射到颜色的色阶：暖色 / 冷色 / 单色。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "突出极值",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否在网格上标记数值最高的若干格。"
+      },
+      {
+        "key": "focusCount",
+        "label": "极值数量",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被标记 / 列出的峰值格数量（取最大的前 N 个）。"
+      },
+      {
+        "key": "showValues",
+        "label": "显示数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "在每个格内显示数值。"
+      },
+      {
+        "key": "showPeakList",
+        "label": "峰值列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧按数值排序的峰值列表。"
+      },
+      {
+        "key": "showScaleLegend",
+        "label": "色阶图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的色阶渐变图例条。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "峰值标记与眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "cellCount": 12,
+      "columns": 4,
+      "colorScale": "warm",
+      "focusEnabled": true,
+      "focusCount": 2,
+      "showValues": true,
+      "showPeakList": true,
+      "showScaleLegend": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page014",
+    "themeKey": "theme05",
+    "pageNumber": 14,
+    "layout": "THEME05-014",
+    "slot": "rank",
+    "label": "排名 Ranking",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "排名条目数",
+        "type": "slider",
+        "default": 10,
+        "min": 3,
+        "max": 10,
+        "step": 1,
+        "desc": "榜单展示的条目数量（按数值从高到低）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "突出榜首",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出排名靠前的若干条目。"
+      },
+      {
+        "key": "focusCount",
+        "label": "突出数量",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的头部条目数量（前 N 名）。"
+      },
+      {
+        "key": "colorMode",
+        "label": "配色模式",
+        "type": "radio",
+        "default": "category",
+        "options": [
+          {
+            "value": "category",
+            "label": "按类别"
+          },
+          {
+            "value": "accent",
+            "label": "强调色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "条形配色：按类别 / 统一强调色 / 单色。"
+      },
+      {
+        "key": "showRankNumber",
+        "label": "排名序号",
+        "type": "toggle",
+        "default": true,
+        "desc": "每行左侧的两位排名序号。"
+      },
+      {
+        "key": "showTag",
+        "label": "类别标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "名称下方的类别 / 赛道标签。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "每行右侧的数值标注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "突出条目与眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 10,
+      "focusEnabled": true,
+      "focusCount": 3,
+      "colorMode": "category",
+      "showRankNumber": true,
+      "showTag": true,
+      "showValue": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page015",
+    "themeKey": "theme05",
+    "pageNumber": 15,
+    "layout": "THEME05-015",
+    "slot": "quad",
+    "label": "象限 Quadrant",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "focusEnabled",
+        "label": "突出象限",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个象限。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点象限",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的象限序号（1 明星兑现 / 2 叙事泡沫 / 3 隐形价值 / 4 等待验证）。"
+      },
+      {
+        "key": "quadrantTint",
+        "label": "象限底色",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否为四个象限填充类别底色（关闭则为线框留白风格）。"
+      },
+      {
+        "key": "showItems",
+        "label": "代表方向",
+        "type": "toggle",
+        "default": true,
+        "desc": "每个象限内的代表方向标签。"
+      },
+      {
+        "key": "showScatter",
+        "label": "散点标记",
+        "type": "toggle",
+        "default": true,
+        "desc": "象限内装饰性散点（代表落点公司）。"
+      },
+      {
+        "key": "showAxisLabels",
+        "label": "坐标轴标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "矩阵外侧的两条坐标轴标签。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "重点象限标记与眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "quadrantTint": false,
+      "showItems": true,
+      "showScatter": true,
+      "showAxisLabels": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page016",
+    "themeKey": "theme05",
+    "pageNumber": 16,
+    "layout": "THEME05-016",
+    "slot": "risk",
+    "label": "风险 Risk",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chainCount",
+        "label": "传导链节点",
+        "type": "slider",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "顶部风险传导链的节点数量。"
+      },
+      {
+        "key": "cardCount",
+        "label": "风险卡数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "风险因素卡片数量（网格列数随之变化）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "突出风险",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一张风险卡。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点风险卡",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被突出的风险卡序号（从 1 起）。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "底部图片槽数量（0–2）；按各图比例自适应排布，构图自动均衡。"
+      },
+      {
+        "key": "showChain",
+        "label": "传导链",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部的风险传导链。"
+      },
+      {
+        "key": "showLevel",
+        "label": "风险等级",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片内的风险等级标识（高 / 中 / 低）。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chainCount": 4,
+      "cardCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "imageCount": 1,
+      "showChain": true,
+      "showLevel": true,
+      "showGalleryCaption": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page017",
+    "themeKey": "theme05",
+    "pageNumber": 17,
+    "layout": "THEME05-017",
+    "slot": "outlook",
+    "label": "策略 Outlook",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "listItemCount",
+        "label": "每栏条目数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "左右对比栏各自显示的条目数量。"
+      },
+      {
+        "key": "showTimeline",
+        "label": "阶段时间轴",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否显示底部的横向阶段时间轴。"
+      },
+      {
+        "key": "timelineNodeCount",
+        "label": "时间轴节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "时间轴上的阶段节点数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个时间轴节点。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的时间轴节点序号（从 1 起）。"
+      },
+      {
+        "key": "leftColor",
+        "label": "左栏色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "左侧对比栏的标题条颜色。"
+      },
+      {
+        "key": "rightColor",
+        "label": "右栏色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "右侧对比栏的标题条颜色。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与时间轴重点节点的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "listItemCount": 3,
+      "showTimeline": true,
+      "timelineNodeCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "leftColor": "#3c9a52",
+      "rightColor": "#d8402e",
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page018",
+    "themeKey": "theme05",
+    "pageNumber": 18,
+    "layout": "THEME05-018",
+    "slot": "quote",
+    "label": "结论 Conclusion",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "paper",
+        "options": [
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          }
+        ],
+        "desc": "页面整体明 / 暗背景。"
+      },
+      {
+        "key": "quoteAlign",
+        "label": "金句对齐",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "金句的对齐方式。"
+      },
+      {
+        "key": "conclusionCount",
+        "label": "结论点数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "金句下方的支撑结论点数量（0 隐藏）。"
+      },
+      {
+        "key": "showQuoteMark",
+        "label": "引号装饰",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句上方的大号装饰引号。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标、引号与金句重点词的强调色。"
+      },
+      {
+        "key": "showSource",
+        "label": "数据来源",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的数据口径 / 来源说明。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的小色谱条带。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "paper",
+      "quoteAlign": "left",
+      "conclusionCount": 3,
+      "showQuoteMark": true,
+      "accentColor": "#d8402e",
+      "showSource": true,
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page019",
+    "themeKey": "theme05",
+    "pageNumber": 19,
+    "layout": "THEME05-019",
+    "slot": "chapter",
+    "label": "章节 Chapter",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "章节页背景：深色 / 纸色 / 整页色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色。"
+      },
+      {
+        "key": "showBigNumber",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的超大章节编号。"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "底部关键词标签数量（0 隐藏）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与章节编号的强调色（色块主题除外）。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的色谱条带。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左上角的品牌标识。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的章节 / 页码标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "dark",
+      "bgColor": "#2c44a0",
+      "showBigNumber": true,
+      "keywordCount": 4,
+      "accentColor": "#d8402e",
+      "showColorBand": true,
+      "showWordmark": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page020",
+    "themeKey": "theme05",
+    "pageNumber": 20,
+    "layout": "THEME05-020",
+    "slot": "bubble",
+    "label": "气泡 Deal Map",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "tierCount",
+        "label": "金额分层数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "展示的金额区间（气泡分组）数量。"
+      },
+      {
+        "key": "bubbleScale",
+        "label": "气泡大小",
+        "type": "slider",
+        "default": 1,
+        "min": 0.6,
+        "max": 1.6,
+        "step": 0.1,
+        "desc": "气泡整体大小的缩放系数。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分层",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一金额区间（其余气泡淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分层序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的金额区间序号（从 1 起，小额→大额）。"
+      },
+      {
+        "key": "colorMode",
+        "label": "配色方式",
+        "type": "radio",
+        "default": "category",
+        "options": [
+          {
+            "value": "category",
+            "label": "按类别"
+          },
+          {
+            "value": "accent",
+            "label": "强调色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "气泡配色：按赛道类别 / 单一强调色 / 单色。"
+      },
+      {
+        "key": "showGrid",
+        "label": "网格背景",
+        "type": "toggle",
+        "default": true,
+        "desc": "气泡区域的背景网格线。"
+      },
+      {
+        "key": "showLegend",
+        "label": "图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的金额区间图例（含笔数与合计）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标的强调色（强调色配色模式下也用于气泡）。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "tierCount": 4,
+      "bubbleScale": 1,
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "colorMode": "category",
+      "showGrid": true,
+      "showLegend": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page021",
+    "themeKey": "theme05",
+    "pageNumber": 21,
+    "layout": "THEME05-021",
+    "slot": "snapshot",
+    "label": "季度快照 Snapshot",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "bar",
+        "options": [
+          {
+            "value": "bar",
+            "label": "柱状"
+          },
+          {
+            "value": "line",
+            "label": "折线"
+          },
+          {
+            "value": "area",
+            "label": "面积"
+          }
+        ],
+        "desc": "右侧证据图表的呈现方式：柱状 / 折线 / 面积。"
+      },
+      {
+        "key": "pointCount",
+        "label": "数据点数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "证据图表展示的数据点（时间截面）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个数据点（峰值 / 关键截面）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点数据点",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的数据点序号（从 1 起）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "左侧主体卡的指标行数量。"
+      },
+      {
+        "key": "showSwatches",
+        "label": "色谱色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的装饰性色谱色卡。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主体字形 / 重点标注 / 眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "bar",
+      "pointCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "metricCount": 4,
+      "showSwatches": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page022",
+    "themeKey": "theme05",
+    "pageNumber": 22,
+    "layout": "THEME05-022",
+    "slot": "delta",
+    "label": "环比对比 Delta",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "对比行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "下方分段（子周期）条形的数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一条分段（峰值 / 关键项）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分段",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的分段序号（从 1 起）。"
+      },
+      {
+        "key": "showDelta",
+        "label": "变化量标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部的大号环比变化量（箭头 + 百分比）。"
+      },
+      {
+        "key": "showCompare",
+        "label": "前后对比",
+        "type": "toggle",
+        "default": true,
+        "desc": "变化量右侧的前 / 后两段对比柱。"
+      },
+      {
+        "key": "showArrow",
+        "label": "趋势箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "变化量左侧的趋势方向箭头。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "左侧主体卡的指标行数量。"
+      },
+      {
+        "key": "showSwatches",
+        "label": "色谱色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的装饰性色谱色卡。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#e2742c",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主体字形 / 变化量 / 重点标注的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showDelta": true,
+      "showCompare": true,
+      "showArrow": true,
+      "metricCount": 4,
+      "showSwatches": true,
+      "accentColor": "#e2742c",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page023",
+    "themeKey": "theme05",
+    "pageNumber": 23,
+    "layout": "THEME05-023",
+    "slot": "peak",
+    "label": "峰值图文 Peak",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "area",
+        "options": [
+          {
+            "value": "area",
+            "label": "面积"
+          },
+          {
+            "value": "bar",
+            "label": "柱状"
+          },
+          {
+            "value": "line",
+            "label": "折线"
+          }
+        ],
+        "desc": "峰值证据图表的呈现方式：面积 / 柱状 / 折线。"
+      },
+      {
+        "key": "pointCount",
+        "label": "数据点数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "图表展示的数据点（时间截面）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "峰值标记",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否标记峰值数据点（关闭时自动取最大值）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "峰值数据点",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被标记为峰值的数据点序号（从 1 起）。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "面板下方图片槽数量（0–3）；按各图比例自适应排布，构图自动均衡。"
+      },
+      {
+        "key": "showPeakBadge",
+        "label": "峰值徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板右上角的峰值徽标（关闭时显示单位说明）。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "左侧主体卡的指标行数量。"
+      },
+      {
+        "key": "showSwatches",
+        "label": "色谱色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的装饰性色谱色卡。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主体字形 / 峰值标记 / 眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "area",
+      "pointCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "imageCount": 1,
+      "showPeakBadge": true,
+      "showGalleryCaption": true,
+      "metricCount": 4,
+      "showSwatches": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page024",
+    "themeKey": "theme05",
+    "pageNumber": 24,
+    "layout": "THEME05-024",
+    "slot": "curve",
+    "label": "走势曲线 Curve",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "曲线类型",
+        "type": "radio",
+        "default": "area",
+        "options": [
+          {
+            "value": "area",
+            "label": "面积"
+          },
+          {
+            "value": "line",
+            "label": "折线"
+          }
+        ],
+        "desc": "走势曲线的呈现方式：面积 / 折线。"
+      },
+      {
+        "key": "scope",
+        "label": "数据范围",
+        "type": "radio",
+        "default": "year",
+        "options": [
+          {
+            "value": "year",
+            "label": "全程"
+          },
+          {
+            "value": "month",
+            "label": "本段"
+          }
+        ],
+        "desc": "曲线绘制全程（各分段）还是仅当前子周期。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个数据点（终点 / 关键截面）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点数据点",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的数据点序号（从 1 起；超出范围自动收敛到末点）。"
+      },
+      {
+        "key": "showBaseline",
+        "label": "基准参考线",
+        "type": "toggle",
+        "default": true,
+        "desc": "起点水平的虚线参考线，用于对比当前是否仍高于起点。"
+      },
+      {
+        "key": "showDeltaBadge",
+        "label": "变化量标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板右上角的变化量徽标（关闭时显示单位说明）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "左侧主体卡的指标行数量。"
+      },
+      {
+        "key": "showSwatches",
+        "label": "色谱色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的装饰性色谱色卡。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主体字形 / 曲线 / 重点标注的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "area",
+      "scope": "year",
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "showBaseline": true,
+      "showDeltaBadge": true,
+      "metricCount": 4,
+      "showSwatches": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page025",
+    "themeKey": "theme05",
+    "pageNumber": 25,
+    "layout": "THEME05-025",
+    "slot": "peaktrough",
+    "label": "峰谷 Peak/Trough",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "pointCount",
+        "label": "数据点数量",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "参与峰谷对比的柱子（数据点）数量。"
+      },
+      {
+        "key": "highBandCount",
+        "label": "高位数量",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "归入“高位”色组的前 N 个数据点，其余归入“低位”（自动不超过总数-1）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个数据点（极值 / 关键截面）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点数据点",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被突出的数据点序号（从 1 起，按数值由高到低排列）。"
+      },
+      {
+        "key": "showBaseline",
+        "label": "均值参考线",
+        "type": "toggle",
+        "default": true,
+        "desc": "叠加一条数据均值的水平虚线参考线。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值显示",
+        "type": "toggle",
+        "default": true,
+        "desc": "柱顶显示数值。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带高位 / 低位标签的逐项列表。"
+      },
+      {
+        "key": "highColor",
+        "label": "高位色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "高位色组的柱体颜色。"
+      },
+      {
+        "key": "lowColor",
+        "label": "低位色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "低位色组的柱体颜色。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与重点标注的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "pointCount": 5,
+      "highBandCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showBaseline": true,
+      "showValue": true,
+      "showMetrics": true,
+      "highColor": "#d8402e",
+      "lowColor": "#4da0c6",
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page026",
+    "themeKey": "theme05",
+    "pageNumber": 26,
+    "layout": "THEME05-026",
+    "slot": "waterfall",
+    "label": "瀑布 Waterfall",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "stepCount",
+        "label": "分段数量",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "参与累计贡献的分段（瀑布台阶）数量。"
+      },
+      {
+        "key": "showTotal",
+        "label": "合计列",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾的累计合计柱与图例合计行。"
+      },
+      {
+        "key": "showConnectors",
+        "label": "连接线",
+        "type": "toggle",
+        "default": true,
+        "desc": "相邻台阶之间的累计水平虚线连接线。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分段",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个分段（贡献台阶）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分段序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被突出的分段序号（从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值显示",
+        "type": "toggle",
+        "default": true,
+        "desc": "柱顶显示数值。"
+      },
+      {
+        "key": "colorMode",
+        "label": "配色方式",
+        "type": "radio",
+        "default": "category",
+        "options": [
+          {
+            "value": "category",
+            "label": "按类别"
+          },
+          {
+            "value": "accent",
+            "label": "强调色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "台阶配色：按类别 / 统一强调色 / 单色。"
+      },
+      {
+        "key": "showLegend",
+        "label": "图例列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带数值与占比的明细列表。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与重点项的强调色（强调色配色下也用于台阶）。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "stepCount": 5,
+      "showTotal": true,
+      "showConnectors": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showValue": true,
+      "colorMode": "category",
+      "showLegend": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page027",
+    "themeKey": "theme05",
+    "pageNumber": 27,
+    "layout": "THEME05-027",
+    "slot": "stacked",
+    "label": "双维堆叠 Split",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "segmentCount",
+        "label": "分段数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "参与拆分的分段（金额区间）数量。"
+      },
+      {
+        "key": "showSecondDimension",
+        "label": "第二维度",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否显示第二条维度堆叠条（关闭则仅显示第一维度）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分段",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个分段（其余分段淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分段序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的分段序号（从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值显示",
+        "type": "toggle",
+        "default": true,
+        "desc": "在足够宽的色块内显示数值与占比。"
+      },
+      {
+        "key": "showLegend",
+        "label": "图例列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带两个维度数值的明细列表。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "segmentCount": 4,
+      "showSecondDimension": true,
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "showValue": true,
+      "showLegend": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page028",
+    "themeKey": "theme05",
+    "pageNumber": 28,
+    "layout": "THEME05-028",
+    "slot": "bignumber",
+    "label": "大数字 Big Number",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "auxCount",
+        "label": "辅助指标数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "底部支撑指标的数量（0 隐藏整行）。"
+      },
+      {
+        "key": "numberAlign",
+        "label": "主数字对齐",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "主数字与说明文字的对齐方式。"
+      },
+      {
+        "key": "showUnit",
+        "label": "单位显示",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字后的单位后缀。"
+      },
+      {
+        "key": "showCaption",
+        "label": "解释说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字下方的一句解释说明。"
+      },
+      {
+        "key": "showMessage",
+        "label": "支撑文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "解释下方的一句支撑性文案。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主数字与眉标的强调色。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的品牌标识。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的装饰色谱条。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "auxCount": 3,
+      "numberAlign": "left",
+      "showUnit": true,
+      "showCaption": true,
+      "showMessage": true,
+      "accentColor": "#2c44a0",
+      "showWordmark": true,
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page029",
+    "themeKey": "theme05",
+    "pageNumber": 29,
+    "layout": "THEME05-029",
+    "slot": "cumulative",
+    "label": "累计曲线 Cumulative",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "曲线类型",
+        "type": "radio",
+        "default": "area",
+        "options": [
+          {
+            "value": "area",
+            "label": "面积"
+          },
+          {
+            "value": "line",
+            "label": "折线"
+          }
+        ],
+        "desc": "累计曲线呈现方式：面积 / 折线。"
+      },
+      {
+        "key": "nodeCount",
+        "label": "节点数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "累计曲线的分位节点（Top-N 档位）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个分位节点。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的节点序号（从 1 起）。"
+      },
+      {
+        "key": "showStageLabels",
+        "label": "阶段占比标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "各节点上方的累计占比标签。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带累计值与边际增量的列表。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#7a3c90",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "重点标注与眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "area",
+      "nodeCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "showStageLabels": true,
+      "showMetrics": true,
+      "accentColor": "#7a3c90",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page030",
+    "themeKey": "theme05",
+    "pageNumber": 30,
+    "layout": "THEME05-030",
+    "slot": "chapter3",
+    "label": "章节 Chapter 03",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "章节页背景：深色 / 纸色 / 整页色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色。"
+      },
+      {
+        "key": "showBigNumber",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的超大章节编号。"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "底部关键词标签数量（0 隐藏）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与章节编号的强调色（色块主题除外）。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的色谱条带。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左上角的品牌标识。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的章节 / 页码标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "color",
+      "bgColor": "#d8402e",
+      "showBigNumber": true,
+      "keywordCount": 4,
+      "accentColor": "#d8402e",
+      "showColorBand": true,
+      "showWordmark": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page031",
+    "themeKey": "theme05",
+    "pageNumber": 31,
+    "layout": "THEME05-031",
+    "slot": "radar",
+    "label": "雷达 Radar",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "axisCount",
+        "label": "维度数量",
+        "type": "slider",
+        "default": 4,
+        "min": 3,
+        "max": 4,
+        "step": 1,
+        "desc": "雷达图的能力维度（轴）数量（雷达至少 3 维）。"
+      },
+      {
+        "key": "fillShape",
+        "label": "填充形态",
+        "type": "toggle",
+        "default": true,
+        "desc": "数据多边形填充（开）或仅描边（关）。"
+      },
+      {
+        "key": "showGrid",
+        "label": "网格刻度",
+        "type": "toggle",
+        "default": true,
+        "desc": "同心环刻度与放射轴线。"
+      },
+      {
+        "key": "showLabels",
+        "label": "维度标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "各轴外侧的维度名称与数值标签。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点维度",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个维度。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点维度序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的维度序号（从 1 起）。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的逐维数值列表。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "数据多边形与重点 / 眉标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "axisCount": 4,
+      "fillShape": true,
+      "showGrid": true,
+      "showLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showMetrics": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page032",
+    "themeKey": "theme05",
+    "pageNumber": 32,
+    "layout": "THEME05-032",
+    "slot": "segment",
+    "label": "赛道剖析 Segment",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "图片槽数量（0–3）；按各图比例自适应排布。为 0 时主体卡自动铺满整幅。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "主体卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 2,
+      "metricCount": 4,
+      "cardTheme": "color",
+      "showGalleryCaption": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page033",
+    "themeKey": "theme05",
+    "pageNumber": 33,
+    "layout": "THEME05-033",
+    "slot": "spotlight",
+    "label": "赛道聚焦 Spotlight",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–2）；按比例自适应。为 0 时文本卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对文本卡的位置（仅在有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "文本卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "文本卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "文本卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一条指标。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点指标序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的指标序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#efbe2e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与「色块」主题下文本卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "metricCount": 4,
+      "cardTheme": "color",
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#efbe2e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page034",
+    "themeKey": "theme05",
+    "pageNumber": 34,
+    "layout": "THEME05-034",
+    "slot": "matrix",
+    "label": "对照表 Matrix",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "数据行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "表格的数据行数量。"
+      },
+      {
+        "key": "showVerdict",
+        "label": "判断列",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否显示末尾的「判断」标签列（关闭则为三列表）。"
+      },
+      {
+        "key": "zebra",
+        "label": "斑马纹",
+        "type": "toggle",
+        "default": false,
+        "desc": "隔行底色，便于横向读取。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的行序号（从 1 起）。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的引导文案与维度说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与重点行的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 4,
+      "showVerdict": true,
+      "zebra": false,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showIntro": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page035",
+    "themeKey": "theme05",
+    "pageNumber": 35,
+    "layout": "THEME05-035",
+    "slot": "breakdown",
+    "label": "子项拆分 Breakdown",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "itemCount",
+        "label": "子项数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "子项拆分的横条数量。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "底部图片槽数量（0–3），按比例自适应；为 0 时隐藏整条图片带。"
+      },
+      {
+        "key": "sortDescending",
+        "label": "按值降序",
+        "type": "toggle",
+        "default": true,
+        "desc": "横条是否按数值由大到小排序。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点子项",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个子项。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点子项序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的子项序号（按原始顺序，从 1 起）。"
+      },
+      {
+        "key": "colorMode",
+        "label": "配色方式",
+        "type": "radio",
+        "default": "category",
+        "options": [
+          {
+            "value": "category",
+            "label": "按类别"
+          },
+          {
+            "value": "accent",
+            "label": "强调色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "横条配色：按类别 / 统一强调色 / 单色。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "showTotal",
+        "label": "合计区",
+        "type": "toggle",
+        "default": true,
+        "desc": "主体卡底部的赛道合计数值。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 /「色块」主题主体卡 / 重点项的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "itemCount": 3,
+      "imageCount": 0,
+      "sortDescending": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "colorMode": "category",
+      "cardTheme": "color",
+      "showTotal": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page036",
+    "themeKey": "theme05",
+    "pageNumber": 36,
+    "layout": "THEME05-036",
+    "slot": "scene",
+    "label": "场景占比 Scene",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "donut",
+        "options": [
+          {
+            "value": "donut",
+            "label": "环形"
+          },
+          {
+            "value": "pie",
+            "label": "饼图"
+          }
+        ],
+        "desc": "占比图呈现方式：环形（中心显示重点）/ 饼图。"
+      },
+      {
+        "key": "sceneCount",
+        "label": "场景数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "参与占比拆分的场景数量。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 0,
+        "min": 0,
+        "max": 1,
+        "step": 1,
+        "desc": "环图下方的图片槽（0–1），按比例自适应；为 0 时隐藏。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点场景",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个场景（环形中心显示该项）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点场景序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的场景序号（从 1 起）。"
+      },
+      {
+        "key": "showLegend",
+        "label": "图例列表",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带占比的场景图例。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与环形中心数字的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "chartType": "donut",
+      "sceneCount": 4,
+      "imageCount": 0,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showLegend": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page037",
+    "themeKey": "theme05",
+    "pageNumber": 37,
+    "layout": "THEME05-037",
+    "slot": "statement",
+    "label": "金句 Statement",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "页面背景：纸色 / 深色 / 整页强调色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色（其它主题忽略）。"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "金句与辅助信息的对齐方式。"
+      },
+      {
+        "key": "showIndex",
+        "label": "装饰大号数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "背景中的超大半透明序号（装饰）。"
+      },
+      {
+        "key": "emphasis",
+        "label": "重点词高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否用强调色高亮金句中的关键词。"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "底部装饰关键词标签数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showSub",
+        "label": "辅助说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句下方的一行辅助说明文字。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#efbe2e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点词 / 装饰数字的强调色。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的小色谱条带。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "dark",
+      "bgColor": "#2c44a0",
+      "align": "left",
+      "showIndex": true,
+      "emphasis": true,
+      "keywordCount": 3,
+      "showSub": true,
+      "accentColor": "#efbe2e",
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page038",
+    "themeKey": "theme05",
+    "pageNumber": 38,
+    "layout": "THEME05-038",
+    "slot": "flow",
+    "label": "流程增长 Flow",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "流程节点数量",
+        "type": "slider",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "主视觉管线的阶段（节点）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一阶段（其余阶段淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被突出的阶段序号（从 1 起；超出节点数自动收敛到末段）。"
+      },
+      {
+        "key": "showGrowth",
+        "label": "增长指标面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下深色面板：巨号增长数字 + 迷你图表。"
+      },
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "bar",
+        "options": [
+          {
+            "value": "bar",
+            "label": "柱状"
+          },
+          {
+            "value": "line",
+            "label": "折线"
+          },
+          {
+            "value": "area",
+            "label": "面积"
+          }
+        ],
+        "desc": "增长面板内迷你图表的呈现方式。"
+      },
+      {
+        "key": "pointCount",
+        "label": "数据点数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "增长迷你图表的数据点（时间截面）数量。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "右上指标卡的指标行数。"
+      },
+      {
+        "key": "showFlowCaption",
+        "label": "管线图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "主视觉上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 增长数字 / 指标卡的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "showGrowth": true,
+      "chartType": "bar",
+      "pointCount": 3,
+      "metricCount": 3,
+      "showFlowCaption": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page039",
+    "themeKey": "theme05",
+    "pageNumber": 39,
+    "layout": "THEME05-039",
+    "slot": "diagram",
+    "label": "图示规格 Diagram",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–2）；按各图比例自适应。为 0 时规格卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对规格卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "规格卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "规格卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "规格卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 卡内强调条 /「色块」主题下规格卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "left",
+      "metricCount": 4,
+      "cardTheme": "dark",
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page040",
+    "themeKey": "theme05",
+    "pageNumber": 40,
+    "layout": "THEME05-040",
+    "slot": "mix",
+    "label": "构成占比 Mix",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–2）；按各图比例自适应。为 0 时卡片铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对卡片的位置（有图片时生效）。"
+      },
+      {
+        "key": "barCount",
+        "label": "占比条数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "构成区横向占比条的数量。"
+      },
+      {
+        "key": "sortDescending",
+        "label": "按占比降序",
+        "type": "toggle",
+        "default": true,
+        "desc": "占比条是否按数值由大到小排序。"
+      },
+      {
+        "key": "colorMode",
+        "label": "占比条配色",
+        "type": "radio",
+        "default": "category",
+        "options": [
+          {
+            "value": "category",
+            "label": "按类别"
+          },
+          {
+            "value": "accent",
+            "label": "强调色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "占比条的配色方式：按类别 / 统一强调色 / 单色阶。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点占比条",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一条占比。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点条序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的占比条序号（按当前排序后顺序）。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标对",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片上半部分的一对关键指标。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#e2742c",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点条 /「强调色」配色模式下占比条的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "barCount": 3,
+      "sortDescending": true,
+      "colorMode": "category",
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showMetrics": true,
+      "accentColor": "#e2742c",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page041",
+    "themeKey": "theme05",
+    "pageNumber": 41,
+    "layout": "THEME05-041",
+    "slot": "capacity",
+    "label": "容量栅格 Capacity",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "unitCount",
+        "label": "容量单元数",
+        "type": "slider",
+        "default": 32,
+        "min": 16,
+        "max": 48,
+        "step": 1,
+        "desc": "占用栅格的单元（算力节点）总数。"
+      },
+      {
+        "key": "columns",
+        "label": "栅格列数",
+        "type": "slider",
+        "default": 8,
+        "min": 4,
+        "max": 10,
+        "step": 1,
+        "desc": "占用栅格的列数。"
+      },
+      {
+        "key": "fillPercent",
+        "label": "占用率(%)",
+        "type": "slider",
+        "default": 58,
+        "min": 30,
+        "max": 95,
+        "step": 1,
+        "desc": "被占用单元的比例（同时作为占用率读数）。"
+      },
+      {
+        "key": "showUtil",
+        "label": "占用率读数",
+        "type": "toggle",
+        "default": true,
+        "desc": "栅格上方的巨号占用率百分比。"
+      },
+      {
+        "key": "chartType",
+        "label": "资源构成图表",
+        "type": "radio",
+        "default": "bar",
+        "options": [
+          {
+            "value": "bar",
+            "label": "条形"
+          },
+          {
+            "value": "stack",
+            "label": "堆叠"
+          }
+        ],
+        "desc": "资源构成的呈现方式：逐项条形 / 单条堆叠。"
+      },
+      {
+        "key": "shareCount",
+        "label": "资源构成项数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "资源构成（部分-整体）的分项数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点构成项",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一资源构成分项。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点构成序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的资源构成分项序号（从 1 起）。"
+      },
+      {
+        "key": "showShare",
+        "label": "资源构成块",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下的资源构成（部分-整体）模块。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "右上指标卡的指标行数。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 占用单元 / 指标卡的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "unitCount": 32,
+      "columns": 8,
+      "fillPercent": 58,
+      "showUtil": true,
+      "chartType": "bar",
+      "shareCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showShare": true,
+      "metricCount": 4,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page042",
+    "themeKey": "theme05",
+    "pageNumber": 42,
+    "layout": "THEME05-042",
+    "slot": "ledger",
+    "label": "结构表 Ledger",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "数据行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "表格的数据行数量。"
+      },
+      {
+        "key": "showBar",
+        "label": "内联占比条",
+        "type": "toggle",
+        "default": true,
+        "desc": "「资金占比」列内的水平占比条（数据条表）。"
+      },
+      {
+        "key": "showTotal",
+        "label": "合计行",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾按当前行自动汇总的合计行。"
+      },
+      {
+        "key": "showVerdict",
+        "label": "判断列",
+        "type": "toggle",
+        "default": true,
+        "desc": "末列的「判断」标签 chip（关闭则收起该列）。"
+      },
+      {
+        "key": "zebra",
+        "label": "斑马纹",
+        "type": "toggle",
+        "default": false,
+        "desc": "隔行底色，便于横向读取。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的行序号（从 1 起）。"
+      },
+      {
+        "key": "colorMode",
+        "label": "占比条配色",
+        "type": "radio",
+        "default": "category",
+        "options": [
+          {
+            "value": "category",
+            "label": "按类别"
+          },
+          {
+            "value": "accent",
+            "label": "强调色"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "内联占比条的配色方式。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的引导文案与维度说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点行 / 合计行的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 3,
+      "showBar": true,
+      "showTotal": true,
+      "showVerdict": true,
+      "zebra": false,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "colorMode": "category",
+      "showIntro": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page043",
+    "themeKey": "theme05",
+    "pageNumber": 43,
+    "layout": "THEME05-043",
+    "slot": "showcase",
+    "label": "图像主视觉 Showcase",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–2）；按各图比例自适应。为 0 时身份卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对身份卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "身份卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "身份卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "身份卡内的指标行数。"
+      },
+      {
+        "key": "distCount",
+        "label": "分布项数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "底部应用分布带的分项数量。"
+      },
+      {
+        "key": "showDistribution",
+        "label": "应用分布带",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部全宽的应用分布带（单条 100% 分段 + 图例）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分布项",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一分布分项（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分布序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的分布分项序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 /「色块」主题身份卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "left",
+      "cardTheme": "color",
+      "metricCount": 3,
+      "distCount": 3,
+      "showDistribution": true,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page044",
+    "themeKey": "theme05",
+    "pageNumber": 44,
+    "layout": "THEME05-044",
+    "slot": "atlas",
+    "label": "架构图 Atlas",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–2）；按各图比例自适应。为 0 时身份卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对身份卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "身份卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "身份卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "身份卡内的指标行数。"
+      },
+      {
+        "key": "sceneCount",
+        "label": "场景块数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "底部场景拆分带的 stat 块数量。"
+      },
+      {
+        "key": "showScenes",
+        "label": "场景拆分带",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部全宽的场景拆分带（离散 stat 块）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点场景块",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一场景块（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点场景序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的场景块序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 卡内强调条 /「色块」主题身份卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "cardTheme": "dark",
+      "metricCount": 3,
+      "sceneCount": 3,
+      "showScenes": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page045",
+    "themeKey": "theme05",
+    "pageNumber": 45,
+    "layout": "THEME05-045",
+    "slot": "gate",
+    "label": "分层防线 Gate",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layerCount",
+        "label": "防线层数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "纵向堆叠的防线（分层）数量。"
+      },
+      {
+        "key": "chartType",
+        "label": "防线图样式",
+        "type": "radio",
+        "default": "nested",
+        "options": [
+          {
+            "value": "nested",
+            "label": "嵌套"
+          },
+          {
+            "value": "bar",
+            "label": "条形"
+          }
+        ],
+        "desc": "分层呈现方式：居中嵌套塔 / 左对齐横向条形。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点防线",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一层（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点防线序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的防线序号（从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "防线数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各层右侧的数值标注。"
+      },
+      {
+        "key": "showMetricCard",
+        "label": "侧栏指标卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的彩色指标规格卡。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "侧栏指标卡的指标行数。"
+      },
+      {
+        "key": "showNote",
+        "label": "侧栏说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "侧栏底部的一段说明文案。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 指标卡 / 重点标记的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "layerCount": 4,
+      "chartType": "nested",
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showValue": true,
+      "showMetricCard": true,
+      "metricCount": 4,
+      "showNote": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page046",
+    "themeKey": "theme05",
+    "pageNumber": 46,
+    "layout": "THEME05-046",
+    "slot": "catalog",
+    "label": "图像型录 Catalog",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "型录卡数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "类型卡（型录单元）的数量。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 2,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "前 N 张卡作为图片槽（按比例填充）；其余卡为纯色型录块。"
+      },
+      {
+        "key": "widthByValue",
+        "label": "按数值定宽",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片宽度按数值分配（整行即一条资金分布）；关闭则等宽。"
+      },
+      {
+        "key": "showCode",
+        "label": "卡片代号",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片角上的两字母代号。"
+      },
+      {
+        "key": "showValue",
+        "label": "卡片数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "卡片底部的数值标注。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点卡片",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一张卡（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点卡序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的卡片序号（从 1 起）。"
+      },
+      {
+        "key": "showHeadline",
+        "label": "指标条",
+        "type": "toggle",
+        "default": true,
+        "desc": "型录上方的标题指标条。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "型录区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 指标条强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "cardCount": 4,
+      "imageCount": 2,
+      "widthByValue": true,
+      "showCode": true,
+      "showValue": true,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showHeadline": true,
+      "showGalleryCaption": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page047",
+    "themeKey": "theme05",
+    "pageNumber": 47,
+    "layout": "THEME05-047",
+    "slot": "path",
+    "label": "学习路径 Path",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "路径节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "学习路径的阶段（节点）数量。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "图片槽数量（0–3）；按各图比例自适应排布。为 0 时路径铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对路径的位置（有图片时生效）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一路径节点。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的节点序号（从 1 起）。"
+      },
+      {
+        "key": "sceneCount",
+        "label": "场景卡数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "底部场景拆分带的卡片数量。"
+      },
+      {
+        "key": "showScenes",
+        "label": "场景拆分带",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部全宽的场景拆分带。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标对",
+        "type": "toggle",
+        "default": true,
+        "desc": "引导文案右侧的一对关键指标。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点节点 / 指标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 4,
+      "imageCount": 1,
+      "imageSide": "right",
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "sceneCount": 3,
+      "showScenes": true,
+      "showLead": true,
+      "showMetrics": true,
+      "showGalleryCaption": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page048",
+    "themeKey": "theme05",
+    "pageNumber": 48,
+    "layout": "THEME05-048",
+    "slot": "meter",
+    "label": "指标仪表 Meter",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "表格的指标行数量。"
+      },
+      {
+        "key": "showGauge",
+        "label": "仪表列",
+        "type": "toggle",
+        "default": true,
+        "desc": "0–100 的指标仪表条列（关闭则收起该列）。"
+      },
+      {
+        "key": "showBenchmark",
+        "label": "行业基准标记",
+        "type": "toggle",
+        "default": true,
+        "desc": "仪表条上的行业基准刻度与差值。"
+      },
+      {
+        "key": "showVerdict",
+        "label": "判断列",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾的「判断」标签列（关闭则收起该列）。"
+      },
+      {
+        "key": "zebra",
+        "label": "斑马纹",
+        "type": "toggle",
+        "default": false,
+        "desc": "隔行底色，便于横向读取。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的行序号（从 1 起）。"
+      },
+      {
+        "key": "showProcess",
+        "label": "流程条",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的工单流程节点条。"
+      },
+      {
+        "key": "processNodeCount",
+        "label": "流程节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "流程条的节点数量。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的引导文案、维度说明与指标对。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点行 / 仪表填充的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 4,
+      "showGauge": true,
+      "showBenchmark": true,
+      "showVerdict": true,
+      "zebra": false,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showProcess": true,
+      "processNodeCount": 4,
+      "showIntro": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page049",
+    "themeKey": "theme05",
+    "pageNumber": 49,
+    "layout": "THEME05-049",
+    "slot": "funnel",
+    "label": "增长漏斗 Funnel",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "tierCount",
+        "label": "漏斗层数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "漏斗的层级（阶段）数量。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "图片槽数量（0–3）；按各图比例自适应。为 0 时漏斗铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对漏斗的位置（有图片时生效）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点层",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一漏斗层（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点层序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的漏斗层序号（从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "层数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各层右侧的数值标注。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标对",
+        "type": "toggle",
+        "default": true,
+        "desc": "引导文案右侧的一对关键指标。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#e2742c",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 指标 / 重点层的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "tierCount": 4,
+      "imageCount": 1,
+      "imageSide": "right",
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showValue": true,
+      "showMetrics": true,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#e2742c",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page050",
+    "themeKey": "theme05",
+    "pageNumber": 50,
+    "layout": "THEME05-050",
+    "slot": "hero",
+    "label": "大数字 Hero",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "图片槽数量（0–2）；按各图比例自适应。为 0 时主数字块铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对主数字块的位置（有图片时生效）。"
+      },
+      {
+        "key": "auxCount",
+        "label": "辅助指标数",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主数字下方的支撑指标数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showUnit",
+        "label": "数字单位",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字后的单位后缀。"
+      },
+      {
+        "key": "showCaption",
+        "label": "数字说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字下方的解释说明。"
+      },
+      {
+        "key": "showMessage",
+        "label": "支撑文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "说明下方的一段支撑性文案。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主数字 / 眉标 / 辅助指标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "auxCount": 3,
+      "showUnit": true,
+      "showCaption": true,
+      "showMessage": true,
+      "showGalleryCaption": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page051",
+    "themeKey": "theme05",
+    "pageNumber": 51,
+    "layout": "THEME05-051",
+    "slot": "flux",
+    "label": "转化通道 Flux",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "图片槽数量（0–3）；按各图比例自适应。为 0 时转化通道铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对转化通道的位置（有图片时生效）。"
+      },
+      {
+        "key": "showTransfer",
+        "label": "转化连接带",
+        "type": "toggle",
+        "default": true,
+        "desc": "两个池之间的转化连接带与说明。"
+      },
+      {
+        "key": "emphasize",
+        "label": "强调端",
+        "type": "radio",
+        "default": "dest",
+        "options": [
+          {
+            "value": "source",
+            "label": "源头"
+          },
+          {
+            "value": "dest",
+            "label": "终点"
+          }
+        ],
+        "desc": "用强调色着重的一端（源头社区 / 终点企业）。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标对",
+        "type": "toggle",
+        "default": true,
+        "desc": "引导文案右侧的一对关键指标。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#7a3c90",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 指标 / 强调端的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "showTransfer": true,
+      "emphasize": "dest",
+      "showMetrics": true,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#7a3c90",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page052",
+    "themeKey": "theme05",
+    "pageNumber": 52,
+    "layout": "THEME05-052",
+    "slot": "shield",
+    "label": "评测流程 Shield",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "stageCount",
+        "label": "流程节点数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "评测流程的阶段（节点）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一节点（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的节点序号（从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "节点数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各节点柱顶的数值标注。"
+      },
+      {
+        "key": "showArrows",
+        "label": "流程箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "相邻节点间的流向箭头。"
+      },
+      {
+        "key": "showMetricCard",
+        "label": "侧栏指标卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的彩色指标规格卡。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "侧栏指标卡的指标行数。"
+      },
+      {
+        "key": "showNote",
+        "label": "侧栏说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "侧栏底部的一段说明文案。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 指标卡 / 重点标记的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "stageCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showValue": true,
+      "showArrows": true,
+      "showMetricCard": true,
+      "metricCount": 3,
+      "showNote": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page053",
+    "themeKey": "theme05",
+    "pageNumber": 53,
+    "layout": "THEME05-053",
+    "slot": "chapter4",
+    "label": "章节 Chapter 04",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "章节页背景：深色 / 纸色 / 整页色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色。"
+      },
+      {
+        "key": "showBigNumber",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的超大章节编号。"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "step": 1,
+        "desc": "底部关键词标签数量（0 隐藏）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标与章节编号的强调色（色块主题除外）。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的色谱条带。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左上角的品牌标识。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的章节 / 页码标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "color",
+      "bgColor": "#2c44a0",
+      "showBigNumber": true,
+      "keywordCount": 4,
+      "accentColor": "#2c44a0",
+      "showColorBand": true,
+      "showWordmark": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page054",
+    "themeKey": "theme05",
+    "pageNumber": 54,
+    "layout": "THEME05-054",
+    "slot": "signal",
+    "label": "早期信号表 Signal",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "数据行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "表格的数据行数量。"
+      },
+      {
+        "key": "showSignal",
+        "label": "信号强度列",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾的信号强度点阵列（关闭则收起该列）。"
+      },
+      {
+        "key": "scaleMax",
+        "label": "信号刻度上限",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "信号点阵的总刻度数（点的总个数）。"
+      },
+      {
+        "key": "sortDescending",
+        "label": "按信号降序",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否按信号强度由高到低排序行。"
+      },
+      {
+        "key": "zebra",
+        "label": "斑马纹",
+        "type": "toggle",
+        "default": false,
+        "desc": "隔行底色，便于横向读取。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的行序号（按当前排序后顺序，从 1 起）。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的引导文案与一对头部指标。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#efbe2e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 头部指标 / 重点行 / 信号点的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 4,
+      "showSignal": true,
+      "scaleMax": 5,
+      "sortDescending": true,
+      "zebra": false,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showIntro": true,
+      "accentColor": "#efbe2e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page055",
+    "themeKey": "theme05",
+    "pageNumber": 55,
+    "layout": "THEME05-055",
+    "slot": "composite",
+    "label": "结构拆解 Composite",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "partCount",
+        "label": "构成分项数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "交易结构的构成分项数量。"
+      },
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "bars",
+        "options": [
+          {
+            "value": "bars",
+            "label": "分项条"
+          },
+          {
+            "value": "stack",
+            "label": "百分比堆叠"
+          }
+        ],
+        "desc": "构成呈现方式：逐项横向条 / 单条 100% 堆叠。"
+      },
+      {
+        "key": "showAnchor",
+        "label": "主体锚点卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "左侧的深色主体卡（巨号读数）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分项",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一分项（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点分项序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的分项序号（从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "分项数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各分项的百分比数值标注。"
+      },
+      {
+        "key": "showLegend",
+        "label": "图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "100% 堆叠模式下方的分项图例。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 主体卡巨号读数的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "partCount": 4,
+      "chartType": "bars",
+      "showAnchor": true,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showValue": true,
+      "showLegend": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page056",
+    "themeKey": "theme05",
+    "pageNumber": 56,
+    "layout": "THEME05-056",
+    "slot": "source",
+    "label": "资本来源 Source",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "typeCount",
+        "label": "投资人类型数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "投资人类型环图的分段数量。"
+      },
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "radio",
+        "default": "donut",
+        "options": [
+          {
+            "value": "donut",
+            "label": "环形"
+          },
+          {
+            "value": "pie",
+            "label": "饼图"
+          }
+        ],
+        "desc": "占比图呈现方式：环形（中心显示重点）/ 饼图。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点类型",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一类型（环形中心显示该项）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点类型序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的投资人类型序号（从 1 起）。"
+      },
+      {
+        "key": "showLegend",
+        "label": "类型图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "环图右侧带占比的类型图例。"
+      },
+      {
+        "key": "showTimeline",
+        "label": "演进时间轴",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的横向资本来源演进时间轴。"
+      },
+      {
+        "key": "nodeCount",
+        "label": "时间轴节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "演进时间轴的节点数量。"
+      },
+      {
+        "key": "timelineFocus",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的时间轴节点序号（从 1 起）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 环心数字 / 重点节点的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "typeCount": 4,
+      "chartType": "donut",
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showLegend": true,
+      "showTimeline": true,
+      "nodeCount": 4,
+      "timelineFocus": 4,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page057",
+    "themeKey": "theme05",
+    "pageNumber": 57,
+    "layout": "THEME05-057",
+    "slot": "resource",
+    "label": "资源类型 Resource",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "卡片数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "资源类型卡数量（2–4）。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–3），按各图比例自适应。为 0 时卡片自动转两列网格、铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对资源卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "showValue",
+        "label": "卡内数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各资源卡内的大号数值与单位。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点卡片",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一张资源卡（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点卡序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的资源卡序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点标记的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "cardCount": 4,
+      "imageCount": 1,
+      "imageSide": "right",
+      "showValue": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page058",
+    "themeKey": "theme05",
+    "pageNumber": 58,
+    "layout": "THEME05-058",
+    "slot": "loop",
+    "label": "投资闭环 Loop",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "联盟节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "云厂商联盟条形的数量（2–4）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一条联盟条（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的联盟条序号（按数值由高到低，从 1 起）。"
+      },
+      {
+        "key": "showValue",
+        "label": "条形数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各联盟条末端的数值标注。"
+      },
+      {
+        "key": "showLoop",
+        "label": "闭环面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的资金—算力闭环面板（阶段 + 回流箭头）。"
+      },
+      {
+        "key": "stageCount",
+        "label": "闭环阶段数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "闭环面板内的阶段数量（2–3）。"
+      },
+      {
+        "key": "showReturn",
+        "label": "回流箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "闭环面板的「价值回流」回路箭头（构成可见闭环）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#e2742c",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点条 / 闭环面板的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showValue": true,
+      "showLoop": true,
+      "stageCount": 3,
+      "showReturn": true,
+      "accentColor": "#e2742c",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page059",
+    "themeKey": "theme05",
+    "pageNumber": 59,
+    "layout": "THEME05-059",
+    "slot": "orbit",
+    "label": "生态环图 Orbit",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "卫星节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "围绕核心的生态节点数量（2–4）。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–3），按各图比例自适应。为 0 时环图铺满整幅并显示侧栏图例。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对环图的位置（有图片时生效）。"
+      },
+      {
+        "key": "showSpokes",
+        "label": "连接轨道",
+        "type": "toggle",
+        "default": true,
+        "desc": "核心到各节点的放射连线与同心轨道环。"
+      },
+      {
+        "key": "showValue",
+        "label": "节点数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "各节点内的数值标注（节点尺寸已按数值缩放）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个节点（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的节点序号（从 1 起）。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 核心 / 重点节点的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 4,
+      "imageCount": 1,
+      "imageSide": "right",
+      "showSpokes": true,
+      "showValue": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showMediaCaption": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page060",
+    "themeKey": "theme05",
+    "pageNumber": 60,
+    "layout": "THEME05-060",
+    "slot": "dominance",
+    "label": "占比大数字 Dominance",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showGauge",
+        "label": "份额量规",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧把主数字渲染成「部分-整体」的占比量规。"
+      },
+      {
+        "key": "gaugeStyle",
+        "label": "量规样式",
+        "type": "radio",
+        "default": "bar",
+        "options": [
+          {
+            "value": "bar",
+            "label": "竖向占比"
+          },
+          {
+            "value": "grid",
+            "label": "点阵"
+          }
+        ],
+        "desc": "占比量规呈现：竖向填充条 / 10×10 点阵。"
+      },
+      {
+        "key": "numberAlign",
+        "label": "数字对齐",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "主数字块的对齐方式（关闭量规时整幅居中更佳）。"
+      },
+      {
+        "key": "auxCount",
+        "label": "辅助指标数",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主数字下方的支撑指标数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showUnit",
+        "label": "数字单位",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字后的单位后缀。"
+      },
+      {
+        "key": "showCaption",
+        "label": "数字说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字下方的解释说明。"
+      },
+      {
+        "key": "showMessage",
+        "label": "支撑文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "说明下方的一段支撑性文案。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主数字 / 眉标 / 量规填充的强调色。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的 PULSE 品牌标识。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "装饰色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的装饰性 TR-808 色谱条。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "showGauge": true,
+      "gaugeStyle": "bar",
+      "numberAlign": "left",
+      "auxCount": 3,
+      "showUnit": true,
+      "showCaption": true,
+      "showMessage": true,
+      "accentColor": "#2c44a0",
+      "showWordmark": true,
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page061",
+    "themeKey": "theme05",
+    "pageNumber": 61,
+    "layout": "THEME05-061",
+    "slot": "region",
+    "label": "地理身份 Region",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–3），按各图比例自适应。为 0 时身份卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对身份卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "身份卡主题",
+        "type": "radio",
+        "default": "paper",
+        "options": [
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "身份卡背景：纸色 / 深色 / 强调色块。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "身份卡内的指标行数。"
+      },
+      {
+        "key": "tagCount",
+        "label": "标签数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "行业 / 主题标签 chip 数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showLocator",
+        "label": "定位标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "地名下方的方位 / 坐标定位标签。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一条指标行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点指标序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的指标行序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "地名下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 强调条 /「色块」主题身份卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "cardTheme": "paper",
+      "metricCount": 4,
+      "tagCount": 4,
+      "showLocator": true,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page062",
+    "themeKey": "theme05",
+    "pageNumber": 62,
+    "layout": "THEME05-062",
+    "slot": "locale",
+    "label": "区域定位 Locale",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–3），按各图比例自适应。为 0 时定位图铺满整幅并显示侧栏图例。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对定位图的位置（有图片时生效）。"
+      },
+      {
+        "key": "mosaicCols",
+        "label": "网格列数",
+        "type": "slider",
+        "default": 7,
+        "min": 5,
+        "max": 9,
+        "step": 1,
+        "desc": "定位图的网格列数。"
+      },
+      {
+        "key": "mosaicRows",
+        "label": "网格行数",
+        "type": "slider",
+        "default": 4,
+        "min": 3,
+        "max": 6,
+        "step": 1,
+        "desc": "定位图的网格行数。"
+      },
+      {
+        "key": "markerIndex",
+        "label": "定位格序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 54,
+        "step": 1,
+        "desc": "被标记为本集群的网格单元序号（按行优先，自动收敛到网格范围内）。"
+      },
+      {
+        "key": "showPeers",
+        "label": "邻近区域",
+        "type": "toggle",
+        "default": true,
+        "desc": "网格内装饰性的邻近区域 tinted 单元。"
+      },
+      {
+        "key": "peerCount",
+        "label": "邻近区域数",
+        "type": "slider",
+        "default": 6,
+        "min": 0,
+        "max": 10,
+        "step": 1,
+        "desc": "邻近区域 tinted 单元的数量。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标项数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "顶部指标条的指标数量。"
+      },
+      {
+        "key": "tagCount",
+        "label": "标签数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "主题标签 chip 数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 定位格 / 指标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "left",
+      "mosaicCols": 7,
+      "mosaicRows": 4,
+      "markerIndex": 4,
+      "showPeers": true,
+      "peerCount": 6,
+      "metricCount": 4,
+      "tagCount": 4,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page063",
+    "themeKey": "theme05",
+    "pageNumber": 63,
+    "layout": "THEME05-063",
+    "slot": "profile",
+    "label": "图像主视觉 Profile",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "主视觉图片槽数量（0–3），按各图比例自适应。为 0 时数据列铺满整幅、主指标放大。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左侧"
+          },
+          {
+            "value": "right",
+            "label": "右侧"
+          }
+        ],
+        "desc": "图片相对数据列的位置（有图片时生效）。"
+      },
+      {
+        "key": "heroIndex",
+        "label": "主指标序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "作为巨号主指标突出显示的指标序号（从 1 起）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标项数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "参与显示的指标数量（主指标 + 阶梯）。"
+      },
+      {
+        "key": "showLadderIndex",
+        "label": "阶梯序号",
+        "type": "toggle",
+        "default": true,
+        "desc": "阶梯指标行左侧的两位序号。"
+      },
+      {
+        "key": "tagCount",
+        "label": "标签数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "主题标签 chip 数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "地名下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#7a3c90",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 主指标 / 强调条的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "left",
+      "heroIndex": 1,
+      "metricCount": 4,
+      "showLadderIndex": true,
+      "tagCount": 4,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#7a3c90",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page064",
+    "themeKey": "theme05",
+    "pageNumber": 64,
+    "layout": "THEME05-064",
+    "slot": "spread",
+    "label": "区域分布 Spread",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cols",
+        "label": "网格列数",
+        "type": "slider",
+        "default": 12,
+        "min": 8,
+        "max": 16,
+        "step": 1,
+        "desc": "分布点阵的列数。"
+      },
+      {
+        "key": "rows",
+        "label": "网格行数",
+        "type": "slider",
+        "default": 6,
+        "min": 4,
+        "max": 8,
+        "step": 1,
+        "desc": "分布点阵的行数。"
+      },
+      {
+        "key": "activeCount",
+        "label": "活跃单元数",
+        "type": "slider",
+        "default": 26,
+        "min": 6,
+        "max": 60,
+        "step": 1,
+        "desc": "被点亮（有落地）的单元数量，散布呈现分散度（自动收敛到网格容量内）。"
+      },
+      {
+        "key": "categoryCount",
+        "label": "类别数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "活跃单元的类别（配色 / 图例）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点类别",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一类别（其余单元淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点类别序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的类别序号（从 1 起）。"
+      },
+      {
+        "key": "showLegend",
+        "label": "类别图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧带单元计数的类别图例。"
+      },
+      {
+        "key": "showCounts",
+        "label": "图例计数",
+        "type": "toggle",
+        "default": true,
+        "desc": "图例中各类别的活跃单元计数。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "头部指标",
+        "type": "toggle",
+        "default": true,
+        "desc": "引导文案右侧的一对头部指标。"
+      },
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "可选图片槽数量（0–2），按比例自适应；为 0 时不显示图片。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#e2742c",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 头部指标的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "cols": 12,
+      "rows": 6,
+      "activeCount": 26,
+      "categoryCount": 4,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showLegend": true,
+      "showCounts": true,
+      "showMetrics": true,
+      "imageCount": 0,
+      "accentColor": "#e2742c",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page065",
+    "themeKey": "theme05",
+    "pageNumber": 65,
+    "layout": "THEME05-065",
+    "slot": "triad",
+    "label": "三类资源 Triad",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "页面主题",
+        "type": "radio",
+        "default": "paper",
+        "options": [
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "整页背景：纸色 / 深色 / 整页强调色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色。"
+      },
+      {
+        "key": "pillarCount",
+        "label": "支柱数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "底部概念支柱块的数量（2–3）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点支柱",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一支柱（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点支柱序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的支柱序号（从 1 起）。"
+      },
+      {
+        "key": "showRoman",
+        "label": "支柱编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "各支柱角上的罗马数字编号。"
+      },
+      {
+        "key": "showGhost",
+        "label": "装饰数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "背景超大半透明装饰数字。"
+      },
+      {
+        "key": "emphasis",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句中关键词的强调色高亮。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 关键词 / 装饰数字的强调色。"
+      },
+      {
+        "key": "showSub",
+        "label": "辅助说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句下方的一句辅助说明。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的小色谱条。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "paper",
+      "bgColor": "#2c44a0",
+      "pillarCount": 3,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showRoman": true,
+      "showGhost": true,
+      "emphasis": true,
+      "accentColor": "#d8402e",
+      "showSub": true,
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page066",
+    "themeKey": "theme05",
+    "pageNumber": 66,
+    "layout": "THEME05-066",
+    "slot": "benchmark",
+    "label": "标杆案例 Benchmark",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "图片槽数量（0–2），按各图比例自适应排布；为 0 时主体卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "主体卡内的大号指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "showBadge",
+        "label": "角标",
+        "type": "toggle",
+        "default": true,
+        "desc": "主体卡右上角的标杆角标。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 角标 /「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "metricCount": 3,
+      "cardTheme": "color",
+      "showBadge": true,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page067",
+    "themeKey": "theme05",
+    "pageNumber": 67,
+    "layout": "THEME05-067",
+    "slot": "dossier",
+    "label": "档案卡 Dossier",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "图片槽数量（0–2），按各图比例自适应排布；为 0 时主体卡铺满整幅、明细转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "tagCount",
+        "label": "标签数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "关键词标签 chip 数量（0 隐藏整条）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "明细行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "主体卡内的指标明细行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点明细",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一条明细行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的明细行序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#efbe2e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 /「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "tagCount": 3,
+      "metricCount": 4,
+      "cardTheme": "dark",
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#efbe2e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page068",
+    "themeKey": "theme05",
+    "pageNumber": 68,
+    "layout": "THEME05-068",
+    "slot": "nexus",
+    "label": "生态连接 Nexus",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "图片槽数量（0–2），按各图比例自适应排布；为 0 时主体卡铺满整幅。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "nodeCount",
+        "label": "生态节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "连接带中围绕中枢的生态节点数量。"
+      },
+      {
+        "key": "showSpokes",
+        "label": "连接连线",
+        "type": "toggle",
+        "default": true,
+        "desc": "中枢到各节点的放射连线。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一节点（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的节点序号（从 1 起）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "desc": "主体卡内的关键指标对数量。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点节点 /「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "nodeCount": 4,
+      "showSpokes": true,
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "metricCount": 2,
+      "cardTheme": "color",
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page069",
+    "themeKey": "theme05",
+    "pageNumber": 69,
+    "layout": "THEME05-069",
+    "slot": "foundry",
+    "label": "算力集群 Foundry",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "图片槽数量（0–3），按各图比例自适应排布；为 0 时主体卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "主体卡内的大号指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showRack",
+        "label": "集群栅格",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部 GPU 集群占用栅格带（关闭则隐藏整条）。"
+      },
+      {
+        "key": "rackColumnCount",
+        "label": "集群列数",
+        "type": "slider",
+        "default": 8,
+        "min": 4,
+        "max": 14,
+        "step": 1,
+        "desc": "集群栅格的列（机柜）数量。"
+      },
+      {
+        "key": "rackFill",
+        "label": "占用率",
+        "type": "slider",
+        "default": 72,
+        "min": 20,
+        "max": 100,
+        "step": 1,
+        "desc": "被占用单元比例（同时作为巨号占用率读数）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点列",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一列（满载并以强调色着色）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点列序号",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 14,
+        "step": 1,
+        "desc": "被突出的集群列序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 占用单元 /「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "metricCount": 4,
+      "cardTheme": "dark",
+      "showRack": true,
+      "rackColumnCount": 8,
+      "rackFill": 72,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page070",
+    "themeKey": "theme05",
+    "pageNumber": 70,
+    "layout": "THEME05-070",
+    "slot": "process",
+    "label": "流程表 Process",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "数据行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "表格的数据行数量。"
+      },
+      {
+        "key": "showProcess",
+        "label": "流程带",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的数据流程管线带（关闭则隐藏整条）。"
+      },
+      {
+        "key": "stageCount",
+        "label": "流程节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "流程管线的阶段（节点）数量。"
+      },
+      {
+        "key": "stageFocus",
+        "label": "重点节点",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的流程节点序号（从 1 起）。"
+      },
+      {
+        "key": "showStageTag",
+        "label": "阶段标签列",
+        "type": "toggle",
+        "default": true,
+        "desc": "维度列内的彩色阶段标签（与流程带对应）。"
+      },
+      {
+        "key": "showVerdict",
+        "label": "判断列",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾「判断」标签列（关闭则为三列表）。"
+      },
+      {
+        "key": "zebra",
+        "label": "斑马纹",
+        "type": "toggle",
+        "default": false,
+        "desc": "隔行底色，便于横向读取。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的行序号（从 1 起）。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "流程带上方的引导文案与一对头部指标。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 头部指标 / 重点行的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 4,
+      "showProcess": true,
+      "stageCount": 4,
+      "stageFocus": 2,
+      "showStageTag": true,
+      "showVerdict": true,
+      "zebra": false,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showIntro": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page071",
+    "themeKey": "theme05",
+    "pageNumber": 71,
+    "layout": "THEME05-071",
+    "slot": "gateway",
+    "label": "转化漏斗 Gateway",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "图片槽数量（0–2），按各图比例自适应排布；为 0 时主体卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "主体卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "color",
+        "options": [
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：强调色块 / 深色 / 纸色。"
+      },
+      {
+        "key": "showLadder",
+        "label": "转化漏斗",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部用户漏斗 / 转化阶梯带（关闭则隐藏整条）。"
+      },
+      {
+        "key": "stepCount",
+        "label": "漏斗层数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "转化阶梯的层级（阶段）数量。"
+      },
+      {
+        "key": "showRate",
+        "label": "转化率标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "相邻层之间的转化率百分比标注。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点层",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一层（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点层序号",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的层序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#7a3c90",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 漏斗终点 /「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "metricCount": 3,
+      "cardTheme": "color",
+      "showLadder": true,
+      "stepCount": 3,
+      "showRate": true,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#7a3c90",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page072",
+    "themeKey": "theme05",
+    "pageNumber": 72,
+    "layout": "THEME05-072",
+    "slot": "stack",
+    "label": "架构栈 Stack",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "tierCount",
+        "label": "架构层数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "平台架构的层级（tier）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "突出层",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一层（作为「AI 延展层」以强调色着色）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "突出层序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的层序号（自顶向下，从 1 起）。"
+      },
+      {
+        "key": "showItems",
+        "label": "能力标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "各层右侧的能力 chip 标签。"
+      },
+      {
+        "key": "showExpand",
+        "label": "扩张读数",
+        "type": "toggle",
+        "default": true,
+        "desc": "架构带顶部的净收入留存扩张读数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "metricCount",
+        "label": "明细行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "主体卡内的指标明细行数。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 延展层 /「色块」主题下主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "tierCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showItems": true,
+      "showExpand": true,
+      "cardTheme": "dark",
+      "metricCount": 4,
+      "showLead": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page073",
+    "themeKey": "theme05",
+    "pageNumber": 73,
+    "layout": "THEME05-073",
+    "slot": "index",
+    "label": "知识索引 Index",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "图片槽数量（0–3），按各图比例自适应排布；为 0 时主体卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "主体卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showDirectory",
+        "label": "来源索引",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部知识来源索引目录（关闭则隐藏整条）。"
+      },
+      {
+        "key": "sourceCount",
+        "label": "索引条数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "知识来源目录的行数。"
+      },
+      {
+        "key": "showCoverage",
+        "label": "覆盖度条",
+        "type": "toggle",
+        "default": true,
+        "desc": "各来源右侧的覆盖度比例条。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点来源",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一条来源（以强调色着色）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点条序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被突出的来源序号（从 1 起）。"
+      },
+      {
+        "key": "showRing",
+        "label": "续约环",
+        "type": "toggle",
+        "default": true,
+        "desc": "索引末端的环形续约率读数。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#3c9a52",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点来源 / 续约环 /「色块」主题主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "metricCount": 3,
+      "cardTheme": "dark",
+      "showDirectory": true,
+      "sourceCount": 4,
+      "showCoverage": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showRing": true,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#3c9a52",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page074",
+    "themeKey": "theme05",
+    "pageNumber": 74,
+    "layout": "THEME05-074",
+    "slot": "monolith",
+    "label": "大数字 Monolith",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showMeter",
+        "label": "色阶量表",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字旁的竖向色阶量表（关闭则数字占满）。"
+      },
+      {
+        "key": "meterSegments",
+        "label": "色阶段数",
+        "type": "slider",
+        "default": 7,
+        "min": 3,
+        "max": 7,
+        "step": 1,
+        "desc": "竖向量表的色块段数。"
+      },
+      {
+        "key": "meterLevel",
+        "label": "点亮段数",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 7,
+        "step": 1,
+        "desc": "量表自下而上点亮的段数。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点段",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一段（描边强调）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点段序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 7,
+        "step": 1,
+        "desc": "被突出的色阶段序号（自下而上，从 1 起）。"
+      },
+      {
+        "key": "auxCount",
+        "label": "辅助指标数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "右侧支撑指标的数量（0 隐藏整列）。"
+      },
+      {
+        "key": "showCaption",
+        "label": "解释说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字下方的一句解释说明。"
+      },
+      {
+        "key": "showMessage",
+        "label": "支撑文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "解释下方的一句支撑性文案。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#efbe2e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主数字 / 眉标 / 重点段的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "showMeter": true,
+      "meterSegments": 7,
+      "meterLevel": 4,
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "auxCount": 3,
+      "showCaption": true,
+      "showMessage": true,
+      "accentColor": "#efbe2e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page075",
+    "themeKey": "theme05",
+    "pageNumber": 75,
+    "layout": "THEME05-075",
+    "slot": "horizon",
+    "label": "兑现轨迹 Horizon",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "图片槽数量（0–2），按各图比例自适应排布；为 0 时主体卡铺满整幅、指标转两列。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片相对主体卡的位置（有图片时生效）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "主体卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "主体卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "主体卡背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showHorizon",
+        "label": "兑现轨迹",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部「现在 → 远期」的兑现轨迹带（关闭则隐藏整条）。"
+      },
+      {
+        "key": "milestoneCount",
+        "label": "里程碑数",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "轨迹上的里程碑节点数量。"
+      },
+      {
+        "key": "curveStyle",
+        "label": "轨迹线型",
+        "type": "radio",
+        "default": "dashed",
+        "options": [
+          {
+            "value": "dashed",
+            "label": "虚线"
+          },
+          {
+            "value": "solid",
+            "label": "实线"
+          }
+        ],
+        "desc": "兑现轨迹的线型（虚线 = 不确定的远期）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点里程碑",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一里程碑节点。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的里程碑序号（从 1 起）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "showGalleryCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 轨迹 / 重点节点 /「色块」主题主体卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "imageSide": "right",
+      "metricCount": 4,
+      "cardTheme": "dark",
+      "showHorizon": true,
+      "milestoneCount": 3,
+      "curveStyle": "dashed",
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showLead": true,
+      "showGalleryCaption": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page076",
+    "themeKey": "theme05",
+    "pageNumber": 76,
+    "layout": "THEME05-076",
+    "slot": "chapter5",
+    "label": "章节 Chapter 05",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "章节页背景：深色 / 纸色 / 整页色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色。"
+      },
+      {
+        "key": "showBigNumber",
+        "label": "站台号",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上的大号章节「站台」编号。"
+      },
+      {
+        "key": "rowCount",
+        "label": "看板行数",
+        "type": "slider",
+        "default": 5,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "出发看板的关键词行数。"
+      },
+      {
+        "key": "showStatus",
+        "label": "状态灯",
+        "type": "toggle",
+        "default": true,
+        "desc": "各行右侧的状态指示灯。"
+      },
+      {
+        "key": "showGloss",
+        "label": "英文注",
+        "type": "toggle",
+        "default": true,
+        "desc": "各行关键词的英文注释列。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "高亮行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否高亮某一行（作为「下一站」）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "被高亮的看板行序号（从 1 起）。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 站台号 / 高亮行 / 状态灯的强调色。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的色谱条带。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左上角的品牌标识。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的章节 / 页码标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "dark",
+      "bgColor": "#2c44a0",
+      "showBigNumber": true,
+      "rowCount": 5,
+      "showStatus": true,
+      "showGloss": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "accentColor": "#d8402e",
+      "showColorBand": true,
+      "showWordmark": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page077",
+    "themeKey": "theme05",
+    "pageNumber": 77,
+    "layout": "THEME05-077",
+    "slot": "ladder",
+    "label": "转化阶梯 Ladder",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "stageCount",
+        "label": "阶段数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "转化阶梯的阶段（台阶）数量。"
+      },
+      {
+        "key": "chartType",
+        "label": "阶梯样式",
+        "type": "radio",
+        "default": "ladder",
+        "options": [
+          {
+            "value": "ladder",
+            "label": "居中收窄"
+          },
+          {
+            "value": "bars",
+            "label": "左对齐条"
+          }
+        ],
+        "desc": "阶梯呈现：居中收窄（漏斗感）/ 左对齐横向条。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点阶段",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一阶段（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点阶段序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的阶段序号（从 1 起）。"
+      },
+      {
+        "key": "showDropoff",
+        "label": "流失标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "相邻阶段之间的流失（drop-off）标注。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "各阶段的占比数值标注。"
+      },
+      {
+        "key": "showMetricCard",
+        "label": "指标卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的「风险卡」指标卡（关闭则阶梯铺满整幅）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "指标卡内的指标行数。"
+      },
+      {
+        "key": "cardTheme",
+        "label": "指标卡主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "指标卡背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点阶段 /「色块」主题指标卡的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "stageCount": 4,
+      "chartType": "ladder",
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showDropoff": true,
+      "showValue": true,
+      "showMetricCard": true,
+      "metricCount": 4,
+      "cardTheme": "dark",
+      "showLead": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page078",
+    "themeKey": "theme05",
+    "pageNumber": 78,
+    "layout": "THEME05-078",
+    "slot": "register",
+    "label": "风险登记表 Register",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "数据行数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "表格的数据行数量。"
+      },
+      {
+        "key": "showExposure",
+        "label": "严重度带",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾的严重度暴露带列（green→red 色阶，关闭则收起该列）。"
+      },
+      {
+        "key": "scaleMax",
+        "label": "严重度刻度",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "严重度暴露带的总刻度段数。"
+      },
+      {
+        "key": "showVerdict",
+        "label": "判断标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "严重度带旁的「低 / 中 / 高」判断 chip。"
+      },
+      {
+        "key": "sortDescending",
+        "label": "按严重度降序",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否按严重度由高到低排序行。"
+      },
+      {
+        "key": "zebra",
+        "label": "斑马纹",
+        "type": "toggle",
+        "default": false,
+        "desc": "隔行底色，便于横向读取。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点行序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的行序号（按当前排序后顺序，从 1 起）。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的引导文案与一对头部指标。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 头部指标 / 重点行的强调色（严重度带用独立色阶）。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 4,
+      "showExposure": true,
+      "scaleMax": 5,
+      "showVerdict": true,
+      "sortDescending": true,
+      "zebra": false,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showIntro": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page079",
+    "themeKey": "theme05",
+    "pageNumber": 79,
+    "layout": "THEME05-079",
+    "slot": "ceiling",
+    "label": "毛利天花板 Ceiling",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showGauge",
+        "label": "压力量表",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字旁的竖向压力量表（关闭则数字占满）。"
+      },
+      {
+        "key": "gaugeValue",
+        "label": "压力水位",
+        "type": "slider",
+        "default": 61,
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "desc": "量表自下而上的填充比例（0–100，天花板线随之移动）。"
+      },
+      {
+        "key": "showThresholdLine",
+        "label": "天花板线",
+        "type": "toggle",
+        "default": true,
+        "desc": "填充顶部的天花板阈值线与上方剖面网纹。"
+      },
+      {
+        "key": "auxCount",
+        "label": "辅助指标数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "右侧支撑指标的数量（0 隐藏整列）。"
+      },
+      {
+        "key": "numberAlign",
+        "label": "主数字对齐",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "主数字与说明的对齐方式。"
+      },
+      {
+        "key": "showCaption",
+        "label": "解释说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "主数字下方的一句解释说明。"
+      },
+      {
+        "key": "showMessage",
+        "label": "支撑文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "解释下方的一句支撑性文案。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "主数字 / 眉标 / 压力填充的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "showGauge": true,
+      "gaugeValue": 61,
+      "showThresholdLine": true,
+      "auxCount": 3,
+      "numberAlign": "left",
+      "showCaption": true,
+      "showMessage": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page080",
+    "themeKey": "theme05",
+    "pageNumber": 80,
+    "layout": "THEME05-080",
+    "slot": "squeeze",
+    "label": "壁垒压缩 Squeeze",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "itemCount",
+        "label": "压力维度数量",
+        "type": "slider",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "step": 1,
+        "desc": "参与压缩的压力维度（行）数量。"
+      },
+      {
+        "key": "chartType",
+        "label": "图表样式",
+        "type": "radio",
+        "default": "pincer",
+        "options": [
+          {
+            "value": "pincer",
+            "label": "夹击残余"
+          },
+          {
+            "value": "bars",
+            "label": "普通条形"
+          }
+        ],
+        "desc": "夹击残余（侵蚀+残余壁垒+箭头）/ 普通左对齐条形。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点维度",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一压力维度（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点维度序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 3,
+        "step": 1,
+        "desc": "被突出的压力维度序号（从 1 起）。"
+      },
+      {
+        "key": "showResidual",
+        "label": "残余壁垒",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧深色「残余壁垒空间」段与数值（pincer 样式下生效）。"
+      },
+      {
+        "key": "showArrow",
+        "label": "夹击箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "侵蚀段前缘指向壁垒墙的夹击箭头。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "各压力维度的侵蚀百分比标注。"
+      },
+      {
+        "key": "showAnchor",
+        "label": "残余锚点卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧深色残余壁垒锚点卡（巨号读数 + 说明）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#7a3c90",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 锚点卡巨号 / 重点维度的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "itemCount": 3,
+      "chartType": "pincer",
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showResidual": true,
+      "showArrow": true,
+      "showValue": true,
+      "showAnchor": true,
+      "showLead": true,
+      "accentColor": "#7a3c90",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page081",
+    "themeKey": "theme05",
+    "pageNumber": 81,
+    "layout": "THEME05-081",
+    "slot": "slate",
+    "label": "策略推荐 Slate",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "方向卡数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "推荐方向卡的数量。"
+      },
+      {
+        "key": "columns",
+        "label": "网格列数",
+        "type": "slider",
+        "default": 2,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "方向卡网格的列数。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点方向",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一张方向卡（其余淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点方向序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的方向卡序号（从 1 起）。"
+      },
+      {
+        "key": "showCardCode",
+        "label": "卡片代号",
+        "type": "toggle",
+        "default": true,
+        "desc": "方向卡上的英文代号。"
+      },
+      {
+        "key": "showCardTag",
+        "label": "卡片说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "方向卡底部的一行说明标签。"
+      },
+      {
+        "key": "showCriteria",
+        "label": "筛选面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的筛选指标面板（关闭则方向卡铺满整幅）。"
+      },
+      {
+        "key": "criteriaCount",
+        "label": "筛选项数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "筛选指标清单的条目数量。"
+      },
+      {
+        "key": "panelTheme",
+        "label": "面板主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "筛选面板背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点方向 /「色块」主题面板 / 筛选标记的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "cardCount": 4,
+      "columns": 2,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showCardCode": true,
+      "showCardTag": true,
+      "showCriteria": true,
+      "criteriaCount": 4,
+      "panelTheme": "dark",
+      "showLead": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page082",
+    "themeKey": "theme05",
+    "pageNumber": 82,
+    "layout": "THEME05-082",
+    "slot": "embed",
+    "label": "工作流嵌入 Embed",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "流程阶段数",
+        "type": "slider",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "宿主工作流的阶段（节点）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "嵌入标记",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否在某一阶段显示「AI 嵌入」标记（嵌入点）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "嵌入点序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "AI 嵌入所在的阶段序号（从 1 起）。"
+      },
+      {
+        "key": "showConnectors",
+        "label": "流向箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "相邻阶段之间的流向箭头。"
+      },
+      {
+        "key": "showMetrics",
+        "label": "指标面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的关注指标面板（关闭则工作流铺满整幅）。"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标项数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "关注指标清单的条目数量。"
+      },
+      {
+        "key": "panelTheme",
+        "label": "面板主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "指标面板背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showScenes",
+        "label": "场景带",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的全宽落地场景标签带。"
+      },
+      {
+        "key": "sceneCount",
+        "label": "场景数量",
+        "type": "slider",
+        "default": 5,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "落地场景标签的数量。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#e2742c",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 嵌入节点 /「色块」主题面板 / 标记的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showConnectors": true,
+      "showMetrics": true,
+      "metricCount": 4,
+      "panelTheme": "dark",
+      "showScenes": true,
+      "sceneCount": 5,
+      "showLead": true,
+      "accentColor": "#e2742c",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page083",
+    "themeKey": "theme05",
+    "pageNumber": 83,
+    "layout": "THEME05-083",
+    "slot": "beacon",
+    "label": "估值锚 Re-anchor",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "阶段节点数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "时间轴的阶段（节点）数量。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一个时间轴节点。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点节点序号",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的节点序号（同时决定窗口进度的终点，从 1 起）。"
+      },
+      {
+        "key": "showWindowFill",
+        "label": "窗口进度",
+        "type": "toggle",
+        "default": true,
+        "desc": "轴线上从起点到重点节点的强调色进度叠层（已进入的观察窗口）。"
+      },
+      {
+        "key": "showWatchlist",
+        "label": "观察对象带",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部的观察对象标签带（关闭则隐藏整条）。"
+      },
+      {
+        "key": "watchCount",
+        "label": "观察对象数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "观察对象标签的数量。"
+      },
+      {
+        "key": "showIndicators",
+        "label": "指标面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的观察指标面板（关闭则时间轴铺满整幅）。"
+      },
+      {
+        "key": "indicatorCount",
+        "label": "指标项数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "观察指标的条目数量。"
+      },
+      {
+        "key": "panelTheme",
+        "label": "面板主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "指标面板背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点节点 / 窗口进度 /「色块」主题面板的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showWindowFill": true,
+      "showWatchlist": true,
+      "watchCount": 4,
+      "showIndicators": true,
+      "indicatorCount": 4,
+      "panelTheme": "dark",
+      "showLead": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page084",
+    "themeKey": "theme05",
+    "pageNumber": 84,
+    "layout": "THEME05-084",
+    "slot": "verdict",
+    "label": "最终判断 Verdict",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "页面背景：纸色 / 深色 / 整页强调色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色（其它主题忽略）。"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "radio",
+        "default": "center",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "金句与辅助信息的对齐方式。"
+      },
+      {
+        "key": "emphasis",
+        "label": "重点词高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否用强调色高亮金句中的关键词。"
+      },
+      {
+        "key": "showTag",
+        "label": "判断标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句上方的「最终判断」标签。"
+      },
+      {
+        "key": "showSub",
+        "label": "辅助说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句下方的一行辅助说明文字。"
+      },
+      {
+        "key": "showMarker",
+        "label": "收尾标记",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的「完 / END」收尾装饰标记。"
+      },
+      {
+        "key": "showFooter",
+        "label": "页脚署名",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部品牌标识与报告署名（与封面呼应）。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "页脚处的小色谱条带。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "标签 / 重点词 / 收尾标记的强调色。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "dark",
+      "bgColor": "#d8402e",
+      "align": "center",
+      "emphasis": true,
+      "showTag": true,
+      "showSub": true,
+      "showMarker": true,
+      "showFooter": true,
+      "showColorBand": true,
+      "accentColor": "#d8402e",
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page085",
+    "themeKey": "theme05",
+    "pageNumber": 85,
+    "layout": "THEME05-085",
+    "slot": "slope",
+    "label": "排名变迁 Slope",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "itemCount",
+        "label": "条目数量",
+        "type": "slider",
+        "default": 6,
+        "min": 4,
+        "max": 7,
+        "step": 1,
+        "desc": "参与排名对比的条目数量（4–7）。两侧排名按各自周期分值自动计算。"
+      },
+      {
+        "key": "colorMode",
+        "label": "连线配色",
+        "type": "radio",
+        "default": "change",
+        "options": [
+          {
+            "value": "change",
+            "label": "涨跌"
+          },
+          {
+            "value": "category",
+            "label": "类别"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "连线着色：按排名涨跌（升绿/降红/平墨）/ 按类别色谱 / 单色。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点条目",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一条目（其余连线淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 7,
+        "step": 1,
+        "desc": "重点条目序号（按本周期排名）。"
+      },
+      {
+        "key": "showRankNumber",
+        "label": "排名序号",
+        "type": "toggle",
+        "default": true,
+        "desc": "两侧的大号排名序号。"
+      },
+      {
+        "key": "showValue",
+        "label": "数值标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "条目名称旁的本期数值。"
+      },
+      {
+        "key": "showDelta",
+        "label": "升降标记",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧的排名升降量（▲/▼）标记。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点连线 / 标记的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "itemCount": 6,
+      "colorMode": "change",
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showRankNumber": true,
+      "showValue": true,
+      "showDelta": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page086",
+    "themeKey": "theme05",
+    "pageNumber": 86,
+    "layout": "THEME05-086",
+    "slot": "scorecard",
+    "label": "综合评分 Scorecard",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "评分主体数",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 6,
+        "step": 1,
+        "desc": "参与评分的主体（行）数量（3–6）。"
+      },
+      {
+        "key": "colCount",
+        "label": "评分维度数",
+        "type": "slider",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "step": 1,
+        "desc": "评分维度（列）数量（3–5）。"
+      },
+      {
+        "key": "gradeStyle",
+        "label": "单元样式",
+        "type": "radio",
+        "default": "letter",
+        "options": [
+          {
+            "value": "letter",
+            "label": "等级"
+          },
+          {
+            "value": "score",
+            "label": "分值"
+          },
+          {
+            "value": "dot",
+            "label": "点阵"
+          }
+        ],
+        "desc": "单元格内容：字母等级 / 0–100 分值 / 五点评级。"
+      },
+      {
+        "key": "colorScale",
+        "label": "色阶",
+        "type": "radio",
+        "default": "heat",
+        "options": [
+          {
+            "value": "heat",
+            "label": "热力"
+          },
+          {
+            "value": "accent",
+            "label": "强调"
+          },
+          {
+            "value": "mono",
+            "label": "单色"
+          }
+        ],
+        "desc": "单元格底色映射：热力色阶 / 强调色深浅 / 单色深浅。"
+      },
+      {
+        "key": "showOverall",
+        "label": "综合列",
+        "type": "toggle",
+        "default": true,
+        "desc": "末尾加权综合分列（强调显示）。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一行（整行描边）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "desc": "重点行序号。"
+      },
+      {
+        "key": "zebra",
+        "label": "隔行底色",
+        "type": "toggle",
+        "default": false,
+        "desc": "行名称列的斑马纹底色。"
+      },
+      {
+        "key": "showIntro",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格上方的引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 表头 / 重点行 / 综合列的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格下方的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "rowCount": 5,
+      "colCount": 4,
+      "gradeStyle": "letter",
+      "colorScale": "heat",
+      "showOverall": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "zebra": false,
+      "showIntro": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page087",
+    "themeKey": "theme05",
+    "pageNumber": 87,
+    "layout": "THEME05-087",
+    "slot": "era",
+    "label": "周期里程 Era",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "节点数量",
+        "type": "slider",
+        "default": 5,
+        "min": 3,
+        "max": 6,
+        "step": 1,
+        "desc": "时间轴里程碑节点数量（3–6）。"
+      },
+      {
+        "key": "layout",
+        "label": "卡片排布",
+        "type": "radio",
+        "default": "alternate",
+        "options": [
+          {
+            "value": "alternate",
+            "label": "上下交错"
+          },
+          {
+            "value": "below",
+            "label": "全部在下"
+          }
+        ],
+        "desc": "节点卡片相对轴线的位置：上下交错 / 全部在轴线下方。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点节点",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一节点（放大 + 强调色）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点序号",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 6,
+        "step": 1,
+        "desc": "重点节点序号。"
+      },
+      {
+        "key": "showValue",
+        "label": "节点数值",
+        "type": "toggle",
+        "default": true,
+        "desc": "每个节点的巨号数值（如季度金额）。"
+      },
+      {
+        "key": "showNote",
+        "label": "节点说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "每个节点卡片内的一句说明。"
+      },
+      {
+        "key": "showAxisCaps",
+        "label": "轴端标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "轴线两端的「起点 / 当前」标签。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 轴线 / 重点节点的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "nodeCount": 5,
+      "layout": "alternate",
+      "focusEnabled": true,
+      "focusIndex": 4,
+      "showValue": true,
+      "showNote": true,
+      "showAxisCaps": true,
+      "accentColor": "#2c44a0",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page088",
+    "themeKey": "theme05",
+    "pageNumber": 88,
+    "layout": "THEME05-088",
+    "slot": "mosaic",
+    "label": "影像档案 Mosaic",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 5,
+        "step": 1,
+        "desc": "图片槽数量（0–5），按各图比例自适应均衡排布。为 0 时身份列铺满整幅、媒体侧转为色谱占位。"
+      },
+      {
+        "key": "imageSide",
+        "label": "图片位置",
+        "type": "radio",
+        "default": "right",
+        "options": [
+          {
+            "value": "right",
+            "label": "右侧"
+          },
+          {
+            "value": "left",
+            "label": "左侧"
+          }
+        ],
+        "desc": "图片区相对身份列的位置（有图片时生效）。"
+      },
+      {
+        "key": "heroWeight",
+        "label": "首图主图",
+        "type": "toggle",
+        "default": true,
+        "desc": "首张图片额外加宽，作为视觉主图锚定构图。"
+      },
+      {
+        "key": "showDisplay",
+        "label": "巨号字标",
+        "type": "toggle",
+        "default": true,
+        "desc": "身份列的巨号数字字标与说明。"
+      },
+      {
+        "key": "showIndex",
+        "label": "图片编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "各图角上的序号标签。"
+      },
+      {
+        "key": "tagCount",
+        "label": "标签数量",
+        "type": "slider",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "主题标签 chip 数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一段引导说明。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片区上方的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 巨号字标 / 强调条的强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 3,
+      "imageSide": "right",
+      "heroWeight": true,
+      "showDisplay": true,
+      "showIndex": true,
+      "tagCount": 4,
+      "showLead": true,
+      "showMediaCaption": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page089",
+    "themeKey": "theme05",
+    "pageNumber": 89,
+    "layout": "THEME05-089",
+    "slot": "plate",
+    "label": "全幅影像 Plate",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "imageCount",
+        "label": "图片槽数量",
+        "type": "slider",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "全幅图片槽数量（0–3）。1 张铺满整幅；多张按比例自适应分列；为 0 时显示色谱占位。"
+      },
+      {
+        "key": "panelPosition",
+        "label": "标题位置",
+        "type": "radio",
+        "default": "tl",
+        "options": [
+          {
+            "value": "tl",
+            "label": "左上"
+          },
+          {
+            "value": "tr",
+            "label": "右上"
+          },
+          {
+            "value": "bl",
+            "label": "左下"
+          }
+        ],
+        "desc": "标题面板的锚定位置（左下时自动隐藏底部指标条以避免重叠）。"
+      },
+      {
+        "key": "panelTheme",
+        "label": "面板主题",
+        "type": "radio",
+        "default": "ink",
+        "options": [
+          {
+            "value": "ink",
+            "label": "墨色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "标题面板背景：墨色 / 纸色 / 强调色块（保证压在图片上的可读性）。"
+      },
+      {
+        "key": "showKicker",
+        "label": "引导文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题面板内的一句引导说明。"
+      },
+      {
+        "key": "showTicker",
+        "label": "指标条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部贯穿的指标 ticker（左下标题时自动隐藏）。"
+      },
+      {
+        "key": "tickerCount",
+        "label": "指标条目数",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "底部指标条的条目数量。"
+      },
+      {
+        "key": "showScrim",
+        "label": "压暗蒙层",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片上的渐变压暗蒙层（提升叠字可读性）。"
+      },
+      {
+        "key": "showMediaCaption",
+        "label": "图注",
+        "type": "toggle",
+        "default": true,
+        "desc": "图片角上的装饰性图注。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 色块面板 / 指标条强调色。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "角上的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "imageCount": 1,
+      "panelPosition": "tl",
+      "panelTheme": "ink",
+      "showKicker": true,
+      "showTicker": true,
+      "tickerCount": 4,
+      "showScrim": true,
+      "showMediaCaption": true,
+      "accentColor": "#d8402e",
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page090",
+    "themeKey": "theme05",
+    "pageNumber": 90,
+    "layout": "THEME05-090",
+    "slot": "mekko",
+    "label": "变宽堆叠 Mekko",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "colCount",
+        "label": "列数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "变宽列的数量（2–5）。列宽按各列体量自动分配。"
+      },
+      {
+        "key": "segmentCount",
+        "label": "分段数量",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "每列内堆叠分段的数量（2–4）。列高按所选分段求和归一。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点列",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一列（其余列淡出）。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 5,
+        "step": 1,
+        "desc": "重点列序号（按当前列顺序）。"
+      },
+      {
+        "key": "showSegValue",
+        "label": "分段占比",
+        "type": "toggle",
+        "default": true,
+        "desc": "足够高的分段内显示其列内占比 %。"
+      },
+      {
+        "key": "showColTotal",
+        "label": "列体量标注",
+        "type": "toggle",
+        "default": true,
+        "desc": "各列下方的体量数值与整体占比。"
+      },
+      {
+        "key": "showLegend",
+        "label": "分段图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部的分段类别图例。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 重点列标记强调色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "colCount": 4,
+      "segmentCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showSegValue": true,
+      "showColTotal": true,
+      "showLegend": true,
+      "accentColor": "#d8402e",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page091",
+    "themeKey": "theme05",
+    "pageNumber": 91,
+    "layout": "THEME05-091",
+    "slot": "versus",
+    "label": "对比大数字 Versus",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "operator",
+        "label": "对比符号",
+        "type": "radio",
+        "default": "ratio",
+        "options": [
+          {
+            "value": "ratio",
+            "label": "∶"
+          },
+          {
+            "value": "times",
+            "label": "×"
+          },
+          {
+            "value": "arrow",
+            "label": "→"
+          }
+        ],
+        "desc": "两个数字之间的运算 / 关系符号。"
+      },
+      {
+        "key": "emphasize",
+        "label": "强调侧",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左"
+          },
+          {
+            "value": "right",
+            "label": "右"
+          },
+          {
+            "value": "both",
+            "label": "两侧"
+          }
+        ],
+        "desc": "用强调色着重的一侧数字。"
+      },
+      {
+        "key": "showBadge",
+        "label": "倍数徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "中心的比值 / 倍数徽标。"
+      },
+      {
+        "key": "showCaption",
+        "label": "数字说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "每个数字下方的一句说明。"
+      },
+      {
+        "key": "auxCount",
+        "label": "辅助指标数",
+        "type": "slider",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "底部支撑指标的数量（0 隐藏整行）。"
+      },
+      {
+        "key": "showClosing",
+        "label": "结语文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句结语。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 强调侧数字 / 徽标的强调色。"
+      },
+      {
+        "key": "showWordmark",
+        "label": "品牌标识",
+        "type": "toggle",
+        "default": true,
+        "desc": "左下角的品牌标识。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "右下角的装饰色谱条。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "operator": "ratio",
+      "emphasize": "left",
+      "showBadge": true,
+      "showCaption": true,
+      "auxCount": 3,
+      "showClosing": true,
+      "accentColor": "#d8402e",
+      "showWordmark": true,
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page092",
+    "themeKey": "theme05",
+    "pageNumber": 92,
+    "layout": "THEME05-092",
+    "slot": "lede",
+    "label": "金句 Lede",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "paper",
+        "options": [
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "页面背景：纸色 / 深色 / 整页强调色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色（其它主题忽略）。"
+      },
+      {
+        "key": "align",
+        "label": "对齐",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "金句对齐方式（左对齐时启用首字下沉）。"
+      },
+      {
+        "key": "showInitial",
+        "label": "首字下沉",
+        "type": "toggle",
+        "default": true,
+        "desc": "句首的巨号下沉首字（仅左对齐生效）。"
+      },
+      {
+        "key": "emphasis",
+        "label": "关键词强调",
+        "type": "toggle",
+        "default": true,
+        "desc": "用强调色高亮句中的关键词。"
+      },
+      {
+        "key": "showSource",
+        "label": "来源署名",
+        "type": "toggle",
+        "default": true,
+        "desc": "金句下方的来源 / 署名行。"
+      },
+      {
+        "key": "showTag",
+        "label": "主题标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部的一枚主题标签。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 首字 / 关键词强调色。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部贯穿的色谱条带。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "paper",
+      "bgColor": "#2c44a0",
+      "align": "left",
+      "showInitial": true,
+      "emphasis": true,
+      "showSource": true,
+      "showTag": true,
+      "accentColor": "#d8402e",
+      "showColorBand": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page093",
+    "themeKey": "theme05",
+    "pageNumber": 93,
+    "layout": "THEME05-093",
+    "slot": "colophon",
+    "label": "数据来源 Appendix",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "sourceCount",
+        "label": "来源条目数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "数据来源台账的条目数量。"
+      },
+      {
+        "key": "columns",
+        "label": "来源列数",
+        "type": "slider",
+        "default": 2,
+        "min": 1,
+        "max": 2,
+        "step": 1,
+        "desc": "数据来源台账的排布列数。"
+      },
+      {
+        "key": "showScopePanel",
+        "label": "口径面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "左侧的研究口径面板（关闭则来源台账铺满整幅）。"
+      },
+      {
+        "key": "specRowCount",
+        "label": "口径行数",
+        "type": "slider",
+        "default": 5,
+        "min": 2,
+        "max": 5,
+        "step": 1,
+        "desc": "研究口径面板的行数。"
+      },
+      {
+        "key": "panelTheme",
+        "label": "面板主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          }
+        ],
+        "desc": "口径面板背景：深色 / 强调色块 / 纸色。"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点来源",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否突出某一条数据来源。"
+      },
+      {
+        "key": "focusIndex",
+        "label": "重点来源序号",
+        "type": "slider",
+        "default": 1,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "被突出的来源序号（从 1 起）。"
+      },
+      {
+        "key": "showMethodChips",
+        "label": "方法标签带",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的方法说明标签带。"
+      },
+      {
+        "key": "methodCount",
+        "label": "方法标签数",
+        "type": "slider",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "step": 1,
+        "desc": "方法说明标签的数量。"
+      },
+      {
+        "key": "showLead",
+        "label": "引导说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题下方的一句引导说明。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#4da0c6",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 来源序号 /「色块」主题面板 / 重点项的颜色。"
+      },
+      {
+        "key": "showConclusion",
+        "label": "结论文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部的一句装饰性结论。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角的页码 / 章节标签。"
+      }
+    ],
+    "defaultProps": {
+      "sourceCount": 4,
+      "columns": 2,
+      "showScopePanel": true,
+      "specRowCount": 5,
+      "panelTheme": "dark",
+      "focusEnabled": false,
+      "focusIndex": 1,
+      "showMethodChips": true,
+      "methodCount": 4,
+      "showLead": true,
+      "accentColor": "#4da0c6",
+      "showConclusion": true,
+      "showSheetLabel": true
+    }
+  },
+  {
+    "key": "theme05_page094",
+    "themeKey": "theme05",
+    "pageNumber": 94,
+    "layout": "THEME05-094",
+    "slot": "endcap",
+    "label": "封底 Back Cover",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "theme",
+        "label": "背景主题",
+        "type": "radio",
+        "default": "dark",
+        "options": [
+          {
+            "value": "dark",
+            "label": "深色"
+          },
+          {
+            "value": "paper",
+            "label": "纸色"
+          },
+          {
+            "value": "color",
+            "label": "色块"
+          }
+        ],
+        "desc": "页面背景：深色 / 纸色 / 整页强调色块。"
+      },
+      {
+        "key": "bgColor",
+        "label": "色块背景",
+        "type": "color",
+        "default": "#2c44a0",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "「色块」主题下的整页背景色（其它主题忽略）。"
+      },
+      {
+        "key": "layout",
+        "label": "构图方式",
+        "type": "radio",
+        "default": "left",
+        "options": [
+          {
+            "value": "left",
+            "label": "左对齐"
+          },
+          {
+            "value": "center",
+            "label": "居中"
+          }
+        ],
+        "desc": "大字与信息的整体构图：左对齐（带侧栏面板）/ 居中。"
+      },
+      {
+        "key": "showMetaBar",
+        "label": "顶部品牌条",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部的品牌标识与元信息条。"
+      },
+      {
+        "key": "showPanel",
+        "label": "版本信息面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧 COLOPHON 版本信息面板（居中构图时转为底部信息行）。"
+      },
+      {
+        "key": "specRowCount",
+        "label": "信息行数",
+        "type": "slider",
+        "default": 4,
+        "min": 1,
+        "max": 4,
+        "step": 1,
+        "desc": "版本信息面板的行数。"
+      },
+      {
+        "key": "showClosing",
+        "label": "结语标语",
+        "type": "toggle",
+        "default": true,
+        "desc": "大字下方的一句结语标语。"
+      },
+      {
+        "key": "showSwatches",
+        "label": "色谱色卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "面板内的七色色谱色卡。"
+      },
+      {
+        "key": "showColorBand",
+        "label": "底部色谱条",
+        "type": "toggle",
+        "default": true,
+        "desc": "页面底部贯穿的色谱条带。"
+      },
+      {
+        "key": "accentColor",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d8402e",
+        "options": [
+          "#d8402e",
+          "#e2742c",
+          "#efbe2e",
+          "#3c9a52",
+          "#4da0c6",
+          "#2c44a0",
+          "#7a3c90"
+        ],
+        "desc": "眉标 / 大字强调的颜色。"
+      },
+      {
+        "key": "showSheetLabel",
+        "label": "页码标签",
+        "type": "toggle",
+        "default": false,
+        "desc": "右上角的封底标签（封底默认隐藏）。"
+      }
+    ],
+    "defaultProps": {
+      "theme": "dark",
+      "bgColor": "#2c44a0",
+      "layout": "left",
+      "showMetaBar": true,
+      "showPanel": true,
+      "specRowCount": 4,
+      "showClosing": true,
+      "showSwatches": true,
+      "showColorBand": true,
+      "accentColor": "#d8402e",
+      "showSheetLabel": false
+    }
+  },
+  {
+    "key": "theme06_page001",
+    "themeKey": "theme06",
+    "pageNumber": 1,
+    "layout": "THEME06-001",
+    "slot": "coverA",
+    "label": "封面A · 智联万物 / PRODUCT LAUNCH",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showMidBtn",
+        "label": "连接按钮",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏中部的圆形 ↗ 连接按钮"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d2fb30",
+        "options": [
+          "#d2fb30",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色（影响荧光绿元素）"
+      }
+    ],
+    "defaultProps": {
+      "kicker": "01 · PRODUCT LAUNCH",
+      "titleLine1": "智联万物",
+      "titleLine2Pre": "重构",
+      "titleLine2Em": "体验",
+      "lede": [
+        "2026 全新产品体系发布暨技术路演。",
+        "以技术突破，定义下一代数字生活。"
+      ],
+      "footV": "智联",
+      "footText": "全新产品体系发布 · 技术路演",
+      "footEn": "IoT × EXPERIENCE",
+      "card1Label": "万物互联 · IoT",
+      "card1Title": "全域智联",
+      "card1Sub": [
+        "设备 · 数据 · 服务",
+        "一体贯通的数字底座"
+      ],
+      "card2Label": "技术突破 · Tech",
+      "card2Title": "体验重构",
+      "card2Sub": [
+        "以技术突破，",
+        "定义下一代数字生活"
+      ],
+      "accent": "#d2fb30",
+      "showMidBtn": true
+    }
+  },
+  {
+    "key": "theme06_page002",
+    "themeKey": "theme06",
+    "pageNumber": 2,
+    "layout": "THEME06-002",
+    "slot": "coverB",
+    "label": "封面B · 新机遇 / BUSINESS PLAN",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showHaze",
+        "label": "顶部光晕",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部径向光晕装饰"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d2fb30",
+        "options": [
+          "#d2fb30",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色（影响荧光绿元素）"
+      }
+    ],
+    "defaultProps": {
+      "kicker": "BUSINESS PLAN · 商业计划书",
+      "docId": "CONFIDENTIAL / 03",
+      "titleLine1": "精准布局",
+      "titleLine2": "与时代红利同行",
+      "sub": "XX 金融项目商业计划书 · 新机遇 · 新赛道 · 新价值",
+      "note": "面向机构投资人专属方案",
+      "stats": [
+        {
+          "sv": "新机遇",
+          "sl": "New Opportunity"
+        },
+        {
+          "sv": "新赛道",
+          "sl": "New Track"
+        },
+        {
+          "sv": "新价值",
+          "sl": "New Value"
+        }
+      ],
+      "accent": "#d2fb30",
+      "showHaze": true
+    }
+  },
+  {
+    "key": "theme06_page003",
+    "themeKey": "theme06",
+    "pageNumber": 3,
+    "layout": "THEME06-003",
+    "slot": "coverC",
+    "label": "封面C · 精益智造 / LEAN MFG",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "activeStep",
+        "label": "高亮第几步",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被高亮的步骤行序号（从 0 开始）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d2fb30",
+        "options": [
+          "#d2fb30",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色（影响荧光绿元素）"
+      }
+    ],
+    "defaultProps": {
+      "kicker": "05 · LEAN MANUFACTURING",
+      "titleLine1": "精益智造",
+      "titleLine2Pre": "提质",
+      "titleLine2Em": "增效",
+      "lede": [
+        "2026 生产基地智能化改造实施方案。",
+        "以数字化重构制造流程，让每一道工序更轻。"
+      ],
+      "footV": "智造",
+      "footText": "生产基地智能化改造 · 实施方案",
+      "footEn": "PLAN / 2026",
+      "steps": [
+        {
+          "si": "01",
+          "st": "降本",
+          "sen": "Cost Down"
+        },
+        {
+          "si": "02",
+          "st": "提效",
+          "sen": "Efficiency"
+        },
+        {
+          "si": "03",
+          "st": "革新",
+          "sen": "Innovation"
+        },
+        {
+          "si": "04",
+          "st": "突围",
+          "sen": "Breakthrough"
+        }
+      ],
+      "accent": "#d2fb30",
+      "activeStep": 2
+    }
+  },
+  {
+    "key": "theme06_page004",
+    "themeKey": "theme06",
+    "pageNumber": 4,
+    "layout": "THEME06-004",
+    "slot": "coverD",
+    "label": "封面D · 品牌整合营销 / BRAND MKT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右侧巨型年份水印字"
+      },
+      {
+        "key": "showGlow",
+        "label": "底部光晕",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左下角强调色光晕"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#d2fb30",
+        "options": [
+          "#d2fb30",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色（影响荧光绿元素）"
+      }
+    ],
+    "defaultProps": {
+      "kicker": "06 · BRAND MARKETING",
+      "docId": "FY2026 / FULL-FUNNEL",
+      "watermark": "2026",
+      "formal": "2026 年度全平台品牌整合营销方案 · 覆盖内容、投放、私域与活动的全链路打法。",
+      "titleLine1": "内容驱动传播",
+      "titleLine2Pre": "创意",
+      "titleLine2Em": "引爆",
+      "titleLine2Suf": "市场",
+      "tags": [
+        {
+          "t": "全平台整合"
+        },
+        {
+          "t": "内容驱动"
+        },
+        {
+          "t": "创意引爆",
+          "solid": true
+        }
+      ],
+      "accent": "#d2fb30",
+      "showWatermark": true,
+      "showGlow": true
+    }
+  },
+  {
+    "key": "theme06_page005",
+    "themeKey": "theme06",
+    "pageNumber": 5,
+    "layout": "THEME06-005",
+    "slot": "cover",
+    "label": "01 · 封面 / COVER",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景的巨型水印字（装饰文案）"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "媒体占位数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 1,
+        "desc": "右侧主视觉图片槽数量（0 隐藏；上传后按图片比例自适应）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点信息高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否高亮一条口径信息"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几条",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被高亮的口径行序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "01",
+      "eyebrowLabel": "COVER",
+      "wordmark": "AI CAPITAL LAB",
+      "statusCenter": "US AI MEGA-FUNDING",
+      "statusRight": "DATA ≥ $100M",
+      "year": "2024",
+      "titleLines": [
+        "美国大额融资",
+        "AI 公司调研报告"
+      ],
+      "subhead": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元",
+      "phrase": "在资本与算力的浪潮里，每一笔融资都是一次方向的押注。",
+      "closing": "从资本流向，看 AI 产业下一阶段的真实重心。",
+      "watermark": "CAPITAL",
+      "data": [
+        {
+          "label": "年份 / YEAR",
+          "value": "2024"
+        },
+        {
+          "label": "口径 / SCOPE",
+          "value": "≥ $100M"
+        },
+        {
+          "label": "日期 / DATE",
+          "value": "2026.06"
+        },
+        {
+          "label": "主题 / TOPIC",
+          "value": "美国 AI 大额融资"
+        }
+      ],
+      "showWatermark": true,
+      "mediaSlotCount": 1,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page006",
+    "themeKey": "theme06",
+    "pageNumber": 6,
+    "layout": "THEME06-006",
+    "slot": "summary",
+    "label": "02 · 报告摘要 / OVERVIEW",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "指标卡数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "底部核心指标卡的数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "指标重点高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否高亮一张指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几张",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被高亮的指标卡序号"
+      },
+      {
+        "key": "chartType",
+        "label": "占比图表类型",
+        "type": "select",
+        "default": "bars",
+        "options": [
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "stack",
+            "堆叠条"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "右侧赛道占比图表的呈现形式"
+      },
+      {
+        "key": "showCaption",
+        "label": "装饰文案",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏关键词与底部说明（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "02",
+      "eyebrowLabel": "OVERVIEW",
+      "title": "报告摘要",
+      "subhead": "2024 全年 · 资本大年",
+      "summary": "2024 年美国 AI 初创公司吸纳约 <b>970 亿美元</b> 风险投资，单笔 ≥ 1 亿美元的大额融资事件达 <b>97 笔</b>。",
+      "closing": "资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。",
+      "shares": [
+        {
+          "name": "通用大模型",
+          "v": 43.3
+        },
+        {
+          "name": "垂直应用",
+          "v": 25.3
+        },
+        {
+          "name": "基础设施",
+          "v": 16.3
+        },
+        {
+          "name": "AI 芯片",
+          "v": 10
+        },
+        {
+          "name": "其他",
+          "v": 5.1
+        }
+      ],
+      "metrics": [
+        {
+          "n": "$97B",
+          "c": "全年融资 / TOTAL"
+        },
+        {
+          "n": "97",
+          "c": "大额事件 / DEALS ≥$100M"
+        },
+        {
+          "n": "$1.0B",
+          "c": "平均单笔 / AVG TICKET"
+        },
+        {
+          "n": "63.9%",
+          "c": "湾区占比 / BAY AREA"
+        }
+      ],
+      "keywords": [
+        "赢家通吃",
+        "AGI 叙事",
+        "地理护城河",
+        "估值泡沫",
+        "退潮看兑现"
+      ],
+      "metricCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "chartType": "bars",
+      "showCaption": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page007",
+    "themeKey": "theme06",
+    "pageNumber": 7,
+    "layout": "THEME06-007",
+    "slot": "contents",
+    "label": "03 · 报告结构 / STRUCTURE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "章节卡数量",
+        "type": "number",
+        "default": 7,
+        "min": 3,
+        "max": 7,
+        "desc": "展示的章节数量"
+      },
+      {
+        "key": "layout",
+        "label": "排布方式",
+        "type": "select",
+        "default": "rows",
+        "options": [
+          [
+            "rows",
+            "列表"
+          ],
+          [
+            "grid",
+            "网格"
+          ]
+        ],
+        "desc": "章节的排布形式"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点章节高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一章节"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几章",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 6,
+        "desc": "被突出的章节序号"
+      },
+      {
+        "key": "showColumnHeaders",
+        "label": "装饰列头",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏列表的列头标签（装饰文案，仅列表布局）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "03",
+      "eyebrowLabel": "STRUCTURE",
+      "title": "报告结构",
+      "subhead": "从方法到结论的阅读路径",
+      "closing": "先建立框架，再进入数据和判断。",
+      "items": [
+        {
+          "name": "研究方法",
+          "en": "Methodology",
+          "scope": "横纵分析法 · 数据口径"
+        },
+        {
+          "name": "市场全景",
+          "en": "Market Panorama",
+          "scope": "融资规模 · 季度节奏"
+        },
+        {
+          "name": "横向透视",
+          "en": "Cross-Section",
+          "scope": "赛道 · 轮次 · 地区"
+        },
+        {
+          "name": "产业链分层",
+          "en": "Value Chain",
+          "scope": "上游 · 中游 · 下游"
+        },
+        {
+          "name": "典型案例",
+          "en": "Case Studies",
+          "scope": "模型 · 生态 · 算力"
+        },
+        {
+          "name": "风险研判",
+          "en": "Risk & Outlook",
+          "scope": "估值 · 监管 · 兑现"
+        },
+        {
+          "name": "结论判断",
+          "en": "Conclusion",
+          "scope": "投资策略 · 数据来源"
+        }
+      ],
+      "cardCount": 7,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "layout": "rows",
+      "showColumnHeaders": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page008",
+    "themeKey": "theme06",
+    "pageNumber": 8,
+    "layout": "THEME06-008",
+    "slot": "method",
+    "label": "04 · 研究方法 / METHODOLOGY",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "方法卡数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "方法层级的数量"
+      },
+      {
+        "key": "stackStyle",
+        "label": "卡片样式",
+        "type": "select",
+        "default": "stack",
+        "options": [
+          [
+            "stack",
+            "堆叠"
+          ],
+          [
+            "list",
+            "列表"
+          ]
+        ],
+        "desc": "左侧方法卡的排布形式"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点层高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一方法层"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几层",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的方法层序号"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏卡片上的大号标记与轴线编号（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "04",
+      "eyebrowLabel": "METHODOLOGY",
+      "title": "研究方法",
+      "subhead": "横纵分析法",
+      "goal": "目标：把融资数据变成 <b>结构化判断</b>",
+      "closing": "不是罗列融资新闻，而是看清资本流向。",
+      "layers": [
+        {
+          "name": "横向",
+          "en": "HORIZONTAL",
+          "axis": "空间对比",
+          "desc": "同一时间截面下，对比公司、赛道、轮次与地区——回答「钱流向哪里」。"
+        },
+        {
+          "name": "纵向",
+          "en": "VERTICAL",
+          "axis": "时间演化",
+          "desc": "沿时间轴观察融资额、事件数与市场节奏的变化——回答「热度如何变化」。"
+        },
+        {
+          "name": "交叉",
+          "en": "CROSS",
+          "axis": "产业分层",
+          "desc": "横纵交叉叠加产业链分层，判断哪些方向能够真正兑现。"
+        }
+      ],
+      "cardCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "stackStyle": "stack",
+      "showDecor": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page009",
+    "themeKey": "theme06",
+    "pageNumber": 9,
+    "layout": "THEME06-009",
+    "slot": "trend",
+    "label": "05 · 市场全景 / TREND",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "area",
+        "options": [
+          [
+            "area",
+            "面积"
+          ],
+          [
+            "bars",
+            "柱状"
+          ],
+          [
+            "line",
+            "折线"
+          ]
+        ],
+        "desc": "主视觉图表的呈现形式"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标卡数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 6,
+        "desc": "底部数据卡的数量（按数据点截取）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "峰值高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否高亮某个数据点（峰值）"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的数据点序号"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰网格 / 峰值标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏基准网格线与峰值标记（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "05",
+      "eyebrowLabel": "MARKET PANORAMA",
+      "year": "2024",
+      "title": "市场全景 · 纵向趋势",
+      "subhead": "逐季度融资额走势 / $B",
+      "closing": "高峰过后不是崩塌，而是市场开始筛选。",
+      "unit": "",
+      "series": [
+        {
+          "label": "Q1",
+          "value": 162,
+          "sub": "18 笔"
+        },
+        {
+          "label": "Q2",
+          "value": 284,
+          "sub": "26 笔"
+        },
+        {
+          "label": "Q3",
+          "value": 318,
+          "sub": "31 笔"
+        },
+        {
+          "label": "Q4",
+          "value": 206,
+          "sub": "22 笔"
+        }
+      ],
+      "metricCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "chartType": "area",
+      "showDecor": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page010",
+    "themeKey": "theme06",
+    "pageNumber": 10,
+    "layout": "THEME06-010",
+    "slot": "chapter",
+    "label": "06 · 市场数据深拆 / CHAPTER",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "background",
+        "label": "背景形态",
+        "type": "select",
+        "default": "glow",
+        "options": [
+          [
+            "glow",
+            "光晕"
+          ],
+          [
+            "solid",
+            "纯色"
+          ],
+          [
+            "panel",
+            "色块"
+          ]
+        ],
+        "desc": "分隔页背景的呈现形式"
+      },
+      {
+        "key": "showIndex",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏超大章节编号"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "底部关键词标签数量（0 隐藏）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否高亮某个关键词标签"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的关键词序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": false,
+        "desc": "显示/隐藏背景巨型水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "CH",
+      "eyebrowLabel": "CHAPTER 02",
+      "chapterNo": "02",
+      "title": "市场数据深拆",
+      "subhead": "融资节奏 · 集中度 · 交易规模 / MARKET DATA DEEP-DIVE",
+      "closing": "下一组页面进入更细的拆解。",
+      "keywords": [
+        "集中度",
+        "季度节奏",
+        "峰谷对比",
+        "资金贡献"
+      ],
+      "watermark": "02",
+      "showIndex": true,
+      "keywordCount": 4,
+      "focusEnabled": false,
+      "focusIndex": 0,
+      "background": "glow",
+      "showWatermark": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page011",
+    "themeKey": "theme06",
+    "pageNumber": 11,
+    "layout": "THEME06-011",
+    "slot": "dealmap",
+    "label": "07 · 规模分层 / DEAL MAP",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "bubbles",
+        "options": [
+          [
+            "bubbles",
+            "气泡"
+          ],
+          [
+            "dots",
+            "点阵"
+          ],
+          [
+            "bars",
+            "条形"
+          ]
+        ],
+        "desc": "规模分层的可视化形式"
+      },
+      {
+        "key": "tierCount",
+        "label": "分层数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的金额区间层数"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分层高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一金额区间"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几层",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的区间序号（默认巨额交易层）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每层的笔数与金额标签（装饰数据）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "16",
+      "eyebrowLabel": "DEAL MAP",
+      "title": "融资事件规模分层",
+      "subhead": "大额融资事件地图 / 金额 $B",
+      "closing": "影响最大的往往是少数巨额交易。",
+      "unit": "亿",
+      "tiers": [
+        {
+          "range": "1–2亿",
+          "en": "1–2 · 41 DEALS",
+          "count": 41,
+          "amount": 58
+        },
+        {
+          "range": "2–5亿",
+          "en": "2–5 · 29 DEALS",
+          "count": 29,
+          "amount": 91
+        },
+        {
+          "range": "5–10亿",
+          "en": "5–10 · 15 DEALS",
+          "count": 15,
+          "amount": 103
+        },
+        {
+          "range": "10亿+",
+          "en": "10+ · MEGA",
+          "count": 12,
+          "amount": 718
+        }
+      ],
+      "chartType": "bubbles",
+      "tierCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showValueLabels": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page012",
+    "themeKey": "theme06",
+    "pageNumber": 12,
+    "layout": "THEME06-012",
+    "slot": "q1",
+    "label": "08 · 冷启动季度 / Q1 BREAKDOWN",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "指标呈现",
+        "type": "select",
+        "default": "chart",
+        "options": [
+          [
+            "chart",
+            "图表卡"
+          ],
+          [
+            "table",
+            "表格"
+          ]
+        ],
+        "desc": "右侧指标的呈现形式"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "辅助指标的数量"
+      },
+      {
+        "key": "showTrend",
+        "label": "全年对照图",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部同侪期对照迷你图"
+      },
+      {
+        "key": "showDelta",
+        "label": "环比标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏环比变化标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "本期高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否在对照图中高亮本期"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几期",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被高亮的对照期序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "17",
+      "eyebrowLabel": "QUARTER BREAKDOWN",
+      "title": "冷启动季度",
+      "subhead": "Q1 融资拆解 / COLD START",
+      "closing": "全年热度从保守启动开始。",
+      "periodLabel": "Q1",
+      "periodCaption": "全年起步阶段 / FIRST QUARTER",
+      "hero": {
+        "value": "162",
+        "unit": "亿$",
+        "label": "Q1 融资额 / FUNDING"
+      },
+      "delta": {
+        "value": "—",
+        "dir": "flat",
+        "label": "环比 / QoQ"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "18 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "9.0 亿"
+        },
+        {
+          "k": "最大单笔 / MAX",
+          "v": "32 亿"
+        }
+      ],
+      "context": [
+        {
+          "label": "Q1",
+          "value": 162
+        },
+        {
+          "label": "Q2",
+          "value": 284
+        },
+        {
+          "label": "Q3",
+          "value": 318
+        },
+        {
+          "label": "Q4",
+          "value": 206
+        }
+      ],
+      "layout": "chart",
+      "metricCount": 3,
+      "showTrend": true,
+      "showDelta": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page013",
+    "themeKey": "theme06",
+    "pageNumber": 13,
+    "layout": "THEME06-013",
+    "slot": "q2",
+    "label": "09 · 加速季度 / Q2 BREAKDOWN",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "指标呈现",
+        "type": "select",
+        "default": "chart",
+        "options": [
+          [
+            "chart",
+            "图表卡"
+          ],
+          [
+            "table",
+            "表格"
+          ]
+        ],
+        "desc": "右侧指标的呈现形式"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "辅助指标的数量"
+      },
+      {
+        "key": "showTrend",
+        "label": "全年对照图",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部同侪期对照迷你图"
+      },
+      {
+        "key": "showDelta",
+        "label": "环比标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏环比变化标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "本期高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否在对照图中高亮本期"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几期",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被高亮的对照期序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "18",
+      "eyebrowLabel": "QUARTER BREAKDOWN",
+      "title": "加速季度",
+      "subhead": "Q2 融资拆解 / ACCELERATION",
+      "closing": "Q2 是融资窗口打开的关键节点。",
+      "periodLabel": "Q2",
+      "periodCaption": "融资窗口打开 / SECOND QUARTER",
+      "hero": {
+        "value": "284",
+        "unit": "亿$",
+        "label": "Q2 融资额 / FUNDING"
+      },
+      "delta": {
+        "value": "+75.3%",
+        "dir": "up",
+        "label": "环比 / QoQ"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "26 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "10.9 亿"
+        },
+        {
+          "k": "环比增长 / QoQ",
+          "v": "+75.3%"
+        }
+      ],
+      "context": [
+        {
+          "label": "Q1",
+          "value": 162
+        },
+        {
+          "label": "Q2",
+          "value": 284
+        },
+        {
+          "label": "Q3",
+          "value": 318
+        },
+        {
+          "label": "Q4",
+          "value": 206
+        }
+      ],
+      "layout": "table",
+      "metricCount": 3,
+      "showTrend": true,
+      "showDelta": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page014",
+    "themeKey": "theme06",
+    "pageNumber": 14,
+    "layout": "THEME06-014",
+    "slot": "q3",
+    "label": "10 · 峰值季度 / Q3 PEAK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为峰值曲线面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "辅助指标的数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showPeakBadge",
+        "label": "峰值徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角峰值徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "19",
+      "eyebrowLabel": "QUARTER BREAKDOWN",
+      "title": "全年峰值季度",
+      "subhead": "Q3 融资拆解 / PEAK QUARTER",
+      "closing": "高峰之后，市场开始从热度转向筛选。",
+      "periodLabel": "Q3",
+      "periodCaption": "市场情绪高点 / THIRD QUARTER",
+      "peakTag": "全年峰值 / PEAK",
+      "hero": {
+        "value": "318",
+        "unit": "亿$",
+        "label": "Q3 融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "31 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "10.3 亿"
+        },
+        {
+          "k": "峰值月份 / PEAK",
+          "v": "8 月"
+        }
+      ],
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showPeakBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page015",
+    "themeKey": "theme06",
+    "pageNumber": 15,
+    "layout": "THEME06-015",
+    "slot": "q4",
+    "label": "11 · 回落季度 / Q4 PULLBACK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "nodeCount",
+        "label": "阶段节点数",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "横向阶段轴上的节点数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 2,
+        "desc": "左侧辅助指标数量"
+      },
+      {
+        "key": "showTrack",
+        "label": "阶段数值条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个节点的数值条与连接轴"
+      },
+      {
+        "key": "showDelta",
+        "label": "变化标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏方向变化标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "本期高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否在阶段轴中高亮本期"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几阶段",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "被高亮的节点序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "20",
+      "eyebrowLabel": "QUARTER BREAKDOWN",
+      "title": "理性回落季度",
+      "subhead": "Q4 融资拆解 / RATIONAL PULLBACK",
+      "closing": "回落不是终点，而是分化的开始。",
+      "periodLabel": "Q4",
+      "periodCaption": "资金挑选确定性 / FOURTH QUARTER",
+      "hero": {
+        "value": "206",
+        "unit": "亿$",
+        "label": "Q4 融资额 / FUNDING"
+      },
+      "delta": {
+        "value": "−35.2%",
+        "dir": "down",
+        "label": "较 Q3 / vs Q3"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "22 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "9.4 亿"
+        }
+      ],
+      "nodes": [
+        {
+          "when": "Q1",
+          "value": 162,
+          "name": "冷启动 / COLD START",
+          "note": "市场保守启动，资金谨慎。"
+        },
+        {
+          "when": "Q2",
+          "value": 284,
+          "name": "加速 / ACCELERATION",
+          "note": "融资窗口打开，节奏加快。"
+        },
+        {
+          "when": "Q3",
+          "value": 318,
+          "name": "峰值 / PEAK",
+          "note": "情绪高点，多赛道同时活跃。"
+        },
+        {
+          "when": "Q4",
+          "value": 206,
+          "name": "回落 / PULLBACK",
+          "note": "回落但仍高于年初，资金转向筛选。"
+        }
+      ],
+      "nodeCount": 4,
+      "metricCount": 2,
+      "showDelta": true,
+      "showTrack": true,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page016",
+    "themeKey": "theme06",
+    "pageNumber": 16,
+    "layout": "THEME06-016",
+    "slot": "peaktrough",
+    "label": "12 · 峰值与低位 / PEAK & TROUGH",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "columns",
+        "options": [
+          [
+            "columns",
+            "柱状"
+          ],
+          [
+            "lollipop",
+            "棒棒糖"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "峰谷对比的可视化形式"
+      },
+      {
+        "key": "pointCount",
+        "label": "数据点数量",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "展示的月份/数据点数量"
+      },
+      {
+        "key": "markExtremes",
+        "label": "标记峰谷",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否用不同颜色标记最高/最低点"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个数据点的数值（装饰数据）"
+      },
+      {
+        "key": "showBaseline",
+        "label": "均值基准线",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏平均值基准线（装饰）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点点位高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否用描边突出某一数据点"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的数据点序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "21",
+      "eyebrowLabel": "PEAK & TROUGH",
+      "title": "峰值与低位",
+      "subhead": "月度峰谷对比 / MONTHLY SPREAD",
+      "closing": "月度波动背后是头部交易节奏。",
+      "unit": "亿",
+      "points": [
+        {
+          "label": "8月",
+          "value": 118,
+          "sub": "AUG · 峰值"
+        },
+        {
+          "label": "9月",
+          "value": 108,
+          "sub": "SEP"
+        },
+        {
+          "label": "5月",
+          "value": 105,
+          "sub": "MAY"
+        },
+        {
+          "label": "12月",
+          "value": 52,
+          "sub": "DEC"
+        },
+        {
+          "label": "1月",
+          "value": 45,
+          "sub": "JAN · 低位"
+        }
+      ],
+      "spread": [
+        {
+          "k": "峰值月份 / PEAK",
+          "v": "118 亿"
+        },
+        {
+          "k": "低位月份 / TROUGH",
+          "v": "45 亿"
+        },
+        {
+          "k": "峰谷差 / GAP",
+          "v": "73 亿"
+        }
+      ],
+      "chartType": "columns",
+      "pointCount": 5,
+      "markExtremes": true,
+      "showValueLabels": true,
+      "showBaseline": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page017",
+    "themeKey": "theme06",
+    "pageNumber": 17,
+    "layout": "THEME06-017",
+    "slot": "waterfall",
+    "label": "13 · 赛道贡献 / WATERFALL",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "waterfall",
+        "options": [
+          [
+            "waterfall",
+            "瀑布"
+          ],
+          [
+            "stack",
+            "堆叠条"
+          ],
+          [
+            "bars",
+            "条形"
+          ]
+        ],
+        "desc": "贡献拆分的可视化形式"
+      },
+      {
+        "key": "segmentCount",
+        "label": "赛道数量",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "展示的赛道/贡献项数量"
+      },
+      {
+        "key": "showTotal",
+        "label": "合计柱",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏累计合计柱（仅瀑布有效）"
+      },
+      {
+        "key": "showConnectors",
+        "label": "阶梯连接线",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏瀑布阶梯连接线（装饰，仅瀑布有效）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每项数值（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点赛道高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一赛道"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的赛道序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "22",
+      "eyebrowLabel": "FUNDING WATERFALL",
+      "title": "赛道贡献拆分",
+      "subhead": "融资额贡献瀑布 / CONTRIBUTION",
+      "unit": "亿",
+      "closing": "大模型制造热度，基础设施和应用承接兑现。",
+      "totalLabel": "全年合计",
+      "segments": [
+        {
+          "name": "通用大模型",
+          "en": "FOUNDATION MODELS",
+          "value": 420
+        },
+        {
+          "name": "垂直应用",
+          "en": "VERTICAL APPS",
+          "value": 245
+        },
+        {
+          "name": "基础设施",
+          "en": "INFRASTRUCTURE",
+          "value": 158
+        },
+        {
+          "name": "AI 芯片",
+          "en": "AI CHIPS",
+          "value": 97
+        },
+        {
+          "name": "其他",
+          "en": "OTHERS",
+          "value": 50
+        }
+      ],
+      "chartType": "waterfall",
+      "segmentCount": 5,
+      "showTotal": true,
+      "showValueLabels": true,
+      "showConnectors": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page018",
+    "themeKey": "theme06",
+    "pageNumber": 18,
+    "layout": "THEME06-018",
+    "slot": "sizesplit",
+    "label": "14 · 金额区间结构 / SIZE SPLIT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "diverging",
+        "options": [
+          [
+            "diverging",
+            "双向对比"
+          ],
+          [
+            "grouped",
+            "分组柱"
+          ],
+          [
+            "stacked",
+            "百分比堆叠"
+          ]
+        ],
+        "desc": "数量×金额双维度的可视化形式"
+      },
+      {
+        "key": "tierCount",
+        "label": "区间数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的金额区间层数"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点区间高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一金额区间"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几层",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的区间序号（默认巨额交易层）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏笔数与金额标签（装饰数据）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "23",
+      "eyebrowLabel": "DEAL SIZE SPLIT",
+      "title": "金额区间结构",
+      "subhead": "交易规模分布 / SIZE DISTRIBUTION",
+      "closing": "市场被少数超级交易重新定价。",
+      "leftLabel": "笔数",
+      "rightLabel": "金额",
+      "unitLeft": " 笔",
+      "unitRight": " 亿",
+      "tiers": [
+        {
+          "range": "1–2亿",
+          "en": "1–2B USD",
+          "count": 41,
+          "amount": 58
+        },
+        {
+          "range": "2–5亿",
+          "en": "2–5B USD",
+          "count": 29,
+          "amount": 91
+        },
+        {
+          "range": "5–10亿",
+          "en": "5–10B USD",
+          "count": 15,
+          "amount": 103
+        },
+        {
+          "range": "10亿+",
+          "en": "10B+ MEGA",
+          "count": 12,
+          "amount": 718
+        }
+      ],
+      "chartType": "diverging",
+      "tierCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showValueLabels": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page019",
+    "themeKey": "theme06",
+    "pageNumber": 19,
+    "layout": "THEME06-019",
+    "slot": "avgticket",
+    "label": "15 · 赛道平均融资额 / AVG TICKET",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "辅助指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "大数字下方的辅助指标数量（0 隐藏）"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "主数字区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "24",
+      "eyebrowLabel": "AVERAGE TICKET",
+      "kicker": "把全年融资换算成单笔，才能看清资本的下注密度。",
+      "figure": "$1.0",
+      "unit": "B",
+      "explain": "全年大额融资的 <b>平均单笔规模</b>——但垂直应用不应只用融资规模评价，更要看收入效率。",
+      "closing": "融资规模越大，后续兑现压力越高。",
+      "watermark": "TICKET",
+      "metrics": [
+        {
+          "k": "全年融资 / TOTAL",
+          "v": "$97B"
+        },
+        {
+          "k": "大额事件 / DEALS",
+          "v": "97 笔"
+        },
+        {
+          "k": "最大单笔 / MAX",
+          "v": "$50B"
+        }
+      ],
+      "metricCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page020",
+    "themeKey": "theme06",
+    "pageNumber": 20,
+    "layout": "THEME06-020",
+    "slot": "cumulative",
+    "label": "16 · 累计资金分布 / CAPITAL CURVE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "area",
+        "options": [
+          [
+            "area",
+            "面积"
+          ],
+          [
+            "line",
+            "折线"
+          ],
+          [
+            "steps",
+            "阶梯"
+          ]
+        ],
+        "desc": "累计曲线的可视化形式"
+      },
+      {
+        "key": "stageCount",
+        "label": "档位数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "累计占比的档位数量"
+      },
+      {
+        "key": "showEquality",
+        "label": "均衡参考线",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏均匀分布参考线（装饰，对比集中度）"
+      },
+      {
+        "key": "showGrid",
+        "label": "坐标网格",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏横向网格与刻度（装饰）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各点占比标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点档位高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否用竖向引导线突出某一档位"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几档",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的档位序号（默认末档）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "25",
+      "eyebrowLabel": "CAPITAL CURVE",
+      "title": "累计资金分布",
+      "subhead": "资本集中曲线 / CONCENTRATION",
+      "closing": "集中度本身就是市场结构。",
+      "unit": "%",
+      "hero": {
+        "value": 71.2,
+        "label": "累计占比 / CUMULATIVE"
+      },
+      "stages": [
+        {
+          "label": "Top 3",
+          "en": "前 3 家",
+          "value": 18.7
+        },
+        {
+          "label": "Top 10",
+          "en": "前 10 家",
+          "value": 23.8
+        },
+        {
+          "label": "Top 25",
+          "en": "前 25 家",
+          "value": 48.5
+        },
+        {
+          "label": "Top 50",
+          "en": "前 50 家",
+          "value": 71.2
+        }
+      ],
+      "chartType": "area",
+      "stageCount": 4,
+      "showEquality": true,
+      "showGrid": true,
+      "showValueLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page021",
+    "themeKey": "theme06",
+    "pageNumber": 21,
+    "layout": "THEME06-021",
+    "slot": "ch03",
+    "label": "17 · 赛道结构细分 / CHAPTER 03",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "background",
+        "label": "背景形态",
+        "type": "select",
+        "default": "glow",
+        "options": [
+          [
+            "glow",
+            "光晕"
+          ],
+          [
+            "solid",
+            "纯色"
+          ],
+          [
+            "panel",
+            "色块"
+          ]
+        ],
+        "desc": "分隔页背景的呈现形式"
+      },
+      {
+        "key": "showIndex",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏超大章节编号"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "底部关键词标签数量（0 隐藏）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否高亮某个关键词标签"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的关键词序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": false,
+        "desc": "显示/隐藏背景巨型水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "CH",
+      "eyebrowLabel": "CHAPTER 03",
+      "chapterNo": "03",
+      "title": "赛道结构细分",
+      "subhead": "从大模型到垂直应用 / SECTOR BREAKDOWN",
+      "closing": "下一组页面进入更细的赛道拆解。",
+      "keywords": [
+        "通用模型",
+        "Agent",
+        "企业搜索",
+        "医疗",
+        "金融",
+        "开发者工具"
+      ],
+      "watermark": "03",
+      "showIndex": true,
+      "keywordCount": 6,
+      "focusEnabled": false,
+      "focusIndex": 0,
+      "background": "glow",
+      "showWatermark": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page022",
+    "themeKey": "theme06",
+    "pageNumber": 22,
+    "layout": "THEME06-022",
+    "slot": "radar",
+    "label": "18 · 模型实验室竞争 / MODEL LAB RACE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "radar",
+        "options": [
+          [
+            "radar",
+            "雷达"
+          ],
+          [
+            "bars",
+            "柱状"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "多维能力的可视化形式"
+      },
+      {
+        "key": "axisCount",
+        "label": "维度数量",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 6,
+        "desc": "展示的能力维度数量"
+      },
+      {
+        "key": "showGrid",
+        "label": "网格刻度",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏雷达环线或柱状基准（装饰）"
+      },
+      {
+        "key": "showCompare",
+        "label": "基准对照",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏行业基准多边形 / 基准线（装饰数据）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各维度数值标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点维度高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一能力维度"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几维",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被突出的维度序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "27",
+      "eyebrowLabel": "MODEL LAB RACE",
+      "title": "算力、数据、人才与渠道",
+      "subhead": "模型实验室竞争 / RESOURCE EDGE",
+      "closing": "模型能力只是入口，交付能力才是商业化。",
+      "footRight": "同比变化 / YoY",
+      "axes": [
+        {
+          "k": "算力预算 / COMPUTE",
+          "en": "TRAINING BUDGET",
+          "v": "+64%",
+          "mag": 86,
+          "base": 52
+        },
+        {
+          "k": "企业 API 客户 / CLIENTS",
+          "en": "ENTERPRISE API",
+          "v": "+52%",
+          "mag": 78,
+          "base": 50
+        },
+        {
+          "k": "研究团队 / TEAM",
+          "en": "RESEARCH HEADCOUNT",
+          "v": "+38%",
+          "mag": 64,
+          "base": 48
+        },
+        {
+          "k": "推理成本 / COST",
+          "en": "INFERENCE COST",
+          "v": "-21%",
+          "mag": 58,
+          "base": 54
+        }
+      ],
+      "chartType": "radar",
+      "axisCount": 4,
+      "showGrid": true,
+      "showCompare": true,
+      "showValueLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page023",
+    "themeKey": "theme06",
+    "pageNumber": 23,
+    "layout": "THEME06-023",
+    "slot": "agent",
+    "label": "19 · 工作流自动化 / AI AGENTS",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "布局形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "table",
+            "表格"
+          ]
+        ],
+        "desc": "右栏的呈现形式：图片主导 / 场景占比表"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为场景占比面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "splitCount",
+        "label": "场景档数",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "场景占比行数（表格或 0 图片面板时生效）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "28",
+      "eyebrowLabel": "AI AGENTS",
+      "title": "工作流自动化机会",
+      "subhead": "AI Agent 赛道 / WORKFLOW AUTOMATION",
+      "closing": "能进入工作流的 Agent 才有长期价值。",
+      "segTag": "AI AGENT 赛道 / AGENTS",
+      "hero": {
+        "value": "72",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "16 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "4.5 亿"
+        },
+        {
+          "k": "ARR 中位数 / ARR",
+          "v": "4200 万"
+        }
+      ],
+      "splits": [
+        {
+          "name": "任务执行",
+          "en": "TASK EXECUTION",
+          "value": 44,
+          "unit": "%"
+        },
+        {
+          "name": "工作流编排",
+          "en": "ORCHESTRATION",
+          "value": 33,
+          "unit": "%"
+        },
+        {
+          "name": "系统集成",
+          "en": "INTEGRATION",
+          "value": 23,
+          "unit": "%"
+        }
+      ],
+      "mediaPlaceholder": "Agent 工作流示意 / DROP IMAGE",
+      "layout": "media",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "splitCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page024",
+    "themeKey": "theme06",
+    "pageNumber": 24,
+    "layout": "THEME06-024",
+    "slot": "search",
+    "label": "20 · 知识入口 / ENTERPRISE SEARCH",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "布局形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "table",
+            "表格"
+          ]
+        ],
+        "desc": "右栏的呈现形式：图片主导 / 场景占比表"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为场景占比面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "splitCount",
+        "label": "场景档数",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "场景占比行数（表格或 0 图片面板时生效）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "29",
+      "eyebrowLabel": "ENTERPRISE SEARCH",
+      "title": "知识入口机会",
+      "subhead": "企业搜索赛道 / KNOWLEDGE ENTRY",
+      "closing": "企业知识入口是 AI 应用的重要落地点。",
+      "segTag": "企业搜索赛道 / SEARCH",
+      "hero": {
+        "value": "38",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "9 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "4.2 亿"
+        },
+        {
+          "k": "付费客户中位数 / CLIENTS",
+          "v": "620 家"
+        }
+      ],
+      "splits": [
+        {
+          "name": "内部知识库",
+          "en": "KNOWLEDGE BASE",
+          "value": 48,
+          "unit": "%"
+        },
+        {
+          "name": "客服支持",
+          "en": "SUPPORT",
+          "value": 29,
+          "unit": "%"
+        },
+        {
+          "name": "研发文档",
+          "en": "DEV DOCS",
+          "value": 23,
+          "unit": "%"
+        }
+      ],
+      "mediaPlaceholder": "知识库入口图 / DROP IMAGE",
+      "layout": "media",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "splitCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page025",
+    "themeKey": "theme06",
+    "pageNumber": 25,
+    "layout": "THEME06-025",
+    "slot": "legal",
+    "label": "21 · 专业服务 / LEGAL AI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "布局形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "table",
+            "表格"
+          ]
+        ],
+        "desc": "右栏的呈现形式：图片主导 / 场景占比表"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为场景占比面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "splitCount",
+        "label": "场景档数",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "场景占比行数（表格或 0 图片面板时生效）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "30",
+      "eyebrowLabel": "LEGAL AI",
+      "title": "专业服务高客单价",
+      "subhead": "法律 AI 赛道 / LEGAL SERVICES",
+      "closing": "法律 AI 是垂直应用商业化样本。",
+      "segTag": "法律 AI 赛道 / LEGAL",
+      "hero": {
+        "value": "26",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "6 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "4.3 亿"
+        },
+        {
+          "k": "合同审查占比 / REVIEW",
+          "v": "46%"
+        }
+      ],
+      "splits": [
+        {
+          "name": "合同审查",
+          "en": "CONTRACT REVIEW",
+          "value": 46,
+          "unit": "%"
+        },
+        {
+          "name": "合规审查",
+          "en": "COMPLIANCE",
+          "value": 24,
+          "unit": "%"
+        },
+        {
+          "name": "诉讼支持",
+          "en": "LITIGATION",
+          "value": 18,
+          "unit": "%"
+        },
+        {
+          "name": "法律检索",
+          "en": "LEGAL RESEARCH",
+          "value": 12,
+          "unit": "%"
+        }
+      ],
+      "mediaPlaceholder": "法律流程图 / DROP IMAGE",
+      "layout": "table",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "splitCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page026",
+    "themeKey": "theme06",
+    "pageNumber": 26,
+    "layout": "THEME06-026",
+    "slot": "ranking",
+    "label": "22 · 融资排名 / RANKING",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "展示条目数",
+        "type": "number",
+        "default": 8,
+        "min": 5,
+        "max": 10,
+        "desc": "排行榜显示的条目数量"
+      },
+      {
+        "key": "focusCount",
+        "label": "高亮前 N 名",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "高亮排名靠前的条目数量（0 关闭）"
+      },
+      {
+        "key": "chartType",
+        "label": "图形类型",
+        "type": "select",
+        "default": "bars",
+        "options": [
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "数值的可视化形式"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每行末尾的数值（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "06",
+      "eyebrowLabel": "TOP FUNDED",
+      "unit": "B",
+      "title": "Top 10 融资公司",
+      "subhead": "头部玩家资金排名 / 最大单笔",
+      "closing": "头部规模既反映技术叙事，也反映资源绑定能力。",
+      "rows": [
+        {
+          "name": "OpenAI",
+          "tag": "通用大模型 / LLM",
+          "value": 66
+        },
+        {
+          "name": "Anthropic",
+          "tag": "安全模型 / SAFETY",
+          "value": 65
+        },
+        {
+          "name": "xAI",
+          "tag": "实时数据 / MULTIMODAL",
+          "value": 50
+        },
+        {
+          "name": "CoreWeave",
+          "tag": "算力基础设施 / GPU CLOUD",
+          "value": 11
+        },
+        {
+          "name": "SSI",
+          "tag": "安全智能 / RESEARCH",
+          "value": 10
+        },
+        {
+          "name": "Scale AI",
+          "tag": "数据基础设施 / DATA",
+          "value": 10
+        },
+        {
+          "name": "Figure AI",
+          "tag": "具身智能 / ROBOTICS",
+          "value": 6.8
+        },
+        {
+          "name": "Perplexity",
+          "tag": "AI 搜索 / SEARCH",
+          "value": 5.2
+        },
+        {
+          "name": "Databricks",
+          "tag": "数据平台 / PLATFORM",
+          "value": 5
+        },
+        {
+          "name": "Glean",
+          "tag": "企业搜索 / ENTERPRISE",
+          "value": 2.6
+        }
+      ],
+      "rowCount": 8,
+      "focusCount": 3,
+      "chartType": "bars",
+      "showValueLabels": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page027",
+    "themeKey": "theme06",
+    "pageNumber": 27,
+    "layout": "THEME06-027",
+    "slot": "chain",
+    "label": "23 · 产业链分层 / VALUE CHAIN",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layerCount",
+        "label": "产业层数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "展示的产业链层级数量"
+      },
+      {
+        "key": "layout",
+        "label": "排布方式",
+        "type": "select",
+        "default": "stack",
+        "options": [
+          [
+            "stack",
+            "堆叠"
+          ],
+          [
+            "columns",
+            "并列"
+          ]
+        ],
+        "desc": "层级的排布形式"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点层高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一产业层"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几层",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的产业层序号"
+      },
+      {
+        "key": "showRegion",
+        "label": "地区分布面板",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右侧地区分布面板"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "07",
+      "eyebrowLabel": "VALUE CHAIN",
+      "title": "产业链分层透视",
+      "subhead": "上游、中游、下游的资本位置",
+      "closing": "产业链分层决定了资本确定性与商业风险的不同位置。",
+      "layers": [
+        {
+          "tier": "上游 / UPSTREAM",
+          "name": "基础设施层",
+          "en": "Infrastructure",
+          "items": [
+            "算力",
+            "AI 芯片",
+            "数据"
+          ]
+        },
+        {
+          "tier": "中游 / MIDSTREAM",
+          "name": "模型层",
+          "en": "Model Layer",
+          "items": [
+            "通用模型",
+            "专用模型",
+            "安全对齐"
+          ]
+        },
+        {
+          "tier": "下游 / DOWNSTREAM",
+          "name": "应用层",
+          "en": "Application",
+          "items": [
+            "企业应用",
+            "搜索",
+            "机器人"
+          ]
+        }
+      ],
+      "regions": [
+        {
+          "name": "旧金山湾区",
+          "v": 63.9
+        },
+        {
+          "name": "纽约",
+          "v": 12.4
+        },
+        {
+          "name": "西雅图",
+          "v": 9.8
+        },
+        {
+          "name": "波士顿",
+          "v": 7.7
+        },
+        {
+          "name": "其他",
+          "v": 6.2
+        }
+      ],
+      "layerCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "layout": "stack",
+      "showRegion": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page028",
+    "themeKey": "theme06",
+    "pageNumber": 28,
+    "layout": "THEME06-028",
+    "slot": "cases",
+    "label": "24 · 典型案例 / CASE STUDIES",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "案例卡数量",
+        "type": "number",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "desc": "案例卡数量（同时决定图片槽数量；1 张时为横向大卡）"
+      },
+      {
+        "key": "showImage",
+        "label": "图片槽",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏案例配图槽（上传后按图片比例自适应）"
+      },
+      {
+        "key": "metricCount",
+        "label": "每卡指标数",
+        "type": "number",
+        "default": 3,
+        "min": 1,
+        "max": 3,
+        "desc": "每张卡展示的指标条数"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点案例高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一案例卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的案例卡序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "08",
+      "eyebrowLabel": "CASE STUDIES",
+      "title": "典型案例深度剖析",
+      "subhead": "三类资本逻辑的代表公司",
+      "closing": "不同案例共同指向：技术优势能否转成可持续收入。",
+      "cases": [
+        {
+          "name": "Anthropic",
+          "en": "SAFETY MODEL",
+          "tag": "安全对齐 / Claude / 长上下文",
+          "metrics": [
+            {
+              "k": "累计融资",
+              "v": "$65B+"
+            },
+            {
+              "k": "定位",
+              "v": "企业级可信"
+            },
+            {
+              "k": "客户",
+              "v": "云 · 金融"
+            }
+          ]
+        },
+        {
+          "name": "xAI",
+          "en": "REALTIME DATA",
+          "tag": "实时数据 / 多模态 / X 平台",
+          "metrics": [
+            {
+              "k": "单笔融资",
+              "v": "$50B"
+            },
+            {
+              "k": "数据入口",
+              "v": "X 平台"
+            },
+            {
+              "k": "协同",
+              "v": "特斯拉"
+            }
+          ]
+        },
+        {
+          "name": "CoreWeave",
+          "en": "GPU CLOUD",
+          "tag": "GPU 云 / 算力资源 / 推理",
+          "metrics": [
+            {
+              "k": "融资额",
+              "v": "$11B"
+            },
+            {
+              "k": "GPU 资源",
+              "v": "7.8 万张"
+            },
+            {
+              "k": "客户",
+              "v": "模型公司"
+            }
+          ]
+        }
+      ],
+      "cardCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showImage": true,
+      "metricCount": 3,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page029",
+    "themeKey": "theme06",
+    "pageNumber": 29,
+    "layout": "THEME06-029",
+    "slot": "quadrant",
+    "label": "25 · 机会矩阵 / QUADRANT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "focusEnabled",
+        "label": "重点象限高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一象限"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几象限",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的象限序号（左上→右上→左下→右下）"
+      },
+      {
+        "key": "showAxis",
+        "label": "坐标轴标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏坐标轴标签（装饰）"
+      },
+      {
+        "key": "showDecor",
+        "label": "散点装饰",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏象限内的散点装饰"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "09",
+      "eyebrowLabel": "OPPORTUNITY MAP",
+      "title": "资本热度 × 商业兑现",
+      "subhead": "四象限机会判断",
+      "closing": "资本正在从叙事驱动转向兑现驱动。",
+      "axisX": {
+        "label": "资本热度",
+        "low": "低热度",
+        "high": "高热度"
+      },
+      "axisY": {
+        "label": "商业兑现",
+        "low": "弱兑现",
+        "high": "强兑现"
+      },
+      "quadrants": [
+        {
+          "name": "隐形价值",
+          "en": "HIDDEN VALUE",
+          "examples": [
+            "垂直应用",
+            "企业搜索"
+          ]
+        },
+        {
+          "name": "明星兑现",
+          "en": "STAR DELIVERY",
+          "examples": [
+            "基础设施",
+            "数据平台"
+          ]
+        },
+        {
+          "name": "等待验证",
+          "en": "TO BE PROVEN",
+          "examples": [
+            "长尾工具",
+            "安全",
+            "早期硬件"
+          ]
+        },
+        {
+          "name": "叙事泡沫",
+          "en": "NARRATIVE BUBBLE",
+          "examples": [
+            "通用模型",
+            "AGI 实验室"
+          ]
+        }
+      ],
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showAxis": true,
+      "showDecor": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page030",
+    "themeKey": "theme06",
+    "pageNumber": 30,
+    "layout": "THEME06-030",
+    "slot": "risk",
+    "label": "26 · 风险研判 / RISK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "风险链节数量",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "展示的风险链节数量"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "媒体占位数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧图片槽数量（0 时改为摘要面板；上传后按图片比例自适应，布局随数量重排）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点风险高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一风险链节"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几项",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的风险链节序号"
+      },
+      {
+        "key": "showConnectors",
+        "label": "链条连接线",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏链节之间的传导连接线（装饰）"
+      },
+      {
+        "key": "showLevel",
+        "label": "风险水位条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每项的风险水位条（装饰数据）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "10",
+      "eyebrowLabel": "RISK ASSESSMENT",
+      "title": "风险研判",
+      "subhead": "资本大年背后的下行因素",
+      "summary": "高估值、盈利验证、监管压力、大厂竞争与算力成本，构成一条<b>互相传导的风险链条</b>。",
+      "railCaption": "风险传导 / TRANSMISSION",
+      "closing": "下一阶段会淘汰只会讲故事的公司。",
+      "risks": [
+        {
+          "name": "估值泡沫",
+          "en": "VALUATION",
+          "level": 0.9,
+          "desc": "一级市场估值透支，二级承压后将向上游传导。"
+        },
+        {
+          "name": "盈利验证",
+          "en": "MONETIZATION",
+          "level": 0.78,
+          "desc": "试点难转稳定订阅收入，毛利与留存仍待验证。"
+        },
+        {
+          "name": "监管合规",
+          "en": "REGULATION",
+          "level": 0.62,
+          "desc": "隐私、版权与安全审查抬高交付与采购成本。"
+        },
+        {
+          "name": "大厂挤压",
+          "en": "BIG TECH",
+          "level": 0.7,
+          "desc": "开源与平台生态压缩初创公司的独立空间。"
+        },
+        {
+          "name": "算力成本",
+          "en": "COMPUTE",
+          "level": 0.85,
+          "desc": "训练与推理成本卡住模型商业化的毛利天花板。"
+        }
+      ],
+      "cardCount": 5,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "mediaSlotCount": 1,
+      "showConnectors": true,
+      "showLevel": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page031",
+    "themeKey": "theme06",
+    "pageNumber": 31,
+    "layout": "THEME06-031",
+    "slot": "outlook",
+    "label": "27 · 投资建议 / OUTLOOK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "itemCount",
+        "label": "每栏方向数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "每个对比栏展示的方向条数"
+      },
+      {
+        "key": "emphasis",
+        "label": "对比侧重",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "none",
+            "均衡"
+          ],
+          [
+            "left",
+            "左栏"
+          ],
+          [
+            "right",
+            "右栏"
+          ]
+        ],
+        "desc": "突出哪一侧对比栏（另一侧弱化）"
+      },
+      {
+        "key": "showTimeline",
+        "label": "阶段时间轴",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部的阶段性时间轴"
+      },
+      {
+        "key": "timelineCount",
+        "label": "阶段节点数",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "时间轴上的阶段节点数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点阶段高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一阶段节点"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几阶段",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的阶段节点序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "11",
+      "eyebrowLabel": "INVESTMENT OUTLOOK",
+      "title": "投资建议与阶段性策略",
+      "subhead": "看好方向与谨慎方向",
+      "closing": "看融资只是起点，看兑现才是判断。",
+      "columns": [
+        {
+          "title": "看好方向",
+          "en": "BULLISH",
+          "tone": "bull",
+          "items": [
+            {
+              "name": "垂直应用",
+              "en": "VERTICAL APPS",
+              "note": "嵌入刚性工作流，看付费留存与净收入留存。"
+            },
+            {
+              "name": "基础设施",
+              "en": "INFRASTRUCTURE",
+              "note": "接近企业刚性预算，收入确定性相对更强。"
+            },
+            {
+              "name": "具身智能",
+              "en": "EMBODIED AI",
+              "note": "长周期硬科技，关注供应链与量产能力。"
+            },
+            {
+              "name": "数据底座",
+              "en": "DATA STACK",
+              "note": "承接训练、RAG 与知识管理的刚需。"
+            }
+          ]
+        },
+        {
+          "title": "谨慎方向",
+          "en": "CAUTIOUS",
+          "tone": "caut",
+          "items": [
+            {
+              "name": "高估值纯模型",
+              "en": "PURE MODELS",
+              "note": "估值透支，缺乏数据与工作流护城河。"
+            },
+            {
+              "name": "AI 包装项目",
+              "en": "AI WRAPPERS",
+              "note": "无壁垒，易被平台与开源能力替代。"
+            },
+            {
+              "name": "低壁垒消费应用",
+              "en": "THIN CONSUMER",
+              "note": "留存弱、同质化竞争，付费意愿不稳。"
+            },
+            {
+              "name": "纯演示硬件",
+              "en": "DEMO HARDWARE",
+              "note": "缺乏量产与成本验证，兑现周期长。"
+            }
+          ]
+        }
+      ],
+      "phases": [
+        {
+          "when": "2025",
+          "name": "观察期",
+          "note": "关注 IPO 窗口与头部公司收入曲线。"
+        },
+        {
+          "when": "2026",
+          "name": "分化期",
+          "note": "兑现能力开始拉开公司之间的差距。"
+        },
+        {
+          "when": "2027",
+          "name": "重定价",
+          "note": "公开市场重定 AI 一级市场估值锚。"
+        },
+        {
+          "when": "2028",
+          "name": "再配置",
+          "note": "资本向已验证商业闭环的方向集中。"
+        }
+      ],
+      "itemCount": 3,
+      "emphasis": "left",
+      "showTimeline": true,
+      "timelineCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page032",
+    "themeKey": "theme06",
+    "pageNumber": 32,
+    "layout": "THEME06-032",
+    "slot": "big",
+    "label": "28 · 大数字 / BIG NUMBER",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "辅助指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "大数字下方的辅助指标数量（0 隐藏）"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "主数字区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "12",
+      "eyebrowLabel": "AVERAGE TICKET",
+      "kicker": "把规模换算成单笔，更能看清资本的下注密度。",
+      "figure": "$1.0",
+      "unit": "B",
+      "explain": "全年大额融资的 <b>平均单笔规模</b>——融资规模越大，后续兑现压力越高。",
+      "closing": "融资规模越大，后续兑现压力越高。",
+      "watermark": "AVG",
+      "metrics": [
+        {
+          "k": "全年融资 / TOTAL",
+          "v": "$97B"
+        },
+        {
+          "k": "大额事件 / DEALS",
+          "v": "97"
+        },
+        {
+          "k": "湾区占比 / BAY AREA",
+          "v": "63.9%"
+        }
+      ],
+      "metricCount": 3,
+      "align": "left",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page033",
+    "themeKey": "theme06",
+    "pageNumber": 33,
+    "layout": "THEME06-033",
+    "slot": "health",
+    "label": "29 · 慢变量高壁垒 / HEALTHCARE AI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "branchCount",
+        "label": "分支数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "结构图的分支节点数量"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时分支列加宽；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "desc": "根节点下方辅助指标数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分支高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一分支节点"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几支",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的分支序号"
+      },
+      {
+        "key": "showTrunk",
+        "label": "连接主干",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏连接主干与节点圆点（装饰）"
+      },
+      {
+        "key": "showValueBars",
+        "label": "数值条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每支融资数值条（装饰数据）"
+      },
+      {
+        "key": "showRootBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "31",
+      "eyebrowLabel": "HEALTHCARE AI",
+      "title": "慢变量高壁垒",
+      "subhead": "医疗 AI 赛道 / HEALTHCARE AI",
+      "closing": "慢场景不代表低价值。",
+      "rootTag": "医疗 AI 赛道 / HEALTH",
+      "hero": {
+        "value": "34",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "8 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "4.3 亿"
+        }
+      ],
+      "branches": [
+        {
+          "name": "药物发现",
+          "en": "DRUG DISCOVERY",
+          "value": 14,
+          "unit": " 亿"
+        },
+        {
+          "name": "影像诊断",
+          "en": "MEDICAL IMAGING",
+          "value": 11,
+          "unit": " 亿"
+        },
+        {
+          "name": "临床文书",
+          "en": "CLINICAL DOCS",
+          "value": 9,
+          "unit": " 亿"
+        }
+      ],
+      "mediaPlaceholder": "三分支结构图 / DROP IMAGE",
+      "branchCount": 3,
+      "mediaSlotCount": 1,
+      "metricCount": 2,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showTrunk": true,
+      "showValueBars": true,
+      "showRootBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page034",
+    "themeKey": "theme06",
+    "pageNumber": 34,
+    "layout": "THEME06-034",
+    "slot": "finance",
+    "label": "30 · 投研风控合规 / FINANCE AI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "donut",
+        "options": [
+          [
+            "donut",
+            "环形"
+          ],
+          [
+            "ring",
+            "细环"
+          ],
+          [
+            "bars",
+            "条形"
+          ]
+        ],
+        "desc": "占比的可视化形式"
+      },
+      {
+        "key": "segmentCount",
+        "label": "占比项数",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的占比项数量"
+      },
+      {
+        "key": "showCenter",
+        "label": "中心数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏圆环中心的主数字（装饰，仅环形）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各项占比标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点占比高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否拉出并突出某一占比项"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几项",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的占比序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "32",
+      "eyebrowLabel": "FINANCE AI",
+      "title": "投研、风控与合规",
+      "subhead": "金融 AI 赛道 / FINANCE AI",
+      "unit": "%",
+      "closing": "高价值行业需要更强可信度。",
+      "hero": {
+        "value": "22",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "segments": [
+        {
+          "name": "投研",
+          "en": "RESEARCH",
+          "value": 31
+        },
+        {
+          "name": "合规",
+          "en": "COMPLIANCE",
+          "value": 28
+        },
+        {
+          "name": "风控",
+          "en": "RISK CONTROL",
+          "value": 24
+        },
+        {
+          "name": "客户服务",
+          "en": "SERVICE",
+          "value": 17
+        }
+      ],
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "7 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "3.1 亿"
+        }
+      ],
+      "chartType": "donut",
+      "segmentCount": 4,
+      "showCenter": true,
+      "showValueLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page035",
+    "themeKey": "theme06",
+    "pageNumber": 35,
+    "layout": "THEME06-035",
+    "slot": "dev",
+    "label": "31 · 研发效率提升 / DEV TOOLS",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showMeta",
+        "label": "结论卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部的支撑结论卡"
+      },
+      {
+        "key": "metaCount",
+        "label": "结论卡数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "底部结论卡数量"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "金句区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "33",
+      "eyebrowLabel": "DEVELOPER TOOLS",
+      "kicker": "研发效率提升 / Developer Tools",
+      "quote": "研发效率，是企业<b>最直接</b>的 AI <b>预算入口</b>之一。",
+      "source": "AI CAPITAL LAB · 2024 调研",
+      "watermark": "DEV",
+      "meta": [
+        {
+          "k": "01 / 嵌入",
+          "v": "代码补全与评审嵌入 IDE 流水线，使用频次高。"
+        },
+        {
+          "k": "02 / 预算",
+          "v": "研发效率是企业最容易立项的 AI 预算入口。"
+        },
+        {
+          "k": "03 / 留存",
+          "v": "一旦进入工作流，迁移成本与续费随之上升。"
+        }
+      ],
+      "showMeta": true,
+      "metaCount": 3,
+      "align": "left",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page036",
+    "themeKey": "theme06",
+    "pageNumber": 36,
+    "layout": "THEME06-036",
+    "slot": "datainfra",
+    "label": "32 · 企业 AI 底座 / DATA INFRA",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "flow",
+        "options": [
+          [
+            "flow",
+            "横向流程"
+          ],
+          [
+            "steps",
+            "纵向步骤"
+          ]
+        ],
+        "desc": "数据流的可视化形式"
+      },
+      {
+        "key": "stageCount",
+        "label": "环节数量",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "流程环节节点数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 2,
+        "max": 3,
+        "desc": "底部辅助指标卡数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点环节高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一流程环节"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几环",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的环节序号"
+      },
+      {
+        "key": "showConnectors",
+        "label": "连接箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏环节之间的连接箭头（装饰，仅横向流程）"
+      },
+      {
+        "key": "showGrowth",
+        "label": "增长指标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部增长指标卡（装饰数据）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "34",
+      "eyebrowLabel": "DATA INFRASTRUCTURE",
+      "title": "企业 AI 底座",
+      "subhead": "数据基础设施 / DATA INFRASTRUCTURE",
+      "closing": "没有数据底座，AI 应用很难稳定落地。",
+      "stages": [
+        {
+          "name": "数据接入",
+          "en": "DATA INGEST",
+          "tag": "多源采集"
+        },
+        {
+          "name": "向量化存储",
+          "en": "VECTOR STORE",
+          "tag": "索引 / 检索"
+        },
+        {
+          "name": "训练 / RAG",
+          "en": "TRAIN & RAG",
+          "tag": "模型对接"
+        },
+        {
+          "name": "企业应用",
+          "en": "APPLICATIONS",
+          "tag": "业务落地"
+        }
+      ],
+      "hero": {
+        "value": "61",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "growth": {
+        "value": "+47%",
+        "label": "企业客户增长 / GROWTH"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "12 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "5.1 亿"
+        }
+      ],
+      "chartType": "flow",
+      "stageCount": 4,
+      "metricCount": 2,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showConnectors": true,
+      "showGrowth": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page037",
+    "themeKey": "theme06",
+    "pageNumber": 37,
+    "layout": "THEME06-037",
+    "slot": "growth",
+    "label": "33 · 增长效率工具 / GROWTH",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "funnel",
+        "options": [
+          [
+            "funnel",
+            "漏斗"
+          ],
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "steps",
+            "步骤"
+          ]
+        ],
+        "desc": "增长场景的可视化形式"
+      },
+      {
+        "key": "tierCount",
+        "label": "层级数量",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "漏斗层级数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "desc": "左侧辅助指标数量"
+      },
+      {
+        "key": "showRate",
+        "label": "转化率",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏层级间转化率（装饰数据，仅漏斗）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各层数值标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点层级高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一层级"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几层",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的层级序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "45",
+      "eyebrowLabel": "SALES & MARKETING AI",
+      "title": "增长效率工具",
+      "subhead": "销售与营销 AI / GROWTH TOOLS",
+      "unit": " 亿",
+      "closing": "营销 AI 要用转化率证明自己。",
+      "hero": {
+        "value": "24",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "10 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "2.4 亿"
+        }
+      ],
+      "tiers": [
+        {
+          "name": "广告创意",
+          "en": "AD CREATIVE",
+          "value": 8,
+          "unit": " 亿"
+        },
+        {
+          "name": "线索评分",
+          "en": "LEAD SCORING",
+          "value": 7,
+          "unit": " 亿"
+        },
+        {
+          "name": "自动外呼",
+          "en": "AUTO OUTREACH",
+          "value": 6,
+          "unit": " 亿"
+        },
+        {
+          "name": "邮件触达",
+          "en": "EMAIL OUTREACH",
+          "value": 4,
+          "unit": " 亿"
+        }
+      ],
+      "chartType": "funnel",
+      "tierCount": 4,
+      "metricCount": 2,
+      "showRate": true,
+      "showValueLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page038",
+    "themeKey": "theme06",
+    "pageNumber": 38,
+    "layout": "THEME06-038",
+    "slot": "lowcode",
+    "label": "34 · 企业流程嵌入 / LOW CODE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "布局形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "table",
+            "表格"
+          ]
+        ],
+        "desc": "右栏的呈现形式：图片主导 / 场景占比表"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为场景占比面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "splitCount",
+        "label": "场景档数",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "场景占比行数（表格或 0 图片面板时生效）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "46",
+      "eyebrowLabel": "LOW CODE AI",
+      "title": "企业流程嵌入",
+      "subhead": "低代码 AI 平台 / LOW CODE",
+      "closing": "能被业务团队使用的平台更容易扩散。",
+      "segTag": "低代码 AI 赛道 / LOW CODE",
+      "hero": {
+        "value": "19",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "6 笔"
+        },
+        {
+          "k": "企业客户中位数 / CLIENTS",
+          "v": "430 家"
+        },
+        {
+          "k": "净收入留存 / NRR",
+          "v": "118%"
+        }
+      ],
+      "splits": [
+        {
+          "name": "流程编排",
+          "en": "ORCHESTRATION",
+          "value": 41,
+          "unit": "%"
+        },
+        {
+          "name": "模型接入",
+          "en": "MODEL CONNECT",
+          "value": 33,
+          "unit": "%"
+        },
+        {
+          "name": "治理审计",
+          "en": "GOVERNANCE",
+          "value": 26,
+          "unit": "%"
+        }
+      ],
+      "mediaPlaceholder": "流程编排图 / DROP IMAGE",
+      "layout": "media",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "splitCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page039",
+    "themeKey": "theme06",
+    "pageNumber": 39,
+    "layout": "THEME06-039",
+    "slot": "opensource",
+    "label": "35 · 社区影响力变现 / OPEN SOURCE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时转化列加宽；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "desc": "左侧辅助指标数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点极点高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一极点（影响力 / 兑现）"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几极",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 1,
+        "desc": "被突出的极点（0 影响力 / 1 兑现）"
+      },
+      {
+        "key": "showRate",
+        "label": "转化率桥接",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏两极之间的转化率桥接（装饰数据）"
+      },
+      {
+        "key": "showBars",
+        "label": "量级条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每极量级条（装饰）"
+      },
+      {
+        "key": "showBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "47",
+      "eyebrowLabel": "OPEN SOURCE MODELS",
+      "title": "社区影响力变现",
+      "subhead": "开源模型公司 / OPEN SOURCE",
+      "closing": "开源是入口，不是完整商业模式。",
+      "convTag": "开源模型赛道 / OSS",
+      "hero": {
+        "value": "28",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "7 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "4.0 亿"
+        }
+      ],
+      "poles": [
+        {
+          "label": "社区影响力 / REACH",
+          "en": "COMMUNITY",
+          "value": "2.8亿次",
+          "sub": "社区下载量 / DOWNLOADS"
+        },
+        {
+          "label": "商业兑现 / MONETIZED",
+          "en": "REVENUE",
+          "value": "37%",
+          "sub": "企业服务收入占比 / SHARE"
+        }
+      ],
+      "rate": {
+        "value": "37%",
+        "label": "转化为企业收入 / CONVERT"
+      },
+      "mediaPlaceholder": "社区到企业转化图 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 2,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showRate": true,
+      "showBars": true,
+      "showBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page040",
+    "themeKey": "theme06",
+    "pageNumber": 40,
+    "layout": "THEME06-040",
+    "slot": "safety",
+    "label": "36 · 安全与对齐工具 / ALIGNMENT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "flow",
+        "options": [
+          [
+            "flow",
+            "横向流程"
+          ],
+          [
+            "steps",
+            "纵向步骤"
+          ]
+        ],
+        "desc": "数据流的可视化形式"
+      },
+      {
+        "key": "stageCount",
+        "label": "环节数量",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "流程环节节点数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 2,
+        "max": 3,
+        "desc": "底部辅助指标卡数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点环节高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一流程环节"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几环",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的环节序号"
+      },
+      {
+        "key": "showConnectors",
+        "label": "连接箭头",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏环节之间的连接箭头（装饰，仅横向流程）"
+      },
+      {
+        "key": "showGrowth",
+        "label": "增长指标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部增长指标卡（装饰数据）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "48",
+      "eyebrowLabel": "MODEL ALIGNMENT",
+      "title": "安全与对齐工具",
+      "subhead": "模型安全公司 / MODEL ALIGNMENT",
+      "closing": "可信 AI 会成为企业级 AI 的基础设施。",
+      "stages": [
+        {
+          "name": "模型评测",
+          "en": "EVALUATION",
+          "tag": "基准 / 8 亿"
+        },
+        {
+          "name": "对齐工具",
+          "en": "ALIGNMENT",
+          "tag": "价值对齐 / 7 亿"
+        },
+        {
+          "name": "红队测试",
+          "en": "RED TEAM",
+          "tag": "对抗探测 / 6 亿"
+        },
+        {
+          "name": "合规监测",
+          "en": "COMPLIANCE",
+          "tag": "持续监控"
+        }
+      ],
+      "hero": {
+        "value": "21",
+        "unit": "亿$",
+        "label": "赛道融资额 / FUNDING"
+      },
+      "growth": {
+        "value": "+0",
+        "label": "—"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "5 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "4.2 亿"
+        },
+        {
+          "k": "评测平台 / EVAL",
+          "v": "8 亿"
+        }
+      ],
+      "chartType": "flow",
+      "stageCount": 4,
+      "metricCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showConnectors": true,
+      "showGrowth": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page041",
+    "themeKey": "theme06",
+    "pageNumber": 41,
+    "layout": "THEME06-041",
+    "slot": "ch04",
+    "label": "37 · 资本与地区结构 / CHAPTER 04",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "background",
+        "label": "背景形态",
+        "type": "select",
+        "default": "glow",
+        "options": [
+          [
+            "glow",
+            "光晕"
+          ],
+          [
+            "solid",
+            "纯色"
+          ],
+          [
+            "panel",
+            "色块"
+          ]
+        ],
+        "desc": "分隔页背景的呈现形式"
+      },
+      {
+        "key": "showIndex",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏超大章节编号"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "底部关键词标签数量（0 隐藏）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否高亮某个关键词标签"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的关键词序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": false,
+        "desc": "显示/隐藏背景巨型水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "CH",
+      "eyebrowLabel": "CHAPTER 04",
+      "chapterNo": "04",
+      "title": "资本与地区结构",
+      "subhead": "轮次 · 投资人 · 地理集群 / CAPITAL & GEOGRAPHY",
+      "closing": "下一组页面进入资本结构的拆解。",
+      "keywords": [
+        "后期轮",
+        "战略投资",
+        "云资源",
+        "湾区",
+        "纽约",
+        "西雅图"
+      ],
+      "watermark": "04",
+      "showIndex": true,
+      "keywordCount": 6,
+      "focusEnabled": false,
+      "focusIndex": 0,
+      "background": "glow",
+      "showWatermark": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page042",
+    "themeKey": "theme06",
+    "pageNumber": 42,
+    "layout": "THEME06-042",
+    "slot": "rounds",
+    "label": "38 · 新主题萌芽 / EARLY-STAGE SIGNAL",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "规模可视化",
+        "type": "select",
+        "default": "bubbles",
+        "options": [
+          [
+            "bubbles",
+            "气泡"
+          ],
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "轮次相对规模的可视化形式"
+      },
+      {
+        "key": "rowCount",
+        "label": "轮次数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的轮次行数"
+      },
+      {
+        "key": "tagCount",
+        "label": "主题标签数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "右栏萌芽主题标签数量（0 隐藏）"
+      },
+      {
+        "key": "showShare",
+        "label": "重点占比",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右栏重点占比大数字（装饰锚点）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏笔数 / 金额 / 平均标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一轮次行"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几行",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的轮次序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "50",
+      "eyebrowLabel": "EARLY-STAGE SIGNAL",
+      "title": "新主题萌芽",
+      "subhead": "早期轮信号 / EARLY-STAGE SIGNAL",
+      "closing": "小金额交易往往藏着下一轮主题。",
+      "unitCount": " 笔",
+      "unitAmount": " 亿",
+      "rounds": [
+        {
+          "name": "Pre-Seed",
+          "en": "PRE-SEED",
+          "count": 5,
+          "amount": 0.6
+        },
+        {
+          "name": "Seed",
+          "en": "SEED ROUND",
+          "count": 8,
+          "amount": 1.2
+        },
+        {
+          "name": "A 轮",
+          "en": "SERIES A",
+          "count": 12,
+          "amount": 1.8
+        },
+        {
+          "name": "B 轮",
+          "en": "SERIES B",
+          "count": 9,
+          "amount": 3.4
+        }
+      ],
+      "share": {
+        "value": "20.6",
+        "unit": "%",
+        "label": "早期轮占事件数 / OF ALL DEALS"
+      },
+      "tags": [
+        "Agent",
+        "安全对齐",
+        "具身智能",
+        "行业专用模型",
+        "推理优化",
+        "数据合成"
+      ],
+      "railCaption": "信号读数 / SIGNAL",
+      "chartType": "bubbles",
+      "rowCount": 4,
+      "tagCount": 4,
+      "showShare": true,
+      "showValueLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page043",
+    "themeKey": "theme06",
+    "pageNumber": 43,
+    "layout": "THEME06-043",
+    "slot": "dealstruct",
+    "label": "39 · 复杂交易结构 / DEAL STRUCTURE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "结构形态",
+        "type": "select",
+        "default": "stacked",
+        "options": [
+          [
+            "stacked",
+            "堆叠列"
+          ],
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "segments",
+            "卡片"
+          ]
+        ],
+        "desc": "交易结构拆解的可视化形式"
+      },
+      {
+        "key": "partCount",
+        "label": "结构项数",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的结构组成项数量"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时结构列加宽；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "desc": "左侧辅助指标数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点结构高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一结构组成项"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几项",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的结构序号"
+      },
+      {
+        "key": "showConnectors",
+        "label": "刻度合计",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏结构合计刻度（装饰）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各结构项占比标签（装饰数据）"
+      },
+      {
+        "key": "showBadge",
+        "label": "结构徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角结构徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "51",
+      "eyebrowLabel": "UNDISCLOSED MEGA",
+      "title": "复杂交易结构",
+      "subhead": "未披露巨额轮次 / UNDISCLOSED MEGA ROUNDS",
+      "closing": "AI 融资越来越像资源组合交易。",
+      "structTag": "未披露轮次 / UNDISCLOSED",
+      "hero": {
+        "value": "18.6",
+        "unit": "亿$",
+        "label": "平均单笔规模 / AVG TICKET"
+      },
+      "metrics": [
+        {
+          "k": "事件数 / DEALS",
+          "v": "22 笔"
+        },
+        {
+          "k": "云资源绑定 / CLOUD",
+          "v": "39%"
+        },
+        {
+          "k": "战略投资 / STRATEGIC",
+          "v": "31%"
+        }
+      ],
+      "parts": [
+        {
+          "name": "云资源置换",
+          "en": "CLOUD CREDITS",
+          "value": 39
+        },
+        {
+          "name": "战略投资",
+          "en": "STRATEGIC",
+          "value": 31
+        },
+        {
+          "name": "现金对价",
+          "en": "CASH",
+          "value": 18
+        },
+        {
+          "name": "债务组合",
+          "en": "DEBT MIX",
+          "value": 12
+        }
+      ],
+      "mediaPlaceholder": "交易结构示意 / DROP IMAGE",
+      "railCaption": "交易结构拆解 / STRUCTURE",
+      "chartType": "stacked",
+      "partCount": 4,
+      "mediaSlotCount": 1,
+      "metricCount": 2,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showConnectors": true,
+      "showValueLabels": true,
+      "showBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page044",
+    "themeKey": "theme06",
+    "pageNumber": 44,
+    "layout": "THEME06-044",
+    "slot": "investor",
+    "label": "40 · 资本来源结构 / INVESTOR MIX",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "donut",
+        "options": [
+          [
+            "donut",
+            "环形"
+          ],
+          [
+            "ring",
+            "细环"
+          ],
+          [
+            "bars",
+            "条形"
+          ]
+        ],
+        "desc": "占比的可视化形式"
+      },
+      {
+        "key": "segmentCount",
+        "label": "占比项数",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的占比项数量"
+      },
+      {
+        "key": "showCenter",
+        "label": "中心数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏圆环中心的主数字（装饰，仅环形）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各项占比标签（装饰数据）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点占比高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否拉出并突出某一占比项"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几项",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的占比序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "52",
+      "eyebrowLabel": "INVESTOR MIX",
+      "title": "资本来源结构",
+      "subhead": "投资人类型分布 / INVESTOR MIX",
+      "unit": "%",
+      "closing": "钱的来源本身也是产业结构信号。",
+      "hero": {
+        "value": "40",
+        "unit": "%",
+        "label": "产业资本合计 / STRATEGIC CAPITAL"
+      },
+      "segments": [
+        {
+          "name": "传统 VC",
+          "en": "VENTURE CAPITAL",
+          "value": 42
+        },
+        {
+          "name": "企业战略",
+          "en": "CORPORATE",
+          "value": 27
+        },
+        {
+          "name": "成长基金",
+          "en": "GROWTH FUND",
+          "value": 18
+        },
+        {
+          "name": "云厂商相关",
+          "en": "CLOUD-LINKED",
+          "value": 13
+        }
+      ],
+      "metrics": [
+        {
+          "k": "覆盖事件 / DEALS",
+          "v": "97 笔"
+        },
+        {
+          "k": "产业资本占比 / STRATEGIC",
+          "v": "40%"
+        }
+      ],
+      "chartType": "donut",
+      "segmentCount": 4,
+      "showCenter": true,
+      "showValueLabels": true,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page045",
+    "themeKey": "theme06",
+    "pageNumber": 45,
+    "layout": "THEME06-045",
+    "slot": "resource",
+    "label": "41 · 钱以外的资源 / STRATEGIC RESOURCES",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "资源卡数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的资源类型卡数量"
+      },
+      {
+        "key": "layout",
+        "label": "卡片排布",
+        "type": "select",
+        "default": "grid",
+        "options": [
+          [
+            "grid",
+            "网格"
+          ],
+          [
+            "rows",
+            "列表"
+          ]
+        ],
+        "desc": "资源卡的排列方式"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时卡片占满整宽；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点卡高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一资源卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几张",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的资源卡序号"
+      },
+      {
+        "key": "showKind",
+        "label": "类型标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每张卡的类型标签（装饰）"
+      },
+      {
+        "key": "showBadge",
+        "label": "资源徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏卡片区徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "53",
+      "eyebrowLabel": "STRATEGIC INVESTORS",
+      "title": "钱以外的资源",
+      "subhead": "战略投资者角色 / BEYOND CAPITAL",
+      "closing": "AI 公司融资是在锁定未来资源。",
+      "resTag": "战略资源 / RESOURCES",
+      "railCaption": "资源类型 / RESOURCE TYPES",
+      "resources": [
+        {
+          "kind": "授信",
+          "name": "云资源授信",
+          "en": "CLOUD CREDIT LINE",
+          "value": "118",
+          "unit": "亿$"
+        },
+        {
+          "kind": "渠道",
+          "name": "联合销售",
+          "en": "CO-SELL DEALS",
+          "value": "36",
+          "unit": "起"
+        },
+        {
+          "kind": "供应",
+          "name": "芯片供应承诺",
+          "en": "CHIP SUPPLY",
+          "value": "22",
+          "unit": "起"
+        },
+        {
+          "kind": "数据",
+          "name": "数据合作",
+          "en": "DATA PARTNERSHIP",
+          "value": "17",
+          "unit": "起"
+        }
+      ],
+      "mediaPlaceholder": "资源类型示意 / DROP IMAGE",
+      "cardCount": 4,
+      "layout": "grid",
+      "mediaSlotCount": 1,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showKind": true,
+      "showBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page046",
+    "themeKey": "theme06",
+    "pageNumber": 46,
+    "layout": "THEME06-046",
+    "slot": "alliance",
+    "label": "42 · 投资与算力消费闭环 / CLOUD ALLIANCES",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "flow",
+        "options": [
+          [
+            "flow",
+            "关系流"
+          ],
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "云厂商联盟的可视化形式"
+      },
+      {
+        "key": "providerCount",
+        "label": "云厂商数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的云厂商节点数量"
+      },
+      {
+        "key": "showLoop",
+        "label": "闭环条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部投资—消费闭环条（装饰）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏各云厂商金额标签（装饰数据）"
+      },
+      {
+        "key": "showHub",
+        "label": "汇聚总额",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏汇聚节点总额（装饰，仅关系流）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点云厂商高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一云厂商流"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几家",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的云厂商序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "54",
+      "eyebrowLabel": "CLOUD ALLIANCES",
+      "title": "投资与算力消费闭环",
+      "subhead": "云厂商联盟 / CLOUD ALLIANCES",
+      "unit": "亿$",
+      "closing": "云资源正在成为融资交易的一部分。",
+      "providers": [
+        {
+          "name": "Azure",
+          "en": "MICROSOFT",
+          "value": 88
+        },
+        {
+          "name": "AWS",
+          "en": "AMAZON",
+          "value": 74
+        },
+        {
+          "name": "Google Cloud",
+          "en": "ALPHABET",
+          "value": 69
+        },
+        {
+          "name": "Oracle Cloud",
+          "en": "ORACLE",
+          "value": 21
+        }
+      ],
+      "hub": {
+        "name": "AI 模型公司",
+        "en": "AI MODEL CO.",
+        "label": "算力消费需求 / COMPUTE DEMAND"
+      },
+      "loop": {
+        "a": "云厂商",
+        "fwd": "资本投资 INVEST",
+        "b": "AI 公司",
+        "back": "算力消费 CONSUME"
+      },
+      "chartType": "flow",
+      "providerCount": 4,
+      "showLoop": true,
+      "showValueLabels": true,
+      "showHub": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page047",
+    "themeKey": "theme06",
+    "pageNumber": 47,
+    "layout": "THEME06-047",
+    "slot": "gpu",
+    "label": "43 · GPU 资源链条 / NVIDIA ECOSYSTEM",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "branchCount",
+        "label": "分支数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "结构图的分支节点数量"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时分支列加宽；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 2,
+        "min": 1,
+        "max": 3,
+        "desc": "根节点下方辅助指标数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点分支高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一分支节点"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几支",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的分支序号"
+      },
+      {
+        "key": "showTrunk",
+        "label": "连接主干",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏连接主干与节点圆点（装饰）"
+      },
+      {
+        "key": "showValueBars",
+        "label": "数值条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每支融资数值条（装饰数据）"
+      },
+      {
+        "key": "showRootBadge",
+        "label": "赛道徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角赛道徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "55",
+      "eyebrowLabel": "NVIDIA ECOSYSTEM",
+      "title": "GPU 资源链条",
+      "subhead": "NVIDIA 生态 / NVIDIA ECOSYSTEM",
+      "closing": "算力供给能力正在变成融资能力。",
+      "rootTag": "NVIDIA 生态 / GPU",
+      "hero": {
+        "value": "92",
+        "unit": "亿$",
+        "label": "生态融资额 / ECOSYSTEM FUNDING"
+      },
+      "metrics": [
+        {
+          "k": "GPU 云占比 / GPU CLOUD",
+          "v": "70%"
+        },
+        {
+          "k": "核心环节 / NODES",
+          "v": "4 类"
+        }
+      ],
+      "branches": [
+        {
+          "name": "GPU 云",
+          "en": "GPU CLOUD",
+          "value": 64,
+          "unit": " 亿"
+        },
+        {
+          "name": "集群管理",
+          "en": "CLUSTER OPS",
+          "value": 12,
+          "unit": " 亿"
+        },
+        {
+          "name": "推理优化",
+          "en": "INFERENCE OPT",
+          "value": 9,
+          "unit": " 亿"
+        },
+        {
+          "name": "芯片互联",
+          "en": "INTERCONNECT",
+          "value": 7,
+          "unit": " 亿"
+        }
+      ],
+      "mediaPlaceholder": "GPU 为中心的生态环图 / DROP IMAGE",
+      "branchCount": 4,
+      "mediaSlotCount": 1,
+      "metricCount": 2,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showTrunk": true,
+      "showValueBars": true,
+      "showRootBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page048",
+    "themeKey": "theme06",
+    "pageNumber": 48,
+    "layout": "THEME06-048",
+    "slot": "bay",
+    "label": "44 · 最大地理中心 / BAY AREA",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "辅助指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "大数字下方的辅助指标数量（0 隐藏）"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "主数字区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "56",
+      "eyebrowLabel": "BAY AREA CLUSTER",
+      "kicker": "一个城市群，吸走了全美 AI 大额融资的大半。",
+      "figure": "63.9",
+      "unit": "%",
+      "explain": "<b>旧金山湾区</b> 融资额占比——优势来自人才密度、资本网络、云厂商与模型实验室邻近。",
+      "closing": "湾区仍是 AI 资本重力中心。",
+      "watermark": "BAY",
+      "metrics": [
+        {
+          "k": "全年融资 / TOTAL",
+          "v": "$97B"
+        },
+        {
+          "k": "大额事件 / DEALS",
+          "v": "97 笔"
+        },
+        {
+          "k": "次位·纽约 / NEXT",
+          "v": "12.4%"
+        }
+      ],
+      "metricCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page049",
+    "themeKey": "theme06",
+    "pageNumber": 49,
+    "layout": "THEME06-049",
+    "slot": "nyc",
+    "label": "45 · 行业客户优势 / NEW YORK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "右栏形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "map",
+            "分布气泡"
+          ]
+        ],
+        "desc": "右栏的呈现形式：集群图片主导 / 地区占比气泡图"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为地区分布面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "regionCount",
+        "label": "气泡地区数",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "气泡图中展示的地区数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "行业标签数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "左下行业标签芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showShareBar",
+        "label": "占比对照条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏占全国融资额对照条（装饰数据）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "集群徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角集群徽标（装饰）"
+      },
+      {
+        "key": "showNote",
+        "label": "一句话判断",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左下一句话判断（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "57",
+      "eyebrowLabel": "NEW YORK CLUSTER",
+      "title": "行业客户优势",
+      "subhead": "纽约集群 / NEW YORK",
+      "closing": "行业客户密度决定垂直应用机会。",
+      "clusterTag": "纽约集群 / NYC",
+      "hero": {
+        "value": "12.4",
+        "unit": "%",
+        "label": "占全国融资额 / SHARE OF TOTAL"
+      },
+      "metrics": [
+        {
+          "k": "融资额 / FUNDING",
+          "v": "120 亿$"
+        },
+        {
+          "k": "事件数 / DEALS",
+          "v": "14 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "8.6 亿$"
+        }
+      ],
+      "tags": [
+        "金融 / FINANCE",
+        "媒体 / MEDIA",
+        "企业服务 / ENTERPRISE",
+        "法律 AI / LEGAL"
+      ],
+      "note": "纽约的优势不在基础模型，而在高价值行业客户——行业客户密度决定垂直应用机会。",
+      "regions": [
+        {
+          "name": "旧金山湾区",
+          "en": "BAY AREA",
+          "value": 63.9
+        },
+        {
+          "name": "纽约",
+          "en": "NEW YORK",
+          "value": 12.4
+        },
+        {
+          "name": "西雅图",
+          "en": "SEATTLE",
+          "value": 9.8
+        },
+        {
+          "name": "波士顿",
+          "en": "BOSTON",
+          "value": 7.7
+        },
+        {
+          "name": "其他地区",
+          "en": "OTHER REGIONS",
+          "value": 6.2
+        }
+      ],
+      "activeRegion": 1,
+      "mediaPlaceholder": "纽约城市/行业客户主视觉 / DROP IMAGE",
+      "layout": "media",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "regionCount": 5,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showShareBar": true,
+      "showTagBadge": true,
+      "showNote": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page050",
+    "themeKey": "theme06",
+    "pageNumber": 50,
+    "layout": "THEME06-050",
+    "slot": "seattle",
+    "label": "46 · 云计算人才外溢 / SEATTLE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "右栏形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "map",
+            "分布气泡"
+          ]
+        ],
+        "desc": "右栏的呈现形式：集群图片主导 / 地区占比气泡图"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为地区分布面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "regionCount",
+        "label": "气泡地区数",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "气泡图中展示的地区数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "行业标签数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "左下行业标签芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showShareBar",
+        "label": "占比对照条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏占全国融资额对照条（装饰数据）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "集群徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角集群徽标（装饰）"
+      },
+      {
+        "key": "showNote",
+        "label": "一句话判断",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左下一句话判断（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "58",
+      "eyebrowLabel": "SEATTLE CLUSTER",
+      "title": "云计算人才外溢",
+      "subhead": "西雅图集群 / SEATTLE",
+      "closing": "云计算底座带来 AI 基础设施机会。",
+      "clusterTag": "西雅图集群 / SEA",
+      "hero": {
+        "value": "9.8",
+        "unit": "%",
+        "label": "占全国融资额 / SHARE OF TOTAL"
+      },
+      "metrics": [
+        {
+          "k": "融资额 / FUNDING",
+          "v": "95 亿$"
+        },
+        {
+          "k": "事件数 / DEALS",
+          "v": "10 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "9.5 亿$"
+        }
+      ],
+      "tags": [
+        "云生态 / CLOUD",
+        "基础设施 / INFRA",
+        "开发者工具 / DEVTOOLS",
+        "企业 AI / ENTERPRISE"
+      ],
+      "note": "西雅图受益于云计算生态和大厂工程人才外溢，更适合孕育基础设施、开发者工具和企业 AI。",
+      "regions": [
+        {
+          "name": "旧金山湾区",
+          "en": "BAY AREA",
+          "value": 63.9
+        },
+        {
+          "name": "纽约",
+          "en": "NEW YORK",
+          "value": 12.4
+        },
+        {
+          "name": "西雅图",
+          "en": "SEATTLE",
+          "value": 9.8
+        },
+        {
+          "name": "波士顿",
+          "en": "BOSTON",
+          "value": 7.7
+        },
+        {
+          "name": "其他地区",
+          "en": "OTHER REGIONS",
+          "value": 6.2
+        }
+      ],
+      "activeRegion": 2,
+      "mediaPlaceholder": "西雅图云生态主视觉 / DROP IMAGE",
+      "layout": "media",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "regionCount": 5,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showShareBar": true,
+      "showTagBadge": true,
+      "showNote": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page051",
+    "themeKey": "theme06",
+    "pageNumber": 51,
+    "layout": "THEME06-051",
+    "slot": "boston",
+    "label": "47 · 科研与硬科技 / BOSTON",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "右栏形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "map",
+            "分布气泡"
+          ]
+        ],
+        "desc": "右栏的呈现形式：集群图片主导 / 地区占比气泡图"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为地区分布面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "regionCount",
+        "label": "气泡地区数",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "气泡图中展示的地区数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "行业标签数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "左下行业标签芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showShareBar",
+        "label": "占比对照条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏占全国融资额对照条（装饰数据）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "集群徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角集群徽标（装饰）"
+      },
+      {
+        "key": "showNote",
+        "label": "一句话判断",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左下一句话判断（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "59",
+      "eyebrowLabel": "BOSTON CLUSTER",
+      "title": "科研与硬科技",
+      "subhead": "波士顿集群 / BOSTON",
+      "closing": "科研城市更适合长周期技术资产。",
+      "clusterTag": "波士顿集群 / BOS",
+      "hero": {
+        "value": "7.7",
+        "unit": "%",
+        "label": "占全国融资额 / SHARE OF TOTAL"
+      },
+      "metrics": [
+        {
+          "k": "融资额 / FUNDING",
+          "v": "75 亿$"
+        },
+        {
+          "k": "事件数 / DEALS",
+          "v": "8 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "9.4 亿$"
+        }
+      ],
+      "tags": [
+        "医疗 AI / HEALTH",
+        "机器人 / ROBOTICS",
+        "硬科技 / DEEP TECH",
+        "高校科研 / RESEARCH"
+      ],
+      "note": "波士顿集中在医疗 AI、机器人和硬科技方向，高校科研和硬科技转化构成其优势。",
+      "regions": [
+        {
+          "name": "旧金山湾区",
+          "en": "BAY AREA",
+          "value": 63.9
+        },
+        {
+          "name": "纽约",
+          "en": "NEW YORK",
+          "value": 12.4
+        },
+        {
+          "name": "西雅图",
+          "en": "SEATTLE",
+          "value": 9.8
+        },
+        {
+          "name": "波士顿",
+          "en": "BOSTON",
+          "value": 7.7
+        },
+        {
+          "name": "其他地区",
+          "en": "OTHER REGIONS",
+          "value": 6.2
+        }
+      ],
+      "activeRegion": 3,
+      "mediaPlaceholder": "波士顿科研/硬科技主视觉 / DROP IMAGE",
+      "layout": "media",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "regionCount": 5,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showShareBar": true,
+      "showTagBadge": true,
+      "showNote": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page052",
+    "themeKey": "theme06",
+    "pageNumber": 52,
+    "layout": "THEME06-052",
+    "slot": "other",
+    "label": "48 · 分散型应用落地 / OTHER REGIONS",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "layout",
+        "label": "右栏形式",
+        "type": "select",
+        "default": "media",
+        "options": [
+          [
+            "media",
+            "图文"
+          ],
+          [
+            "map",
+            "分布气泡"
+          ]
+        ],
+        "desc": "右栏的呈现形式：集群图片主导 / 地区占比气泡图"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为地区分布面板；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "regionCount",
+        "label": "气泡地区数",
+        "type": "number",
+        "default": 5,
+        "min": 3,
+        "max": 5,
+        "desc": "气泡图中展示的地区数量"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 3,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "行业标签数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "左下行业标签芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showShareBar",
+        "label": "占比对照条",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏占全国融资额对照条（装饰数据）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "集群徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角集群徽标（装饰）"
+      },
+      {
+        "key": "showNote",
+        "label": "一句话判断",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左下一句话判断（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "60",
+      "eyebrowLabel": "OTHER REGIONS",
+      "title": "分散型应用落地",
+      "subhead": "其他地区机会 / DISTRIBUTED",
+      "closing": "本地行业资源也能形成应用机会。",
+      "clusterTag": "其他地区 / OTHER",
+      "hero": {
+        "value": "6.2",
+        "unit": "%",
+        "label": "占全国融资额 / SHARE OF TOTAL"
+      },
+      "metrics": [
+        {
+          "k": "融资额 / FUNDING",
+          "v": "60 亿$"
+        },
+        {
+          "k": "事件数 / DEALS",
+          "v": "11 笔"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "5.5 亿$"
+        }
+      ],
+      "tags": [
+        "行业模型 / VERTICAL",
+        "本地化 / LOCAL",
+        "垂直应用 / APPS"
+      ],
+      "note": "其他地区融资规模较小，但出现行业专用模型和本地化应用机会——非核心区域更适合做行业落地。",
+      "regions": [
+        {
+          "name": "旧金山湾区",
+          "en": "BAY AREA",
+          "value": 63.9
+        },
+        {
+          "name": "纽约",
+          "en": "NEW YORK",
+          "value": 12.4
+        },
+        {
+          "name": "西雅图",
+          "en": "SEATTLE",
+          "value": 9.8
+        },
+        {
+          "name": "波士顿",
+          "en": "BOSTON",
+          "value": 7.7
+        },
+        {
+          "name": "其他地区",
+          "en": "OTHER REGIONS",
+          "value": 6.2
+        }
+      ],
+      "activeRegion": 4,
+      "mediaPlaceholder": "区域点阵分布 / DROP IMAGE",
+      "layout": "map",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 3,
+      "regionCount": 5,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showShareBar": true,
+      "showTagBadge": true,
+      "showNote": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page053",
+    "themeKey": "theme06",
+    "pageNumber": 53,
+    "layout": "THEME06-053",
+    "slot": "triad",
+    "label": "49 · 三类关键资源 / TALENT·CAPITAL·COMPUTE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showMeta",
+        "label": "结论卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部的支撑结论卡"
+      },
+      {
+        "key": "metaCount",
+        "label": "结论卡数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "底部结论卡数量"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "金句区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "61",
+      "eyebrowLabel": "TALENT · CAPITAL · COMPUTE",
+      "kicker": "三类关键资源 / 人才 · 资本 · 算力三角",
+      "quote": "AI 竞争首先是一场<b>资源组织能力</b>的竞争。",
+      "source": "AI CAPITAL LAB · 2024 调研",
+      "watermark": "TRIAD",
+      "meta": [
+        {
+          "k": "人才 / TALENT",
+          "v": "顶尖研究员与工程团队的密度，决定模型上限。"
+        },
+        {
+          "k": "资本 / CAPITAL",
+          "v": "持续的大额融资能力，支撑长周期的算力与试错。"
+        },
+        {
+          "k": "算力 / COMPUTE",
+          "v": "稳定的 GPU 供给与云资源，是规模化的硬约束。"
+        }
+      ],
+      "showMeta": true,
+      "metaCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page054",
+    "themeKey": "theme06",
+    "pageNumber": 54,
+    "layout": "THEME06-054",
+    "slot": "openai",
+    "label": "50 · 商业化标杆 / OPENAI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 6,
+        "desc": "左侧关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "重点大数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏主标数字（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "62",
+      "eyebrowLabel": "OPENAI CASE",
+      "title": "商业化标杆",
+      "subhead": "OpenAI 案例 / GENERAL MODELS",
+      "closing": "模型能力必须转成生态和收入。",
+      "company": "OpenAI",
+      "caseIndex": 1,
+      "caseTotal": 9,
+      "caseTag": "CASE · OPENAI",
+      "positioning": "看点是模型能力、生态入口和企业商业化能否同时领先——OpenAI 仍是通用大模型商业化的标杆样本。",
+      "hero": {
+        "value": "66",
+        "unit": "亿$",
+        "label": "最大单笔融资 / LARGEST ROUND"
+      },
+      "metrics": [
+        {
+          "k": "企业客户 / ENTERPRISE",
+          "v": "9.4 万家"
+        },
+        {
+          "k": "年度化收入 / ARR",
+          "v": "38 亿$"
+        },
+        {
+          "k": "赛道 / SEGMENT",
+          "v": "通用大模型"
+        }
+      ],
+      "tags": [
+        "通用大模型 / FRONTIER",
+        "生态入口 / PLATFORM",
+        "企业商业化 / GTM"
+      ],
+      "mediaPlaceholder": "OpenAI 公司卡主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page055",
+    "themeKey": "theme06",
+    "pageNumber": 55,
+    "layout": "THEME06-055",
+    "slot": "anthropic",
+    "label": "51 · 安全可靠模型 / ANTHROPIC",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 6,
+        "desc": "左侧关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "重点大数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏主标数字（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "63",
+      "eyebrowLabel": "ANTHROPIC CASE",
+      "title": "安全可靠模型",
+      "subhead": "Anthropic 案例 / SAFE & RELIABLE",
+      "closing": "可信度本身可以成为商业壁垒。",
+      "company": "Anthropic",
+      "caseIndex": 2,
+      "caseTotal": 9,
+      "caseTag": "CASE · ANTHROPIC",
+      "positioning": "Anthropic 的核心定位是安全、可靠和企业级模型能力——优势不是更激进的叙事，而是更可信的企业采用。",
+      "hero": {
+        "value": "650",
+        "unit": "亿$+",
+        "label": "累计融资 / TOTAL RAISED"
+      },
+      "metrics": [
+        {
+          "k": "估值 / VALUATION",
+          "v": "9650 亿$"
+        },
+        {
+          "k": "产品 / PRODUCT",
+          "v": "Claude"
+        },
+        {
+          "k": "客户群 / CUSTOMERS",
+          "v": "云 · 金融 · 专业服务"
+        }
+      ],
+      "tags": [
+        "Claude",
+        "安全对齐 / ALIGNMENT",
+        "长上下文 / LONG CTX",
+        "企业采用 / ENTERPRISE"
+      ],
+      "mediaPlaceholder": "Anthropic 公司卡主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page056",
+    "themeKey": "theme06",
+    "pageNumber": 56,
+    "layout": "THEME06-056",
+    "slot": "xai",
+    "label": "52 · 实时数据生态 / XAI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 6,
+        "desc": "左侧关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "重点大数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏主标数字（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "64",
+      "eyebrowLabel": "XAI CASE",
+      "title": "实时数据生态",
+      "subhead": "xAI 案例 / REAL-TIME DATA",
+      "closing": "独特数据入口可以成为模型差异化。",
+      "company": "xAI",
+      "caseIndex": 3,
+      "caseTotal": 9,
+      "caseTag": "CASE · XAI",
+      "positioning": "xAI 以实时数据和马斯克生态作为差异化——核心资产不是模型本身，而是实时数据和生态流量。",
+      "hero": {
+        "value": "50",
+        "unit": "亿$",
+        "label": "单笔融资 / SINGLE ROUND"
+      },
+      "metrics": [
+        {
+          "k": "估值 / VALUATION",
+          "v": "500 亿$"
+        },
+        {
+          "k": "数据入口 / DATA",
+          "v": "X 平台"
+        },
+        {
+          "k": "协同 / SYNERGY",
+          "v": "特斯拉 · 多模态"
+        }
+      ],
+      "tags": [
+        "实时数据 / REAL-TIME",
+        "X 平台 / PLATFORM",
+        "多模态 / MULTIMODAL",
+        "实时搜索 / SEARCH"
+      ],
+      "mediaPlaceholder": "xAI 生态连接主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page057",
+    "themeKey": "theme06",
+    "pageNumber": 57,
+    "layout": "THEME06-057",
+    "slot": "coreweave",
+    "label": "53 · 算力基础设施 / COREWEAVE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左侧辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 6,
+        "desc": "左侧关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "重点大数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏主标数字（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "65",
+      "eyebrowLabel": "COREWEAVE CASE",
+      "title": "算力基础设施",
+      "subhead": "CoreWeave 案例 / COMPUTE INFRA",
+      "closing": "卖铲子的人也能成为核心资产。",
+      "company": "CoreWeave",
+      "caseIndex": 4,
+      "caseTotal": 9,
+      "caseTag": "CASE · COREWEAVE",
+      "positioning": "当模型公司都在抢 GPU，算力供应商获得资本溢价——CoreWeave 代表算力基础设施的确定性机会。",
+      "hero": {
+        "value": "110",
+        "unit": "亿$",
+        "label": "融资额 / TOTAL RAISED"
+      },
+      "metrics": [
+        {
+          "k": "估值 / VALUATION",
+          "v": "190 亿$"
+        },
+        {
+          "k": "GPU 资源 / GPU FLEET",
+          "v": "7.8 万张"
+        },
+        {
+          "k": "客户 / CUSTOMERS",
+          "v": "模型 · 生成式 · 推理"
+        }
+      ],
+      "tags": [
+        "GPU 云 / GPU CLOUD",
+        "算力供应 / COMPUTE",
+        "资本溢价 / PREMIUM",
+        "企业推理 / INFERENCE"
+      ],
+      "mediaPlaceholder": "CoreWeave GPU 集群主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page058",
+    "themeKey": "theme06",
+    "pageNumber": 58,
+    "layout": "THEME06-058",
+    "slot": "scaleai",
+    "label": "54 · 数据基础设施 / SCALE AI · TABLE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "行数",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "展示的维度行数（按数据截取）"
+      },
+      {
+        "key": "columnCount",
+        "label": "列数",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 4,
+        "desc": "展示的列数（维度列恒显，3 时省略中间列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一行拉成整条强调行"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几行",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 4,
+        "desc": "被强调的行序号"
+      },
+      {
+        "key": "showFigures",
+        "label": "关键数字带",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部关键数字带（装饰锚点）"
+      },
+      {
+        "key": "showIndex",
+        "label": "行编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏行首序号（装饰）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏案例徽标占位（装饰）"
+      },
+      {
+        "key": "zebra",
+        "label": "隔行底色",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格隔行浅底（通用表格样式）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "66",
+      "eyebrowLabel": "SCALE AI CASE",
+      "title": "数据基础设施",
+      "subhead": "Scale AI 案例 / DATA INFRASTRUCTURE",
+      "closing": "数据质量是模型竞争的底层变量。",
+      "company": "Scale AI",
+      "caseIndex": 5,
+      "caseTotal": 9,
+      "caseTag": "CASE · SCALE AI",
+      "figures": [
+        {
+          "v": "10 亿$",
+          "k": "最大单笔融资 / LARGEST ROUND"
+        },
+        {
+          "v": "1200 家",
+          "k": "企业客户 / ENTERPRISE"
+        },
+        {
+          "v": "18%",
+          "k": "政府客户占比 / GOV SHARE"
+        },
+        {
+          "v": "3 类",
+          "k": "核心业务 / CORE LINES"
+        }
+      ],
+      "columns": [
+        {
+          "k": "维度",
+          "en": "DIMENSION"
+        },
+        {
+          "k": "模拟数据",
+          "en": "FIGURE"
+        },
+        {
+          "k": "代表对象",
+          "en": "EXAMPLE"
+        },
+        {
+          "k": "判断",
+          "en": "VERDICT"
+        }
+      ],
+      "rows": [
+        {
+          "no": 1,
+          "dim": "数据标注",
+          "en": "DATA LABELING",
+          "cells": [
+            "1200 家",
+            "头部模型公司",
+            "高质量训练数据的主入口"
+          ]
+        },
+        {
+          "no": 2,
+          "dim": "人类反馈",
+          "en": "RLHF",
+          "cells": [
+            "主营业务",
+            "前沿实验室",
+            "对齐质量的关键供给侧"
+          ]
+        },
+        {
+          "no": 3,
+          "dim": "模型评测",
+          "en": "EVALUATION",
+          "cells": [
+            "18% 政府",
+            "标准机构 · 监管",
+            "能力验证的客观标尺"
+          ]
+        },
+        {
+          "no": 4,
+          "dim": "数据飞轮",
+          "en": "DATA FLYWHEEL",
+          "cells": [
+            "10 亿$",
+            "企业推理客户",
+            "越用越强的数据护城河"
+          ]
+        }
+      ],
+      "footRight": "4 DIM × 4 COL / TABLE",
+      "rowCount": 4,
+      "columnCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 3,
+      "showFigures": true,
+      "showIndex": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "zebra": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page059",
+    "themeKey": "theme06",
+    "pageNumber": 59,
+    "layout": "THEME06-059",
+    "slot": "perplexity",
+    "label": "55 · AI 搜索入口 / PERPLEXITY",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "标志数字卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏标志数字卡（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "67",
+      "eyebrowLabel": "PERPLEXITY CASE",
+      "title": "AI 搜索入口",
+      "subhead": "Perplexity 案例 / AI SEARCH",
+      "closing": "新入口要用留存证明价值。",
+      "company": "Perplexity",
+      "caseIndex": 6,
+      "caseTotal": 9,
+      "caseTag": "CASE · PERPLEXITY",
+      "sigLabel": "标志数字 / SIGNATURE",
+      "positioning": "机会在于重构信息入口，挑战是内容版权和用户留存——Perplexity 代表 AI 搜索与答案引擎方向。",
+      "hero": {
+        "value": "5.2",
+        "unit": "亿$",
+        "label": "最大单笔融资 / LARGEST ROUND"
+      },
+      "metrics": [
+        {
+          "k": "月活用户 / MAU",
+          "v": "4800 万"
+        },
+        {
+          "k": "订阅转化率 / PAID",
+          "v": "5.8%"
+        },
+        {
+          "k": "赛道 / SEGMENT",
+          "v": "AI 搜索"
+        }
+      ],
+      "tags": [
+        "AI 搜索 / SEARCH",
+        "答案引擎 / ANSWER",
+        "信息入口 / GATEWAY",
+        "用户留存 / RETENTION"
+      ],
+      "mediaPlaceholder": "Perplexity 搜索入口主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page060",
+    "themeKey": "theme06",
+    "pageNumber": 60,
+    "layout": "THEME06-060",
+    "slot": "databricks",
+    "label": "56 · 数据平台延展 / DATABRICKS",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "标志数字卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏标志数字卡（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "68",
+      "eyebrowLabel": "DATABRICKS CASE",
+      "title": "数据平台延展",
+      "subhead": "Databricks 案例 / DATA PLATFORM",
+      "closing": "存量客户基础是 AI 商业化捷径。",
+      "company": "Databricks",
+      "caseIndex": 7,
+      "caseTotal": 9,
+      "caseTag": "CASE · DATABRICKS",
+      "sigLabel": "标志数字 / SIGNATURE",
+      "positioning": "已有数据平台更容易把 AI 能力卖给现有企业客户——Databricks 是数据平台向 AI 平台延展的典型公司。",
+      "hero": {
+        "value": "5.0",
+        "unit": "亿$",
+        "label": "最大单笔融资 / LARGEST ROUND"
+      },
+      "metrics": [
+        {
+          "k": "企业客户 / ENTERPRISE",
+          "v": "1.1 万家"
+        },
+        {
+          "k": "净收入留存 / NRR",
+          "v": "132%"
+        },
+        {
+          "k": "赛道 / SEGMENT",
+          "v": "数据平台"
+        }
+      ],
+      "tags": [
+        "数据平台 / DATA",
+        "AI 平台 / AI PLATFORM",
+        "存量客户 / INSTALLED",
+        "高留存 / NRR"
+      ],
+      "mediaPlaceholder": "Databricks 平台架构主视觉 / DROP IMAGE",
+      "mediaSlotCount": 0,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page061",
+    "themeKey": "theme06",
+    "pageNumber": 61,
+    "layout": "THEME06-061",
+    "slot": "glean",
+    "label": "57 · 企业知识入口 / GLEAN",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "标志数字卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏标志数字卡（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "69",
+      "eyebrowLabel": "GLEAN CASE",
+      "title": "企业知识入口",
+      "subhead": "Glean 案例 / ENTERPRISE SEARCH",
+      "closing": "窄场景也能产生高价值。",
+      "company": "Glean",
+      "caseIndex": 8,
+      "caseTotal": 9,
+      "caseTag": "CASE · GLEAN",
+      "sigLabel": "标志数字 / SIGNATURE",
+      "positioning": "接入知识库后，企业搜索会成为高频工作入口——Glean 代表企业搜索和知识工作流自动化。",
+      "hero": {
+        "value": "2.6",
+        "unit": "亿$",
+        "label": "最大单笔融资 / LARGEST ROUND"
+      },
+      "metrics": [
+        {
+          "k": "付费客户 / PAID",
+          "v": "780 家"
+        },
+        {
+          "k": "续约率 / RENEWAL",
+          "v": "91%"
+        },
+        {
+          "k": "赛道 / SEGMENT",
+          "v": "企业搜索"
+        }
+      ],
+      "tags": [
+        "企业搜索 / SEARCH",
+        "知识工作流 / WORKFLOW",
+        "高频入口 / DAILY",
+        "高续约 / RENEWAL"
+      ],
+      "mediaPlaceholder": "Glean 知识库入口主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page062",
+    "themeKey": "theme06",
+    "pageNumber": 62,
+    "layout": "THEME06-062",
+    "slot": "figure",
+    "label": "58 · 人形机器人 / FIGURE AI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "辅助指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "大数字下方的辅助指标数量（0 隐藏）"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "主数字区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "70",
+      "eyebrowLabel": "FIGURE AI CASE",
+      "kicker": "demo 之外，硬件 AI 真正的考验是量产。",
+      "figure": "6.8",
+      "unit": "亿$",
+      "explain": "<b>Figure AI</b> 最大单笔融资——关键不只是 demo，而是供应链、可靠性和量产成本。",
+      "closing": "硬件 AI 要用量产证明自己。",
+      "watermark": "FIGURE",
+      "metrics": [
+        {
+          "k": "赛道 / SEGMENT",
+          "v": "人形机器人"
+        },
+        {
+          "k": "方向 / FOCUS",
+          "v": "具身智能"
+        },
+        {
+          "k": "关键 / KEY",
+          "v": "量产成本"
+        }
+      ],
+      "metricCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page063",
+    "themeKey": "theme06",
+    "pageNumber": 63,
+    "layout": "THEME06-063",
+    "slot": "ssi",
+    "label": "59 · 强叙事模型实验室 / SSI",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 改为关键数据卡阵；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "标志数字卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏标志数字卡（装饰锚点）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角案例徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "71",
+      "eyebrowLabel": "SSI CASE",
+      "title": "强叙事模型实验室",
+      "subhead": "SSI 案例 / SAFE SUPERINTELLIGENCE",
+      "closing": "强叙事需要更长时间兑现。",
+      "company": "SSI",
+      "caseIndex": 9,
+      "caseTotal": 9,
+      "caseTag": "CASE · SSI",
+      "sigLabel": "标志数字 / SIGNATURE",
+      "positioning": "短期难以用收入评价，价值建立在长期技术想象上——SSI 代表强团队、强叙事、弱商业化验证的模型实验室。",
+      "hero": {
+        "value": "10",
+        "unit": "亿$",
+        "label": "最大单笔融资 / LARGEST ROUND"
+      },
+      "metrics": [
+        {
+          "k": "产品收入 / REVENUE",
+          "v": "0"
+        },
+        {
+          "k": "团队规模 / TEAM",
+          "v": "85 人"
+        },
+        {
+          "k": "赛道 / SEGMENT",
+          "v": "安全智能"
+        }
+      ],
+      "tags": [
+        "安全智能 / SAFE SI",
+        "强团队 / TEAM",
+        "强叙事 / NARRATIVE",
+        "长期兑现 / LONG-TERM"
+      ],
+      "mediaPlaceholder": "SSI 抽象技术主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "metricCount": 3,
+      "tagCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showHero": true,
+      "showCaseIndex": true,
+      "showTagBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page064",
+    "themeKey": "theme06",
+    "pageNumber": 64,
+    "layout": "THEME06-064",
+    "slot": "ch05",
+    "label": "60 · 风险与策略 / CHAPTER 05",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "background",
+        "label": "背景形态",
+        "type": "select",
+        "default": "glow",
+        "options": [
+          [
+            "glow",
+            "光晕"
+          ],
+          [
+            "solid",
+            "纯色"
+          ],
+          [
+            "panel",
+            "色块"
+          ]
+        ],
+        "desc": "分隔页背景的呈现形式"
+      },
+      {
+        "key": "showIndex",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏超大章节编号"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "底部关键词标签数量（0 隐藏）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否高亮某个关键词标签"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的关键词序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": false,
+        "desc": "显示/隐藏背景巨型水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "CH",
+      "eyebrowLabel": "CHAPTER 05",
+      "chapterNo": "05",
+      "title": "风险与策略",
+      "subhead": "从估值压力到投资筛选 / RISK & STRATEGY",
+      "closing": "下一组页面进入风险与策略的拆解。",
+      "keywords": [
+        "估值泡沫",
+        "收入验证",
+        "合规",
+        "算力成本",
+        "垂直应用筛选"
+      ],
+      "watermark": "05",
+      "showIndex": true,
+      "keywordCount": 5,
+      "focusEnabled": false,
+      "focusIndex": 0,
+      "background": "glow",
+      "showWatermark": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page065",
+    "themeKey": "theme06",
+    "pageNumber": 65,
+    "layout": "THEME06-065",
+    "slot": "revrisk",
+    "label": "61 · 从试点到稳定收入 / REVENUE RISK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "meters",
+        "options": [
+          [
+            "meters",
+            "进度条"
+          ],
+          [
+            "columns",
+            "纵向柱"
+          ],
+          [
+            "dots",
+            "点阵刻度"
+          ]
+        ],
+        "desc": "同一组比率的可视化形式"
+      },
+      {
+        "key": "meterCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的比率读数数量"
+      },
+      {
+        "key": "showThesis",
+        "label": "左侧论点栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左侧论点 + 判断栏（装饰框架）"
+      },
+      {
+        "key": "showTrack",
+        "label": "剩余轨道",
+        "type": "toggle",
+        "default": true,
+        "desc": "进度条剩余部分的斜纹轨道（装饰，仅进度条）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "各读数的大号数字（装饰数据）"
+      },
+      {
+        "key": "showNote",
+        "label": "读数注解",
+        "type": "toggle",
+        "default": true,
+        "desc": "每条读数的限定语（装饰文案，仅进度条/点阵）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点读数高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一读数"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的读数序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "73",
+      "eyebrowLabel": "REVENUE RISK",
+      "title": "从试点到稳定收入",
+      "subhead": "风险 · 收入验证 / REVENUE VALIDATION",
+      "closing": "客户试点不等于商业化成功。",
+      "tagLabel": "RISK · 收入验证",
+      "kicker": "多数 AI 公司需要证明自己能从 <b>试点项目</b> 转向 <b>稳定订阅收入</b>。",
+      "verdict": {
+        "label": "判断 / VERDICT",
+        "note": "收入验证要看留存、毛利和客户扩张，而不是只看 Logo。"
+      },
+      "meters": [
+        {
+          "name": "试点转付费率",
+          "en": "PILOT → PAID",
+          "value": "28",
+          "unit": "%",
+          "note": "多数试点止步于概念验证，未进入预算"
+        },
+        {
+          "name": "企业年流失率",
+          "en": "ANNUAL CHURN",
+          "value": "17",
+          "unit": "%",
+          "note": "流失高于健康 SaaS，留存仍待夯实"
+        },
+        {
+          "name": "毛利率中位数",
+          "en": "GROSS MARGIN",
+          "value": "54",
+          "unit": "%",
+          "note": "被推理成本压制，低于传统软件"
+        },
+        {
+          "name": "推理成本占收入",
+          "en": "INFERENCE COST",
+          "value": "31",
+          "unit": "%",
+          "note": "成本曲线决定毛利天花板"
+        }
+      ],
+      "maxValue": 100,
+      "footRight": "4 READINGS / METERS",
+      "chartType": "meters",
+      "meterCount": 4,
+      "showTrack": true,
+      "showValueLabels": true,
+      "showNote": true,
+      "showThesis": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page066",
+    "themeKey": "theme06",
+    "pageNumber": 66,
+    "layout": "THEME06-066",
+    "slot": "regrisk",
+    "label": "62 · 隐私版权与安全 / REGULATION · TABLE",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "行数",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "展示的维度行数（按数据截取）"
+      },
+      {
+        "key": "columnCount",
+        "label": "列数",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 4,
+        "desc": "展示的列数（维度列恒显，3 时省略中间列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一行拉成整条强调行"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几行",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 4,
+        "desc": "被强调的行序号"
+      },
+      {
+        "key": "showFigures",
+        "label": "关键数字带",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部关键数字带（装饰锚点）"
+      },
+      {
+        "key": "showIndex",
+        "label": "行编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏行首序号（装饰）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏案例徽标占位（装饰）"
+      },
+      {
+        "key": "zebra",
+        "label": "隔行底色",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格隔行浅底（通用表格样式）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "74",
+      "eyebrowLabel": "REGULATION RISK",
+      "title": "隐私、版权与安全",
+      "subhead": "风险 · 监管合规 / COMPLIANCE",
+      "closing": "合规能力会成为企业采购门槛。",
+      "company": "RISK",
+      "caseIndex": 2,
+      "caseTotal": 5,
+      "caseTag": "RISK · 合规",
+      "figures": [
+        {
+          "v": "+42%",
+          "k": "合规团队增长 / COMPLIANCE TEAM"
+        },
+        {
+          "v": "+36%",
+          "k": "采购审查周期 / REVIEW CYCLE"
+        },
+        {
+          "v": "58%",
+          "k": "数据隔离需求 / ISOLATION"
+        },
+        {
+          "v": "19 起",
+          "k": "版权风险事件 / IP EVENTS"
+        }
+      ],
+      "columns": [
+        {
+          "k": "维度",
+          "en": "DIMENSION"
+        },
+        {
+          "k": "模拟数据",
+          "en": "FIGURE"
+        },
+        {
+          "k": "代表对象",
+          "en": "EXAMPLE"
+        },
+        {
+          "k": "判断",
+          "en": "VERDICT"
+        }
+      ],
+      "rows": [
+        {
+          "no": 1,
+          "dim": "隐私合规",
+          "en": "PRIVACY",
+          "cells": [
+            "+42%",
+            "金融 · 医疗客户",
+            "数据治理成为采购前置门槛"
+          ]
+        },
+        {
+          "no": 2,
+          "dim": "采购审查",
+          "en": "PROCUREMENT",
+          "cells": [
+            "+36%",
+            "大型企业 IT",
+            "审查周期拉长交付与回款"
+          ]
+        },
+        {
+          "no": 3,
+          "dim": "数据隔离",
+          "en": "ISOLATION",
+          "cells": [
+            "58%",
+            "受监管行业",
+            "私有化/隔离部署推高成本"
+          ]
+        },
+        {
+          "no": 4,
+          "dim": "版权风险",
+          "en": "COPYRIGHT",
+          "cells": [
+            "19 起",
+            "内容生成公司",
+            "训练数据来源的法律敞口"
+          ]
+        }
+      ],
+      "footRight": "4 DIM × 4 COL / TABLE",
+      "rowCount": 4,
+      "columnCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showFigures": true,
+      "showIndex": true,
+      "showCaseIndex": false,
+      "showTagBadge": true,
+      "zebra": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page067",
+    "themeKey": "theme06",
+    "pageNumber": 67,
+    "layout": "THEME06-067",
+    "slot": "compute",
+    "label": "63 · 毛利天花板 / COMPUTE COST",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "辅助指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "大数字下方的辅助指标数量（0 隐藏）"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "主数字区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "75",
+      "eyebrowLabel": "COMPUTE COST RISK",
+      "kicker": "收入还没跑起来，算力账单已经在涨。",
+      "figure": "61",
+      "unit": "%",
+      "explain": "头部模型公司 <b>训练预算的模拟年增幅</b>——如果推理成本降不下来，收入增长会被毛利吞掉。",
+      "closing": "算力成本是模型商业化的硬约束。",
+      "watermark": "COMPUTE",
+      "metrics": [
+        {
+          "k": "毛利率中位数 / MARGIN",
+          "v": "54%"
+        },
+        {
+          "k": "推理成本占收入 / COST",
+          "v": "31%"
+        },
+        {
+          "k": "风险 / RISK",
+          "v": "算力成本"
+        }
+      ],
+      "metricCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page068",
+    "themeKey": "theme06",
+    "pageNumber": 68,
+    "layout": "THEME06-068",
+    "slot": "openrisk",
+    "label": "64 · 壁垒被压缩 / OPEN SOURCE RISK",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "meters",
+        "options": [
+          [
+            "meters",
+            "进度条"
+          ],
+          [
+            "columns",
+            "纵向柱"
+          ],
+          [
+            "dots",
+            "点阵刻度"
+          ]
+        ],
+        "desc": "同一组比率的可视化形式"
+      },
+      {
+        "key": "meterCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 4,
+        "desc": "展示的比率读数数量"
+      },
+      {
+        "key": "showThesis",
+        "label": "左侧论点栏",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左侧论点 + 判断栏（装饰框架）"
+      },
+      {
+        "key": "showTrack",
+        "label": "剩余轨道",
+        "type": "toggle",
+        "default": true,
+        "desc": "进度条剩余部分的斜纹轨道（装饰，仅进度条）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "各读数的大号数字（装饰数据）"
+      },
+      {
+        "key": "showNote",
+        "label": "读数注解",
+        "type": "toggle",
+        "default": true,
+        "desc": "每条读数的限定语（装饰文案，仅进度条/点阵）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点读数高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一读数"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的读数序号"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "76",
+      "eyebrowLabel": "OPEN SOURCE RISK",
+      "title": "壁垒被压缩",
+      "subhead": "风险 · 开源与大厂竞争 / COMMODITIZATION",
+      "closing": "没有壁垒的模型能力会迅速商品化。",
+      "tagLabel": "RISK · 竞争压力",
+      "kicker": "开源模型降低能力门槛，<b>大厂生态</b> 压缩初创公司的独立空间。",
+      "verdict": {
+        "label": "判断 / VERDICT",
+        "note": "初创公司必须找到数据、工作流或行业入口壁垒。"
+      },
+      "meters": [
+        {
+          "name": "开源模型性能逼近",
+          "en": "OSS PARITY",
+          "value": "86",
+          "unit": "%",
+          "note": "开源与闭源能力差距快速收敛"
+        },
+        {
+          "name": "大厂产品覆盖",
+          "en": "INCUMBENT COVERAGE",
+          "value": "72",
+          "unit": "%",
+          "note": "云与办公巨头已自带同类能力"
+        },
+        {
+          "name": "企业自建意愿",
+          "en": "BUILD-IN-HOUSE",
+          "value": "34",
+          "unit": "%",
+          "note": "部分大客户转向自建替代采购"
+        }
+      ],
+      "maxValue": 100,
+      "footRight": "3 READINGS / METERS",
+      "chartType": "meters",
+      "meterCount": 3,
+      "showTrack": true,
+      "showValueLabels": true,
+      "showNote": true,
+      "showThesis": true,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page069",
+    "themeKey": "theme06",
+    "pageNumber": 69,
+    "layout": "THEME06-069",
+    "slot": "infra",
+    "label": "65 · 确定性预算 / INFRA STRATEGY",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "方向数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "desc": "展示的推荐方向数量"
+      },
+      {
+        "key": "layout",
+        "label": "方向排布",
+        "type": "select",
+        "default": "cards",
+        "options": [
+          [
+            "cards",
+            "方向卡"
+          ],
+          [
+            "rows",
+            "列表行"
+          ]
+        ],
+        "desc": "推荐方向的呈现形式（有图片时自动转列表行）"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时方向卡占满；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "watchCount",
+        "label": "筛选清单条数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "desc": "左侧筛选指标清单条数（0 隐藏整列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点方向高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一方向拉成实心强调（最优先推荐）"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的方向序号"
+      },
+      {
+        "key": "showTag",
+        "label": "方向标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个方向的标签芯片（装饰）"
+      },
+      {
+        "key": "showBadge",
+        "label": "区块徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏策略 / 方向区徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "77",
+      "eyebrowLabel": "INFRASTRUCTURE STRATEGY",
+      "title": "确定性预算",
+      "subhead": "策略 · 优先基础设施 / PRIORITIZE INFRA",
+      "closing": "优先看能支撑全行业增长的基础设施。",
+      "stanceTag": "STRATEGY · 优先基础设施",
+      "dirTag": "PICKS",
+      "thesis": "基础设施公司更接近 <b>刚性预算</b>，收入确定性相对更强——模型胜负未定时，卖铲子仍是更稳的资本逻辑。",
+      "watchCaption": "关注指标 / WHAT TO WATCH",
+      "watch": [
+        {
+          "k": "收入增速",
+          "en": "REVENUE GROWTH"
+        },
+        {
+          "k": "毛利率",
+          "en": "GROSS MARGIN"
+        },
+        {
+          "k": "客户集中度",
+          "en": "CONCENTRATION"
+        },
+        {
+          "k": "资源锁定",
+          "en": "RESOURCE LOCK-IN"
+        }
+      ],
+      "railCaption": "推荐方向 / RECOMMENDED",
+      "directions": [
+        {
+          "name": "GPU 云",
+          "en": "GPU CLOUD",
+          "tag": "算力供给"
+        },
+        {
+          "name": "数据平台",
+          "en": "DATA PLATFORM",
+          "tag": "企业刚需"
+        },
+        {
+          "name": "评测工具",
+          "en": "EVAL TOOLING",
+          "tag": "合规门槛"
+        },
+        {
+          "name": "推理优化",
+          "en": "INFERENCE OPT",
+          "tag": "成本曲线"
+        }
+      ],
+      "mediaPlaceholder": "基础设施示意 / DROP IMAGE",
+      "footRight": "4 方向 · FULL",
+      "cardCount": 4,
+      "layout": "cards",
+      "mediaSlotCount": 0,
+      "watchCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showTag": true,
+      "showBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page070",
+    "themeKey": "theme06",
+    "pageNumber": 70,
+    "layout": "THEME06-070",
+    "slot": "vertical",
+    "label": "66 · 嵌入工作流 / VERTICAL STRATEGY",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "cardCount",
+        "label": "方向数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "desc": "展示的推荐方向数量"
+      },
+      {
+        "key": "layout",
+        "label": "方向排布",
+        "type": "select",
+        "default": "cards",
+        "options": [
+          [
+            "cards",
+            "方向卡"
+          ],
+          [
+            "rows",
+            "列表行"
+          ]
+        ],
+        "desc": "推荐方向的呈现形式（有图片时自动转列表行）"
+      },
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时方向卡占满；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "watchCount",
+        "label": "筛选清单条数",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "desc": "左侧筛选指标清单条数（0 隐藏整列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点方向高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一方向拉成实心强调（最优先推荐）"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的方向序号"
+      },
+      {
+        "key": "showTag",
+        "label": "方向标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个方向的标签芯片（装饰）"
+      },
+      {
+        "key": "showBadge",
+        "label": "区块徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏策略 / 方向区徽标（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "78",
+      "eyebrowLabel": "VERTICAL STRATEGY",
+      "title": "嵌入工作流",
+      "subhead": "策略 · 筛选垂直应用 / EMBED IN WORKFLOW",
+      "closing": "应用价值来自流程位置。",
+      "stanceTag": "STRATEGY · 筛选垂直应用",
+      "dirTag": "SCENES",
+      "thesis": "垂直应用要看是否 <b>嵌入刚性流程</b>，而不是只看生成效果——能成为工作流一部分的应用才有长期价值。",
+      "watchCaption": "关注指标 / WHAT TO WATCH",
+      "watch": [
+        {
+          "k": "付费留存",
+          "en": "PAID RETENTION"
+        },
+        {
+          "k": "使用频次",
+          "en": "USAGE FREQUENCY"
+        },
+        {
+          "k": "席位扩张",
+          "en": "SEAT EXPANSION"
+        },
+        {
+          "k": "净收入留存",
+          "en": "NET REVENUE RET."
+        }
+      ],
+      "railCaption": "重点场景 / KEY SCENES",
+      "directions": [
+        {
+          "name": "法律",
+          "en": "LEGAL",
+          "tag": "高客单价"
+        },
+        {
+          "name": "医疗",
+          "en": "HEALTHCARE",
+          "tag": "高壁垒"
+        },
+        {
+          "name": "客服",
+          "en": "SUPPORT",
+          "tag": "可量化 ROI"
+        },
+        {
+          "name": "企业搜索",
+          "en": "ENTERPRISE SEARCH",
+          "tag": "高频入口"
+        },
+        {
+          "name": "开发者工具",
+          "en": "DEV TOOLS",
+          "tag": "刚性预算"
+        }
+      ],
+      "mediaPlaceholder": "工作流嵌入示意 / DROP IMAGE",
+      "footRight": "5 场景 · 1 IMG",
+      "cardCount": 5,
+      "layout": "rows",
+      "mediaSlotCount": 1,
+      "watchCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showTag": true,
+      "showBadge": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page071",
+    "themeKey": "theme06",
+    "pageNumber": 71,
+    "layout": "THEME06-071",
+    "slot": "quote",
+    "label": "67 · 结论 / CONCLUSION",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showMeta",
+        "label": "结论卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部的支撑结论卡"
+      },
+      {
+        "key": "metaCount",
+        "label": "结论卡数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "底部结论卡数量"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "金句区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "13",
+      "eyebrowLabel": "CONCLUSION",
+      "kicker": "看融资只是起点，看兑现才是判断。",
+      "quote": "资本下一阶段，将从<b>赌叙事</b>转向<b>看兑现</b>。",
+      "source": "AI CAPITAL LAB · 2024 调研",
+      "watermark": "END",
+      "meta": [
+        {
+          "k": "01 / 集中",
+          "v": "资金高度向头部集中，赢家通吃趋势加强。"
+        },
+        {
+          "k": "02 / 兑现",
+          "v": "热度从 AGI 叙事转向收入与毛利的兑现。"
+        },
+        {
+          "k": "03 / 筛选",
+          "v": "下一阶段淘汰只会讲故事、缺乏壁垒的公司。"
+        }
+      ],
+      "showMeta": true,
+      "metaCount": 3,
+      "align": "left",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page072",
+    "themeKey": "theme06",
+    "pageNumber": 72,
+    "layout": "THEME06-072",
+    "slot": "ipowatch",
+    "label": "68 · 估值锚重定价 / IPO WATCH",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "phaseCount",
+        "label": "阶段数量",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "时间轴阶段节点数量"
+      },
+      {
+        "key": "layout",
+        "label": "时间轴形态",
+        "type": "select",
+        "default": "timeline",
+        "options": [
+          [
+            "timeline",
+            "横向轴"
+          ],
+          [
+            "stack",
+            "纵向步骤"
+          ]
+        ],
+        "desc": "同一组阶段：横向时间轴 / 纵向编号步骤"
+      },
+      {
+        "key": "watchCount",
+        "label": "观察对象数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "desc": "底部观察对象芯片数量（0 隐藏整列）"
+      },
+      {
+        "key": "metricCount",
+        "label": "观察指标数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "desc": "底部观察指标标签数量（0 隐藏整列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点阶段高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一阶段拉成 lime 强调"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的阶段序号"
+      },
+      {
+        "key": "showAxis",
+        "label": "连接轴线",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏连接轴线与节点圆点（装饰，仅横向轴）"
+      },
+      {
+        "key": "showMarkers",
+        "label": "阶段大号编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个阶段背景的大号编号（装饰，仅横向轴）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "79",
+      "eyebrowLabel": "IPO WATCH",
+      "title": "估值锚重定价",
+      "subhead": "策略 · 观察 IPO 窗口 / IPO WINDOW",
+      "closing": "公开市场会重新定价 AI 叙事。",
+      "watchTag": "STRATEGY · IPO 观察",
+      "thesis": "头部公司的 IPO 表现，将重新定价整个 AI <b>一级市场的估值锚</b>——上市后承压，预期会同步下修。",
+      "railCaption": "IPO 观察时间轴 / WATCH TIMELINE",
+      "phases": [
+        {
+          "when": "2025 H1",
+          "name": "窗口试探",
+          "en": "WINDOW TEST",
+          "note": "头部公司启动上市筹备，测试公开市场情绪。"
+        },
+        {
+          "when": "2025 H2",
+          "name": "首批挂牌",
+          "en": "FIRST LISTINGS",
+          "note": "基础设施类标的率先挂牌，估值锚初步形成。"
+        },
+        {
+          "when": "2026",
+          "name": "集中上市",
+          "en": "IPO WAVE",
+          "note": "模型与数据平台公司密集进入公开市场。"
+        },
+        {
+          "when": "2027",
+          "name": "估值回归",
+          "en": "REPRICE",
+          "note": "一级市场对标公开估值，叙事溢价被重新定价。"
+        }
+      ],
+      "watchCaption": "观察对象 / WATCH-LIST",
+      "watchList": [
+        {
+          "name": "OpenAI",
+          "tag": "通用模型"
+        },
+        {
+          "name": "Anthropic",
+          "tag": "安全模型"
+        },
+        {
+          "name": "Databricks",
+          "tag": "数据平台"
+        },
+        {
+          "name": "CoreWeave",
+          "tag": "GPU 云"
+        }
+      ],
+      "metricCaption": "观察指标 / WATCH METRICS",
+      "metrics": [
+        {
+          "k": "上市表现 / DEBUT",
+          "v": "锚"
+        },
+        {
+          "k": "收入增速 / GROWTH",
+          "v": "↑"
+        },
+        {
+          "k": "毛利率 / MARGIN",
+          "v": "%"
+        },
+        {
+          "k": "云成本占比 / COMPUTE",
+          "v": "↓"
+        }
+      ],
+      "footRight": "4 PHASES · TIMELINE",
+      "phaseCount": 4,
+      "layout": "timeline",
+      "watchCount": 4,
+      "metricCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 2,
+      "showAxis": true,
+      "showMarkers": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page073",
+    "themeKey": "theme06",
+    "pageNumber": 73,
+    "layout": "THEME06-073",
+    "slot": "ch06",
+    "label": "69 · 数据附录精读 / CHAPTER 06",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "background",
+        "label": "背景形态",
+        "type": "select",
+        "default": "glow",
+        "options": [
+          [
+            "glow",
+            "光晕"
+          ],
+          [
+            "solid",
+            "纯色"
+          ],
+          [
+            "panel",
+            "色块"
+          ]
+        ],
+        "desc": "分隔页背景的呈现形式"
+      },
+      {
+        "key": "showIndex",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏超大章节编号"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "底部关键词标签数量（0 隐藏）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否高亮某个关键词标签"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的关键词序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": false,
+        "desc": "显示/隐藏背景巨型水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "CH",
+      "eyebrowLabel": "CHAPTER 06",
+      "chapterNo": "06",
+      "title": "数据附录精读",
+      "subhead": "月度热力 · 超级交易 · 头部集中 / DATA APPENDIX",
+      "closing": "用数据回看，再做最终判断。",
+      "keywords": [
+        "月度节奏",
+        "超级交易",
+        "头部集中",
+        "口径回看"
+      ],
+      "watermark": "06",
+      "showIndex": true,
+      "keywordCount": 4,
+      "focusEnabled": false,
+      "focusIndex": 0,
+      "background": "glow",
+      "showWatermark": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page074",
+    "themeKey": "theme06",
+    "pageNumber": 74,
+    "layout": "THEME06-074",
+    "slot": "heatmap",
+    "label": "70 · 全年月度热力 / MONTHLY HEAT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表类型",
+        "type": "select",
+        "default": "grid",
+        "options": [
+          [
+            "grid",
+            "热力格"
+          ],
+          [
+            "columns",
+            "纵向柱"
+          ],
+          [
+            "dots",
+            "点阵"
+          ]
+        ],
+        "desc": "同一组节奏数据的可视化形式"
+      },
+      {
+        "key": "periodCount",
+        "label": "周期数量",
+        "type": "number",
+        "default": 12,
+        "min": 6,
+        "max": 12,
+        "desc": "展示的周期（月份）数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点周期高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一周期"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 7,
+        "min": 0,
+        "max": 11,
+        "desc": "被突出的周期序号（默认峰值月）"
+      },
+      {
+        "key": "showPeakMark",
+        "label": "峰谷读数带",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部峰值/低位/合计读数（装饰锚点）"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "数值标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每格的金额数字（装饰数据）"
+      },
+      {
+        "key": "showScale",
+        "label": "强度图例",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部低→高强度图例（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "84",
+      "eyebrowLabel": "MONTHLY HEAT",
+      "title": "全年月度热力",
+      "subhead": "12 个月融资节奏 / 金额 亿$",
+      "closing": "融资节奏的核心不是均值，而是峰值背后的超级交易。",
+      "unit": "亿",
+      "total": "970亿",
+      "footRight": "12 MONTHS · PEAK AUG",
+      "periods": [
+        {
+          "m": "1月",
+          "en": "JAN",
+          "v": 45
+        },
+        {
+          "m": "2月",
+          "en": "FEB",
+          "v": 58
+        },
+        {
+          "m": "3月",
+          "en": "MAR",
+          "v": 59
+        },
+        {
+          "m": "4月",
+          "en": "APR",
+          "v": 86
+        },
+        {
+          "m": "5月",
+          "en": "MAY",
+          "v": 105
+        },
+        {
+          "m": "6月",
+          "en": "JUN",
+          "v": 93
+        },
+        {
+          "m": "7月",
+          "en": "JUL",
+          "v": 92
+        },
+        {
+          "m": "8月",
+          "en": "AUG",
+          "v": 118
+        },
+        {
+          "m": "9月",
+          "en": "SEP",
+          "v": 108
+        },
+        {
+          "m": "10月",
+          "en": "OCT",
+          "v": 73
+        },
+        {
+          "m": "11月",
+          "en": "NOV",
+          "v": 81
+        },
+        {
+          "m": "12月",
+          "en": "DEC",
+          "v": 52
+        }
+      ],
+      "chartType": "grid",
+      "periodCount": 12,
+      "focusEnabled": true,
+      "focusIndex": 7,
+      "showScale": true,
+      "showValueLabels": true,
+      "showPeakMark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page075",
+    "themeKey": "theme06",
+    "pageNumber": 75,
+    "layout": "THEME06-075",
+    "slot": "megadeals",
+    "label": "71 · 超级交易画像 / MEGA DEALS",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 3,
+        "desc": "右侧自适应图片槽数量（0 改为超级交易墙；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "metricCount",
+        "label": "指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 2,
+        "max": 4,
+        "desc": "左栏辅助指标卡数量"
+      },
+      {
+        "key": "tagCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 6,
+        "desc": "左栏关键词芯片数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一指标（0 图片时突出交易墙某行）"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 3,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showHero",
+        "label": "主数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左栏主数字（装饰锚点）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "角标徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏左上角徽标（装饰）"
+      },
+      {
+        "key": "showCaption",
+        "label": "画廊说明",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏画廊顶部说明条（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "85",
+      "eyebrowLabel": "MEGA DEALS",
+      "title": "超级交易画像",
+      "subhead": "10 亿美元以上交易层 / MEGA-DEAL TIER",
+      "closing": "市场被少数超级交易重新定价。",
+      "galleryTag": "超级交易 / MEGA",
+      "hero": {
+        "value": "718",
+        "unit": "亿$",
+        "label": "10 亿+ 交易层合计 / TIER TOTAL"
+      },
+      "metrics": [
+        {
+          "k": "交易笔数 / DEALS",
+          "v": "12 笔"
+        },
+        {
+          "k": "占全年 / SHARE",
+          "v": "74%"
+        },
+        {
+          "k": "平均单笔 / AVG",
+          "v": "59.8 亿"
+        },
+        {
+          "k": "最大单笔 / MAX",
+          "v": "66 亿"
+        }
+      ],
+      "tags": [
+        "通用大模型",
+        "算力基础设施",
+        "安全智能",
+        "实时数据"
+      ],
+      "wall": [
+        {
+          "name": "OpenAI",
+          "v": 66
+        },
+        {
+          "name": "Anthropic",
+          "v": 65
+        },
+        {
+          "name": "xAI",
+          "v": 50
+        },
+        {
+          "name": "CoreWeave",
+          "v": 11
+        },
+        {
+          "name": "SSI",
+          "v": 10
+        },
+        {
+          "name": "Scale AI",
+          "v": 10
+        }
+      ],
+      "caption": "超级交易画像",
+      "railCaption": "MEGA TIER",
+      "mediaSlotCount": 2,
+      "metricCount": 3,
+      "tagCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showHero": true,
+      "showTagBadge": true,
+      "showCaption": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page076",
+    "themeKey": "theme06",
+    "pageNumber": 76,
+    "layout": "THEME06-076",
+    "slot": "megabig",
+    "label": "72 · 超级交易均值 / MEGA AVG",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "metricCount",
+        "label": "辅助指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "大数字下方的辅助指标数量（0 隐藏）"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "主数字区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "86",
+      "eyebrowLabel": "MEGA-DEAL AVERAGE",
+      "kicker": "少数几笔交易，重画了全年的融资曲线。",
+      "figure": "59.8",
+      "unit": "亿$",
+      "explain": "<b>头部 12 笔超级交易</b> 的平均单笔规模——合计 718 亿美元，约占全年大额融资的四分之三。",
+      "closing": "市场被少数超级交易重新定价。",
+      "watermark": "MEGA",
+      "metrics": [
+        {
+          "k": "超级交易 / DEALS",
+          "v": "12 笔"
+        },
+        {
+          "k": "合计金额 / TOTAL",
+          "v": "$718亿"
+        },
+        {
+          "k": "占全年 / SHARE",
+          "v": "74%"
+        }
+      ],
+      "metricCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page077",
+    "themeKey": "theme06",
+    "pageNumber": 77,
+    "layout": "THEME06-077",
+    "slot": "recap",
+    "label": "73 · 全景速览 / YEAR IN ONE VIEW",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "statCount",
+        "label": "数字数量",
+        "type": "number",
+        "default": 4,
+        "min": 2,
+        "max": 5,
+        "desc": "展示的大数字单元数量"
+      },
+      {
+        "key": "layout",
+        "label": "排布形态",
+        "type": "select",
+        "default": "hero",
+        "options": [
+          [
+            "hero",
+            "主数字 + 阵列"
+          ],
+          [
+            "grid",
+            "均分网格"
+          ],
+          [
+            "row",
+            "单行数字带"
+          ]
+        ],
+        "desc": "大数字墙的版式"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "主数字高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某个数字拉成 lime 主数字（hero 时即左侧大格）"
+      },
+      {
+        "key": "focusIndex",
+        "label": "主数字第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 4,
+        "desc": "作为主数字/强调的序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "showThesis",
+        "label": "引导句",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部一句话引导（装饰文案）"
+      },
+      {
+        "key": "showCaption",
+        "label": "英文小注",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个数字的英文小注（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "81",
+      "eyebrowLabel": "YEAR IN REVIEW",
+      "title": "全景速览",
+      "subhead": "2024 · 一年回望 / YEAR IN ONE VIEW",
+      "closing": "资本仍在涌入，但下一阶段只认兑现。",
+      "watermark": "2024",
+      "thesis": "一年 <b>970 亿美元</b> 涌入美国 AI，<b>97 笔</b> 大额交易，重新定义了资本的重心。",
+      "stats": [
+        {
+          "v": "970亿$",
+          "k": "全年融资",
+          "en": "2024 VC INTO US AI"
+        },
+        {
+          "v": "97 笔",
+          "k": "大额事件",
+          "en": "ROUNDS ≥ $100M"
+        },
+        {
+          "v": "10亿$",
+          "k": "平均单笔",
+          "en": "PER MEGA DEAL"
+        },
+        {
+          "v": "63.9%",
+          "k": "湾区占比",
+          "en": "BAY AREA SHARE"
+        },
+        {
+          "v": "71.2%",
+          "k": "Top-50 集中度",
+          "en": "CAPITAL CONCENTRATION"
+        }
+      ],
+      "footRight": "4 STATS · RECAP",
+      "statCount": 4,
+      "layout": "hero",
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showWatermark": true,
+      "showThesis": true,
+      "showCaption": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page078",
+    "themeKey": "theme06",
+    "pageNumber": 78,
+    "layout": "THEME06-078",
+    "slot": "sources",
+    "label": "74 · 数据来源与口径 / SOURCES",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "rowCount",
+        "label": "行数",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "展示的维度行数（按数据截取）"
+      },
+      {
+        "key": "columnCount",
+        "label": "列数",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 4,
+        "desc": "展示的列数（维度列恒显，3 时省略中间列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点行高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一行拉成整条强调行"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几行",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 4,
+        "desc": "被强调的行序号"
+      },
+      {
+        "key": "showFigures",
+        "label": "关键数字带",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部关键数字带（装饰锚点）"
+      },
+      {
+        "key": "showIndex",
+        "label": "行编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏行首序号（装饰）"
+      },
+      {
+        "key": "showCaseIndex",
+        "label": "案例编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角 CASE 编号（装饰）"
+      },
+      {
+        "key": "showTagBadge",
+        "label": "案例徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏案例徽标占位（装饰）"
+      },
+      {
+        "key": "zebra",
+        "label": "隔行底色",
+        "type": "toggle",
+        "default": true,
+        "desc": "表格隔行浅底（通用表格样式）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "82",
+      "eyebrowLabel": "SOURCES & SCOPE",
+      "title": "数据来源与口径",
+      "subhead": "附录 · 口径说明 / SOURCES & SCOPE",
+      "closing": "数据为研究估算，引用请注明口径。",
+      "company": "SOURCES",
+      "caseIndex": 1,
+      "caseTotal": 4,
+      "caseTag": "APPENDIX",
+      "figures": [
+        {
+          "v": "2024",
+          "k": "数据区间 / PERIOD"
+        },
+        {
+          "v": "≥1 亿$",
+          "k": "纳入门槛 / THRESHOLD"
+        },
+        {
+          "v": "97 笔",
+          "k": "样本规模 / SAMPLE"
+        },
+        {
+          "v": "9 类",
+          "k": "赛道划分 / SEGMENTS"
+        }
+      ],
+      "columns": [
+        {
+          "k": "来源类型",
+          "en": "SOURCE"
+        },
+        {
+          "k": "覆盖",
+          "en": "COVERAGE"
+        },
+        {
+          "k": "代表来源",
+          "en": "EXAMPLE"
+        },
+        {
+          "k": "口径说明",
+          "en": "SCOPE NOTE"
+        }
+      ],
+      "rows": [
+        {
+          "no": 1,
+          "dim": "融资事件库",
+          "en": "DEAL DATABASE",
+          "cells": [
+            "97 笔",
+            "一级市场数据库",
+            "单笔 ≥1 亿美元为纳入门槛"
+          ]
+        },
+        {
+          "no": 2,
+          "dim": "公司披露",
+          "en": "COMPANY FILINGS",
+          "cells": [
+            "头部 12 家",
+            "官方公告 · 新闻稿",
+            "以最大单笔融资作为排名口径"
+          ]
+        },
+        {
+          "no": 3,
+          "dim": "行业研究",
+          "en": "MARKET RESEARCH",
+          "cells": [
+            "赛道 9 类",
+            "第三方研究 · 投行报告",
+            "赛道占比为模拟估算值"
+          ]
+        },
+        {
+          "no": 4,
+          "dim": "公开报道",
+          "en": "PUBLIC PRESS",
+          "cells": [
+            "2024 全年",
+            "主流科技与财经媒体",
+            "未披露轮次按区间中值估计"
+          ]
+        }
+      ],
+      "footRight": "4 SRC × 4 COL / APPENDIX",
+      "rowCount": 4,
+      "columnCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showFigures": true,
+      "showIndex": true,
+      "showCaseIndex": false,
+      "showTagBadge": true,
+      "zebra": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page079",
+    "themeKey": "theme06",
+    "pageNumber": 79,
+    "layout": "THEME06-079",
+    "slot": "closing",
+    "label": "75 · 最终判断 / FINAL VERDICT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "showMeta",
+        "label": "结论卡",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏底部的支撑结论卡"
+      },
+      {
+        "key": "metaCount",
+        "label": "结论卡数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "底部结论卡数量"
+      },
+      {
+        "key": "align",
+        "label": "对齐方式",
+        "type": "select",
+        "default": "left",
+        "options": [
+          [
+            "left",
+            "左对齐"
+          ],
+          [
+            "center",
+            "居中"
+          ]
+        ],
+        "desc": "金句区域的对齐方式"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏背景水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "80",
+      "eyebrowLabel": "CLOSING",
+      "kicker": "最终判断 / 收尾页",
+      "quote": "融资盛宴之后，真正的<b>竞争</b>才刚刚开始。",
+      "source": "AI CAPITAL LAB · 2024 调研",
+      "watermark": "THE END",
+      "meta": [
+        {
+          "k": "叙事 → 兑现",
+          "v": "资本下一阶段从赌叙事转向看兑现，收入与毛利成为试金石。"
+        },
+        {
+          "k": "集中 → 筛选",
+          "v": "资金高度集中于头部，市场进入残酷的筛选周期。"
+        },
+        {
+          "k": "热度 → 壁垒",
+          "v": "没有数据、流程或资源壁垒的公司将被迅速商品化。"
+        }
+      ],
+      "showMeta": true,
+      "metaCount": 3,
+      "align": "center",
+      "showWatermark": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page080",
+    "themeKey": "theme06",
+    "pageNumber": 80,
+    "layout": "THEME06-080",
+    "slot": "ch07",
+    "label": "76 · 前瞻信号 / CHAPTER 07",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "background",
+        "label": "背景形态",
+        "type": "select",
+        "default": "glow",
+        "options": [
+          [
+            "glow",
+            "光晕"
+          ],
+          [
+            "solid",
+            "纯色"
+          ],
+          [
+            "panel",
+            "色块"
+          ]
+        ],
+        "desc": "分隔页背景的呈现形式"
+      },
+      {
+        "key": "showIndex",
+        "label": "大号章节号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏超大章节编号"
+      },
+      {
+        "key": "keywordCount",
+        "label": "关键词数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 6,
+        "desc": "底部关键词标签数量（0 隐藏）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "关键词高亮",
+        "type": "toggle",
+        "default": false,
+        "desc": "是否高亮某个关键词标签"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被高亮的关键词序号"
+      },
+      {
+        "key": "showWatermark",
+        "label": "背景大字",
+        "type": "toggle",
+        "default": false,
+        "desc": "显示/隐藏背景巨型水印字（装饰）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "CH",
+      "eyebrowLabel": "CHAPTER 07",
+      "chapterNo": "07",
+      "title": "前瞻信号",
+      "subhead": "2025 年的观察坐标 / FORWARD SIGNALS 2025",
+      "closing": "附录：用前瞻信号校准下一年的判断。",
+      "keywords": [
+        "资本流向",
+        "收入兑现",
+        "算力成本",
+        "估值重定",
+        "里程碑节奏"
+      ],
+      "watermark": "07",
+      "showIndex": true,
+      "keywordCount": 5,
+      "focusEnabled": false,
+      "focusIndex": 0,
+      "background": "glow",
+      "showWatermark": false,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page081",
+    "themeKey": "theme06",
+    "pageNumber": 81,
+    "layout": "THEME06-081",
+    "slot": "capflow",
+    "label": "77 · 资本流向预测 / CAPITAL FLOW",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "chartType",
+        "label": "图表形态",
+        "type": "select",
+        "default": "treemap",
+        "options": [
+          [
+            "treemap",
+            "面积块"
+          ],
+          [
+            "bars",
+            "条形"
+          ],
+          [
+            "grid",
+            "网格"
+          ]
+        ],
+        "desc": "同一组份额：面积treemap / 条形 / 网格"
+      },
+      {
+        "key": "blockCount",
+        "label": "区块数量",
+        "type": "number",
+        "default": 6,
+        "min": 3,
+        "max": 6,
+        "desc": "展示的份额区块数量"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点区块高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一区块拉成 lime 焦点块"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 5,
+        "desc": "被突出的区块序号"
+      },
+      {
+        "key": "showValueLabels",
+        "label": "份额数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每块份额数字（装饰数据）"
+      },
+      {
+        "key": "showHero",
+        "label": "顶部锚点数字",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角锚点数字（装饰）"
+      },
+      {
+        "key": "showNote",
+        "label": "区块小注",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏较大区块上的说明（装饰文案，仅面积块）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "88",
+      "eyebrowLabel": "CAPITAL FLOW",
+      "title": "2025 资本流向预测",
+      "subhead": "按赛道的份额结构 / FORECAST CAPITAL ALLOCATION",
+      "closing": "钱往模型与算力两端继续集中。",
+      "unit": "%",
+      "hero": {
+        "value": "62",
+        "unit": "%",
+        "label": "模型+算力合计 / MODEL + COMPUTE"
+      },
+      "blocks": [
+        {
+          "name": "通用大模型",
+          "en": "FOUNDATION MODELS",
+          "value": 38,
+          "note": "少数前沿实验室继续吸走最大份额，单笔规模抬升。"
+        },
+        {
+          "name": "算力基础设施",
+          "en": "COMPUTE INFRA",
+          "value": 24,
+          "note": "GPU 云与数据中心承接模型训练的确定性预算。"
+        },
+        {
+          "name": "企业应用",
+          "en": "ENTERPRISE APPS",
+          "value": 16,
+          "note": "从试点走向稳定收入的应用层获得加注。"
+        },
+        {
+          "name": "垂直行业",
+          "en": "VERTICAL AI",
+          "value": 11,
+          "note": "医疗、金融、法律等高客单价场景。"
+        },
+        {
+          "name": "安全与对齐",
+          "en": "SAFETY",
+          "value": 6,
+          "note": "评测、对齐与合规工具受监管驱动。"
+        },
+        {
+          "name": "数据与工具",
+          "en": "DATA & TOOLS",
+          "value": 5,
+          "note": "数据标注、可观测与开发者工具。"
+        }
+      ],
+      "footRight": "FORECAST · SHARE",
+      "chartType": "treemap",
+      "blockCount": 6,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showValueLabels": true,
+      "showHero": true,
+      "showNote": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page082",
+    "themeKey": "theme06",
+    "pageNumber": 82,
+    "layout": "THEME06-082",
+    "slot": "statement",
+    "label": "78 · 前瞻主题 / FORWARD STATEMENT",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "mediaSlotCount",
+        "label": "图片槽数量",
+        "type": "number",
+        "default": 1,
+        "min": 0,
+        "max": 2,
+        "desc": "右侧自适应图片槽数量（0 时主张文案占满整版；上传后按图片比例自适应，构图随数量重排）"
+      },
+      {
+        "key": "statCount",
+        "label": "锚点指标数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "desc": "底部锚点指标卡数量（0 隐藏整行）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点指标高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否突出某一锚点指标卡"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 0,
+        "min": 0,
+        "max": 2,
+        "desc": "被突出的指标序号"
+      },
+      {
+        "key": "showKicker",
+        "label": "前置小标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏主张上方的 mono 小标（装饰）"
+      },
+      {
+        "key": "showGlow",
+        "label": "顶部光晕",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏顶部聚光光晕（装饰）"
+      },
+      {
+        "key": "showBadge",
+        "label": "角标徽标",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏右上角徽标（装饰）"
+      },
+      {
+        "key": "showLead",
+        "label": "引导段落",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏主张下方的引导段（装饰文案）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "89",
+      "eyebrowLabel": "FORWARD VIEW",
+      "kicker": "前瞻判断 / FORWARD STATEMENT",
+      "statement": "融资盛宴退潮后，<span class=\"kx-mk\"></span> 真正的护城河来自<b>稳定收入与确定性算力</b>，而非估值叙事。",
+      "lead": "叙事可以一次性融到大钱，但只有持续兑现的收入与可控的算力成本，才会在 2025 年被公开市场重新定价为壁垒。",
+      "closing": "把注意力从融资额转向兑现能力。",
+      "footRight": "FORWARD VIEW",
+      "statTag": "前瞻 / OUTLOOK",
+      "stats": [
+        {
+          "k": "收入兑现 / REVENUE",
+          "v": "稳"
+        },
+        {
+          "k": "算力成本 / COMPUTE",
+          "v": "降"
+        },
+        {
+          "k": "估值锚 / VALUATION",
+          "v": "重定"
+        }
+      ],
+      "mediaPlaceholder": "前瞻主视觉 / DROP IMAGE",
+      "mediaSlotCount": 1,
+      "statCount": 3,
+      "focusEnabled": true,
+      "focusIndex": 0,
+      "showKicker": true,
+      "showGlow": true,
+      "showBadge": true,
+      "showLead": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
+    "key": "theme06_page083",
+    "themeKey": "theme06",
+    "pageNumber": 83,
+    "layout": "THEME06-083",
+    "slot": "milestones",
+    "label": "79 · 里程碑节奏 / MILESTONES 2025",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "phaseCount",
+        "label": "阶段数量",
+        "type": "number",
+        "default": 4,
+        "min": 3,
+        "max": 5,
+        "desc": "时间轴阶段节点数量"
+      },
+      {
+        "key": "layout",
+        "label": "时间轴形态",
+        "type": "select",
+        "default": "timeline",
+        "options": [
+          [
+            "timeline",
+            "横向轴"
+          ],
+          [
+            "stack",
+            "纵向步骤"
+          ]
+        ],
+        "desc": "同一组阶段：横向时间轴 / 纵向编号步骤"
+      },
+      {
+        "key": "watchCount",
+        "label": "观察对象数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "desc": "底部观察对象芯片数量（0 隐藏整列）"
+      },
+      {
+        "key": "metricCount",
+        "label": "观察指标数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "desc": "底部观察指标标签数量（0 隐藏整列）"
+      },
+      {
+        "key": "focusEnabled",
+        "label": "重点阶段高亮",
+        "type": "toggle",
+        "default": true,
+        "desc": "是否把某一阶段拉成 lime 强调"
+      },
+      {
+        "key": "focusIndex",
+        "label": "高亮第几个",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 4,
+        "desc": "被突出的阶段序号"
+      },
+      {
+        "key": "showAxis",
+        "label": "连接轴线",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏连接轴线与节点圆点（装饰，仅横向轴）"
+      },
+      {
+        "key": "showMarkers",
+        "label": "阶段大号编号",
+        "type": "toggle",
+        "default": true,
+        "desc": "显示/隐藏每个阶段背景的大号编号（装饰，仅横向轴）"
+      },
+      {
+        "key": "accent",
+        "label": "强调色",
+        "type": "color",
+        "default": "#c8f135",
+        "options": [
+          "#c8f135",
+          "#ff5a3c",
+          "#3ca0ff",
+          "#ffd23c"
+        ],
+        "desc": "主强调色"
+      }
+    ],
+    "defaultProps": {
+      "eyebrowId": "90",
+      "eyebrowLabel": "MILESTONES 2025",
+      "title": "2025 里程碑节奏",
+      "subhead": "前瞻 · 按季度的关键节点 / KEY MILESTONES",
+      "closing": "按节点跟踪，而不是按头条跟踪。",
+      "watchTag": "OUTLOOK · 节点节奏",
+      "thesis": "把 2025 拆成四个可验证的节点——每个节点都对应一次<b>叙事被收入与算力检验</b>的时刻。",
+      "railCaption": "里程碑时间轴 / MILESTONE TIMELINE",
+      "phases": [
+        {
+          "when": "2025 Q1",
+          "name": "预算落地",
+          "en": "BUDGETS SET",
+          "note": "企业 AI 预算定档，确定性算力支出开始释放。"
+        },
+        {
+          "when": "2025 Q2",
+          "name": "收入验证",
+          "en": "REVENUE PROOF",
+          "note": "应用层公布留存与续约，试点能否转稳定收入见分晓。"
+        },
+        {
+          "when": "2025 H2",
+          "name": "上市试探",
+          "en": "IPO TEST",
+          "note": "头部标的试探公开市场，估值锚开始形成。"
+        },
+        {
+          "when": "2026E",
+          "name": "壁垒分化",
+          "en": "MOATS DIVERGE",
+          "note": "有兑现的与靠叙事的公司在融资难度上明显分层。"
+        }
+      ],
+      "watchCaption": "观察对象 / WATCH-LIST",
+      "watchList": [
+        {
+          "name": "OpenAI",
+          "tag": "通用模型"
+        },
+        {
+          "name": "Anthropic",
+          "tag": "安全模型"
+        },
+        {
+          "name": "CoreWeave",
+          "tag": "GPU 云"
+        },
+        {
+          "name": "Databricks",
+          "tag": "数据平台"
+        }
+      ],
+      "metricCaption": "观察指标 / WATCH METRICS",
+      "metrics": [
+        {
+          "k": "续约率 / RENEWAL",
+          "v": "↑"
+        },
+        {
+          "k": "净留存 / NRR",
+          "v": "%"
+        },
+        {
+          "k": "算力占比 / COMPUTE",
+          "v": "↓"
+        },
+        {
+          "k": "上市表现 / DEBUT",
+          "v": "锚"
+        }
+      ],
+      "footRight": "4 MILESTONES · 2025",
+      "phaseCount": 4,
+      "layout": "timeline",
+      "watchCount": 4,
+      "metricCount": 4,
+      "focusEnabled": true,
+      "focusIndex": 1,
+      "showAxis": true,
+      "showMarkers": true,
+      "accent": "#c8f135"
+    }
+  },
+  {
     "key": "theme07_page001",
     "themeKey": "theme07",
     "pageNumber": 1,
     "layout": "THEME07-001",
-    "slot": "cover-page",
+    "slot": "cover-lean-page",
     "label": "01 封面 01 · 精益智造",
     "bgClass": "",
     "controls": [
+      {
+        "key": "logo",
+        "label": "机构名",
+        "type": "text",
+        "default": "智 造 集 团"
+      },
+      {
+        "key": "phase",
+        "label": "右上标签",
+        "type": "text",
+        "default": "实施方案 · IMPLEMENTATION"
+      },
+      {
+        "key": "kicker",
+        "label": "眉标",
+        "type": "text",
+        "default": "SMART · MANUFACTURING"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "精益智造"
+      },
+      {
+        "key": "titleL2",
+        "label": "标题行2",
+        "type": "text",
+        "default": "提质增效"
+      },
+      {
+        "key": "year",
+        "label": "年份",
+        "type": "text",
+        "default": "2026"
+      },
+      {
+        "key": "sub",
+        "label": "副标题",
+        "type": "text",
+        "default": "生产基地智能化改造实施方案"
+      },
+      {
+        "key": "showSweep",
+        "label": "光晕扫光",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角放射光晕与透镜光斑装饰的显隐。"
+      },
+      {
+        "key": "showTags",
+        "label": "关键词标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部关键词标签行（降本 / 提效 …）的显隐。"
+      },
+      {
+        "key": "showBars",
+        "label": "条码图形",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部绿 / 琥珀 / 红条码图形的显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FD400",
+        "options": [
+          "#8FD400",
+          "#23C76A",
+          "#2F7BFF",
+          "#F2A93B",
+          "#0D100A"
+        ],
+        "desc": "品牌强调色（作用于 Logo、条码与高亮）。"
+      }
+    ],
+    "defaultProps": {
+      "logo": "智 造 集 团",
+      "phase": "实施方案 · IMPLEMENTATION",
+      "kicker": "SMART · MANUFACTURING",
+      "titleL1": "精益智造",
+      "titleL2": "提质增效",
+      "year": "2026",
+      "sub": "生产基地智能化改造实施方案",
+      "tags": [
+        "降本",
+        "提效",
+        "革新",
+        "突围"
+      ],
+      "showSweep": true,
+      "showBars": true,
+      "showTags": true,
+      "accentColor": "#8FD400"
+    }
+  },
+  {
+    "key": "theme07_page002",
+    "themeKey": "theme07",
+    "pageNumber": 2,
+    "layout": "THEME07-002",
+    "slot": "cover-supply-chain-page",
+    "label": "02 封面 03 · 链通全国",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "phaseLeft",
+        "label": "左上标签",
+        "type": "text",
+        "default": "Supply Chain Strategy"
+      },
+      {
+        "key": "phaseRight",
+        "label": "右上标签",
+        "type": "text",
+        "default": "2026—2028"
+      },
+      {
+        "key": "kicker",
+        "label": "眉标",
+        "type": "text",
+        "default": "THREE-YEAR · STRATEGY"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "链通全国"
+      },
+      {
+        "key": "titleL2",
+        "label": "标题行2",
+        "type": "text",
+        "default": "高效履约"
+      },
+      {
+        "key": "summary",
+        "label": "底部结语",
+        "type": "text",
+        "default": "打通物流脉络，构筑产业护城河"
+      },
+      {
+        "key": "logo",
+        "label": "机构名",
+        "type": "text",
+        "default": "集 团 供 应 链"
+      },
+      {
+        "key": "photoLabel",
+        "label": "图片占位文案",
+        "type": "text",
+        "default": "[ 物流网络 / 配送图景 ]"
+      },
+      {
+        "key": "showTimeline",
+        "label": "年份时间轴",
+        "type": "toggle",
+        "default": true,
+        "desc": "正文下方 2026—2028 三年时间轴的显隐。"
+      },
+      {
+        "key": "showLenses",
+        "label": "透镜光斑",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧绿色面板上的透镜光斑装饰显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FD400",
+        "options": [
+          "#8FD400",
+          "#23C76A",
+          "#2F7BFF",
+          "#F2A93B",
+          "#0D100A"
+        ],
+        "desc": "品牌强调色（作用于结语短条与高亮）。"
+      }
+    ],
+    "defaultProps": {
+      "phaseLeft": "Supply Chain Strategy",
+      "phaseRight": "2026—2028",
+      "kicker": "THREE-YEAR · STRATEGY",
+      "titleL1": "链通全国",
+      "titleL2": "高效履约",
+      "subPre": "集团供应链体系三年（",
+      "years": "2026-2028",
+      "subPost": "）发展战略",
+      "summary": "打通物流脉络，构筑产业护城河",
+      "logo": "集 团 供 应 链",
+      "photoLabel": "[ 物流网络 / 配送图景 ]",
+      "timeline": [
+        "2026",
+        "2027",
+        "2028"
+      ],
+      "showTimeline": true,
+      "showLenses": true,
+      "accentColor": "#8FD400",
+      "renderSlot": null
+    }
+  },
+  {
+    "key": "theme07_page003",
+    "themeKey": "theme07",
+    "pageNumber": 3,
+    "layout": "THEME07-003",
+    "slot": "cover-retail-trend-page",
+    "label": "03 封面 04 · 把握趋势",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "logo",
+        "label": "机构名",
+        "type": "text",
+        "default": "零 售 运 营 学 院"
+      },
+      {
+        "key": "phase",
+        "label": "右上标签",
+        "type": "text",
+        "default": "实战培训 · TRAINING"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "把握消费趋势"
+      },
+      {
+        "key": "titleL2",
+        "label": "标题行2",
+        "type": "text",
+        "default": "激活终端潜力"
+      },
+      {
+        "key": "sub",
+        "label": "副标题",
+        "type": "text",
+        "default": "全国零售门店运营管理暨营销实战培训"
+      },
+      {
+        "key": "slogan",
+        "label": "口号",
+        "type": "text",
+        "default": "用心服务客户，实干创造业绩"
+      },
+      {
+        "key": "showCrumbs",
+        "label": "面包屑标签",
+        "type": "toggle",
+        "default": true,
+        "desc": "标题上方 RETAIL · OPERATION · GROWTH 面包屑显隐。"
+      },
+      {
+        "key": "showSlogan",
+        "label": "口号胶囊",
+        "type": "toggle",
+        "default": true,
+        "desc": "深色口号胶囊条的显隐。"
+      },
+      {
+        "key": "showBase",
+        "label": "底部弧形",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部绿色弧形台座（含透镜与条码）的显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FD400",
+        "options": [
+          "#8FD400",
+          "#23C76A",
+          "#2F7BFF",
+          "#F2A93B",
+          "#0D100A"
+        ],
+        "desc": "品牌强调色（作用于分隔点与底部台座）。"
+      }
+    ],
+    "defaultProps": {
+      "logo": "零 售 运 营 学 院",
+      "phase": "实战培训 · TRAINING",
+      "crumbs": [
+        "RETAIL",
+        "OPERATION",
+        "GROWTH"
+      ],
+      "titleL1": "把握消费趋势",
+      "titleL2": "激活终端潜力",
+      "sub": "全国零售门店运营管理暨营销实战培训",
+      "slogan": "用心服务客户，实干创造业绩",
+      "showCrumbs": true,
+      "showSlogan": true,
+      "showBase": true,
+      "accentColor": "#8FD400"
+    }
+  },
+  {
+    "key": "theme07_page004",
+    "themeKey": "theme07",
+    "pageNumber": 4,
+    "layout": "THEME07-004",
+    "slot": "cover-supply-strategy-page",
+    "label": "04 封面 07 · 供应链战略",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "markCn",
+        "label": "机构名",
+        "type": "text",
+        "default": "链通集团"
+      },
+      {
+        "key": "markEn",
+        "label": "机构英文名",
+        "type": "text",
+        "default": "LIANTONG GROUP"
+      },
+      {
+        "key": "pageno",
+        "label": "页码",
+        "type": "text",
+        "default": "03 / 04"
+      },
+      {
+        "key": "pill",
+        "label": "标签胶囊",
+        "type": "text",
+        "default": "集团供应链体系 · 三年发展战略"
+      },
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "2026 – 2028 Supply Chain Strategy"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "链通全国"
+      },
+      {
+        "key": "titleL2",
+        "label": "标题行2",
+        "type": "text",
+        "default": "高效履约"
+      },
+      {
+        "key": "summary",
+        "label": "底部结语",
+        "type": "text",
+        "default": "打通物流脉络，构筑产业护城河"
+      },
+      {
+        "key": "footEn",
+        "label": "底部英文",
+        "type": "text",
+        "default": "3-Year Roadmap"
+      },
+      {
+        "key": "showNetwork",
+        "label": "供应链网络图",
+        "type": "toggle",
+        "default": true,
+        "desc": "右侧供应链节点网络 SVG 装饰的显隐。"
+      },
+      {
+        "key": "showFrame",
+        "label": "内描边框",
+        "type": "toggle",
+        "default": true,
+        "desc": "高级感内描边框的显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FE327",
+        "options": [
+          "#8FE327",
+          "#23C76A",
+          "#2F7BFF",
+          "#F5A623",
+          "#FFFFFF"
+        ],
+        "desc": "品牌强调色（作用于网络节点、高亮词与短条）。"
+      }
+    ],
+    "defaultProps": {
+      "markCn": "链通集团",
+      "markEn": "LIANTONG GROUP",
+      "pageno": "03 / 04",
+      "pill": "集团供应链体系 · 三年发展战略",
+      "eyebrow": "2026 – 2028 Supply Chain Strategy",
+      "titleL1": "链通全国",
+      "titleL2": "高效履约",
+      "summary": "打通物流脉络，构筑产业护城河",
+      "footEn": "3-Year Roadmap",
+      "showNetwork": true,
+      "showFrame": true,
+      "accentColor": "#8FE327"
+    }
+  },
+  {
+    "key": "theme07_page005",
+    "themeKey": "theme07",
+    "pageNumber": 5,
+    "layout": "THEME07-005",
+    "slot": "cover-retail-training-page",
+    "label": "05 封面 08 · 零售实战培训",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "markCn",
+        "label": "机构名",
+        "type": "text",
+        "default": "优享零售"
+      },
+      {
+        "key": "markEn",
+        "label": "机构英文名",
+        "type": "text",
+        "default": "YOUXIANG RETAIL"
+      },
+      {
+        "key": "pageno",
+        "label": "页码",
+        "type": "text",
+        "default": "04 / 04"
+      },
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "全国零售门店运营管理暨营销实战培训"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "把握消费趋势"
+      },
+      {
+        "key": "titleL2pre",
+        "label": "标题行2前缀",
+        "type": "text",
+        "default": "激活"
+      },
+      {
+        "key": "titleL2hl",
+        "label": "标题行2高亮",
+        "type": "text",
+        "default": "终端潜力"
+      },
+      {
+        "key": "slogan",
+        "label": "口号",
+        "type": "text",
+        "default": "用心服务客户，实干创造业绩"
+      },
+      {
+        "key": "showLensCrown",
+        "label": "透镜冠饰",
+        "type": "toggle",
+        "default": true,
+        "desc": "顶部三枚透镜组成的冠饰装饰显隐。"
+      },
+      {
+        "key": "showTicker",
+        "label": "渠道占比条",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部渠道占比指标与条码条的显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FE327",
+        "options": [
+          "#8FE327",
+          "#23C76A",
+          "#2F7BFF",
+          "#F5A623",
+          "#0B0F08"
+        ],
+        "desc": "品牌强调色（作用于透镜、高亮下划线与占比条）。"
+      }
+    ],
+    "defaultProps": {
+      "markCn": "优享零售",
+      "markEn": "YOUXIANG RETAIL",
+      "pageno": "04 / 04",
+      "eyebrow": "全国零售门店运营管理暨营销实战培训",
+      "titleL1": "把握消费趋势",
+      "titleL2pre": "激活",
+      "titleL2hl": "终端潜力",
+      "slogan": "用心服务客户，实干创造业绩",
+      "segments": [
+        {
+          "label": "门店",
+          "value": 58.6,
+          "tone": "lime"
+        },
+        {
+          "label": "线上",
+          "value": 26.6,
+          "tone": "orange"
+        },
+        {
+          "label": "其他",
+          "value": 11.7,
+          "tone": "red"
+        }
+      ],
+      "legend": [
+        {
+          "label": "增长",
+          "tone": "lime"
+        },
+        {
+          "label": "持平",
+          "tone": "orange"
+        },
+        {
+          "label": "承压",
+          "tone": "red"
+        }
+      ],
+      "showLensCrown": true,
+      "showTicker": true,
+      "accentColor": "#8FE327"
+    }
+  },
+  {
+    "key": "theme07_page006",
+    "themeKey": "theme07",
+    "pageNumber": 6,
+    "layout": "THEME07-006",
+    "slot": "cover-tech-launch-page",
+    "label": "06 封面 09 · 科技发布会",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "markCn",
+        "label": "机构名",
+        "type": "text",
+        "default": "智联"
+      },
+      {
+        "key": "markEn",
+        "label": "机构英文名",
+        "type": "text",
+        "default": "INTELLI-NEXUS"
+      },
+      {
+        "key": "tagTop",
+        "label": "右上标签",
+        "type": "text",
+        "default": "Product Launch · 2026"
+      },
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "2026 全新产品体系发布暨技术路演"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "智联万物"
+      },
+      {
+        "key": "titleL2",
+        "label": "标题行2",
+        "type": "text",
+        "default": "重构体验"
+      },
+      {
+        "key": "tagline",
+        "label": "英文标语",
+        "type": "text",
+        "default": "Intelligence × Everything — Reinvent the Experience."
+      },
+      {
+        "key": "summary",
+        "label": "底部结语",
+        "type": "text",
+        "default": "以技术突破，定义下一代数字生活。"
+      },
+      {
+        "key": "pill",
+        "label": "右下徽标",
+        "type": "text",
+        "default": "Keynote 2026"
+      },
+      {
+        "key": "showChartline",
+        "label": "走势曲线",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部白色走势曲线装饰的显隐。"
+      },
+      {
+        "key": "showLenses",
+        "label": "透镜瀑布",
+        "type": "toggle",
+        "default": true,
+        "desc": "右上角三枚透镜瀑布装饰的显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FE327",
+        "options": [
+          "#8FE327",
+          "#23C76A",
+          "#2F7BFF",
+          "#F5A623",
+          "#0B0F08"
+        ],
+        "desc": "品牌强调色（作用于背景光晕、透镜与徽标）。"
+      }
+    ],
+    "defaultProps": {
+      "markCn": "智联",
+      "markEn": "INTELLI-NEXUS",
+      "tagTop": "Product Launch · 2026",
+      "eyebrow": "2026 全新产品体系发布暨技术路演",
+      "titleL1": "智联万物",
+      "titleL2": "重构体验",
+      "tagline": "Intelligence × Everything — Reinvent the Experience.",
+      "summary": "以技术突破，定义下一代数字生活。",
+      "pill": "Keynote 2026",
+      "showChartline": true,
+      "showLenses": true,
+      "accentColor": "#8FE327"
+    }
+  },
+  {
+    "key": "theme07_page007",
+    "themeKey": "theme07",
+    "pageNumber": 7,
+    "layout": "THEME07-007",
+    "slot": "cover-biz-plan-page",
+    "label": "07 封面 11 · 商业计划书",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "markCn",
+        "label": "机构名",
+        "type": "text",
+        "default": "恒元资本"
+      },
+      {
+        "key": "markEn",
+        "label": "机构英文名",
+        "type": "text",
+        "default": "HENGYUAN CAPITAL"
+      },
+      {
+        "key": "pageno",
+        "label": "页码",
+        "type": "text",
+        "default": "03 / 04"
+      },
+      {
+        "key": "pill",
+        "label": "标签胶囊",
+        "type": "text",
+        "default": "面向机构投资人 · 专属方案"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "精准布局，"
+      },
+      {
+        "key": "title2pre",
+        "label": "标题行2前缀",
+        "type": "text",
+        "default": "与"
+      },
+      {
+        "key": "title2hl",
+        "label": "标题行2高亮",
+        "type": "text",
+        "default": "时代红利"
+      },
+      {
+        "key": "title2post",
+        "label": "标题行2后缀",
+        "type": "text",
+        "default": "同行"
+      },
+      {
+        "key": "footEn",
+        "label": "底部英文",
+        "type": "text",
+        "default": "XX Capital · Business Plan"
+      },
+      {
+        "key": "showChartline",
+        "label": "走势曲线",
+        "type": "toggle",
+        "default": true,
+        "desc": "底部贯穿走势曲线装饰的显隐。"
+      },
+      {
+        "key": "showFrame",
+        "label": "内描边框",
+        "type": "toggle",
+        "default": true,
+        "desc": "高级感内描边框的显隐。"
+      },
+      {
+        "key": "accentColor",
+        "label": "主题色",
+        "type": "color",
+        "default": "#8FE327",
+        "options": [
+          "#8FE327",
+          "#23C76A",
+          "#2F7BFF",
+          "#F5A623",
+          "#FFFFFF"
+        ],
+        "desc": "品牌强调色（作用于分隔点、走势曲线与高亮词）。"
+      }
+    ],
+    "defaultProps": {
+      "markCn": "恒元资本",
+      "markEn": "HENGYUAN CAPITAL",
+      "pageno": "03 / 04",
+      "pill": "面向机构投资人 · 专属方案",
+      "triple": [
+        "新机遇",
+        "新赛道",
+        "新价值"
+      ],
+      "titleL1": "精准布局，",
+      "title2pre": "与",
+      "title2hl": "时代红利",
+      "title2post": "同行",
+      "footEn": "XX Capital · Business Plan",
+      "showChartline": true,
+      "showFrame": true,
+      "accentColor": "#8FE327"
+    }
+  },
+  {
+    "key": "theme07_page008",
+    "themeKey": "theme07",
+    "pageNumber": 8,
+    "layout": "THEME07-008",
+    "slot": "cover-page",
+    "label": "09 01",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "AI CAPITAL LAB · 2024"
+      },
+      {
+        "key": "reportTag",
+        "label": "标签",
+        "type": "text",
+        "default": "2024 · 调研报告"
+      },
+      {
+        "key": "titleL1",
+        "label": "标题行1",
+        "type": "text",
+        "default": "美国大额融资"
+      },
+      {
+        "key": "titleL2",
+        "label": "标题行2",
+        "type": "text",
+        "default": "AI 公司调研报告"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元"
+      },
+      {
+        "key": "thesis",
+        "label": "论点",
+        "type": "text",
+        "default": "在资本与算力的浪潮里，每一笔融资都是一次方向的押注。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "从资本流向，看 AI 产业下一阶段的真实重心。"
+      },
+      {
+        "key": "featureNumber",
+        "label": "特征数字",
+        "type": "text",
+        "default": "2024"
+      },
+      {
+        "key": "featureLabel",
+        "label": "特征标签",
+        "type": "text",
+        "default": "DATA YEAR"
+      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -59735,35 +83443,33 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "AI CAPITAL LAB · 2024",
-        "reportTag": "2024 · 调研报告",
-        "titleL1": "美国大额融资",
-        "titleL2": "AI 公司调研报告",
-        "sub": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元",
-        "thesis": "在资本与算力的浪潮里，每一笔融资都是一次方向的押注。",
-        "closing": "从资本流向，看 AI 产业下一阶段的真实重心。",
-        "featureNumber": "2024",
-        "featureLabel": "DATA YEAR",
-        "specs": [
-          [
-            "年份",
-            "2024"
-          ],
-          [
-            "口径",
-            "≥ 1 亿美元"
-          ],
-          [
-            "日期",
-            "2026.06"
-          ],
-          [
-            "主题",
-            "美国 AI 大额融资"
-          ]
+      "eyebrow": "AI CAPITAL LAB · 2024",
+      "reportTag": "2024 · 调研报告",
+      "titleL1": "美国大额融资",
+      "titleL2": "AI 公司调研报告",
+      "sub": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元",
+      "thesis": "在资本与算力的浪潮里，每一笔融资都是一次方向的押注。",
+      "closing": "从资本流向，看 AI 产业下一阶段的真实重心。",
+      "featureNumber": "2024",
+      "featureLabel": "DATA YEAR",
+      "specs": [
+        [
+          "年份",
+          "2024"
+        ],
+        [
+          "口径",
+          "≥ 1 亿美元"
+        ],
+        [
+          "日期",
+          "2026.06"
+        ],
+        [
+          "主题",
+          "美国 AI 大额融资"
         ]
-      },
+      ],
       "backgroundVariant": "gradient",
       "heroMotif": "both",
       "numberSlant": true,
@@ -59772,14 +83478,44 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page002",
+    "key": "theme07_page009",
     "themeKey": "theme07",
-    "pageNumber": 2,
-    "layout": "THEME07-002",
+    "pageNumber": 9,
+    "layout": "THEME07-009",
     "slot": "summary-page",
     "label": "10 02",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Report Overview"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "报告摘要"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "2024 全年 · 资本大年"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。"
+      },
+      {
+        "key": "chartTitle",
+        "label": "chartTitle",
+        "type": "text",
+        "default": "赛道融资占比"
+      },
       {
         "key": "cardCount",
         "label": "指标卡数量",
@@ -59862,75 +83598,73 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Report Overview",
-        "title": "报告摘要",
-        "sub": "2024 全年 · 资本大年",
-        "lead": [
-          "2024 年美国 AI 初创公司吸纳约 ",
-          "970 亿美元",
-          " 风险投资，单笔 ≥ 1 亿美元的大额融资事件达 ",
-          "97 笔",
-          "。"
-        ],
-        "keywords": [
-          "赢家通吃",
-          "AGI 叙事",
-          "地理护城河",
-          "估值泡沫",
-          "退潮看兑现"
-        ],
-        "closing": "资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。",
-        "chartTitle": "赛道融资占比",
-        "tracks": [
-          {
-            "label": "通用大模型",
-            "pct": 43.3
-          },
-          {
-            "label": "垂直应用",
-            "pct": 25.3
-          },
-          {
-            "label": "基础设施",
-            "pct": 16.3
-          },
-          {
-            "label": "AI 芯片",
-            "pct": 10
-          },
-          {
-            "label": "其他",
-            "pct": 5.1
-          }
-        ],
-        "metrics": [
-          {
-            "label": "全年融资",
-            "lead": "970",
-            "tail": "",
-            "unit": "亿美元"
-          },
-          {
-            "label": "大额事件",
-            "lead": "97",
-            "tail": "",
-            "unit": "笔"
-          },
-          {
-            "label": "平均单笔",
-            "lead": "10",
-            "tail": "",
-            "unit": "亿美元"
-          },
-          {
-            "label": "湾区占比",
-            "lead": "63",
-            "tail": ".9",
-            "unit": "%"
-          }
-        ]
-      },
+      "eyebrow": "Report Overview",
+      "title": "报告摘要",
+      "sub": "2024 全年 · 资本大年",
+      "lead": [
+        "2024 年美国 AI 初创公司吸纳约 ",
+        "970 亿美元",
+        " 风险投资，单笔 ≥ 1 亿美元的大额融资事件达 ",
+        "97 笔",
+        "。"
+      ],
+      "keywords": [
+        "赢家通吃",
+        "AGI 叙事",
+        "地理护城河",
+        "估值泡沫",
+        "退潮看兑现"
+      ],
+      "closing": "资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。",
+      "chartTitle": "赛道融资占比",
+      "tracks": [
+        {
+          "label": "通用大模型",
+          "pct": 43.3
+        },
+        {
+          "label": "垂直应用",
+          "pct": 25.3
+        },
+        {
+          "label": "基础设施",
+          "pct": 16.3
+        },
+        {
+          "label": "AI 芯片",
+          "pct": 10
+        },
+        {
+          "label": "其他",
+          "pct": 5.1
+        }
+      ],
+      "metrics": [
+        {
+          "label": "全年融资",
+          "lead": "970",
+          "tail": "",
+          "unit": "亿美元"
+        },
+        {
+          "label": "大额事件",
+          "lead": "97",
+          "tail": "",
+          "unit": "笔"
+        },
+        {
+          "label": "平均单笔",
+          "lead": "10",
+          "tail": "",
+          "unit": "亿美元"
+        },
+        {
+          "label": "湾区占比",
+          "lead": "63",
+          "tail": ".9",
+          "unit": "%"
+        }
+      ],
       "cardCount": 4,
       "focusEnabled": true,
       "focusIndex": 0,
@@ -59940,14 +83674,44 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page003",
+    "key": "theme07_page010",
     "themeKey": "theme07",
-    "pageNumber": 3,
-    "layout": "THEME07-003",
+    "pageNumber": 10,
+    "layout": "THEME07-010",
     "slot": "contents-page",
     "label": "11 03",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Structure"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "报告结构"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "从方法到结论的阅读路径"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "整份报告按研究方法、市场全景、横向透视、产业链、典型案例、风险展望和结论展开。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "先建立框架，再进入数据和判断。"
+      },
       {
         "key": "cardCount",
         "label": "章节卡数量",
@@ -60042,50 +83806,48 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Structure",
-        "title": "报告结构",
-        "sub": "从方法到结论的阅读路径",
-        "lead": "整份报告按研究方法、市场全景、横向透视、产业链、典型案例、风险展望和结论展开。",
-        "closing": "先建立框架，再进入数据和判断。",
-        "chapters": [
-          {
-            "no": "01",
-            "zh": "研究方法",
-            "en": "Methodology"
-          },
-          {
-            "no": "02",
-            "zh": "市场全景",
-            "en": "Market Panorama"
-          },
-          {
-            "no": "03",
-            "zh": "横向透视",
-            "en": "Cross Section"
-          },
-          {
-            "no": "04",
-            "zh": "产业链条",
-            "en": "Value Chain"
-          },
-          {
-            "no": "05",
-            "zh": "典型案例",
-            "en": "Case Studies"
-          },
-          {
-            "no": "06",
-            "zh": "风险展望",
-            "en": "Risk & Outlook"
-          },
-          {
-            "no": "07",
-            "zh": "结论判断",
-            "en": "Conclusion"
-          }
-        ]
-      },
+      "eyebrow": "Structure",
+      "title": "报告结构",
+      "sub": "从方法到结论的阅读路径",
+      "lead": "整份报告按研究方法、市场全景、横向透视、产业链、典型案例、风险展望和结论展开。",
+      "closing": "先建立框架，再进入数据和判断。",
+      "chapters": [
+        {
+          "no": "01",
+          "zh": "研究方法",
+          "en": "Methodology"
+        },
+        {
+          "no": "02",
+          "zh": "市场全景",
+          "en": "Market Panorama"
+        },
+        {
+          "no": "03",
+          "zh": "横向透视",
+          "en": "Cross Section"
+        },
+        {
+          "no": "04",
+          "zh": "产业链条",
+          "en": "Value Chain"
+        },
+        {
+          "no": "05",
+          "zh": "典型案例",
+          "en": "Case Studies"
+        },
+        {
+          "no": "06",
+          "zh": "风险展望",
+          "en": "Risk & Outlook"
+        },
+        {
+          "no": "07",
+          "zh": "结论判断",
+          "en": "Conclusion"
+        }
+      ],
       "cardCount": 7,
       "focusEnabled": true,
       "focusIndex": 1,
@@ -60095,14 +83857,44 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page004",
+    "key": "theme07_page011",
     "themeKey": "theme07",
-    "pageNumber": 4,
-    "layout": "THEME07-004",
+    "pageNumber": 11,
+    "layout": "THEME07-011",
     "slot": "method-page",
     "label": "12 04",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Methodology"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "研究方法"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "横纵分析法"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "横向看同一时间截面的公司、赛道、轮次和地区；纵向看融资额、事件数和市场节奏的变化。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "不是罗列融资新闻，而是把融资数据变成结构化判断。"
+      },
       {
         "key": "cardCount",
         "label": "方法卡数量",
@@ -60181,54 +83973,52 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Methodology",
-        "title": "研究方法",
-        "sub": "横纵分析法",
-        "lead": "横向看同一时间截面的公司、赛道、轮次和地区；纵向看融资额、事件数和市场节奏的变化。",
-        "closing": "不是罗列融资新闻，而是把融资数据变成结构化判断。",
-        "layers": [
-          {
-            "no": "H",
-            "zh": "横向分析",
-            "en": "Horizontal",
-            "desc": "同一时间截面下，对比公司、赛道、轮次与地区的资本分布。",
-            "q": "钱流向了哪里？"
-          },
-          {
-            "no": "V",
-            "zh": "纵向分析",
-            "en": "Vertical",
-            "desc": "沿时间轴观察融资额、事件数与市场节奏的演化。",
-            "q": "热度如何变化？"
-          },
-          {
-            "no": "X",
-            "zh": "交叉判断",
-            "en": "Cross",
-            "desc": "横纵交叉、产业分层，判断哪些方向真正能够兑现。",
-            "q": "哪些方向能兑现？"
-          }
+      "eyebrow": "Methodology",
+      "title": "研究方法",
+      "sub": "横纵分析法",
+      "lead": "横向看同一时间截面的公司、赛道、轮次和地区；纵向看融资额、事件数和市场节奏的变化。",
+      "closing": "不是罗列融资新闻，而是把融资数据变成结构化判断。",
+      "layers": [
+        {
+          "no": "H",
+          "zh": "横向分析",
+          "en": "Horizontal",
+          "desc": "同一时间截面下，对比公司、赛道、轮次与地区的资本分布。",
+          "q": "钱流向了哪里？"
+        },
+        {
+          "no": "V",
+          "zh": "纵向分析",
+          "en": "Vertical",
+          "desc": "沿时间轴观察融资额、事件数与市场节奏的演化。",
+          "q": "热度如何变化？"
+        },
+        {
+          "no": "X",
+          "zh": "交叉判断",
+          "en": "Cross",
+          "desc": "横纵交叉、产业分层，判断哪些方向真正能够兑现。",
+          "q": "哪些方向能兑现？"
+        }
+      ],
+      "steps": [
+        [
+          "空间对比",
+          "横向"
         ],
-        "steps": [
-          [
-            "空间对比",
-            "横向"
-          ],
-          [
-            "时间演化",
-            "纵向"
-          ],
-          [
-            "产业分层",
-            "交叉"
-          ],
-          [
-            "资本流向",
-            "目标"
-          ]
+        [
+          "时间演化",
+          "纵向"
+        ],
+        [
+          "产业分层",
+          "交叉"
+        ],
+        [
+          "资本流向",
+          "目标"
         ]
-      },
+      ],
       "cardCount": 3,
       "focusEnabled": true,
       "focusIndex": 2,
@@ -60238,449 +84028,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page005",
+    "key": "theme07_page012",
     "themeKey": "theme07",
-    "pageNumber": 5,
-    "layout": "THEME07-005",
-    "slot": "trend-page",
-    "label": "13 05",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "chartType",
-        "label": "图表类型",
-        "type": "radio",
-        "default": "area",
-        "options": [
-          {
-            "value": "area",
-            "label": "面积"
-          },
-          {
-            "value": "line",
-            "label": "折线"
-          },
-          {
-            "value": "bar",
-            "label": "柱状"
-          }
-        ],
-        "desc": "主趋势序列的呈现方式：面积图 / 折线图 / 柱状图。"
-      },
-      {
-        "key": "showSecondary",
-        "label": "辅助序列",
-        "type": "toggle",
-        "default": true,
-        "desc": "叠加第二条数据序列（此处为事件笔数）。"
-      },
-      {
-        "key": "focusEnabled",
-        "label": "重点信息",
-        "type": "toggle",
-        "default": true,
-        "desc": "是否高亮某一数据点作为视觉重点。"
-      },
-      {
-        "key": "focusIndex",
-        "label": "重点元素",
-        "type": "select",
-        "default": 2,
-        "options": [
-          {
-            "value": 0,
-            "label": "第 1 个"
-          },
-          {
-            "value": 1,
-            "label": "第 2 个"
-          },
-          {
-            "value": 2,
-            "label": "第 3 个"
-          },
-          {
-            "value": 3,
-            "label": "第 4 个"
-          }
-        ],
-        "desc": "选择被高亮的数据点。"
-      },
-      {
-        "key": "showDecorations",
-        "label": "装饰文案",
-        "type": "toggle",
-        "default": true,
-        "desc": "网格线、坐标轴标签与背景光晕等装饰的显隐。"
-      },
-      {
-        "key": "accentColor",
-        "label": "主题色",
-        "type": "color",
-        "default": "#86D62B",
-        "options": [
-          "#86D62B",
-          "#23C76A",
-          "#2F7BFF",
-          "#F2A93B",
-          "#0E110B"
-        ],
-        "desc": "品牌强调色，作用于趋势线、面积与高亮点。"
-      }
-    ],
-    "defaultProps": {
-      "copy": {
-        "eyebrow": "Market Panorama",
-        "title": "市场全景",
-        "titleTail": "纵向趋势",
-        "sub": "逐季度融资额走势",
-        "lead": "2024 年融资热度在 Q2 与 Q3 达峰，Q4 理性回落但仍保持高位。",
-        "anchorLead": "970",
-        "anchorUnit": "亿美元",
-        "anchorNote": "全年合计 · Q3 单季 318 亿美元为最高点",
-        "closing": "高峰过后不是崩塌，而是市场开始筛选。",
-        "axisLabel": "季度融资额 / 亿美元",
-        "quarters": [
-          {
-            "q": "Q1",
-            "amount": 162,
-            "deals": 18
-          },
-          {
-            "q": "Q2",
-            "amount": 284,
-            "deals": 26
-          },
-          {
-            "q": "Q3",
-            "amount": 318,
-            "deals": 31
-          },
-          {
-            "q": "Q4",
-            "amount": 206,
-            "deals": 22
-          }
-        ]
-      },
-      "chartType": "area",
-      "focusEnabled": true,
-      "focusIndex": 2,
-      "showSecondary": true,
-      "showDecorations": true,
-      "accentColor": "#86D62B"
-    }
-  },
-  {
-    "key": "theme07_page006",
-    "themeKey": "theme07",
-    "pageNumber": 6,
-    "layout": "THEME07-006",
-    "slot": "cross-page",
-    "label": "14 06",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "chartType",
-        "label": "图表类型",
-        "type": "radio",
-        "default": "donut",
-        "options": [
-          {
-            "value": "donut",
-            "label": "环形图"
-          },
-          {
-            "value": "bars",
-            "label": "占比条"
-          }
-        ],
-        "desc": "主图（赛道占比）的呈现方式。"
-      },
-      {
-        "key": "showSecondary",
-        "label": "辅助面板",
-        "type": "toggle",
-        "default": true,
-        "desc": "右侧轮次结构面板的显隐；关闭后主图占据更大空间。"
-      },
-      {
-        "key": "focusEnabled",
-        "label": "重点信息",
-        "type": "toggle",
-        "default": true,
-        "desc": "是否高亮某一赛道作为视觉重点。"
-      },
-      {
-        "key": "focusIndex",
-        "label": "重点元素",
-        "type": "select",
-        "default": 0,
-        "options": [
-          {
-            "value": 0,
-            "label": "第 1 个"
-          },
-          {
-            "value": 1,
-            "label": "第 2 个"
-          },
-          {
-            "value": 2,
-            "label": "第 3 个"
-          },
-          {
-            "value": 3,
-            "label": "第 4 个"
-          },
-          {
-            "value": 4,
-            "label": "第 5 个"
-          }
-        ],
-        "desc": "选择被高亮的赛道。"
-      },
-      {
-        "key": "showDecorations",
-        "label": "装饰文案",
-        "type": "toggle",
-        "default": true,
-        "desc": "背景光晕与底部条码等装饰的显隐。"
-      },
-      {
-        "key": "accentColor",
-        "label": "主题色",
-        "type": "color",
-        "default": "#86D62B",
-        "options": [
-          "#86D62B",
-          "#23C76A",
-          "#2F7BFF",
-          "#F2A93B",
-          "#0E110B"
-        ],
-        "desc": "品牌强调色。"
-      }
-    ],
-    "defaultProps": {
-      "copy": {
-        "eyebrow": "Cross-Section",
-        "title": "横向透视",
-        "titleTail": "赛道与轮次",
-        "sub": "钱流向哪些赛道和阶段",
-        "lead": "通用大模型仍是最大吸金赛道，后期轮和未披露轮次体现头部赢家通吃。",
-        "closing": "融资额排名背后，是资本对叙事和兑现的双重押注。",
-        "shareTitle": "赛道融资占比",
-        "roundTitle": "各轮次平均单笔",
-        "roundUnit": "亿美元",
-        "tracks": [
-          {
-            "label": "通用大模型",
-            "pct": 43.3
-          },
-          {
-            "label": "垂直应用",
-            "pct": 25.3
-          },
-          {
-            "label": "基础设施",
-            "pct": 16.3
-          },
-          {
-            "label": "AI 芯片",
-            "pct": 10
-          },
-          {
-            "label": "其他",
-            "pct": 5.1
-          }
-        ],
-        "rounds": [
-          {
-            "label": "早期轮 Seed–A",
-            "avg": 2.1
-          },
-          {
-            "label": "成长轮 B–C",
-            "avg": 4.8
-          },
-          {
-            "label": "后期轮 D+",
-            "avg": 14.2
-          },
-          {
-            "label": "未披露轮次",
-            "avg": 18.6
-          }
-        ]
-      },
-      "chartType": "donut",
-      "focusEnabled": true,
-      "focusIndex": 0,
-      "showSecondary": true,
-      "showDecorations": true,
-      "accentColor": "#86D62B"
-    }
-  },
-  {
-    "key": "theme07_page007",
-    "themeKey": "theme07",
-    "pageNumber": 7,
-    "layout": "THEME07-007",
-    "slot": "chain-page",
-    "label": "15 07",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "cardCount",
-        "label": "分层数量",
-        "type": "slider",
-        "default": 3,
-        "min": 1,
-        "max": 3,
-        "step": 1,
-        "desc": "展示的产业链层数（1–3）。"
-      },
-      {
-        "key": "showSecondary",
-        "label": "辅助面板",
-        "type": "toggle",
-        "default": true,
-        "desc": "右侧地区分布面板的显隐；关闭后分层卡占据更大空间。"
-      },
-      {
-        "key": "focusEnabled",
-        "label": "重点信息",
-        "type": "toggle",
-        "default": true,
-        "desc": "是否高亮某一层作为视觉重点。"
-      },
-      {
-        "key": "focusIndex",
-        "label": "重点元素",
-        "type": "select",
-        "default": 1,
-        "options": [
-          {
-            "value": 0,
-            "label": "第 1 个"
-          },
-          {
-            "value": 1,
-            "label": "第 2 个"
-          },
-          {
-            "value": 2,
-            "label": "第 3 个"
-          }
-        ],
-        "desc": "选择被高亮的产业链层。"
-      },
-      {
-        "key": "showDecorations",
-        "label": "装饰文案",
-        "type": "toggle",
-        "default": true,
-        "desc": "层间连接线、背景光晕与条码等装饰的显隐。"
-      },
-      {
-        "key": "accentColor",
-        "label": "主题色",
-        "type": "color",
-        "default": "#86D62B",
-        "options": [
-          "#86D62B",
-          "#23C76A",
-          "#2F7BFF",
-          "#F2A93B",
-          "#0E110B"
-        ],
-        "desc": "品牌强调色。"
-      }
-    ],
-    "defaultProps": {
-      "copy": {
-        "eyebrow": "Value Chain",
-        "title": "产业链分层",
-        "titleTail": "三层透视",
-        "sub": "上游、中游、下游的资本位置",
-        "lead": "AI 融资沿基础设施、模型层和应用层三层展开，地区上高度集中在旧金山湾区。",
-        "closing": "产业链分层决定了资本确定性与商业风险的不同位置。",
-        "regionTitle": "地区融资分布",
-        "layers": [
-          {
-            "tag": "上游",
-            "zh": "基础设施层",
-            "en": "Infrastructure",
-            "chips": [
-              "算力",
-              "芯片",
-              "数据"
-            ],
-            "role": "资本确定性高，最接近刚性预算"
-          },
-          {
-            "tag": "中游",
-            "zh": "模型层",
-            "en": "Model",
-            "chips": [
-              "通用模型",
-              "专用模型"
-            ],
-            "role": "叙事与估值中心，竞争最激烈"
-          },
-          {
-            "tag": "下游",
-            "zh": "应用层",
-            "en": "Application",
-            "chips": [
-              "企业应用",
-              "搜索",
-              "机器人"
-            ],
-            "role": "商业兑现前线，决定长期价值"
-          }
-        ],
-        "regions": [
-          {
-            "label": "旧金山湾区",
-            "pct": 63.9
-          },
-          {
-            "label": "纽约",
-            "pct": 12.4
-          },
-          {
-            "label": "西雅图",
-            "pct": 9.8
-          },
-          {
-            "label": "波士顿",
-            "pct": 7.7
-          },
-          {
-            "label": "其他地区",
-            "pct": 6.2
-          }
-        ]
-      },
-      "cardCount": 3,
-      "focusEnabled": true,
-      "focusIndex": 1,
-      "showSecondary": true,
-      "showDecorations": true,
-      "accentColor": "#86D62B"
-    }
-  },
-  {
-    "key": "theme07_page008",
-    "themeKey": "theme07",
-    "pageNumber": 8,
-    "layout": "THEME07-008",
+    "pageNumber": 12,
+    "layout": "THEME07-012",
     "slot": "case-page",
     "label": "16 08",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Case Studies"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "典型案例"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "深度剖析"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "三类资本逻辑的代表公司"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "Anthropic、xAI 和 CoreWeave 分别代表安全模型、实时数据生态和算力基础设施三类资本逻辑。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "不同案例共同指向同一个问题：技术优势能否转成可持续收入。"
+      },
       {
         "key": "cardCount",
         "label": "卡片数量",
@@ -60777,53 +84168,51 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Case Studies",
-        "title": "典型案例",
-        "titleTail": "深度剖析",
-        "sub": "三类资本逻辑的代表公司",
-        "lead": "Anthropic、xAI 和 CoreWeave 分别代表安全模型、实时数据生态和算力基础设施三类资本逻辑。",
-        "closing": "不同案例共同指向同一个问题：技术优势能否转成可持续收入。",
-        "cases": [
-          {
-            "logic": "安全模型逻辑",
-            "en": "Anthropic",
-            "zh": "安全可靠模型",
-            "chips": [
-              "安全对齐",
-              "Claude"
-            ],
-            "lead": "650",
-            "plus": true,
-            "unit": "亿美元",
-            "metricLabel": "累计融资"
-          },
-          {
-            "logic": "实时数据逻辑",
-            "en": "xAI",
-            "zh": "实时数据生态",
-            "chips": [
-              "实时数据",
-              "多模态"
-            ],
-            "lead": "50",
-            "unit": "亿美元",
-            "metricLabel": "单笔融资"
-          },
-          {
-            "logic": "算力设施逻辑",
-            "en": "CoreWeave",
-            "zh": "算力基础设施",
-            "chips": [
-              "GPU 云",
-              "算力资源"
-            ],
-            "lead": "110",
-            "unit": "亿美元",
-            "metricLabel": "融资额"
-          }
-        ]
-      },
+      "eyebrow": "Case Studies",
+      "title": "典型案例",
+      "titleTail": "深度剖析",
+      "sub": "三类资本逻辑的代表公司",
+      "lead": "Anthropic、xAI 和 CoreWeave 分别代表安全模型、实时数据生态和算力基础设施三类资本逻辑。",
+      "closing": "不同案例共同指向同一个问题：技术优势能否转成可持续收入。",
+      "cases": [
+        {
+          "logic": "安全模型逻辑",
+          "en": "Anthropic",
+          "zh": "安全可靠模型",
+          "chips": [
+            "安全对齐",
+            "Claude"
+          ],
+          "lead": "650",
+          "plus": true,
+          "unit": "亿美元",
+          "metricLabel": "累计融资"
+        },
+        {
+          "logic": "实时数据逻辑",
+          "en": "xAI",
+          "zh": "实时数据生态",
+          "chips": [
+            "实时数据",
+            "多模态"
+          ],
+          "lead": "50",
+          "unit": "亿美元",
+          "metricLabel": "单笔融资"
+        },
+        {
+          "logic": "算力设施逻辑",
+          "en": "CoreWeave",
+          "zh": "算力基础设施",
+          "chips": [
+            "GPU 云",
+            "算力资源"
+          ],
+          "lead": "110",
+          "unit": "亿美元",
+          "metricLabel": "融资额"
+        }
+      ],
       "cardCount": 3,
       "imageCount": 3,
       "imageRatio": "portrait",
@@ -60835,14 +84224,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page009",
+    "key": "theme07_page013",
     "themeKey": "theme07",
-    "pageNumber": 9,
-    "layout": "THEME07-009",
+    "pageNumber": 13,
+    "layout": "THEME07-013",
     "slot": "monthly-page",
     "label": "17 09",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Monthly Heatmap"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "市场月度热力"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "12 个月融资节奏"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "月度数据展示全年热度并非均匀释放，而是由 5 月、8 月、9 月等峰值月份拉高。"
+      },
+      {
+        "key": "anchorLead",
+        "label": "锚点数字",
+        "type": "text",
+        "default": "118"
+      },
+      {
+        "key": "anchorUnit",
+        "label": "锚点单位",
+        "type": "text",
+        "default": "亿美元"
+      },
+      {
+        "key": "anchorNote",
+        "label": "锚点注释",
+        "type": "text",
+        "default": "全年峰值 · 8 月单月最高，9 月、5 月紧随其后"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "融资节奏的核心不是平均值，而是峰值背后的超级交易。"
+      },
+      {
+        "key": "axisLabel",
+        "label": "坐标标签",
+        "type": "text",
+        "default": "月度融资额 / 亿美元"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -60954,37 +84397,35 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Monthly Heatmap",
-        "title": "市场月度热力",
-        "sub": "12 个月融资节奏",
-        "lead": "月度数据展示全年热度并非均匀释放，而是由 5 月、8 月、9 月等峰值月份拉高。",
-        "anchorLead": "118",
-        "anchorUnit": "亿美元",
-        "anchorNote": "全年峰值 · 8 月单月最高，9 月、5 月紧随其后",
-        "closing": "融资节奏的核心不是平均值，而是峰值背后的超级交易。",
-        "axisLabel": "月度融资额 / 亿美元",
-        "months": [
-          45,
-          58,
-          59,
-          86,
-          105,
-          93,
-          92,
-          118,
-          108,
-          73,
-          81,
-          52
-        ],
-        "peaks": [
-          4,
-          7,
-          8
-        ],
-        "avg": 80.8
-      },
+      "eyebrow": "Monthly Heatmap",
+      "title": "市场月度热力",
+      "sub": "12 个月融资节奏",
+      "lead": "月度数据展示全年热度并非均匀释放，而是由 5 月、8 月、9 月等峰值月份拉高。",
+      "anchorLead": "118",
+      "anchorUnit": "亿美元",
+      "anchorNote": "全年峰值 · 8 月单月最高，9 月、5 月紧随其后",
+      "closing": "融资节奏的核心不是平均值，而是峰值背后的超级交易。",
+      "axisLabel": "月度融资额 / 亿美元",
+      "months": [
+        45,
+        58,
+        59,
+        86,
+        105,
+        93,
+        92,
+        118,
+        108,
+        73,
+        81,
+        52
+      ],
+      "peaks": [
+        4,
+        7,
+        8
+      ],
+      "avg": 80.8,
       "chartType": "bars",
       "focusEnabled": true,
       "focusIndex": 7,
@@ -60994,14 +84435,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page010",
+    "key": "theme07_page014",
     "themeKey": "theme07",
-    "pageNumber": 10,
-    "layout": "THEME07-010",
+    "pageNumber": 14,
+    "layout": "THEME07-014",
     "slot": "ranking-page",
     "label": "18 10",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Top Funded Companies"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "Top 10 融资公司"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "头部玩家资金排名"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "头部公司融资额显著领先，通用大模型占据榜单上方位置。"
+      },
+      {
+        "key": "note",
+        "label": "note",
+        "type": "text",
+        "default": "口径：以最大单笔融资计 · 单位 亿美元"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "头部融资规模既反映技术叙事，也反映资源绑定能力。"
+      },
       {
         "key": "rowCount",
         "label": "公司数量",
@@ -61059,66 +84536,64 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Top Funded Companies",
-        "title": "Top 10 融资公司",
-        "sub": "头部玩家资金排名",
-        "lead": "头部公司融资额显著领先，通用大模型占据榜单上方位置。",
-        "note": "口径：以最大单笔融资计 · 单位 亿美元",
-        "closing": "头部融资规模既反映技术叙事，也反映资源绑定能力。",
-        "companies": [
-          {
-            "name": "OpenAI",
-            "amount": 66,
-            "track": "通用大模型"
-          },
-          {
-            "name": "Anthropic",
-            "amount": 65,
-            "track": "通用大模型"
-          },
-          {
-            "name": "xAI",
-            "amount": 50,
-            "track": "通用大模型"
-          },
-          {
-            "name": "CoreWeave",
-            "amount": 11,
-            "track": "基础设施"
-          },
-          {
-            "name": "SSI",
-            "amount": 10,
-            "track": "通用大模型"
-          },
-          {
-            "name": "Scale AI",
-            "amount": 10,
-            "track": "基础设施"
-          },
-          {
-            "name": "Figure AI",
-            "amount": 6.8,
-            "track": "具身智能"
-          },
-          {
-            "name": "Perplexity",
-            "amount": 5.2,
-            "track": "垂直应用"
-          },
-          {
-            "name": "Databricks",
-            "amount": 5,
-            "track": "基础设施"
-          },
-          {
-            "name": "Glean",
-            "amount": 2.6,
-            "track": "垂直应用"
-          }
-        ]
-      },
+      "eyebrow": "Top Funded Companies",
+      "title": "Top 10 融资公司",
+      "sub": "头部玩家资金排名",
+      "lead": "头部公司融资额显著领先，通用大模型占据榜单上方位置。",
+      "note": "口径：以最大单笔融资计 · 单位 亿美元",
+      "closing": "头部融资规模既反映技术叙事，也反映资源绑定能力。",
+      "companies": [
+        {
+          "name": "OpenAI",
+          "amount": 66,
+          "track": "通用大模型"
+        },
+        {
+          "name": "Anthropic",
+          "amount": 65,
+          "track": "通用大模型"
+        },
+        {
+          "name": "xAI",
+          "amount": 50,
+          "track": "通用大模型"
+        },
+        {
+          "name": "CoreWeave",
+          "amount": 11,
+          "track": "基础设施"
+        },
+        {
+          "name": "SSI",
+          "amount": 10,
+          "track": "通用大模型"
+        },
+        {
+          "name": "Scale AI",
+          "amount": 10,
+          "track": "基础设施"
+        },
+        {
+          "name": "Figure AI",
+          "amount": 6.8,
+          "track": "具身智能"
+        },
+        {
+          "name": "Perplexity",
+          "amount": 5.2,
+          "track": "垂直应用"
+        },
+        {
+          "name": "Databricks",
+          "amount": 5,
+          "track": "基础设施"
+        },
+        {
+          "name": "Glean",
+          "amount": 2.6,
+          "track": "垂直应用"
+        }
+      ],
       "rowCount": 10,
       "focusEnabled": true,
       "focusCount": 3,
@@ -61128,14 +84603,56 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page011",
+    "key": "theme07_page015",
     "themeKey": "theme07",
-    "pageNumber": 11,
-    "layout": "THEME07-011",
+    "pageNumber": 15,
+    "layout": "THEME07-015",
     "slot": "matrix-page",
     "label": "19 11",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Heat vs. Monetization"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "资本热度 × 商业兑现"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "四象限机会判断"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "把资本热度和商业兑现度交叉，可以区分明星兑现、叙事泡沫、隐形价值和等待验证四类机会。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "资本正在从叙事驱动转向兑现驱动。"
+      },
+      {
+        "key": "axisX",
+        "label": "axisX",
+        "type": "text",
+        "default": "商业兑现度"
+      },
+      {
+        "key": "axisY",
+        "label": "axisY",
+        "type": "text",
+        "default": "资本热度"
+      },
       {
         "key": "focusEnabled",
         "label": "重点信息",
@@ -61198,62 +84715,60 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Heat vs. Monetization",
-        "title": "资本热度 × 商业兑现",
-        "sub": "四象限机会判断",
-        "lead": "把资本热度和商业兑现度交叉，可以区分明星兑现、叙事泡沫、隐形价值和等待验证四类机会。",
-        "closing": "资本正在从叙事驱动转向兑现驱动。",
-        "axisX": "商业兑现度",
-        "axisY": "资本热度",
-        "quadrants": [
-          {
-            "name": "明星兑现",
-            "pos": "高热度 · 高兑现",
-            "dirs": [
-              "基础设施",
-              "数据平台"
-            ],
-            "tone": "accent",
-            "col": 2,
-            "row": 1
-          },
-          {
-            "name": "叙事泡沫",
-            "pos": "高热度 · 低兑现",
-            "dirs": [
-              "通用模型",
-              "AGI 实验室"
-            ],
-            "tone": "warn",
-            "col": 1,
-            "row": 1
-          },
-          {
-            "name": "隐形价值",
-            "pos": "低热度 · 高兑现",
-            "dirs": [
-              "垂直应用",
-              "企业搜索"
-            ],
-            "tone": "ink",
-            "col": 2,
-            "row": 2
-          },
-          {
-            "name": "等待验证",
-            "pos": "低热度 · 低兑现",
-            "dirs": [
-              "长尾工具",
-              "安全",
-              "早期硬件"
-            ],
-            "tone": "faint",
-            "col": 1,
-            "row": 2
-          }
-        ]
-      },
+      "eyebrow": "Heat vs. Monetization",
+      "title": "资本热度 × 商业兑现",
+      "sub": "四象限机会判断",
+      "lead": "把资本热度和商业兑现度交叉，可以区分明星兑现、叙事泡沫、隐形价值和等待验证四类机会。",
+      "closing": "资本正在从叙事驱动转向兑现驱动。",
+      "axisX": "商业兑现度",
+      "axisY": "资本热度",
+      "quadrants": [
+        {
+          "name": "明星兑现",
+          "pos": "高热度 · 高兑现",
+          "dirs": [
+            "基础设施",
+            "数据平台"
+          ],
+          "tone": "accent",
+          "col": 2,
+          "row": 1
+        },
+        {
+          "name": "叙事泡沫",
+          "pos": "高热度 · 低兑现",
+          "dirs": [
+            "通用模型",
+            "AGI 实验室"
+          ],
+          "tone": "warn",
+          "col": 1,
+          "row": 1
+        },
+        {
+          "name": "隐形价值",
+          "pos": "低热度 · 高兑现",
+          "dirs": [
+            "垂直应用",
+            "企业搜索"
+          ],
+          "tone": "ink",
+          "col": 2,
+          "row": 2
+        },
+        {
+          "name": "等待验证",
+          "pos": "低热度 · 低兑现",
+          "dirs": [
+            "长尾工具",
+            "安全",
+            "早期硬件"
+          ],
+          "tone": "faint",
+          "col": 1,
+          "row": 2
+        }
+      ],
       "focusEnabled": true,
       "focusIndex": 0,
       "showSecondary": true,
@@ -61262,14 +84777,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page012",
+    "key": "theme07_page016",
     "themeKey": "theme07",
-    "pageNumber": 12,
-    "layout": "THEME07-012",
+    "pageNumber": 16,
+    "layout": "THEME07-016",
     "slot": "risk-page",
     "label": "20 12",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Risk Assessment"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "风险研判"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "资本大年背后的下行因素"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "高估值、盈利验证、监管压力、大厂竞争和算力成本共同构成风险链条。"
+      },
+      {
+        "key": "chainTitle",
+        "label": "chainTitle",
+        "type": "text",
+        "default": "风险传导链"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "下一阶段会淘汰只会讲故事的公司。"
+      },
       {
         "key": "cardCount",
         "label": "卡片数量",
@@ -61356,41 +84907,39 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Risk Assessment",
-        "title": "风险研判",
-        "sub": "资本大年背后的下行因素",
-        "lead": "高估值、盈利验证、监管压力、大厂竞争和算力成本共同构成风险链条。",
-        "chainTitle": "风险传导链",
-        "closing": "下一阶段会淘汰只会讲故事的公司。",
-        "risks": [
-          {
-            "node": "高估值",
-            "title": "估值泡沫",
-            "desc": "一级估值透支远期增长预期"
-          },
-          {
-            "node": "盈利验证",
-            "title": "盈利模式未验证",
-            "desc": "试点难以转化为稳定订阅收入"
-          },
-          {
-            "node": "监管压力",
-            "title": "监管成本上升",
-            "desc": "隐私、版权与合规推高交付成本"
-          },
-          {
-            "node": "大厂竞争",
-            "title": "开源与大厂挤压",
-            "desc": "开源逼近能力，大厂压缩独立空间"
-          },
-          {
-            "node": "算力成本",
-            "title": "算力供应链卡脖子",
-            "desc": "推理成本居高不下，吞噬毛利"
-          }
-        ]
-      },
+      "eyebrow": "Risk Assessment",
+      "title": "风险研判",
+      "sub": "资本大年背后的下行因素",
+      "lead": "高估值、盈利验证、监管压力、大厂竞争和算力成本共同构成风险链条。",
+      "chainTitle": "风险传导链",
+      "closing": "下一阶段会淘汰只会讲故事的公司。",
+      "risks": [
+        {
+          "node": "高估值",
+          "title": "估值泡沫",
+          "desc": "一级估值透支远期增长预期"
+        },
+        {
+          "node": "盈利验证",
+          "title": "盈利模式未验证",
+          "desc": "试点难以转化为稳定订阅收入"
+        },
+        {
+          "node": "监管压力",
+          "title": "监管成本上升",
+          "desc": "隐私、版权与合规推高交付成本"
+        },
+        {
+          "node": "大厂竞争",
+          "title": "开源与大厂挤压",
+          "desc": "开源逼近能力，大厂压缩独立空间"
+        },
+        {
+          "node": "算力成本",
+          "title": "算力供应链卡脖子",
+          "desc": "推理成本居高不下，吞噬毛利"
+        }
+      ],
       "cardCount": 5,
       "imageCount": 1,
       "imageRatio": "portrait",
@@ -61403,14 +84952,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page013",
+    "key": "theme07_page017",
     "themeKey": "theme07",
-    "pageNumber": 13,
-    "layout": "THEME07-013",
+    "pageNumber": 17,
+    "layout": "THEME07-017",
     "slot": "outlook-page",
     "label": "21 13",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Investment Outlook"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "投资建议与阶段性策略"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "看好方向与谨慎方向"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "后续观察应围绕收入兑现、基础设施确定性和垂直应用 PMF 展开。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "看融资只是起点，看兑现才是判断。"
+      },
+      {
+        "key": "timelineLabel",
+        "label": "timelineLabel",
+        "type": "text",
+        "default": "阶段性观察 · 2025 — 2027"
+      },
+      {
+        "key": "kind",
+        "label": "kind",
+        "type": "text",
+        "default": "看好方向', en: 'Conviction', tone: 'accent"
+      },
+      {
+        "key": "kind",
+        "label": "kind",
+        "type": "text",
+        "default": "谨慎方向', en: 'Caution', tone: 'neg"
+      },
       {
         "key": "columnCount",
         "label": "对比栏数量",
@@ -61495,71 +85092,69 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Investment Outlook",
-        "title": "投资建议与阶段性策略",
-        "sub": "看好方向与谨慎方向",
-        "lead": "后续观察应围绕收入兑现、基础设施确定性和垂直应用 PMF 展开。",
-        "closing": "看融资只是起点，看兑现才是判断。",
-        "timelineLabel": "阶段性观察 · 2025 — 2027",
-        "columns": [
-          {
-            "kind": "看好方向",
-            "en": "Conviction",
-            "tone": "accent",
-            "items": [
-              {
-                "name": "垂直应用",
-                "note": "嵌入刚性工作流，验证 PMF"
-              },
-              {
-                "name": "基础设施",
-                "note": "GPU 云与数据平台，刚性预算"
-              },
-              {
-                "name": "具身智能",
-                "note": "软件能力延伸到物理场景"
-              }
-            ]
-          },
-          {
-            "kind": "谨慎方向",
-            "en": "Caution",
-            "tone": "neg",
-            "items": [
-              {
-                "name": "高估值纯模型",
-                "note": "叙事透支远期增长预期"
-              },
-              {
-                "name": "AI 包装项目",
-                "note": "缺乏壁垒，易被快速替代"
-              },
-              {
-                "name": "低壁垒消费应用",
-                "note": "留存与付费意愿不足"
-              }
-            ]
-          }
-        ],
-        "nodes": [
-          {
-            "year": "2025",
-            "title": "收入兑现",
-            "note": "看试点能否转为稳定订阅"
-          },
-          {
-            "year": "2026",
-            "title": "IPO 窗口",
-            "note": "头部上市重定价估值锚"
-          },
-          {
-            "year": "2027",
-            "title": "商业闭环",
-            "note": "能形成闭环的方向胜出"
-          }
-        ]
-      },
+      "eyebrow": "Investment Outlook",
+      "title": "投资建议与阶段性策略",
+      "sub": "看好方向与谨慎方向",
+      "lead": "后续观察应围绕收入兑现、基础设施确定性和垂直应用 PMF 展开。",
+      "closing": "看融资只是起点，看兑现才是判断。",
+      "timelineLabel": "阶段性观察 · 2025 — 2027",
+      "columns": [
+        {
+          "kind": "看好方向",
+          "en": "Conviction",
+          "tone": "accent",
+          "items": [
+            {
+              "name": "垂直应用",
+              "note": "嵌入刚性工作流，验证 PMF"
+            },
+            {
+              "name": "基础设施",
+              "note": "GPU 云与数据平台，刚性预算"
+            },
+            {
+              "name": "具身智能",
+              "note": "软件能力延伸到物理场景"
+            }
+          ]
+        },
+        {
+          "kind": "谨慎方向",
+          "en": "Caution",
+          "tone": "neg",
+          "items": [
+            {
+              "name": "高估值纯模型",
+              "note": "叙事透支远期增长预期"
+            },
+            {
+              "name": "AI 包装项目",
+              "note": "缺乏壁垒，易被快速替代"
+            },
+            {
+              "name": "低壁垒消费应用",
+              "note": "留存与付费意愿不足"
+            }
+          ]
+        }
+      ],
+      "nodes": [
+        {
+          "year": "2025",
+          "title": "收入兑现",
+          "note": "看试点能否转为稳定订阅"
+        },
+        {
+          "year": "2026",
+          "title": "IPO 窗口",
+          "note": "头部上市重定价估值锚"
+        },
+        {
+          "year": "2027",
+          "title": "商业闭环",
+          "note": "能形成闭环的方向胜出"
+        }
+      ],
       "columnCount": 2,
       "itemCount": 3,
       "focusEnabled": true,
@@ -61571,14 +85166,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page014",
+    "key": "theme07_page018",
     "themeKey": "theme07",
-    "pageNumber": 14,
-    "layout": "THEME07-014",
+    "pageNumber": 18,
+    "layout": "THEME07-018",
     "slot": "quote-page",
     "label": "22 14",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Conclusion"
+      },
+      {
+        "key": "kicker",
+        "label": "kicker",
+        "type": "text",
+        "default": "结论与数据来源"
+      },
+      {
+        "key": "quoteLead",
+        "label": "quoteLead",
+        "type": "text",
+        "default": "资本下一阶段，将从"
+      },
+      {
+        "key": "quoteEm1",
+        "label": "quoteEm1",
+        "type": "text",
+        "default": "赌叙事"
+      },
+      {
+        "key": "quoteMid",
+        "label": "quoteMid",
+        "type": "text",
+        "default": "转向"
+      },
+      {
+        "key": "quoteEm2",
+        "label": "quoteEm2",
+        "type": "text",
+        "default": "看兑现"
+      },
+      {
+        "key": "quoteTail",
+        "label": "quoteTail",
+        "type": "text",
+        "default": "。"
+      },
+      {
+        "key": "source",
+        "label": "来源",
+        "type": "text",
+        "default": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元"
+      },
       {
         "key": "align",
         "label": "对齐方式",
@@ -61650,33 +85293,31 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Conclusion",
-        "kicker": "结论与数据来源",
-        "quoteLead": "资本下一阶段，将从",
-        "quoteEm1": "赌叙事",
-        "quoteMid": "转向",
-        "quoteEm2": "看兑现",
-        "quoteTail": "。",
-        "conclusions": [
-          {
-            "idx": "01",
-            "title": "头部集中",
-            "note": "少数超级交易决定年度曲线与市场情绪"
-          },
-          {
-            "idx": "02",
-            "title": "地理护城河",
-            "note": "湾区集聚人才、资本与算力，短期难以撼动"
-          },
-          {
-            "idx": "03",
-            "title": "兑现为王",
-            "note": "能形成商业闭环的方向才会穿越退潮"
-          }
-        ],
-        "source": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元"
-      },
+      "eyebrow": "Conclusion",
+      "kicker": "结论与数据来源",
+      "quoteLead": "资本下一阶段，将从",
+      "quoteEm1": "赌叙事",
+      "quoteMid": "转向",
+      "quoteEm2": "看兑现",
+      "quoteTail": "。",
+      "conclusions": [
+        {
+          "idx": "01",
+          "title": "头部集中",
+          "note": "少数超级交易决定年度曲线与市场情绪"
+        },
+        {
+          "idx": "02",
+          "title": "地理护城河",
+          "note": "湾区集聚人才、资本与算力，短期难以撼动"
+        },
+        {
+          "idx": "03",
+          "title": "兑现为王",
+          "note": "能形成商业闭环的方向才会穿越退潮"
+        }
+      ],
+      "source": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元",
       "align": "center",
       "showConclusions": true,
       "conclusionCount": 3,
@@ -61687,14 +85328,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page015",
+    "key": "theme07_page019",
     "themeKey": "theme07",
-    "pageNumber": 15,
-    "layout": "THEME07-015",
+    "pageNumber": 19,
+    "layout": "THEME07-019",
     "slot": "chapter-page",
     "label": "23 15",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Chapter"
+      },
+      {
+        "key": "index",
+        "label": "index",
+        "type": "text",
+        "default": "02"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "市场数据深拆"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "融资节奏、集中度与交易规模"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "从本章开始进入市场数据扩展部分，围绕融资集中度、季度节奏和金额区间展开。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "下一组页面进入更细的拆解。"
+      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -61776,20 +85453,18 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Chapter",
-        "index": "02",
-        "title": "市场数据深拆",
-        "sub": "融资节奏、集中度与交易规模",
-        "lead": "从本章开始进入市场数据扩展部分，围绕融资集中度、季度节奏和金额区间展开。",
-        "closing": "下一组页面进入更细的拆解。",
-        "keywords": [
-          "集中度",
-          "季度节奏",
-          "峰谷对比",
-          "资金贡献"
-        ]
-      },
+      "eyebrow": "Chapter",
+      "index": "02",
+      "title": "市场数据深拆",
+      "sub": "融资节奏、集中度与交易规模",
+      "lead": "从本章开始进入市场数据扩展部分，围绕融资集中度、季度节奏和金额区间展开。",
+      "closing": "下一组页面进入更细的拆解。",
+      "keywords": [
+        "集中度",
+        "季度节奏",
+        "峰谷对比",
+        "资金贡献"
+      ],
       "backgroundVariant": "dark",
       "layout": "left",
       "showIndex": true,
@@ -61800,14 +85475,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page016",
+    "key": "theme07_page020",
     "themeKey": "theme07",
-    "pageNumber": 16,
-    "layout": "THEME07-016",
+    "pageNumber": 20,
+    "layout": "THEME07-020",
     "slot": "deal-map-page",
     "label": "24 16",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Deal Map"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "融资事件规模分层"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "大额融资事件地图"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "97 笔大额融资可以按金额区间拆成四组，少数超级交易贡献主要融资额。"
+      },
+      {
+        "key": "anchorLead",
+        "label": "锚点数字",
+        "type": "text",
+        "default": "97"
+      },
+      {
+        "key": "anchorUnit",
+        "label": "锚点单位",
+        "type": "text",
+        "default": "笔"
+      },
+      {
+        "key": "anchorNote",
+        "label": "锚点注释",
+        "type": "text",
+        "default": "全年大额事件 · 单笔 ≥1 亿美元"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "数量最多的不一定最重要，影响最大的往往是巨额交易。"
+      },
+      {
+        "key": "legendLabel",
+        "label": "legendLabel",
+        "type": "text",
+        "default": "气泡大小 = 单笔金额 · 颜色 = 赛道"
+      },
       {
         "key": "viewMode",
         "label": "图表类型",
@@ -61907,61 +85636,59 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Deal Map",
-        "title": "融资事件规模分层",
-        "sub": "大额融资事件地图",
-        "lead": "97 笔大额融资可以按金额区间拆成四组，少数超级交易贡献主要融资额。",
-        "anchorLead": "97",
-        "anchorUnit": "笔",
-        "anchorNote": "全年大额事件 · 单笔 ≥1 亿美元",
-        "closing": "数量最多的不一定最重要，影响最大的往往是巨额交易。",
-        "legendLabel": "气泡大小 = 单笔金额 · 颜色 = 赛道",
-        "bands": [
-          {
-            "range": "1–2 亿",
-            "count": 41,
-            "mid": 1.5,
-            "total": 58
-          },
-          {
-            "range": "2–5 亿",
-            "count": 29,
-            "mid": 3.5,
-            "total": 91
-          },
-          {
-            "range": "5–10 亿",
-            "count": 15,
-            "mid": 7.5,
-            "total": 103
-          },
-          {
-            "range": "≥10 亿",
-            "count": 12,
-            "mid": 18,
-            "total": 718
-          }
-        ],
-        "tracks": [
-          {
-            "name": "通用大模型",
-            "tone": "accent"
-          },
-          {
-            "name": "垂直应用",
-            "tone": "ink"
-          },
-          {
-            "name": "基础设施",
-            "tone": "pos"
-          },
-          {
-            "name": "AI 芯片",
-            "tone": "warn"
-          }
-        ]
-      },
+      "eyebrow": "Deal Map",
+      "title": "融资事件规模分层",
+      "sub": "大额融资事件地图",
+      "lead": "97 笔大额融资可以按金额区间拆成四组，少数超级交易贡献主要融资额。",
+      "anchorLead": "97",
+      "anchorUnit": "笔",
+      "anchorNote": "全年大额事件 · 单笔 ≥1 亿美元",
+      "closing": "数量最多的不一定最重要，影响最大的往往是巨额交易。",
+      "legendLabel": "气泡大小 = 单笔金额 · 颜色 = 赛道",
+      "bands": [
+        {
+          "range": "1–2 亿",
+          "count": 41,
+          "mid": 1.5,
+          "total": 58
+        },
+        {
+          "range": "2–5 亿",
+          "count": 29,
+          "mid": 3.5,
+          "total": 91
+        },
+        {
+          "range": "5–10 亿",
+          "count": 15,
+          "mid": 7.5,
+          "total": 103
+        },
+        {
+          "range": "≥10 亿",
+          "count": 12,
+          "mid": 18,
+          "total": 718
+        }
+      ],
+      "tracks": [
+        {
+          "name": "通用大模型",
+          "tone": "accent"
+        },
+        {
+          "name": "垂直应用",
+          "tone": "ink"
+        },
+        {
+          "name": "基础设施",
+          "tone": "pos"
+        },
+        {
+          "name": "AI 芯片",
+          "tone": "warn"
+        }
+      ],
       "viewMode": "scatter",
       "bandCount": 4,
       "bubbleScale": 1,
@@ -61973,14 +85700,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page017",
+    "key": "theme07_page021",
     "themeKey": "theme07",
-    "pageNumber": 17,
-    "layout": "THEME07-017",
+    "pageNumber": 21,
+    "layout": "THEME07-021",
     "slot": "cold-start-page",
     "label": "25 17",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Quarter Breakdown"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "Q1"
+      },
+      {
+        "key": "season",
+        "label": "season",
+        "type": "text",
+        "default": "2024 第一季度 · 起步"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "冷启动季度"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "Q1 融资拆解"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "Q1 交易数量稳定，但整体金额尚未进入全年高峰，更像上一年度项目延续，市场仍在等待新一轮验证。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "全年热度从保守启动开始。"
+      },
+      {
+        "key": "chartLabel",
+        "label": "chartLabel",
+        "type": "text",
+        "default": "月度融资额 / 亿美元"
+      },
+      {
+        "key": "contextLabel",
+        "label": "contextLabel",
+        "type": "text",
+        "default": "全年季度对比"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -62074,72 +85855,70 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Quarter Breakdown",
-        "marker": "Q1",
-        "season": "2024 第一季度 · 起步",
-        "title": "冷启动季度",
-        "titleTail": "Q1 融资拆解",
-        "lead": "Q1 交易数量稳定，但整体金额尚未进入全年高峰，更像上一年度项目延续，市场仍在等待新一轮验证。",
-        "closing": "全年热度从保守启动开始。",
-        "chartLabel": "月度融资额 / 亿美元",
-        "months": [
-          {
-            "m": "1月",
-            "amount": 45
-          },
-          {
-            "m": "2月",
-            "amount": 58
-          },
-          {
-            "m": "3月",
-            "amount": 59
-          }
-        ],
-        "context": [
-          {
-            "q": "Q1",
-            "amount": 162
-          },
-          {
-            "q": "Q2",
-            "amount": 284
-          },
-          {
-            "q": "Q3",
-            "amount": 318
-          },
-          {
-            "q": "Q4",
-            "amount": 206
-          }
-        ],
-        "contextActive": 0,
-        "contextLabel": "全年季度对比",
-        "metrics": [
-          {
-            "label": "融资额",
-            "value": "162",
-            "unit": "亿美元"
-          },
-          {
-            "label": "事件数",
-            "value": "18",
-            "unit": "笔"
-          },
-          {
-            "label": "平均单笔",
-            "value": "9.0",
-            "unit": "亿美元"
-          },
-          {
-            "label": "最大单笔",
-            "value": "32",
-            "unit": "亿美元"
-          }
-        ]
-      },
+      "eyebrow": "Quarter Breakdown",
+      "marker": "Q1",
+      "season": "2024 第一季度 · 起步",
+      "title": "冷启动季度",
+      "titleTail": "Q1 融资拆解",
+      "lead": "Q1 交易数量稳定，但整体金额尚未进入全年高峰，更像上一年度项目延续，市场仍在等待新一轮验证。",
+      "closing": "全年热度从保守启动开始。",
+      "chartLabel": "月度融资额 / 亿美元",
+      "months": [
+        {
+          "m": "1月",
+          "amount": 45
+        },
+        {
+          "m": "2月",
+          "amount": 58
+        },
+        {
+          "m": "3月",
+          "amount": 59
+        }
+      ],
+      "context": [
+        {
+          "q": "Q1",
+          "amount": 162
+        },
+        {
+          "q": "Q2",
+          "amount": 284
+        },
+        {
+          "q": "Q3",
+          "amount": 318
+        },
+        {
+          "q": "Q4",
+          "amount": 206
+        }
+      ],
+      "contextActive": 0,
+      "contextLabel": "全年季度对比",
+      "metrics": [
+        {
+          "label": "融资额",
+          "value": "162",
+          "unit": "亿美元"
+        },
+        {
+          "label": "事件数",
+          "value": "18",
+          "unit": "笔"
+        },
+        {
+          "label": "平均单笔",
+          "value": "9.0",
+          "unit": "亿美元"
+        },
+        {
+          "label": "最大单笔",
+          "value": "32",
+          "unit": "亿美元"
+        }
+      ],
       "chartType": "bars",
       "metricCount": 4,
       "focusEnabled": true,
@@ -62150,14 +85929,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page018",
+    "key": "theme07_page022",
     "themeKey": "theme07",
-    "pageNumber": 18,
-    "layout": "THEME07-018",
+    "pageNumber": 22,
+    "layout": "THEME07-022",
     "slot": "accelerate-page",
     "label": "26 18",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Quarter Breakdown"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "Q2"
+      },
+      {
+        "key": "season",
+        "label": "season",
+        "type": "text",
+        "default": "2024 第二季度 · 加速"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "加速季度"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "Q2 融资拆解"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "Q2 进入明显加速期，模型、应用和基础设施同步升温，资本从模型叙事扩散到应用和基础设施。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "Q2 融资额 284 亿美元 · 26 笔事件 · 平均单笔 10.9 亿美元"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "+75.3%"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "季度融资额环比增长"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "Q2 是融资窗口打开的关键节点。"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -62241,61 +86080,59 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Quarter Breakdown",
-        "marker": "Q2",
-        "season": "2024 第二季度 · 加速",
-        "title": "加速季度",
-        "titleTail": "Q2 融资拆解",
-        "lead": "Q2 进入明显加速期，模型、应用和基础设施同步升温，资本从模型叙事扩散到应用和基础设施。",
-        "statLine": "Q2 融资额 284 亿美元 · 26 笔事件 · 平均单笔 10.9 亿美元",
-        "anchorValue": "+75.3%",
-        "anchorLabel": "季度融资额环比增长",
-        "closing": "Q2 是融资窗口打开的关键节点。",
-        "colHeads": {
-          "dim": "赛道方向",
-          "val": "Q2 融资额",
-          "chg": "环比",
-          "note": "加速信号"
-        },
-        "rows": [
-          {
-            "dim": "通用大模型",
-            "val": "120",
-            "unit": "亿美元",
-            "chg": "+66.0%",
-            "note": "头部融资集中释放"
-          },
-          {
-            "dim": "垂直应用",
-            "val": "74",
-            "unit": "亿美元",
-            "chg": "+88.0%",
-            "note": "应用侧需求加速"
-          },
-          {
-            "dim": "基础设施",
-            "val": "54",
-            "unit": "亿美元",
-            "chg": "+69.0%",
-            "note": "算力需求拉动"
-          },
-          {
-            "dim": "AI 芯片",
-            "val": "22",
-            "unit": "亿美元",
-            "chg": "+41.0%",
-            "note": "硬件稳步跟进"
-          },
-          {
-            "dim": "安全与数据",
-            "val": "14",
-            "unit": "亿美元",
-            "chg": "+33.0%",
-            "note": "配套设施补位"
-          }
-        ]
+      "eyebrow": "Quarter Breakdown",
+      "marker": "Q2",
+      "season": "2024 第二季度 · 加速",
+      "title": "加速季度",
+      "titleTail": "Q2 融资拆解",
+      "lead": "Q2 进入明显加速期，模型、应用和基础设施同步升温，资本从模型叙事扩散到应用和基础设施。",
+      "statLine": "Q2 融资额 284 亿美元 · 26 笔事件 · 平均单笔 10.9 亿美元",
+      "anchorValue": "+75.3%",
+      "anchorLabel": "季度融资额环比增长",
+      "closing": "Q2 是融资窗口打开的关键节点。",
+      "colHeads": {
+        "dim": "赛道方向",
+        "val": "Q2 融资额",
+        "chg": "环比",
+        "note": "加速信号"
       },
+      "rows": [
+        {
+          "dim": "通用大模型",
+          "val": "120",
+          "unit": "亿美元",
+          "chg": "+66.0%",
+          "note": "头部融资集中释放"
+        },
+        {
+          "dim": "垂直应用",
+          "val": "74",
+          "unit": "亿美元",
+          "chg": "+88.0%",
+          "note": "应用侧需求加速"
+        },
+        {
+          "dim": "基础设施",
+          "val": "54",
+          "unit": "亿美元",
+          "chg": "+69.0%",
+          "note": "算力需求拉动"
+        },
+        {
+          "dim": "AI 芯片",
+          "val": "22",
+          "unit": "亿美元",
+          "chg": "+41.0%",
+          "note": "硬件稳步跟进"
+        },
+        {
+          "dim": "安全与数据",
+          "val": "14",
+          "unit": "亿美元",
+          "chg": "+33.0%",
+          "note": "配套设施补位"
+        }
+      ],
       "rowCount": 4,
       "showChange": true,
       "showJudgment": true,
@@ -62306,14 +86143,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page019",
+    "key": "theme07_page023",
     "themeKey": "theme07",
-    "pageNumber": 19,
-    "layout": "THEME07-019",
+    "pageNumber": 23,
+    "layout": "THEME07-023",
     "slot": "peak-page",
     "label": "27 19",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Quarter Breakdown"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "Q3"
+      },
+      {
+        "key": "season",
+        "label": "season",
+        "type": "text",
+        "default": "2024 第三季度 · 峰值"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "全年峰值季度"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "Q3 融资拆解"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "Q3 融资额和事件数均达到全年最高，是市场情绪高点，强度来自头部公司融资和多赛道同时活跃。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "高峰之后，市场开始从热度转向筛选。"
+      },
+      {
+        "key": "chartLabel",
+        "label": "chartLabel",
+        "type": "text",
+        "default": "全年月度融资额 / 亿美元"
+      },
+      {
+        "key": "peakTag",
+        "label": "peakTag",
+        "type": "text",
+        "default": "全年峰值"
+      },
+      {
+        "key": "avgLabel",
+        "label": "avgLabel",
+        "type": "text",
+        "default": "月度均值 80.8"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -62417,74 +86314,72 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Quarter Breakdown",
-        "marker": "Q3",
-        "season": "2024 第三季度 · 峰值",
-        "title": "全年峰值季度",
-        "titleTail": "Q3 融资拆解",
-        "lead": "Q3 融资额和事件数均达到全年最高，是市场情绪高点，强度来自头部公司融资和多赛道同时活跃。",
-        "closing": "高峰之后，市场开始从热度转向筛选。",
-        "chartLabel": "全年月度融资额 / 亿美元",
-        "peakTag": "全年峰值",
-        "avgLabel": "月度均值 80.8",
-        "metrics": [
-          {
-            "label": "融资额",
-            "value": "318",
-            "unit": "亿美元"
-          },
-          {
-            "label": "事件数",
-            "value": "31",
-            "unit": "笔"
-          },
-          {
-            "label": "平均单笔",
-            "value": "10.3",
-            "unit": "亿美元"
-          },
-          {
-            "label": "峰值月份",
-            "value": "8",
-            "unit": "月"
-          }
-        ],
-        "months": [
-          45,
-          58,
-          59,
-          86,
-          105,
-          93,
-          92,
-          118,
-          108,
-          73,
-          81,
-          52
-        ],
-        "monthLabels": [
-          "1",
-          "2",
-          "3",
-          "4",
-          "5",
-          "6",
-          "7",
-          "8",
-          "9",
-          "10",
-          "11",
-          "12"
-        ],
-        "peakIndex": 7,
-        "avg": 80.8,
-        "q3Range": [
-          6,
-          8
-        ]
-      },
+      "eyebrow": "Quarter Breakdown",
+      "marker": "Q3",
+      "season": "2024 第三季度 · 峰值",
+      "title": "全年峰值季度",
+      "titleTail": "Q3 融资拆解",
+      "lead": "Q3 融资额和事件数均达到全年最高，是市场情绪高点，强度来自头部公司融资和多赛道同时活跃。",
+      "closing": "高峰之后，市场开始从热度转向筛选。",
+      "chartLabel": "全年月度融资额 / 亿美元",
+      "peakTag": "全年峰值",
+      "avgLabel": "月度均值 80.8",
+      "metrics": [
+        {
+          "label": "融资额",
+          "value": "318",
+          "unit": "亿美元"
+        },
+        {
+          "label": "事件数",
+          "value": "31",
+          "unit": "笔"
+        },
+        {
+          "label": "平均单笔",
+          "value": "10.3",
+          "unit": "亿美元"
+        },
+        {
+          "label": "峰值月份",
+          "value": "8",
+          "unit": "月"
+        }
+      ],
+      "months": [
+        45,
+        58,
+        59,
+        86,
+        105,
+        93,
+        92,
+        118,
+        108,
+        73,
+        81,
+        52
+      ],
+      "monthLabels": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10",
+        "11",
+        "12"
+      ],
+      "peakIndex": 7,
+      "avg": 80.8,
+      "q3Range": [
+        6,
+        8
+      ],
       "chartType": "area",
       "metricCount": 4,
       "focusEnabled": true,
@@ -62497,14 +86392,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page020",
+    "key": "theme07_page024",
     "themeKey": "theme07",
-    "pageNumber": 20,
-    "layout": "THEME07-020",
+    "pageNumber": 24,
+    "layout": "THEME07-024",
     "slot": "cooldown-page",
     "label": "28 20",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Quarter Breakdown"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "Q4"
+      },
+      {
+        "key": "season",
+        "label": "season",
+        "type": "text",
+        "default": "2024 第四季度 · 回落"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "理性回落季度"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "Q4 融资拆解"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "Q4 较 Q3 回落，但仍高于年初水平，说明资金并未完全撤离，资本开始挑选确定性更高的标的。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "回落不是终点，而是分化的开始。"
+      },
+      {
+        "key": "baselineLabel",
+        "label": "baselineLabel",
+        "type": "text",
+        "default": "年初水平 · 162"
+      },
+      {
+        "key": "chartLabel",
+        "label": "chartLabel",
+        "type": "text",
+        "default": "全年季度融资额 / 亿美元"
+      },
+      {
+        "key": "declineLabel",
+        "label": "declineLabel",
+        "type": "text",
+        "default": "较 Q3"
+      },
+      {
+        "key": "declineValue",
+        "label": "declineValue",
+        "type": "text",
+        "default": "-35.2%"
+      },
       {
         "key": "nodeCount",
         "label": "节点数量",
@@ -62594,69 +86555,67 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Quarter Breakdown",
-        "marker": "Q4",
-        "season": "2024 第四季度 · 回落",
-        "title": "理性回落季度",
-        "titleTail": "Q4 融资拆解",
-        "lead": "Q4 较 Q3 回落，但仍高于年初水平，说明资金并未完全撤离，资本开始挑选确定性更高的标的。",
-        "closing": "回落不是终点，而是分化的开始。",
-        "baselineLabel": "年初水平 · 162",
-        "chartLabel": "全年季度融资额 / 亿美元",
-        "declineLabel": "较 Q3",
-        "declineValue": "-35.2%",
-        "nodes": [
-          {
-            "q": "Q1",
-            "amount": 162,
-            "phase": "起步",
-            "note": "保守启动"
-          },
-          {
-            "q": "Q2",
-            "amount": 284,
-            "phase": "加速",
-            "note": "窗口打开"
-          },
-          {
-            "q": "Q3",
-            "amount": 318,
-            "phase": "峰值",
-            "note": "情绪高点"
-          },
-          {
-            "q": "Q4",
-            "amount": 206,
-            "phase": "回落",
-            "note": "理性筛选"
-          }
-        ],
-        "activeIndex": 3,
-        "metrics": [
-          {
-            "label": "融资额",
-            "value": "206",
-            "unit": "亿美元"
-          },
-          {
-            "label": "事件数",
-            "value": "22",
-            "unit": "笔"
-          },
-          {
-            "label": "平均单笔",
-            "value": "9.4",
-            "unit": "亿美元"
-          },
-          {
-            "label": "较 Q3",
-            "value": "-35.2%",
-            "unit": "",
-            "badge": true
-          }
-        ]
-      },
+      "eyebrow": "Quarter Breakdown",
+      "marker": "Q4",
+      "season": "2024 第四季度 · 回落",
+      "title": "理性回落季度",
+      "titleTail": "Q4 融资拆解",
+      "lead": "Q4 较 Q3 回落，但仍高于年初水平，说明资金并未完全撤离，资本开始挑选确定性更高的标的。",
+      "closing": "回落不是终点，而是分化的开始。",
+      "baselineLabel": "年初水平 · 162",
+      "chartLabel": "全年季度融资额 / 亿美元",
+      "declineLabel": "较 Q3",
+      "declineValue": "-35.2%",
+      "nodes": [
+        {
+          "q": "Q1",
+          "amount": 162,
+          "phase": "起步",
+          "note": "保守启动"
+        },
+        {
+          "q": "Q2",
+          "amount": 284,
+          "phase": "加速",
+          "note": "窗口打开"
+        },
+        {
+          "q": "Q3",
+          "amount": 318,
+          "phase": "峰值",
+          "note": "情绪高点"
+        },
+        {
+          "q": "Q4",
+          "amount": 206,
+          "phase": "回落",
+          "note": "理性筛选"
+        }
+      ],
+      "activeIndex": 3,
+      "metrics": [
+        {
+          "label": "融资额",
+          "value": "206",
+          "unit": "亿美元"
+        },
+        {
+          "label": "事件数",
+          "value": "22",
+          "unit": "笔"
+        },
+        {
+          "label": "平均单笔",
+          "value": "9.4",
+          "unit": "亿美元"
+        },
+        {
+          "label": "较 Q3",
+          "value": "-35.2%",
+          "unit": "",
+          "badge": true
+        }
+      ],
       "nodeCount": 4,
       "metricCount": 4,
       "focusEnabled": true,
@@ -62668,14 +86627,56 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page021",
+    "key": "theme07_page025",
     "themeKey": "theme07",
-    "pageNumber": 21,
-    "layout": "THEME07-021",
+    "pageNumber": 25,
+    "layout": "THEME07-025",
     "slot": "peak-trough-page",
     "label": "29 21",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Peak and Trough"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "峰值与低位"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "月度峰谷对比"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "8 月为全年峰值，1 月为低位，峰谷差体现交易集中度。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "月度波动背后是头部交易节奏。"
+      },
+      {
+        "key": "chartLabel",
+        "label": "chartLabel",
+        "type": "text",
+        "default": "月度融资额 / 亿美元"
+      },
+      {
+        "key": "avgLabel",
+        "label": "avgLabel",
+        "type": "text",
+        "default": "全年均值"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -62782,107 +86783,105 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Peak and Trough",
-        "title": "峰值与低位",
-        "sub": "月度峰谷对比",
-        "lead": "8 月为全年峰值，1 月为低位，峰谷差体现交易集中度。",
-        "closing": "月度波动背后是头部交易节奏。",
-        "chartLabel": "月度融资额 / 亿美元",
-        "avgLabel": "全年均值",
-        "months": [
-          {
-            "m": "1",
-            "amount": 45,
-            "kind": "trough"
-          },
-          {
-            "m": "2",
-            "amount": 58,
-            "kind": "normal"
-          },
-          {
-            "m": "3",
-            "amount": 59,
-            "kind": "normal"
-          },
-          {
-            "m": "4",
-            "amount": 86,
-            "kind": "normal"
-          },
-          {
-            "m": "5",
-            "amount": 105,
-            "kind": "peak"
-          },
-          {
-            "m": "6",
-            "amount": 93,
-            "kind": "normal"
-          },
-          {
-            "m": "7",
-            "amount": 92,
-            "kind": "normal"
-          },
-          {
-            "m": "8",
-            "amount": 118,
-            "kind": "peak"
-          },
-          {
-            "m": "9",
-            "amount": 108,
-            "kind": "peak"
-          },
-          {
-            "m": "10",
-            "amount": 73,
-            "kind": "normal"
-          },
-          {
-            "m": "11",
-            "amount": 81,
-            "kind": "normal"
-          },
-          {
-            "m": "12",
-            "amount": 52,
-            "kind": "trough"
-          }
-        ],
-        "extremes": [
-          {
-            "tag": "峰值",
-            "m": "8 月",
-            "value": "118",
-            "unit": "亿美元",
-            "dir": "peak"
-          },
-          {
-            "tag": "次高",
-            "m": "9 月",
-            "value": "108",
-            "unit": "亿美元",
-            "dir": "peak"
-          },
-          {
-            "tag": "低位",
-            "m": "1 月",
-            "value": "45",
-            "unit": "亿美元",
-            "dir": "trough"
-          },
-          {
-            "tag": "年末",
-            "m": "12 月",
-            "value": "52",
-            "unit": "亿美元",
-            "dir": "trough"
-          }
-        ]
-      },
+      "eyebrow": "Peak and Trough",
+      "title": "峰值与低位",
+      "sub": "月度峰谷对比",
+      "lead": "8 月为全年峰值，1 月为低位，峰谷差体现交易集中度。",
+      "closing": "月度波动背后是头部交易节奏。",
+      "chartLabel": "月度融资额 / 亿美元",
+      "avgLabel": "全年均值",
+      "months": [
+        {
+          "m": "1",
+          "amount": 45,
+          "kind": "trough"
+        },
+        {
+          "m": "2",
+          "amount": 58,
+          "kind": "normal"
+        },
+        {
+          "m": "3",
+          "amount": 59,
+          "kind": "normal"
+        },
+        {
+          "m": "4",
+          "amount": 86,
+          "kind": "normal"
+        },
+        {
+          "m": "5",
+          "amount": 105,
+          "kind": "peak"
+        },
+        {
+          "m": "6",
+          "amount": 93,
+          "kind": "normal"
+        },
+        {
+          "m": "7",
+          "amount": 92,
+          "kind": "normal"
+        },
+        {
+          "m": "8",
+          "amount": 118,
+          "kind": "peak"
+        },
+        {
+          "m": "9",
+          "amount": 108,
+          "kind": "peak"
+        },
+        {
+          "m": "10",
+          "amount": 73,
+          "kind": "normal"
+        },
+        {
+          "m": "11",
+          "amount": 81,
+          "kind": "normal"
+        },
+        {
+          "m": "12",
+          "amount": 52,
+          "kind": "trough"
+        }
+      ],
+      "extremes": [
+        {
+          "tag": "峰值",
+          "m": "8 月",
+          "value": "118",
+          "unit": "亿美元",
+          "dir": "peak"
+        },
+        {
+          "tag": "次高",
+          "m": "9 月",
+          "value": "108",
+          "unit": "亿美元",
+          "dir": "peak"
+        },
+        {
+          "tag": "低位",
+          "m": "1 月",
+          "value": "45",
+          "unit": "亿美元",
+          "dir": "trough"
+        },
+        {
+          "tag": "年末",
+          "m": "12 月",
+          "value": "52",
+          "unit": "亿美元",
+          "dir": "trough"
+        }
+      ],
       "chartType": "bars",
       "barCount": 12,
       "highlightExtremes": true,
@@ -62895,14 +86894,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page022",
+    "key": "theme07_page026",
     "themeKey": "theme07",
-    "pageNumber": 22,
-    "layout": "THEME07-022",
+    "pageNumber": 26,
+    "layout": "THEME07-026",
     "slot": "waterfall-page",
     "label": "30 22",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Funding Waterfall"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "赛道贡献拆分"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "融资额贡献瀑布"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "全年 970 亿美元由模型、应用、基础设施、芯片和其他方向共同构成。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "大模型制造热度，基础设施和应用承接兑现。"
+      },
+      {
+        "key": "chartLabel",
+        "label": "chartLabel",
+        "type": "text",
+        "default": "各赛道累计贡献 / 亿美元"
+      },
+      {
+        "key": "totalLabel",
+        "label": "totalLabel",
+        "type": "text",
+        "default": "全年合计"
+      },
+      {
+        "key": "totalUnit",
+        "label": "totalUnit",
+        "type": "text",
+        "default": "亿美元"
+      },
       {
         "key": "stepCount",
         "label": "台阶数量",
@@ -62993,43 +87040,41 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Funding Waterfall",
-        "title": "赛道贡献拆分",
-        "sub": "融资额贡献瀑布",
-        "lead": "全年 970 亿美元由模型、应用、基础设施、芯片和其他方向共同构成。",
-        "closing": "大模型制造热度，基础设施和应用承接兑现。",
-        "chartLabel": "各赛道累计贡献 / 亿美元",
-        "totalLabel": "全年合计",
-        "totalUnit": "亿美元",
-        "steps": [
-          {
-            "name": "通用大模型",
-            "value": 420,
-            "note": "模型层"
-          },
-          {
-            "name": "垂直应用",
-            "value": 245,
-            "note": "应用层"
-          },
-          {
-            "name": "基础设施",
-            "value": 158,
-            "note": "基建层"
-          },
-          {
-            "name": "AI 芯片",
-            "value": 97,
-            "note": "硬件层"
-          },
-          {
-            "name": "其他",
-            "value": 50,
-            "note": "其他"
-          }
-        ]
-      },
+      "eyebrow": "Funding Waterfall",
+      "title": "赛道贡献拆分",
+      "sub": "融资额贡献瀑布",
+      "lead": "全年 970 亿美元由模型、应用、基础设施、芯片和其他方向共同构成。",
+      "closing": "大模型制造热度，基础设施和应用承接兑现。",
+      "chartLabel": "各赛道累计贡献 / 亿美元",
+      "totalLabel": "全年合计",
+      "totalUnit": "亿美元",
+      "steps": [
+        {
+          "name": "通用大模型",
+          "value": 420,
+          "note": "模型层"
+        },
+        {
+          "name": "垂直应用",
+          "value": 245,
+          "note": "应用层"
+        },
+        {
+          "name": "基础设施",
+          "value": 158,
+          "note": "基建层"
+        },
+        {
+          "name": "AI 芯片",
+          "value": 97,
+          "note": "硬件层"
+        },
+        {
+          "name": "其他",
+          "value": 50,
+          "note": "其他"
+        }
+      ],
       "stepCount": 5,
       "showTotal": true,
       "showConnectors": true,
@@ -63041,14 +87086,56 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page023",
+    "key": "theme07_page027",
     "themeKey": "theme07",
-    "pageNumber": 23,
-    "layout": "THEME07-023",
+    "pageNumber": 27,
+    "layout": "THEME07-027",
     "slot": "deal-size-page",
     "label": "31 23",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Deal Size Split"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "金额区间结构"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "交易规模分布"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "大额融资内部仍有层级，低金额段贡献数量，高金额段贡献市场记忆。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "市场被少数超级交易重新定价。"
+      },
+      {
+        "key": "countLabel",
+        "label": "countLabel",
+        "type": "text",
+        "default": "交易数量 / 笔"
+      },
+      {
+        "key": "amountLabel",
+        "label": "amountLabel",
+        "type": "text",
+        "default": "融资金额 / 亿美元"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -63142,37 +87229,35 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Deal Size Split",
-        "title": "金额区间结构",
-        "sub": "交易规模分布",
-        "lead": "大额融资内部仍有层级，低金额段贡献数量，高金额段贡献市场记忆。",
-        "closing": "市场被少数超级交易重新定价。",
-        "countLabel": "交易数量 / 笔",
-        "amountLabel": "融资金额 / 亿美元",
-        "rows": [
-          {
-            "band": "1 — 2 亿美元",
-            "count": 41,
-            "amount": 58
-          },
-          {
-            "band": "2 — 5 亿美元",
-            "count": 29,
-            "amount": 91
-          },
-          {
-            "band": "5 — 10 亿美元",
-            "count": 15,
-            "amount": 103
-          },
-          {
-            "band": "10 亿美元以上",
-            "count": 12,
-            "amount": 718
-          }
-        ]
-      },
+      "eyebrow": "Deal Size Split",
+      "title": "金额区间结构",
+      "sub": "交易规模分布",
+      "lead": "大额融资内部仍有层级，低金额段贡献数量，高金额段贡献市场记忆。",
+      "closing": "市场被少数超级交易重新定价。",
+      "countLabel": "交易数量 / 笔",
+      "amountLabel": "融资金额 / 亿美元",
+      "rows": [
+        {
+          "band": "1 — 2 亿美元",
+          "count": 41,
+          "amount": 58
+        },
+        {
+          "band": "2 — 5 亿美元",
+          "count": 29,
+          "amount": 91
+        },
+        {
+          "band": "5 — 10 亿美元",
+          "count": 15,
+          "amount": 103
+        },
+        {
+          "band": "10 亿美元以上",
+          "count": 12,
+          "amount": 718
+        }
+      ],
       "rowCount": 4,
       "metricMode": "both",
       "showValues": true,
@@ -63183,14 +87268,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page024",
+    "key": "theme07_page028",
     "themeKey": "theme07",
-    "pageNumber": 24,
-    "layout": "THEME07-024",
+    "pageNumber": 28,
+    "layout": "THEME07-028",
     "slot": "avg-ticket-page",
     "label": "32 24",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Average Ticket"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "赛道平均融资额"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "平均单笔规模"
+      },
+      {
+        "key": "numLead",
+        "label": "numLead",
+        "type": "text",
+        "default": "10"
+      },
+      {
+        "key": "numUnit",
+        "label": "numUnit",
+        "type": "text",
+        "default": "亿美元"
+      },
+      {
+        "key": "numCaption",
+        "label": "numCaption",
+        "type": "text",
+        "default": "全年平均单笔融资规模"
+      },
+      {
+        "key": "note",
+        "label": "note",
+        "type": "text",
+        "default": "垂直应用不应只用融资规模评价，更要看收入效率。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "融资规模越大，后续兑现压力越高。"
+      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -63252,34 +87385,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Average Ticket",
-        "title": "赛道平均融资额",
-        "sub": "平均单笔规模",
-        "numLead": "10",
-        "numTail": "",
-        "numUnit": "亿美元",
-        "numCaption": "全年平均单笔融资规模",
-        "note": "垂直应用不应只用融资规模评价，更要看收入效率。",
-        "closing": "融资规模越大，后续兑现压力越高。",
-        "aux": [
-          {
-            "label": "总事件数",
-            "value": "97",
-            "unit": "笔"
-          },
-          {
-            "label": "全年融资额",
-            "value": "970",
-            "unit": "亿美元"
-          },
-          {
-            "label": "最高单笔",
-            "value": "64",
-            "unit": "亿美元"
-          }
-        ]
-      },
+      "eyebrow": "Average Ticket",
+      "title": "赛道平均融资额",
+      "sub": "平均单笔规模",
+      "numLead": "10",
+      "numTail": "",
+      "numUnit": "亿美元",
+      "numCaption": "全年平均单笔融资规模",
+      "note": "垂直应用不应只用融资规模评价，更要看收入效率。",
+      "closing": "融资规模越大，后续兑现压力越高。",
+      "aux": [
+        {
+          "label": "总事件数",
+          "value": "97",
+          "unit": "笔"
+        },
+        {
+          "label": "全年融资额",
+          "value": "970",
+          "unit": "亿美元"
+        },
+        {
+          "label": "最高单笔",
+          "value": "64",
+          "unit": "亿美元"
+        }
+      ],
       "numberSlant": true,
       "auxCount": 3,
       "showCaption": true,
@@ -63290,14 +87421,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page025",
+    "key": "theme07_page029",
     "themeKey": "theme07",
-    "pageNumber": 25,
-    "layout": "THEME07-025",
+    "pageNumber": 29,
+    "layout": "THEME07-029",
     "slot": "investor-page",
     "label": "33 25",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Capital Lens"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "活跃资本图谱"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "头部投资机构"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "大额融资背后是一批高频出手的头部机构，资本正从广撒网转向对头部资产的集中下注。"
+      },
+      {
+        "key": "anchorLead",
+        "label": "锚点数字",
+        "type": "text",
+        "default": "48"
+      },
+      {
+        "key": "anchorUnit",
+        "label": "锚点单位",
+        "type": "text",
+        "default": "家"
+      },
+      {
+        "key": "anchorNote",
+        "label": "锚点注释",
+        "type": "text",
+        "default": "全年参与大额轮次的活跃机构"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "钱多不稀缺，稀缺的是愿意下重注的确定性。"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -63402,34 +87581,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Capital Lens",
-        "title": "活跃资本图谱",
-        "titleTail": "头部投资机构",
-        "lead": "大额融资背后是一批高频出手的头部机构，资本正从广撒网转向对头部资产的集中下注。",
-        "anchorLead": "48",
-        "anchorUnit": "家",
-        "anchorNote": "全年参与大额轮次的活跃机构",
-        "closing": "钱多不稀缺，稀缺的是愿意下重注的确定性。",
-        "slots": [
-          {
-            "name": "Aperture Ventures",
-            "role": "领投 9 笔 · 偏好通用大模型"
-          },
-          {
-            "name": "Northgate Capital",
-            "role": "参投 14 笔 · 全赛道布局"
-          },
-          {
-            "name": "Vertex Growth",
-            "role": "领投 7 笔 · 押注基础设施"
-          },
-          {
-            "name": "Lumen Partners",
-            "role": "参投 11 笔 · 应用层为主"
-          }
-        ]
-      },
+      "eyebrow": "Capital Lens",
+      "title": "活跃资本图谱",
+      "titleTail": "头部投资机构",
+      "lead": "大额融资背后是一批高频出手的头部机构，资本正从广撒网转向对头部资产的集中下注。",
+      "anchorLead": "48",
+      "anchorUnit": "家",
+      "anchorNote": "全年参与大额轮次的活跃机构",
+      "closing": "钱多不稀缺，稀缺的是愿意下重注的确定性。",
+      "slots": [
+        {
+          "name": "Aperture Ventures",
+          "role": "领投 9 笔 · 偏好通用大模型"
+        },
+        {
+          "name": "Northgate Capital",
+          "role": "参投 14 笔 · 全赛道布局"
+        },
+        {
+          "name": "Vertex Growth",
+          "role": "领投 7 笔 · 押注基础设施"
+        },
+        {
+          "name": "Lumen Partners",
+          "role": "参投 11 笔 · 应用层为主"
+        }
+      ],
       "imageCount": 3,
       "imageRatio": "portrait",
       "showLabels": true,
@@ -63442,14 +87619,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page026",
+    "key": "theme07_page030",
     "themeKey": "theme07",
-    "pageNumber": 26,
-    "layout": "THEME07-026",
+    "pageNumber": 30,
+    "layout": "THEME07-030",
     "slot": "active-capital-page",
     "label": "34 26",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Active Capital"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "最活跃投资机构"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "出手次数 Top"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "头部机构的出手频次远高于市场平均，少数几家几乎参与了全年所有标志性轮次。"
+      },
+      {
+        "key": "anchorLead",
+        "label": "锚点数字",
+        "type": "text",
+        "default": "38%"
+      },
+      {
+        "key": "anchorNote",
+        "label": "锚点注释",
+        "type": "text",
+        "default": "前 6 家机构覆盖的大额轮次占比"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "出手越密集，越能定义下一轮叙事。"
+      },
+      {
+        "key": "axisLabel",
+        "label": "坐标标签",
+        "type": "text",
+        "default": "参与大额轮次 / 笔"
+      },
       {
         "key": "rowCount",
         "label": "卡片数量",
@@ -63565,53 +87790,51 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Active Capital",
-        "title": "最活跃投资机构",
-        "titleTail": "出手次数 Top",
-        "lead": "头部机构的出手频次远高于市场平均，少数几家几乎参与了全年所有标志性轮次。",
-        "anchorLead": "38%",
-        "anchorNote": "前 6 家机构覆盖的大额轮次占比",
-        "closing": "出手越密集，越能定义下一轮叙事。",
-        "axisLabel": "参与大额轮次 / 笔",
-        "rows": [
-          {
-            "name": "Northgate Capital",
-            "tag": "全赛道布局",
-            "val": 14
-          },
-          {
-            "name": "Lumen Partners",
-            "tag": "应用层为主",
-            "val": 11
-          },
-          {
-            "name": "Aperture Ventures",
-            "tag": "通用大模型",
-            "val": 9
-          },
-          {
-            "name": "Vertex Growth",
-            "tag": "基础设施",
-            "val": 7
-          },
-          {
-            "name": "Meridian Fund",
-            "tag": "安全与数据",
-            "val": 6
-          },
-          {
-            "name": "Cobalt Equity",
-            "tag": "AI 芯片",
-            "val": 5
-          },
-          {
-            "name": "Harbor Lane",
-            "tag": "早期种子",
-            "val": 4
-          }
-        ]
-      },
+      "eyebrow": "Active Capital",
+      "title": "最活跃投资机构",
+      "titleTail": "出手次数 Top",
+      "lead": "头部机构的出手频次远高于市场平均，少数几家几乎参与了全年所有标志性轮次。",
+      "anchorLead": "38%",
+      "anchorNote": "前 6 家机构覆盖的大额轮次占比",
+      "closing": "出手越密集，越能定义下一轮叙事。",
+      "axisLabel": "参与大额轮次 / 笔",
+      "rows": [
+        {
+          "name": "Northgate Capital",
+          "tag": "全赛道布局",
+          "val": 14
+        },
+        {
+          "name": "Lumen Partners",
+          "tag": "应用层为主",
+          "val": 11
+        },
+        {
+          "name": "Aperture Ventures",
+          "tag": "通用大模型",
+          "val": 9
+        },
+        {
+          "name": "Vertex Growth",
+          "tag": "基础设施",
+          "val": 7
+        },
+        {
+          "name": "Meridian Fund",
+          "tag": "安全与数据",
+          "val": 6
+        },
+        {
+          "name": "Cobalt Equity",
+          "tag": "AI 芯片",
+          "val": 5
+        },
+        {
+          "name": "Harbor Lane",
+          "tag": "早期种子",
+          "val": 4
+        }
+      ],
       "rowCount": 6,
       "chartType": "bars",
       "showValues": true,
@@ -63624,14 +87847,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page027",
+    "key": "theme07_page031",
     "themeKey": "theme07",
-    "pageNumber": 27,
-    "layout": "THEME07-027",
+    "pageNumber": 31,
+    "layout": "THEME07-031",
     "slot": "concentration-page",
     "label": "35 28",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Capital Concentration"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "资本集中度"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "头部集中"
+      },
+      {
+        "key": "numLead",
+        "label": "numLead",
+        "type": "text",
+        "default": "42"
+      },
+      {
+        "key": "numTail",
+        "label": "numTail",
+        "type": "text",
+        "default": "%"
+      },
+      {
+        "key": "numCaption",
+        "label": "numCaption",
+        "type": "text",
+        "default": "全年大额融资中，由 Top 10 机构主导轮次贡献的比例"
+      },
+      {
+        "key": "note",
+        "label": "note",
+        "type": "text",
+        "default": "集中不是终点，而是下一轮分化的起点。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "当资本向头部聚拢，中长尾的窗口正在收窄。"
+      },
+      {
+        "key": "barTitle",
+        "label": "barTitle",
+        "type": "text",
+        "default": "融资额份额 · 按机构排名分层"
+      },
+      {
+        "key": "remainderLabel",
+        "label": "remainderLabel",
+        "type": "text",
+        "default": "其他机构"
+      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -63710,49 +87993,47 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Capital Concentration",
-        "title": "资本集中度",
-        "sub": "头部集中",
-        "numLead": "42",
-        "numTail": "%",
-        "numCaption": "全年大额融资中，由 Top 10 机构主导轮次贡献的比例",
-        "note": "集中不是终点，而是下一轮分化的起点。",
-        "closing": "当资本向头部聚拢，中长尾的窗口正在收窄。",
-        "barTitle": "融资额份额 · 按机构排名分层",
-        "tiers": [
-          {
-            "label": "Top 3 机构",
-            "v": 22
-          },
-          {
-            "label": "第 4–6 名",
-            "v": 11
-          },
-          {
-            "label": "第 7–10 名",
-            "v": 9
-          }
-        ],
-        "remainderLabel": "其他机构",
-        "aux": [
-          {
-            "label": "活跃机构",
-            "value": "48",
-            "unit": "家"
-          },
-          {
-            "label": "Top10 覆盖轮次",
-            "value": "37",
-            "unit": "笔"
-          },
-          {
-            "label": "平均领投规模",
-            "value": "14",
-            "unit": "亿美元"
-          }
-        ]
-      },
+      "eyebrow": "Capital Concentration",
+      "title": "资本集中度",
+      "sub": "头部集中",
+      "numLead": "42",
+      "numTail": "%",
+      "numCaption": "全年大额融资中，由 Top 10 机构主导轮次贡献的比例",
+      "note": "集中不是终点，而是下一轮分化的起点。",
+      "closing": "当资本向头部聚拢，中长尾的窗口正在收窄。",
+      "barTitle": "融资额份额 · 按机构排名分层",
+      "tiers": [
+        {
+          "label": "Top 3 机构",
+          "v": 22
+        },
+        {
+          "label": "第 4–6 名",
+          "v": 11
+        },
+        {
+          "label": "第 7–10 名",
+          "v": 9
+        }
+      ],
+      "remainderLabel": "其他机构",
+      "aux": [
+        {
+          "label": "活跃机构",
+          "value": "48",
+          "unit": "家"
+        },
+        {
+          "label": "Top10 覆盖轮次",
+          "value": "37",
+          "unit": "笔"
+        },
+        {
+          "label": "平均领投规模",
+          "value": "14",
+          "unit": "亿美元"
+        }
+      ],
       "numberSlant": true,
       "tierCount": 3,
       "showRemainder": true,
@@ -63765,14 +88046,44 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page028",
+    "key": "theme07_page032",
     "themeKey": "theme07",
-    "pageNumber": 28,
-    "layout": "THEME07-028",
+    "pageNumber": 32,
+    "layout": "THEME07-032",
     "slot": "syndicate-page",
     "label": "36 27",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Notable Deals"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "代表性交易"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "领投阵容"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "少数几笔超大额轮次几乎定义了全年节奏，背后是稳定复现的领投与跟投组合。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "Top 6 交易合计 412 亿美元 · 占全年大额融资的 42%"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -63867,94 +88178,92 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Notable Deals",
-        "title": "代表性交易",
-        "titleTail": "领投阵容",
-        "lead": "少数几笔超大额轮次几乎定义了全年节奏，背后是稳定复现的领投与跟投组合。",
-        "statLine": "Top 6 交易合计 412 亿美元 · 占全年大额融资的 42%",
-        "colHeads": {
-          "co": "公司",
-          "dim": "赛道",
-          "val": "融资额",
-          "round": "轮次",
-          "syn": "领投 / 跟投阵容"
-        },
-        "rows": [
-          {
-            "co": "Helix AI",
-            "dim": "通用大模型",
-            "val": "64",
-            "unit": "亿美元",
-            "round": "F 轮",
-            "syn": [
-              "NG",
-              "AP",
-              "VG"
-            ]
-          },
-          {
-            "co": "Cortex Labs",
-            "dim": "基础设施",
-            "val": "58",
-            "unit": "亿美元",
-            "round": "E 轮",
-            "syn": [
-              "VG",
-              "NG",
-              "CO"
-            ]
-          },
-          {
-            "co": "Lumina",
-            "dim": "垂直应用",
-            "val": "47",
-            "unit": "亿美元",
-            "round": "D 轮",
-            "syn": [
-              "LP",
-              "NG",
-              "ME"
-            ]
-          },
-          {
-            "co": "Synapse",
-            "dim": "AI 芯片",
-            "val": "36",
-            "unit": "亿美元",
-            "round": "D 轮",
-            "syn": [
-              "CO",
-              "VG",
-              "AP"
-            ]
-          },
-          {
-            "co": "Verda",
-            "dim": "安全与数据",
-            "val": "24",
-            "unit": "亿美元",
-            "round": "C 轮",
-            "syn": [
-              "ME",
-              "LP",
-              "HL"
-            ]
-          },
-          {
-            "co": "Atlas Mind",
-            "dim": "通用大模型",
-            "val": "18",
-            "unit": "亿美元",
-            "round": "C 轮",
-            "syn": [
-              "AP",
-              "NG",
-              "HL"
-            ]
-          }
-        ]
+      "eyebrow": "Notable Deals",
+      "title": "代表性交易",
+      "titleTail": "领投阵容",
+      "lead": "少数几笔超大额轮次几乎定义了全年节奏，背后是稳定复现的领投与跟投组合。",
+      "statLine": "Top 6 交易合计 412 亿美元 · 占全年大额融资的 42%",
+      "colHeads": {
+        "co": "公司",
+        "dim": "赛道",
+        "val": "融资额",
+        "round": "轮次",
+        "syn": "领投 / 跟投阵容"
       },
+      "rows": [
+        {
+          "co": "Helix AI",
+          "dim": "通用大模型",
+          "val": "64",
+          "unit": "亿美元",
+          "round": "F 轮",
+          "syn": [
+            "NG",
+            "AP",
+            "VG"
+          ]
+        },
+        {
+          "co": "Cortex Labs",
+          "dim": "基础设施",
+          "val": "58",
+          "unit": "亿美元",
+          "round": "E 轮",
+          "syn": [
+            "VG",
+            "NG",
+            "CO"
+          ]
+        },
+        {
+          "co": "Lumina",
+          "dim": "垂直应用",
+          "val": "47",
+          "unit": "亿美元",
+          "round": "D 轮",
+          "syn": [
+            "LP",
+            "NG",
+            "ME"
+          ]
+        },
+        {
+          "co": "Synapse",
+          "dim": "AI 芯片",
+          "val": "36",
+          "unit": "亿美元",
+          "round": "D 轮",
+          "syn": [
+            "CO",
+            "VG",
+            "AP"
+          ]
+        },
+        {
+          "co": "Verda",
+          "dim": "安全与数据",
+          "val": "24",
+          "unit": "亿美元",
+          "round": "C 轮",
+          "syn": [
+            "ME",
+            "LP",
+            "HL"
+          ]
+        },
+        {
+          "co": "Atlas Mind",
+          "dim": "通用大模型",
+          "val": "18",
+          "unit": "亿美元",
+          "round": "C 轮",
+          "syn": [
+            "AP",
+            "NG",
+            "HL"
+          ]
+        }
+      ],
       "rowCount": 5,
       "showRound": true,
       "showSyndicate": true,
@@ -63966,14 +88275,56 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page029",
+    "key": "theme07_page033",
     "themeKey": "theme07",
-    "pageNumber": 29,
-    "layout": "THEME07-029",
+    "pageNumber": 33,
+    "layout": "THEME07-033",
     "slot": "knowledge-page",
     "label": "37 29",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Enterprise Search"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "企业搜索赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "知识入口机会"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "企业搜索赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "企业搜索是较早形成明确付费场景的应用方向；接入内部知识后，企业搜索具备高频使用场景，成为 AI 应用的重要落地点。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "企业知识入口是 AI 应用的重要落地点。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "企业搜索"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -64081,41 +88432,39 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Enterprise Search",
-        "segment": "企业搜索赛道",
-        "title": "知识入口机会",
-        "titleTail": "企业搜索赛道",
-        "lead": "企业搜索是较早形成明确付费场景的应用方向；接入内部知识后，企业搜索具备高频使用场景，成为 AI 应用的重要落地点。",
-        "closing": "企业知识入口是 AI 应用的重要落地点。",
-        "badge": "企业搜索",
-        "metrics": [
-          {
-            "label": "融资额",
-            "value": "38",
-            "unit": "亿美元"
-          },
-          {
-            "label": "事件数",
-            "value": "9",
-            "unit": "笔"
-          },
-          {
-            "label": "平均单笔",
-            "value": "4.2",
-            "unit": "亿美元"
-          },
-          {
-            "label": "付费客户中位数",
-            "value": "620",
-            "unit": "家"
-          }
-        ],
-        "progress": {
-          "label": "接入内部知识库后的高频检索渗透",
-          "value": 58,
-          "display": "58%"
+      "eyebrow": "Enterprise Search",
+      "segment": "企业搜索赛道",
+      "title": "知识入口机会",
+      "titleTail": "企业搜索赛道",
+      "lead": "企业搜索是较早形成明确付费场景的应用方向；接入内部知识后，企业搜索具备高频使用场景，成为 AI 应用的重要落地点。",
+      "closing": "企业知识入口是 AI 应用的重要落地点。",
+      "badge": "企业搜索",
+      "metrics": [
+        {
+          "label": "融资额",
+          "value": "38",
+          "unit": "亿美元"
+        },
+        {
+          "label": "事件数",
+          "value": "9",
+          "unit": "笔"
+        },
+        {
+          "label": "平均单笔",
+          "value": "4.2",
+          "unit": "亿美元"
+        },
+        {
+          "label": "付费客户中位数",
+          "value": "620",
+          "unit": "家"
         }
+      ],
+      "progress": {
+        "label": "接入内部知识库后的高频检索渗透",
+        "value": 58,
+        "display": "58%"
       },
       "imageCount": 1,
       "imageRatio": "portrait",
@@ -64129,14 +88478,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page030",
+    "key": "theme07_page034",
     "themeKey": "theme07",
-    "pageNumber": 30,
-    "layout": "THEME07-030",
+    "pageNumber": 34,
+    "layout": "THEME07-034",
     "slot": "legal-page",
     "label": "38 30",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Legal AI"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "法律 AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "专业服务 · 法律"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "专业服务高客单价"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "法律 AI 赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "法律 AI 具备高客单价、强专业壁垒和明确效率提升空间；专业服务行业愿意为准确性和审计链路付费。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 26 亿美元 · 6 笔事件 · 平均单笔 4.3 亿美元"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "46%"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "合同审查占场景比例"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "法律 AI 是垂直应用商业化样本。"
+      },
+      {
+        "key": "flowTitle",
+        "label": "flowTitle",
+        "type": "text",
+        "default": "法律工作流"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -64230,58 +88645,56 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Legal AI",
-        "marker": "法律 AI",
-        "segment": "专业服务 · 法律",
-        "title": "专业服务高客单价",
-        "titleTail": "法律 AI 赛道",
-        "lead": "法律 AI 具备高客单价、强专业壁垒和明确效率提升空间；专业服务行业愿意为准确性和审计链路付费。",
-        "statLine": "融资额 26 亿美元 · 6 笔事件 · 平均单笔 4.3 亿美元",
-        "anchorValue": "46%",
-        "anchorLabel": "合同审查占场景比例",
-        "closing": "法律 AI 是垂直应用商业化样本。",
-        "colHeads": {
-          "dim": "场景方向",
-          "share": "场景占比",
-          "note": "能力说明"
-        },
-        "rows": [
-          {
-            "dim": "合同审查",
-            "share": 46,
-            "note": "条款抽取、风险标注与版本比对"
-          },
-          {
-            "dim": "法律检索",
-            "share": 22,
-            "note": "判例、法规与内部知识检索"
-          },
-          {
-            "dim": "尽职调查",
-            "share": 14,
-            "note": "数据室文档批量解析与摘要"
-          },
-          {
-            "dim": "合规审查",
-            "share": 11,
-            "note": "政策对照、留痕与审计链路"
-          },
-          {
-            "dim": "文书起草",
-            "share": 7,
-            "note": "模板生成与草拟辅助"
-          }
-        ],
-        "flowTitle": "法律工作流",
-        "flow": [
-          "文档摄入",
-          "条款抽取",
-          "风险标注",
-          "审查输出",
-          "交付归档"
-        ]
+      "eyebrow": "Legal AI",
+      "marker": "法律 AI",
+      "segment": "专业服务 · 法律",
+      "title": "专业服务高客单价",
+      "titleTail": "法律 AI 赛道",
+      "lead": "法律 AI 具备高客单价、强专业壁垒和明确效率提升空间；专业服务行业愿意为准确性和审计链路付费。",
+      "statLine": "融资额 26 亿美元 · 6 笔事件 · 平均单笔 4.3 亿美元",
+      "anchorValue": "46%",
+      "anchorLabel": "合同审查占场景比例",
+      "closing": "法律 AI 是垂直应用商业化样本。",
+      "colHeads": {
+        "dim": "场景方向",
+        "share": "场景占比",
+        "note": "能力说明"
       },
+      "rows": [
+        {
+          "dim": "合同审查",
+          "share": 46,
+          "note": "条款抽取、风险标注与版本比对"
+        },
+        {
+          "dim": "法律检索",
+          "share": 22,
+          "note": "判例、法规与内部知识检索"
+        },
+        {
+          "dim": "尽职调查",
+          "share": 14,
+          "note": "数据室文档批量解析与摘要"
+        },
+        {
+          "dim": "合规审查",
+          "share": 11,
+          "note": "政策对照、留痕与审计链路"
+        },
+        {
+          "dim": "文书起草",
+          "share": 7,
+          "note": "模板生成与草拟辅助"
+        }
+      ],
+      "flowTitle": "法律工作流",
+      "flow": [
+        "文档摄入",
+        "条款抽取",
+        "风险标注",
+        "审查输出",
+        "交付归档"
+      ],
       "rowCount": 5,
       "showShare": true,
       "showFlow": true,
@@ -64293,14 +88706,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page031",
+    "key": "theme07_page035",
     "themeKey": "theme07",
-    "pageNumber": 31,
-    "layout": "THEME07-031",
+    "pageNumber": 35,
+    "layout": "THEME07-035",
     "slot": "healthcare-page",
     "label": "39 31",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Healthcare AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "医疗 AI 赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "慢变量高壁垒"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "医疗 AI 赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "医疗 AI 集中在影像、药物发现和临床文书自动化；验证周期长，但进入流程后的壁垒更强。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 34 亿美元 · 8 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "慢场景不代表低价值。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "医疗 AI"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "三大方向 · 融资分布 / 亿美元"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -64404,34 +88871,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Healthcare AI",
-        "segment": "医疗 AI 赛道",
-        "title": "慢变量高壁垒",
-        "titleTail": "医疗 AI 赛道",
-        "lead": "医疗 AI 集中在影像、药物发现和临床文书自动化；验证周期长，但进入流程后的壁垒更强。",
-        "statLine": "融资额 34 亿美元 · 8 笔事件",
-        "closing": "慢场景不代表低价值。",
-        "badge": "医疗 AI",
-        "panelTitle": "三大方向 · 融资分布 / 亿美元",
-        "branches": [
-          {
-            "name": "影像诊断",
-            "value": 11,
-            "note": "放射影像识别与分诊"
-          },
-          {
-            "name": "药物发现",
-            "value": 14,
-            "note": "靶点发现与分子生成"
-          },
-          {
-            "name": "临床文书",
-            "value": 9,
-            "note": "病历与文书自动化"
-          }
-        ]
-      },
+      "eyebrow": "Healthcare AI",
+      "segment": "医疗 AI 赛道",
+      "title": "慢变量高壁垒",
+      "titleTail": "医疗 AI 赛道",
+      "lead": "医疗 AI 集中在影像、药物发现和临床文书自动化；验证周期长，但进入流程后的壁垒更强。",
+      "statLine": "融资额 34 亿美元 · 8 笔事件",
+      "closing": "慢场景不代表低价值。",
+      "badge": "医疗 AI",
+      "panelTitle": "三大方向 · 融资分布 / 亿美元",
+      "branches": [
+        {
+          "name": "影像诊断",
+          "value": 11,
+          "note": "放射影像识别与分诊"
+        },
+        {
+          "name": "药物发现",
+          "value": 14,
+          "note": "靶点发现与分子生成"
+        },
+        {
+          "name": "临床文书",
+          "value": 9,
+          "note": "病历与文书自动化"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "landscape",
       "branchCount": 3,
@@ -64444,14 +88909,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page032",
+    "key": "theme07_page036",
     "themeKey": "theme07",
-    "pageNumber": 32,
-    "layout": "THEME07-032",
+    "pageNumber": 36,
+    "layout": "THEME07-036",
     "slot": "finance-page",
     "label": "40 32",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Finance AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "金融 AI 赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "投研、风控与合规"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "金融 AI 赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "金融 AI 聚焦投研、风控、合规和客户服务；金融行业付费能力强，但监管和准确率门槛更高。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 22 亿美元 · 7 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "高价值行业需要更强可信度。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "金融 AI"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "场景占比"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -64576,39 +89095,37 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Finance AI",
-        "segment": "金融 AI 赛道",
-        "title": "投研、风控与合规",
-        "titleTail": "金融 AI 赛道",
-        "lead": "金融 AI 聚焦投研、风控、合规和客户服务；金融行业付费能力强，但监管和准确率门槛更高。",
-        "statLine": "融资额 22 亿美元 · 7 笔事件",
-        "closing": "高价值行业需要更强可信度。",
-        "badge": "金融 AI",
-        "panelTitle": "场景占比",
-        "segments": [
-          {
-            "label": "投研",
-            "value": 31,
-            "note": "研报与因子挖掘"
-          },
-          {
-            "label": "合规",
-            "value": 28,
-            "note": "政策对照与留痕"
-          },
-          {
-            "label": "风控",
-            "value": 24,
-            "note": "反欺诈与信用评估"
-          },
-          {
-            "label": "客户服务",
-            "value": 17,
-            "note": "智能投顾与问答"
-          }
-        ]
-      },
+      "eyebrow": "Finance AI",
+      "segment": "金融 AI 赛道",
+      "title": "投研、风控与合规",
+      "titleTail": "金融 AI 赛道",
+      "lead": "金融 AI 聚焦投研、风控、合规和客户服务；金融行业付费能力强，但监管和准确率门槛更高。",
+      "statLine": "融资额 22 亿美元 · 7 笔事件",
+      "closing": "高价值行业需要更强可信度。",
+      "badge": "金融 AI",
+      "panelTitle": "场景占比",
+      "segments": [
+        {
+          "label": "投研",
+          "value": 31,
+          "note": "研报与因子挖掘"
+        },
+        {
+          "label": "合规",
+          "value": 28,
+          "note": "政策对照与留痕"
+        },
+        {
+          "label": "风控",
+          "value": 24,
+          "note": "反欺诈与信用评估"
+        },
+        {
+          "label": "客户服务",
+          "value": 17,
+          "note": "智能投顾与问答"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "chartType": "donut",
@@ -64622,14 +89139,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page033",
+    "key": "theme07_page037",
     "themeKey": "theme07",
-    "pageNumber": 33,
-    "layout": "THEME07-033",
+    "pageNumber": 37,
+    "layout": "THEME07-037",
     "slot": "compute-page",
     "label": "41 33",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "GPU Cloud"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "GPU 云与算力租赁"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "算力供给稀缺"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "GPU 云与算力租赁"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "GPU 云公司受益于训练和推理双重需求；壁垒来自供给锁定、客户绑定和资本开支效率。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "算力是 AI 时代最直接的硬资源。"
+      },
+      {
+        "key": "chartTitle",
+        "label": "chartTitle",
+        "type": "text",
+        "default": "算力集群 · 资源利用"
+      },
+      {
+        "key": "splitTitle",
+        "label": "splitTitle",
+        "type": "text",
+        "default": "资源构成 / 占比"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -64729,55 +89294,53 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "GPU Cloud",
-        "segment": "GPU 云与算力租赁",
-        "title": "算力供给稀缺",
-        "titleTail": "GPU 云与算力租赁",
-        "lead": "GPU 云公司受益于训练和推理双重需求；壁垒来自供给锁定、客户绑定和资本开支效率。",
-        "closing": "算力是 AI 时代最直接的硬资源。",
-        "chartTitle": "算力集群 · 资源利用",
-        "splitTitle": "资源构成 / 占比",
-        "metrics": [
-          {
-            "lbl": "融资额",
-            "val": "64",
-            "unit": "亿美元"
-          },
-          {
-            "lbl": "事件数",
-            "val": "9",
-            "unit": "笔"
-          },
-          {
-            "lbl": "平均单笔",
-            "val": "7.1",
-            "unit": "亿美元"
-          },
-          {
-            "lbl": "H100/H200 占比",
-            "val": "58",
-            "unit": "%"
-          }
-        ],
-        "split": [
-          {
-            "label": "H100 / H200",
-            "value": 58,
-            "note": "新一代训练算力"
-          },
-          {
-            "label": "A100 及以下",
-            "value": 30,
-            "note": "存量推理算力"
-          },
-          {
-            "label": "弹性 / 其他",
-            "value": 12,
-            "note": "按需与异构资源"
-          }
-        ]
-      },
+      "eyebrow": "GPU Cloud",
+      "segment": "GPU 云与算力租赁",
+      "title": "算力供给稀缺",
+      "titleTail": "GPU 云与算力租赁",
+      "lead": "GPU 云公司受益于训练和推理双重需求；壁垒来自供给锁定、客户绑定和资本开支效率。",
+      "closing": "算力是 AI 时代最直接的硬资源。",
+      "chartTitle": "算力集群 · 资源利用",
+      "splitTitle": "资源构成 / 占比",
+      "metrics": [
+        {
+          "lbl": "融资额",
+          "val": "64",
+          "unit": "亿美元"
+        },
+        {
+          "lbl": "事件数",
+          "val": "9",
+          "unit": "笔"
+        },
+        {
+          "lbl": "平均单笔",
+          "val": "7.1",
+          "unit": "亿美元"
+        },
+        {
+          "lbl": "H100/H200 占比",
+          "val": "58",
+          "unit": "%"
+        }
+      ],
+      "split": [
+        {
+          "label": "H100 / H200",
+          "value": 58,
+          "note": "新一代训练算力"
+        },
+        {
+          "label": "A100 及以下",
+          "value": 30,
+          "note": "存量推理算力"
+        },
+        {
+          "label": "弹性 / 其他",
+          "value": 12,
+          "note": "按需与异构资源"
+        }
+      ],
       "chartType": "cluster",
       "gridDensity": 12,
       "metricCount": 4,
@@ -64789,14 +89352,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page034",
+    "key": "theme07_page038",
     "themeKey": "theme07",
-    "pageNumber": 34,
-    "layout": "THEME07-034",
+    "pageNumber": 38,
+    "layout": "THEME07-038",
     "slot": "chip-page",
     "label": "42 34",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "AI Chips"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "硬件"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "AI 芯片赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "训练与推理硬件"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "AI 芯片赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "AI 芯片融资集中在训练加速器、推理芯片和边缘 AI；芯片周期长，但一旦形成供应链优势，壁垒极高。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "主力三大方向合计 · 训练 46 · 推理 32 · 边缘 19（亿美元）"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "97"
+      },
+      {
+        "key": "anchorUnit",
+        "label": "锚点单位",
+        "type": "text",
+        "default": "亿美元"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "全年融资额 · 13 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "硬件方向看长期确定性。"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -64880,57 +89509,55 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "AI Chips",
-        "marker": "硬件",
-        "segment": "AI 芯片赛道",
-        "title": "训练与推理硬件",
-        "titleTail": "AI 芯片赛道",
-        "lead": "AI 芯片融资集中在训练加速器、推理芯片和边缘 AI；芯片周期长，但一旦形成供应链优势，壁垒极高。",
-        "statLine": "主力三大方向合计 · 训练 46 · 推理 32 · 边缘 19（亿美元）",
-        "anchorValue": "97",
-        "anchorUnit": "亿美元",
-        "anchorLabel": "全年融资额 · 13 笔事件",
-        "closing": "硬件方向看长期确定性。",
-        "colHeads": {
-          "dim": "芯片方向",
-          "val": "融资额",
-          "share": "资金拆分",
-          "note": "判断"
-        },
-        "rows": [
-          {
-            "dim": "训练加速器",
-            "tier": "训练",
-            "val": "46",
-            "note": "大模型训练算力，供给紧俏"
-          },
-          {
-            "dim": "推理芯片",
-            "tier": "推理",
-            "val": "32",
-            "note": "推理成本与能效优化"
-          },
-          {
-            "dim": "边缘 AI 芯片",
-            "tier": "边缘",
-            "val": "19",
-            "note": "端侧与设备端智能"
-          },
-          {
-            "dim": "互联与先进封装",
-            "tier": "孵化",
-            "val": "8",
-            "note": "Chiplet 与高带宽互联"
-          },
-          {
-            "dim": "光子 / 前沿架构",
-            "tier": "孵化",
-            "val": "5",
-            "note": "存算一体与光计算探索"
-          }
-        ]
+      "eyebrow": "AI Chips",
+      "marker": "硬件",
+      "segment": "AI 芯片赛道",
+      "title": "训练与推理硬件",
+      "titleTail": "AI 芯片赛道",
+      "lead": "AI 芯片融资集中在训练加速器、推理芯片和边缘 AI；芯片周期长，但一旦形成供应链优势，壁垒极高。",
+      "statLine": "主力三大方向合计 · 训练 46 · 推理 32 · 边缘 19（亿美元）",
+      "anchorValue": "97",
+      "anchorUnit": "亿美元",
+      "anchorLabel": "全年融资额 · 13 笔事件",
+      "closing": "硬件方向看长期确定性。",
+      "colHeads": {
+        "dim": "芯片方向",
+        "val": "融资额",
+        "share": "资金拆分",
+        "note": "判断"
       },
+      "rows": [
+        {
+          "dim": "训练加速器",
+          "tier": "训练",
+          "val": "46",
+          "note": "大模型训练算力，供给紧俏"
+        },
+        {
+          "dim": "推理芯片",
+          "tier": "推理",
+          "val": "32",
+          "note": "推理成本与能效优化"
+        },
+        {
+          "dim": "边缘 AI 芯片",
+          "tier": "边缘",
+          "val": "19",
+          "note": "端侧与设备端智能"
+        },
+        {
+          "dim": "互联与先进封装",
+          "tier": "孵化",
+          "val": "8",
+          "note": "Chiplet 与高带宽互联"
+        },
+        {
+          "dim": "光子 / 前沿架构",
+          "tier": "孵化",
+          "val": "5",
+          "note": "存算一体与光计算探索"
+        }
+      ],
       "rowCount": 4,
       "showShare": true,
       "showJudgment": true,
@@ -64941,14 +89568,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page035",
+    "key": "theme07_page039",
     "themeKey": "theme07",
-    "pageNumber": 35,
-    "layout": "THEME07-035",
+    "pageNumber": 39,
+    "layout": "THEME07-039",
     "slot": "robotics-page",
     "label": "43 35",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Embodied AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "机器人与具身智能"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "从软件走向物理世界"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "机器人与具身智能"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "具身智能成为 AI 从软件能力延伸到物理场景的重要方向；它更像硬科技投资，验证周期更长。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 41 亿美元 · 7 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "长周期赛道需要看供应链和量产能力。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "具身智能"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "应用分布 · 融资 / 亿美元"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -65052,34 +89733,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Embodied AI",
-        "segment": "机器人与具身智能",
-        "title": "从软件走向物理世界",
-        "titleTail": "机器人与具身智能",
-        "lead": "具身智能成为 AI 从软件能力延伸到物理场景的重要方向；它更像硬科技投资，验证周期更长。",
-        "statLine": "融资额 41 亿美元 · 7 笔事件",
-        "closing": "长周期赛道需要看供应链和量产能力。",
-        "badge": "具身智能",
-        "panelTitle": "应用分布 · 融资 / 亿美元",
-        "segments": [
-          {
-            "name": "人形机器人",
-            "value": 21,
-            "note": "通用操作与服务场景"
-          },
-          {
-            "name": "工业自动化",
-            "value": 11,
-            "note": "柔性产线与质检"
-          },
-          {
-            "name": "仓储机器人",
-            "value": 9,
-            "note": "拣选与物流搬运"
-          }
-        ]
-      },
+      "eyebrow": "Embodied AI",
+      "segment": "机器人与具身智能",
+      "title": "从软件走向物理世界",
+      "titleTail": "机器人与具身智能",
+      "lead": "具身智能成为 AI 从软件能力延伸到物理场景的重要方向；它更像硬科技投资，验证周期更长。",
+      "statLine": "融资额 41 亿美元 · 7 笔事件",
+      "closing": "长周期赛道需要看供应链和量产能力。",
+      "badge": "具身智能",
+      "panelTitle": "应用分布 · 融资 / 亿美元",
+      "segments": [
+        {
+          "name": "人形机器人",
+          "value": 21,
+          "note": "通用操作与服务场景"
+        },
+        {
+          "name": "工业自动化",
+          "value": 11,
+          "note": "柔性产线与质检"
+        },
+        {
+          "name": "仓储机器人",
+          "value": 9,
+          "note": "拣选与物流搬运"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "landscape",
       "segmentCount": 3,
@@ -65092,14 +89771,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page036",
+    "key": "theme07_page040",
     "themeKey": "theme07",
-    "pageNumber": 36,
-    "layout": "THEME07-036",
+    "pageNumber": 40,
+    "layout": "THEME07-040",
     "slot": "autonomy-page",
     "label": "44 36",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Autonomous AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "自动驾驶与车载 AI"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "车载模型升级"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "自动驾驶与车载 AI"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "车载 AI 从感知模块转向端到端模型和座舱智能；资本更关注数据闭环和量产路径。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 29 亿美元 · 6 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "自动驾驶回暖，但更看重工程兑现。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "车载 AI"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "场景拆分 / 亿美元"
+      },
+      {
+        "key": "archTitle",
+        "label": "archTitle",
+        "type": "text",
+        "default": "车载 AI 架构"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -65227,41 +89966,39 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Autonomous AI",
-        "segment": "自动驾驶与车载 AI",
-        "title": "车载模型升级",
-        "titleTail": "自动驾驶与车载 AI",
-        "lead": "车载 AI 从感知模块转向端到端模型和座舱智能；资本更关注数据闭环和量产路径。",
-        "statLine": "融资额 29 亿美元 · 6 笔事件",
-        "closing": "自动驾驶回暖，但更看重工程兑现。",
-        "badge": "车载 AI",
-        "panelTitle": "场景拆分 / 亿美元",
-        "archTitle": "车载 AI 架构",
-        "arch": [
-          "环境感知",
-          "决策规划",
-          "执行控制",
-          "座舱交互"
-        ],
-        "segments": [
-          {
-            "label": "端到端驾驶",
-            "value": 13,
-            "note": "感知到控制一体化"
-          },
-          {
-            "label": "仿真平台",
-            "value": 9,
-            "note": "数据闭环与虚拟测试"
-          },
-          {
-            "label": "车载助手",
-            "value": 7,
-            "note": "座舱交互与语音"
-          }
-        ]
-      },
+      "eyebrow": "Autonomous AI",
+      "segment": "自动驾驶与车载 AI",
+      "title": "车载模型升级",
+      "titleTail": "自动驾驶与车载 AI",
+      "lead": "车载 AI 从感知模块转向端到端模型和座舱智能；资本更关注数据闭环和量产路径。",
+      "statLine": "融资额 29 亿美元 · 6 笔事件",
+      "closing": "自动驾驶回暖，但更看重工程兑现。",
+      "badge": "车载 AI",
+      "panelTitle": "场景拆分 / 亿美元",
+      "archTitle": "车载 AI 架构",
+      "arch": [
+        "环境感知",
+        "决策规划",
+        "执行控制",
+        "座舱交互"
+      ],
+      "segments": [
+        {
+          "label": "端到端驾驶",
+          "value": 13,
+          "note": "感知到控制一体化"
+        },
+        {
+          "label": "仿真平台",
+          "value": 9,
+          "note": "数据闭环与虚拟测试"
+        },
+        {
+          "label": "车载助手",
+          "value": 7,
+          "note": "座舱交互与语音"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "chartType": "bars",
@@ -65276,14 +90013,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page037",
+    "key": "theme07_page041",
     "themeKey": "theme07",
-    "pageNumber": 37,
-    "layout": "THEME07-037",
+    "pageNumber": 41,
+    "layout": "THEME07-041",
     "slot": "safety-page",
     "label": "45 37",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "AI Safety"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "AI 安全赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "评测、红队与合规"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "AI 安全赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "AI 安全覆盖模型评测、红队测试、内容安全和合规监测；监管收紧会把它从可选预算变成刚性预算。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "安全能力会成为企业采购门槛。"
+      },
+      {
+        "key": "chartTitle",
+        "label": "chartTitle",
+        "type": "text",
+        "default": "安全防线 · 资金 / 亿美元"
+      },
+      {
+        "key": "splitTitle",
+        "label": "splitTitle",
+        "type": "text",
+        "default": "防线资金占比"
+      },
+      {
+        "key": "stripTitle",
+        "label": "stripTitle",
+        "type": "text",
+        "default": "风险拦截示意"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -65383,65 +90174,63 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "AI Safety",
-        "segment": "AI 安全赛道",
-        "title": "评测、红队与合规",
-        "titleTail": "AI 安全赛道",
-        "lead": "AI 安全覆盖模型评测、红队测试、内容安全和合规监测；监管收紧会把它从可选预算变成刚性预算。",
-        "closing": "安全能力会成为企业采购门槛。",
-        "chartTitle": "安全防线 · 资金 / 亿美元",
-        "splitTitle": "防线资金占比",
-        "stripTitle": "风险拦截示意",
-        "metrics": [
-          {
-            "lbl": "融资额",
-            "val": "16",
-            "unit": "亿美元"
-          },
-          {
-            "lbl": "事件数",
-            "val": "8",
-            "unit": "笔"
-          },
-          {
-            "lbl": "模型评测",
-            "val": "6",
-            "unit": "亿美元"
-          },
-          {
-            "lbl": "合规监测",
-            "val": "5",
-            "unit": "亿美元"
-          }
-        ],
-        "layers": [
-          {
-            "tier": "L1",
-            "name": "模型评测",
-            "value": 6,
-            "note": "能力与风险基准测试"
-          },
-          {
-            "tier": "L2",
-            "name": "内容安全",
-            "value": 5,
-            "note": "有害内容识别与过滤"
-          },
-          {
-            "tier": "L3",
-            "name": "合规监测",
-            "value": 5,
-            "note": "审计链路与监管对齐"
-          },
-          {
-            "tier": "L4",
-            "name": "红队测试",
-            "value": 4,
-            "note": "对抗攻击与越狱探测"
-          }
-        ]
-      },
+      "eyebrow": "AI Safety",
+      "segment": "AI 安全赛道",
+      "title": "评测、红队与合规",
+      "titleTail": "AI 安全赛道",
+      "lead": "AI 安全覆盖模型评测、红队测试、内容安全和合规监测；监管收紧会把它从可选预算变成刚性预算。",
+      "closing": "安全能力会成为企业采购门槛。",
+      "chartTitle": "安全防线 · 资金 / 亿美元",
+      "splitTitle": "防线资金占比",
+      "stripTitle": "风险拦截示意",
+      "metrics": [
+        {
+          "lbl": "融资额",
+          "val": "16",
+          "unit": "亿美元"
+        },
+        {
+          "lbl": "事件数",
+          "val": "8",
+          "unit": "笔"
+        },
+        {
+          "lbl": "模型评测",
+          "val": "6",
+          "unit": "亿美元"
+        },
+        {
+          "lbl": "合规监测",
+          "val": "5",
+          "unit": "亿美元"
+        }
+      ],
+      "layers": [
+        {
+          "tier": "L1",
+          "name": "模型评测",
+          "value": 6,
+          "note": "能力与风险基准测试"
+        },
+        {
+          "tier": "L2",
+          "name": "内容安全",
+          "value": 5,
+          "note": "有害内容识别与过滤"
+        },
+        {
+          "tier": "L3",
+          "name": "合规监测",
+          "value": 5,
+          "note": "审计链路与监管对齐"
+        },
+        {
+          "tier": "L4",
+          "name": "红队测试",
+          "value": 4,
+          "note": "对抗攻击与越狱探测"
+        }
+      ],
       "chartType": "layers",
       "layerCount": 3,
       "metricCount": 4,
@@ -65453,14 +90242,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page038",
+    "key": "theme07_page042",
     "themeKey": "theme07",
-    "pageNumber": 38,
-    "layout": "THEME07-038",
+    "pageNumber": 42,
+    "layout": "THEME07-042",
     "slot": "content-gen-page",
     "label": "46 38",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Generative Content"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "内容生成赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "图像、视频与创意"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "内容生成赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "内容生成继续保持融资热度，但也面临版权和留存问题；长期价值取决于付费意愿与版权处理。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 31 亿美元 · 11 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "流量热度不等于商业壁垒。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "内容生成"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "媒介分布 · 融资 / 亿美元"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -65568,39 +90411,37 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Generative Content",
-        "segment": "内容生成赛道",
-        "title": "图像、视频与创意",
-        "titleTail": "内容生成赛道",
-        "lead": "内容生成继续保持融资热度，但也面临版权和留存问题；长期价值取决于付费意愿与版权处理。",
-        "statLine": "融资额 31 亿美元 · 11 笔事件",
-        "closing": "流量热度不等于商业壁垒。",
-        "badge": "内容生成",
-        "panelTitle": "媒介分布 · 融资 / 亿美元",
-        "segments": [
-          {
-            "name": "视频生成",
-            "value": 14,
-            "note": "文生视频与镜头控制"
-          },
-          {
-            "name": "广告创意",
-            "value": 8,
-            "note": "营销素材批量生成"
-          },
-          {
-            "name": "图像生成",
-            "value": 5,
-            "note": "品牌视觉与设计辅助"
-          },
-          {
-            "name": "音乐音频",
-            "value": 4,
-            "note": "配乐与语音合成"
-          }
-        ]
-      },
+      "eyebrow": "Generative Content",
+      "segment": "内容生成赛道",
+      "title": "图像、视频与创意",
+      "titleTail": "内容生成赛道",
+      "lead": "内容生成继续保持融资热度，但也面临版权和留存问题；长期价值取决于付费意愿与版权处理。",
+      "statLine": "融资额 31 亿美元 · 11 笔事件",
+      "closing": "流量热度不等于商业壁垒。",
+      "badge": "内容生成",
+      "panelTitle": "媒介分布 · 融资 / 亿美元",
+      "segments": [
+        {
+          "name": "视频生成",
+          "value": 14,
+          "note": "文生视频与镜头控制"
+        },
+        {
+          "name": "广告创意",
+          "value": 8,
+          "note": "营销素材批量生成"
+        },
+        {
+          "name": "图像生成",
+          "value": 5,
+          "note": "品牌视觉与设计辅助"
+        },
+        {
+          "name": "音乐音频",
+          "value": 4,
+          "note": "配乐与语音合成"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "landscape",
       "segmentCount": 3,
@@ -65613,14 +90454,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page039",
+    "key": "theme07_page043",
     "themeKey": "theme07",
-    "pageNumber": 39,
-    "layout": "THEME07-039",
+    "pageNumber": 43,
+    "layout": "THEME07-043",
     "slot": "education-page",
     "label": "47 39",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Education AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "教育 AI 赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "个性化学习与教师工具"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "教育 AI 赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "教育 AI 从通用答疑转向个性化辅导和教师工作台；难点不是生成答案，而是证明学习效果和付费意愿。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 14 亿美元 · 5 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "教育 AI 需要用结果证明价值。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "教育 AI"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "学习路径 · 融资 / 亿美元"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -65724,34 +90619,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Education AI",
-        "segment": "教育 AI 赛道",
-        "title": "个性化学习与教师工具",
-        "titleTail": "教育 AI 赛道",
-        "lead": "教育 AI 从通用答疑转向个性化辅导和教师工作台；难点不是生成答案，而是证明学习效果和付费意愿。",
-        "statLine": "融资额 14 亿美元 · 5 笔事件",
-        "closing": "教育 AI 需要用结果证明价值。",
-        "badge": "教育 AI",
-        "panelTitle": "学习路径 · 融资 / 亿美元",
-        "segments": [
-          {
-            "name": "K12 辅导",
-            "value": 6,
-            "note": "个性化习题与答疑"
-          },
-          {
-            "name": "企业培训",
-            "value": 5,
-            "note": "岗位技能与上岗考核"
-          },
-          {
-            "name": "教师工具",
-            "value": 3,
-            "note": "备课、批改与学情分析"
-          }
-        ]
-      },
+      "eyebrow": "Education AI",
+      "segment": "教育 AI 赛道",
+      "title": "个性化学习与教师工具",
+      "titleTail": "教育 AI 赛道",
+      "lead": "教育 AI 从通用答疑转向个性化辅导和教师工作台；难点不是生成答案，而是证明学习效果和付费意愿。",
+      "statLine": "融资额 14 亿美元 · 5 笔事件",
+      "closing": "教育 AI 需要用结果证明价值。",
+      "badge": "教育 AI",
+      "panelTitle": "学习路径 · 融资 / 亿美元",
+      "segments": [
+        {
+          "name": "K12 辅导",
+          "value": 6,
+          "note": "个性化习题与答疑"
+        },
+        {
+          "name": "企业培训",
+          "value": 5,
+          "note": "岗位技能与上岗考核"
+        },
+        {
+          "name": "教师工具",
+          "value": 3,
+          "note": "备课、批改与学情分析"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "segmentCount": 3,
@@ -65764,14 +90657,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page040",
+    "key": "theme07_page044",
     "themeKey": "theme07",
-    "pageNumber": 40,
-    "layout": "THEME07-040",
+    "pageNumber": 44,
+    "layout": "THEME07-044",
     "slot": "support-page",
     "label": "48 40",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Customer Support AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "客服 AI 赛道"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "可量化降本场景"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "客服 AI 赛道"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "客服 AI 是最容易量化 ROI 的垂直应用之一；商业化看降本效果、接入成本和复杂问题升级率。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "平均替代率 32% · 工单时长下降 41% · 9 笔事件"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "27"
+      },
+      {
+        "key": "anchorUnit",
+        "label": "锚点单位",
+        "type": "text",
+        "default": "亿美元"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "全年融资额 · 9 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "能量化 ROI 的场景更容易获得预算。"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -65855,56 +90808,54 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Customer Support AI",
-        "segment": "客服 AI 赛道",
-        "title": "可量化降本场景",
-        "titleTail": "客服 AI 赛道",
-        "lead": "客服 AI 是最容易量化 ROI 的垂直应用之一；商业化看降本效果、接入成本和复杂问题升级率。",
-        "statLine": "平均替代率 32% · 工单时长下降 41% · 9 笔事件",
-        "anchorValue": "27",
-        "anchorUnit": "亿美元",
-        "anchorLabel": "全年融资额 · 9 笔事件",
-        "closing": "能量化 ROI 的场景更容易获得预算。",
-        "colHeads": {
-          "dim": "降本场景",
-          "val": "自动化率",
-          "share": "降本贡献",
-          "note": "判断"
-        },
-        "rows": [
-          {
-            "dim": "工单自动应答",
-            "tier": "替代",
-            "val": "48",
-            "note": "高频简单问题直接闭环"
-          },
-          {
-            "dim": "知识库检索",
-            "tier": "辅助",
-            "val": "31",
-            "note": "坐席实时调取标准答案"
-          },
-          {
-            "dim": "情绪与升级",
-            "tier": "辅助",
-            "val": "22",
-            "note": "识别复杂问题转人工"
-          },
-          {
-            "dim": "多语言支持",
-            "tier": "扩展",
-            "val": "18",
-            "note": "跨区域统一服务覆盖"
-          },
-          {
-            "dim": "质检与培训",
-            "tier": "扩展",
-            "val": "15",
-            "note": "全量对话质检与复盘"
-          }
-        ]
+      "eyebrow": "Customer Support AI",
+      "segment": "客服 AI 赛道",
+      "title": "可量化降本场景",
+      "titleTail": "客服 AI 赛道",
+      "lead": "客服 AI 是最容易量化 ROI 的垂直应用之一；商业化看降本效果、接入成本和复杂问题升级率。",
+      "statLine": "平均替代率 32% · 工单时长下降 41% · 9 笔事件",
+      "anchorValue": "27",
+      "anchorUnit": "亿美元",
+      "anchorLabel": "全年融资额 · 9 笔事件",
+      "closing": "能量化 ROI 的场景更容易获得预算。",
+      "colHeads": {
+        "dim": "降本场景",
+        "val": "自动化率",
+        "share": "降本贡献",
+        "note": "判断"
       },
+      "rows": [
+        {
+          "dim": "工单自动应答",
+          "tier": "替代",
+          "val": "48",
+          "note": "高频简单问题直接闭环"
+        },
+        {
+          "dim": "知识库检索",
+          "tier": "辅助",
+          "val": "31",
+          "note": "坐席实时调取标准答案"
+        },
+        {
+          "dim": "情绪与升级",
+          "tier": "辅助",
+          "val": "22",
+          "note": "识别复杂问题转人工"
+        },
+        {
+          "dim": "多语言支持",
+          "tier": "扩展",
+          "val": "18",
+          "note": "跨区域统一服务覆盖"
+        },
+        {
+          "dim": "质检与培训",
+          "tier": "扩展",
+          "val": "15",
+          "note": "全量对话质检与复盘"
+        }
+      ],
       "rowCount": 4,
       "showShare": true,
       "showJudgment": true,
@@ -65915,14 +90866,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page041",
+    "key": "theme07_page045",
     "themeKey": "theme07",
-    "pageNumber": 41,
-    "layout": "THEME07-041",
+    "pageNumber": 45,
+    "layout": "THEME07-045",
     "slot": "sales-page",
     "label": "49 41",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Sales & Marketing AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "销售与营销 AI"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "增长效率工具"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "销售与营销 AI"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "销售与营销 AI 集中在线索评分、自动外呼、邮件和广告创意；短期转化快，但同质化竞争也更明显。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 24 亿美元 · 10 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "营销 AI 要用转化率证明自己。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "销售营销"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "增长漏斗 · 融资 / 亿美元"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -66026,34 +91031,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Sales & Marketing AI",
-        "segment": "销售与营销 AI",
-        "title": "增长效率工具",
-        "titleTail": "销售与营销 AI",
-        "lead": "销售与营销 AI 集中在线索评分、自动外呼、邮件和广告创意；短期转化快，但同质化竞争也更明显。",
-        "statLine": "融资额 24 亿美元 · 10 笔事件",
-        "closing": "营销 AI 要用转化率证明自己。",
-        "badge": "销售营销",
-        "panelTitle": "增长漏斗 · 融资 / 亿美元",
-        "segments": [
-          {
-            "name": "广告创意",
-            "value": 8,
-            "note": "获客 · 营销素材批量生成"
-          },
-          {
-            "name": "线索评分",
-            "value": 7,
-            "note": "筛选 · 意向预测与排序"
-          },
-          {
-            "name": "自动外呼",
-            "value": 6,
-            "note": "转化 · 邮件与语音触达"
-          }
-        ]
-      },
+      "eyebrow": "Sales & Marketing AI",
+      "segment": "销售与营销 AI",
+      "title": "增长效率工具",
+      "titleTail": "销售与营销 AI",
+      "lead": "销售与营销 AI 集中在线索评分、自动外呼、邮件和广告创意；短期转化快，但同质化竞争也更明显。",
+      "statLine": "融资额 24 亿美元 · 10 笔事件",
+      "closing": "营销 AI 要用转化率证明自己。",
+      "badge": "销售营销",
+      "panelTitle": "增长漏斗 · 融资 / 亿美元",
+      "segments": [
+        {
+          "name": "广告创意",
+          "value": 8,
+          "note": "获客 · 营销素材批量生成"
+        },
+        {
+          "name": "线索评分",
+          "value": 7,
+          "note": "筛选 · 意向预测与排序"
+        },
+        {
+          "name": "自动外呼",
+          "value": 6,
+          "note": "转化 · 邮件与语音触达"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "landscape",
       "segmentCount": 3,
@@ -66066,14 +91069,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page042",
+    "key": "theme07_page046",
     "themeKey": "theme07",
-    "pageNumber": 42,
-    "layout": "THEME07-042",
+    "pageNumber": 46,
+    "layout": "THEME07-046",
     "slot": "low-code-page",
     "label": "50 42",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Low-Code AI"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "低代码 AI 平台"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "企业流程嵌入"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "低代码 AI 平台"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "低代码 AI 平台帮助企业把模型能力嵌入内部流程；关键不是模型能力，而是交付速度和治理能力。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 19 亿美元 · 6 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "能被业务团队使用的平台更容易扩散。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "低代码"
+      },
+      {
+        "key": "flowTitle",
+        "label": "flowTitle",
+        "type": "text",
+        "default": "流程编排 · Orchestration"
+      },
+      {
+        "key": "metricTitle",
+        "label": "metricTitle",
+        "type": "text",
+        "default": "客户与留存 · Retention"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -66202,56 +91265,54 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Low-Code AI",
-        "segment": "低代码 AI 平台",
-        "title": "企业流程嵌入",
-        "titleTail": "低代码 AI 平台",
-        "lead": "低代码 AI 平台帮助企业把模型能力嵌入内部流程；关键不是模型能力，而是交付速度和治理能力。",
-        "statLine": "融资额 19 亿美元 · 6 笔事件",
-        "closing": "能被业务团队使用的平台更容易扩散。",
-        "badge": "低代码",
-        "flowTitle": "流程编排 · Orchestration",
-        "metricTitle": "客户与留存 · Retention",
-        "steps": [
-          {
-            "name": "连接数据",
-            "note": "系统与知识源"
-          },
-          {
-            "name": "编排流程",
-            "note": "可视化拖拽"
-          },
-          {
-            "name": "嵌入业务",
-            "note": "触点与审批"
-          },
-          {
-            "name": "治理监控",
-            "note": "权限与审计"
-          },
-          {
-            "name": "复用沉淀",
-            "note": "模板与资产"
-          }
-        ],
-        "metrics": [
-          {
-            "label": "净收入留存",
-            "value": "118",
-            "unit": "%",
-            "pct": 0.88,
-            "note": "席位扩张驱动"
-          },
-          {
-            "label": "企业客户中位数",
-            "value": "430",
-            "unit": "家",
-            "pct": 0.62,
-            "note": "部门级渗透"
-          }
-        ]
-      },
+      "eyebrow": "Low-Code AI",
+      "segment": "低代码 AI 平台",
+      "title": "企业流程嵌入",
+      "titleTail": "低代码 AI 平台",
+      "lead": "低代码 AI 平台帮助企业把模型能力嵌入内部流程；关键不是模型能力，而是交付速度和治理能力。",
+      "statLine": "融资额 19 亿美元 · 6 笔事件",
+      "closing": "能被业务团队使用的平台更容易扩散。",
+      "badge": "低代码",
+      "flowTitle": "流程编排 · Orchestration",
+      "metricTitle": "客户与留存 · Retention",
+      "steps": [
+        {
+          "name": "连接数据",
+          "note": "系统与知识源"
+        },
+        {
+          "name": "编排流程",
+          "note": "可视化拖拽"
+        },
+        {
+          "name": "嵌入业务",
+          "note": "触点与审批"
+        },
+        {
+          "name": "治理监控",
+          "note": "权限与审计"
+        },
+        {
+          "name": "复用沉淀",
+          "note": "模板与资产"
+        }
+      ],
+      "metrics": [
+        {
+          "label": "净收入留存",
+          "value": "118",
+          "unit": "%",
+          "pct": 0.88,
+          "note": "席位扩张驱动"
+        },
+        {
+          "label": "企业客户中位数",
+          "value": "430",
+          "unit": "家",
+          "pct": 0.62,
+          "note": "部门级渗透"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "stepCount": 4,
@@ -66266,14 +91327,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page043",
+    "key": "theme07_page047",
     "themeKey": "theme07",
-    "pageNumber": 43,
-    "layout": "THEME07-043",
+    "pageNumber": 47,
+    "layout": "THEME07-047",
     "slot": "open-source-page",
     "label": "51 43",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Open-Source Models"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "开源模型公司"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "社区影响力变现"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "开源模型公司"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "开源模型公司通过社区影响力、托管服务和企业支持变现；开源能快速获得开发者，但商业化仍需要企业级能力。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 28 亿美元 · 7 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "开源是入口，不是完整商业模式。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "开源模型"
+      },
+      {
+        "key": "bridgeTitle",
+        "label": "bridgeTitle",
+        "type": "text",
+        "default": "影响力到收入 · 转化路径"
+      },
+      {
+        "key": "ribbonLabel",
+        "label": "ribbonLabel",
+        "type": "text",
+        "default": "影响力 → 收入"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -66387,33 +91508,31 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Open-Source Models",
-        "segment": "开源模型公司",
-        "title": "社区影响力变现",
-        "titleTail": "开源模型公司",
-        "lead": "开源模型公司通过社区影响力、托管服务和企业支持变现；开源能快速获得开发者，但商业化仍需要企业级能力。",
-        "statLine": "融资额 28 亿美元 · 7 笔事件",
-        "closing": "开源是入口，不是完整商业模式。",
-        "badge": "开源模型",
-        "bridgeTitle": "影响力到收入 · 转化路径",
-        "source": {
-          "kicker": "社区影响力",
-          "value": "2.8",
-          "unit": "亿次",
-          "caption": "累计模型下载量",
-          "tag": "开发者入口"
-        },
-        "target": {
-          "kicker": "企业服务",
-          "pct": 37,
-          "display": "37",
-          "unit": "%",
-          "caption": "企业服务收入占比",
-          "tag": "商业化兑现"
-        },
-        "ribbonLabel": "影响力 → 收入"
+      "eyebrow": "Open-Source Models",
+      "segment": "开源模型公司",
+      "title": "社区影响力变现",
+      "titleTail": "开源模型公司",
+      "lead": "开源模型公司通过社区影响力、托管服务和企业支持变现；开源能快速获得开发者，但商业化仍需要企业级能力。",
+      "statLine": "融资额 28 亿美元 · 7 笔事件",
+      "closing": "开源是入口，不是完整商业模式。",
+      "badge": "开源模型",
+      "bridgeTitle": "影响力到收入 · 转化路径",
+      "source": {
+        "kicker": "社区影响力",
+        "value": "2.8",
+        "unit": "亿次",
+        "caption": "累计模型下载量",
+        "tag": "开发者入口"
       },
+      "target": {
+        "kicker": "企业服务",
+        "pct": 37,
+        "display": "37",
+        "unit": "%",
+        "caption": "企业服务收入占比",
+        "tag": "商业化兑现"
+      },
+      "ribbonLabel": "影响力 → 收入",
       "imageCount": 1,
       "imageRatio": "landscape",
       "chartType": "ring",
@@ -66427,14 +91546,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page044",
+    "key": "theme07_page048",
     "themeKey": "theme07",
-    "pageNumber": 44,
-    "layout": "THEME07-044",
+    "pageNumber": 48,
+    "layout": "THEME07-048",
     "slot": "alignment-page",
     "label": "52 44",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Model Alignment"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "模型安全公司"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "安全与对齐工具"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "模型安全公司"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "模型安全和对齐公司吸引长期资本关注；安全对齐既是技术壁垒，也是大客户信任入口。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "融资额 21 亿美元 · 5 笔事件"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "可信 AI 会成为企业级 AI 的基础设施。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "安全对齐"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "安全防线 · 融资 / 亿美元"
+      },
+      {
+        "key": "shieldLabel",
+        "label": "shieldLabel",
+        "type": "text",
+        "default": "可信 AI 防线"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -66545,35 +91724,33 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Model Alignment",
-        "segment": "模型安全公司",
-        "title": "安全与对齐工具",
-        "titleTail": "模型安全公司",
-        "lead": "模型安全和对齐公司吸引长期资本关注；安全对齐既是技术壁垒，也是大客户信任入口。",
-        "statLine": "融资额 21 亿美元 · 5 笔事件",
-        "closing": "可信 AI 会成为企业级 AI 的基础设施。",
-        "badge": "安全对齐",
-        "panelTitle": "安全防线 · 融资 / 亿美元",
-        "shieldLabel": "可信 AI 防线",
-        "segments": [
-          {
-            "name": "评测平台",
-            "value": 8,
-            "note": "能力与风险基准"
-          },
-          {
-            "name": "对齐工具",
-            "value": 7,
-            "note": "价值对齐与约束"
-          },
-          {
-            "name": "红队服务",
-            "value": 6,
-            "note": "攻击与漏洞挖掘"
-          }
-        ]
-      },
+      "eyebrow": "Model Alignment",
+      "segment": "模型安全公司",
+      "title": "安全与对齐工具",
+      "titleTail": "模型安全公司",
+      "lead": "模型安全和对齐公司吸引长期资本关注；安全对齐既是技术壁垒，也是大客户信任入口。",
+      "statLine": "融资额 21 亿美元 · 5 笔事件",
+      "closing": "可信 AI 会成为企业级 AI 的基础设施。",
+      "badge": "安全对齐",
+      "panelTitle": "安全防线 · 融资 / 亿美元",
+      "shieldLabel": "可信 AI 防线",
+      "segments": [
+        {
+          "name": "评测平台",
+          "value": 8,
+          "note": "能力与风险基准"
+        },
+        {
+          "name": "对齐工具",
+          "value": 7,
+          "note": "价值对齐与约束"
+        },
+        {
+          "name": "红队服务",
+          "value": 6,
+          "note": "攻击与漏洞挖掘"
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "segmentCount": 3,
@@ -66587,14 +91764,56 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page045",
+    "key": "theme07_page049",
     "themeKey": "theme07",
-    "pageNumber": 45,
-    "layout": "THEME07-045",
+    "pageNumber": 49,
+    "layout": "THEME07-049",
     "slot": "capital-chapter-page",
     "label": "53 45",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Chapter"
+      },
+      {
+        "key": "index",
+        "label": "index",
+        "type": "text",
+        "default": "04"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "资本与地区结构"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "轮次、投资人和地理集群"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "本章进入资本结构部分，拆解轮次、投资人、云厂商、NVIDIA 生态和地理分布。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "下一组页面进入更细的拆解。"
+      },
+      {
+        "key": "clusterTitle",
+        "label": "clusterTitle",
+        "type": "text",
+        "default": "地理集群 · 资本份额"
+      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -66693,65 +91912,63 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Chapter",
-        "index": "04",
-        "title": "资本与地区结构",
-        "sub": "轮次、投资人和地理集群",
-        "lead": "本章进入资本结构部分，拆解轮次、投资人、云厂商、NVIDIA 生态和地理分布。",
-        "closing": "下一组页面进入更细的拆解。",
-        "keywords": [
-          "后期轮",
-          "战略投资",
-          "云资源",
-          "湾区",
-          "纽约",
-          "西雅图"
-        ],
-        "clusterTitle": "地理集群 · 资本份额",
-        "hubs": [
-          {
-            "label": "旧金山湾区",
-            "en": "Bay Area",
-            "pct": 63.9,
-            "x": 36,
-            "y": 46,
-            "d": 60
-          },
-          {
-            "label": "纽约",
-            "en": "New York",
-            "pct": 12.4,
-            "x": 74,
-            "y": 30,
-            "d": 31
-          },
-          {
-            "label": "西雅图",
-            "en": "Seattle",
-            "pct": 9.8,
-            "x": 78,
-            "y": 70,
-            "d": 27
-          },
-          {
-            "label": "波士顿",
-            "en": "Boston",
-            "pct": 7.7,
-            "x": 24,
-            "y": 82,
-            "d": 23
-          },
-          {
-            "label": "其他地区",
-            "en": "Others",
-            "pct": 6.2,
-            "x": 56,
-            "y": 84,
-            "d": 19
-          }
-        ]
-      },
+      "eyebrow": "Chapter",
+      "index": "04",
+      "title": "资本与地区结构",
+      "sub": "轮次、投资人和地理集群",
+      "lead": "本章进入资本结构部分，拆解轮次、投资人、云厂商、NVIDIA 生态和地理分布。",
+      "closing": "下一组页面进入更细的拆解。",
+      "keywords": [
+        "后期轮",
+        "战略投资",
+        "云资源",
+        "湾区",
+        "纽约",
+        "西雅图"
+      ],
+      "clusterTitle": "地理集群 · 资本份额",
+      "hubs": [
+        {
+          "label": "旧金山湾区",
+          "en": "Bay Area",
+          "pct": 63.9,
+          "x": 36,
+          "y": 46,
+          "d": 60
+        },
+        {
+          "label": "纽约",
+          "en": "New York",
+          "pct": 12.4,
+          "x": 74,
+          "y": 30,
+          "d": 31
+        },
+        {
+          "label": "西雅图",
+          "en": "Seattle",
+          "pct": 9.8,
+          "x": 78,
+          "y": 70,
+          "d": 27
+        },
+        {
+          "label": "波士顿",
+          "en": "Boston",
+          "pct": 7.7,
+          "x": 24,
+          "y": 82,
+          "d": 23
+        },
+        {
+          "label": "其他地区",
+          "en": "Others",
+          "pct": 6.2,
+          "x": 56,
+          "y": 84,
+          "d": 19
+        }
+      ],
       "backgroundVariant": "dark",
       "layout": "left",
       "showIndex": true,
@@ -66764,14 +91981,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page046",
+    "key": "theme07_page050",
     "themeKey": "theme07",
-    "pageNumber": 46,
-    "layout": "THEME07-046",
+    "pageNumber": 50,
+    "layout": "THEME07-050",
     "slot": "early-stage-page",
     "label": "54 46",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Early Stage Signal"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "Seed → B"
+      },
+      {
+        "key": "season",
+        "label": "season",
+        "type": "text",
+        "default": "早期轮 · 主题萌芽"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "新主题萌芽"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "早期轮信号"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "Seed 和 A 轮金额较小，但代表新主题正在形成；早期机会集中在 Agent、安全、具身智能和行业专用模型。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "种子轮 8 笔 / 1.2 亿美元 · A 轮 12 笔 / 1.8 亿美元"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "20.6%"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "早期轮占全年事件数"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "小金额交易往往藏着下一轮主题。"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -66858,76 +92135,74 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Early Stage Signal",
-        "marker": "Seed → B",
-        "season": "早期轮 · 主题萌芽",
-        "title": "新主题萌芽",
-        "titleTail": "早期轮信号",
-        "lead": "Seed 和 A 轮金额较小，但代表新主题正在形成；早期机会集中在 Agent、安全、具身智能和行业专用模型。",
-        "statLine": "种子轮 8 笔 / 1.2 亿美元 · A 轮 12 笔 / 1.8 亿美元",
-        "anchorValue": "20.6%",
-        "anchorLabel": "早期轮占全年事件数",
-        "closing": "小金额交易往往藏着下一轮主题。",
-        "colHeads": {
-          "dim": "轮次",
-          "events": "事件数",
-          "amount": "融资额",
-          "bubble": "平均单笔",
-          "themes": "萌芽主题",
-          "note": "信号"
-        },
-        "rows": [
-          {
-            "dim": "种子轮",
-            "en": "Seed",
-            "events": "8",
-            "amount": "1.2",
-            "avg": 0.15,
-            "themes": [
-              "Agent",
-              "安全"
-            ],
-            "note": "主题验证期"
-          },
-          {
-            "dim": "A 轮",
-            "en": "Series A",
-            "events": "12",
-            "amount": "1.8",
-            "avg": 0.15,
-            "themes": [
-              "具身智能",
-              "行业模型"
-            ],
-            "note": "场景打磨期"
-          },
-          {
-            "dim": "B 轮",
-            "en": "Series B",
-            "events": "6",
-            "amount": "3.4",
-            "avg": 0.57,
-            "themes": [
-              "企业应用",
-              "数据闭环"
-            ],
-            "note": "规模化前夜"
-          },
-          {
-            "dim": "早期战略",
-            "en": "Strategic",
-            "events": "4",
-            "amount": "2.1",
-            "avg": 0.53,
-            "themes": [
-              "云资源",
-              "平台卡位"
-            ],
-            "note": "生态绑定"
-          }
-        ]
+      "eyebrow": "Early Stage Signal",
+      "marker": "Seed → B",
+      "season": "早期轮 · 主题萌芽",
+      "title": "新主题萌芽",
+      "titleTail": "早期轮信号",
+      "lead": "Seed 和 A 轮金额较小，但代表新主题正在形成；早期机会集中在 Agent、安全、具身智能和行业专用模型。",
+      "statLine": "种子轮 8 笔 / 1.2 亿美元 · A 轮 12 笔 / 1.8 亿美元",
+      "anchorValue": "20.6%",
+      "anchorLabel": "早期轮占全年事件数",
+      "closing": "小金额交易往往藏着下一轮主题。",
+      "colHeads": {
+        "dim": "轮次",
+        "events": "事件数",
+        "amount": "融资额",
+        "bubble": "平均单笔",
+        "themes": "萌芽主题",
+        "note": "信号"
       },
+      "rows": [
+        {
+          "dim": "种子轮",
+          "en": "Seed",
+          "events": "8",
+          "amount": "1.2",
+          "avg": 0.15,
+          "themes": [
+            "Agent",
+            "安全"
+          ],
+          "note": "主题验证期"
+        },
+        {
+          "dim": "A 轮",
+          "en": "Series A",
+          "events": "12",
+          "amount": "1.8",
+          "avg": 0.15,
+          "themes": [
+            "具身智能",
+            "行业模型"
+          ],
+          "note": "场景打磨期"
+        },
+        {
+          "dim": "B 轮",
+          "en": "Series B",
+          "events": "6",
+          "amount": "3.4",
+          "avg": 0.57,
+          "themes": [
+            "企业应用",
+            "数据闭环"
+          ],
+          "note": "规模化前夜"
+        },
+        {
+          "dim": "早期战略",
+          "en": "Strategic",
+          "events": "4",
+          "amount": "2.1",
+          "avg": 0.53,
+          "themes": [
+            "云资源",
+            "平台卡位"
+          ],
+          "note": "生态绑定"
+        }
+      ],
       "rowCount": 4,
       "showBubble": true,
       "showThemes": true,
@@ -66939,14 +92214,56 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page047",
+    "key": "theme07_page051",
     "themeKey": "theme07",
-    "pageNumber": 47,
-    "layout": "THEME07-047",
+    "pageNumber": 51,
+    "layout": "THEME07-051",
     "slot": "deal-structure-page",
     "label": "55 47",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Undisclosed Mega Rounds"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "复杂交易结构"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "未披露巨额轮次"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "未披露巨额轮次"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "未披露轮次常对应战略投资、债务组合或云资源置换；不披露不代表信息不足，而是交易结构更复杂。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "AI 融资越来越像资源组合交易。"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "单笔交易结构拆解 · 构成占比"
+      },
       {
         "key": "componentCount",
         "label": "卡片数量",
@@ -67036,53 +92353,51 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Undisclosed Mega Rounds",
-        "title": "复杂交易结构",
-        "titleTail": "未披露巨额轮次",
-        "sub": "未披露巨额轮次",
-        "lead": "未披露轮次常对应战略投资、债务组合或云资源置换；不披露不代表信息不足，而是交易结构更复杂。",
-        "closing": "AI 融资越来越像资源组合交易。",
-        "panelTitle": "单笔交易结构拆解 · 构成占比",
-        "stats": [
-          {
-            "value": "22",
-            "unit": "笔",
-            "label": "未披露巨额轮次"
-          },
-          {
-            "value": "18.6",
-            "unit": "亿美元",
-            "label": "平均单笔规模"
-          }
-        ],
-        "components": [
-          {
-            "name": "云资源置换",
-            "en": "Cloud Credits",
-            "pct": 39,
-            "note": "以算力额度换取股权或优先供给"
-          },
-          {
-            "name": "战略投资",
-            "en": "Strategic",
-            "pct": 31,
-            "note": "产业方与大厂的战略持股"
-          },
-          {
-            "name": "债务组合",
-            "en": "Debt / Convertible",
-            "pct": 18,
-            "note": "债务与可转债等结构化融资"
-          },
-          {
-            "name": "纯股权",
-            "en": "Pure Equity",
-            "pct": 12,
-            "note": "传统现金对价的股权部分"
-          }
-        ]
-      },
+      "eyebrow": "Undisclosed Mega Rounds",
+      "title": "复杂交易结构",
+      "titleTail": "未披露巨额轮次",
+      "sub": "未披露巨额轮次",
+      "lead": "未披露轮次常对应战略投资、债务组合或云资源置换；不披露不代表信息不足，而是交易结构更复杂。",
+      "closing": "AI 融资越来越像资源组合交易。",
+      "panelTitle": "单笔交易结构拆解 · 构成占比",
+      "stats": [
+        {
+          "value": "22",
+          "unit": "笔",
+          "label": "未披露巨额轮次"
+        },
+        {
+          "value": "18.6",
+          "unit": "亿美元",
+          "label": "平均单笔规模"
+        }
+      ],
+      "components": [
+        {
+          "name": "云资源置换",
+          "en": "Cloud Credits",
+          "pct": 39,
+          "note": "以算力额度换取股权或优先供给"
+        },
+        {
+          "name": "战略投资",
+          "en": "Strategic",
+          "pct": 31,
+          "note": "产业方与大厂的战略持股"
+        },
+        {
+          "name": "债务组合",
+          "en": "Debt / Convertible",
+          "pct": 18,
+          "note": "债务与可转债等结构化融资"
+        },
+        {
+          "name": "纯股权",
+          "en": "Pure Equity",
+          "pct": 12,
+          "note": "传统现金对价的股权部分"
+        }
+      ],
       "componentCount": 4,
       "chartType": "stack",
       "showStats": true,
@@ -67093,14 +92408,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page048",
+    "key": "theme07_page052",
     "themeKey": "theme07",
-    "pageNumber": 48,
-    "layout": "THEME07-048",
+    "pageNumber": 52,
+    "layout": "THEME07-052",
     "slot": "investor-mix-page",
     "label": "56 48",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Investor Mix"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "资本来源结构"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "投资人类型分布"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "投资人类型分布"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "投资人类型"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "传统 VC、企业战略投资者、成长基金和云厂商共同推动 AI 大额融资；AI 融资已经从纯 VC 交易转向产业资本混合交易。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "钱的来源本身也是产业结构信号。"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "投资人类型占比"
+      },
+      {
+        "key": "timelineLabel",
+        "label": "timelineLabel",
+        "type": "text",
+        "default": "资本来源演进 · 2020 — 2024"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -67207,56 +92576,54 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Investor Mix",
-        "title": "资本来源结构",
-        "titleTail": "投资人类型分布",
-        "sub": "投资人类型分布",
-        "marker": "投资人类型",
-        "lead": "传统 VC、企业战略投资者、成长基金和云厂商共同推动 AI 大额融资；AI 融资已经从纯 VC 交易转向产业资本混合交易。",
-        "closing": "钱的来源本身也是产业结构信号。",
-        "panelTitle": "投资人类型占比",
-        "timelineLabel": "资本来源演进 · 2020 — 2024",
-        "segments": [
-          {
-            "label": "传统 VC",
-            "value": 42,
-            "note": "经典风险投资基金"
-          },
-          {
-            "label": "企业战略",
-            "value": 27,
-            "note": "产业方战略投资者"
-          },
-          {
-            "label": "成长基金",
-            "value": 18,
-            "note": "后期成长与跨界基金"
-          },
-          {
-            "label": "云厂商相关",
-            "value": 13,
-            "note": "云厂商及关联资本"
-          }
-        ],
-        "nodes": [
-          {
-            "year": "2020 — 22",
-            "title": "VC 主导",
-            "note": "经典风险投资定义估值锚"
-          },
-          {
-            "year": "2023",
-            "title": "战略资本进入",
-            "note": "大厂与产业方开始战略持股"
-          },
-          {
-            "year": "2024",
-            "title": "产业资本混合",
-            "note": "VC 与产业资本共同主导大额轮"
-          }
-        ]
-      },
+      "eyebrow": "Investor Mix",
+      "title": "资本来源结构",
+      "titleTail": "投资人类型分布",
+      "sub": "投资人类型分布",
+      "marker": "投资人类型",
+      "lead": "传统 VC、企业战略投资者、成长基金和云厂商共同推动 AI 大额融资；AI 融资已经从纯 VC 交易转向产业资本混合交易。",
+      "closing": "钱的来源本身也是产业结构信号。",
+      "panelTitle": "投资人类型占比",
+      "timelineLabel": "资本来源演进 · 2020 — 2024",
+      "segments": [
+        {
+          "label": "传统 VC",
+          "value": 42,
+          "note": "经典风险投资基金"
+        },
+        {
+          "label": "企业战略",
+          "value": 27,
+          "note": "产业方战略投资者"
+        },
+        {
+          "label": "成长基金",
+          "value": 18,
+          "note": "后期成长与跨界基金"
+        },
+        {
+          "label": "云厂商相关",
+          "value": 13,
+          "note": "云厂商及关联资本"
+        }
+      ],
+      "nodes": [
+        {
+          "year": "2020 — 22",
+          "title": "VC 主导",
+          "note": "经典风险投资定义估值锚"
+        },
+        {
+          "year": "2023",
+          "title": "战略资本进入",
+          "note": "大厂与产业方开始战略持股"
+        },
+        {
+          "year": "2024",
+          "title": "产业资本混合",
+          "note": "VC 与产业资本共同主导大额轮"
+        }
+      ],
       "chartType": "donut",
       "segmentCount": 4,
       "focusEnabled": true,
@@ -67269,14 +92636,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page049",
+    "key": "theme07_page053",
     "themeKey": "theme07",
-    "pageNumber": 49,
-    "layout": "THEME07-049",
+    "pageNumber": 53,
+    "layout": "THEME07-053",
     "slot": "resource-page",
     "label": "57 49",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Strategic Investors"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "战略投资者角色"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "钱以外的资源"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "战略投资者角色"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "战略投资者提供渠道、云资源、芯片供应和客户入口；交易真正价值经常不只在现金，而在关键资源绑定。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "资源绑定是大额融资的隐性条款"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "AI 公司融资是在锁定未来资源。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "战略资源"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "战略资源构成"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -67384,51 +92805,49 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Strategic Investors",
-        "segment": "战略投资者角色",
-        "title": "钱以外的资源",
-        "titleTail": "战略投资者角色",
-        "lead": "战略投资者提供渠道、云资源、芯片供应和客户入口；交易真正价值经常不只在现金，而在关键资源绑定。",
-        "statLine": "资源绑定是大额融资的隐性条款",
-        "closing": "AI 公司融资是在锁定未来资源。",
-        "badge": "战略资源",
-        "panelTitle": "战略资源构成",
-        "cards": [
-          {
-            "glyph": "云",
-            "label": "云资源授信",
-            "value": "118",
-            "unit": "亿美元",
-            "note": "云算力额度与折扣承诺",
-            "w": 1
-          },
-          {
-            "glyph": "销",
-            "label": "联合销售",
-            "value": "36",
-            "unit": "起",
-            "note": "战略客户渠道与转介",
-            "w": 0.62
-          },
-          {
-            "glyph": "芯",
-            "label": "芯片供应承诺",
-            "value": "22",
-            "unit": "起",
-            "note": "GPU / 加速卡优先供给",
-            "w": 0.46
-          },
-          {
-            "glyph": "数",
-            "label": "数据合作",
-            "value": "17",
-            "unit": "起",
-            "note": "训练与评测数据互通",
-            "w": 0.38
-          }
-        ]
-      },
+      "eyebrow": "Strategic Investors",
+      "segment": "战略投资者角色",
+      "title": "钱以外的资源",
+      "titleTail": "战略投资者角色",
+      "lead": "战略投资者提供渠道、云资源、芯片供应和客户入口；交易真正价值经常不只在现金，而在关键资源绑定。",
+      "statLine": "资源绑定是大额融资的隐性条款",
+      "closing": "AI 公司融资是在锁定未来资源。",
+      "badge": "战略资源",
+      "panelTitle": "战略资源构成",
+      "cards": [
+        {
+          "glyph": "云",
+          "label": "云资源授信",
+          "value": "118",
+          "unit": "亿美元",
+          "note": "云算力额度与折扣承诺",
+          "w": 1
+        },
+        {
+          "glyph": "销",
+          "label": "联合销售",
+          "value": "36",
+          "unit": "起",
+          "note": "战略客户渠道与转介",
+          "w": 0.62
+        },
+        {
+          "glyph": "芯",
+          "label": "芯片供应承诺",
+          "value": "22",
+          "unit": "起",
+          "note": "GPU / 加速卡优先供给",
+          "w": 0.46
+        },
+        {
+          "glyph": "数",
+          "label": "数据合作",
+          "value": "17",
+          "unit": "起",
+          "note": "训练与评测数据互通",
+          "w": 0.38
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "landscape",
       "cardCount": 4,
@@ -67441,14 +92860,92 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page050",
+    "key": "theme07_page054",
     "themeKey": "theme07",
-    "pageNumber": 50,
-    "layout": "THEME07-050",
+    "pageNumber": 54,
+    "layout": "THEME07-054",
     "slot": "alliance-page",
     "label": "58 50",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Cloud Alliances"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "云厂商联盟"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "投资与算力消费闭环"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "云厂商联盟"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "云厂商投资 AI 公司，并通过算力消费回收价值；云投资本质上是在锁定未来算力需求。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "云资源正在成为融资交易的一部分。"
+      },
+      {
+        "key": "chartTitle",
+        "label": "chartTitle",
+        "type": "text",
+        "default": "云厂商 · 模型公司联盟"
+      },
+      {
+        "key": "barsTitle",
+        "label": "barsTitle",
+        "type": "text",
+        "default": "云厂商相关投资 / 占比"
+      },
+      {
+        "key": "totalVal",
+        "label": "totalVal",
+        "type": "text",
+        "default": "252"
+      },
+      {
+        "key": "totalUnit",
+        "label": "totalUnit",
+        "type": "text",
+        "default": "亿美元"
+      },
+      {
+        "key": "totalLbl",
+        "label": "totalLbl",
+        "type": "text",
+        "default": "云厂商相关投资合计"
+      },
+      {
+        "key": "legendInvest",
+        "label": "legendInvest",
+        "type": "text",
+        "default": "资本投资"
+      },
+      {
+        "key": "legendReturn",
+        "label": "legendReturn",
+        "type": "text",
+        "default": "算力消费回收"
+      },
       {
         "key": "providerCount",
         "label": "卡片数量",
@@ -67545,52 +93042,50 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Cloud Alliances",
-        "segment": "云厂商联盟",
-        "title": "投资与算力消费闭环",
-        "titleTail": "云厂商联盟",
-        "lead": "云厂商投资 AI 公司，并通过算力消费回收价值；云投资本质上是在锁定未来算力需求。",
-        "closing": "云资源正在成为融资交易的一部分。",
-        "chartTitle": "云厂商 · 模型公司联盟",
-        "barsTitle": "云厂商相关投资 / 占比",
-        "totalVal": "252",
-        "totalUnit": "亿美元",
-        "totalLbl": "云厂商相关投资合计",
-        "hub": {
-          "lead": "AI 模型公司",
-          "sub": "算力需求方"
-        },
-        "cycle": [
-          "资本投资",
-          "算力授信",
-          "消费回收"
-        ],
-        "legendInvest": "资本投资",
-        "legendReturn": "算力消费回收",
-        "providers": [
-          {
-            "label": "Azure",
-            "value": 88,
-            "note": "Microsoft 云"
-          },
-          {
-            "label": "AWS",
-            "value": 74,
-            "note": "Amazon 云"
-          },
-          {
-            "label": "Google Cloud",
-            "value": 69,
-            "note": "Google 云"
-          },
-          {
-            "label": "Oracle Cloud",
-            "value": 21,
-            "note": "Oracle 云"
-          }
-        ]
+      "eyebrow": "Cloud Alliances",
+      "segment": "云厂商联盟",
+      "title": "投资与算力消费闭环",
+      "titleTail": "云厂商联盟",
+      "lead": "云厂商投资 AI 公司，并通过算力消费回收价值；云投资本质上是在锁定未来算力需求。",
+      "closing": "云资源正在成为融资交易的一部分。",
+      "chartTitle": "云厂商 · 模型公司联盟",
+      "barsTitle": "云厂商相关投资 / 占比",
+      "totalVal": "252",
+      "totalUnit": "亿美元",
+      "totalLbl": "云厂商相关投资合计",
+      "hub": {
+        "lead": "AI 模型公司",
+        "sub": "算力需求方"
       },
+      "cycle": [
+        "资本投资",
+        "算力授信",
+        "消费回收"
+      ],
+      "legendInvest": "资本投资",
+      "legendReturn": "算力消费回收",
+      "providers": [
+        {
+          "label": "Azure",
+          "value": 88,
+          "note": "Microsoft 云"
+        },
+        {
+          "label": "AWS",
+          "value": 74,
+          "note": "Amazon 云"
+        },
+        {
+          "label": "Google Cloud",
+          "value": 69,
+          "note": "Google 云"
+        },
+        {
+          "label": "Oracle Cloud",
+          "value": 21,
+          "note": "Oracle 云"
+        }
+      ],
       "providerCount": 4,
       "chartType": "map",
       "focusEnabled": true,
@@ -67602,14 +93097,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page051",
+    "key": "theme07_page055",
     "themeKey": "theme07",
-    "pageNumber": 51,
-    "layout": "THEME07-051",
+    "pageNumber": 55,
+    "layout": "THEME07-055",
     "slot": "ecosystem-page",
     "label": "59 51",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "NVIDIA Ecosystem"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "NVIDIA 生态"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "GPU 资源链条"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "NVIDIA 生态"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "NVIDIA 生态内融资围绕 GPU、网络、集群运维和推理优化展开；谁能稳定拿到算力，谁就更容易获得下一轮资本。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "以 GPU 为中心的资源链条"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "算力供给能力正在变成融资能力。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "GPU 生态"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "生态融资分布"
+      },
+      {
+        "key": "legend",
+        "label": "legend",
+        "type": "text",
+        "default": "节点大小 · 数值 = 融资额（亿美元）"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -67724,40 +93279,38 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "NVIDIA Ecosystem",
-        "segment": "NVIDIA 生态",
-        "title": "GPU 资源链条",
-        "titleTail": "NVIDIA 生态",
-        "lead": "NVIDIA 生态内融资围绕 GPU、网络、集群运维和推理优化展开；谁能稳定拿到算力，谁就更容易获得下一轮资本。",
-        "statLine": "以 GPU 为中心的资源链条",
-        "closing": "算力供给能力正在变成融资能力。",
-        "badge": "GPU 生态",
-        "panelTitle": "生态融资分布",
-        "hub": {
-          "lead": "GPU",
-          "sub": "NVIDIA 生态"
-        },
-        "legend": "节点大小 · 数值 = 融资额（亿美元）",
-        "nodes": [
-          {
-            "label": "GPU 云",
-            "value": 64
-          },
-          {
-            "label": "集群管理",
-            "value": 12
-          },
-          {
-            "label": "推理优化",
-            "value": 9
-          },
-          {
-            "label": "芯片互联",
-            "value": 7
-          }
-        ]
+      "eyebrow": "NVIDIA Ecosystem",
+      "segment": "NVIDIA 生态",
+      "title": "GPU 资源链条",
+      "titleTail": "NVIDIA 生态",
+      "lead": "NVIDIA 生态内融资围绕 GPU、网络、集群运维和推理优化展开；谁能稳定拿到算力，谁就更容易获得下一轮资本。",
+      "statLine": "以 GPU 为中心的资源链条",
+      "closing": "算力供给能力正在变成融资能力。",
+      "badge": "GPU 生态",
+      "panelTitle": "生态融资分布",
+      "hub": {
+        "lead": "GPU",
+        "sub": "NVIDIA 生态"
       },
+      "legend": "节点大小 · 数值 = 融资额（亿美元）",
+      "nodes": [
+        {
+          "label": "GPU 云",
+          "value": 64
+        },
+        {
+          "label": "集群管理",
+          "value": 12
+        },
+        {
+          "label": "推理优化",
+          "value": 9
+        },
+        {
+          "label": "芯片互联",
+          "value": 7
+        }
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "segmentCount": 4,
@@ -67771,14 +93324,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page052",
+    "key": "theme07_page056",
     "themeKey": "theme07",
-    "pageNumber": 52,
-    "layout": "THEME07-052",
+    "pageNumber": 56,
+    "layout": "THEME07-056",
     "slot": "geo-center-page",
     "label": "60 52",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Bay Area Cluster"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "最大地理中心"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "旧金山湾区集群"
+      },
+      {
+        "key": "numLead",
+        "label": "numLead",
+        "type": "text",
+        "default": "63"
+      },
+      {
+        "key": "numTail",
+        "label": "numTail",
+        "type": "text",
+        "default": ".9"
+      },
+      {
+        "key": "numUnit",
+        "label": "numUnit",
+        "type": "text",
+        "default": "%"
+      },
+      {
+        "key": "numCaption",
+        "label": "numCaption",
+        "type": "text",
+        "default": "旧金山湾区融资额占比"
+      },
+      {
+        "key": "note",
+        "label": "note",
+        "type": "text",
+        "default": "优势来自人才密度、资本网络、云厂商和模型实验室邻近。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "湾区仍是 AI 资本重力中心。"
+      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -67840,34 +93447,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Bay Area Cluster",
-        "title": "最大地理中心",
-        "sub": "旧金山湾区集群",
-        "numLead": "63",
-        "numTail": ".9",
-        "numUnit": "%",
-        "numCaption": "旧金山湾区融资额占比",
-        "note": "优势来自人才密度、资本网络、云厂商和模型实验室邻近。",
-        "closing": "湾区仍是 AI 资本重力中心。",
-        "aux": [
-          {
-            "label": "区域融资额",
-            "value": "620",
-            "unit": "亿美元"
-          },
-          {
-            "label": "区域事件数",
-            "value": "62",
-            "unit": "笔"
-          },
-          {
-            "label": "平均单笔",
-            "value": "10.0",
-            "unit": "亿美元"
-          }
-        ]
-      },
+      "eyebrow": "Bay Area Cluster",
+      "title": "最大地理中心",
+      "sub": "旧金山湾区集群",
+      "numLead": "63",
+      "numTail": ".9",
+      "numUnit": "%",
+      "numCaption": "旧金山湾区融资额占比",
+      "note": "优势来自人才密度、资本网络、云厂商和模型实验室邻近。",
+      "closing": "湾区仍是 AI 资本重力中心。",
+      "aux": [
+        {
+          "label": "区域融资额",
+          "value": "620",
+          "unit": "亿美元"
+        },
+        {
+          "label": "区域事件数",
+          "value": "62",
+          "unit": "笔"
+        },
+        {
+          "label": "平均单笔",
+          "value": "10.0",
+          "unit": "亿美元"
+        }
+      ],
       "numberSlant": true,
       "auxCount": 3,
       "showCaption": true,
@@ -67878,14 +93483,20 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page053",
+    "key": "theme07_page057",
     "themeKey": "theme07",
-    "pageNumber": 53,
-    "layout": "THEME07-053",
+    "pageNumber": 57,
+    "layout": "THEME07-057",
     "slot": "region-cluster-page",
     "label": "61 53",
     "bgClass": "",
     "controls": [
+      {
+        "key": "shareTitle",
+        "label": "占比标题",
+        "type": "text",
+        "default": "全美融资额占比"
+      },
       {
         "key": "region",
         "label": "地区",
@@ -68045,198 +93656,196 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "share": [
-          {
-            "k": "湾区",
-            "v": 63.9
-          },
-          {
-            "k": "纽约",
-            "v": 12.4
-          },
-          {
-            "k": "西雅图",
-            "v": 9.8
-          },
-          {
-            "k": "波士顿",
-            "v": 7.7
-          },
-          {
-            "k": "其他",
-            "v": 6.2
-          }
-        ],
-        "regions": [
-          {
-            "eyebrow": "New York Cluster",
-            "enName": "NEW YORK",
-            "segment": "纽约集群",
-            "badge": "纽约集群",
-            "shareIdx": 1,
-            "rank": 2,
-            "title": "行业客户优势",
-            "titleTail": "纽约集群",
-            "lead": "纽约 AI 融资以金融、媒体、企业服务和法律 AI 为主；优势不在基础模型，而在高价值行业客户。",
-            "closing": "行业客户密度决定垂直应用机会。",
-            "tags": [
-              "金融",
-              "媒体",
-              "企业服务",
-              "法律 AI",
-              "投研"
-            ],
-            "metrics": [
-              {
-                "label": "区域融资额",
-                "value": "120",
-                "unit": "亿美元"
-              },
-              {
-                "label": "全美占比",
-                "value": "12.4",
-                "unit": "%"
-              },
-              {
-                "label": "区域事件数",
-                "value": "14",
-                "unit": "笔"
-              },
-              {
-                "label": "平均单笔",
-                "value": "8.6",
-                "unit": "亿美元"
-              }
-            ]
-          },
-          {
-            "eyebrow": "Seattle Cluster",
-            "enName": "SEATTLE",
-            "segment": "西雅图集群",
-            "badge": "西雅图集群",
-            "shareIdx": 2,
-            "rank": 3,
-            "title": "云计算人才外溢",
-            "titleTail": "西雅图集群",
-            "lead": "西雅图受益于云计算生态和大厂工程人才外溢；更适合孕育基础设施、开发者工具和企业 AI。",
-            "closing": "云计算底座带来 AI 基础设施机会。",
-            "tags": [
-              "基础设施",
-              "开发者工具",
-              "企业 AI",
-              "云服务",
-              "数据平台"
-            ],
-            "metrics": [
-              {
-                "label": "区域融资额",
-                "value": "95",
-                "unit": "亿美元"
-              },
-              {
-                "label": "全美占比",
-                "value": "9.8",
-                "unit": "%"
-              },
-              {
-                "label": "区域事件数",
-                "value": "10",
-                "unit": "笔"
-              },
-              {
-                "label": "平均单笔",
-                "value": "9.5",
-                "unit": "亿美元"
-              }
-            ]
-          },
-          {
-            "eyebrow": "Boston Cluster",
-            "enName": "BOSTON",
-            "segment": "波士顿集群",
-            "badge": "波士顿集群",
-            "shareIdx": 3,
-            "rank": 4,
-            "title": "科研与硬科技",
-            "titleTail": "波士顿集群",
-            "lead": "波士顿集中在医疗 AI、机器人和硬科技方向；高校科研和硬科技转化构成其长期优势。",
-            "closing": "科研城市更适合长周期技术资产。",
-            "tags": [
-              "医疗 AI",
-              "机器人",
-              "硬科技",
-              "生物科技",
-              "科研转化"
-            ],
-            "metrics": [
-              {
-                "label": "区域融资额",
-                "value": "75",
-                "unit": "亿美元"
-              },
-              {
-                "label": "全美占比",
-                "value": "7.7",
-                "unit": "%"
-              },
-              {
-                "label": "区域事件数",
-                "value": "8",
-                "unit": "笔"
-              },
-              {
-                "label": "平均单笔",
-                "value": "9.4",
-                "unit": "亿美元"
-              }
-            ]
-          },
-          {
-            "eyebrow": "Other Regions",
-            "enName": "OTHER REGIONS",
-            "segment": "其他地区",
-            "badge": "其他地区",
-            "shareIdx": 4,
-            "rank": 5,
-            "title": "分散型应用落地",
-            "titleTail": "其他地区",
-            "lead": "其他地区融资规模较小，但出现行业专用模型和本地化应用机会；更适合做行业落地而非通用模型。",
-            "closing": "本地行业资源也能形成应用机会。",
-            "tags": [
-              "行业模型",
-              "本地化应用",
-              "垂直 SaaS",
-              "制造 AI",
-              "政企服务"
-            ],
-            "metrics": [
-              {
-                "label": "区域融资额",
-                "value": "60",
-                "unit": "亿美元"
-              },
-              {
-                "label": "全美占比",
-                "value": "6.2",
-                "unit": "%"
-              },
-              {
-                "label": "区域事件数",
-                "value": "11",
-                "unit": "笔"
-              },
-              {
-                "label": "平均单笔",
-                "value": "5.5",
-                "unit": "亿美元"
-              }
-            ]
-          }
-        ],
-        "rankTotal": 5,
-        "shareTitle": "全美融资额占比"
-      },
+      "share": [
+        {
+          "k": "湾区",
+          "v": 63.9
+        },
+        {
+          "k": "纽约",
+          "v": 12.4
+        },
+        {
+          "k": "西雅图",
+          "v": 9.8
+        },
+        {
+          "k": "波士顿",
+          "v": 7.7
+        },
+        {
+          "k": "其他",
+          "v": 6.2
+        }
+      ],
+      "regions": [
+        {
+          "eyebrow": "New York Cluster",
+          "enName": "NEW YORK",
+          "segment": "纽约集群",
+          "badge": "纽约集群",
+          "shareIdx": 1,
+          "rank": 2,
+          "title": "行业客户优势",
+          "titleTail": "纽约集群",
+          "lead": "纽约 AI 融资以金融、媒体、企业服务和法律 AI 为主；优势不在基础模型，而在高价值行业客户。",
+          "closing": "行业客户密度决定垂直应用机会。",
+          "tags": [
+            "金融",
+            "媒体",
+            "企业服务",
+            "法律 AI",
+            "投研"
+          ],
+          "metrics": [
+            {
+              "label": "区域融资额",
+              "value": "120",
+              "unit": "亿美元"
+            },
+            {
+              "label": "全美占比",
+              "value": "12.4",
+              "unit": "%"
+            },
+            {
+              "label": "区域事件数",
+              "value": "14",
+              "unit": "笔"
+            },
+            {
+              "label": "平均单笔",
+              "value": "8.6",
+              "unit": "亿美元"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Seattle Cluster",
+          "enName": "SEATTLE",
+          "segment": "西雅图集群",
+          "badge": "西雅图集群",
+          "shareIdx": 2,
+          "rank": 3,
+          "title": "云计算人才外溢",
+          "titleTail": "西雅图集群",
+          "lead": "西雅图受益于云计算生态和大厂工程人才外溢；更适合孕育基础设施、开发者工具和企业 AI。",
+          "closing": "云计算底座带来 AI 基础设施机会。",
+          "tags": [
+            "基础设施",
+            "开发者工具",
+            "企业 AI",
+            "云服务",
+            "数据平台"
+          ],
+          "metrics": [
+            {
+              "label": "区域融资额",
+              "value": "95",
+              "unit": "亿美元"
+            },
+            {
+              "label": "全美占比",
+              "value": "9.8",
+              "unit": "%"
+            },
+            {
+              "label": "区域事件数",
+              "value": "10",
+              "unit": "笔"
+            },
+            {
+              "label": "平均单笔",
+              "value": "9.5",
+              "unit": "亿美元"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Boston Cluster",
+          "enName": "BOSTON",
+          "segment": "波士顿集群",
+          "badge": "波士顿集群",
+          "shareIdx": 3,
+          "rank": 4,
+          "title": "科研与硬科技",
+          "titleTail": "波士顿集群",
+          "lead": "波士顿集中在医疗 AI、机器人和硬科技方向；高校科研和硬科技转化构成其长期优势。",
+          "closing": "科研城市更适合长周期技术资产。",
+          "tags": [
+            "医疗 AI",
+            "机器人",
+            "硬科技",
+            "生物科技",
+            "科研转化"
+          ],
+          "metrics": [
+            {
+              "label": "区域融资额",
+              "value": "75",
+              "unit": "亿美元"
+            },
+            {
+              "label": "全美占比",
+              "value": "7.7",
+              "unit": "%"
+            },
+            {
+              "label": "区域事件数",
+              "value": "8",
+              "unit": "笔"
+            },
+            {
+              "label": "平均单笔",
+              "value": "9.4",
+              "unit": "亿美元"
+            }
+          ]
+        },
+        {
+          "eyebrow": "Other Regions",
+          "enName": "OTHER REGIONS",
+          "segment": "其他地区",
+          "badge": "其他地区",
+          "shareIdx": 4,
+          "rank": 5,
+          "title": "分散型应用落地",
+          "titleTail": "其他地区",
+          "lead": "其他地区融资规模较小，但出现行业专用模型和本地化应用机会；更适合做行业落地而非通用模型。",
+          "closing": "本地行业资源也能形成应用机会。",
+          "tags": [
+            "行业模型",
+            "本地化应用",
+            "垂直 SaaS",
+            "制造 AI",
+            "政企服务"
+          ],
+          "metrics": [
+            {
+              "label": "区域融资额",
+              "value": "60",
+              "unit": "亿美元"
+            },
+            {
+              "label": "全美占比",
+              "value": "6.2",
+              "unit": "%"
+            },
+            {
+              "label": "区域事件数",
+              "value": "11",
+              "unit": "笔"
+            },
+            {
+              "label": "平均单笔",
+              "value": "5.5",
+              "unit": "亿美元"
+            }
+          ]
+        }
+      ],
+      "rankTotal": 5,
+      "shareTitle": "全美融资额占比",
       "region": 0,
       "imageCount": 1,
       "imageRatio": "portrait",
@@ -68252,14 +93861,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page054",
+    "key": "theme07_page058",
     "themeKey": "theme07",
-    "pageNumber": 54,
-    "layout": "THEME07-054",
+    "pageNumber": 58,
+    "layout": "THEME07-058",
     "slot": "resource-triad-page",
     "label": "62 54",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Talent · Capital · Compute"
+      },
+      {
+        "key": "kicker",
+        "label": "kicker",
+        "type": "text",
+        "default": "人才 · 资本 · 算力三角"
+      },
+      {
+        "key": "quoteLead",
+        "label": "quoteLead",
+        "type": "text",
+        "default": "AI 竞争，首先是"
+      },
+      {
+        "key": "quoteEm",
+        "label": "quoteEm",
+        "type": "text",
+        "default": "资源组织能力"
+      },
+      {
+        "key": "quoteTail",
+        "label": "quoteTail",
+        "type": "text",
+        "default": "的竞争。"
+      },
+      {
+        "key": "source",
+        "label": "来源",
+        "type": "text",
+        "default": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元"
+      },
       {
         "key": "align",
         "label": "对齐方式",
@@ -68359,34 +94004,32 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Talent · Capital · Compute",
-        "kicker": "人才 · 资本 · 算力三角",
-        "quoteLead": "AI 竞争，首先是",
-        "quoteEm": "资源组织能力",
-        "quoteTail": "的竞争。",
-        "pillars": [
-          {
-            "glyph": "circle",
-            "zh": "人才",
-            "en": "Talent",
-            "note": "顶尖研究员与工程团队的密度"
-          },
-          {
-            "glyph": "diamond",
-            "zh": "资本",
-            "en": "Capital",
-            "note": "持续的大额融资与战略资金"
-          },
-          {
-            "glyph": "square",
-            "zh": "算力",
-            "en": "Compute",
-            "note": "GPU 集群与云资源的稳定供给"
-          }
-        ],
-        "source": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元"
-      },
+      "eyebrow": "Talent · Capital · Compute",
+      "kicker": "人才 · 资本 · 算力三角",
+      "quoteLead": "AI 竞争，首先是",
+      "quoteEm": "资源组织能力",
+      "quoteTail": "的竞争。",
+      "pillars": [
+        {
+          "glyph": "circle",
+          "zh": "人才",
+          "en": "Talent",
+          "note": "顶尖研究员与工程团队的密度"
+        },
+        {
+          "glyph": "diamond",
+          "zh": "资本",
+          "en": "Capital",
+          "note": "持续的大额融资与战略资金"
+        },
+        {
+          "glyph": "square",
+          "zh": "算力",
+          "en": "Compute",
+          "note": "GPU 集群与云资源的稳定供给"
+        }
+      ],
+      "source": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元",
       "align": "center",
       "showPillars": true,
       "pillarCount": 3,
@@ -68399,14 +94042,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page055",
+    "key": "theme07_page059",
     "themeKey": "theme07",
-    "pageNumber": 55,
-    "layout": "THEME07-055",
+    "pageNumber": 59,
+    "layout": "THEME07-059",
     "slot": "open-aicase-page",
     "label": "63 55",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "OpenAI Case"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "商业化标杆"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "OpenAI 案例页"
+      },
+      {
+        "key": "logic",
+        "label": "logic",
+        "type": "text",
+        "default": "通用大模型逻辑"
+      },
+      {
+        "key": "company",
+        "label": "company",
+        "type": "text",
+        "default": "OpenAI"
+      },
+      {
+        "key": "enName",
+        "label": "enName",
+        "type": "text",
+        "default": "OPENAI"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "商业化标杆"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "OpenAI 仍是通用大模型商业化的标杆样本；看点是模型能力、生态入口与企业商业化能否同时领先。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "模型能力必须转成生态和收入。"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -68524,47 +94221,45 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "OpenAI Case",
-        "title": "商业化标杆",
-        "titleTail": "OpenAI 案例页",
-        "logic": "通用大模型逻辑",
-        "company": "OpenAI",
-        "enName": "OPENAI",
-        "badge": "商业化标杆",
-        "lead": "OpenAI 仍是通用大模型商业化的标杆样本；看点是模型能力、生态入口与企业商业化能否同时领先。",
-        "closing": "模型能力必须转成生态和收入。",
-        "metrics": [
-          {
-            "label": "最大单笔融资",
-            "value": "66",
-            "unit": "亿美元",
-            "num": true
-          },
-          {
-            "label": "企业客户",
-            "value": "9.4",
-            "unit": "万家",
-            "num": true
-          },
-          {
-            "label": "年度化收入",
-            "value": "38",
-            "unit": "亿美元",
-            "num": true
-          },
-          {
-            "label": "核心赛道",
-            "value": "通用大模型",
-            "num": false
-          }
-        ],
-        "tags": [
-          "通用大模型",
-          "生态入口",
-          "企业商业化"
-        ]
-      },
+      "eyebrow": "OpenAI Case",
+      "title": "商业化标杆",
+      "titleTail": "OpenAI 案例页",
+      "logic": "通用大模型逻辑",
+      "company": "OpenAI",
+      "enName": "OPENAI",
+      "badge": "商业化标杆",
+      "lead": "OpenAI 仍是通用大模型商业化的标杆样本；看点是模型能力、生态入口与企业商业化能否同时领先。",
+      "closing": "模型能力必须转成生态和收入。",
+      "metrics": [
+        {
+          "label": "最大单笔融资",
+          "value": "66",
+          "unit": "亿美元",
+          "num": true
+        },
+        {
+          "label": "企业客户",
+          "value": "9.4",
+          "unit": "万家",
+          "num": true
+        },
+        {
+          "label": "年度化收入",
+          "value": "38",
+          "unit": "亿美元",
+          "num": true
+        },
+        {
+          "label": "核心赛道",
+          "value": "通用大模型",
+          "num": false
+        }
+      ],
+      "tags": [
+        "通用大模型",
+        "生态入口",
+        "企业商业化"
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "metricCount": 3,
@@ -68578,14 +94273,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page056",
+    "key": "theme07_page060",
     "themeKey": "theme07",
-    "pageNumber": 56,
-    "layout": "THEME07-056",
+    "pageNumber": 60,
+    "layout": "THEME07-060",
     "slot": "figure-case-page",
     "label": "64 59",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Figure AI Case"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "人形机器人"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "Figure AI 案例页"
+      },
+      {
+        "key": "kicker",
+        "label": "kicker",
+        "type": "text",
+        "default": "最大单笔融资"
+      },
+      {
+        "key": "numLead",
+        "label": "numLead",
+        "type": "text",
+        "default": "6"
+      },
+      {
+        "key": "numTail",
+        "label": "numTail",
+        "type": "text",
+        "default": ".8"
+      },
+      {
+        "key": "numUnit",
+        "label": "numUnit",
+        "type": "text",
+        "default": "亿美元"
+      },
+      {
+        "key": "ghost",
+        "label": "ghost",
+        "type": "text",
+        "default": "6.8"
+      },
+      {
+        "key": "numCaption",
+        "label": "numCaption",
+        "type": "text",
+        "default": "Figure AI 最大单笔融资"
+      },
+      {
+        "key": "note",
+        "label": "note",
+        "type": "text",
+        "default": "关键不只是 demo，而是供应链、可靠性和量产成本。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "硬件 AI 要用量产证明自己。"
+      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -68654,36 +94415,34 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Figure AI Case",
-        "title": "人形机器人",
-        "sub": "Figure AI 案例页",
-        "kicker": "最大单笔融资",
-        "numLead": "6",
-        "numTail": ".8",
-        "numUnit": "亿美元",
-        "ghost": "6.8",
-        "numCaption": "Figure AI 最大单笔融资",
-        "note": "关键不只是 demo，而是供应链、可靠性和量产成本。",
-        "closing": "硬件 AI 要用量产证明自己。",
-        "aux": [
-          {
-            "label": "投后估值",
-            "value": "26",
-            "unit": "亿美元"
-          },
-          {
-            "label": "融资轮次",
-            "value": "B 轮",
-            "unit": ""
-          },
-          {
-            "label": "赛道方向",
-            "value": "人形机器人",
-            "unit": ""
-          }
-        ]
-      },
+      "eyebrow": "Figure AI Case",
+      "title": "人形机器人",
+      "sub": "Figure AI 案例页",
+      "kicker": "最大单笔融资",
+      "numLead": "6",
+      "numTail": ".8",
+      "numUnit": "亿美元",
+      "ghost": "6.8",
+      "numCaption": "Figure AI 最大单笔融资",
+      "note": "关键不只是 demo，而是供应链、可靠性和量产成本。",
+      "closing": "硬件 AI 要用量产证明自己。",
+      "aux": [
+        {
+          "label": "投后估值",
+          "value": "26",
+          "unit": "亿美元"
+        },
+        {
+          "label": "融资轮次",
+          "value": "B 轮",
+          "unit": ""
+        },
+        {
+          "label": "赛道方向",
+          "value": "人形机器人",
+          "unit": ""
+        }
+      ],
       "numberSlant": true,
       "auxCount": 3,
       "showCaption": true,
@@ -68695,14 +94454,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page057",
+    "key": "theme07_page061",
     "themeKey": "theme07",
-    "pageNumber": 57,
-    "layout": "THEME07-057",
+    "pageNumber": 61,
+    "layout": "THEME07-061",
     "slot": "ssicase-page",
     "label": "65 60",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "SSI Case"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "强叙事模型实验室"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "SSI 案例页"
+      },
+      {
+        "key": "logic",
+        "label": "logic",
+        "type": "text",
+        "default": "强叙事逻辑"
+      },
+      {
+        "key": "company",
+        "label": "company",
+        "type": "text",
+        "default": "SSI"
+      },
+      {
+        "key": "enName",
+        "label": "enName",
+        "type": "text",
+        "default": "SAFE SUPERINTELLIGENCE"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "安全智能"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "SSI 代表强团队、强叙事、弱商业化验证的模型实验室；短期难以用收入评价，价值建立在长期技术想象上。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "强叙事需要更长时间兑现。"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -68820,47 +94633,45 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "SSI Case",
-        "title": "强叙事模型实验室",
-        "titleTail": "SSI 案例页",
-        "logic": "强叙事逻辑",
-        "company": "SSI",
-        "enName": "SAFE SUPERINTELLIGENCE",
-        "badge": "安全智能",
-        "lead": "SSI 代表强团队、强叙事、弱商业化验证的模型实验室；短期难以用收入评价，价值建立在长期技术想象上。",
-        "closing": "强叙事需要更长时间兑现。",
-        "metrics": [
-          {
-            "label": "最大单笔融资",
-            "value": "10",
-            "unit": "亿美元",
-            "num": true
-          },
-          {
-            "label": "产品收入",
-            "value": "0",
-            "unit": "",
-            "num": true
-          },
-          {
-            "label": "团队规模",
-            "value": "85",
-            "unit": "人",
-            "num": true
-          },
-          {
-            "label": "赛道方向",
-            "value": "安全智能",
-            "num": false
-          }
-        ],
-        "tags": [
-          "强团队",
-          "强叙事",
-          "长期技术"
-        ]
-      },
+      "eyebrow": "SSI Case",
+      "title": "强叙事模型实验室",
+      "titleTail": "SSI 案例页",
+      "logic": "强叙事逻辑",
+      "company": "SSI",
+      "enName": "SAFE SUPERINTELLIGENCE",
+      "badge": "安全智能",
+      "lead": "SSI 代表强团队、强叙事、弱商业化验证的模型实验室；短期难以用收入评价，价值建立在长期技术想象上。",
+      "closing": "强叙事需要更长时间兑现。",
+      "metrics": [
+        {
+          "label": "最大单笔融资",
+          "value": "10",
+          "unit": "亿美元",
+          "num": true
+        },
+        {
+          "label": "产品收入",
+          "value": "0",
+          "unit": "",
+          "num": true
+        },
+        {
+          "label": "团队规模",
+          "value": "85",
+          "unit": "人",
+          "num": true
+        },
+        {
+          "label": "赛道方向",
+          "value": "安全智能",
+          "num": false
+        }
+      ],
+      "tags": [
+        "强团队",
+        "强叙事",
+        "长期技术"
+      ],
       "imageCount": 1,
       "imageRatio": "portrait",
       "metricCount": 4,
@@ -68874,14 +94685,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page058",
+    "key": "theme07_page062",
     "themeKey": "theme07",
-    "pageNumber": 58,
-    "layout": "THEME07-058",
+    "pageNumber": 62,
+    "layout": "THEME07-062",
     "slot": "risk-chapter-page",
     "label": "66 61",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Chapter"
+      },
+      {
+        "key": "index",
+        "label": "index",
+        "type": "text",
+        "default": "05"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "风险与策略"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "从估值压力到投资筛选"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "从本章开始进入风险与策略部分，集中呈现估值、收入、监管、算力和竞争压力。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "下一组页面进入更细的拆解。"
+      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -68963,21 +94810,19 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Chapter",
-        "index": "05",
-        "title": "风险与策略",
-        "sub": "从估值压力到投资筛选",
-        "lead": "从本章开始进入风险与策略部分，集中呈现估值、收入、监管、算力和竞争压力。",
-        "closing": "下一组页面进入更细的拆解。",
-        "keywords": [
-          "估值泡沫",
-          "收入验证",
-          "合规",
-          "算力成本",
-          "垂直应用筛选"
-        ]
-      },
+      "eyebrow": "Chapter",
+      "index": "05",
+      "title": "风险与策略",
+      "sub": "从估值压力到投资筛选",
+      "lead": "从本章开始进入风险与策略部分，集中呈现估值、收入、监管、算力和竞争压力。",
+      "closing": "下一组页面进入更细的拆解。",
+      "keywords": [
+        "估值泡沫",
+        "收入验证",
+        "合规",
+        "算力成本",
+        "垂直应用筛选"
+      ],
       "backgroundVariant": "dark",
       "layout": "left",
       "showIndex": true,
@@ -68988,14 +94833,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page059",
+    "key": "theme07_page063",
     "themeKey": "theme07",
-    "pageNumber": 59,
-    "layout": "THEME07-059",
+    "pageNumber": 63,
+    "layout": "THEME07-063",
     "slot": "revenue-page",
     "label": "67 62",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Revenue Risk"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "收入验证"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "风险 · 收入验证"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "从试点到稳定收入"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "风险 · 收入验证"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "多数 AI 公司需要证明自己能从试点项目转向稳定订阅收入；收入验证要看留存、毛利和客户扩张，而不是只看 Logo。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "试点转付费率 28% · 企业年流失率 17%"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "客户试点不等于商业化成功。"
+      },
+      {
+        "key": "funnelTitle",
+        "label": "funnelTitle",
+        "type": "text",
+        "default": "试点 → 付费 → 稳定收入 · 转化漏斗"
+      },
       {
         "key": "stageCount",
         "label": "阶段数量",
@@ -69078,59 +94977,57 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Revenue Risk",
-        "marker": "收入验证",
-        "segment": "风险 · 收入验证",
-        "title": "从试点到稳定收入",
-        "titleTail": "风险 · 收入验证",
-        "lead": "多数 AI 公司需要证明自己能从试点项目转向稳定订阅收入；收入验证要看留存、毛利和客户扩张，而不是只看 Logo。",
-        "statLine": "试点转付费率 28% · 企业年流失率 17%",
-        "closing": "客户试点不等于商业化成功。",
-        "funnelTitle": "试点 → 付费 → 稳定收入 · 转化漏斗",
-        "stages": [
-          {
-            "name": "试点项目",
-            "value": 100,
-            "note": "免费 / 低价试用",
-            "conv": null
-          },
-          {
-            "name": "付费转化",
-            "value": 28,
-            "note": "签约进入付费",
-            "conv": "28% 转付费"
-          },
-          {
-            "name": "稳定订阅",
-            "value": 23,
-            "note": "续约留存收入",
-            "conv": "83% 留存"
-          }
-        ],
-        "metrics": [
-          {
-            "lbl": "试点转付费率",
-            "val": "28",
-            "unit": "%"
-          },
-          {
-            "lbl": "企业年流失率",
-            "val": "17",
-            "unit": "%"
-          },
-          {
-            "lbl": "毛利率中位数",
-            "val": "54",
-            "unit": "%"
-          },
-          {
-            "lbl": "推理成本占收入",
-            "val": "31",
-            "unit": "%"
-          }
-        ]
-      },
+      "eyebrow": "Revenue Risk",
+      "marker": "收入验证",
+      "segment": "风险 · 收入验证",
+      "title": "从试点到稳定收入",
+      "titleTail": "风险 · 收入验证",
+      "lead": "多数 AI 公司需要证明自己能从试点项目转向稳定订阅收入；收入验证要看留存、毛利和客户扩张，而不是只看 Logo。",
+      "statLine": "试点转付费率 28% · 企业年流失率 17%",
+      "closing": "客户试点不等于商业化成功。",
+      "funnelTitle": "试点 → 付费 → 稳定收入 · 转化漏斗",
+      "stages": [
+        {
+          "name": "试点项目",
+          "value": 100,
+          "note": "免费 / 低价试用",
+          "conv": null
+        },
+        {
+          "name": "付费转化",
+          "value": 28,
+          "note": "签约进入付费",
+          "conv": "28% 转付费"
+        },
+        {
+          "name": "稳定订阅",
+          "value": 23,
+          "note": "续约留存收入",
+          "conv": "83% 留存"
+        }
+      ],
+      "metrics": [
+        {
+          "lbl": "试点转付费率",
+          "val": "28",
+          "unit": "%"
+        },
+        {
+          "lbl": "企业年流失率",
+          "val": "17",
+          "unit": "%"
+        },
+        {
+          "lbl": "毛利率中位数",
+          "val": "54",
+          "unit": "%"
+        },
+        {
+          "lbl": "推理成本占收入",
+          "val": "31",
+          "unit": "%"
+        }
+      ],
       "stageCount": 3,
       "metricCount": 4,
       "focusEnabled": true,
@@ -69141,14 +95038,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page060",
+    "key": "theme07_page064",
     "themeKey": "theme07",
-    "pageNumber": 60,
-    "layout": "THEME07-060",
+    "pageNumber": 64,
+    "layout": "THEME07-064",
     "slot": "compliance-page",
     "label": "68 63",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Regulation Risk"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "监管合规"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "风险 · 监管合规"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "隐私、版权与安全"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "风险 · 监管合规"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "隐私、版权、安全和行业监管会增加交付成本；监管会挤出缺乏治理能力的公司。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "合规团队增长 +42% · 采购审查周期 +36% · 版权风险事件 19 起"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "58%"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "客户要求数据隔离占比"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "合规能力会成为企业采购门槛。"
+      },
+      {
+        "key": "flowTitle",
+        "label": "flowTitle",
+        "type": "text",
+        "default": "合规交付流程"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -69242,58 +95205,56 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Regulation Risk",
-        "marker": "监管合规",
-        "segment": "风险 · 监管合规",
-        "title": "隐私、版权与安全",
-        "titleTail": "风险 · 监管合规",
-        "lead": "隐私、版权、安全和行业监管会增加交付成本；监管会挤出缺乏治理能力的公司。",
-        "statLine": "合规团队增长 +42% · 采购审查周期 +36% · 版权风险事件 19 起",
-        "anchorValue": "58%",
-        "anchorLabel": "客户要求数据隔离占比",
-        "closing": "合规能力会成为企业采购门槛。",
-        "colHeads": {
-          "dim": "风险维度",
-          "level": "风险强度",
-          "note": "成本与影响"
-        },
-        "rows": [
-          {
-            "dim": "隐私合规",
-            "level": 88,
-            "note": "GDPR / CCPA、数据最小化与脱敏要求"
-          },
-          {
-            "dim": "版权风险",
-            "level": 76,
-            "note": "训练语料与生成内容的版权追溯"
-          },
-          {
-            "dim": "数据安全",
-            "level": 70,
-            "note": "数据隔离、加密与访问权限控制"
-          },
-          {
-            "dim": "行业监管",
-            "level": 58,
-            "note": "金融、医疗等行业的准入与审计"
-          },
-          {
-            "dim": "内容安全",
-            "level": 44,
-            "note": "有害内容过滤与生成留痕"
-          }
-        ],
-        "flowTitle": "合规交付流程",
-        "flow": [
-          "数据接入",
-          "隐私脱敏",
-          "合规审查",
-          "审计留痕",
-          "安全交付"
-        ]
+      "eyebrow": "Regulation Risk",
+      "marker": "监管合规",
+      "segment": "风险 · 监管合规",
+      "title": "隐私、版权与安全",
+      "titleTail": "风险 · 监管合规",
+      "lead": "隐私、版权、安全和行业监管会增加交付成本；监管会挤出缺乏治理能力的公司。",
+      "statLine": "合规团队增长 +42% · 采购审查周期 +36% · 版权风险事件 19 起",
+      "anchorValue": "58%",
+      "anchorLabel": "客户要求数据隔离占比",
+      "closing": "合规能力会成为企业采购门槛。",
+      "colHeads": {
+        "dim": "风险维度",
+        "level": "风险强度",
+        "note": "成本与影响"
       },
+      "rows": [
+        {
+          "dim": "隐私合规",
+          "level": 88,
+          "note": "GDPR / CCPA、数据最小化与脱敏要求"
+        },
+        {
+          "dim": "版权风险",
+          "level": 76,
+          "note": "训练语料与生成内容的版权追溯"
+        },
+        {
+          "dim": "数据安全",
+          "level": 70,
+          "note": "数据隔离、加密与访问权限控制"
+        },
+        {
+          "dim": "行业监管",
+          "level": 58,
+          "note": "金融、医疗等行业的准入与审计"
+        },
+        {
+          "dim": "内容安全",
+          "level": 44,
+          "note": "有害内容过滤与生成留痕"
+        }
+      ],
+      "flowTitle": "合规交付流程",
+      "flow": [
+        "数据接入",
+        "隐私脱敏",
+        "合规审查",
+        "审计留痕",
+        "安全交付"
+      ],
       "rowCount": 5,
       "showLevel": true,
       "showFlow": true,
@@ -69305,14 +95266,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page061",
+    "key": "theme07_page065",
     "themeKey": "theme07",
-    "pageNumber": 61,
-    "layout": "THEME07-061",
+    "pageNumber": 65,
+    "layout": "THEME07-065",
     "slot": "margin-page",
     "label": "69 64",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Compute Cost Risk"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "毛利天花板"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "风险 · 算力成本"
+      },
+      {
+        "key": "kicker",
+        "label": "kicker",
+        "type": "text",
+        "default": "训练预算压力"
+      },
+      {
+        "key": "numLead",
+        "label": "numLead",
+        "type": "text",
+        "default": "61"
+      },
+      {
+        "key": "numUnit",
+        "label": "numUnit",
+        "type": "text",
+        "default": "%"
+      },
+      {
+        "key": "numCaption",
+        "label": "numCaption",
+        "type": "text",
+        "default": "训练预算模拟增长幅度"
+      },
+      {
+        "key": "ceilingLabel",
+        "label": "ceilingLabel",
+        "type": "text",
+        "default": "毛利天花板"
+      },
+      {
+        "key": "gaugeCap",
+        "label": "gaugeCap",
+        "type": "text",
+        "default": "每 1 元收入的成本构成"
+      },
+      {
+        "key": "note",
+        "label": "note",
+        "type": "text",
+        "default": "如果推理成本降不下来，收入增长会被毛利吞掉。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "算力成本是模型商业化的硬约束。"
+      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -69381,54 +95408,52 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Compute Cost Risk",
-        "title": "毛利天花板",
-        "sub": "风险 · 算力成本",
-        "kicker": "训练预算压力",
-        "numLead": "61",
-        "numTail": "",
-        "numUnit": "%",
-        "numCaption": "训练预算模拟增长幅度",
-        "ceilingLabel": "毛利天花板",
-        "gaugeCap": "每 1 元收入的成本构成",
-        "gauge": [
-          {
-            "label": "算力成本",
-            "value": 31,
-            "tone": "neg"
-          },
-          {
-            "label": "其他成本",
-            "value": 15,
-            "tone": "faint"
-          },
-          {
-            "label": "可分配毛利",
-            "value": 54,
-            "tone": "accent"
-          }
-        ],
-        "note": "如果推理成本降不下来，收入增长会被毛利吞掉。",
-        "closing": "算力成本是模型商业化的硬约束。",
-        "aux": [
-          {
-            "label": "推理成本占收入",
-            "value": "31",
-            "unit": "%"
-          },
-          {
-            "label": "毛利率中位数",
-            "value": "54",
-            "unit": "%"
-          },
-          {
-            "label": "单位推理成本",
-            "value": "-19",
-            "unit": "%"
-          }
-        ]
-      },
+      "eyebrow": "Compute Cost Risk",
+      "title": "毛利天花板",
+      "sub": "风险 · 算力成本",
+      "kicker": "训练预算压力",
+      "numLead": "61",
+      "numTail": "",
+      "numUnit": "%",
+      "numCaption": "训练预算模拟增长幅度",
+      "ceilingLabel": "毛利天花板",
+      "gaugeCap": "每 1 元收入的成本构成",
+      "gauge": [
+        {
+          "label": "算力成本",
+          "value": 31,
+          "tone": "neg"
+        },
+        {
+          "label": "其他成本",
+          "value": 15,
+          "tone": "faint"
+        },
+        {
+          "label": "可分配毛利",
+          "value": 54,
+          "tone": "accent"
+        }
+      ],
+      "note": "如果推理成本降不下来，收入增长会被毛利吞掉。",
+      "closing": "算力成本是模型商业化的硬约束。",
+      "aux": [
+        {
+          "label": "推理成本占收入",
+          "value": "31",
+          "unit": "%"
+        },
+        {
+          "label": "毛利率中位数",
+          "value": "54",
+          "unit": "%"
+        },
+        {
+          "label": "单位推理成本",
+          "value": "-19",
+          "unit": "%"
+        }
+      ],
       "numberSlant": true,
       "auxCount": 3,
       "showCaption": true,
@@ -69440,14 +95465,92 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page062",
+    "key": "theme07_page066",
     "themeKey": "theme07",
-    "pageNumber": 62,
-    "layout": "THEME07-062",
+    "pageNumber": 66,
+    "layout": "THEME07-066",
     "slot": "moat-page",
     "label": "70 65",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Open Source Risk"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "开源与大厂竞争"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "风险 · 开源与大厂竞争"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "壁垒被压缩"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "风险 · 开源与大厂竞争"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "开源模型降低能力门槛，大厂生态压缩初创公司的独立空间；初创公司必须找到数据、工作流或行业入口壁垒。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "没有壁垒的模型能力会迅速商品化。"
+      },
+      {
+        "key": "bandTitle",
+        "label": "bandTitle",
+        "type": "text",
+        "default": "初创公司独立空间 · 被两侧压缩"
+      },
+      {
+        "key": "bandLeft",
+        "label": "bandLeft",
+        "type": "text",
+        "default": "开源可替代"
+      },
+      {
+        "key": "bandRight",
+        "label": "bandRight",
+        "type": "text",
+        "default": "大厂生态覆盖"
+      },
+      {
+        "key": "bandCore",
+        "label": "bandCore",
+        "type": "text",
+        "default": "剩余壁垒"
+      },
+      {
+        "key": "bandCoreSub",
+        "label": "bandCoreSub",
+        "type": "text",
+        "default": "数据 · 工作流 · 行业入口"
+      },
+      {
+        "key": "metersTitle",
+        "label": "metersTitle",
+        "type": "text",
+        "default": "竞争压力 · 逼近壁垒线"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -69540,39 +95643,37 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Open Source Risk",
-        "marker": "开源与大厂竞争",
-        "segment": "风险 · 开源与大厂竞争",
-        "title": "壁垒被压缩",
-        "titleTail": "风险 · 开源与大厂竞争",
-        "lead": "开源模型降低能力门槛，大厂生态压缩初创公司的独立空间；初创公司必须找到数据、工作流或行业入口壁垒。",
-        "closing": "没有壁垒的模型能力会迅速商品化。",
-        "bandTitle": "初创公司独立空间 · 被两侧压缩",
-        "bandLeft": "开源可替代",
-        "bandRight": "大厂生态覆盖",
-        "bandCore": "剩余壁垒",
-        "bandCoreSub": "数据 · 工作流 · 行业入口",
-        "metersTitle": "竞争压力 · 逼近壁垒线",
-        "threshold": 60,
-        "indicators": [
-          {
-            "name": "开源模型性能逼近",
-            "value": 86,
-            "note": "能力差距快速收窄"
-          },
-          {
-            "name": "大厂产品覆盖",
-            "value": 72,
-            "note": "原生集成挤压入口"
-          },
-          {
-            "name": "企业自建意愿",
-            "value": 34,
-            "note": "内部团队替代采购"
-          }
-        ]
-      },
+      "eyebrow": "Open Source Risk",
+      "marker": "开源与大厂竞争",
+      "segment": "风险 · 开源与大厂竞争",
+      "title": "壁垒被压缩",
+      "titleTail": "风险 · 开源与大厂竞争",
+      "lead": "开源模型降低能力门槛，大厂生态压缩初创公司的独立空间；初创公司必须找到数据、工作流或行业入口壁垒。",
+      "closing": "没有壁垒的模型能力会迅速商品化。",
+      "bandTitle": "初创公司独立空间 · 被两侧压缩",
+      "bandLeft": "开源可替代",
+      "bandRight": "大厂生态覆盖",
+      "bandCore": "剩余壁垒",
+      "bandCoreSub": "数据 · 工作流 · 行业入口",
+      "metersTitle": "竞争压力 · 逼近壁垒线",
+      "threshold": 60,
+      "indicators": [
+        {
+          "name": "开源模型性能逼近",
+          "value": 86,
+          "note": "能力差距快速收窄"
+        },
+        {
+          "name": "大厂产品覆盖",
+          "value": 72,
+          "note": "原生集成挤压入口"
+        },
+        {
+          "name": "企业自建意愿",
+          "value": 34,
+          "note": "内部团队替代采购"
+        }
+      ],
       "chartType": "pressure",
       "segmentCount": 3,
       "focusEnabled": true,
@@ -69584,14 +95685,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page063",
+    "key": "theme07_page067",
     "themeKey": "theme07",
-    "pageNumber": 63,
-    "layout": "THEME07-063",
+    "pageNumber": 67,
+    "layout": "THEME07-067",
     "slot": "strategy-infra-page",
     "label": "71 66",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Infrastructure Strategy"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "策略 · 优先基础设施"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "确定性预算"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "策略 · 优先基础设施"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "基础设施公司更接近刚性预算，收入确定性相对更强；模型胜负未定时，卖铲子仍是更稳的资本逻辑。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "优先看能支撑全行业增长的基础设施。"
+      },
+      {
+        "key": "criteriaTitle",
+        "label": "criteriaTitle",
+        "type": "text",
+        "default": "筛选指标 · Screening"
+      },
+      {
+        "key": "cardsTitle",
+        "label": "cardsTitle",
+        "type": "text",
+        "default": "推荐方向 · Infrastructure"
+      },
       {
         "key": "cardCount",
         "label": "卡片数量",
@@ -69691,60 +95840,58 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Infrastructure Strategy",
-        "segment": "策略 · 优先基础设施",
-        "title": "确定性预算",
-        "titleTail": "策略 · 优先基础设施",
-        "lead": "基础设施公司更接近刚性预算，收入确定性相对更强；模型胜负未定时，卖铲子仍是更稳的资本逻辑。",
-        "closing": "优先看能支撑全行业增长的基础设施。",
-        "criteriaTitle": "筛选指标 · Screening",
-        "criteria": [
-          {
-            "name": "收入增速",
-            "note": "是否有刚性放量需求"
-          },
-          {
-            "name": "毛利率",
-            "note": "成本结构是否健康"
-          },
-          {
-            "name": "客户集中度",
-            "note": "收入是否过度依赖少数客户"
-          },
-          {
-            "name": "资源锁定",
-            "note": "是否绑定算力 / 数据资源"
-          }
-        ],
-        "cardsTitle": "推荐方向 · Infrastructure",
-        "cards": [
-          {
-            "name": "GPU 云",
-            "en": "Compute Cloud",
-            "note": "刚性算力预算，最接近行业级基础需求。",
-            "certainty": 92
-          },
-          {
-            "name": "数据平台",
-            "en": "Data Platform",
-            "note": "训练与评测的数据底座，复用性强。",
-            "certainty": 84
-          },
-          {
-            "name": "推理优化",
-            "en": "Inference Opt.",
-            "note": "直接压低单位推理成本，刚需且可量化。",
-            "certainty": 80
-          },
-          {
-            "name": "评测工具",
-            "en": "Eval & Bench",
-            "note": "模型选型的度量入口，绑定决策链路。",
-            "certainty": 74
-          }
-        ]
-      },
+      "eyebrow": "Infrastructure Strategy",
+      "segment": "策略 · 优先基础设施",
+      "title": "确定性预算",
+      "titleTail": "策略 · 优先基础设施",
+      "lead": "基础设施公司更接近刚性预算，收入确定性相对更强；模型胜负未定时，卖铲子仍是更稳的资本逻辑。",
+      "closing": "优先看能支撑全行业增长的基础设施。",
+      "criteriaTitle": "筛选指标 · Screening",
+      "criteria": [
+        {
+          "name": "收入增速",
+          "note": "是否有刚性放量需求"
+        },
+        {
+          "name": "毛利率",
+          "note": "成本结构是否健康"
+        },
+        {
+          "name": "客户集中度",
+          "note": "收入是否过度依赖少数客户"
+        },
+        {
+          "name": "资源锁定",
+          "note": "是否绑定算力 / 数据资源"
+        }
+      ],
+      "cardsTitle": "推荐方向 · Infrastructure",
+      "cards": [
+        {
+          "name": "GPU 云",
+          "en": "Compute Cloud",
+          "note": "刚性算力预算，最接近行业级基础需求。",
+          "certainty": 92
+        },
+        {
+          "name": "数据平台",
+          "en": "Data Platform",
+          "note": "训练与评测的数据底座，复用性强。",
+          "certainty": 84
+        },
+        {
+          "name": "推理优化",
+          "en": "Inference Opt.",
+          "note": "直接压低单位推理成本，刚需且可量化。",
+          "certainty": 80
+        },
+        {
+          "name": "评测工具",
+          "en": "Eval & Bench",
+          "note": "模型选型的度量入口，绑定决策链路。",
+          "certainty": 74
+        }
+      ],
       "cardCount": 4,
       "columns": 2,
       "criteriaCount": 4,
@@ -69756,14 +95903,68 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page064",
+    "key": "theme07_page068",
     "themeKey": "theme07",
-    "pageNumber": 64,
-    "layout": "THEME07-064",
+    "pageNumber": 68,
+    "layout": "THEME07-068",
     "slot": "strategy-vertical-page",
     "label": "72 67",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Vertical Strategy"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "策略 · 筛选垂直应用"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "嵌入工作流"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "策略 · 筛选垂直应用"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "垂直应用要看是否嵌入刚性流程，而不是只看生成效果；好的垂直 AI 应用应该成为工作流的一部分。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "应用价值来自流程位置。"
+      },
+      {
+        "key": "flowTitle",
+        "label": "flowTitle",
+        "type": "text",
+        "default": "业务工作流 · AI 嵌入位置"
+      },
+      {
+        "key": "cardsTitle",
+        "label": "cardsTitle",
+        "type": "text",
+        "default": "筛选维度 · Retention"
+      },
+      {
+        "key": "tagsTitle",
+        "label": "tagsTitle",
+        "type": "text",
+        "default": "落地场景"
+      },
       {
         "key": "stepCount",
         "label": "流程节点",
@@ -69860,74 +96061,72 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Vertical Strategy",
-        "segment": "策略 · 筛选垂直应用",
-        "title": "嵌入工作流",
-        "titleTail": "策略 · 筛选垂直应用",
-        "lead": "垂直应用要看是否嵌入刚性流程，而不是只看生成效果；好的垂直 AI 应用应该成为工作流的一部分。",
-        "closing": "应用价值来自流程位置。",
-        "flowTitle": "业务工作流 · AI 嵌入位置",
-        "steps": [
-          {
-            "name": "业务触发",
-            "en": "Trigger",
-            "note": "真实工作请求进入"
-          },
-          {
-            "name": "数据准备",
-            "en": "Context",
-            "note": "上下文与资料汇集"
-          },
-          {
-            "name": "AI 处理",
-            "en": "AI Embed",
-            "note": "嵌入式生成与决策",
-            "embed": true
-          },
-          {
-            "name": "人工复核",
-            "en": "Review",
-            "note": "专家确认与修订"
-          },
-          {
-            "name": "结果交付",
-            "en": "Deliver",
-            "note": "回写至业务系统"
-          }
-        ],
-        "cardsTitle": "筛选维度 · Retention",
-        "cards": [
-          {
-            "name": "付费留存",
-            "en": "Retention",
-            "note": "续费率能否穿越预算周期"
-          },
-          {
-            "name": "使用频次",
-            "en": "Frequency",
-            "note": "是否进入高频日常动作"
-          },
-          {
-            "name": "席位扩张",
-            "en": "Seat Growth",
-            "note": "团队内部能否自然扩散"
-          },
-          {
-            "name": "净收入留存",
-            "en": "NRR",
-            "note": "老客户是否持续增购"
-          }
-        ],
-        "tagsTitle": "落地场景",
-        "tags": [
-          "法律",
-          "医疗",
-          "客服",
-          "企业搜索",
-          "开发者工具"
-        ]
-      },
+      "eyebrow": "Vertical Strategy",
+      "segment": "策略 · 筛选垂直应用",
+      "title": "嵌入工作流",
+      "titleTail": "策略 · 筛选垂直应用",
+      "lead": "垂直应用要看是否嵌入刚性流程，而不是只看生成效果；好的垂直 AI 应用应该成为工作流的一部分。",
+      "closing": "应用价值来自流程位置。",
+      "flowTitle": "业务工作流 · AI 嵌入位置",
+      "steps": [
+        {
+          "name": "业务触发",
+          "en": "Trigger",
+          "note": "真实工作请求进入"
+        },
+        {
+          "name": "数据准备",
+          "en": "Context",
+          "note": "上下文与资料汇集"
+        },
+        {
+          "name": "AI 处理",
+          "en": "AI Embed",
+          "note": "嵌入式生成与决策",
+          "embed": true
+        },
+        {
+          "name": "人工复核",
+          "en": "Review",
+          "note": "专家确认与修订"
+        },
+        {
+          "name": "结果交付",
+          "en": "Deliver",
+          "note": "回写至业务系统"
+        }
+      ],
+      "cardsTitle": "筛选维度 · Retention",
+      "cards": [
+        {
+          "name": "付费留存",
+          "en": "Retention",
+          "note": "续费率能否穿越预算周期"
+        },
+        {
+          "name": "使用频次",
+          "en": "Frequency",
+          "note": "是否进入高频日常动作"
+        },
+        {
+          "name": "席位扩张",
+          "en": "Seat Growth",
+          "note": "团队内部能否自然扩散"
+        },
+        {
+          "name": "净收入留存",
+          "en": "NRR",
+          "note": "老客户是否持续增购"
+        }
+      ],
+      "tagsTitle": "落地场景",
+      "tags": [
+        "法律",
+        "医疗",
+        "客服",
+        "企业搜索",
+        "开发者工具"
+      ],
       "stepCount": 5,
       "focusEnabled": true,
       "focusIndex": 2,
@@ -69939,14 +96138,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page065",
+    "key": "theme07_page069",
     "themeKey": "theme07",
-    "pageNumber": 65,
-    "layout": "THEME07-065",
+    "pageNumber": 69,
+    "layout": "THEME07-069",
     "slot": "repricing-page",
     "label": "73 68",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "IPO Watch"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "策略 · 观察 IPO 窗口"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "估值锚重定价"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "策略 · 观察 IPO 窗口"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "头部公司 IPO 表现会影响整个 AI 一级市场估值锚；如果头部上市后估值承压，一级市场会同步下修预期。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "公开市场会重新定价 AI 叙事。"
+      },
+      {
+        "key": "axisLabel",
+        "label": "坐标标签",
+        "type": "text",
+        "default": "IPO 观察序列 · 估值锚定者"
+      },
+      {
+        "key": "metricsTitle",
+        "label": "metricsTitle",
+        "type": "text",
+        "default": "观察指标 · Signals"
+      },
       {
         "key": "nodeCount",
         "label": "节点数量",
@@ -70029,56 +96276,54 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "IPO Watch",
-        "segment": "策略 · 观察 IPO 窗口",
-        "title": "估值锚重定价",
-        "titleTail": "策略 · 观察 IPO 窗口",
-        "lead": "头部公司 IPO 表现会影响整个 AI 一级市场估值锚；如果头部上市后估值承压，一级市场会同步下修预期。",
-        "closing": "公开市场会重新定价 AI 叙事。",
-        "axisLabel": "IPO 观察序列 · 估值锚定者",
-        "nodes": [
-          {
-            "name": "OpenAI",
-            "sector": "通用大模型",
-            "note": "体量决定市场情绪基准"
-          },
-          {
-            "name": "Anthropic",
-            "sector": "安全模型",
-            "note": "增速验证叙事可持续性"
-          },
-          {
-            "name": "Databricks",
-            "sector": "数据平台",
-            "note": "老牌营收验证 AI 溢价"
-          },
-          {
-            "name": "CoreWeave",
-            "sector": "算力基础设施",
-            "note": "云成本与毛利率受考验"
-          }
-        ],
-        "metricsTitle": "观察指标 · Signals",
-        "metrics": [
-          {
-            "name": "上市表现",
-            "note": "首日与解禁后定价"
-          },
-          {
-            "name": "收入增速",
-            "note": "能否支撑高估值"
-          },
-          {
-            "name": "毛利率",
-            "note": "盈利模型是否成立"
-          },
-          {
-            "name": "云成本占比",
-            "note": "算力侵蚀利润程度"
-          }
-        ]
-      },
+      "eyebrow": "IPO Watch",
+      "segment": "策略 · 观察 IPO 窗口",
+      "title": "估值锚重定价",
+      "titleTail": "策略 · 观察 IPO 窗口",
+      "lead": "头部公司 IPO 表现会影响整个 AI 一级市场估值锚；如果头部上市后估值承压，一级市场会同步下修预期。",
+      "closing": "公开市场会重新定价 AI 叙事。",
+      "axisLabel": "IPO 观察序列 · 估值锚定者",
+      "nodes": [
+        {
+          "name": "OpenAI",
+          "sector": "通用大模型",
+          "note": "体量决定市场情绪基准"
+        },
+        {
+          "name": "Anthropic",
+          "sector": "安全模型",
+          "note": "增速验证叙事可持续性"
+        },
+        {
+          "name": "Databricks",
+          "sector": "数据平台",
+          "note": "老牌营收验证 AI 溢价"
+        },
+        {
+          "name": "CoreWeave",
+          "sector": "算力基础设施",
+          "note": "云成本与毛利率受考验"
+        }
+      ],
+      "metricsTitle": "观察指标 · Signals",
+      "metrics": [
+        {
+          "name": "上市表现",
+          "note": "首日与解禁后定价"
+        },
+        {
+          "name": "收入增速",
+          "note": "能否支撑高估值"
+        },
+        {
+          "name": "毛利率",
+          "note": "盈利模型是否成立"
+        },
+        {
+          "name": "云成本占比",
+          "note": "算力侵蚀利润程度"
+        }
+      ],
       "nodeCount": 4,
       "focusEnabled": true,
       "focusIndex": 0,
@@ -70089,14 +96334,62 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page066",
+    "key": "theme07_page070",
     "themeKey": "theme07",
-    "pageNumber": 66,
-    "layout": "THEME07-066",
+    "pageNumber": 70,
+    "layout": "THEME07-070",
     "slot": "closing-page",
     "label": "74 69",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Closing"
+      },
+      {
+        "key": "kicker",
+        "label": "kicker",
+        "type": "text",
+        "default": "最终判断"
+      },
+      {
+        "key": "quoteLead",
+        "label": "quoteLead",
+        "type": "text",
+        "default": "融资盛宴之后，"
+      },
+      {
+        "key": "quoteEm",
+        "label": "quoteEm",
+        "type": "text",
+        "default": "真正的竞争"
+      },
+      {
+        "key": "quoteTail",
+        "label": "quoteTail",
+        "type": "text",
+        "default": "才刚开始。"
+      },
+      {
+        "key": "tagline",
+        "label": "tagline",
+        "type": "text",
+        "default": "从资本流向，看 AI 产业下一阶段的真实重心。"
+      },
+      {
+        "key": "brandLabel",
+        "label": "brandLabel",
+        "type": "text",
+        "default": "AI CAPITAL LAB"
+      },
+      {
+        "key": "brandSub",
+        "label": "brandSub",
+        "type": "text",
+        "default": "FUNDING INTELLIGENCE"
+      },
       {
         "key": "align",
         "label": "对齐方式",
@@ -70182,16 +96475,14 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Closing",
-        "kicker": "最终判断",
-        "quoteLead": "融资盛宴之后，",
-        "quoteEm": "真正的竞争",
-        "quoteTail": "才刚开始。",
-        "tagline": "从资本流向，看 AI 产业下一阶段的真实重心。",
-        "brandLabel": "AI CAPITAL LAB",
-        "brandSub": "FUNDING INTELLIGENCE"
-      },
+      "eyebrow": "Closing",
+      "kicker": "最终判断",
+      "quoteLead": "融资盛宴之后，",
+      "quoteEm": "真正的竞争",
+      "quoteTail": "才刚开始。",
+      "tagline": "从资本流向，看 AI 产业下一阶段的真实重心。",
+      "brandLabel": "AI CAPITAL LAB",
+      "brandSub": "FUNDING INTELLIGENCE",
       "align": "center",
       "backgroundVariant": "paper",
       "showKicker": true,
@@ -70203,14 +96494,50 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page067",
+    "key": "theme07_page071",
     "themeKey": "theme07",
-    "pageNumber": 67,
-    "layout": "THEME07-067",
+    "pageNumber": 71,
+    "layout": "THEME07-071",
     "slot": "appendix-chapter-page",
     "label": "75 70",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Appendix"
+      },
+      {
+        "key": "index",
+        "label": "index",
+        "type": "text",
+        "default": "06"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "附录与延展"
+      },
+      {
+        "key": "sub",
+        "label": "次标题",
+        "type": "text",
+        "default": "数据来源、前瞻指标与研究团队"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "正文之外，补充本报告的研究口径、数据来源、2025 年前瞻观察指标，以及研究团队信息，便于复核与延展阅读。"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "数据可复核，判断可延展。"
+      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -70292,20 +96619,18 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Appendix",
-        "index": "06",
-        "title": "附录与延展",
-        "sub": "数据来源、前瞻指标与研究团队",
-        "lead": "正文之外，补充本报告的研究口径、数据来源、2025 年前瞻观察指标，以及研究团队信息，便于复核与延展阅读。",
-        "closing": "数据可复核，判断可延展。",
-        "keywords": [
-          "研究口径",
-          "数据来源",
-          "前瞻指标",
-          "关于团队"
-        ]
-      },
+      "eyebrow": "Appendix",
+      "index": "06",
+      "title": "附录与延展",
+      "sub": "数据来源、前瞻指标与研究团队",
+      "lead": "正文之外，补充本报告的研究口径、数据来源、2025 年前瞻观察指标，以及研究团队信息，便于复核与延展阅读。",
+      "closing": "数据可复核，判断可延展。",
+      "keywords": [
+        "研究口径",
+        "数据来源",
+        "前瞻指标",
+        "关于团队"
+      ],
       "backgroundVariant": "dark",
       "layout": "left",
       "showIndex": true,
@@ -70316,14 +96641,86 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page068",
+    "key": "theme07_page072",
     "themeKey": "theme07",
-    "pageNumber": 68,
-    "layout": "THEME07-068",
+    "pageNumber": 72,
+    "layout": "THEME07-072",
     "slot": "forward-page",
     "label": "76 71",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Forward View · 2025"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "2025 前瞻"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "关键指标与观察信号"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "将 2024 的结构外推到 2025：资本可能从规模扩张转向效率验证，少数确定性方向继续获得资本，叙事型估值面临重定价。"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "+38%"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "垂直应用收入兑现 · 2025E 情景增速"
+      },
+      {
+        "key": "scenarioTag",
+        "label": "scenarioTag",
+        "type": "text",
+        "default": "情景推演 · 2024 = 100"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "增量来自兑现，而非叙事。"
+      },
+      {
+        "key": "panelTitle",
+        "label": "panelTitle",
+        "type": "text",
+        "default": "2024 → 2025E 指标推演（指数，2024 = 100）"
+      },
+      {
+        "key": "baselineLabel",
+        "label": "baselineLabel",
+        "type": "text",
+        "default": "2024 基线 · 100"
+      },
+      {
+        "key": "axisFrom",
+        "label": "axisFrom",
+        "type": "text",
+        "default": "2024"
+      },
+      {
+        "key": "axisTo",
+        "label": "axisTo",
+        "type": "text",
+        "default": "2025E"
+      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -70424,47 +96821,45 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Forward View · 2025",
-        "title": "2025 前瞻",
-        "titleTail": "关键指标与观察信号",
-        "lead": "将 2024 的结构外推到 2025：资本可能从规模扩张转向效率验证，少数确定性方向继续获得资本，叙事型估值面临重定价。",
-        "anchorValue": "+38%",
-        "anchorLabel": "垂直应用收入兑现 · 2025E 情景增速",
-        "scenarioTag": "情景推演 · 2024 = 100",
-        "closing": "增量来自兑现，而非叙事。",
-        "panelTitle": "2024 → 2025E 指标推演（指数，2024 = 100）",
-        "baselineLabel": "2024 基线 · 100",
-        "axisFrom": "2024",
-        "axisTo": "2025E",
-        "metrics": [
-          {
-            "label": "垂直应用收入兑现",
-            "value": 138,
-            "note": "付费留存与席位扩张"
-          },
-          {
-            "label": "基础设施资本确定性",
-            "value": 124,
-            "note": "GPU 云与数据平台"
-          },
-          {
-            "label": "平均单笔规模",
-            "value": 105,
-            "note": "头部集中度提升"
-          },
-          {
-            "label": "全年大额事件数",
-            "value": 88,
-            "note": "事件数量理性回落"
-          },
-          {
-            "label": "叙事型估值",
-            "value": 82,
-            "note": "面临公开市场重定价"
-          }
-        ]
-      },
+      "eyebrow": "Forward View · 2025",
+      "title": "2025 前瞻",
+      "titleTail": "关键指标与观察信号",
+      "lead": "将 2024 的结构外推到 2025：资本可能从规模扩张转向效率验证，少数确定性方向继续获得资本，叙事型估值面临重定价。",
+      "anchorValue": "+38%",
+      "anchorLabel": "垂直应用收入兑现 · 2025E 情景增速",
+      "scenarioTag": "情景推演 · 2024 = 100",
+      "closing": "增量来自兑现，而非叙事。",
+      "panelTitle": "2024 → 2025E 指标推演（指数，2024 = 100）",
+      "baselineLabel": "2024 基线 · 100",
+      "axisFrom": "2024",
+      "axisTo": "2025E",
+      "metrics": [
+        {
+          "label": "垂直应用收入兑现",
+          "value": 138,
+          "note": "付费留存与席位扩张"
+        },
+        {
+          "label": "基础设施资本确定性",
+          "value": 124,
+          "note": "GPU 云与数据平台"
+        },
+        {
+          "label": "平均单笔规模",
+          "value": 105,
+          "note": "头部集中度提升"
+        },
+        {
+          "label": "全年大额事件数",
+          "value": 88,
+          "note": "事件数量理性回落"
+        },
+        {
+          "label": "叙事型估值",
+          "value": 82,
+          "note": "面临公开市场重定价"
+        }
+      ],
       "chartType": "slope",
       "metricCount": 5,
       "focusEnabled": true,
@@ -70476,14 +96871,80 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page069",
+    "key": "theme07_page073",
     "themeKey": "theme07",
-    "pageNumber": 69,
-    "layout": "THEME07-069",
+    "pageNumber": 73,
+    "layout": "THEME07-073",
     "slot": "sources-page",
     "label": "77 72",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "Data & Methodology"
+      },
+      {
+        "key": "marker",
+        "label": "marker",
+        "type": "text",
+        "default": "研究口径"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "附录 · 口径与来源"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "数据来源与口径"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "附录 · 口径与来源"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "本报告以公开披露的 2024 年美国 AI 大额融资事件为样本，统一口径后进行结构化分析；以下为关键口径与数据来源说明。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "样本 97 笔 · 单笔 ≥1 亿美元 · 截至 2024 全年"
+      },
+      {
+        "key": "anchorValue",
+        "label": "anchorValue",
+        "type": "text",
+        "default": "97"
+      },
+      {
+        "key": "anchorLabel",
+        "label": "anchorLabel",
+        "type": "text",
+        "default": "大额融资事件样本量 / 笔"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "口径透明，结论才可被检验。"
+      },
+      {
+        "key": "flowTitle",
+        "label": "flowTitle",
+        "type": "text",
+        "default": "口径处理流程"
+      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -70581,63 +97042,61 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "Data & Methodology",
-        "marker": "研究口径",
-        "segment": "附录 · 口径与来源",
-        "title": "数据来源与口径",
-        "titleTail": "附录 · 口径与来源",
-        "lead": "本报告以公开披露的 2024 年美国 AI 大额融资事件为样本，统一口径后进行结构化分析；以下为关键口径与数据来源说明。",
-        "statLine": "样本 97 笔 · 单笔 ≥1 亿美元 · 截至 2024 全年",
-        "anchorValue": "97",
-        "anchorLabel": "大额融资事件样本量 / 笔",
-        "closing": "口径透明，结论才可被检验。",
-        "colHeads": {
-          "dim": "口径维度",
-          "level": "可信度",
-          "note": "口径定义与来源"
-        },
-        "rows": [
-          {
-            "dim": "融资口径",
-            "level": 95,
-            "note": "单笔 ≥1 亿美元股权融资，剔除二级交易与并购"
-          },
-          {
-            "dim": "时间范围",
-            "level": 92,
-            "note": "2024-01 至 2024-12，按融资公告日归属季度"
-          },
-          {
-            "dim": "地域范围",
-            "level": 90,
-            "note": "总部位于美国的 AI 公司，以注册地为准"
-          },
-          {
-            "dim": "数据来源",
-            "level": 85,
-            "note": "公开新闻、公司公告与行业数据库多源交叉"
-          },
-          {
-            "dim": "汇率与单位",
-            "level": 88,
-            "note": "统一折算为美元，以「亿美元」为展示单位"
-          },
-          {
-            "dim": "赛道划分",
-            "level": 78,
-            "note": "模型 / 应用 / 基础设施 / 硬件 / 安全 五类，按主营归类"
-          }
-        ],
-        "flowTitle": "口径处理流程",
-        "flow": [
-          "数据采集",
-          "去重核对",
-          "口径统一",
-          "结构化",
-          "交叉复核"
-        ]
+      "eyebrow": "Data & Methodology",
+      "marker": "研究口径",
+      "segment": "附录 · 口径与来源",
+      "title": "数据来源与口径",
+      "titleTail": "附录 · 口径与来源",
+      "lead": "本报告以公开披露的 2024 年美国 AI 大额融资事件为样本，统一口径后进行结构化分析；以下为关键口径与数据来源说明。",
+      "statLine": "样本 97 笔 · 单笔 ≥1 亿美元 · 截至 2024 全年",
+      "anchorValue": "97",
+      "anchorLabel": "大额融资事件样本量 / 笔",
+      "closing": "口径透明，结论才可被检验。",
+      "colHeads": {
+        "dim": "口径维度",
+        "level": "可信度",
+        "note": "口径定义与来源"
       },
+      "rows": [
+        {
+          "dim": "融资口径",
+          "level": 95,
+          "note": "单笔 ≥1 亿美元股权融资，剔除二级交易与并购"
+        },
+        {
+          "dim": "时间范围",
+          "level": 92,
+          "note": "2024-01 至 2024-12，按融资公告日归属季度"
+        },
+        {
+          "dim": "地域范围",
+          "level": 90,
+          "note": "总部位于美国的 AI 公司，以注册地为准"
+        },
+        {
+          "dim": "数据来源",
+          "level": 85,
+          "note": "公开新闻、公司公告与行业数据库多源交叉"
+        },
+        {
+          "dim": "汇率与单位",
+          "level": 88,
+          "note": "统一折算为美元，以「亿美元」为展示单位"
+        },
+        {
+          "dim": "赛道划分",
+          "level": 78,
+          "note": "模型 / 应用 / 基础设施 / 硬件 / 安全 五类，按主营归类"
+        }
+      ],
+      "flowTitle": "口径处理流程",
+      "flow": [
+        "数据采集",
+        "去重核对",
+        "口径统一",
+        "结构化",
+        "交叉复核"
+      ],
       "rowCount": 6,
       "showLevel": true,
       "showFlow": true,
@@ -70649,14 +97108,74 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme07_page070",
+    "key": "theme07_page074",
     "themeKey": "theme07",
-    "pageNumber": 70,
-    "layout": "THEME07-070",
+    "pageNumber": 74,
+    "layout": "THEME07-074",
     "slot": "about-lab-page",
     "label": "78 73",
     "bgClass": "",
     "controls": [
+      {
+        "key": "eyebrow",
+        "label": "眉标",
+        "type": "text",
+        "default": "About the Lab"
+      },
+      {
+        "key": "segment",
+        "label": "segment",
+        "type": "text",
+        "default": "研究团队与方法"
+      },
+      {
+        "key": "title",
+        "label": "标题",
+        "type": "text",
+        "default": "关于 AI Capital Lab"
+      },
+      {
+        "key": "titleTail",
+        "label": "副标题",
+        "type": "text",
+        "default": "研究团队与方法"
+      },
+      {
+        "key": "lead",
+        "label": "导言",
+        "type": "text",
+        "default": "AI Capital Lab 专注于 AI 产业的资本流向研究，用横纵分析法把融资数据转化为结构化判断，服务投资人、创业者与产业研究者。"
+      },
+      {
+        "key": "statLine",
+        "label": "statLine",
+        "type": "text",
+        "default": "横纵分析法 · 多源交叉 · 持续追踪"
+      },
+      {
+        "key": "closing",
+        "label": "结语",
+        "type": "text",
+        "default": "从资本流向，看 AI 产业的真实重心。"
+      },
+      {
+        "key": "badge",
+        "label": "badge",
+        "type": "text",
+        "default": "研究团队"
+      },
+      {
+        "key": "listTitle",
+        "label": "listTitle",
+        "type": "text",
+        "default": "我们做什么"
+      },
+      {
+        "key": "contactTitle",
+        "label": "contactTitle",
+        "type": "text",
+        "default": "联系"
+      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -70764,40 +97283,38 @@ export const GENERATED_THEME_PAGES = [
       }
     ],
     "defaultProps": {
-      "copy": {
-        "eyebrow": "About the Lab",
-        "segment": "研究团队与方法",
-        "title": "关于 AI Capital Lab",
-        "titleTail": "研究团队与方法",
-        "lead": "AI Capital Lab 专注于 AI 产业的资本流向研究，用横纵分析法把融资数据转化为结构化判断，服务投资人、创业者与产业研究者。",
-        "statLine": "横纵分析法 · 多源交叉 · 持续追踪",
-        "closing": "从资本流向，看 AI 产业的真实重心。",
-        "badge": "研究团队",
-        "listTitle": "我们做什么",
-        "cards": [
-          {
-            "label": "资本流向研究",
-            "note": "追踪大额融资事件与赛道结构变化"
-          },
-          {
-            "label": "横纵分析方法",
-            "note": "空间对比 × 时间演化 × 产业分层"
-          },
-          {
-            "label": "多源数据核对",
-            "note": "公开披露交叉验证，口径透明可复核"
-          },
-          {
-            "label": "前瞻信号追踪",
-            "note": "收入兑现、IPO 窗口与算力成本观察"
-          }
-        ],
-        "contactTitle": "联系",
-        "contacts": [
-          "research@aicapitallab.example",
-          "AI Capital Lab · 行业研究"
-        ]
-      },
+      "eyebrow": "About the Lab",
+      "segment": "研究团队与方法",
+      "title": "关于 AI Capital Lab",
+      "titleTail": "研究团队与方法",
+      "lead": "AI Capital Lab 专注于 AI 产业的资本流向研究，用横纵分析法把融资数据转化为结构化判断，服务投资人、创业者与产业研究者。",
+      "statLine": "横纵分析法 · 多源交叉 · 持续追踪",
+      "closing": "从资本流向，看 AI 产业的真实重心。",
+      "badge": "研究团队",
+      "listTitle": "我们做什么",
+      "cards": [
+        {
+          "label": "资本流向研究",
+          "note": "追踪大额融资事件与赛道结构变化"
+        },
+        {
+          "label": "横纵分析方法",
+          "note": "空间对比 × 时间演化 × 产业分层"
+        },
+        {
+          "label": "多源数据核对",
+          "note": "公开披露交叉验证，口径透明可复核"
+        },
+        {
+          "label": "前瞻信号追踪",
+          "note": "收入兑现、IPO 窗口与算力成本观察"
+        }
+      ],
+      "contactTitle": "联系",
+      "contacts": [
+        "research@aicapitallab.example",
+        "AI Capital Lab · 行业研究"
+      ],
       "imageCount": 2,
       "imageRatio": "auto",
       "cardCount": 4,
@@ -70814,6 +97331,286 @@ export const GENERATED_THEME_PAGES = [
     "themeKey": "theme08",
     "pageNumber": 1,
     "layout": "THEME08-001",
+    "slot": "sup1",
+    "label": "补充封面-① 智联万物",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "primary",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(渐变) 或 次色(淡紫灰) 底色"
+      },
+      {
+        "key": "mediaCount",
+        "label": "图片数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "右侧拼贴照片槽数量（0–3）"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "手绘箭头、火花与批注文案的显示/隐藏"
+      },
+      {
+        "key": "showIndex",
+        "label": "页码角标",
+        "type": "boolean",
+        "default": true,
+        "desc": "右下角 01 / 03 索引角标的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "primary",
+      "mediaCount": 3,
+      "showDecor": true,
+      "showIndex": true,
+      "eyebrow": "TECH KEYNOTE",
+      "yearTag": "2026",
+      "headlineLine1": "智联万物",
+      "headlineHl": "重构",
+      "headlineTail": "体验",
+      "subtitle": "2026 全新产品体系发布暨技术路演",
+      "goldenLine": "以技术突破，定义下一代数字生活",
+      "handNote": "NEXT-GEN DIGITAL LIFE",
+      "indexNum": "01",
+      "indexTotal": "03",
+      "photos": [
+        {
+          "placeholder": "旗舰新品实拍",
+          "caption": "旗舰新品",
+          "capClass": "supp-pink"
+        },
+        {
+          "placeholder": "发布会现场",
+          "caption": "技术路演",
+          "capClass": ""
+        },
+        {
+          "placeholder": "产品细节",
+          "caption": "NEXT-GEN",
+          "capClass": "supp-ink"
+        }
+      ]
+    }
+  },
+  {
+    "key": "theme08_page002",
+    "themeKey": "theme08",
+    "pageNumber": 2,
+    "layout": "THEME08-002",
+    "slot": "sup2",
+    "label": "补充封面-② 深耕教学",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "primary",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(电光黄) 或 次色(淡紫灰) 底色"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "四角批注、手绘箭头与火花的显示/隐藏"
+      },
+      {
+        "key": "showIndex",
+        "label": "页码角标",
+        "type": "boolean",
+        "default": true,
+        "desc": "右下角 02 / 03 索引角标的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "primary",
+      "showDecor": true,
+      "showIndex": true,
+      "kicker": "2025—2026 学年工作总结",
+      "headlineL1Pre": "深耕",
+      "headlineHl1": "教学",
+      "headlineL2Pre": "聚力",
+      "headlineHl2": "成长",
+      "subtitle": "全域工作复盘 & 6 大提升行动规划",
+      "tags": [
+        "夯实教学根基",
+        "拓宽育人边界"
+      ],
+      "handNoteTL": "复盘 · review",
+      "handNoteTR": "规划 2026 →",
+      "handNoteBL": "GROW TOGETHER",
+      "indexNum": "02",
+      "indexTotal": "03"
+    }
+  },
+  {
+    "key": "theme08_page003",
+    "themeKey": "theme08",
+    "pageNumber": 3,
+    "layout": "THEME08-003",
+    "slot": "sup3",
+    "label": "补充封面-③ 新机遇新赛道",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "muted",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(电光黄) 或 次色(淡紫灰，默认) 底色"
+      },
+      {
+        "key": "mediaCount",
+        "label": "图片数量",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "右侧照片点缀数量（0–2）"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "手绘箭头、火花与批注文案的显示/隐藏"
+      },
+      {
+        "key": "showIndex",
+        "label": "页码角标",
+        "type": "boolean",
+        "default": true,
+        "desc": "右下角 03 / 03 索引角标的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "muted",
+      "mediaCount": 2,
+      "showDecor": true,
+      "showIndex": true,
+      "eyebrow": "BUSINESS PLAN",
+      "tag": "XX 金融项目",
+      "terms": [
+        "新机遇",
+        "新赛道",
+        "新价值"
+      ],
+      "sloganLine1": "精准布局",
+      "sloganLine2": "与时代红利同行",
+      "standoutTag": "面向机构投资人专属方案",
+      "handNote": "for investors",
+      "indexNum": "03",
+      "indexTotal": "03",
+      "photos": [
+        {
+          "placeholder": "团队 / 路演",
+          "caption": "核心团队",
+          "capClass": "supp-pink"
+        },
+        {
+          "placeholder": "市场 / 数据",
+          "caption": "市场洞察",
+          "capClass": "supp-ink"
+        }
+      ]
+    }
+  },
+  {
+    "key": "theme08_page004",
+    "themeKey": "theme08",
+    "pageNumber": 4,
+    "layout": "THEME08-004",
+    "slot": "cv2c",
+    "label": "封面2-③ 链通全国",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "muted",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(电光黄) 或 次色(纸灰，默认) 底色"
+      },
+      {
+        "key": "mediaCount",
+        "label": "图片数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "四周漂浮照片卡数量（0–4）"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "手绘箭头与火花的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "muted",
+      "mediaCount": 4,
+      "showDecor": true,
+      "eyebrow": "XX 集团供应链 · STRATEGY 2026–2028",
+      "kickerPre": "链通全国",
+      "kickerPost": "高效履约",
+      "sloganLine1": "打通物流脉络",
+      "sloganHl": "构筑产业护城河",
+      "sticker": "集团供应链体系三年发展战略",
+      "photos": [
+        {
+          "placeholder": "物流枢纽",
+          "tag": "全国网络"
+        },
+        {
+          "placeholder": "干线运输",
+          "tag": ""
+        },
+        {
+          "placeholder": "智能仓",
+          "tag": "高效履约"
+        },
+        {
+          "placeholder": "履约现场",
+          "tag": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "theme08_page005",
+    "themeKey": "theme08",
+    "pageNumber": 5,
+    "layout": "THEME08-005",
     "slot": "p1",
     "label": "① 封面 · Cover",
     "bgClass": "",
@@ -71048,10 +97845,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page002",
+    "key": "theme08_page006",
     "themeKey": "theme08",
-    "pageNumber": 2,
-    "layout": "THEME08-002",
+    "pageNumber": 6,
+    "layout": "THEME08-006",
     "slot": "p2",
     "label": "② 摘要 · Overview",
     "bgClass": "",
@@ -71174,10 +97971,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page003",
+    "key": "theme08_page007",
     "themeKey": "theme08",
-    "pageNumber": 3,
-    "layout": "THEME08-003",
+    "pageNumber": 7,
+    "layout": "THEME08-007",
     "slot": "p3",
     "label": "③ 结构 · Contents",
     "bgClass": "",
@@ -71271,10 +98068,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page004",
+    "key": "theme08_page008",
     "themeKey": "theme08",
-    "pageNumber": 4,
-    "layout": "THEME08-004",
+    "pageNumber": 8,
+    "layout": "THEME08-008",
     "slot": "p5",
     "label": "⑤ 趋势 · Trend",
     "bgClass": "",
@@ -71387,10 +98184,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page005",
+    "key": "theme08_page009",
     "themeKey": "theme08",
-    "pageNumber": 5,
-    "layout": "THEME08-005",
+    "pageNumber": 9,
+    "layout": "THEME08-009",
     "slot": "p6",
     "label": "⑥ 透视 · Cross",
     "bgClass": "",
@@ -71521,10 +98318,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page006",
+    "key": "theme08_page010",
     "themeKey": "theme08",
-    "pageNumber": 6,
-    "layout": "THEME08-006",
+    "pageNumber": 10,
+    "layout": "THEME08-010",
     "slot": "p7",
     "label": "⑦ 产业链 · Chain",
     "bgClass": "",
@@ -71665,10 +98462,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page007",
+    "key": "theme08_page011",
     "themeKey": "theme08",
-    "pageNumber": 7,
-    "layout": "THEME08-007",
+    "pageNumber": 11,
+    "layout": "THEME08-011",
     "slot": "p8",
     "label": "⑧ 案例 · Cases",
     "bgClass": "",
@@ -71889,10 +98686,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page008",
+    "key": "theme08_page012",
     "themeKey": "theme08",
-    "pageNumber": 8,
-    "layout": "THEME08-008",
+    "pageNumber": 12,
+    "layout": "THEME08-012",
     "slot": "p9",
     "label": "⑨ 热力 · Heatmap",
     "bgClass": "",
@@ -72030,10 +98827,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page009",
+    "key": "theme08_page013",
     "themeKey": "theme08",
-    "pageNumber": 9,
-    "layout": "THEME08-009",
+    "pageNumber": 13,
+    "layout": "THEME08-013",
     "slot": "p10",
     "label": "⑩ 排名 · Ranking",
     "bgClass": "",
@@ -72173,10 +98970,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page010",
+    "key": "theme08_page014",
     "themeKey": "theme08",
-    "pageNumber": 10,
-    "layout": "THEME08-010",
+    "pageNumber": 14,
+    "layout": "THEME08-014",
     "slot": "p11",
     "label": "⑪ 象限 · Quadrant",
     "bgClass": "",
@@ -72288,10 +99085,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page011",
+    "key": "theme08_page015",
     "themeKey": "theme08",
-    "pageNumber": 11,
-    "layout": "THEME08-011",
+    "pageNumber": 15,
+    "layout": "THEME08-015",
     "slot": "p13",
     "label": "⑬ 策略 · Strategy",
     "bgClass": "",
@@ -72433,10 +99230,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page012",
+    "key": "theme08_page016",
     "themeKey": "theme08",
-    "pageNumber": 12,
-    "layout": "THEME08-012",
+    "pageNumber": 16,
+    "layout": "THEME08-016",
     "slot": "p14",
     "label": "⑭ 金句 · Quote",
     "bgClass": "",
@@ -72504,10 +99301,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page013",
+    "key": "theme08_page017",
     "themeKey": "theme08",
-    "pageNumber": 13,
-    "layout": "THEME08-013",
+    "pageNumber": 17,
+    "layout": "THEME08-017",
     "slot": "p15",
     "label": "⑮ 章节 · Chapter",
     "bgClass": "",
@@ -72570,10 +99367,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page014",
+    "key": "theme08_page018",
     "themeKey": "theme08",
-    "pageNumber": 14,
-    "layout": "THEME08-014",
+    "pageNumber": 18,
+    "layout": "THEME08-018",
     "slot": "p16",
     "label": "⑯ 气泡图 · Deal Map",
     "bgClass": "",
@@ -72697,10 +99494,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page015",
+    "key": "theme08_page019",
     "themeKey": "theme08",
-    "pageNumber": 15,
-    "layout": "THEME08-015",
+    "pageNumber": 19,
+    "layout": "THEME08-019",
     "slot": "p17",
     "label": "⑰ 季度聚焦 · Spotlight",
     "bgClass": "",
@@ -72836,10 +99633,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page016",
+    "key": "theme08_page020",
     "themeKey": "theme08",
-    "pageNumber": 16,
-    "layout": "THEME08-016",
+    "pageNumber": 20,
+    "layout": "THEME08-020",
     "slot": "p18",
     "label": "⑱ 指标对比 · Delta",
     "bgClass": "",
@@ -73001,10 +99798,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page017",
+    "key": "theme08_page021",
     "themeKey": "theme08",
-    "pageNumber": 17,
-    "layout": "THEME08-017",
+    "pageNumber": 21,
+    "layout": "THEME08-021",
     "slot": "p19",
     "label": "⑲ 峰值聚焦 · Peak",
     "bgClass": "",
@@ -73203,10 +100000,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page018",
+    "key": "theme08_page022",
     "themeKey": "theme08",
-    "pageNumber": 18,
-    "layout": "THEME08-018",
+    "pageNumber": 22,
+    "layout": "THEME08-022",
     "slot": "p20",
     "label": "⑳ 回落时间轴 · Pullback",
     "bgClass": "",
@@ -73323,10 +100120,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page019",
+    "key": "theme08_page023",
     "themeKey": "theme08",
-    "pageNumber": 19,
-    "layout": "THEME08-019",
+    "pageNumber": 23,
+    "layout": "THEME08-023",
     "slot": "p21",
     "label": "㉑ 峰谷对比 · Peak/Trough",
     "bgClass": "",
@@ -73475,10 +100272,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page020",
+    "key": "theme08_page024",
     "themeKey": "theme08",
-    "pageNumber": 20,
-    "layout": "THEME08-020",
+    "pageNumber": 24,
+    "layout": "THEME08-024",
     "slot": "p22",
     "label": "㉒ 贡献瀑布 · Waterfall",
     "bgClass": "",
@@ -73596,10 +100393,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page021",
+    "key": "theme08_page025",
     "themeKey": "theme08",
-    "pageNumber": 21,
-    "layout": "THEME08-021",
+    "pageNumber": 25,
+    "layout": "THEME08-025",
     "slot": "p23",
     "label": "㉓ 区间结构 · Size Split",
     "bgClass": "",
@@ -73714,10 +100511,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page022",
+    "key": "theme08_page026",
     "themeKey": "theme08",
-    "pageNumber": 22,
-    "layout": "THEME08-022",
+    "pageNumber": 26,
+    "layout": "THEME08-026",
     "slot": "p24",
     "label": "㉔ 大数字 · Big Number",
     "bgClass": "",
@@ -73894,10 +100691,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page023",
+    "key": "theme08_page027",
     "themeKey": "theme08",
-    "pageNumber": 23,
-    "layout": "THEME08-023",
+    "pageNumber": 27,
+    "layout": "THEME08-027",
     "slot": "p25",
     "label": "㉕ 累计曲线 · Capital Curve",
     "bgClass": "",
@@ -74027,10 +100824,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page024",
+    "key": "theme08_page028",
     "themeKey": "theme08",
-    "pageNumber": 24,
-    "layout": "THEME08-024",
+    "pageNumber": 28,
+    "layout": "THEME08-028",
     "slot": "p26",
     "label": "㉖ 章节 · Chapter",
     "bgClass": "",
@@ -74093,10 +100890,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page025",
+    "key": "theme08_page029",
     "themeKey": "theme08",
-    "pageNumber": 25,
-    "layout": "THEME08-025",
+    "pageNumber": 29,
+    "layout": "THEME08-029",
     "slot": "p27",
     "label": "㉗ 雷达图 · Radar",
     "bgClass": "",
@@ -74243,10 +101040,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page026",
+    "key": "theme08_page030",
     "themeKey": "theme08",
-    "pageNumber": 26,
-    "layout": "THEME08-026",
+    "pageNumber": 30,
+    "layout": "THEME08-030",
     "slot": "p28",
     "label": "㉘ 赛道卡 · Segment",
     "bgClass": "",
@@ -74446,10 +101243,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page027",
+    "key": "theme08_page031",
     "themeKey": "theme08",
-    "pageNumber": 27,
-    "layout": "THEME08-027",
+    "pageNumber": 31,
+    "layout": "THEME08-031",
     "slot": "p29",
     "label": "㉙ 知识入口 · Portal",
     "bgClass": "",
@@ -74683,10 +101480,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page028",
+    "key": "theme08_page032",
     "themeKey": "theme08",
-    "pageNumber": 28,
-    "layout": "THEME08-028",
+    "pageNumber": 32,
+    "layout": "THEME08-032",
     "slot": "p30",
     "label": "㉚ 场景矩阵 · Matrix",
     "bgClass": "",
@@ -74841,10 +101638,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page029",
+    "key": "theme08_page033",
     "themeKey": "theme08",
-    "pageNumber": 29,
-    "layout": "THEME08-029",
+    "pageNumber": 33,
+    "layout": "THEME08-033",
     "slot": "p31",
     "label": "㉛ 分支三联 · Triptych",
     "bgClass": "",
@@ -74977,10 +101774,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page030",
+    "key": "theme08_page034",
     "themeKey": "theme08",
-    "pageNumber": 30,
-    "layout": "THEME08-030",
+    "pageNumber": 34,
+    "layout": "THEME08-034",
     "slot": "p32",
     "label": "㉜ 场景占比 · Scene Split",
     "bgClass": "",
@@ -75179,10 +101976,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page031",
+    "key": "theme08_page035",
     "themeKey": "theme08",
-    "pageNumber": 31,
-    "layout": "THEME08-031",
+    "pageNumber": 35,
+    "layout": "THEME08-035",
     "slot": "p33",
     "label": "㉝ 金句 · Statement",
     "bgClass": "",
@@ -75251,10 +102048,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page032",
+    "key": "theme08_page036",
     "themeKey": "theme08",
-    "pageNumber": 32,
-    "layout": "THEME08-032",
+    "pageNumber": 36,
+    "layout": "THEME08-036",
     "slot": "p34",
     "label": "㉞ 数据底座 · Pipeline",
     "bgClass": "",
@@ -75417,10 +102214,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page033",
+    "key": "theme08_page037",
     "themeKey": "theme08",
-    "pageNumber": 33,
-    "layout": "THEME08-033",
+    "pageNumber": 37,
+    "layout": "THEME08-037",
     "slot": "p35",
     "label": "㉟ 架构 · Architecture",
     "bgClass": "",
@@ -75691,10 +102488,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page034",
+    "key": "theme08_page038",
     "themeKey": "theme08",
-    "pageNumber": 34,
-    "layout": "THEME08-034",
+    "pageNumber": 38,
+    "layout": "THEME08-038",
     "slot": "p36",
     "label": "㊱ 供应链 · Supply",
     "bgClass": "",
@@ -75914,10 +102711,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page035",
+    "key": "theme08_page039",
     "themeKey": "theme08",
-    "pageNumber": 35,
-    "layout": "THEME08-035",
+    "pageNumber": 39,
+    "layout": "THEME08-039",
     "slot": "p37",
     "label": "㊲ 算力网格 · Compute",
     "bgClass": "",
@@ -76061,10 +102858,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page036",
+    "key": "theme08_page040",
     "themeKey": "theme08",
-    "pageNumber": 36,
-    "layout": "THEME08-036",
+    "pageNumber": 40,
+    "layout": "THEME08-040",
     "slot": "p38",
     "label": "㊳ 芯片层级 · Chip Tiers",
     "bgClass": "",
@@ -76204,10 +103001,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page037",
+    "key": "theme08_page041",
     "themeKey": "theme08",
-    "pageNumber": 37,
-    "layout": "THEME08-037",
+    "pageNumber": 41,
+    "layout": "THEME08-041",
     "slot": "p39",
     "label": "㊴ 具身智能 · Embodied",
     "bgClass": "",
@@ -76436,10 +103233,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page038",
+    "key": "theme08_page042",
     "themeKey": "theme08",
-    "pageNumber": 38,
-    "layout": "THEME08-038",
+    "pageNumber": 42,
+    "layout": "THEME08-042",
     "slot": "p41",
     "label": "㊶ 安全防线 · Safety",
     "bgClass": "",
@@ -76586,10 +103383,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page039",
+    "key": "theme08_page043",
     "themeKey": "theme08",
-    "pageNumber": 39,
-    "layout": "THEME08-039",
+    "pageNumber": 43,
+    "layout": "THEME08-043",
     "slot": "p42",
     "label": "㊷ 内容生成 · Generative",
     "bgClass": "",
@@ -76780,10 +103577,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page040",
+    "key": "theme08_page044",
     "themeKey": "theme08",
-    "pageNumber": 40,
-    "layout": "THEME08-040",
+    "pageNumber": 44,
+    "layout": "THEME08-044",
     "slot": "p43",
     "label": "㊸ 学习路径 · Education",
     "bgClass": "",
@@ -76929,10 +103726,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page041",
+    "key": "theme08_page045",
     "themeKey": "theme08",
-    "pageNumber": 41,
-    "layout": "THEME08-041",
+    "pageNumber": 45,
+    "layout": "THEME08-045",
     "slot": "p44",
     "label": "㊹ 降本场景 · Support",
     "bgClass": "",
@@ -77130,10 +103927,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page042",
+    "key": "theme08_page046",
     "themeKey": "theme08",
-    "pageNumber": 42,
-    "layout": "THEME08-042",
+    "pageNumber": 46,
+    "layout": "THEME08-046",
     "slot": "p46",
     "label": "㊻ 流程嵌入 · Low Code",
     "bgClass": "",
@@ -77284,10 +104081,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page043",
+    "key": "theme08_page047",
     "themeKey": "theme08",
-    "pageNumber": 43,
-    "layout": "THEME08-043",
+    "pageNumber": 47,
+    "layout": "THEME08-047",
     "slot": "p47",
     "label": "㊼ 社区变现 · Open Source",
     "bgClass": "",
@@ -77546,10 +104343,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page044",
+    "key": "theme08_page048",
     "themeKey": "theme08",
-    "pageNumber": 44,
-    "layout": "THEME08-044",
+    "pageNumber": 48,
+    "layout": "THEME08-048",
     "slot": "p48",
     "label": "㊽ 安全对齐 · Alignment",
     "bgClass": "",
@@ -77758,10 +104555,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page045",
+    "key": "theme08_page049",
     "themeKey": "theme08",
-    "pageNumber": 45,
-    "layout": "THEME08-045",
+    "pageNumber": 49,
+    "layout": "THEME08-049",
     "slot": "p49",
     "label": "㊾ 章节 · Chapter",
     "bgClass": "",
@@ -77846,10 +104643,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page046",
+    "key": "theme08_page050",
     "themeKey": "theme08",
-    "pageNumber": 46,
-    "layout": "THEME08-046",
+    "pageNumber": 50,
+    "layout": "THEME08-050",
     "slot": "p50",
     "label": "㊿ 早期轮 · Early Stage",
     "bgClass": "",
@@ -78005,10 +104802,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page047",
+    "key": "theme08_page051",
     "themeKey": "theme08",
-    "pageNumber": 47,
-    "layout": "THEME08-047",
+    "pageNumber": 51,
+    "layout": "THEME08-051",
     "slot": "p52",
     "label": "(52) 资本来源 · Investor Mix",
     "bgClass": "",
@@ -78148,10 +104945,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page048",
+    "key": "theme08_page052",
     "themeKey": "theme08",
-    "pageNumber": 48,
-    "layout": "THEME08-048",
+    "pageNumber": 52,
+    "layout": "THEME08-052",
     "slot": "p53",
     "label": "(53) 资源绑定 · Resource Map",
     "bgClass": "",
@@ -78364,10 +105161,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page049",
+    "key": "theme08_page053",
     "themeKey": "theme08",
-    "pageNumber": 49,
-    "layout": "THEME08-049",
+    "pageNumber": 53,
+    "layout": "THEME08-053",
     "slot": "p54",
     "label": "(54) 算力闭环 · Closed Loop",
     "bgClass": "",
@@ -78502,10 +105299,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page050",
+    "key": "theme08_page054",
     "themeKey": "theme08",
-    "pageNumber": 50,
-    "layout": "THEME08-050",
+    "pageNumber": 54,
+    "layout": "THEME08-054",
     "slot": "p55",
     "label": "(55) GPU 生态 · Ecosystem",
     "bgClass": "",
@@ -78609,10 +105406,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page051",
+    "key": "theme08_page055",
     "themeKey": "theme08",
-    "pageNumber": 51,
-    "layout": "THEME08-051",
+    "pageNumber": 55,
+    "layout": "THEME08-055",
     "slot": "p56",
     "label": "(56) 大数字 · Geo Anchor",
     "bgClass": "",
@@ -78727,10 +105524,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page052",
+    "key": "theme08_page056",
     "themeKey": "theme08",
-    "pageNumber": 52,
-    "layout": "THEME08-052",
+    "pageNumber": 56,
+    "layout": "THEME08-056",
     "slot": "p57",
     "label": "(57) 地理卡 · New York",
     "bgClass": "",
@@ -78980,10 +105777,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page053",
+    "key": "theme08_page057",
     "themeKey": "theme08",
-    "pageNumber": 53,
-    "layout": "THEME08-053",
+    "pageNumber": 57,
+    "layout": "THEME08-057",
     "slot": "p58",
     "label": "(58) 地理卡 · Seattle",
     "bgClass": "",
@@ -79189,10 +105986,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page054",
+    "key": "theme08_page058",
     "themeKey": "theme08",
-    "pageNumber": 54,
-    "layout": "THEME08-054",
+    "pageNumber": 58,
+    "layout": "THEME08-058",
     "slot": "p59",
     "label": "(59) 地理卡 · Boston",
     "bgClass": "",
@@ -79394,10 +106191,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page055",
+    "key": "theme08_page059",
     "themeKey": "theme08",
-    "pageNumber": 55,
-    "layout": "THEME08-055",
+    "pageNumber": 59,
+    "layout": "THEME08-059",
     "slot": "p60",
     "label": "(60) 点阵图 · Other Regions",
     "bgClass": "",
@@ -79593,10 +106390,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page056",
+    "key": "theme08_page060",
     "themeKey": "theme08",
-    "pageNumber": 56,
-    "layout": "THEME08-056",
+    "pageNumber": 60,
+    "layout": "THEME08-060",
     "slot": "p61",
     "label": "(61) 金句 · Resources",
     "bgClass": "",
@@ -79692,10 +106489,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page057",
+    "key": "theme08_page061",
     "themeKey": "theme08",
-    "pageNumber": 57,
-    "layout": "THEME08-057",
+    "pageNumber": 61,
+    "layout": "THEME08-061",
     "slot": "p64",
     "label": "(64) 案例卡 · xAI",
     "bgClass": "",
@@ -79886,10 +106683,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page058",
+    "key": "theme08_page062",
     "themeKey": "theme08",
-    "pageNumber": 58,
-    "layout": "THEME08-058",
+    "pageNumber": 62,
+    "layout": "THEME08-062",
     "slot": "p65",
     "label": "(65) 案例卡 · CoreWeave",
     "bgClass": "",
@@ -80014,10 +106811,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page059",
+    "key": "theme08_page063",
     "themeKey": "theme08",
-    "pageNumber": 59,
-    "layout": "THEME08-059",
+    "pageNumber": 63,
+    "layout": "THEME08-063",
     "slot": "p66",
     "label": "(66) 案例表 · Scale AI",
     "bgClass": "",
@@ -80180,10 +106977,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page060",
+    "key": "theme08_page064",
     "themeKey": "theme08",
-    "pageNumber": 60,
-    "layout": "THEME08-060",
+    "pageNumber": 64,
+    "layout": "THEME08-064",
     "slot": "p67",
     "label": "(67) 案例卡 · Perplexity",
     "bgClass": "",
@@ -80405,10 +107202,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page061",
+    "key": "theme08_page065",
     "themeKey": "theme08",
-    "pageNumber": 61,
-    "layout": "THEME08-061",
+    "pageNumber": 65,
+    "layout": "THEME08-065",
     "slot": "p68",
     "label": "(68) 案例卡 · Databricks",
     "bgClass": "",
@@ -80561,10 +107358,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page062",
+    "key": "theme08_page066",
     "themeKey": "theme08",
-    "pageNumber": 62,
-    "layout": "THEME08-062",
+    "pageNumber": 66,
+    "layout": "THEME08-066",
     "slot": "p69",
     "label": "(69) 案例卡 · Glean",
     "bgClass": "",
@@ -80797,10 +107594,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page063",
+    "key": "theme08_page067",
     "themeKey": "theme08",
-    "pageNumber": 63,
-    "layout": "THEME08-063",
+    "pageNumber": 67,
+    "layout": "THEME08-067",
     "slot": "p71",
     "label": "(71) 案例卡 · SSI",
     "bgClass": "",
@@ -80980,10 +107777,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page064",
+    "key": "theme08_page068",
     "themeKey": "theme08",
-    "pageNumber": 64,
-    "layout": "THEME08-064",
+    "pageNumber": 68,
+    "layout": "THEME08-068",
     "slot": "p73",
     "label": "(73) 收入兑现 · Revenue",
     "bgClass": "",
@@ -81196,10 +107993,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page065",
+    "key": "theme08_page069",
     "themeKey": "theme08",
-    "pageNumber": 65,
-    "layout": "THEME08-065",
+    "pageNumber": 69,
+    "layout": "THEME08-069",
     "slot": "p74",
     "label": "(74) 合规台账 · Regulation",
     "bgClass": "",
@@ -81399,10 +108196,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page066",
+    "key": "theme08_page070",
     "themeKey": "theme08",
-    "pageNumber": 66,
-    "layout": "THEME08-066",
+    "pageNumber": 70,
+    "layout": "THEME08-070",
     "slot": "p76",
     "label": "(76) 壁垒压缩 · Squeeze",
     "bgClass": "",
@@ -81558,10 +108355,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page067",
+    "key": "theme08_page071",
     "themeKey": "theme08",
-    "pageNumber": 67,
-    "layout": "THEME08-067",
+    "pageNumber": 71,
+    "layout": "THEME08-071",
     "slot": "p77",
     "label": "(77) 策略卡 · Budget",
     "bgClass": "",
@@ -81686,10 +108483,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page068",
+    "key": "theme08_page072",
     "themeKey": "theme08",
-    "pageNumber": 68,
-    "layout": "THEME08-068",
+    "pageNumber": 72,
+    "layout": "THEME08-072",
     "slot": "p78",
     "label": "(78) 嵌入流程 · Workflow",
     "bgClass": "",
@@ -81944,10 +108741,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page069",
+    "key": "theme08_page073",
     "themeKey": "theme08",
-    "pageNumber": 69,
-    "layout": "THEME08-069",
+    "pageNumber": 73,
+    "layout": "THEME08-073",
     "slot": "p79",
     "label": "(79) 时间轴 · Repricing",
     "bgClass": "",
@@ -82098,10 +108895,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page070",
+    "key": "theme08_page074",
     "themeKey": "theme08",
-    "pageNumber": 70,
-    "layout": "THEME08-070",
+    "pageNumber": 74,
+    "layout": "THEME08-074",
     "slot": "p80",
     "label": "(80) 金句 · Verdict",
     "bgClass": "",
@@ -82222,10 +109019,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page071",
+    "key": "theme08_page075",
     "themeKey": "theme08",
-    "pageNumber": 71,
-    "layout": "THEME08-071",
+    "pageNumber": 75,
+    "layout": "THEME08-075",
     "slot": "p81",
     "label": "(81) 展望主线 · Mainlines",
     "bgClass": "",
@@ -82357,10 +109154,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page072",
+    "key": "theme08_page076",
     "themeKey": "theme08",
-    "pageNumber": 72,
-    "layout": "THEME08-072",
+    "pageNumber": 76,
+    "layout": "THEME08-076",
     "slot": "p82",
     "label": "(82) 迁移图 · Migration",
     "bgClass": "",
@@ -82506,10 +109303,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page073",
+    "key": "theme08_page077",
     "themeKey": "theme08",
-    "pageNumber": 73,
-    "layout": "THEME08-073",
+    "pageNumber": 77,
+    "layout": "THEME08-077",
     "slot": "p83",
     "label": "(83) 样板 · Playbooks",
     "bgClass": "",
@@ -82620,10 +109417,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page074",
+    "key": "theme08_page078",
     "themeKey": "theme08",
-    "pageNumber": 74,
-    "layout": "THEME08-074",
+    "pageNumber": 78,
+    "layout": "THEME08-078",
     "slot": "p84",
     "label": "(84) 大数字 · Gauge",
     "bgClass": "",
@@ -82720,10 +109517,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page075",
+    "key": "theme08_page079",
     "themeKey": "theme08",
-    "pageNumber": 75,
-    "layout": "THEME08-075",
+    "pageNumber": 79,
+    "layout": "THEME08-079",
     "slot": "p85",
     "label": "(85) 跨页 · Hero Split",
     "bgClass": "",
@@ -82903,10 +109700,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page076",
+    "key": "theme08_page080",
     "themeKey": "theme08",
-    "pageNumber": 76,
-    "layout": "THEME08-076",
+    "pageNumber": 80,
+    "layout": "THEME08-080",
     "slot": "p86",
     "label": "(86) 哑铃图 · Range",
     "bgClass": "",
@@ -83050,10 +109847,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page077",
+    "key": "theme08_page081",
     "themeKey": "theme08",
-    "pageNumber": 77,
-    "layout": "THEME08-077",
+    "pageNumber": 81,
+    "layout": "THEME08-081",
     "slot": "p87",
     "label": "(87) 路线图 · Roadmap",
     "bgClass": "",
@@ -83171,10 +109968,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page078",
+    "key": "theme08_page082",
     "themeKey": "theme08",
-    "pageNumber": 78,
-    "layout": "THEME08-078",
+    "pageNumber": 82,
+    "layout": "THEME08-082",
     "slot": "p88",
     "label": "(88) 照片墙 · Photo Wall",
     "bgClass": "",
@@ -83292,10 +110089,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page079",
+    "key": "theme08_page083",
     "themeKey": "theme08",
-    "pageNumber": 79,
-    "layout": "THEME08-079",
+    "pageNumber": 83,
+    "layout": "THEME08-083",
     "slot": "p89",
     "label": "(89) 章节 · Diagonal",
     "bgClass": "",
@@ -83389,10 +110186,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page080",
+    "key": "theme08_page084",
     "themeKey": "theme08",
-    "pageNumber": 80,
-    "layout": "THEME08-080",
+    "pageNumber": 84,
+    "layout": "THEME08-084",
     "slot": "p90",
     "label": "(90) 记分卡 · Scorecard",
     "bgClass": "",
@@ -83608,10 +110405,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page081",
+    "key": "theme08_page085",
     "themeKey": "theme08",
-    "pageNumber": 81,
-    "layout": "THEME08-081",
+    "pageNumber": 85,
+    "layout": "THEME08-085",
     "slot": "p91",
     "label": "(91) 金句 · Two-Field",
     "bgClass": "",
@@ -83702,10 +110499,10 @@ export const GENERATED_THEME_PAGES = [
     }
   },
   {
-    "key": "theme08_page082",
+    "key": "theme08_page086",
     "themeKey": "theme08",
-    "pageNumber": 82,
-    "layout": "THEME08-082",
+    "pageNumber": 86,
+    "layout": "THEME08-086",
     "slot": "p92",
     "label": "(92) 图片 · Ribbon",
     "bgClass": "",

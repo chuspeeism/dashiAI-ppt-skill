@@ -44,7 +44,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 4,          // recommended-direction cards (2–4)
   columns: 2,            // card grid columns (1–2)
   criteriaCount: 4,      // screening-criteria rows (2–4)
@@ -56,6 +56,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Infrastructure Strategy' },
+  { key: 'segment', label: 'segment', type: 'text', default: '策略 · 优先基础设施' },
+  { key: 'title', label: '标题', type: 'text', default: '确定性预算' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '策略 · 优先基础设施' },
+  { key: 'lead', label: '导言', type: 'text', default: '基础设施公司更接近刚性预算，收入确定性相对更强；模型胜负未定时，卖铲子仍是更稳的资本逻辑。' },
+  { key: 'closing', label: '结语', type: 'text', default: '优先看能支撑全行业增长的基础设施。' },
+  { key: 'criteriaTitle', label: 'criteriaTitle', type: 'text', default: '筛选指标 · Screening' },
+  { key: 'cardsTitle', label: 'cardsTitle', type: 'text', default: '推荐方向 · Infrastructure' },
   { key: 'cardCount', label: '卡片数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
     description: '推荐方向卡数量（2–4）。' },
   { key: 'columns', label: '每行列数', type: 'radio', default: 2,
@@ -163,7 +171,7 @@ const HEAT = ['accent','pos','accent','pos','warn','accent','pos','pos','accent'
 
 export default function StrategyInfraPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, criteriaTitle: p.criteriaTitle !== undefined ? p.criteriaTitle : COPY.criteriaTitle, cardsTitle: p.cardsTitle !== undefined ? p.cardsTitle : COPY.cardsTitle, criteria: p.criteria !== undefined ? p.criteria : COPY.criteria, cards: p.cards !== undefined ? p.cards : COPY.cards };
   ensureFonts();
   injectScopedStyle('aic-sif', CSS);
   const vars = themeVars(p.accentColor);

@@ -34,7 +34,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   numberSlant: true,     // brand italic-slant on the hero digits
   auxCount: 3,           // supporting metric chips (0–3)
   showCaption: true,     // explanatory caption under the number
@@ -45,6 +45,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Average Ticket' },
+  { key: 'title', label: '标题', type: 'text', default: '赛道平均融资额' },
+  { key: 'sub', label: '次标题', type: 'text', default: '平均单笔规模' },
+  { key: 'numLead', label: 'numLead', type: 'text', default: '10' },
+  { key: 'numUnit', label: 'numUnit', type: 'text', default: '亿美元' },
+  { key: 'numCaption', label: 'numCaption', type: 'text', default: '全年平均单笔融资规模' },
+  { key: 'note', label: 'note', type: 'text', default: '垂直应用不应只用融资规模评价，更要看收入效率。' },
+  { key: 'closing', label: '结语', type: 'text', default: '融资规模越大，后续兑现压力越高。' },
   { key: 'numberSlant', label: '数字倾斜', type: 'toggle', default: true,
     description: '主数字是否应用品牌斜切（italic-slant）效果。' },
   { key: 'auxCount', label: '卡片数量', type: 'slider', default: 3, min: 0, max: 3, step: 1,
@@ -124,7 +132,7 @@ const LENS_DISCS = [
 
 export default function AvgTicketPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, numLead: p.numLead !== undefined ? p.numLead : COPY.numLead, numUnit: p.numUnit !== undefined ? p.numUnit : COPY.numUnit, numCaption: p.numCaption !== undefined ? p.numCaption : COPY.numCaption, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, aux: p.aux !== undefined ? p.aux : COPY.aux };
   ensureFonts();
   injectScopedStyle('aic-at', CSS);
   const vars = themeVars(p.accentColor);

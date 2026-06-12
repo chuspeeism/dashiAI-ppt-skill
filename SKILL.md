@@ -53,6 +53,8 @@ node <skill-root>/scripts/check_latest_version.mjs
   - `theme02`: 02-炫光紫绿
   - `theme03`: 03-深浅代码风
   - `theme04`: 04-玻璃糖果
+  - `theme05`: 05-PULSE 色谱图表
+  - `theme06`: 06-深色数据图谱
   - `theme07`: 07-冷白调研图谱
   - `theme08`: 08-黑金实验质感
   - `theme09`: 09-深蓝杂志

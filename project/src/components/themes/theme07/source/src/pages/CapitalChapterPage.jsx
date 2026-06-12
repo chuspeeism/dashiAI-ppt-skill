@@ -38,7 +38,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   backgroundVariant: 'dark', // 'dark' | 'paper'
   layout: 'left',            // 'left' | 'center'
   showIndex: true,           // oversized chapter-index watermark
@@ -51,6 +51,13 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Chapter' },
+  { key: 'index', label: 'index', type: 'text', default: '04' },
+  { key: 'title', label: '标题', type: 'text', default: '资本与地区结构' },
+  { key: 'sub', label: '次标题', type: 'text', default: '轮次、投资人和地理集群' },
+  { key: 'lead', label: '导言', type: 'text', default: '本章进入资本结构部分，拆解轮次、投资人、云厂商、NVIDIA 生态和地理分布。' },
+  { key: 'closing', label: '结语', type: 'text', default: '下一组页面进入更细的拆解。' },
+  { key: 'clusterTitle', label: 'clusterTitle', type: 'text', default: '地理集群 · 资本份额' },
   { key: 'backgroundVariant', label: '背景风格', type: 'radio', default: 'dark',
     options: [{ value: 'dark', label: '深色' }, { value: 'paper', label: '浅色' }],
     description: '章节页背景：深色（强换气节奏）/ 浅色（与正文统一）。' },
@@ -150,7 +157,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','warn','accent
 
 export default function CapitalChapterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, index: p.index !== undefined ? p.index : COPY.index, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, clusterTitle: p.clusterTitle !== undefined ? p.clusterTitle : COPY.clusterTitle, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords, hubs: p.hubs !== undefined ? p.hubs : COPY.hubs };
   ensureFonts();
   injectScopedStyle('aic-c4', CSS);
   const vars = themeVars(p.accentColor);

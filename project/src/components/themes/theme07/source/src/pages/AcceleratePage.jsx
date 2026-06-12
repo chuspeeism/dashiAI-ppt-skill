@@ -39,7 +39,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 4,           // table rows shown (3–5)
   showChange: true,      // QoQ-change column
   showJudgment: true,    // signal/judgment column
@@ -50,6 +50,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Quarter Breakdown' },
+  { key: 'marker', label: 'marker', type: 'text', default: 'Q2' },
+  { key: 'season', label: 'season', type: 'text', default: '2024 第二季度 · 加速' },
+  { key: 'title', label: '标题', type: 'text', default: '加速季度' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'Q2 融资拆解' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Q2 进入明显加速期，模型、应用和基础设施同步升温，资本从模型叙事扩散到应用和基础设施。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: 'Q2 融资额 284 亿美元 · 26 笔事件 · 平均单笔 10.9 亿美元' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '+75.3%' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '季度融资额环比增长' },
+  { key: 'closing', label: '结语', type: 'text', default: 'Q2 是融资窗口打开的关键节点。' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 4, min: 3, max: 5, step: 1,
     description: '表格展示的行数量（3–5）。' },
   { key: 'showChange', label: '环比列', type: 'toggle', default: true,
@@ -142,7 +152,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','neg','accent','p
 
 export default function AcceleratePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, rows: p.rows !== undefined ? p.rows : COPY.rows };
   ensureFonts();
   injectScopedStyle('aic-acc', CSS);
   const vars = themeVars(p.accentColor);

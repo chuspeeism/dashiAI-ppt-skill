@@ -44,7 +44,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 3,          // image cells on the wall (0–4)
   imageRatio: 'portrait', // 'portrait' | 'landscape' | 'square' | 'auto'
   showLabels: true,       // institution chips overlaid on each cell
@@ -57,6 +57,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Capital Lens' },
+  { key: 'title', label: '标题', type: 'text', default: '活跃资本图谱' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '头部投资机构' },
+  { key: 'lead', label: '导言', type: 'text', default: '大额融资背后是一批高频出手的头部机构，资本正从广撒网转向对头部资产的集中下注。' },
+  { key: 'anchorLead', label: '锚点数字', type: 'text', default: '48' },
+  { key: 'anchorUnit', label: '锚点单位', type: 'text', default: '家' },
+  { key: 'anchorNote', label: '锚点注释', type: 'text', default: '全年参与大额轮次的活跃机构' },
+  { key: 'closing', label: '结语', type: 'text', default: '钱多不稀缺，稀缺的是愿意下重注的确定性。' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 3, min: 0, max: 4, step: 1,
     description: '图片墙的图片槽数量（0–4）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -185,7 +193,7 @@ function Placeholder({ i, auto }) {
 
 export default function InvestorPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, slots: p.slots !== undefined ? p.slots : COPY.slots };
   ensureFonts();
   injectScopedStyle('aic-inv', CSS);
   const vars = themeVars(p.accentColor);

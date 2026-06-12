@@ -33,6 +33,10 @@ if (!slides.length) {
   errors.push('No <section class="slide"> pages found.');
 }
 
+if (html.includes('#deck .slide') || /\b\w*deck\w*\.querySelectorAll\(['"]\.slide/.test(html)) {
+  errors.push('Deck runtime uses descendant .slide selectors. Use only #deck direct children so imported theme internals cannot be treated as pages.');
+}
+
 slides.forEach((slide) => {
   const layout = slide.tag.match(/\bdata-layout="([^"]+)"/)?.[1];
 

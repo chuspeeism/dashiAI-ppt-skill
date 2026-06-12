@@ -106,9 +106,9 @@ export function SlideProgress(props) {
                       boxShadow: isF ? `0 0 30px -2px ${c}` : `0 0 18px -6px ${c}`,
                       transition: 'width .4s ease' }} />
                   </div>
-                  {/* leading tip */}
-                  <div style={{ position: 'absolute', top: '50%', left: `${v}%`,
-                    transform: 'translate(-50%,-50%)', width: 14, height: 14, borderRadius: '50%',
+                  {/* leading tip — 内嵌于填充条末端，距上下与右端等距（6px） */}
+                  <div style={{ position: 'absolute', top: 6, left: `${v}%`, marginLeft: -20,
+                    width: 14, height: 14, boxSizing: 'border-box', borderRadius: '50%',
                     background: '#0b0f14', border: `3px solid ${c}`,
                     boxShadow: `0 0 16px -2px ${c}` }} />
                   {/* target tick */}

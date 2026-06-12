@@ -43,7 +43,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'landscape', // 'portrait' | 'landscape' | 'square' | 'auto'
   branchCount: 3,          // funding-breakdown branches (2–3)
@@ -56,6 +56,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Healthcare AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '医疗 AI 赛道' },
+  { key: 'title', label: '标题', type: 'text', default: '慢变量高壁垒' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '医疗 AI 赛道' },
+  { key: 'lead', label: '导言', type: 'text', default: '医疗 AI 集中在影像、药物发现和临床文书自动化；验证周期长，但进入流程后的壁垒更强。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 34 亿美元 · 8 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '慢场景不代表低价值。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '医疗 AI' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '三大方向 · 融资分布 / 亿美元' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'landscape',
@@ -183,7 +192,7 @@ function Placeholder({ i }) {
 
 export default function HealthcarePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, branches: p.branches !== undefined ? p.branches : COPY.branches };
   ensureFonts();
   injectScopedStyle('aic-health', CSS);
   const vars = themeVars(p.accentColor);

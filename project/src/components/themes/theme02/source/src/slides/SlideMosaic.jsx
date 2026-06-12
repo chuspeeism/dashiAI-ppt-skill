@@ -181,7 +181,8 @@ export function SlideMosaic(props) {
       <div className="gxn-rise-2" style={{ position: 'absolute', inset: 0,
         padding: 'var(--gxn-py) var(--gxn-px)', pointerEvents: 'none' }}>
         <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-          <div style={{ pointerEvents: 'auto', position: 'absolute', inset: 0 }}>{overlay}</div>
+          {/* 标题浮层为纯展示内容 — 保持 none，点击可穿透到其下方的图片槽 */}
+          <div style={{ pointerEvents: 'none', position: 'absolute', inset: 0 }}>{overlay}</div>
         </div>
       </div>
     </div>

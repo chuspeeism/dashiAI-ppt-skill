@@ -43,7 +43,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'landscape', // 'portrait' | 'landscape' | 'square' | 'auto'
   segmentCount: 3,         // application segments (2–3)
@@ -56,6 +56,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Embodied AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '机器人与具身智能' },
+  { key: 'title', label: '标题', type: 'text', default: '从软件走向物理世界' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '机器人与具身智能' },
+  { key: 'lead', label: '导言', type: 'text', default: '具身智能成为 AI 从软件能力延伸到物理场景的重要方向；它更像硬科技投资，验证周期更长。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 41 亿美元 · 7 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '长周期赛道需要看供应链和量产能力。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '具身智能' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '应用分布 · 融资 / 亿美元' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'landscape',
@@ -184,7 +193,7 @@ function Placeholder({ i }) {
 
 export default function RoboticsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, segments: p.segments !== undefined ? p.segments : COPY.segments };
   ensureFonts();
   injectScopedStyle('aic-rob', CSS);
   const vars = themeVars(p.accentColor);

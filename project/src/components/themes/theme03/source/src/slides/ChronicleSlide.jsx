@@ -115,11 +115,15 @@ export default function ChronicleSlide(props) {
                 </div>
                 {/* spine + marker */}
                 <div style={{ height: 0, position: "relative", width: "100%", display: "flex", justifyContent: "center", alignItems: "center", zIndex: 2 }}>
+                  {/* marker — opaque fills + solid ring + zIndex above both lines,
+                      so the spine / connector never show through the diamond */}
                   <span style={{
                     width: hot ? 22 : 16, height: hot ? 22 : 16, transform: "rotate(45deg)",
-                    background: hot ? accent : (dark ? "#cfcdc7" : COLORS.ink),
-                    boxShadow: hot ? `0 0 0 6px ${dark ? "rgba(110,133,255,0.18)" : "rgba(39,66,236,0.12)"}` : "none",
-                    opacity: dim ? 0.6 : 1,
+                    position: "relative", zIndex: 3,
+                    background: hot ? accent
+                      : dim ? `color-mix(in srgb, ${dark ? "#cfcdc7" : COLORS.ink} 55%, var(--rd-bg))`
+                      : (dark ? "#cfcdc7" : COLORS.ink),
+                    boxShadow: hot ? `0 0 0 6px color-mix(in srgb, ${accent} ${dark ? "18%" : "12%"}, var(--rd-bg))` : "none",
                   }} />
                   {p.showConnector && (
                     <span style={{

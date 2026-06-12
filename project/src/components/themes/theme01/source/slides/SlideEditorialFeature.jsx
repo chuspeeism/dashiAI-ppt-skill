@@ -82,7 +82,7 @@ export default function SlideEditorialFeature(props) {
     <div style={{ flex: '0 0 46%', minWidth: 0, position: 'relative', display: 'flex', alignItems: 'center' }}>
       <div style={{ width: '100%', height: '92%', position: 'relative' }}>
         {n === 1 ? (
-          <ImageSlot src={p.images[0] || ''} placeholder="专题图片" fit={p.imageFit}
+          <ImageSlot slot={0} src={p.images[0] || ''} placeholder="专题图片" fit={p.imageFit}
             ratioMode="fill" accent={ac} radius={26} style={{ height: '100%' }} />
         ) : (
           <CollageImageArea count={n} images={p.images} fit={p.imageFit} accent={ac} />

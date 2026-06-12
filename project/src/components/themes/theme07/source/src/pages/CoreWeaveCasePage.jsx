@@ -55,7 +55,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
   metricCount: 4,          // headline metrics shown (2–4)
@@ -71,6 +71,19 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'CoreWeave Case' },
+  { key: 'title', label: '标题', type: 'text', default: '算力基础设施' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'CoreWeave 案例页' },
+  { key: 'logic', label: 'logic', type: 'text', default: '算力基础设施逻辑' },
+  { key: 'company', label: 'company', type: 'text', default: 'CoreWeave' },
+  { key: 'enName', label: 'enName', type: 'text', default: 'COREWEAVE' },
+  { key: 'badge', label: 'badge', type: 'text', default: '算力基础设施' },
+  { key: 'lead', label: '导言', type: 'text', default: 'CoreWeave 代表算力基础设施的确定性机会；当模型公司都在抢 GPU，算力供应商获得资本溢价。' },
+  { key: 'closing', label: '结语', type: 'text', default: '卖铲子的人也能成为核心资产。' },
+  { key: 'clusterValue', label: 'clusterValue', type: 'text', default: '7.8' },
+  { key: 'clusterUnit', label: 'clusterUnit', type: 'text', default: '万张' },
+  { key: 'clusterLabel', label: 'clusterLabel', type: 'text', default: 'GPU 集群规模' },
+  { key: 'clusterNote', label: 'clusterNote', type: 'text', default: '高利用率 · 接近刚性预算' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -248,7 +261,7 @@ function ClusterGrid({ cols }) {
 
 export default function CoreWeaveCasePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, logic: p.logic !== undefined ? p.logic : COPY.logic, company: p.company !== undefined ? p.company : COPY.company, enName: p.enName !== undefined ? p.enName : COPY.enName, badge: p.badge !== undefined ? p.badge : COPY.badge, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, clusterValue: p.clusterValue !== undefined ? p.clusterValue : COPY.clusterValue, clusterUnit: p.clusterUnit !== undefined ? p.clusterUnit : COPY.clusterUnit, clusterLabel: p.clusterLabel !== undefined ? p.clusterLabel : COPY.clusterLabel, clusterNote: p.clusterNote !== undefined ? p.clusterNote : COPY.clusterNote, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, tags: p.tags !== undefined ? p.tags : COPY.tags };
   ensureFonts();
   injectScopedStyle('aic-cwc', CSS);
   const vars = themeVars(p.accentColor);

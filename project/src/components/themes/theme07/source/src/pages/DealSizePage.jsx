@@ -32,7 +32,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 4,           // size bands shown (3–4)
   metricMode: 'both',    // 'both' | 'count' | 'amount' — which axes to show
   showValues: true,      // numeric value labels on bars
@@ -43,6 +43,13 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Deal Size Split' },
+  { key: 'title', label: '标题', type: 'text', default: '金额区间结构' },
+  { key: 'sub', label: '次标题', type: 'text', default: '交易规模分布' },
+  { key: 'lead', label: '导言', type: 'text', default: '大额融资内部仍有层级，低金额段贡献数量，高金额段贡献市场记忆。' },
+  { key: 'closing', label: '结语', type: 'text', default: '市场被少数超级交易重新定价。' },
+  { key: 'countLabel', label: 'countLabel', type: 'text', default: '交易数量 / 笔' },
+  { key: 'amountLabel', label: 'amountLabel', type: 'text', default: '融资金额 / 亿美元' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 4, min: 3, max: 4, step: 1,
     description: '金额区间分组数量（3–4）。' },
   { key: 'metricMode', label: '图表类型', type: 'radio', default: 'both',
@@ -127,7 +134,7 @@ const HEAT = ['pos','accent','pos','warn','pos','pos','accent','warn','pos','acc
 
 export default function DealSizePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, countLabel: p.countLabel !== undefined ? p.countLabel : COPY.countLabel, amountLabel: p.amountLabel !== undefined ? p.amountLabel : COPY.amountLabel, rows: p.rows !== undefined ? p.rows : COPY.rows };
   ensureFonts();
   injectScopedStyle('aic-dz', CSS);
   const vars = themeVars(p.accentColor);

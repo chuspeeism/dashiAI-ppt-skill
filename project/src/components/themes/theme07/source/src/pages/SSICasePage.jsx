@@ -49,7 +49,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
   metricCount: 4,          // headline metrics shown (2–4)
@@ -63,6 +63,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'SSI Case' },
+  { key: 'title', label: '标题', type: 'text', default: '强叙事模型实验室' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'SSI 案例页' },
+  { key: 'logic', label: 'logic', type: 'text', default: '强叙事逻辑' },
+  { key: 'company', label: 'company', type: 'text', default: 'SSI' },
+  { key: 'enName', label: 'enName', type: 'text', default: 'SAFE SUPERINTELLIGENCE' },
+  { key: 'badge', label: 'badge', type: 'text', default: '安全智能' },
+  { key: 'lead', label: '导言', type: 'text', default: 'SSI 代表强团队、强叙事、弱商业化验证的模型实验室；短期难以用收入评价，价值建立在长期技术想象上。' },
+  { key: 'closing', label: '结语', type: 'text', default: '强叙事需要更长时间兑现。' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -197,7 +206,7 @@ function Placeholder({ i }) {
 
 export default function SSICasePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, logic: p.logic !== undefined ? p.logic : COPY.logic, company: p.company !== undefined ? p.company : COPY.company, enName: p.enName !== undefined ? p.enName : COPY.enName, badge: p.badge !== undefined ? p.badge : COPY.badge, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, tags: p.tags !== undefined ? p.tags : COPY.tags };
   ensureFonts();
   injectScopedStyle('aic-cc', CSS);
   const vars = themeVars(p.accentColor);

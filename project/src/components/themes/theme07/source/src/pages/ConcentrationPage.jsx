@@ -41,7 +41,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   numberSlant: true,     // brand italic-slant on the hero digits
   tierCount: 3,          // leading rank-tiers shown in the share bar (2–3)
   showRemainder: true,   // append the "其他机构" remainder segment
@@ -54,6 +54,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Capital Concentration' },
+  { key: 'title', label: '标题', type: 'text', default: '资本集中度' },
+  { key: 'sub', label: '次标题', type: 'text', default: '头部集中' },
+  { key: 'numLead', label: 'numLead', type: 'text', default: '42' },
+  { key: 'numTail', label: 'numTail', type: 'text', default: '%' },
+  { key: 'numCaption', label: 'numCaption', type: 'text', default: '全年大额融资中，由 Top 10 机构主导轮次贡献的比例' },
+  { key: 'note', label: 'note', type: 'text', default: '集中不是终点，而是下一轮分化的起点。' },
+  { key: 'closing', label: '结语', type: 'text', default: '当资本向头部聚拢，中长尾的窗口正在收窄。' },
+  { key: 'barTitle', label: 'barTitle', type: 'text', default: '融资额份额 · 按机构排名分层' },
+  { key: 'remainderLabel', label: 'remainderLabel', type: 'text', default: '其他机构' },
   { key: 'numberSlant', label: '数字倾斜', type: 'toggle', default: true,
     description: '主数字是否应用品牌斜切（italic-slant）效果。' },
   { key: 'tierCount', label: '卡片数量', type: 'slider', default: 3, min: 2, max: 3, step: 1,
@@ -159,7 +169,7 @@ const SEG_FILL = [
 
 export default function ConcentrationPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, numLead: p.numLead !== undefined ? p.numLead : COPY.numLead, numTail: p.numTail !== undefined ? p.numTail : COPY.numTail, numCaption: p.numCaption !== undefined ? p.numCaption : COPY.numCaption, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, barTitle: p.barTitle !== undefined ? p.barTitle : COPY.barTitle, remainderLabel: p.remainderLabel !== undefined ? p.remainderLabel : COPY.remainderLabel, tiers: p.tiers !== undefined ? p.tiers : COPY.tiers, aux: p.aux !== undefined ? p.aux : COPY.aux };
   ensureFonts();
   injectScopedStyle('aic-con', CSS);
   const vars = themeVars(p.accentColor);

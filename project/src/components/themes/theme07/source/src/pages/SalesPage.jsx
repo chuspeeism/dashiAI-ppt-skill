@@ -42,7 +42,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'landscape', // 'portrait' | 'landscape' | 'square' | 'auto'
   segmentCount: 3,         // funnel stages (2–3)
@@ -55,6 +55,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Sales & Marketing AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '销售与营销 AI' },
+  { key: 'title', label: '标题', type: 'text', default: '增长效率工具' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '销售与营销 AI' },
+  { key: 'lead', label: '导言', type: 'text', default: '销售与营销 AI 集中在线索评分、自动外呼、邮件和广告创意；短期转化快，但同质化竞争也更明显。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 24 亿美元 · 10 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '营销 AI 要用转化率证明自己。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '销售营销' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '增长漏斗 · 融资 / 亿美元' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'landscape',
@@ -183,7 +192,7 @@ function Placeholder({ i }) {
 
 export default function SalesPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, segments: p.segments !== undefined ? p.segments : COPY.segments };
   ensureFonts();
   injectScopedStyle('aic-sl', CSS);
   const vars = themeVars(p.accentColor);

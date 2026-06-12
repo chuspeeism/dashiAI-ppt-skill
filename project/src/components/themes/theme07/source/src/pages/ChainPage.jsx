@@ -35,7 +35,7 @@ const COPY = {
 };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 3,          // number of chain layers shown (1–3)
   focusEnabled: true,
   focusIndex: 1,         // model layer
@@ -45,6 +45,13 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Value Chain' },
+  { key: 'title', label: '标题', type: 'text', default: '产业链分层' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '三层透视' },
+  { key: 'sub', label: '次标题', type: 'text', default: '上游、中游、下游的资本位置' },
+  { key: 'lead', label: '导言', type: 'text', default: 'AI 融资沿基础设施、模型层和应用层三层展开，地区上高度集中在旧金山湾区。' },
+  { key: 'closing', label: '结语', type: 'text', default: '产业链分层决定了资本确定性与商业风险的不同位置。' },
+  { key: 'regionTitle', label: '地区标题', type: 'text', default: '地区融资分布' },
   { key: 'cardCount', label: '分层数量', type: 'slider', default: 3, min: 1, max: 3, step: 1,
     description: '展示的产业链层数（1–3）。' },
   { key: 'showSecondary', label: '辅助面板', type: 'toggle', default: true,
@@ -136,7 +143,7 @@ const DECO = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function ChainPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, regionTitle: p.regionTitle !== undefined ? p.regionTitle : COPY.regionTitle, layers: p.layers !== undefined ? p.layers : COPY.layers, regions: p.regions !== undefined ? p.regions : COPY.regions };
   ensureFonts();
   injectScopedStyle('aic-chain', CSS);
   const vars = themeVars(p.accentColor);

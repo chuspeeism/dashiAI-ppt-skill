@@ -105,7 +105,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   region: 0,               // which region: 0 纽约 / 1 西雅图 / 2 波士顿 / 3 其他地区
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
@@ -121,6 +121,7 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'shareTitle', label: '占比标题', type: 'text', default: '全美融资额占比' },
   { key: 'region', label: '地区', type: 'select', default: 0,
     options: [{ value: 0, label: '纽约' }, { value: 1, label: '西雅图' },
       { value: 2, label: '波士顿' }, { value: 3, label: '其他地区' }],
@@ -327,7 +328,7 @@ function ShareDonut({ split }) {
 
 export default function RegionClusterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { share: p.share || SHARE, regions: p.regions || REGIONS, rankTotal: p.rankTotal !== undefined ? p.rankTotal : RANK_TOTAL, shareTitle: p.shareTitle !== undefined ? p.shareTitle : SHARE_TITLE };
   ensureFonts();
   injectScopedStyle('aic-rgn', CSS);
   const vars = themeVars(p.accentColor);

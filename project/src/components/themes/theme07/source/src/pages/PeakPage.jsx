@@ -45,7 +45,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'area',      // 'area' | 'bars' — information-chart style
   metricCount: 4,         // peak metric cards (2–4)
   focusEnabled: true,     // highlight one metric card
@@ -58,6 +58,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Quarter Breakdown' },
+  { key: 'marker', label: 'marker', type: 'text', default: 'Q3' },
+  { key: 'season', label: 'season', type: 'text', default: '2024 第三季度 · 峰值' },
+  { key: 'title', label: '标题', type: 'text', default: '全年峰值季度' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'Q3 融资拆解' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Q3 融资额和事件数均达到全年最高，是市场情绪高点，强度来自头部公司融资和多赛道同时活跃。' },
+  { key: 'closing', label: '结语', type: 'text', default: '高峰之后，市场开始从热度转向筛选。' },
+  { key: 'chartLabel', label: 'chartLabel', type: 'text', default: '全年月度融资额 / 亿美元' },
+  { key: 'peakTag', label: 'peakTag', type: 'text', default: '全年峰值' },
+  { key: 'avgLabel', label: 'avgLabel', type: 'text', default: '月度均值 80.8' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'area',
     options: [{ value: 'area', label: '面积图' }, { value: 'bars', label: '柱状图' }],
     description: '主视觉信息图表样式：高亮面积图 / 月度柱状图。' },
@@ -149,7 +159,7 @@ const CM = { l: 58, r: 28, t: 64, b: 46 };
 
 export default function PeakPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, peakTag: p.peakTag !== undefined ? p.peakTag : COPY.peakTag, avgLabel: p.avgLabel !== undefined ? p.avgLabel : COPY.avgLabel, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, months: p.months !== undefined ? p.months : COPY.months, monthLabels: p.monthLabels !== undefined ? p.monthLabels : COPY.monthLabels, q3Range: p.q3Range !== undefined ? p.q3Range : COPY.q3Range };
   ensureFonts();
   injectScopedStyle('aic-peak', CSS);
   const vars = themeVars(p.accentColor);

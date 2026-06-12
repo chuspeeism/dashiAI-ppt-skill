@@ -28,7 +28,7 @@ const COPY = {
 };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 3,
   focusEnabled: true,
   focusIndex: 2,
@@ -38,6 +38,11 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Methodology' },
+  { key: 'title', label: '标题', type: 'text', default: '研究方法' },
+  { key: 'sub', label: '次标题', type: 'text', default: '横纵分析法' },
+  { key: 'lead', label: '导言', type: 'text', default: '横向看同一时间截面的公司、赛道、轮次和地区；纵向看融资额、事件数和市场节奏的变化。' },
+  { key: 'closing', label: '结语', type: 'text', default: '不是罗列融资新闻，而是把融资数据变成结构化判断。' },
   { key: 'cardCount', label: '方法卡数量', type: 'slider', default: 3, min: 1, max: 3, step: 1,
     description: '展示的方法层数量（1–3）。' },
   { key: 'layout', label: '排布方式', type: 'radio', default: 'stack',
@@ -121,7 +126,7 @@ const DECO = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function MethodPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, layers: p.layers !== undefined ? p.layers : COPY.layers, steps: p.steps !== undefined ? p.steps : COPY.steps };
   ensureFonts();
   injectScopedStyle('aic-mth', CSS);
   const vars = themeVars(p.accentColor);

@@ -26,7 +26,7 @@ const COPY = {
 };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 7,
   focusEnabled: true,
   focusIndex: 1,
@@ -36,6 +36,11 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Structure' },
+  { key: 'title', label: '标题', type: 'text', default: '报告结构' },
+  { key: 'sub', label: '次标题', type: 'text', default: '从方法到结论的阅读路径' },
+  { key: 'lead', label: '导言', type: 'text', default: '整份报告按研究方法、市场全景、横向透视、产业链、典型案例、风险展望和结论展开。' },
+  { key: 'closing', label: '结语', type: 'text', default: '先建立框架，再进入数据和判断。' },
   { key: 'cardCount', label: '章节卡数量', type: 'slider', default: 7, min: 3, max: 7, step: 1,
     description: '展示的章节卡数量（3–7）。' },
   { key: 'columns', label: '每行列数', type: 'radio', default: 4,
@@ -106,7 +111,7 @@ const DECO = ['pos','accent','pos','warn','pos','accent','neg','pos','warn','acc
 
 export default function ContentsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chapters: p.chapters !== undefined ? p.chapters : COPY.chapters };
   ensureFonts();
   injectScopedStyle('aic-toc', CSS);
   const vars = themeVars(p.accentColor);

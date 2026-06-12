@@ -29,7 +29,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   align: 'center',            // 'center' | 'left'
   backgroundVariant: 'paper', // 'paper' | 'dark'
   showKicker: true,           // “最终判断” label row
@@ -41,6 +41,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Closing' },
+  { key: 'kicker', label: 'kicker', type: 'text', default: '最终判断' },
+  { key: 'quoteLead', label: 'quoteLead', type: 'text', default: '融资盛宴之后，' },
+  { key: 'quoteEm', label: 'quoteEm', type: 'text', default: '真正的竞争' },
+  { key: 'quoteTail', label: 'quoteTail', type: 'text', default: '才刚开始。' },
+  { key: 'tagline', label: 'tagline', type: 'text', default: '从资本流向，看 AI 产业下一阶段的真实重心。' },
+  { key: 'brandLabel', label: 'brandLabel', type: 'text', default: 'AI CAPITAL LAB' },
+  { key: 'brandSub', label: 'brandSub', type: 'text', default: 'FUNDING INTELLIGENCE' },
   { key: 'align', label: '对齐方式', type: 'radio', default: 'center',
     options: [{ value: 'center', label: '居中' }, { value: 'left', label: '左对齐' }],
     description: '金句与辅助信息的整体对齐方式。' },
@@ -122,7 +130,7 @@ const HEAT = ['accent','pos','accent','pos','warn','accent','pos','pos','accent'
 
 export default function ClosingPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, quoteLead: p.quoteLead !== undefined ? p.quoteLead : COPY.quoteLead, quoteEm: p.quoteEm !== undefined ? p.quoteEm : COPY.quoteEm, quoteTail: p.quoteTail !== undefined ? p.quoteTail : COPY.quoteTail, tagline: p.tagline !== undefined ? p.tagline : COPY.tagline, brandLabel: p.brandLabel !== undefined ? p.brandLabel : COPY.brandLabel, brandSub: p.brandSub !== undefined ? p.brandSub : COPY.brandSub };
   ensureFonts();
   injectScopedStyle('aic-clo', CSS);
   const vars = themeVars(p.accentColor);

@@ -45,7 +45,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   stepCount: 5,          // workflow chain nodes (3–5)
   focusEnabled: true,    // highlight the embed node
   focusIndex: 2,         // which node is the embed point (0-based)
@@ -57,6 +57,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Vertical Strategy' },
+  { key: 'segment', label: 'segment', type: 'text', default: '策略 · 筛选垂直应用' },
+  { key: 'title', label: '标题', type: 'text', default: '嵌入工作流' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '策略 · 筛选垂直应用' },
+  { key: 'lead', label: '导言', type: 'text', default: '垂直应用要看是否嵌入刚性流程，而不是只看生成效果；好的垂直 AI 应用应该成为工作流的一部分。' },
+  { key: 'closing', label: '结语', type: 'text', default: '应用价值来自流程位置。' },
+  { key: 'flowTitle', label: 'flowTitle', type: 'text', default: '业务工作流 · AI 嵌入位置' },
+  { key: 'cardsTitle', label: 'cardsTitle', type: 'text', default: '筛选维度 · Retention' },
+  { key: 'tagsTitle', label: 'tagsTitle', type: 'text', default: '落地场景' },
   { key: 'stepCount', label: '流程节点', type: 'slider', default: 5, min: 3, max: 5, step: 1,
     description: '工作流链路的节点数量（3–5）。' },
   { key: 'focusEnabled', label: '重点信息', type: 'toggle', default: true,
@@ -168,7 +177,7 @@ function Arrow() {
 
 export default function StrategyVerticalPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, cardsTitle: p.cardsTitle !== undefined ? p.cardsTitle : COPY.cardsTitle, tagsTitle: p.tagsTitle !== undefined ? p.tagsTitle : COPY.tagsTitle, steps: p.steps !== undefined ? p.steps : COPY.steps, cards: p.cards !== undefined ? p.cards : COPY.cards, tags: p.tags !== undefined ? p.tags : COPY.tags };
   ensureFonts();
   injectScopedStyle('aic-svt', CSS);
   const vars = themeVars(p.accentColor);

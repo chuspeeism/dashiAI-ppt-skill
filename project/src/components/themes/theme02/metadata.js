@@ -1,7 +1,7 @@
 export const theme = {
   "key": "theme02",
   "name": "02-炫光紫绿",
-  "mode": "new"
+  "mode": "replace"
 };
 export const pages = [
   {
@@ -34,7 +34,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -157,7 +157,7 @@ export const pages = [
       "showTags": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -195,7 +195,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -314,7 +314,7 @@ export const pages = [
       "statCount": 3,
       "showMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -352,7 +352,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -479,7 +479,7 @@ export const pages = [
       "showSubtitle": true,
       "showTags": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -517,7 +517,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -661,7 +661,7 @@ export const pages = [
       "metaCount": 3,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -699,7 +699,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -830,7 +830,7 @@ export const pages = [
       "showDesc": true,
       "showMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -868,7 +868,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -985,7 +985,7 @@ export const pages = [
       "focusIndex": 0,
       "showIndex": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -1023,7 +1023,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -1166,7 +1166,7 @@ export const pages = [
       "showRail": true,
       "showLead": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -1204,7 +1204,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -1365,7 +1365,7 @@ export const pages = [
         "secondary": "事件笔数"
       },
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -1403,7 +1403,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -1570,7 +1570,7 @@ export const pages = [
       "showPeakTag": true,
       "showScale": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -1608,7 +1608,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -1757,7 +1757,7 @@ export const pages = [
       "centerLabel": "亿美元 · 全年合计",
       "finding": "通用大模型占据近半壁江山，反映投资人押注 AGI 叙事；基础设施与芯片合计超四分之一，上游热度不减。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -1795,7 +1795,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -1968,7 +1968,7 @@ export const pages = [
       "showValueLabels": true,
       "footnote": "注：部分公司全年有多轮融资，此处仅列其最大单笔。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -2006,7 +2006,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -2159,7 +2159,7 @@ export const pages = [
       "showConnector": true,
       "showMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -2197,7 +2197,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -2331,7 +2331,7 @@ export const pages = [
       ],
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -2369,7 +2369,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -2479,7 +2479,7 @@ export const pages = [
       "showLead": true,
       "showRule": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -2517,7 +2517,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -2659,7 +2659,7 @@ export const pages = [
       "showDesc": true,
       "showAxisLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -2697,7 +2697,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -2886,7 +2886,7 @@ export const pages = [
       "showLegend": true,
       "showAxisLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -2924,7 +2924,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -3100,7 +3100,7 @@ export const pages = [
       "showSub": true,
       "showVerdict": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -3138,7 +3138,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -3314,7 +3314,7 @@ export const pages = [
       "showFlow": true,
       "showNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -3352,7 +3352,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -3497,7 +3497,7 @@ export const pages = [
       "showValueLabels": true,
       "showTargetMeta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -3535,7 +3535,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -3676,7 +3676,7 @@ export const pages = [
       "showDelta": true,
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -3714,7 +3714,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -3838,7 +3838,7 @@ export const pages = [
       "showLead": true,
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -3876,7 +3876,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -4016,7 +4016,7 @@ export const pages = [
       "showLabels": true,
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -4054,7 +4054,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -4216,7 +4216,7 @@ export const pages = [
       "heroExtra": "tags",
       "showCaption": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -4254,7 +4254,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -4397,7 +4397,7 @@ export const pages = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -4435,7 +4435,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -4567,7 +4567,7 @@ export const pages = [
       "focusIndex": 0,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -4605,7 +4605,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -4759,7 +4759,7 @@ export const pages = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -4797,7 +4797,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -4936,7 +4936,7 @@ export const pages = [
       "showTags": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -4974,7 +4974,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -5138,7 +5138,7 @@ export const pages = [
       "showStat": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -5176,7 +5176,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -5300,7 +5300,7 @@ export const pages = [
       "showLead": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -5338,7 +5338,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -5475,7 +5475,7 @@ export const pages = [
       "showTags": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -5513,7 +5513,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -5652,7 +5652,7 @@ export const pages = [
       "showCaptions": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -5690,7 +5690,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -5845,7 +5845,7 @@ export const pages = [
       "showAvgBar": true,
       "showTotal": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -5883,7 +5883,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -6019,7 +6019,7 @@ export const pages = [
       "showLegend": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -6057,7 +6057,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -6227,7 +6227,7 @@ export const pages = [
       "showLegend": true,
       "showRowNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -6265,7 +6265,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -6404,7 +6404,7 @@ export const pages = [
         "note": "人才、资本、算力的虹吸效应进一步强化，“地理护城河”短期难以撼动。"
       },
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -6442,7 +6442,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -6600,7 +6600,7 @@ export const pages = [
       "showWidthLabels": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -6638,7 +6638,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -6770,7 +6770,7 @@ export const pages = [
       "showRate": true,
       "showDetail": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -6808,7 +6808,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -6977,7 +6977,7 @@ export const pages = [
       "showLabels": true,
       "showAxisTitles": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -7015,7 +7015,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -7154,7 +7154,7 @@ export const pages = [
       "showValueLabels": true,
       "showGrid": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -7192,7 +7192,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -7346,7 +7346,7 @@ export const pages = [
       "showLegend": true,
       "showNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -7384,7 +7384,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -7522,7 +7522,7 @@ export const pages = [
       "showNote": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -7560,7 +7560,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -7679,7 +7679,7 @@ export const pages = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -7717,7 +7717,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -7845,7 +7845,7 @@ export const pages = [
       "showCaption": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -7883,7 +7883,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -8024,7 +8024,7 @@ export const pages = [
       "showStepNo": true,
       "showDesc": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -8062,7 +8062,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -8193,7 +8193,7 @@ export const pages = [
       "showRail": true,
       "showDivider": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -8231,7 +8231,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -8378,7 +8378,7 @@ export const pages = [
       "showLevel": true,
       "showDesc": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -8416,7 +8416,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -8521,7 +8521,7 @@ export const pages = [
       "showAttribution": true,
       "showRule": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -8559,7 +8559,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -8756,7 +8756,7 @@ export const pages = [
       "showLegend": true,
       "valueSuffix": "B",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -8794,7 +8794,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -8933,7 +8933,7 @@ export const pages = [
       "overlayStyle": "panel",
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -8971,7 +8971,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -9163,7 +9163,7 @@ export const pages = [
       "focusIndex": 0,
       "highlightCol": 3,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -9201,7 +9201,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -9324,7 +9324,7 @@ export const pages = [
       "showVs": true,
       "focusSide": "none",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -9362,7 +9362,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -9515,7 +9515,7 @@ export const pages = [
       "showQuote": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -9553,7 +9553,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -9619,13 +9619,6 @@ export const pages = [
         "desc": "配图槽位数量（自前向后填充；0 = 纯文字步骤）"
       },
       {
-        "key": "showConnector",
-        "label": "连接线",
-        "type": "toggle",
-        "default": true,
-        "desc": "显示/隐藏步骤之间的连接线"
-      },
-      {
         "key": "focusEnabled",
         "label": "重点强调",
         "type": "toggle",
@@ -9680,11 +9673,10 @@ export const pages = [
       "imageCount": 4,
       "focusEnabled": true,
       "focusIndex": 2,
-      "showConnector": true,
       "showLead": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -9722,7 +9714,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -9880,7 +9872,7 @@ export const pages = [
       "showAnnotation": true,
       "annotation": "通用大模型一年内融资规模翻倍并拉开身位，垂直应用与基础设施同步放量，资本向上游与头部赛道集中的趋势进一步强化。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -9918,7 +9910,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -10042,7 +10034,7 @@ export const pages = [
       "footnote": "资本的下一阶段，将从「赌叙事」转向「看兑现」。",
       "showFootnote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -10080,7 +10072,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -10195,7 +10187,7 @@ export const pages = [
       "showRail": true,
       "showLead": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -10233,7 +10225,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -10372,7 +10364,7 @@ export const pages = [
       "showAnnotation": true,
       "annotation": "5 月与 8 月形成两次峰值，与多家头部公司集中关账有关；年末回落但仍高于上半年，节奏呈「双峰脉冲」。",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -10410,7 +10402,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -10556,7 +10548,7 @@ export const pages = [
       "faceTexture": "gloss",
       "gxnScheme": {},
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -10594,7 +10586,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -10728,7 +10720,7 @@ export const pages = [
       "showBackdrop": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -10766,7 +10758,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -10923,7 +10915,7 @@ export const pages = [
       "showValueLabels": true,
       "showGrid": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -10961,7 +10953,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -11136,7 +11128,7 @@ export const pages = [
       "showLabels": true,
       "showValueLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -11174,7 +11166,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -11308,7 +11300,7 @@ export const pages = [
       "showShare": true,
       "showNote": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -11346,7 +11338,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -11431,7 +11423,7 @@ export const pages = [
         "label": "说明卡片",
         "type": "toggle",
         "default": true,
-        "desc": "两翼说明卡片显隐"
+        "desc": "右侧环节说明卡列显隐"
       },
       {
         "key": "showTags",
@@ -11504,7 +11496,7 @@ export const pages = [
       "showCards": true,
       "showTags": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -11541,7 +11533,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -11682,7 +11674,7 @@ export const pages = [
       "showValueLabels": true,
       "showDelta": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -11720,7 +11712,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -11868,7 +11860,7 @@ export const pages = [
       "showIndex": true,
       "showDesc": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -11905,7 +11897,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12042,7 +12034,7 @@ export const pages = [
       "showDesc": true,
       "showGhost": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12079,7 +12071,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12264,7 +12256,7 @@ export const pages = [
       "showConnectors": true,
       "coreFlow": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12301,7 +12293,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12458,7 +12450,7 @@ export const pages = [
       "showValueLabels": true,
       "showLegend": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12496,7 +12488,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12655,7 +12647,7 @@ export const pages = [
       "showRankAxis": true,
       "showEndLabels": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12693,7 +12685,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12825,7 +12817,7 @@ export const pages = [
       "showCaptions": true,
       "images": [],
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -12863,7 +12855,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -12997,7 +12989,7 @@ export const pages = [
       "showCenter": true,
       "showSub": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13035,7 +13027,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13296,7 +13288,7 @@ export const pages = [
       "showLegend": true,
       "valueSuffix": "亿",
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13334,7 +13326,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13486,7 +13478,7 @@ export const pages = [
       "showNote": true,
       "showRule": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,
@@ -13524,7 +13516,7 @@ export const pages = [
         "key": "emphasis",
         "label": "强调卡片",
         "type": "enum",
-        "default": "default",
+        "default": "ticket",
         "options": [
           [
             "default",
@@ -13642,7 +13634,7 @@ export const pages = [
       "showSignature": true,
       "showMark": true,
       "scheme": "green",
-      "emphasis": "default",
+      "emphasis": "ticket",
       "breath": 55,
       "magnet": true,
       "aurora": true,

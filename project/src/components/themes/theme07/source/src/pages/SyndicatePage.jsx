@@ -34,7 +34,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 5,           // table rows shown (3–6)
   showRound: true,       // round column
   showSyndicate: true,   // investor-syndicate column
@@ -46,6 +46,11 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Notable Deals' },
+  { key: 'title', label: '标题', type: 'text', default: '代表性交易' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '领投阵容' },
+  { key: 'lead', label: '导言', type: 'text', default: '少数几笔超大额轮次几乎定义了全年节奏，背后是稳定复现的领投与跟投组合。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: 'Top 6 交易合计 412 亿美元 · 占全年大额融资的 42%' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 5, min: 3, max: 6, step: 1,
     description: '表格展示的行数量（3–6）。' },
   { key: 'showRound', label: '轮次列', type: 'toggle', default: true,
@@ -137,7 +142,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','neg','accent','p
 
 export default function SyndicatePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, rows: p.rows !== undefined ? p.rows : COPY.rows };
   ensureFonts();
   injectScopedStyle('aic-syn', CSS);
   const vars = themeVars(p.accentColor);

@@ -57,7 +57,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
   chartType: 'bar',        // national-share chart: 'bar' (stacked) | 'donut'
@@ -72,6 +72,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Seattle Cluster' },
+  { key: 'segment', label: 'segment', type: 'text', default: '西雅图集群' },
+  { key: 'enName', label: 'enName', type: 'text', default: 'SEATTLE' },
+  { key: 'title', label: '标题', type: 'text', default: '云计算人才外溢' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '西雅图集群' },
+  { key: 'lead', label: '导言', type: 'text', default: '西雅图受益于云计算生态和大厂工程人才外溢；更适合孕育基础设施、开发者工具和企业 AI。' },
+  { key: 'shareTitle', label: '占比标题', type: 'text', default: '全美融资额占比' },
+  { key: 'shareValue', label: 'shareValue', type: 'text', default: '9.8' },
+  { key: 'closing', label: '结语', type: 'text', default: '云计算底座带来 AI 基础设施机会。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '西雅图集群' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'portrait',
@@ -276,7 +286,7 @@ function ShareDonut({ split }) {
 
 export default function SeattlePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, enName: p.enName !== undefined ? p.enName : COPY.enName, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, shareTitle: p.shareTitle !== undefined ? p.shareTitle : COPY.shareTitle, shareValue: p.shareValue !== undefined ? p.shareValue : COPY.shareValue, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, shareSplit: p.shareSplit !== undefined ? p.shareSplit : COPY.shareSplit, tags: p.tags !== undefined ? p.tags : COPY.tags, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-sea', CSS);
   const vars = themeVars(p.accentColor);

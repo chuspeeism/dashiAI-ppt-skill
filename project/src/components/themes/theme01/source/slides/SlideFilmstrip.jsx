@@ -75,7 +75,7 @@ export default function SlideFilmstrip(props) {
             <div key={i} style={{ flex: on ? 1.6 : 1, minWidth: 0, position: 'relative', borderRadius: 22, overflow: 'hidden',
               border: on ? `4px solid ${ac}` : '1px solid rgba(255,255,255,.7)',
               boxShadow: on ? `0 26px 60px ${hexA(ac, 0.4)}` : '0 18px 44px rgba(70,72,100,.18)' }}>
-              <ImageSlot src={p.images[i] || ''} placeholder={`画面 ${i + 1}`} fit={p.imageFit}
+              <ImageSlot slot={i} src={p.images[i] || ''} placeholder={`画面 ${i + 1}`} fit={p.imageFit}
                 ratioMode="fill" accent={ac} radius={0}
                 style={{ height: '100%', borderRadius: 0, border: 'none', boxShadow: 'none' }} />
 

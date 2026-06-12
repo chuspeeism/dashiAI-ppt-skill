@@ -36,7 +36,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'area',     // 'area' | 'line' | 'bar'
   focusEnabled: true,    // highlight one data point
   focusIndex: 2,         // which quarter is the focus (0-based)
@@ -46,6 +46,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Market Panorama' },
+  { key: 'title', label: '标题', type: 'text', default: '市场全景' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '纵向趋势' },
+  { key: 'sub', label: '次标题', type: 'text', default: '逐季度融资额走势' },
+  { key: 'lead', label: '导言', type: 'text', default: '2024 年融资热度在 Q2 与 Q3 达峰，Q4 理性回落但仍保持高位。' },
+  { key: 'anchorLead', label: '锚点数字', type: 'text', default: '970' },
+  { key: 'anchorUnit', label: '锚点单位', type: 'text', default: '亿美元' },
+  { key: 'anchorNote', label: '锚点注释', type: 'text', default: '全年合计 · Q3 单季 318 亿美元为最高点' },
+  { key: 'closing', label: '结语', type: 'text', default: '高峰过后不是崩塌，而是市场开始筛选。' },
+  { key: 'axisLabel', label: '坐标标签', type: 'text', default: '季度融资额 / 亿美元' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'area',
     options: [
       { value: 'area', label: '面积' },
@@ -136,7 +146,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','neg','pos','warn','acc
 
 export default function TrendPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, axisLabel: p.axisLabel !== undefined ? p.axisLabel : COPY.axisLabel, quarters: p.quarters !== undefined ? p.quarters : COPY.quarters };
   ensureFonts();
   injectScopedStyle('aic-trend', CSS);
   const vars = themeVars(p.accentColor);

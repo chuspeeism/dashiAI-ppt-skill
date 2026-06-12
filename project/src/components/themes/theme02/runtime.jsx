@@ -78,7 +78,7 @@ import { SlideHistogram, slideHistogramDefaults, slideHistogramControls } from '
 
 const THEME02_DECK_DEFAULTS = {
   scheme: 'green',
-  emphasis: 'default',
+  emphasis: 'ticket',
   breath: 55,
   magnet: true,
   aurora: true,
@@ -87,7 +87,7 @@ const THEME02_DECK_DEFAULTS = {
 
 const THEME02_DECK_CONTROLS = [
   { key: 'scheme', type: 'enum', label: '配色方案', default: 'green', options: [['green', '霓虹绿'], ['violet', '炫光紫']], desc: '切换整页炫光配色。' },
-  { key: 'emphasis', type: 'enum', label: '强调卡片', default: 'default', options: [['default', '默认发光'], ['ticket', '炫光票卡']], desc: '切换焦点卡片的发光质感。' },
+  { key: 'emphasis', type: 'enum', label: '强调卡片', default: 'ticket', options: [['default', '默认发光'], ['ticket', '炫光票卡']], desc: '切换焦点卡片的发光质感。' },
   { key: 'breath', type: 'slider', label: '内光呼吸感', default: 55, min: 0, max: 100, step: 1, desc: '炫光票卡模式下的内光呼吸强度。' },
   { key: 'magnet', type: 'toggle', label: '磁吸悬停', default: true, desc: '焦点卡片跟随指针产生轻微位移和倾斜。' },
   { key: 'aurora', type: 'toggle', label: '渐变流光', default: true, desc: '开启标题、数字和图表重点元素的流光渐变。' },

@@ -103,7 +103,7 @@ export function SlidePoster(props) {
   const lockup = (
     <div style={{ display: 'flex', flexDirection: 'column', gap: 30,
       alignItems: centered ? 'center' : 'flex-start', textAlign: centered ? 'center' : 'left',
-      maxWidth: centered ? 1400 : 1180, pointerEvents: 'auto' }}>
+      maxWidth: centered ? 1400 : 1180, pointerEvents: 'none' }}>
       {Title}
       {quote}
       {metaBar}

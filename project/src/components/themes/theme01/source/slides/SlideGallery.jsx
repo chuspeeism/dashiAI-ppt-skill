@@ -70,7 +70,7 @@ function Slot({ i, src, fit, item, showCaptions, on, accent }) {
     <div style={{ position: 'relative', width: '100%', height: '100%', borderRadius: 22, overflow: 'hidden',
       outline: on ? `4px solid ${accent}` : 'none', outlineOffset: on ? -4 : 0,
       boxShadow: on ? `0 22px 52px ${hexA(accent, 0.5)}` : '0 18px 44px rgba(70,72,100,.16)' }}>
-      <ImageSlot src={src || ''} placeholder={item ? item.label : `图片 ${i + 1}`} fit={fit}
+      <ImageSlot slot={i} src={src || ''} placeholder={item ? item.label : `图片 ${i + 1}`} fit={fit}
         ratioMode="fill" accent="#5b8def" radius={22} style={{ height: '100%' }} />
       {showCaptions && item && (
         <>

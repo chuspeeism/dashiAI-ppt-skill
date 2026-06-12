@@ -33,7 +33,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   align: 'center',         // 'center' | 'left'
   showPillars: true,       // resource pillar row
   pillarCount: 3,          // how many pillars (2–3)
@@ -46,6 +46,12 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Talent · Capital · Compute' },
+  { key: 'kicker', label: 'kicker', type: 'text', default: '人才 · 资本 · 算力三角' },
+  { key: 'quoteLead', label: 'quoteLead', type: 'text', default: 'AI 竞争，首先是' },
+  { key: 'quoteEm', label: 'quoteEm', type: 'text', default: '资源组织能力' },
+  { key: 'quoteTail', label: 'quoteTail', type: 'text', default: '的竞争。' },
+  { key: 'source', label: '来源', type: 'text', default: '数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元' },
   { key: 'align', label: '对齐方式', type: 'radio', default: 'center',
     options: [{ value: 'center', label: '居中' }, { value: 'left', label: '左对齐' }],
     description: '金句与三角资源的整体对齐方式。' },
@@ -155,7 +161,7 @@ function Glyph({ type }) {
 
 export default function ResourceTriadPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, quoteLead: p.quoteLead !== undefined ? p.quoteLead : COPY.quoteLead, quoteEm: p.quoteEm !== undefined ? p.quoteEm : COPY.quoteEm, quoteTail: p.quoteTail !== undefined ? p.quoteTail : COPY.quoteTail, source: p.source !== undefined ? p.source : COPY.source, pillars: p.pillars !== undefined ? p.pillars : COPY.pillars };
   ensureFonts();
   injectScopedStyle('aic-tri', CSS);
   const vars = themeVars(p.accentColor);

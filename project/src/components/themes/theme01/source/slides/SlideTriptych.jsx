@@ -67,7 +67,7 @@ export default function SlideTriptych(props) {
           const tagCol = on ? ac : (TONE[pn.tagTone] || ac);
           return (
             <div key={i} style={{ flex: 1, minWidth: 0, position: 'relative', overflow: 'hidden' }}>
-              <ImageSlot src={p.images[i] || ''} placeholder={`满版影像 ${i + 1}`} fit={p.imageFit}
+              <ImageSlot slot={i} src={p.images[i] || ''} placeholder={`满版影像 ${i + 1}`} fit={p.imageFit}
                 ratioMode="fill" accent={tagCol} radius={0}
                 style={{ height: '100%', borderRadius: 0, border: 'none', boxShadow: 'none' }} />
 

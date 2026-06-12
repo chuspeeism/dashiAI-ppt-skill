@@ -135,9 +135,9 @@ export default function SlideImageFeature(props) {
     return (
       <SlideFrame bg="a">
         <div style={{ position: 'absolute', inset: 0 }}>
-          <ImageSlot src={p.images[0] || ''} placeholder="特写图片 · 满版" fit={p.imageFit}
+          <ImageSlot slot={0} src={p.images[0] || ''} placeholder="特写图片 · 满版" fit={p.imageFit}
             ratioMode="fill" accent="#5b8def" radius={0} style={{ height: '100%', borderRadius: 0, border: 'none' }} />
-          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(90deg, rgba(18,18,26,.74) 0%, rgba(18,18,26,.4) 52%, rgba(18,18,26,.05) 100%)' }} />
+          <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'linear-gradient(90deg, rgba(18,18,26,.74) 0%, rgba(18,18,26,.4) 52%, rgba(18,18,26,.05) 100%)' }} />
         </div>
         <div style={{ position: 'absolute', inset: 0, padding: 'var(--aip-pad-top) var(--aip-pad-x) var(--aip-pad-bottom)', display: 'flex' }}>
           <TextCol p={p} ac={ac} onLight />
@@ -156,7 +156,7 @@ export default function SlideImageFeature(props) {
       </div>
     ) : (
       <div style={{ flex: '0 0 41%', minWidth: 0 }}>
-        <ImageSlot src={p.images[0] || ''} placeholder="特写图片" fit={p.imageFit}
+        <ImageSlot slot={0} src={p.images[0] || ''} placeholder="特写图片" fit={p.imageFit}
           ratioMode="fill" accent="#5b8def" radius={26} style={{ height: '100%' }} />
       </div>
     )

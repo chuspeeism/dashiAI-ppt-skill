@@ -27,7 +27,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   backgroundVariant: 'dark', // 'dark' | 'paper'
   layout: 'left',            // 'left' | 'center'
   showIndex: true,           // oversized chapter-index watermark
@@ -38,6 +38,12 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Chapter' },
+  { key: 'index', label: 'index', type: 'text', default: '02' },
+  { key: 'title', label: '标题', type: 'text', default: '市场数据深拆' },
+  { key: 'sub', label: '次标题', type: 'text', default: '融资节奏、集中度与交易规模' },
+  { key: 'lead', label: '导言', type: 'text', default: '从本章开始进入市场数据扩展部分，围绕融资集中度、季度节奏和金额区间展开。' },
+  { key: 'closing', label: '结语', type: 'text', default: '下一组页面进入更细的拆解。' },
   { key: 'backgroundVariant', label: '背景风格', type: 'radio', default: 'dark',
     options: [{ value: 'dark', label: '深色' }, { value: 'paper', label: '浅色' }],
     description: '章节页背景：深色（强换气节奏）/ 浅色（与正文统一）。' },
@@ -113,7 +119,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','warn','accent
 
 export default function ChapterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, index: p.index !== undefined ? p.index : COPY.index, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords };
   ensureFonts();
   injectScopedStyle('aic-ch', CSS);
   const vars = themeVars(p.accentColor);

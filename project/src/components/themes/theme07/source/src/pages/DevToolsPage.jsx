@@ -45,7 +45,7 @@ const RAIL = [
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   align: 'left',            // 'left' | 'center'
   showReasons: true,        // supporting-reason row
   reasonCount: 3,           // how many reasons (0–3)
@@ -58,6 +58,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Developer Tools' },
+  { key: 'kicker', label: 'kicker', type: 'text', default: '研发效率提升' },
+  { key: 'tag', label: 'tag', type: 'text', default: 'Insight · 金句' },
+  { key: 'quoteLead', label: 'quoteLead', type: 'text', default: '研发效率，是企业最直接的' },
+  { key: 'quoteEm1', label: 'quoteEm1', type: 'text', default: 'AI 预算入口' },
+  { key: 'quoteMid', label: 'quoteMid', type: 'text', default: '之一；能嵌入' },
+  { key: 'quoteEm2', label: 'quoteEm2', type: 'text', default: '日常开发循环' },
+  { key: 'quoteTail', label: 'quoteTail', type: 'text', default: '的工具，留存最强。' },
+  { key: 'source', label: '来源', type: 'text', default: '数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元' },
   { key: 'align', label: '对齐方式', type: 'radio', default: 'left',
     options: [{ value: 'left', label: '左对齐' }, { value: 'center', label: '居中' }],
     description: '金句与辅助信息的整体对齐方式。' },
@@ -149,7 +158,7 @@ const RAIL_TONE = {
 
 export default function DevToolsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, tag: p.tag !== undefined ? p.tag : COPY.tag, quoteLead: p.quoteLead !== undefined ? p.quoteLead : COPY.quoteLead, quoteEm1: p.quoteEm1 !== undefined ? p.quoteEm1 : COPY.quoteEm1, quoteMid: p.quoteMid !== undefined ? p.quoteMid : COPY.quoteMid, quoteEm2: p.quoteEm2 !== undefined ? p.quoteEm2 : COPY.quoteEm2, quoteTail: p.quoteTail !== undefined ? p.quoteTail : COPY.quoteTail, source: p.source !== undefined ? p.source : COPY.source, reasons: p.reasons !== undefined ? p.reasons : COPY.reasons };
   ensureFonts();
   injectScopedStyle('aic-dev', CSS);
   const vars = themeVars(p.accentColor);

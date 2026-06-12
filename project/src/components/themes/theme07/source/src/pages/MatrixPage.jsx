@@ -30,7 +30,7 @@ const COPY = {
 const TONE = { accent: 'var(--aic-accent)', warn: 'var(--aic-warn)', ink: 'var(--aic-ink)', faint: 'var(--aic-faint)' };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   focusEnabled: true,
   focusIndex: 0,         // 明星兑现
   showSecondary: true,   // representative-direction chips
@@ -39,6 +39,13 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Heat vs. Monetization' },
+  { key: 'title', label: '标题', type: 'text', default: '资本热度 × 商业兑现' },
+  { key: 'sub', label: '次标题', type: 'text', default: '四象限机会判断' },
+  { key: 'lead', label: '导言', type: 'text', default: '把资本热度和商业兑现度交叉，可以区分明星兑现、叙事泡沫、隐形价值和等待验证四类机会。' },
+  { key: 'closing', label: '结语', type: 'text', default: '资本正在从叙事驱动转向兑现驱动。' },
+  { key: 'axisX', label: 'axisX', type: 'text', default: '商业兑现度' },
+  { key: 'axisY', label: 'axisY', type: 'text', default: '资本热度' },
   { key: 'focusEnabled', label: '重点信息', type: 'toggle', default: true,
     description: '是否高亮某一象限作为视觉重点。' },
   { key: 'focusIndex', label: '重点元素', type: 'select', default: 0,
@@ -115,7 +122,7 @@ const HEAT = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function MatrixPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, axisX: p.axisX !== undefined ? p.axisX : COPY.axisX, axisY: p.axisY !== undefined ? p.axisY : COPY.axisY, quadrants: p.quadrants !== undefined ? p.quadrants : COPY.quadrants };
   ensureFonts();
   injectScopedStyle('aic-matrix', CSS);
   const vars = themeVars(p.accentColor);

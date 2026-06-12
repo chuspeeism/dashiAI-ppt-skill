@@ -49,7 +49,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'bars',     // 'bars' | 'line' | 'area' — monthly hero chart style
   metricCount: 4,        // metric cards shown (2–4)
   focusEnabled: true,    // highlight one metric card
@@ -60,6 +60,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Quarter Breakdown' },
+  { key: 'marker', label: 'marker', type: 'text', default: 'Q1' },
+  { key: 'season', label: 'season', type: 'text', default: '2024 第一季度 · 起步' },
+  { key: 'title', label: '标题', type: 'text', default: '冷启动季度' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'Q1 融资拆解' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Q1 交易数量稳定，但整体金额尚未进入全年高峰，更像上一年度项目延续，市场仍在等待新一轮验证。' },
+  { key: 'closing', label: '结语', type: 'text', default: '全年热度从保守启动开始。' },
+  { key: 'chartLabel', label: 'chartLabel', type: 'text', default: '月度融资额 / 亿美元' },
+  { key: 'contextLabel', label: 'contextLabel', type: 'text', default: '全年季度对比' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'bars',
     options: [
       { value: 'bars', label: '柱状' },
@@ -158,7 +167,7 @@ const AMAX = 72; // y-axis headroom for Q1 monthly figures (亿美元)
 
 export default function ColdStartPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, contextLabel: p.contextLabel !== undefined ? p.contextLabel : COPY.contextLabel, months: p.months !== undefined ? p.months : COPY.months, context: p.context !== undefined ? p.context : COPY.context, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-cold', CSS);
   const vars = themeVars(p.accentColor);

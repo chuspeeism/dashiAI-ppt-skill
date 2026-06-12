@@ -42,7 +42,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 5,           // scenario rows shown (3–5)
   showShare: true,       // share column (mini bar + value)
   showFlow: true,        // bottom process-flow ribbon
@@ -54,6 +54,17 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Legal AI' },
+  { key: 'marker', label: 'marker', type: 'text', default: '法律 AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '专业服务 · 法律' },
+  { key: 'title', label: '标题', type: 'text', default: '专业服务高客单价' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '法律 AI 赛道' },
+  { key: 'lead', label: '导言', type: 'text', default: '法律 AI 具备高客单价、强专业壁垒和明确效率提升空间；专业服务行业愿意为准确性和审计链路付费。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 26 亿美元 · 6 笔事件 · 平均单笔 4.3 亿美元' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '46%' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '合同审查占场景比例' },
+  { key: 'closing', label: '结语', type: 'text', default: '法律 AI 是垂直应用商业化样本。' },
+  { key: 'flowTitle', label: 'flowTitle', type: 'text', default: '法律工作流' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 5, min: 3, max: 5, step: 1,
     description: '场景表格展示的行数量（3–5）。' },
   { key: 'showShare', label: '占比列', type: 'toggle', default: true,
@@ -164,7 +175,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function LegalPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, rows: p.rows !== undefined ? p.rows : COPY.rows, flow: p.flow !== undefined ? p.flow : COPY.flow };
   ensureFonts();
   injectScopedStyle('aic-legal', CSS);
   const vars = themeVars(p.accentColor);

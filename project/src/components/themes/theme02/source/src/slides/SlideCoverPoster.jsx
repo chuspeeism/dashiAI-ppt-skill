@@ -94,7 +94,8 @@ export function SlideCoverPoster(props) {
           boxShadow: 'inset 0 0 60px -24px rgba(var(--gxn-glow),0.5)', pointerEvents: 'none' }} />
       )}
 
-      <div className="gxn-pad" style={{ zIndex: 1,
+      {/* 文字层为纯展示内容 — pointerEvents:none 让点击穿透到底层满幅图片槽 */}
+      <div className="gxn-pad" style={{ zIndex: 1, pointerEvents: 'none',
         justifyContent: center ? 'center' : 'flex-end',
         alignItems: center ? 'center' : 'flex-start',
         textAlign: center ? 'center' : 'left' }}>

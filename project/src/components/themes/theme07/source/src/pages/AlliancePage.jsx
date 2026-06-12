@@ -44,7 +44,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   providerCount: 4,      // cloud provider nodes (2–4)
   chartType: 'map',      // 'map' | 'bars'
   focusEnabled: true,    // highlight one provider
@@ -56,6 +56,19 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Cloud Alliances' },
+  { key: 'segment', label: 'segment', type: 'text', default: '云厂商联盟' },
+  { key: 'title', label: '标题', type: 'text', default: '投资与算力消费闭环' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '云厂商联盟' },
+  { key: 'lead', label: '导言', type: 'text', default: '云厂商投资 AI 公司，并通过算力消费回收价值；云投资本质上是在锁定未来算力需求。' },
+  { key: 'closing', label: '结语', type: 'text', default: '云资源正在成为融资交易的一部分。' },
+  { key: 'chartTitle', label: 'chartTitle', type: 'text', default: '云厂商 · 模型公司联盟' },
+  { key: 'barsTitle', label: 'barsTitle', type: 'text', default: '云厂商相关投资 / 占比' },
+  { key: 'totalVal', label: 'totalVal', type: 'text', default: '252' },
+  { key: 'totalUnit', label: 'totalUnit', type: 'text', default: '亿美元' },
+  { key: 'totalLbl', label: 'totalLbl', type: 'text', default: '云厂商相关投资合计' },
+  { key: 'legendInvest', label: 'legendInvest', type: 'text', default: '资本投资' },
+  { key: 'legendReturn', label: 'legendReturn', type: 'text', default: '算力消费回收' },
   { key: 'providerCount', label: '卡片数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
     description: '云厂商节点数量（2–4）。' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'map',
@@ -228,7 +241,7 @@ function AllianceMap({ copy, providers, focus, focusEnabled, showLoop, showValue
 
 export default function AlliancePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, barsTitle: p.barsTitle !== undefined ? p.barsTitle : COPY.barsTitle, totalVal: p.totalVal !== undefined ? p.totalVal : COPY.totalVal, totalUnit: p.totalUnit !== undefined ? p.totalUnit : COPY.totalUnit, totalLbl: p.totalLbl !== undefined ? p.totalLbl : COPY.totalLbl, legendInvest: p.legendInvest !== undefined ? p.legendInvest : COPY.legendInvest, legendReturn: p.legendReturn !== undefined ? p.legendReturn : COPY.legendReturn, cycle: p.cycle !== undefined ? p.cycle : COPY.cycle, providers: p.providers !== undefined ? p.providers : COPY.providers };
   ensureFonts();
   injectScopedStyle('aic-ally', CSS);
   const vars = themeVars(p.accentColor);

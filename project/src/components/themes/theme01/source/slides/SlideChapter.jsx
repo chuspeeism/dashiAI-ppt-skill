@@ -72,7 +72,7 @@ function Sticker({ label, color, on, i }) {
 function ImageArea({ count, images, fit }) {
   const mode = fit === 'contain' ? 'auto' : 'fill';
   const slot = (i, style) => (
-    <ImageSlot key={i} src={images[i] || ''} placeholder={`图片 ${i + 1}`} fit={fit}
+    <ImageSlot key={i} slot={i} src={images[i] || ''} placeholder={`图片 ${i + 1}`} fit={fit}
       ratioMode={count === 1 ? mode : 'fill'} accent="#5b8def" radius={24} style={style} />
   );
   if (count === 1) return <div style={{ height: '100%', display: 'flex', alignItems: 'center' }}>{slot(0, { height: fit === 'contain' ? 'auto' : '100%', maxHeight: '100%' })}</div>;

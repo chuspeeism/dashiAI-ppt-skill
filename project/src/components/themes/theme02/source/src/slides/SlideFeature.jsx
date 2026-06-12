@@ -134,7 +134,8 @@ export function SlideFeature(props) {
               {/* title scrim + lockup */}
               {p.overlay === 'bar' ? (
                 <div style={{ position: 'absolute', left: 0, right: 0, bottom: 0, zIndex: 2, padding: '120px 56px 44px',
-                              background: 'linear-gradient(to top, rgba(4,6,8,0.92), rgba(4,6,8,0.55) 55%, transparent)' }}>
+                              background: 'linear-gradient(to top, rgba(4,6,8,0.92), rgba(4,6,8,0.55) 55%, transparent)',
+                              pointerEvents: 'none' }}>
                   {lockup}
                 </div>
               ) : (
@@ -142,7 +143,7 @@ export function SlideFeature(props) {
                               display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', padding: '0 0 48px 48px',
                               background: 'linear-gradient(105deg, rgba(4,6,8,0.92) 8%, rgba(4,6,8,0.55) 46%, transparent 78%)',
                               pointerEvents: 'none' }}>
-                  <div style={{ pointerEvents: 'auto' }}>{lockup}</div>
+                  {lockup}
                 </div>
               )}
             </div>

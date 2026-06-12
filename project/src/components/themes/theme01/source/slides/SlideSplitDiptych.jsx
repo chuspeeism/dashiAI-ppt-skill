@@ -51,11 +51,11 @@ export const controls = [
     description: '底部 */ … /* 说明文案的显示。' },
 ];
 
-function Half({ side, data, hasImage, src, fit, showTag, dim }) {
+function Half({ side, data, hasImage, src, fit, showTag, dim, slot }) {
   const isLeft = side === 'left';
   return (
     <div style={{ position: 'relative', height: '100%', overflow: 'hidden' }}>
-      <ImageSlot src={hasImage ? src : ''} placeholder={data.placeholder} fit={fit}
+      <ImageSlot slot={slot} src={hasImage ? src : ''} placeholder={data.placeholder} fit={fit}
         accent={data.color} radius={0} style={{ borderRadius: 0, border: 'none', boxShadow: 'none' }} />
       {/* readability scrim toward the seam */}
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none',
@@ -101,8 +101,8 @@ export default function SlideSplitDiptych(props) {
       {/* full-bleed: escape the padded .aip-content */}
       <div style={{ position: 'absolute', inset: 0 }}>
         <div style={{ position: 'absolute', inset: 0, display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 6 }}>
-          <Half side="left" data={p.left} hasImage={leftHas} src={p.images[0]} fit={fit} showTag={p.showTags} dim={litR} />
-          <Half side="right" data={p.right} hasImage={rightHas} src={p.images[1]} fit={fit} showTag={p.showTags} dim={litL} />
+          <Half side="left" data={p.left} hasImage={leftHas} src={p.images[0]} fit={fit} showTag={p.showTags} dim={litR} slot={p.imageSlotCount >= 1 ? 0 : null} />
+          <Half side="right" data={p.right} hasImage={rightHas} src={p.images[1]} fit={fit} showTag={p.showTags} dim={litL} slot={p.imageSlotCount >= 2 ? 1 : null} />
         </div>
 
         {/* center verdict plate bridging the seam */}

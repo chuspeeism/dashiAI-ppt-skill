@@ -43,7 +43,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 5,           // risk rows shown (3–5)
   showLevel: true,       // intensity column (meter + value)
   showFlow: true,        // bottom process-flow ribbon
@@ -55,6 +55,17 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Regulation Risk' },
+  { key: 'marker', label: 'marker', type: 'text', default: '监管合规' },
+  { key: 'segment', label: 'segment', type: 'text', default: '风险 · 监管合规' },
+  { key: 'title', label: '标题', type: 'text', default: '隐私、版权与安全' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '风险 · 监管合规' },
+  { key: 'lead', label: '导言', type: 'text', default: '隐私、版权、安全和行业监管会增加交付成本；监管会挤出缺乏治理能力的公司。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '合规团队增长 +42% · 采购审查周期 +36% · 版权风险事件 19 起' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '58%' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '客户要求数据隔离占比' },
+  { key: 'closing', label: '结语', type: 'text', default: '合规能力会成为企业采购门槛。' },
+  { key: 'flowTitle', label: 'flowTitle', type: 'text', default: '合规交付流程' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 5, min: 3, max: 5, step: 1,
     description: '风险表格展示的行数量（3–5）。' },
   { key: 'showLevel', label: '强度列', type: 'toggle', default: true,
@@ -165,7 +176,7 @@ const HEAT = ['neg','warn','neg','warn','accent','warn','pos','accent','warn','a
 
 export default function CompliancePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, rows: p.rows !== undefined ? p.rows : COPY.rows, flow: p.flow !== undefined ? p.flow : COPY.flow };
   ensureFonts();
   injectScopedStyle('aic-cmpl', CSS);
   const vars = themeVars(p.accentColor);

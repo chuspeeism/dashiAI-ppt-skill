@@ -1,7 +1,7 @@
 export const theme = {
   "key": "theme03",
   "name": "03-深浅代码风",
-  "mode": "new"
+  "mode": "replace"
 };
 export const pages = [
   {

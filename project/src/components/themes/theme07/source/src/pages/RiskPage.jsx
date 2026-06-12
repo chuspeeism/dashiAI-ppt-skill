@@ -36,7 +36,7 @@ const COPY = {
 const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 5,            // risk cards shown (2–5)
   imageCount: 1,           // image slots (0–1)
   imageRatio: 'portrait',  // 'portrait' | 'landscape' | 'square' | 'auto'
@@ -49,6 +49,12 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Risk Assessment' },
+  { key: 'title', label: '标题', type: 'text', default: '风险研判' },
+  { key: 'sub', label: '次标题', type: 'text', default: '资本大年背后的下行因素' },
+  { key: 'lead', label: '导言', type: 'text', default: '高估值、盈利验证、监管压力、大厂竞争和算力成本共同构成风险链条。' },
+  { key: 'chainTitle', label: 'chainTitle', type: 'text', default: '风险传导链' },
+  { key: 'closing', label: '结语', type: 'text', default: '下一阶段会淘汰只会讲故事的公司。' },
   { key: 'cardCount', label: '卡片数量', type: 'slider', default: 5, min: 2, max: 5, step: 1,
     description: '展示的风险卡数量（2–5）。' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 1, step: 1,
@@ -161,7 +167,7 @@ function Placeholder() {
 
 export default function RiskPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, chainTitle: p.chainTitle !== undefined ? p.chainTitle : COPY.chainTitle, closing: p.closing !== undefined ? p.closing : COPY.closing, risks: p.risks !== undefined ? p.risks : COPY.risks };
   ensureFonts();
   injectScopedStyle('aic-risk', CSS);
   const vars = themeVars(p.accentColor);

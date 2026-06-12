@@ -95,7 +95,7 @@ export default function SlideMagCover(props) {
         ) : (
           Array.from({ length: n }).map((_, i) => (
             <div key={i} style={{ flex: 1, minWidth: 0, borderRight: n === 2 && i === 0 ? '3px solid rgba(255,255,255,.85)' : 'none' }}>
-              <ImageSlot src={p.images[i] || ''} placeholder={n === 2 ? `影像 ${i + 1}` : '满版影像'} fit={p.imageFit}
+              <ImageSlot slot={i} src={p.images[i] || ''} placeholder={n === 2 ? `影像 ${i + 1}` : '满版影像'} fit={p.imageFit}
                 ratioMode="fill" accent="#5b8def" radius={0} style={{ height: '100%', borderRadius: 0, border: 'none', boxShadow: 'none' }} />
             </div>
           ))

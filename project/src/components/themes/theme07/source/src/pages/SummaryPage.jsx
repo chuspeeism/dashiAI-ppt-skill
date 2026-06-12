@@ -41,7 +41,7 @@ const CARD_HEAT = [
 ].map((row) => row.map((tone) => ({ tone })));
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   cardCount: 4,
   focusEnabled: true,
   focusIndex: 0,
@@ -51,6 +51,11 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Report Overview' },
+  { key: 'title', label: '标题', type: 'text', default: '报告摘要' },
+  { key: 'sub', label: '次标题', type: 'text', default: '2024 全年 · 资本大年' },
+  { key: 'closing', label: '结语', type: 'text', default: '资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。' },
+  { key: 'chartTitle', label: 'chartTitle', type: 'text', default: '赛道融资占比' },
   { key: 'cardCount', label: '指标卡数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
     description: '底部核心指标卡的数量（2–4）。' },
   { key: 'focusEnabled', label: '重点信息', type: 'toggle', default: true,
@@ -134,7 +139,7 @@ const CSS = `
 
 export default function SummaryPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, lead: p.lead !== undefined ? p.lead : COPY.lead, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords, tracks: p.tracks !== undefined ? p.tracks : COPY.tracks, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-sum', CSS);
   const vars = themeVars(p.accentColor);

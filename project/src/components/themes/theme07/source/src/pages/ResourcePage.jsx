@@ -44,7 +44,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'landscape', // 'portrait' | 'landscape' | 'square' | 'auto'
   cardCount: 4,            // resource cards (2–4)
@@ -57,6 +57,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Strategic Investors' },
+  { key: 'segment', label: 'segment', type: 'text', default: '战略投资者角色' },
+  { key: 'title', label: '标题', type: 'text', default: '钱以外的资源' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '战略投资者角色' },
+  { key: 'lead', label: '导言', type: 'text', default: '战略投资者提供渠道、云资源、芯片供应和客户入口；交易真正价值经常不只在现金，而在关键资源绑定。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '资源绑定是大额融资的隐性条款' },
+  { key: 'closing', label: '结语', type: 'text', default: 'AI 公司融资是在锁定未来资源。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '战略资源' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '战略资源构成' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'landscape',
@@ -194,7 +203,7 @@ function Placeholder({ i }) {
 
 export default function ResourcePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, cards: p.cards !== undefined ? p.cards : COPY.cards };
   ensureFonts();
   injectScopedStyle('aic-res', CSS);
   const vars = themeVars(p.accentColor);

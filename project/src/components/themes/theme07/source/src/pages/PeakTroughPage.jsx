@@ -47,7 +47,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'bars',     // 'bars' | 'lollipop' — monthly hero chart style
   barCount: 12,          // months shown (6–12)
   highlightExtremes: true, // color peak (accent) / trough (red) vs neutral
@@ -60,6 +60,13 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Peak and Trough' },
+  { key: 'title', label: '标题', type: 'text', default: '峰值与低位' },
+  { key: 'sub', label: '次标题', type: 'text', default: '月度峰谷对比' },
+  { key: 'lead', label: '导言', type: 'text', default: '8 月为全年峰值，1 月为低位，峰谷差体现交易集中度。' },
+  { key: 'closing', label: '结语', type: 'text', default: '月度波动背后是头部交易节奏。' },
+  { key: 'chartLabel', label: 'chartLabel', type: 'text', default: '月度融资额 / 亿美元' },
+  { key: 'avgLabel', label: 'avgLabel', type: 'text', default: '全年均值' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'bars',
     options: [{ value: 'bars', label: '柱状' }, { value: 'lollipop', label: '棒点' }],
     description: '主图表样式：实心柱状 / 棒棒糖（细杆 + 圆点）。' },
@@ -157,7 +164,7 @@ function barColor(kind, highlight) {
 
 export default function PeakTroughPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, avgLabel: p.avgLabel !== undefined ? p.avgLabel : COPY.avgLabel, months: p.months !== undefined ? p.months : COPY.months, extremes: p.extremes !== undefined ? p.extremes : COPY.extremes };
   ensureFonts();
   injectScopedStyle('aic-pt', CSS);
   const vars = themeVars(p.accentColor);

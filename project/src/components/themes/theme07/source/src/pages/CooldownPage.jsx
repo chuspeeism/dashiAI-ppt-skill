@@ -46,7 +46,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   nodeCount: 4,          // timeline / curve nodes shown (2–4)
   metricCount: 4,        // metric callouts (2–4)
   focusEnabled: true,    // highlight one timeline node
@@ -58,6 +58,17 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Quarter Breakdown' },
+  { key: 'marker', label: 'marker', type: 'text', default: 'Q4' },
+  { key: 'season', label: 'season', type: 'text', default: '2024 第四季度 · 回落' },
+  { key: 'title', label: '标题', type: 'text', default: '理性回落季度' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: 'Q4 融资拆解' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Q4 较 Q3 回落，但仍高于年初水平，说明资金并未完全撤离，资本开始挑选确定性更高的标的。' },
+  { key: 'closing', label: '结语', type: 'text', default: '回落不是终点，而是分化的开始。' },
+  { key: 'baselineLabel', label: 'baselineLabel', type: 'text', default: '年初水平 · 162' },
+  { key: 'chartLabel', label: 'chartLabel', type: 'text', default: '全年季度融资额 / 亿美元' },
+  { key: 'declineLabel', label: 'declineLabel', type: 'text', default: '较 Q3' },
+  { key: 'declineValue', label: 'declineValue', type: 'text', default: '-35.2%' },
   { key: 'nodeCount', label: '节点数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
     description: '时间轴 / 曲线上的阶段节点数量（2–4）。' },
   { key: 'metricCount', label: '卡片数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
@@ -153,7 +164,7 @@ const M = { l: 40, r: 40, t: 40, b: 18 };
 
 export default function CooldownPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, baselineLabel: p.baselineLabel !== undefined ? p.baselineLabel : COPY.baselineLabel, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, declineLabel: p.declineLabel !== undefined ? p.declineLabel : COPY.declineLabel, declineValue: p.declineValue !== undefined ? p.declineValue : COPY.declineValue, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
   ensureFonts();
   injectScopedStyle('aic-cool', CSS);
   const vars = themeVars(p.accentColor);

@@ -189,7 +189,7 @@ const XHSDH_CSS = `
   .xhsDh-tline{ position:relative; flex:1 1 auto; height:14px; border-radius:999px;
     background:linear-gradient(90deg, color-mix(in srgb,#555 70%, transparent), var(--c));
     box-shadow:0 0 26px color-mix(in srgb, var(--c) 34%, transparent), inset 0 2px 0 rgba(255,255,255,.4); }
-  .xhsDh-tmul{ position:absolute; left:50%; top:-40px; transform:translateX(-50%);
+  .xhsDh-tmul{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
     font-family:"Space Mono",monospace; font-size:30px; font-weight:700; color:#06140f; background:var(--c);
     padding:4px 16px; border-radius:999px; box-shadow:0 8px 22px color-mix(in srgb, var(--c) 42%, transparent), inset 0 2px 0 rgba(255,255,255,.5); }
 

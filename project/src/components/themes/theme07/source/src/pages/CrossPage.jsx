@@ -38,7 +38,7 @@ const COPY = {
 const TRACK_COLORS = ['var(--aic-accent)', 'var(--aic-ink)', '#9AA08F', 'var(--aic-warn)', 'var(--aic-faint)'];
 
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   chartType: 'donut',    // 'donut' | 'bars'
   focusEnabled: true,
   focusIndex: 0,         // which track is the focus
@@ -48,6 +48,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Cross-Section' },
+  { key: 'title', label: '标题', type: 'text', default: '横向透视' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '赛道与轮次' },
+  { key: 'sub', label: '次标题', type: 'text', default: '钱流向哪些赛道和阶段' },
+  { key: 'lead', label: '导言', type: 'text', default: '通用大模型仍是最大吸金赛道，后期轮和未披露轮次体现头部赢家通吃。' },
+  { key: 'closing', label: '结语', type: 'text', default: '融资额排名背后，是资本对叙事和兑现的双重押注。' },
+  { key: 'shareTitle', label: '占比标题', type: 'text', default: '赛道融资占比' },
+  { key: 'roundTitle', label: '轮次标题', type: 'text', default: '各轮次平均单笔' },
+  { key: 'roundUnit', label: '轮次单位', type: 'text', default: '亿美元' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'donut',
     options: [{ value: 'donut', label: '环形图' }, { value: 'bars', label: '占比条' }],
     description: '主图（赛道占比）的呈现方式。' },
@@ -128,7 +137,7 @@ const DECO = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function CrossPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, shareTitle: p.shareTitle !== undefined ? p.shareTitle : COPY.shareTitle, roundTitle: p.roundTitle !== undefined ? p.roundTitle : COPY.roundTitle, roundUnit: p.roundUnit !== undefined ? p.roundUnit : COPY.roundUnit, tracks: p.tracks !== undefined ? p.tracks : COPY.tracks, rounds: p.rounds !== undefined ? p.rounds : COPY.rounds };
   ensureFonts();
   injectScopedStyle('aic-cross', CSS);
   const vars = themeVars(p.accentColor);

@@ -45,7 +45,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 6,           // scope rows shown (4–6)
   showLevel: true,       // credibility column (meter + value)
   showFlow: true,        // bottom pipeline ribbon
@@ -57,6 +57,17 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Data & Methodology' },
+  { key: 'marker', label: 'marker', type: 'text', default: '研究口径' },
+  { key: 'segment', label: 'segment', type: 'text', default: '附录 · 口径与来源' },
+  { key: 'title', label: '标题', type: 'text', default: '数据来源与口径' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '附录 · 口径与来源' },
+  { key: 'lead', label: '导言', type: 'text', default: '本报告以公开披露的 2024 年美国 AI 大额融资事件为样本，统一口径后进行结构化分析；以下为关键口径与数据来源说明。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '样本 97 笔 · 单笔 ≥1 亿美元 · 截至 2024 全年' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '97' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '大额融资事件样本量 / 笔' },
+  { key: 'closing', label: '结语', type: 'text', default: '口径透明，结论才可被检验。' },
+  { key: 'flowTitle', label: 'flowTitle', type: 'text', default: '口径处理流程' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 6, min: 4, max: 6, step: 1,
     description: '口径表格展示的行数量（4–6）。' },
   { key: 'showLevel', label: '强度列', type: 'toggle', default: true,
@@ -168,7 +179,7 @@ const HEAT = ['accent','pos','accent','pos','warn','accent','pos','pos','accent'
 
 export default function SourcesPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, rows: p.rows !== undefined ? p.rows : COPY.rows, flow: p.flow !== undefined ? p.flow : COPY.flow };
   ensureFonts();
   injectScopedStyle('aic-src', CSS);
   const vars = themeVars(p.accentColor);

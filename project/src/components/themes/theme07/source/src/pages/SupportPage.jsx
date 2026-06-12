@@ -45,7 +45,7 @@ const TIER_TONE = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 4,           // table rows shown (3–5)
   showShare: true,       // cost-saving mini-bar column
   showJudgment: true,    // judgment column
@@ -56,6 +56,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Customer Support AI' },
+  { key: 'segment', label: 'segment', type: 'text', default: '客服 AI 赛道' },
+  { key: 'title', label: '标题', type: 'text', default: '可量化降本场景' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '客服 AI 赛道' },
+  { key: 'lead', label: '导言', type: 'text', default: '客服 AI 是最容易量化 ROI 的垂直应用之一；商业化看降本效果、接入成本和复杂问题升级率。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '平均替代率 32% · 工单时长下降 41% · 9 笔事件' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '27' },
+  { key: 'anchorUnit', label: '锚点单位', type: 'text', default: '亿美元' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '全年融资额 · 9 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '能量化 ROI 的场景更容易获得预算。' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 4, min: 3, max: 5, step: 1,
     description: '表格展示的行数量（3–5）。' },
   { key: 'showShare', label: '占比列', type: 'toggle', default: true,
@@ -154,7 +164,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function SupportPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, rows: p.rows !== undefined ? p.rows : COPY.rows };
   ensureFonts();
   injectScopedStyle('aic-sup', CSS);
   const vars = themeVars(p.accentColor);

@@ -37,7 +37,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 6,           // ranked rows shown (4–7)
   chartType: 'bars',     // 'bars' | 'lollipop'
   showValues: true,      // numeric value at the end of each bar
@@ -50,6 +50,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Active Capital' },
+  { key: 'title', label: '标题', type: 'text', default: '最活跃投资机构' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '出手次数 Top' },
+  { key: 'lead', label: '导言', type: 'text', default: '头部机构的出手频次远高于市场平均，少数几家几乎参与了全年所有标志性轮次。' },
+  { key: 'anchorLead', label: '锚点数字', type: 'text', default: '38%' },
+  { key: 'anchorNote', label: '锚点注释', type: 'text', default: '前 6 家机构覆盖的大额轮次占比' },
+  { key: 'closing', label: '结语', type: 'text', default: '出手越密集，越能定义下一轮叙事。' },
+  { key: 'axisLabel', label: '坐标标签', type: 'text', default: '参与大额轮次 / 笔' },
   { key: 'rowCount', label: '卡片数量', type: 'slider', default: 6, min: 4, max: 7, step: 1,
     description: '排行榜展示的机构行数量（4–7）。' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'bars',
@@ -152,7 +160,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function ActiveCapitalPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, axisLabel: p.axisLabel !== undefined ? p.axisLabel : COPY.axisLabel, rows: p.rows !== undefined ? p.rows : COPY.rows };
   ensureFonts();
   injectScopedStyle('aic-act', CSS);
   const vars = themeVars(p.accentColor);

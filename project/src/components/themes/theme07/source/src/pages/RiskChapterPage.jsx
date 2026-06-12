@@ -28,7 +28,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   backgroundVariant: 'dark', // 'dark' | 'paper'
   layout: 'left',            // 'left' | 'center'
   showIndex: true,           // oversized chapter-index watermark
@@ -39,6 +39,12 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Chapter' },
+  { key: 'index', label: 'index', type: 'text', default: '05' },
+  { key: 'title', label: '标题', type: 'text', default: '风险与策略' },
+  { key: 'sub', label: '次标题', type: 'text', default: '从估值压力到投资筛选' },
+  { key: 'lead', label: '导言', type: 'text', default: '从本章开始进入风险与策略部分，集中呈现估值、收入、监管、算力和竞争压力。' },
+  { key: 'closing', label: '结语', type: 'text', default: '下一组页面进入更细的拆解。' },
   { key: 'backgroundVariant', label: '背景风格', type: 'radio', default: 'dark',
     options: [{ value: 'dark', label: '深色' }, { value: 'paper', label: '浅色' }],
     description: '章节页背景：深色（强换气节奏）/ 浅色（与正文统一）。' },
@@ -114,7 +120,7 @@ const HEAT = ['warn','accent','pos','accent','warn','pos','accent','pos','warn',
 
 export default function RiskChapterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, index: p.index !== undefined ? p.index : COPY.index, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords };
   ensureFonts();
   injectScopedStyle('aic-ch', CSS);
   const vars = themeVars(p.accentColor);

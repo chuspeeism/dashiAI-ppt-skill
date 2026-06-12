@@ -45,7 +45,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   numberSlant: true,     // brand italic-slant on the hero digits
   auxCount: 3,           // supporting metric chips (0–3)
   showCaption: true,     // explanatory caption under the number
@@ -57,6 +57,17 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Compute Cost Risk' },
+  { key: 'title', label: '标题', type: 'text', default: '毛利天花板' },
+  { key: 'sub', label: '次标题', type: 'text', default: '风险 · 算力成本' },
+  { key: 'kicker', label: 'kicker', type: 'text', default: '训练预算压力' },
+  { key: 'numLead', label: 'numLead', type: 'text', default: '61' },
+  { key: 'numUnit', label: 'numUnit', type: 'text', default: '%' },
+  { key: 'numCaption', label: 'numCaption', type: 'text', default: '训练预算模拟增长幅度' },
+  { key: 'ceilingLabel', label: 'ceilingLabel', type: 'text', default: '毛利天花板' },
+  { key: 'gaugeCap', label: 'gaugeCap', type: 'text', default: '每 1 元收入的成本构成' },
+  { key: 'note', label: 'note', type: 'text', default: '如果推理成本降不下来，收入增长会被毛利吞掉。' },
+  { key: 'closing', label: '结语', type: 'text', default: '算力成本是模型商业化的硬约束。' },
   { key: 'numberSlant', label: '数字倾斜', type: 'toggle', default: true,
     description: '主数字是否应用品牌斜切（italic-slant）效果。' },
   { key: 'auxCount', label: '卡片数量', type: 'slider', default: 3, min: 0, max: 3, step: 1,
@@ -176,7 +187,7 @@ const LENS_DISCS = [
 
 export default function MarginPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, numLead: p.numLead !== undefined ? p.numLead : COPY.numLead, numUnit: p.numUnit !== undefined ? p.numUnit : COPY.numUnit, numCaption: p.numCaption !== undefined ? p.numCaption : COPY.numCaption, ceilingLabel: p.ceilingLabel !== undefined ? p.ceilingLabel : COPY.ceilingLabel, gaugeCap: p.gaugeCap !== undefined ? p.gaugeCap : COPY.gaugeCap, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, gauge: p.gauge !== undefined ? p.gauge : COPY.gauge, aux: p.aux !== undefined ? p.aux : COPY.aux };
   ensureFonts();
   injectScopedStyle('aic-mg', CSS);
   const vars = themeVars(p.accentColor);

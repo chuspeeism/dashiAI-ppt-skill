@@ -53,7 +53,7 @@ const TONE = { accent: 'var(--aic-accent)', neg: 'var(--aic-neg)', warn: 'var(--
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   columnCount: 2,        // compare columns shown (1–2)
   itemCount: 3,          // items per column (1–3)
   focusEnabled: true,    // highlight one compare column
@@ -65,6 +65,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Investment Outlook' },
+  { key: 'title', label: '标题', type: 'text', default: '投资建议与阶段性策略' },
+  { key: 'sub', label: '次标题', type: 'text', default: '看好方向与谨慎方向' },
+  { key: 'lead', label: '导言', type: 'text', default: '后续观察应围绕收入兑现、基础设施确定性和垂直应用 PMF 展开。' },
+  { key: 'closing', label: '结语', type: 'text', default: '看融资只是起点，看兑现才是判断。' },
+  { key: 'timelineLabel', label: 'timelineLabel', type: 'text', default: '阶段性观察 · 2025 — 2027' },
+  { key: 'kind', label: 'kind', type: 'text', default: '看好方向\', en: \'Conviction\', tone: \'accent' },
+  { key: 'kind', label: 'kind', type: 'text', default: '谨慎方向\', en: \'Caution\', tone: \'neg' },
   { key: 'columnCount', label: '对比栏数量', type: 'slider', default: 2, min: 1, max: 2, step: 1,
     description: '并排对比栏数量（1–2）；为 1 时单栏占据整行。' },
   { key: 'itemCount', label: '条目数量', type: 'slider', default: 3, min: 1, max: 3, step: 1,
@@ -154,7 +162,7 @@ const HEAT = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function OutlookPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, timelineLabel: p.timelineLabel !== undefined ? p.timelineLabel : COPY.timelineLabel, kind: p.kind !== undefined ? p.kind : COPY.kind, kind: p.kind !== undefined ? p.kind : COPY.kind, columns: p.columns !== undefined ? p.columns : COPY.columns, items: p.items !== undefined ? p.items : COPY.items, items: p.items !== undefined ? p.items : COPY.items, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes };
   ensureFonts();
   injectScopedStyle('aic-out', CSS);
   const vars = themeVars(p.accentColor);

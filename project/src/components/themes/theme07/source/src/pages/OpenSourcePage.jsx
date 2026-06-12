@@ -41,7 +41,7 @@ const RATIO_AR = { portrait: 3 / 4, landscape: 4 / 3, square: 1, auto: null };
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   imageCount: 1,           // hero image slots (0–2)
   imageRatio: 'landscape', // 'portrait' | 'landscape' | 'square' | 'auto'
   chartType: 'ring',       // enterprise-share chart: 'ring' | 'bar'
@@ -55,6 +55,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Open-Source Models' },
+  { key: 'segment', label: 'segment', type: 'text', default: '开源模型公司' },
+  { key: 'title', label: '标题', type: 'text', default: '社区影响力变现' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '开源模型公司' },
+  { key: 'lead', label: '导言', type: 'text', default: '开源模型公司通过社区影响力、托管服务和企业支持变现；开源能快速获得开发者，但商业化仍需要企业级能力。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '融资额 28 亿美元 · 7 笔事件' },
+  { key: 'closing', label: '结语', type: 'text', default: '开源是入口，不是完整商业模式。' },
+  { key: 'badge', label: 'badge', type: 'text', default: '开源模型' },
+  { key: 'bridgeTitle', label: 'bridgeTitle', type: 'text', default: '影响力到收入 · 转化路径' },
+  { key: 'ribbonLabel', label: 'ribbonLabel', type: 'text', default: '影响力 → 收入' },
   { key: 'imageCount', label: '图片数量', type: 'slider', default: 1, min: 0, max: 2, step: 1,
     description: '主视觉区图片槽数量（0–2）；为 0 时以品牌图形填充，构图保持完整。' },
   { key: 'imageRatio', label: '图片比例', type: 'radio', default: 'landscape',
@@ -223,7 +233,7 @@ function Placeholder({ i }) {
 
 export default function OpenSourcePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, bridgeTitle: p.bridgeTitle !== undefined ? p.bridgeTitle : COPY.bridgeTitle, ribbonLabel: p.ribbonLabel !== undefined ? p.ribbonLabel : COPY.ribbonLabel };
   ensureFonts();
   injectScopedStyle('aic-os', CSS);
   const vars = themeVars(p.accentColor);

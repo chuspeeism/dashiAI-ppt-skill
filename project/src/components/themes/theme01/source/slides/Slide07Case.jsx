@@ -52,7 +52,7 @@ export const controls = [
 function ImageArea({ count, images, fit }) {
   const mode = fit === 'contain' ? 'auto' : 'fill';
   const slot = (i, style) => (
-    <ImageSlot key={i} src={images[i] || ''} placeholder={`图片 ${i + 1}`} fit={fit}
+    <ImageSlot key={i} slot={i} src={images[i] || ''} placeholder={`图片 ${i + 1}`} fit={fit}
       ratioMode={count === 1 ? mode : 'fill'} accent="#5b8def" style={style} />
   );
   if (count === 1) {

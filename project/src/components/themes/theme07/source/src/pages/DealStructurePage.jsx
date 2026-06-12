@@ -46,7 +46,7 @@ const SEG_FILL = [
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   componentCount: 4,      // structure components (2–4)
   chartType: 'stack',     // 'stack' | 'donut'
   showStats: true,        // left anchor stat rail
@@ -57,6 +57,13 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Undisclosed Mega Rounds' },
+  { key: 'title', label: '标题', type: 'text', default: '复杂交易结构' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '未披露巨额轮次' },
+  { key: 'sub', label: '次标题', type: 'text', default: '未披露巨额轮次' },
+  { key: 'lead', label: '导言', type: 'text', default: '未披露轮次常对应战略投资、债务组合或云资源置换；不披露不代表信息不足，而是交易结构更复杂。' },
+  { key: 'closing', label: '结语', type: 'text', default: 'AI 融资越来越像资源组合交易。' },
+  { key: 'panelTitle', label: 'panelTitle', type: 'text', default: '单笔交易结构拆解 · 构成占比' },
   { key: 'componentCount', label: '卡片数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
     description: '交易结构构成项数量（2–4）。' },
   { key: 'chartType', label: '图表类型', type: 'radio', default: 'stack',
@@ -162,7 +169,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','pos','accent'
 
 export default function DealStructurePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, stats: p.stats !== undefined ? p.stats : COPY.stats, components: p.components !== undefined ? p.components : COPY.components };
   ensureFonts();
   injectScopedStyle('aic-ds', CSS);
   const vars = themeVars(p.accentColor);

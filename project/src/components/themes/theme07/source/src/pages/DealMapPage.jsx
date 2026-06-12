@@ -45,7 +45,7 @@ const TONE = { accent: 'var(--aic-accent)', ink: 'var(--aic-ink)', pos: 'var(--a
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   viewMode: 'scatter',   // 'scatter' (individual deals) | 'cluster' (one bubble per band)
   bandCount: 4,          // amount-range bands shown (2–4)
   bubbleScale: 1,        // global bubble-size multiplier (0.6–1.4)
@@ -57,6 +57,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Deal Map' },
+  { key: 'title', label: '标题', type: 'text', default: '融资事件规模分层' },
+  { key: 'sub', label: '次标题', type: 'text', default: '大额融资事件地图' },
+  { key: 'lead', label: '导言', type: 'text', default: '97 笔大额融资可以按金额区间拆成四组，少数超级交易贡献主要融资额。' },
+  { key: 'anchorLead', label: '锚点数字', type: 'text', default: '97' },
+  { key: 'anchorUnit', label: '锚点单位', type: 'text', default: '笔' },
+  { key: 'anchorNote', label: '锚点注释', type: 'text', default: '全年大额事件 · 单笔 ≥1 亿美元' },
+  { key: 'closing', label: '结语', type: 'text', default: '数量最多的不一定最重要，影响最大的往往是巨额交易。' },
+  { key: 'legendLabel', label: 'legendLabel', type: 'text', default: '气泡大小 = 单笔金额 · 颜色 = 赛道' },
   { key: 'viewMode', label: '图表类型', type: 'radio', default: 'scatter',
     options: [{ value: 'scatter', label: '散点' }, { value: 'cluster', label: '聚合气泡' }],
     description: '散点：逐笔交易点阵；聚合气泡：每个区间汇总为一个气泡。' },
@@ -150,7 +159,7 @@ const RAW = ['#86D62B', '#0E110B', '#34B24A', '#EFA63A'];
 
 export default function DealMapPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, legendLabel: p.legendLabel !== undefined ? p.legendLabel : COPY.legendLabel, bands: p.bands !== undefined ? p.bands : COPY.bands, tracks: p.tracks !== undefined ? p.tracks : COPY.tracks };
   ensureFonts();
   injectScopedStyle('aic-deal', CSS);
   const vars = themeVars(p.accentColor);

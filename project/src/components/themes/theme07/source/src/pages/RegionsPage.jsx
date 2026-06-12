@@ -57,7 +57,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   pointDensity: 48,        // scattered market points on the map (24–72)
   hubCount: 4,             // labelled regional hubs (2–4)
   showShare: true,         // national-share chart module
@@ -73,6 +73,15 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Other Regions' },
+  { key: 'segment', label: 'segment', type: 'text', default: '其他地区机会' },
+  { key: 'title', label: '标题', type: 'text', default: '分散型应用落地' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '其他地区机会' },
+  { key: 'lead', label: '导言', type: 'text', default: '其他地区融资规模较小，但出现行业专用模型和本地化应用机会；本地行业资源也能形成应用机会。' },
+  { key: 'shareTitle', label: '占比标题', type: 'text', default: '全美融资额占比' },
+  { key: 'mapTitle', label: 'mapTitle', type: 'text', default: '区域活跃分布' },
+  { key: 'mapLegend', label: 'mapLegend', type: 'text', default: '点 = 融资事件 · 圈 = 区域枢纽' },
+  { key: 'closing', label: '结语', type: 'text', default: '本地行业资源也能形成应用机会。' },
   { key: 'pointDensity', label: '点阵密度', type: 'slider', default: 48, min: 24, max: 72, step: 4,
     description: '地图上散点（融资事件）的数量（24–72）。' },
   { key: 'hubCount', label: '标注数量', type: 'slider', default: 4, min: 2, max: 4, step: 1,
@@ -306,7 +315,7 @@ function ShareDonut({ split }) {
 
 export default function RegionsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, shareTitle: p.shareTitle !== undefined ? p.shareTitle : COPY.shareTitle, mapTitle: p.mapTitle !== undefined ? p.mapTitle : COPY.mapTitle, mapLegend: p.mapLegend !== undefined ? p.mapLegend : COPY.mapLegend, closing: p.closing !== undefined ? p.closing : COPY.closing, shareSplit: p.shareSplit !== undefined ? p.shareSplit : COPY.shareSplit, tags: p.tags !== undefined ? p.tags : COPY.tags, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, hubs: p.hubs !== undefined ? p.hubs : COPY.hubs };
   ensureFonts();
   injectScopedStyle('aic-reg', CSS);
   const vars = themeVars(p.accentColor);

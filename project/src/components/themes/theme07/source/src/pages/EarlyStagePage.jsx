@@ -38,7 +38,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   rowCount: 4,           // table rows shown (3–4)
   showBubble: true,      // average-ticket bubble column (气泡图)
   showThemes: true,      // emerging-theme tag column
@@ -50,6 +50,16 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Early Stage Signal' },
+  { key: 'marker', label: 'marker', type: 'text', default: 'Seed → B' },
+  { key: 'season', label: 'season', type: 'text', default: '早期轮 · 主题萌芽' },
+  { key: 'title', label: '标题', type: 'text', default: '新主题萌芽' },
+  { key: 'titleTail', label: '副标题', type: 'text', default: '早期轮信号' },
+  { key: 'lead', label: '导言', type: 'text', default: 'Seed 和 A 轮金额较小，但代表新主题正在形成；早期机会集中在 Agent、安全、具身智能和行业专用模型。' },
+  { key: 'statLine', label: 'statLine', type: 'text', default: '种子轮 8 笔 / 1.2 亿美元 · A 轮 12 笔 / 1.8 亿美元' },
+  { key: 'anchorValue', label: 'anchorValue', type: 'text', default: '20.6%' },
+  { key: 'anchorLabel', label: 'anchorLabel', type: 'text', default: '早期轮占全年事件数' },
+  { key: 'closing', label: '结语', type: 'text', default: '小金额交易往往藏着下一轮主题。' },
   { key: 'rowCount', label: '行数量', type: 'slider', default: 4, min: 3, max: 4, step: 1,
     description: '表格展示的轮次行数量（3–4）。' },
   { key: 'showBubble', label: '气泡列', type: 'toggle', default: true,
@@ -155,7 +165,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function EarlyStagePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, rows: p.rows !== undefined ? p.rows : COPY.rows };
   ensureFonts();
   injectScopedStyle('aic-es', CSS);
   const vars = themeVars(p.accentColor);

@@ -33,7 +33,7 @@ const COPY = {
 
 // ── exported, migration-stable parameter contract ──
 export const defaultProps = {
-  copy: COPY,
+  ...COPY,
   align: 'center',          // 'center' | 'left'
   showConclusions: true,    // supporting conclusion row
   conclusionCount: 3,       // how many conclusions (0–3)
@@ -44,6 +44,14 @@ export const defaultProps = {
 };
 
 export const controls = [
+  { key: 'eyebrow', label: '眉标', type: 'text', default: 'Conclusion' },
+  { key: 'kicker', label: 'kicker', type: 'text', default: '结论与数据来源' },
+  { key: 'quoteLead', label: 'quoteLead', type: 'text', default: '资本下一阶段，将从' },
+  { key: 'quoteEm1', label: 'quoteEm1', type: 'text', default: '赌叙事' },
+  { key: 'quoteMid', label: 'quoteMid', type: 'text', default: '转向' },
+  { key: 'quoteEm2', label: 'quoteEm2', type: 'text', default: '看兑现' },
+  { key: 'quoteTail', label: 'quoteTail', type: 'text', default: '。' },
+  { key: 'source', label: '来源', type: 'text', default: '数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元' },
   { key: 'align', label: '对齐方式', type: 'radio', default: 'center',
     options: [{ value: 'center', label: '居中' }, { value: 'left', label: '左对齐' }],
     description: '金句与辅助信息的整体对齐方式。' },
@@ -115,7 +123,7 @@ const HEAT = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function QuotePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = p.copy || COPY;
+  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, quoteLead: p.quoteLead !== undefined ? p.quoteLead : COPY.quoteLead, quoteEm1: p.quoteEm1 !== undefined ? p.quoteEm1 : COPY.quoteEm1, quoteMid: p.quoteMid !== undefined ? p.quoteMid : COPY.quoteMid, quoteEm2: p.quoteEm2 !== undefined ? p.quoteEm2 : COPY.quoteEm2, quoteTail: p.quoteTail !== undefined ? p.quoteTail : COPY.quoteTail, source: p.source !== undefined ? p.source : COPY.source, conclusions: p.conclusions !== undefined ? p.conclusions : COPY.conclusions };
   ensureFonts();
   injectScopedStyle('aic-quote', CSS);
   const vars = themeVars(p.accentColor);

@@ -88,6 +88,17 @@ export function MonoCaption({ show = true, children, style }) {
 //   accent      — placeholder tint
 // The slot never distorts an image: 'cover' crops to fill, 'contain'/'auto'
 // preserve the full frame, so composition stays clean at any aspect ratio.
+// ── ImageSlotActions (optional host wiring) — click-to-upload contract.
+// The HOST (a preview shell or any target app) may wrap a slide in:
+//   <ImageSlotActions.Provider value={{ pick: (slot) => …, clear: (slot) => … }}>
+// Every <ImageSlot slot={i}> inside then becomes clickable: clicking calls
+// `pick(i)` (the host opens its own file picker and feeds the result back
+// through the slide's `images` prop), hovering a filled slot reveals a ✕ that
+// calls `clear(i)`. WITHOUT a provider (or without a `slot` index) the slot
+// renders as a plain, non-interactive image frame — slides stay pure,
+// props-only PPT components and never depend on any preview runtime.
+export const ImageSlotActions = React.createContext(null);
+
 export function ImageSlot({
   src = '',
   placeholder = 'IMAGE',
@@ -95,9 +106,13 @@ export function ImageSlot({
   ratioMode = 'fill',
   accent = '#5b8def',
   radius = 20,
+  slot = null,
   style,
 }) {
   const [ratio, setRatio] = React.useState(null);
+  const [hover, setHover] = React.useState(false);
+  const actions = React.useContext(ImageSlotActions);
+  const interactive = !!(actions && actions.pick && slot != null);
   const onLoad = (e) => {
     const w = e.target.naturalWidth, h = e.target.naturalHeight;
     if (w && h) setRatio(w / h);
@@ -112,30 +127,83 @@ export function ImageSlot({
     background: hexA(accent, 0.08),
     border: `1px solid ${hexA(accent, 0.22)}`,
     boxShadow: '0 1px 0 rgba(255,255,255,.6) inset, 0 18px 44px rgba(70,72,100,.12)',
+    cursor: interactive ? 'pointer' : undefined,
     ...style,
   };
+  // role="button" keeps deck-stage's touch tap-navigation from swallowing the
+  // tap; these handlers only exist when a host wired ImageSlotActions.
+  const stopSlotNavigation = (e) => { e.stopPropagation(); };
+  const hostProps = interactive ? {
+    role: 'button',
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    onPointerDown: stopSlotNavigation,
+    onMouseDown: stopSlotNavigation,
+    onClick: (e) => { e.stopPropagation(); actions.pick(slot); },
+    onDoubleClick: stopSlotNavigation,
+    onDragOver: (e) => { e.preventDefault(); e.stopPropagation(); setHover(true); },
+    onDragLeave: () => setHover(false),
+    onDrop: (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      setHover(false);
+      actions.drop && actions.drop(slot, e.dataTransfer.files && e.dataTransfer.files[0]);
+    },
+  } : {};
   if (src) {
     return (
-      <div style={base}>
+      <div style={base} {...hostProps}>
         <img
           src={src}
           alt={placeholder}
           onLoad={onLoad}
           style={{ display: 'block', width: '100%', height: '100%', objectFit: fit }}
         />
+        {interactive && (
+          <div style={{
+            position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',
+            justifyContent: 'center', pointerEvents: 'none',
+            background: 'rgba(28,30,48,.30)', opacity: hover ? 1 : 0,
+            transition: 'opacity .15s ease',
+          }}>
+            <span style={{
+              fontFamily: "'Space Mono', monospace", fontSize: 20, letterSpacing: '.12em',
+              color: '#fff', padding: '10px 20px', borderRadius: 999, whiteSpace: 'nowrap',
+              border: '1px solid rgba(255,255,255,.65)', background: 'rgba(20,22,38,.48)',
+              backdropFilter: 'blur(6px)',
+            }}>点击更换图片</span>
+          </div>
+        )}
+        {interactive && actions.clear && hover && (
+          <span
+            onClick={(e) => { e.stopPropagation(); setHover(false); actions.clear(slot); }}
+            style={{
+              position: 'absolute', top: 10, right: 10, width: 34, height: 34,
+              borderRadius: '50%', display: 'flex', alignItems: 'center',
+              justifyContent: 'center', cursor: 'pointer', fontSize: 17, lineHeight: 1,
+              color: '#fff', background: 'rgba(20,22,38,.58)',
+              border: '1px solid rgba(255,255,255,.55)', backdropFilter: 'blur(6px)',
+            }}
+          >✕</span>
+        )}
       </div>
     );
   }
-  // Empty: subtle diagonal stripes + monospace label.
+  // Empty: subtle diagonal stripes + monospace label (+ upload hint when the
+  // host made the slot interactive).
   return (
     <div
       style={{
         ...base,
         backgroundImage: `repeating-linear-gradient(135deg, ${hexA(accent, 0.10)} 0 2px, transparent 2px 16px)`,
         display: 'flex',
+        flexDirection: 'column',
+        gap: 12,
         alignItems: 'center',
         justifyContent: 'center',
+        ...(interactive && hover ? { border: `1px solid ${hexA(accent, 0.55)}`, background: hexA(accent, 0.13) } : null),
       }}
+      {...hostProps}
     >
       <span
         style={{
@@ -147,10 +215,18 @@ export function ImageSlot({
           padding: '8px 16px',
           border: `1px dashed ${hexA(accent, 0.45)}`,
           borderRadius: 8,
+          maxWidth: '86%',
+          textAlign: 'center',
         }}
       >
         {placeholder}
       </span>
+      {interactive && (
+        <span style={{
+          fontFamily: 'Space Mono, monospace', fontSize: 18, letterSpacing: '.18em',
+          color: hexA(accent, hover ? 0.9 : 0.6), transition: 'color .15s ease',
+        }}>+ 点击上传</span>
+      )}
     </div>
   );
 }
@@ -231,6 +307,7 @@ export function CollageImageArea({
                 ratioMode="fill"
                 accent={accent}
                 radius={0}
+                slot={i}
                 style={{ height: '100%', border: 'none', borderRadius: 0, boxShadow: 'none' }}
               />
               {renderBadge && renderBadge(i)}

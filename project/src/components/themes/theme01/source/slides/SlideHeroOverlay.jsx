@@ -91,13 +91,13 @@ export default function SlideHeroOverlay(props) {
           width: 'calc(100% + var(--aip-pad-x) * 2)',
           height: 'calc(100% + var(--aip-pad-top) + var(--aip-pad-bottom))',
         }}>
-          <ImageSlot src={p.images[0] || ''} placeholder="满版背景图 · 数据中心 / 机房"
+          <ImageSlot slot={0} src={p.images[0] || ''} placeholder="满版背景图 · 数据中心 / 机房"
             fit={p.imageFit} ratioMode="fill" accent={ac} radius={0}
             style={{ height: '100%', borderRadius: 0, border: 'none', boxShadow: 'none' }} />
           {/* legibility scrim — darker toward the lower-left where the plate sits */}
-          <div style={{ position: 'absolute', inset: 0, background:
+          <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background:
             'linear-gradient(75deg, rgba(14,16,24,.72) 0%, rgba(14,16,24,.30) 42%, rgba(14,16,24,0) 70%)' }} />
-          <div style={{ position: 'absolute', inset: 0, background:
+          <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background:
             'linear-gradient(0deg, rgba(14,16,24,.55) 0%, rgba(14,16,24,0) 40%)' }} />
         </div>
       )}

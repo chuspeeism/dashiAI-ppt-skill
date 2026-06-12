@@ -1,7 +1,7 @@
 export const theme = {
   "key": "theme08",
   "name": "08-黑金实验质感",
-  "mode": "new"
+  "mode": "replace"
 };
 export const pages = [
   {
@@ -9,6 +9,286 @@ export const pages = [
     "themeKey": "theme08",
     "pageNumber": 1,
     "layout": "THEME08-001",
+    "slot": "sup1",
+    "label": "补充封面-① 智联万物",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "primary",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(渐变) 或 次色(淡紫灰) 底色"
+      },
+      {
+        "key": "mediaCount",
+        "label": "图片数量",
+        "type": "number",
+        "default": 3,
+        "min": 0,
+        "max": 3,
+        "step": 1,
+        "desc": "右侧拼贴照片槽数量（0–3）"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "手绘箭头、火花与批注文案的显示/隐藏"
+      },
+      {
+        "key": "showIndex",
+        "label": "页码角标",
+        "type": "boolean",
+        "default": true,
+        "desc": "右下角 01 / 03 索引角标的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "primary",
+      "mediaCount": 3,
+      "showDecor": true,
+      "showIndex": true,
+      "eyebrow": "TECH KEYNOTE",
+      "yearTag": "2026",
+      "headlineLine1": "智联万物",
+      "headlineHl": "重构",
+      "headlineTail": "体验",
+      "subtitle": "2026 全新产品体系发布暨技术路演",
+      "goldenLine": "以技术突破，定义下一代数字生活",
+      "handNote": "NEXT-GEN DIGITAL LIFE",
+      "indexNum": "01",
+      "indexTotal": "03",
+      "photos": [
+        {
+          "placeholder": "旗舰新品实拍",
+          "caption": "旗舰新品",
+          "capClass": "supp-pink"
+        },
+        {
+          "placeholder": "发布会现场",
+          "caption": "技术路演",
+          "capClass": ""
+        },
+        {
+          "placeholder": "产品细节",
+          "caption": "NEXT-GEN",
+          "capClass": "supp-ink"
+        }
+      ]
+    }
+  },
+  {
+    "key": "theme08_page002",
+    "themeKey": "theme08",
+    "pageNumber": 2,
+    "layout": "THEME08-002",
+    "slot": "sup2",
+    "label": "补充封面-② 深耕教学",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "primary",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(电光黄) 或 次色(淡紫灰) 底色"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "四角批注、手绘箭头与火花的显示/隐藏"
+      },
+      {
+        "key": "showIndex",
+        "label": "页码角标",
+        "type": "boolean",
+        "default": true,
+        "desc": "右下角 02 / 03 索引角标的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "primary",
+      "showDecor": true,
+      "showIndex": true,
+      "kicker": "2025—2026 学年工作总结",
+      "headlineL1Pre": "深耕",
+      "headlineHl1": "教学",
+      "headlineL2Pre": "聚力",
+      "headlineHl2": "成长",
+      "subtitle": "全域工作复盘 & 6 大提升行动规划",
+      "tags": [
+        "夯实教学根基",
+        "拓宽育人边界"
+      ],
+      "handNoteTL": "复盘 · review",
+      "handNoteTR": "规划 2026 →",
+      "handNoteBL": "GROW TOGETHER",
+      "indexNum": "02",
+      "indexTotal": "03"
+    }
+  },
+  {
+    "key": "theme08_page003",
+    "themeKey": "theme08",
+    "pageNumber": 3,
+    "layout": "THEME08-003",
+    "slot": "sup3",
+    "label": "补充封面-③ 新机遇新赛道",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "muted",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(电光黄) 或 次色(淡紫灰，默认) 底色"
+      },
+      {
+        "key": "mediaCount",
+        "label": "图片数量",
+        "type": "number",
+        "default": 2,
+        "min": 0,
+        "max": 2,
+        "step": 1,
+        "desc": "右侧照片点缀数量（0–2）"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "手绘箭头、火花与批注文案的显示/隐藏"
+      },
+      {
+        "key": "showIndex",
+        "label": "页码角标",
+        "type": "boolean",
+        "default": true,
+        "desc": "右下角 03 / 03 索引角标的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "muted",
+      "mediaCount": 2,
+      "showDecor": true,
+      "showIndex": true,
+      "eyebrow": "BUSINESS PLAN",
+      "tag": "XX 金融项目",
+      "terms": [
+        "新机遇",
+        "新赛道",
+        "新价值"
+      ],
+      "sloganLine1": "精准布局",
+      "sloganLine2": "与时代红利同行",
+      "standoutTag": "面向机构投资人专属方案",
+      "handNote": "for investors",
+      "indexNum": "03",
+      "indexTotal": "03",
+      "photos": [
+        {
+          "placeholder": "团队 / 路演",
+          "caption": "核心团队",
+          "capClass": "supp-pink"
+        },
+        {
+          "placeholder": "市场 / 数据",
+          "caption": "市场洞察",
+          "capClass": "supp-ink"
+        }
+      ]
+    }
+  },
+  {
+    "key": "theme08_page004",
+    "themeKey": "theme08",
+    "pageNumber": 4,
+    "layout": "THEME08-004",
+    "slot": "cv2c",
+    "label": "封面2-③ 链通全国",
+    "bgClass": "",
+    "controls": [
+      {
+        "key": "backgroundTheme",
+        "label": "背景主题",
+        "type": "enum",
+        "default": "muted",
+        "options": [
+          "primary",
+          "muted"
+        ],
+        "desc": "主色(电光黄) 或 次色(纸灰，默认) 底色"
+      },
+      {
+        "key": "mediaCount",
+        "label": "图片数量",
+        "type": "number",
+        "default": 4,
+        "min": 0,
+        "max": 4,
+        "step": 1,
+        "desc": "四周漂浮照片卡数量（0–4）"
+      },
+      {
+        "key": "showDecor",
+        "label": "装饰元素",
+        "type": "boolean",
+        "default": true,
+        "desc": "手绘箭头与火花的显示/隐藏"
+      }
+    ],
+    "defaultProps": {
+      "backgroundTheme": "muted",
+      "mediaCount": 4,
+      "showDecor": true,
+      "eyebrow": "XX 集团供应链 · STRATEGY 2026–2028",
+      "kickerPre": "链通全国",
+      "kickerPost": "高效履约",
+      "sloganLine1": "打通物流脉络",
+      "sloganHl": "构筑产业护城河",
+      "sticker": "集团供应链体系三年发展战略",
+      "photos": [
+        {
+          "placeholder": "物流枢纽",
+          "tag": "全国网络"
+        },
+        {
+          "placeholder": "干线运输",
+          "tag": ""
+        },
+        {
+          "placeholder": "智能仓",
+          "tag": "高效履约"
+        },
+        {
+          "placeholder": "履约现场",
+          "tag": ""
+        }
+      ]
+    }
+  },
+  {
+    "key": "theme08_page005",
+    "themeKey": "theme08",
+    "pageNumber": 5,
+    "layout": "THEME08-005",
     "slot": "p1",
     "label": "① 封面 · Cover",
     "bgClass": "",
@@ -243,10 +523,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page002",
+    "key": "theme08_page006",
     "themeKey": "theme08",
-    "pageNumber": 2,
-    "layout": "THEME08-002",
+    "pageNumber": 6,
+    "layout": "THEME08-006",
     "slot": "p2",
     "label": "② 摘要 · Overview",
     "bgClass": "",
@@ -369,10 +649,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page003",
+    "key": "theme08_page007",
     "themeKey": "theme08",
-    "pageNumber": 3,
-    "layout": "THEME08-003",
+    "pageNumber": 7,
+    "layout": "THEME08-007",
     "slot": "p3",
     "label": "③ 结构 · Contents",
     "bgClass": "",
@@ -466,10 +746,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page004",
+    "key": "theme08_page008",
     "themeKey": "theme08",
-    "pageNumber": 4,
-    "layout": "THEME08-004",
+    "pageNumber": 8,
+    "layout": "THEME08-008",
     "slot": "p5",
     "label": "⑤ 趋势 · Trend",
     "bgClass": "",
@@ -582,10 +862,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page005",
+    "key": "theme08_page009",
     "themeKey": "theme08",
-    "pageNumber": 5,
-    "layout": "THEME08-005",
+    "pageNumber": 9,
+    "layout": "THEME08-009",
     "slot": "p6",
     "label": "⑥ 透视 · Cross",
     "bgClass": "",
@@ -716,10 +996,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page006",
+    "key": "theme08_page010",
     "themeKey": "theme08",
-    "pageNumber": 6,
-    "layout": "THEME08-006",
+    "pageNumber": 10,
+    "layout": "THEME08-010",
     "slot": "p7",
     "label": "⑦ 产业链 · Chain",
     "bgClass": "",
@@ -860,10 +1140,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page007",
+    "key": "theme08_page011",
     "themeKey": "theme08",
-    "pageNumber": 7,
-    "layout": "THEME08-007",
+    "pageNumber": 11,
+    "layout": "THEME08-011",
     "slot": "p8",
     "label": "⑧ 案例 · Cases",
     "bgClass": "",
@@ -1084,10 +1364,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page008",
+    "key": "theme08_page012",
     "themeKey": "theme08",
-    "pageNumber": 8,
-    "layout": "THEME08-008",
+    "pageNumber": 12,
+    "layout": "THEME08-012",
     "slot": "p9",
     "label": "⑨ 热力 · Heatmap",
     "bgClass": "",
@@ -1225,10 +1505,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page009",
+    "key": "theme08_page013",
     "themeKey": "theme08",
-    "pageNumber": 9,
-    "layout": "THEME08-009",
+    "pageNumber": 13,
+    "layout": "THEME08-013",
     "slot": "p10",
     "label": "⑩ 排名 · Ranking",
     "bgClass": "",
@@ -1368,10 +1648,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page010",
+    "key": "theme08_page014",
     "themeKey": "theme08",
-    "pageNumber": 10,
-    "layout": "THEME08-010",
+    "pageNumber": 14,
+    "layout": "THEME08-014",
     "slot": "p11",
     "label": "⑪ 象限 · Quadrant",
     "bgClass": "",
@@ -1483,10 +1763,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page011",
+    "key": "theme08_page015",
     "themeKey": "theme08",
-    "pageNumber": 11,
-    "layout": "THEME08-011",
+    "pageNumber": 15,
+    "layout": "THEME08-015",
     "slot": "p13",
     "label": "⑬ 策略 · Strategy",
     "bgClass": "",
@@ -1628,10 +1908,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page012",
+    "key": "theme08_page016",
     "themeKey": "theme08",
-    "pageNumber": 12,
-    "layout": "THEME08-012",
+    "pageNumber": 16,
+    "layout": "THEME08-016",
     "slot": "p14",
     "label": "⑭ 金句 · Quote",
     "bgClass": "",
@@ -1699,10 +1979,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page013",
+    "key": "theme08_page017",
     "themeKey": "theme08",
-    "pageNumber": 13,
-    "layout": "THEME08-013",
+    "pageNumber": 17,
+    "layout": "THEME08-017",
     "slot": "p15",
     "label": "⑮ 章节 · Chapter",
     "bgClass": "",
@@ -1765,10 +2045,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page014",
+    "key": "theme08_page018",
     "themeKey": "theme08",
-    "pageNumber": 14,
-    "layout": "THEME08-014",
+    "pageNumber": 18,
+    "layout": "THEME08-018",
     "slot": "p16",
     "label": "⑯ 气泡图 · Deal Map",
     "bgClass": "",
@@ -1892,10 +2172,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page015",
+    "key": "theme08_page019",
     "themeKey": "theme08",
-    "pageNumber": 15,
-    "layout": "THEME08-015",
+    "pageNumber": 19,
+    "layout": "THEME08-019",
     "slot": "p17",
     "label": "⑰ 季度聚焦 · Spotlight",
     "bgClass": "",
@@ -2031,10 +2311,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page016",
+    "key": "theme08_page020",
     "themeKey": "theme08",
-    "pageNumber": 16,
-    "layout": "THEME08-016",
+    "pageNumber": 20,
+    "layout": "THEME08-020",
     "slot": "p18",
     "label": "⑱ 指标对比 · Delta",
     "bgClass": "",
@@ -2196,10 +2476,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page017",
+    "key": "theme08_page021",
     "themeKey": "theme08",
-    "pageNumber": 17,
-    "layout": "THEME08-017",
+    "pageNumber": 21,
+    "layout": "THEME08-021",
     "slot": "p19",
     "label": "⑲ 峰值聚焦 · Peak",
     "bgClass": "",
@@ -2398,10 +2678,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page018",
+    "key": "theme08_page022",
     "themeKey": "theme08",
-    "pageNumber": 18,
-    "layout": "THEME08-018",
+    "pageNumber": 22,
+    "layout": "THEME08-022",
     "slot": "p20",
     "label": "⑳ 回落时间轴 · Pullback",
     "bgClass": "",
@@ -2518,10 +2798,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page019",
+    "key": "theme08_page023",
     "themeKey": "theme08",
-    "pageNumber": 19,
-    "layout": "THEME08-019",
+    "pageNumber": 23,
+    "layout": "THEME08-023",
     "slot": "p21",
     "label": "㉑ 峰谷对比 · Peak/Trough",
     "bgClass": "",
@@ -2670,10 +2950,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page020",
+    "key": "theme08_page024",
     "themeKey": "theme08",
-    "pageNumber": 20,
-    "layout": "THEME08-020",
+    "pageNumber": 24,
+    "layout": "THEME08-024",
     "slot": "p22",
     "label": "㉒ 贡献瀑布 · Waterfall",
     "bgClass": "",
@@ -2791,10 +3071,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page021",
+    "key": "theme08_page025",
     "themeKey": "theme08",
-    "pageNumber": 21,
-    "layout": "THEME08-021",
+    "pageNumber": 25,
+    "layout": "THEME08-025",
     "slot": "p23",
     "label": "㉓ 区间结构 · Size Split",
     "bgClass": "",
@@ -2909,10 +3189,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page022",
+    "key": "theme08_page026",
     "themeKey": "theme08",
-    "pageNumber": 22,
-    "layout": "THEME08-022",
+    "pageNumber": 26,
+    "layout": "THEME08-026",
     "slot": "p24",
     "label": "㉔ 大数字 · Big Number",
     "bgClass": "",
@@ -3089,10 +3369,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page023",
+    "key": "theme08_page027",
     "themeKey": "theme08",
-    "pageNumber": 23,
-    "layout": "THEME08-023",
+    "pageNumber": 27,
+    "layout": "THEME08-027",
     "slot": "p25",
     "label": "㉕ 累计曲线 · Capital Curve",
     "bgClass": "",
@@ -3222,10 +3502,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page024",
+    "key": "theme08_page028",
     "themeKey": "theme08",
-    "pageNumber": 24,
-    "layout": "THEME08-024",
+    "pageNumber": 28,
+    "layout": "THEME08-028",
     "slot": "p26",
     "label": "㉖ 章节 · Chapter",
     "bgClass": "",
@@ -3288,10 +3568,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page025",
+    "key": "theme08_page029",
     "themeKey": "theme08",
-    "pageNumber": 25,
-    "layout": "THEME08-025",
+    "pageNumber": 29,
+    "layout": "THEME08-029",
     "slot": "p27",
     "label": "㉗ 雷达图 · Radar",
     "bgClass": "",
@@ -3438,10 +3718,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page026",
+    "key": "theme08_page030",
     "themeKey": "theme08",
-    "pageNumber": 26,
-    "layout": "THEME08-026",
+    "pageNumber": 30,
+    "layout": "THEME08-030",
     "slot": "p28",
     "label": "㉘ 赛道卡 · Segment",
     "bgClass": "",
@@ -3641,10 +3921,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page027",
+    "key": "theme08_page031",
     "themeKey": "theme08",
-    "pageNumber": 27,
-    "layout": "THEME08-027",
+    "pageNumber": 31,
+    "layout": "THEME08-031",
     "slot": "p29",
     "label": "㉙ 知识入口 · Portal",
     "bgClass": "",
@@ -3878,10 +4158,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page028",
+    "key": "theme08_page032",
     "themeKey": "theme08",
-    "pageNumber": 28,
-    "layout": "THEME08-028",
+    "pageNumber": 32,
+    "layout": "THEME08-032",
     "slot": "p30",
     "label": "㉚ 场景矩阵 · Matrix",
     "bgClass": "",
@@ -4036,10 +4316,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page029",
+    "key": "theme08_page033",
     "themeKey": "theme08",
-    "pageNumber": 29,
-    "layout": "THEME08-029",
+    "pageNumber": 33,
+    "layout": "THEME08-033",
     "slot": "p31",
     "label": "㉛ 分支三联 · Triptych",
     "bgClass": "",
@@ -4172,10 +4452,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page030",
+    "key": "theme08_page034",
     "themeKey": "theme08",
-    "pageNumber": 30,
-    "layout": "THEME08-030",
+    "pageNumber": 34,
+    "layout": "THEME08-034",
     "slot": "p32",
     "label": "㉜ 场景占比 · Scene Split",
     "bgClass": "",
@@ -4374,10 +4654,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page031",
+    "key": "theme08_page035",
     "themeKey": "theme08",
-    "pageNumber": 31,
-    "layout": "THEME08-031",
+    "pageNumber": 35,
+    "layout": "THEME08-035",
     "slot": "p33",
     "label": "㉝ 金句 · Statement",
     "bgClass": "",
@@ -4446,10 +4726,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page032",
+    "key": "theme08_page036",
     "themeKey": "theme08",
-    "pageNumber": 32,
-    "layout": "THEME08-032",
+    "pageNumber": 36,
+    "layout": "THEME08-036",
     "slot": "p34",
     "label": "㉞ 数据底座 · Pipeline",
     "bgClass": "",
@@ -4612,10 +4892,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page033",
+    "key": "theme08_page037",
     "themeKey": "theme08",
-    "pageNumber": 33,
-    "layout": "THEME08-033",
+    "pageNumber": 37,
+    "layout": "THEME08-037",
     "slot": "p35",
     "label": "㉟ 架构 · Architecture",
     "bgClass": "",
@@ -4886,10 +5166,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page034",
+    "key": "theme08_page038",
     "themeKey": "theme08",
-    "pageNumber": 34,
-    "layout": "THEME08-034",
+    "pageNumber": 38,
+    "layout": "THEME08-038",
     "slot": "p36",
     "label": "㊱ 供应链 · Supply",
     "bgClass": "",
@@ -5109,10 +5389,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page035",
+    "key": "theme08_page039",
     "themeKey": "theme08",
-    "pageNumber": 35,
-    "layout": "THEME08-035",
+    "pageNumber": 39,
+    "layout": "THEME08-039",
     "slot": "p37",
     "label": "㊲ 算力网格 · Compute",
     "bgClass": "",
@@ -5256,10 +5536,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page036",
+    "key": "theme08_page040",
     "themeKey": "theme08",
-    "pageNumber": 36,
-    "layout": "THEME08-036",
+    "pageNumber": 40,
+    "layout": "THEME08-040",
     "slot": "p38",
     "label": "㊳ 芯片层级 · Chip Tiers",
     "bgClass": "",
@@ -5399,10 +5679,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page037",
+    "key": "theme08_page041",
     "themeKey": "theme08",
-    "pageNumber": 37,
-    "layout": "THEME08-037",
+    "pageNumber": 41,
+    "layout": "THEME08-041",
     "slot": "p39",
     "label": "㊴ 具身智能 · Embodied",
     "bgClass": "",
@@ -5631,10 +5911,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page038",
+    "key": "theme08_page042",
     "themeKey": "theme08",
-    "pageNumber": 38,
-    "layout": "THEME08-038",
+    "pageNumber": 42,
+    "layout": "THEME08-042",
     "slot": "p41",
     "label": "㊶ 安全防线 · Safety",
     "bgClass": "",
@@ -5781,10 +6061,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page039",
+    "key": "theme08_page043",
     "themeKey": "theme08",
-    "pageNumber": 39,
-    "layout": "THEME08-039",
+    "pageNumber": 43,
+    "layout": "THEME08-043",
     "slot": "p42",
     "label": "㊷ 内容生成 · Generative",
     "bgClass": "",
@@ -5975,10 +6255,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page040",
+    "key": "theme08_page044",
     "themeKey": "theme08",
-    "pageNumber": 40,
-    "layout": "THEME08-040",
+    "pageNumber": 44,
+    "layout": "THEME08-044",
     "slot": "p43",
     "label": "㊸ 学习路径 · Education",
     "bgClass": "",
@@ -6124,10 +6404,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page041",
+    "key": "theme08_page045",
     "themeKey": "theme08",
-    "pageNumber": 41,
-    "layout": "THEME08-041",
+    "pageNumber": 45,
+    "layout": "THEME08-045",
     "slot": "p44",
     "label": "㊹ 降本场景 · Support",
     "bgClass": "",
@@ -6325,10 +6605,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page042",
+    "key": "theme08_page046",
     "themeKey": "theme08",
-    "pageNumber": 42,
-    "layout": "THEME08-042",
+    "pageNumber": 46,
+    "layout": "THEME08-046",
     "slot": "p46",
     "label": "㊻ 流程嵌入 · Low Code",
     "bgClass": "",
@@ -6479,10 +6759,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page043",
+    "key": "theme08_page047",
     "themeKey": "theme08",
-    "pageNumber": 43,
-    "layout": "THEME08-043",
+    "pageNumber": 47,
+    "layout": "THEME08-047",
     "slot": "p47",
     "label": "㊼ 社区变现 · Open Source",
     "bgClass": "",
@@ -6741,10 +7021,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page044",
+    "key": "theme08_page048",
     "themeKey": "theme08",
-    "pageNumber": 44,
-    "layout": "THEME08-044",
+    "pageNumber": 48,
+    "layout": "THEME08-048",
     "slot": "p48",
     "label": "㊽ 安全对齐 · Alignment",
     "bgClass": "",
@@ -6953,10 +7233,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page045",
+    "key": "theme08_page049",
     "themeKey": "theme08",
-    "pageNumber": 45,
-    "layout": "THEME08-045",
+    "pageNumber": 49,
+    "layout": "THEME08-049",
     "slot": "p49",
     "label": "㊾ 章节 · Chapter",
     "bgClass": "",
@@ -7041,10 +7321,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page046",
+    "key": "theme08_page050",
     "themeKey": "theme08",
-    "pageNumber": 46,
-    "layout": "THEME08-046",
+    "pageNumber": 50,
+    "layout": "THEME08-050",
     "slot": "p50",
     "label": "㊿ 早期轮 · Early Stage",
     "bgClass": "",
@@ -7200,10 +7480,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page047",
+    "key": "theme08_page051",
     "themeKey": "theme08",
-    "pageNumber": 47,
-    "layout": "THEME08-047",
+    "pageNumber": 51,
+    "layout": "THEME08-051",
     "slot": "p52",
     "label": "(52) 资本来源 · Investor Mix",
     "bgClass": "",
@@ -7343,10 +7623,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page048",
+    "key": "theme08_page052",
     "themeKey": "theme08",
-    "pageNumber": 48,
-    "layout": "THEME08-048",
+    "pageNumber": 52,
+    "layout": "THEME08-052",
     "slot": "p53",
     "label": "(53) 资源绑定 · Resource Map",
     "bgClass": "",
@@ -7559,10 +7839,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page049",
+    "key": "theme08_page053",
     "themeKey": "theme08",
-    "pageNumber": 49,
-    "layout": "THEME08-049",
+    "pageNumber": 53,
+    "layout": "THEME08-053",
     "slot": "p54",
     "label": "(54) 算力闭环 · Closed Loop",
     "bgClass": "",
@@ -7697,10 +7977,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page050",
+    "key": "theme08_page054",
     "themeKey": "theme08",
-    "pageNumber": 50,
-    "layout": "THEME08-050",
+    "pageNumber": 54,
+    "layout": "THEME08-054",
     "slot": "p55",
     "label": "(55) GPU 生态 · Ecosystem",
     "bgClass": "",
@@ -7804,10 +8084,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page051",
+    "key": "theme08_page055",
     "themeKey": "theme08",
-    "pageNumber": 51,
-    "layout": "THEME08-051",
+    "pageNumber": 55,
+    "layout": "THEME08-055",
     "slot": "p56",
     "label": "(56) 大数字 · Geo Anchor",
     "bgClass": "",
@@ -7922,10 +8202,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page052",
+    "key": "theme08_page056",
     "themeKey": "theme08",
-    "pageNumber": 52,
-    "layout": "THEME08-052",
+    "pageNumber": 56,
+    "layout": "THEME08-056",
     "slot": "p57",
     "label": "(57) 地理卡 · New York",
     "bgClass": "",
@@ -8175,10 +8455,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page053",
+    "key": "theme08_page057",
     "themeKey": "theme08",
-    "pageNumber": 53,
-    "layout": "THEME08-053",
+    "pageNumber": 57,
+    "layout": "THEME08-057",
     "slot": "p58",
     "label": "(58) 地理卡 · Seattle",
     "bgClass": "",
@@ -8384,10 +8664,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page054",
+    "key": "theme08_page058",
     "themeKey": "theme08",
-    "pageNumber": 54,
-    "layout": "THEME08-054",
+    "pageNumber": 58,
+    "layout": "THEME08-058",
     "slot": "p59",
     "label": "(59) 地理卡 · Boston",
     "bgClass": "",
@@ -8589,10 +8869,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page055",
+    "key": "theme08_page059",
     "themeKey": "theme08",
-    "pageNumber": 55,
-    "layout": "THEME08-055",
+    "pageNumber": 59,
+    "layout": "THEME08-059",
     "slot": "p60",
     "label": "(60) 点阵图 · Other Regions",
     "bgClass": "",
@@ -8788,10 +9068,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page056",
+    "key": "theme08_page060",
     "themeKey": "theme08",
-    "pageNumber": 56,
-    "layout": "THEME08-056",
+    "pageNumber": 60,
+    "layout": "THEME08-060",
     "slot": "p61",
     "label": "(61) 金句 · Resources",
     "bgClass": "",
@@ -8887,10 +9167,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page057",
+    "key": "theme08_page061",
     "themeKey": "theme08",
-    "pageNumber": 57,
-    "layout": "THEME08-057",
+    "pageNumber": 61,
+    "layout": "THEME08-061",
     "slot": "p64",
     "label": "(64) 案例卡 · xAI",
     "bgClass": "",
@@ -9081,10 +9361,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page058",
+    "key": "theme08_page062",
     "themeKey": "theme08",
-    "pageNumber": 58,
-    "layout": "THEME08-058",
+    "pageNumber": 62,
+    "layout": "THEME08-062",
     "slot": "p65",
     "label": "(65) 案例卡 · CoreWeave",
     "bgClass": "",
@@ -9209,10 +9489,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page059",
+    "key": "theme08_page063",
     "themeKey": "theme08",
-    "pageNumber": 59,
-    "layout": "THEME08-059",
+    "pageNumber": 63,
+    "layout": "THEME08-063",
     "slot": "p66",
     "label": "(66) 案例表 · Scale AI",
     "bgClass": "",
@@ -9375,10 +9655,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page060",
+    "key": "theme08_page064",
     "themeKey": "theme08",
-    "pageNumber": 60,
-    "layout": "THEME08-060",
+    "pageNumber": 64,
+    "layout": "THEME08-064",
     "slot": "p67",
     "label": "(67) 案例卡 · Perplexity",
     "bgClass": "",
@@ -9600,10 +9880,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page061",
+    "key": "theme08_page065",
     "themeKey": "theme08",
-    "pageNumber": 61,
-    "layout": "THEME08-061",
+    "pageNumber": 65,
+    "layout": "THEME08-065",
     "slot": "p68",
     "label": "(68) 案例卡 · Databricks",
     "bgClass": "",
@@ -9756,10 +10036,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page062",
+    "key": "theme08_page066",
     "themeKey": "theme08",
-    "pageNumber": 62,
-    "layout": "THEME08-062",
+    "pageNumber": 66,
+    "layout": "THEME08-066",
     "slot": "p69",
     "label": "(69) 案例卡 · Glean",
     "bgClass": "",
@@ -9992,10 +10272,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page063",
+    "key": "theme08_page067",
     "themeKey": "theme08",
-    "pageNumber": 63,
-    "layout": "THEME08-063",
+    "pageNumber": 67,
+    "layout": "THEME08-067",
     "slot": "p71",
     "label": "(71) 案例卡 · SSI",
     "bgClass": "",
@@ -10175,10 +10455,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page064",
+    "key": "theme08_page068",
     "themeKey": "theme08",
-    "pageNumber": 64,
-    "layout": "THEME08-064",
+    "pageNumber": 68,
+    "layout": "THEME08-068",
     "slot": "p73",
     "label": "(73) 收入兑现 · Revenue",
     "bgClass": "",
@@ -10391,10 +10671,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page065",
+    "key": "theme08_page069",
     "themeKey": "theme08",
-    "pageNumber": 65,
-    "layout": "THEME08-065",
+    "pageNumber": 69,
+    "layout": "THEME08-069",
     "slot": "p74",
     "label": "(74) 合规台账 · Regulation",
     "bgClass": "",
@@ -10594,10 +10874,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page066",
+    "key": "theme08_page070",
     "themeKey": "theme08",
-    "pageNumber": 66,
-    "layout": "THEME08-066",
+    "pageNumber": 70,
+    "layout": "THEME08-070",
     "slot": "p76",
     "label": "(76) 壁垒压缩 · Squeeze",
     "bgClass": "",
@@ -10753,10 +11033,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page067",
+    "key": "theme08_page071",
     "themeKey": "theme08",
-    "pageNumber": 67,
-    "layout": "THEME08-067",
+    "pageNumber": 71,
+    "layout": "THEME08-071",
     "slot": "p77",
     "label": "(77) 策略卡 · Budget",
     "bgClass": "",
@@ -10881,10 +11161,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page068",
+    "key": "theme08_page072",
     "themeKey": "theme08",
-    "pageNumber": 68,
-    "layout": "THEME08-068",
+    "pageNumber": 72,
+    "layout": "THEME08-072",
     "slot": "p78",
     "label": "(78) 嵌入流程 · Workflow",
     "bgClass": "",
@@ -11139,10 +11419,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page069",
+    "key": "theme08_page073",
     "themeKey": "theme08",
-    "pageNumber": 69,
-    "layout": "THEME08-069",
+    "pageNumber": 73,
+    "layout": "THEME08-073",
     "slot": "p79",
     "label": "(79) 时间轴 · Repricing",
     "bgClass": "",
@@ -11293,10 +11573,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page070",
+    "key": "theme08_page074",
     "themeKey": "theme08",
-    "pageNumber": 70,
-    "layout": "THEME08-070",
+    "pageNumber": 74,
+    "layout": "THEME08-074",
     "slot": "p80",
     "label": "(80) 金句 · Verdict",
     "bgClass": "",
@@ -11417,10 +11697,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page071",
+    "key": "theme08_page075",
     "themeKey": "theme08",
-    "pageNumber": 71,
-    "layout": "THEME08-071",
+    "pageNumber": 75,
+    "layout": "THEME08-075",
     "slot": "p81",
     "label": "(81) 展望主线 · Mainlines",
     "bgClass": "",
@@ -11552,10 +11832,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page072",
+    "key": "theme08_page076",
     "themeKey": "theme08",
-    "pageNumber": 72,
-    "layout": "THEME08-072",
+    "pageNumber": 76,
+    "layout": "THEME08-076",
     "slot": "p82",
     "label": "(82) 迁移图 · Migration",
     "bgClass": "",
@@ -11701,10 +11981,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page073",
+    "key": "theme08_page077",
     "themeKey": "theme08",
-    "pageNumber": 73,
-    "layout": "THEME08-073",
+    "pageNumber": 77,
+    "layout": "THEME08-077",
     "slot": "p83",
     "label": "(83) 样板 · Playbooks",
     "bgClass": "",
@@ -11815,10 +12095,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page074",
+    "key": "theme08_page078",
     "themeKey": "theme08",
-    "pageNumber": 74,
-    "layout": "THEME08-074",
+    "pageNumber": 78,
+    "layout": "THEME08-078",
     "slot": "p84",
     "label": "(84) 大数字 · Gauge",
     "bgClass": "",
@@ -11915,10 +12195,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page075",
+    "key": "theme08_page079",
     "themeKey": "theme08",
-    "pageNumber": 75,
-    "layout": "THEME08-075",
+    "pageNumber": 79,
+    "layout": "THEME08-079",
     "slot": "p85",
     "label": "(85) 跨页 · Hero Split",
     "bgClass": "",
@@ -12098,10 +12378,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page076",
+    "key": "theme08_page080",
     "themeKey": "theme08",
-    "pageNumber": 76,
-    "layout": "THEME08-076",
+    "pageNumber": 80,
+    "layout": "THEME08-080",
     "slot": "p86",
     "label": "(86) 哑铃图 · Range",
     "bgClass": "",
@@ -12245,10 +12525,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page077",
+    "key": "theme08_page081",
     "themeKey": "theme08",
-    "pageNumber": 77,
-    "layout": "THEME08-077",
+    "pageNumber": 81,
+    "layout": "THEME08-081",
     "slot": "p87",
     "label": "(87) 路线图 · Roadmap",
     "bgClass": "",
@@ -12366,10 +12646,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page078",
+    "key": "theme08_page082",
     "themeKey": "theme08",
-    "pageNumber": 78,
-    "layout": "THEME08-078",
+    "pageNumber": 82,
+    "layout": "THEME08-082",
     "slot": "p88",
     "label": "(88) 照片墙 · Photo Wall",
     "bgClass": "",
@@ -12487,10 +12767,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page079",
+    "key": "theme08_page083",
     "themeKey": "theme08",
-    "pageNumber": 79,
-    "layout": "THEME08-079",
+    "pageNumber": 83,
+    "layout": "THEME08-083",
     "slot": "p89",
     "label": "(89) 章节 · Diagonal",
     "bgClass": "",
@@ -12584,10 +12864,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page080",
+    "key": "theme08_page084",
     "themeKey": "theme08",
-    "pageNumber": 80,
-    "layout": "THEME08-080",
+    "pageNumber": 84,
+    "layout": "THEME08-084",
     "slot": "p90",
     "label": "(90) 记分卡 · Scorecard",
     "bgClass": "",
@@ -12803,10 +13083,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page081",
+    "key": "theme08_page085",
     "themeKey": "theme08",
-    "pageNumber": 81,
-    "layout": "THEME08-081",
+    "pageNumber": 85,
+    "layout": "THEME08-085",
     "slot": "p91",
     "label": "(91) 金句 · Two-Field",
     "bgClass": "",
@@ -12897,10 +13177,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page082",
+    "key": "theme08_page086",
     "themeKey": "theme08",
-    "pageNumber": 82,
-    "layout": "THEME08-082",
+    "pageNumber": 86,
+    "layout": "THEME08-086",
     "slot": "p92",
     "label": "(92) 图片 · Ribbon",
     "bgClass": "",
