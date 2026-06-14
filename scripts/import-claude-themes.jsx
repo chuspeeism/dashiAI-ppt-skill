@@ -662,7 +662,9 @@ body.rd-force-dark .rd-slide,
 body.rd-force-dark .rd-slide .rd-tag--lime,
 .theme03-force-dark .rd-slide .rd-tag--lime { color:#161513; }
 .theme03-theme-shell { position:absolute; inset:0; width:100%; height:100%; }
-.theme03-theme-toggle { position:fixed; top:calc(var(--deck-top, 0px) + 22px); left:calc(var(--deck-left, 0px) + var(--deck-w, 100vw) - 78px); right:auto; z-index:9999; width:56px; height:56px; padding:0; display:inline-flex; align-items:center; justify-content:center; background:#2742ec; color:#f3f5ff; border:2px solid #161513; border-radius:0; cursor:pointer; box-shadow:4px 4px 0 rgba(22,21,19,.85); transition:transform .12s ease, box-shadow .12s ease, background .15s ease; }
+.theme03-theme-toggle { position:fixed; top:calc(var(--deck-top, 0px) + 22px); left:calc(var(--deck-left, 0px) + var(--deck-w, 100vw) - 78px); right:auto; z-index:23; width:56px; height:56px; padding:0; display:inline-flex; align-items:center; justify-content:center; background:#2742ec; color:#f3f5ff; border:2px solid #161513; border-radius:0; cursor:pointer; box-shadow:4px 4px 0 rgba(22,21,19,.85); transition:transform .12s ease, box-shadow .12s ease, background .15s ease; }
+body.overview-on .theme03-theme-toggle,
+body.exporting-deck .theme03-theme-toggle { display:none!important; pointer-events:none!important; }
 .theme03-theme-toggle:hover { transform:translate(-1px,-1px); box-shadow:5px 5px 0 rgba(22,21,19,.85); }
 .theme03-theme-toggle:active { transform:translate(2px,2px); box-shadow:1px 1px 0 rgba(22,21,19,.85); }
 body.rd-force-dark .theme03-theme-toggle { background:#c2f53d; color:#161513; border-color:#f3f2ee; box-shadow:4px 4px 0 rgba(243,242,238,.35); }
@@ -758,6 +760,7 @@ let theme03ToggleEventsBound = false;
 
 function theme03ShouldShowToggle() {
   if (typeof document === 'undefined') return false;
+  if (document.body?.classList.contains('overview-on') || document.body?.classList.contains('exporting-deck')) return false;
   try {
     const options = JSON.parse(document.getElementById('preview-options')?.textContent || '{}');
     const activeThemePack = document.documentElement.dataset.themePack;

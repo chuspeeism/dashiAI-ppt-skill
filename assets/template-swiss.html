@@ -433,6 +433,7 @@
   function createDeckSignature(model, text){
     const payload = JSON.stringify({
       title: model.title,
+      exportId: model.exportId || '',
       slides: (model.slides || []).map(slide => [slide.id, slide.key, slide.layout, slide.dataLayout, slide.props]),
       text,
     });
@@ -2224,30 +2225,21 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
 
   window.__exportDeckHtml = async function(){
     if(window.__deckExportLocked) return;
-    let exportUi = null;
+    window.__deckExportLocked = true;
     try {
-      exportUi = beginDeckExport('HTML');
-      updateDeckExport(exportUi, 0, 1, '准备页面状态...');
       window.__syncDeckPageNumbers?.();
       window.__flushEditableTextState?.();
       window.__syncDeckViewModelFromDom?.();
-      throwIfDeckExportCancelled(exportUi);
-      const slides = await materializeExportSlides(exportUi, 'HTML');
-      throwIfDeckExportCancelled(exportUi);
-      updateDeckExport(exportUi, slides.length, slides.length, '正在生成 HTML...');
-      await nextFrame();
+      const slides = window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')];
       const clone = document.documentElement.cloneNode(true);
       await prepareSimpleHtmlExportClone(clone, slides);
       const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], {type: 'text/html;charset=utf-8'});
-      throwIfDeckExportCancelled(exportUi);
-      updateDeckExport(exportUi, slides.length, slides.length, '正在下载 HTML...');
       await downloadBlob(blob, 'index.html');
     } catch (error) {
-      if(isDeckExportCancelledError(error)) return;
       console.error('[export html]', error);
       alert('HTML 导出失败，请在浏览器控制台查看错误。');
     } finally {
-      endDeckExport(exportUi);
+      window.__deckExportLocked = false;
       window.__syncActiveEffects?.();
     }
   };
@@ -2306,6 +2298,8 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
 
   async function prepareSimpleHtmlExportClone(clone, visibleSlides){
     pruneHiddenSlidesForHtmlExport(clone, visibleSlides);
+    materializeHtmlExportViewModel(clone, visibleSlides);
+    await inlineLocalScriptsForHtmlExport(clone);
     await embedUnicornAssetsForExport(clone);
     clone.querySelector('#overview')?.remove();
     clone.querySelector('#image-picker-input')?.remove();
@@ -2333,6 +2327,42 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
     }
   }
 
+  function materializeHtmlExportViewModel(clone, visibleSlides){
+    const vmEl = clone.querySelector('#deck-view-model');
+    if(!vmEl || !window.__deckViewModel?.model) return;
+    const state = window.__deckViewModel.getState?.() || {};
+    const liveModel = window.__deckViewModel.model;
+    const sourceSlides = new Map((liveModel.slides || []).map(slide => [slide.id, slide]));
+    const slides = (visibleSlides || []).map(slide => {
+      const id = slide.dataset.vmSlideId;
+      const source = sourceSlides.get(id);
+      if(!source) return null;
+      return {
+        ...source,
+        props: {
+          ...(source.props || {}),
+          ...(state.props?.[id] || {}),
+        },
+      };
+    }).filter(Boolean);
+    const slideIds = slides.map(slide => slide.id);
+    const model = {
+      ...liveModel,
+      exportId: 'html-' + Date.now().toString(36) + '-' + Math.random().toString(36).slice(2, 8),
+      slides,
+      state: {
+        ...(state || {}),
+        slideOrder: slideIds,
+        skippedSlides: [],
+        deletedSlides: [],
+        props: {},
+      },
+    };
+    vmEl.textContent = JSON.stringify(model).replace(/</g, '\\u003c');
+    const textEl = clone.querySelector('#embedded-text-state');
+    if(textEl) textEl.textContent = JSON.stringify(state.text || {}).replace(/</g, '\\u003c');
+  }
+
   function pruneHiddenSlidesForHtmlExport(clone, visibleSlides){
     const visibleIds = new Set((visibleSlides || []).map((slide, index) => getCloneSlideKey(slide, index)).filter(Boolean));
     if(!visibleIds.size) return;
@@ -2352,10 +2382,29 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
     return slide?.dataset?.vmSlideId || slide?.dataset?.vmLayout || slide?.dataset?.layout || `slide-${index + 1}`;
   }
 
+  async function inlineLocalScriptsForHtmlExport(clone){
+    const scripts = [...clone.querySelectorAll('script[src^="assets/"]')];
+    await Promise.all(scripts.map(async script => {
+      const src = script.getAttribute('src');
+      try {
+        const response = await fetch(src);
+        if(!response.ok) return;
+        script.textContent = (await response.text()).replace(/<\/script/gi, '<\\/script');
+        script.removeAttribute('src');
+        script.removeAttribute('crossorigin');
+        script.removeAttribute('integrity');
+      } catch {}
+    }));
+  }
+
   async function embedUnicornAssetsForExport(clone){
     const paths = [...new Set(
-      [...clone.querySelectorAll('.bt-unicorn-frame[data-unicorn-json-file-path]')]
-        .map(frame => frame.dataset.unicornJsonFilePath)
+      [
+        ...[...clone.querySelectorAll('.bt-unicorn-frame[data-unicorn-json-file-path]')]
+          .map(frame => frame.dataset.unicornJsonFilePath),
+        ...[...clone.querySelectorAll('script')]
+          .flatMap(script => [...(script.textContent || '').matchAll(/assets\/unicorn\/[^"'`\\\s)]+\.json/g)].map(match => match[0])),
+      ]
         .filter(Boolean)
     )];
     if(!paths.length) return;
