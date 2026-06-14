@@ -2236,17 +2236,48 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
   };
 
   window.__exportDeckHtml = async function(){
-    window.__syncDeckPageNumbers?.();
-    window.__flushEditableTextState?.();
-    window.__syncDeckViewModelFromDom?.();
-    window.__renderRuntimeSlides?.();
-    await nextFrame();
-    window.__initEditableText?.(document);
-    const blob = new Blob([buildCleanExportHtml()], {type: 'text/html;charset=utf-8'});
-    await downloadBlob(blob, 'index.html');
+    if(window.__deckExportLocked) return;
+    let exportUi = null;
+    try {
+      exportUi = beginDeckExport('HTML');
+      updateDeckExport(exportUi, 0, 1, '准备页面状态...');
+      window.__syncDeckPageNumbers?.();
+      window.__flushEditableTextState?.();
+      window.__syncDeckViewModelFromDom?.();
+      throwIfDeckExportCancelled(exportUi);
+      const slides = await renderExportHtmlSlides(exportUi);
+      throwIfDeckExportCancelled(exportUi);
+      updateDeckExport(exportUi, slides.length, slides.length, '正在生成 HTML 文件...');
+      await nextFrame();
+      const blob = new Blob([buildCleanExportHtml(slides)], {type: 'text/html;charset=utf-8'});
+      throwIfDeckExportCancelled(exportUi);
+      updateDeckExport(exportUi, slides.length, slides.length, '正在下载 HTML...');
+      await downloadBlob(blob, 'index.html');
+    } catch (error) {
+      if(isDeckExportCancelledError(error)) return;
+      console.error('[export html]', error);
+      alert('HTML 导出失败，请在浏览器控制台查看错误。');
+    } finally {
+      endDeckExport(exportUi);
+      window.__syncActiveEffects?.();
+    }
   };
 
-  function buildCleanExportHtml(){
+  async function renderExportHtmlSlides(exportUi){
+    const slides = getExportSourceSlides();
+    for(let index = 0; index < slides.length; index++){
+      throwIfDeckExportCancelled(exportUi);
+      updateDeckExport(exportUi, index, slides.length, `正在准备第 ${index + 1} / ${slides.length} 页`);
+      window.__ensureRuntimeSlideRendered?.(slides[index]);
+      if(index % 3 === 2) await nextFrame();
+    }
+    await nextFrame();
+    window.__initEditableText?.(document);
+    updateDeckExport(exportUi, slides.length, slides.length, `已准备 ${slides.length} 页`);
+    return slides;
+  }
+
+  function buildCleanExportHtml(sourceSlides = getExportSourceSlides()){
     const clean = document.implementation.createHTMLDocument(document.title || 'Presentation');
     copyRootAttributes(clean.documentElement, document.documentElement);
     clean.head.replaceChildren();
@@ -2260,8 +2291,8 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
     const deckViewportClone = clean.createElement('div');
     deckViewportClone.id = 'deck-viewport';
     const deckClone = deck.cloneNode(false);
-    getExportSourceSlides().forEach(slide => deckClone.appendChild(slide.cloneNode(true)));
-    sanitizeDeckForExport(deckClone);
+    sourceSlides.forEach(slide => deckClone.appendChild(slide.cloneNode(true)));
+    sanitizeDeckForExport(deckClone, sourceSlides);
     deckViewportClone.appendChild(deckClone);
     body.appendChild(deckViewportClone);
     appendExportRuntime(clean);
@@ -2317,8 +2348,8 @@ go(Number.isFinite(initialSlide) ? initialSlide : 0, {animate:false});
       .join(' ');
   }
 
-  function sanitizeDeckForExport(deckClone){
-    const visibleIds = new Set((window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')])
+  function sanitizeDeckForExport(deckClone, sourceSlides = getExportSourceSlides()){
+    const visibleIds = new Set(sourceSlides
       .map(slide => slide.dataset.vmSlideId || slide.id || slide.dataset.layout)
       .filter(Boolean));
 
