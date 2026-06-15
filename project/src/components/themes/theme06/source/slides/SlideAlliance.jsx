@@ -39,7 +39,7 @@ if (!document.getElementById('kx-all-css')) {
   .kx-all-svg{position:absolute;inset:0;width:100%;height:100%;}
   /* provider labels overlaid on the left */
   .kx-all-prov{position:absolute;left:0;width:33%;display:flex;flex-direction:column;gap:4px;
-    transform:translateY(-50%);text-align:right;}
+    transform:translateY(-50%);text-align:right;padding-right:28px;}
   .kx-all-prov .kx-pk{font-family:var(--kx-disp);font-weight:900;font-size:40px;line-height:.98;letter-spacing:-.01em;}
   .kx-all-prov .kx-pe{font-family:var(--kx-mono);font-size:19px;color:var(--kx-mute-2);letter-spacing:.04em;}
   .kx-all-prov .kx-pv{font-family:var(--kx-disp);font-weight:800;font-size:30px;color:var(--kx-accent);letter-spacing:-.02em;margin-top:2px;}

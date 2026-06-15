@@ -187,7 +187,7 @@ const LENS_DISCS = [
 
 export default function MarginPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, numLead: p.numLead !== undefined ? p.numLead : COPY.numLead, numUnit: p.numUnit !== undefined ? p.numUnit : COPY.numUnit, numCaption: p.numCaption !== undefined ? p.numCaption : COPY.numCaption, ceilingLabel: p.ceilingLabel !== undefined ? p.ceilingLabel : COPY.ceilingLabel, gaugeCap: p.gaugeCap !== undefined ? p.gaugeCap : COPY.gaugeCap, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, gauge: p.gauge !== undefined ? p.gauge : COPY.gauge, aux: p.aux !== undefined ? p.aux : COPY.aux };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-mg', CSS);
   const vars = themeVars(p.accentColor);

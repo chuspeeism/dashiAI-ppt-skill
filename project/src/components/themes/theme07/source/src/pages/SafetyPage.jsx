@@ -151,8 +151,10 @@ const CSS = `
 .aic-saf .sf-strip-cap { position: absolute; inset: 0; display: flex; align-items: center; justify-content: space-between;
   padding: 0 16px; font-family: var(--aic-font-display); font-weight: 700; font-size: 14px; letter-spacing: .12em;
   text-transform: uppercase; pointer-events: none; }
-.aic-saf .sf-strip-cap u { text-decoration: none; color: var(--aic-neg); }
-.aic-saf .sf-strip-cap s { text-decoration: none; color: var(--aic-accent-deep); }
+.aic-saf .sf-strip-cap u { text-decoration: none; color: var(--aic-neg);
+  background: var(--aic-paper); padding: 5px 12px; border-radius: 999px; box-shadow: 0 0 0 1.5px var(--aic-hair); }
+.aic-saf .sf-strip-cap s { text-decoration: none; color: var(--aic-accent-deep);
+  background: var(--aic-paper); padding: 5px 12px; border-radius: 999px; box-shadow: 0 0 0 1.5px var(--aic-hair); }
 
 /* defense layer stack */
 .aic-saf .sf-stack { flex: 1; display: flex; flex-direction: column; gap: 14px; min-height: 0; }
@@ -201,7 +203,7 @@ const SPLIT_FILL = [
 
 export default function SafetyPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, splitTitle: p.splitTitle !== undefined ? p.splitTitle : COPY.splitTitle, stripTitle: p.stripTitle !== undefined ? p.stripTitle : COPY.stripTitle, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, layers: p.layers !== undefined ? p.layers : COPY.layers };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-saf', CSS);
   const vars = themeVars(p.accentColor);

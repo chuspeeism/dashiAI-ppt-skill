@@ -2,6 +2,7 @@ import React from "react";
 import { COLORS, FONTS } from "../theme.js";
 import ImageSlot from "../ImageSlot.jsx";
 import Decor, { decorControls, decorDefaults } from "../Decor.jsx";
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from "../../../../unicorn-background.jsx";
 
 /* ============================================================================
    StatementSlide — 全幅影像主张页 (data: 报告摘要「近三分之一」+ 970 亿 / 97 笔).
@@ -11,6 +12,8 @@ import Decor, { decorControls, decorDefaults } from "../Decor.jsx";
    ========================================================================== */
 
 export const controls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl("goey"),
   { key: "showEyebrow", label: "装饰标签", type: "toggle", default: true,
     help: "顶部分类标签显示 / 隐藏" },
   { key: "imageCount", label: "图片数量", type: "slider", default: 1, min: 0, max: 1, step: 1,
@@ -34,6 +37,8 @@ export const controls = [
 export const defaultProps = {
   showEyebrow: true,
   imageCount: 1,
+  backgroundMode: "unicorn",
+  unicornScene: "goey",
   showFigure: true,
   showMeta: true,
   align: "left",
@@ -65,7 +70,8 @@ export default function StatementSlide(props) {
   const copy = { ...defaultProps.copy, ...(p.copy || {}) };
   const dark = p.theme !== "light";
   const accent = p.accent === "blue" ? "#6e85ff" : COLORS.lime;
-  const hasImg = p.imageCount > 0;
+  const useUnicorn = p.backgroundMode === "unicorn";
+  const hasImg = !useUnicorn && p.imageCount > 0;
   const center = p.align === "center";
 
   // overlay text always reads on a dark scrim/field → fixed light ink
@@ -79,7 +85,11 @@ export default function StatementSlide(props) {
     <div className="rd-slide rd-dark">
       {/* full-bleed image / field */}
       <div style={{ position: "absolute", inset: 0, background: fieldBg }}>
-        {hasImg && <ImageSlot fit="cover" radius={0} caption={copy.t001} />}
+        {useUnicorn ? (
+          <UnicornBackground scene={p.unicornScene} accent={accent} />
+        ) : hasImg ? (
+          <ImageSlot fit="cover" radius={0} caption={copy.t001} />
+        ) : null}
       </div>
       {/* legibility scrim */}
       <div style={{ position: "absolute", inset: 0, background: scrim, pointerEvents: "none" }} />

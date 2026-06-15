@@ -57,8 +57,8 @@ import { KxEyebrow, KxGrid } from './kit.jsx';
     .kx-tml-mrow .kx-mk{font-family:var(--kx-mono);font-size:21px;color:var(--kx-mute-2);text-transform:uppercase;letter-spacing:.03em;}
     /* right: stage axis */
     .kx-tml-right{display:flex;flex-direction:column;min-height:0;}
-    .kx-tml-axiscap{font-family:var(--kx-mono);font-size:22px;color:var(--kx-mute-2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:8px;}
-    .kx-tml-stage{flex:1;min-height:0;display:grid;align-items:end;gap:24px;}
+    .kx-tml-axiscap{font-family:var(--kx-mono);font-size:22px;color:var(--kx-mute-2);letter-spacing:.05em;text-transform:uppercase;margin-bottom:16px;}
+    .kx-tml-stage{flex:1;min-height:0;display:grid;align-items:end;gap:24px;padding-top:50px;}
     .kx-tml-node{display:flex;flex-direction:column;height:100%;justify-content:flex-end;gap:0;position:relative;}
     .kx-tml-bar{width:100%;background:#34342f;border-radius:4px 4px 0 0;min-height:8px;position:relative;}
     .kx-tml-node.kx-on .kx-tml-bar{background:var(--kx-accent);}

@@ -99,6 +99,20 @@ export function MonoCaption({ show = true, children, style }) {
 // props-only PPT components and never depend on any preview runtime.
 export const ImageSlotActions = React.createContext(null);
 
+function mediaItem(value) {
+  if (!value) return null;
+  if (typeof value === 'string') return { src: value, kind: value.startsWith('data:video/') ? 'video' : 'image' };
+  if (typeof value === 'object' && (value.src || value.u)) {
+    const src = value.src || value.u;
+    return {
+      ...value,
+      src,
+      kind: value.kind || (String(value.type || src).startsWith('video/') || String(src).startsWith('data:video/') ? 'video' : 'image'),
+    };
+  }
+  return null;
+}
+
 export function ImageSlot({
   src = '',
   placeholder = 'IMAGE',
@@ -113,6 +127,9 @@ export function ImageSlot({
   const [hover, setHover] = React.useState(false);
   const actions = React.useContext(ImageSlotActions);
   const interactive = !!(actions && actions.pick && slot != null);
+  const media = mediaItem(src);
+  const mediaSrc = media?.src || '';
+  const mediaKind = media?.kind || 'image';
   const onLoad = (e) => {
     const w = e.target.naturalWidth, h = e.target.naturalHeight;
     if (w && h) setRatio(w / h);
@@ -150,15 +167,26 @@ export function ImageSlot({
       actions.drop && actions.drop(slot, e.dataTransfer.files && e.dataTransfer.files[0]);
     },
   } : {};
-  if (src) {
+  if (mediaSrc) {
     return (
       <div style={base} {...hostProps}>
-        <img
-          src={src}
-          alt={placeholder}
-          onLoad={onLoad}
-          style={{ display: 'block', width: '100%', height: '100%', objectFit: fit }}
-        />
+        {mediaKind === 'video' ? (
+          <video
+            src={mediaSrc}
+            muted
+            playsInline
+            loop
+            preload="metadata"
+            style={{ display: 'block', width: '100%', height: '100%', objectFit: fit }}
+          />
+        ) : (
+          <img
+            src={mediaSrc}
+            alt={placeholder}
+            onLoad={onLoad}
+            style={{ display: 'block', width: '100%', height: '100%', objectFit: fit }}
+          />
+        )}
         {interactive && (
           <div style={{
             position: 'absolute', inset: 0, display: 'flex', alignItems: 'center',

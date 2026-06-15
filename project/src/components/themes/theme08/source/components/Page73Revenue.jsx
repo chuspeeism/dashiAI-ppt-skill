@@ -64,18 +64,18 @@ export default function Page73Revenue(props) {
         .acl-rv__cardt{ font-family:var(--acl-font-mono); font-weight:700; font-size:14px;
           letter-spacing:.1em; text-transform:uppercase; color:rgba(22,21,15,.45); flex:0 0 auto; }
         .acl-rv__stages{ flex:1; display:flex; flex-direction:column; justify-content:center;
-          gap:6px; margin-top:14px; }
-        .acl-rv__stage{ position:relative; }
-        .acl-rv__bar{ height:58px; border:3px solid var(--acl-ink); display:flex; align-items:center;
+          gap:10px; margin-top:16px; min-height:0; }
+        .acl-rv__stage{ position:relative; flex:1 1 0; min-height:0; display:flex; }
+        .acl-rv__bar{ min-height:58px; border:3px solid var(--acl-ink); display:flex; align-items:center;
           justify-content:space-between; padding:0 22px; transition:opacity .25s, background .25s, width .3s;
           box-shadow:4px 5px 0 rgba(22,21,15,.16); }
-        .acl-rv__bname{ font-weight:900; font-size:27px; line-height:1; white-space:nowrap; }
+        .acl-rv__bname{ font-weight:900; font-size:30px; line-height:1; white-space:nowrap; }
         .acl-rv__bname small{ font-family:var(--acl-font-mono); font-weight:400; font-size:11px;
           letter-spacing:.04em; text-transform:uppercase; opacity:.6; margin-left:9px; }
-        .acl-rv__bval{ font-family:var(--acl-font-num); font-size:42px; line-height:.8; white-space:nowrap; }
+        .acl-rv__bval{ font-family:var(--acl-font-num); font-size:48px; line-height:.8; white-space:nowrap; }
         .acl-rv__bar--dim{ opacity:.4; }
-        .acl-rv__drop{ display:flex; align-items:center; gap:8px; padding:1px 0 1px 30px; height:20px; }
-        .acl-rv__droptag{ font-family:var(--acl-font-hand); font-size:21px; line-height:1;
+        .acl-rv__drop{ display:flex; align-items:center; gap:8px; padding:1px 0 1px 30px; height:30px; flex:0 0 auto; }
+        .acl-rv__droptag{ font-family:var(--acl-font-hand); font-size:25px; line-height:1;
           color:var(--acl-red); white-space:nowrap; }
         .acl-rv__fx{ position:absolute; top:-15px; right:-10px; z-index:5; }
 
@@ -86,9 +86,9 @@ export default function Page73Revenue(props) {
         .acl-rv__margint{ font-family:var(--acl-font-mono); font-weight:700; font-size:14px;
           letter-spacing:.1em; text-transform:uppercase; color:rgba(255,255,255,.5); }
         .acl-rv__herolab{ font-weight:700; font-size:22px; margin-top:16px; color:rgba(255,255,255,.85); }
-        .acl-rv__heronum{ font-family:var(--acl-font-num); font-size:160px; line-height:.78;
+        .acl-rv__heronum{ font-family:var(--acl-font-num); font-size:120px; line-height:.82; margin-top:12px;
           color:var(--acl-yellow); }
-        .acl-rv__heronum em{ font-style:normal; font-size:54px; margin-left:4px; color:var(--acl-paper); }
+        .acl-rv__heronum em{ font-style:normal; font-size:42px; margin-left:4px; color:var(--acl-paper); }
         .acl-rv__costwrap{ margin-top:14px; }
         .acl-rv__costhd{ font-family:var(--acl-font-mono); font-size:12px; letter-spacing:.08em;
           text-transform:uppercase; color:rgba(255,255,255,.5); margin-bottom:8px; }

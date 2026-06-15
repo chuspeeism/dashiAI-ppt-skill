@@ -142,7 +142,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','neg','accent','p
 
 export default function SyndicatePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, rows: p.rows !== undefined ? p.rows : COPY.rows };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-syn', CSS);
   const vars = themeVars(p.accentColor);

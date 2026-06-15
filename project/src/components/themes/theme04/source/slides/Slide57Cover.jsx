@@ -21,6 +21,7 @@
  */
 import React from 'react';
 import { HL, hlControls, hlDefaults } from './_Highlight.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 const XHSCO_TONES = { green: '#27E021', yellow: '#FFC700', blue: '#15A7F0', pink: '#FF9FE2' };
 
@@ -67,6 +68,8 @@ function Slide57Cover(props) {
       copy = SLIDE57COVER_COPY,
       linesData = XHSCO_LINES,
     mediaCount = 1,
+    backgroundMode = 'unicorn',
+    unicornScene = 'tech',
     accentTone = 'green',
     lineCount = 4,
     showMasthead = true,
@@ -78,7 +81,8 @@ function Slide57Cover(props) {
   } = props;
 
   const accent = XHSCO_TONES[accentTone] || XHSCO_TONES.green;
-  const hasImg = Math.max(0, Math.min(1, mediaCount)) > 0;
+  const useUnicorn = backgroundMode === 'unicorn';
+  const hasImg = !useUnicorn && Math.max(0, Math.min(1, mediaCount)) > 0;
   const lc = Math.max(0, Math.min(4, lineCount));
   const lines = linesData.slice(0, lc);
 
@@ -89,7 +93,9 @@ function Slide57Cover(props) {
 
       {/* 整屏背景：image-slot cover 或 霓虹渐变底 */}
       <div className="xhsCo-bg">
-        {hasImg ? (
+        {useUnicorn ? (
+          <UnicornBackground scene={unicornScene} accent={accent} />
+        ) : hasImg ? (
           <image-slot id="xhsCo-media-0" fit="cover" shape="rect" placeholder={copy.placeholder001}></image-slot>
         ) : (
           <div className="xhsCo-noimg" aria-hidden="true" />
@@ -197,6 +203,8 @@ const META = {
       linesData: XHSCO_LINES,
     ...hlDefaults,
     mediaCount: 1,
+    backgroundMode: 'unicorn',
+    unicornScene: 'tech',
     accentTone: 'green',
     lineCount: 4,
     showMasthead: true,
@@ -205,11 +213,13 @@ const META = {
     showDecorations: true,
   },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('tech'),
     { type: 'section', label: '文案 / 单位' },
     { key: 'copy', type: 'list', label: '可见文案', itemLabel: '文案', single: true, fields: [{ key: "placeholder001", label: "placeholder001" }, { key: "text001", label: "text001" }, { key: "text002", label: "text002" }, { key: "text003", label: "text003" }, { key: "text004", label: "text004" }, { key: "text005", label: "text005" }, { key: "text006", label: "text006" }, { key: "text007", label: "text007" }, { key: "text008", label: "text008" }, { key: "text009", label: "text009" }], default: SLIDE57COVER_COPY, desc: '页面中的固定可见文案、单位和图片槽提示' },
     { key: 'linesData', type: 'list', label: 'linesData', itemLabel: '数据', fields: [{ key: "tag", label: "tag" }, { key: "head", label: "head" }, { key: "sub", label: "sub" }, { key: "color", label: "color" }], default: XHSCO_LINES, desc: '默认数据内容' },
     ...hlControls,
-    { key: 'mediaCount', type: 'slider', label: '背景图片槽', min: 0, max: 1, step: 1, default: 1, desc: '整屏 cover 背景图片槽(0=霓虹渐变底)' },
+    { key: 'mediaCount', type: 'slider', label: '背景图片槽', min: 0, max: 1, step: 1, default: 1, dependsOn: 'backgroundMode', dependsOnValue: 'media', desc: '整屏 cover 背景图片槽(0=霓虹渐变底)' },
     { key: 'accentTone', type: 'radio', label: '主色调', options: ['green', 'yellow', 'blue', 'pink'], optionLabels: ['绿', '黄', '蓝', '粉'], default: 'green', desc: '页面主色调(通用命名)' },
     { key: 'lineCount', type: 'slider', label: '角标导读条数', min: 0, max: 4, step: 1, default: 4, desc: '右侧角标导读条数' },
     { key: 'showMasthead', type: 'toggle', label: '顶部刊头', default: true, desc: '顶部刊头' },

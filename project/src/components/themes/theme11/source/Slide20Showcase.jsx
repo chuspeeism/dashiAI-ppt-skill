@@ -8,6 +8,7 @@
  * and the multi-up Gallery — here a single image owns the whole frame.
  */
 import { Slide, Grain, Edge, Ghost, Rail, Corners, Frame, Wordmark, EmberText, ImageSlot, injectCSS, clampInt } from './ignBase.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../unicorn-background.jsx';
 
 const CSS = `
 .ign-show .ign-frame{justify-content:flex-end}
@@ -45,6 +46,8 @@ export const showcaseDefaultProps = {
   surface: 'ember',
   imageCount: 1,
   images: [],
+  backgroundMode: 'unicorn',
+  unicornScene: 'moving',
   overlayPosition: 'left',
   showCaption: true,
   showOverlayStat: true,
@@ -72,6 +75,8 @@ export const showcaseDefaultProps = {
 };
 
 export const showcaseControls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl('moving'),
   { key: 'surface', type: 'select', label: '背景基调', default: 'ember',
     options: [{ value: 'ink', label: '深色' }, { value: 'paper', label: '浅色' }, { value: 'ember', label: '暖橙' }],
     describe: '空槽占位与底纹的基调（图片满铺时主要影响占位区）。' },
@@ -93,13 +98,20 @@ export default function ShowcaseSlide(props) {
   const imgs = Array.isArray(p.images) ? p.images : [];
   const right = p.overlayPosition === 'right';
   const nav = Array.isArray(p.navItems) ? p.navItems : [];
+  const useUnicorn = p.backgroundMode === 'unicorn';
 
   return (
     <Slide surface={p.surface} className="ign-show">
       <div className="ign-show-media">
-        {count === 0 && <div className="half"><ImageSlot mode="fill" placeholder={p.placeholderFull} /></div>}
-        {count >= 1 && <div className="half"><ImageSlot src={imgs[0]} mode="fill" placeholder={p.placeholder1} /></div>}
-        {count >= 2 && <div className="half"><ImageSlot src={imgs[1]} mode="fill" placeholder={p.placeholder2} /></div>}
+        {useUnicorn ? (
+          <UnicornBackground scene={p.unicornScene} accent="var(--ign-a,#ffb168)" />
+        ) : (
+          <>
+            {count === 0 && <div className="half"><ImageSlot mode="fill" placeholder={p.placeholderFull} /></div>}
+            {count >= 1 && <div className="half"><ImageSlot src={imgs[0]} mode="fill" placeholder={p.placeholder1} /></div>}
+            {count >= 2 && <div className="half"><ImageSlot src={imgs[1]} mode="fill" placeholder={p.placeholder2} /></div>}
+          </>
+        )}
       </div>
       <div className={`ign-show-scrim ${right ? 'right' : 'left'}`} />
       <Grain /><Edge />

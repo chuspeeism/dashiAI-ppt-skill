@@ -177,7 +177,7 @@ function Arrow() {
 
 export default function StrategyVerticalPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, cardsTitle: p.cardsTitle !== undefined ? p.cardsTitle : COPY.cardsTitle, tagsTitle: p.tagsTitle !== undefined ? p.tagsTitle : COPY.tagsTitle, steps: p.steps !== undefined ? p.steps : COPY.steps, cards: p.cards !== undefined ? p.cards : COPY.cards, tags: p.tags !== undefined ? p.tags : COPY.tags };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-svt', CSS);
   const vars = themeVars(p.accentColor);

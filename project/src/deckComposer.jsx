@@ -82,6 +82,7 @@ export function composeDeck(spec = {}) {
     text: spec.text || {},
     media: spec.media || {},
     props: spec.props || {},
+    preview: spec.preview || {},
     slides: sourceSlides.map((page, index) => composeSlide(page, {
       randomSeed,
       index,

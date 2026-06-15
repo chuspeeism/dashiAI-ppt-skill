@@ -10,7 +10,7 @@
 import React from 'react';
 import { swTheme } from './swTheme.js';
 import { Kicker, useSwReveal, injectBaseStyles, renderSwText } from './swBase.jsx';
-import SwImageSlot from './SwImageSlot.jsx';
+import { SwBackgroundLayer, SW_UNICORN_BACKGROUND_CONTROL, createSwUnicornSceneControl } from './SwUnicornBackground.jsx';
 
 const C = swTheme.color, F = swTheme.font;
 
@@ -18,6 +18,8 @@ export const meta = { id: 'quoteimage', index: 73, label: '图上金句 / Quote 
 
 export const defaultProps = {
   accent: C.orange,
+  backgroundMode: 'unicorn',
+  unicornScene: 'tech',
   tint: 'dark',            // 'dark' | 'accent'
   quotePos: 'bottom',      // 'bottom' | 'center'
   showMark: true,
@@ -36,6 +38,8 @@ export const defaultProps = {
 };
 
 export const controls = [
+  SW_UNICORN_BACKGROUND_CONTROL,
+  createSwUnicornSceneControl(defaultProps.unicornScene),
   { key: 'tint', label: '蒙版色调', type: 'segment', def: 'dark',
     options: [{ value: 'dark', label: '深色' }, { value: 'accent', label: '强调色' }], desc: '图片上的蒙版色调' },
   { key: 'quotePos', label: '金句位置', type: 'segment', def: 'bottom',
@@ -51,6 +55,7 @@ export default function SwSlideQuoteImage(props) {
   const accent = p.accent;
   const center = p.quotePos === 'center';
   const rootRef = React.useRef(null);
+  const hasBackdrop = p.media[0] || p.backgroundMode === 'unicorn';
   React.useEffect(() => { injectBaseStyles(); }, []);
   useSwReveal(rootRef);
 
@@ -64,12 +69,12 @@ export default function SwSlideQuoteImage(props) {
       {/* full-bleed image — excluded from the staggered reveal so the backdrop
          doesn't slide; the quote block and footer animate in instead. */}
       <div data-sw-no-reveal="" style={{ position: 'absolute', inset: 0 }}>
-        <SwImageSlot value={p.media[0] || null} onChange={(s) => p.onMediaChange(0, s)}
-          fit="cover" accent={accent} radius={0} tone="dark" placeholder={p.mediaPlaceholder} />
+        <SwBackgroundLayer mode={p.backgroundMode} media={p.media} onMediaChange={p.onMediaChange}
+          scene={p.unicornScene} fit="cover" accent={accent} placeholder={p.mediaPlaceholder} />
       </div>
 
-      {/* tint scrim (only when an image is present, so the empty slot stays usable) */}
-      {p.media[0] && <div data-sw-no-reveal="" style={{ position: 'absolute', inset: 0, background: scrim, pointerEvents: 'none' }} />}
+      {/* tint scrim */}
+      {hasBackdrop && <div data-sw-no-reveal="" style={{ position: 'absolute', inset: 0, background: scrim, pointerEvents: 'none' }} />}
 
       {/* content */}
       <div style={{ position: 'absolute', inset: 0, padding: '64px 96px 124px', display: 'flex', flexDirection: 'column',

@@ -122,7 +122,7 @@ const VMAX = 132;
 
 export default function MonthlyPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, axisLabel: p.axisLabel !== undefined ? p.axisLabel : COPY.axisLabel, months: p.months !== undefined ? p.months : COPY.months, peaks: p.peaks !== undefined ? p.peaks : COPY.peaks };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-month', CSS);
   const vars = themeVars(p.accentColor);

@@ -59,7 +59,8 @@ export function ImageSlots({
   const get = (i) => {
     const it = items[i];
     if (!it) return null;
-    return typeof it === 'string' ? { src: it } : it;
+    if (typeof it === 'string') return { src: it, kind: it.startsWith('data:video/') ? 'video' : 'image' };
+    return { ...it, kind: it.kind || (String(it.type || it.src || '').startsWith('video/') || String(it.src || '').startsWith('data:video/') ? 'video' : 'image') };
   };
   const onLoad = (i) => (e) => {
     const r = e.target.naturalWidth / e.target.naturalHeight;
@@ -87,8 +88,11 @@ export function ImageSlots({
     return (
       <div className={cx('gxn-slot', filled && 'is-filled', isFocus && 'is-focus')} style={boxStyle}>
         {filled
-          ? <img src={data.src} alt="" onLoad={onLoad(i)}
-                 style={{ objectFit: single ? 'contain' : (fit || 'cover') }} />
+          ? data.kind === 'video'
+            ? <video src={data.src} muted playsInline loop preload="metadata"
+                     style={{ objectFit: single ? 'contain' : (fit || 'cover') }} />
+            : <img src={data.src} alt="" onLoad={onLoad(i)}
+                   style={{ objectFit: single ? 'contain' : (fit || 'cover') }} />
           : <span className="gxn-slot-cap">{cap || placeholder}</span>}
         {filled && cap && (
           <div className="gxn-slot-overlay">

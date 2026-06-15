@@ -134,7 +134,7 @@ const LENS_DISCS = [
 
 export default function GeoCenterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, numLead: p.numLead !== undefined ? p.numLead : COPY.numLead, numTail: p.numTail !== undefined ? p.numTail : COPY.numTail, numUnit: p.numUnit !== undefined ? p.numUnit : COPY.numUnit, numCaption: p.numCaption !== undefined ? p.numCaption : COPY.numCaption, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, aux: p.aux !== undefined ? p.aux : COPY.aux };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-geo', CSS);
   const vars = themeVars(p.accentColor);

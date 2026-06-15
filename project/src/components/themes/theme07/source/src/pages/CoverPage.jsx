@@ -167,7 +167,7 @@ const DISCS = [
 
 export default function CoverPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, reportTag: p.reportTag !== undefined ? p.reportTag : COPY.reportTag, titleL1: p.titleL1 !== undefined ? p.titleL1 : COPY.titleL1, titleL2: p.titleL2 !== undefined ? p.titleL2 : COPY.titleL2, sub: p.sub !== undefined ? p.sub : COPY.sub, thesis: p.thesis !== undefined ? p.thesis : COPY.thesis, closing: p.closing !== undefined ? p.closing : COPY.closing, featureNumber: p.featureNumber !== undefined ? p.featureNumber : COPY.featureNumber, featureLabel: p.featureLabel !== undefined ? p.featureLabel : COPY.featureLabel, specs: p.specs !== undefined ? p.specs : COPY.specs };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-cover', CSS);
 

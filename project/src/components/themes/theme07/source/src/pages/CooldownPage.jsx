@@ -164,7 +164,7 @@ const M = { l: 40, r: 40, t: 40, b: 18 };
 
 export default function CooldownPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, baselineLabel: p.baselineLabel !== undefined ? p.baselineLabel : COPY.baselineLabel, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, declineLabel: p.declineLabel !== undefined ? p.declineLabel : COPY.declineLabel, declineValue: p.declineValue !== undefined ? p.declineValue : COPY.declineValue, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-cool', CSS);
   const vars = themeVars(p.accentColor);

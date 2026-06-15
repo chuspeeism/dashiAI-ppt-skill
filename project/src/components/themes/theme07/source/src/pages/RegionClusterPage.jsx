@@ -328,7 +328,7 @@ function ShareDonut({ split }) {
 
 export default function RegionClusterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { share: p.share || SHARE, regions: p.regions || REGIONS, rankTotal: p.rankTotal !== undefined ? p.rankTotal : RANK_TOTAL, shareTitle: p.shareTitle !== undefined ? p.shareTitle : SHARE_TITLE };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-rgn', CSS);
   const vars = themeVars(p.accentColor);

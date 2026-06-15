@@ -105,7 +105,7 @@ export default function Page76Squeeze(props) {
         .acl-cz__panelt{ font-family:var(--acl-font-mono); font-weight:700; font-size:14px;
           letter-spacing:.1em; text-transform:uppercase; color:rgba(22,21,15,.45); flex:0 0 auto; }
         .acl-cz__gauges{ flex:1; display:flex; flex-direction:column; justify-content:center; gap:0; }
-        .acl-cz__gauge{ flex:0 0 auto; display:flex; flex-direction:column; gap:8px; padding:16px 0;
+        .acl-cz__gauge{ flex:0 0 auto; position:relative; display:flex; flex-direction:column; gap:8px; padding:16px 0;
           border-bottom:1.5px dashed rgba(22,21,15,.2); transition:opacity .25s; }
         .acl-cz__gauge:last-child{ border-bottom:none; }
         .acl-cz__gtop{ display:flex; align-items:baseline; justify-content:space-between; }
@@ -179,8 +179,6 @@ export default function Page76Squeeze(props) {
                   <span className="acl-cz__wallname">{rightWall.name}</span>
                   {showValueLabels && <span className="acl-cz__wallv">{rightWall.v}%</span>}
                 </div>
-                {showDecor && <div className="acl-cz__sq acl-cz__sq--l"><Doodle kind="arrow" size={56} rotate={0} color="var(--acl-paper)" style={{ position: 'static' }} /></div>}
-                {showDecor && <div className="acl-cz__sq acl-cz__sq--r"><Doodle kind="arrow" size={56} rotate={0} color="var(--acl-paper)" style={{ position: 'static' }} /></div>}
               </div>
             ) : (
               <div className="acl-cz__bars">
@@ -221,7 +219,7 @@ export default function Page76Squeeze(props) {
               const c = isF ? 'var(--acl-pink)' : palette[i % palette.length];
               return (
                 <div key={i} className={'acl-cz__gauge' + (dim ? ' acl-cz__gauge--dim' : '')} style={{ '--i': i }}>
-                  {isF && showDecor && <div className="acl-cz__fx" style={{ top: 26 }}><Sticker label="逼近临界" color="var(--acl-yellow)" subColor="var(--acl-ink)" rotate={6} size={13} /></div>}
+                  {isF && showDecor && <div className="acl-cz__fx" style={{ top: -34 }}><Sticker label="逼近临界" color="var(--acl-yellow)" subColor="var(--acl-ink)" rotate={6} size={13} /></div>}
                   <div className="acl-cz__gtop">
                     <span className="acl-cz__gname">{s.k}<small>{s.en}</small></span>
                     {showValueLabels && <span className="acl-cz__gval">{s.v}%</span>}

@@ -2331,7 +2331,7 @@ export const pages = [
         "label": "数值标签",
         "type": "boolean",
         "default": true,
-        "desc": "是否在条形末端显示融资金额。"
+        "desc": "是否在条形末端显示数值指标。"
       },
       {
         "key": "showCaption",
@@ -3878,6 +3878,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "tech",
+        "def": "tech",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "imageSlotCount",
         "label": "图片数量",
         "type": "number",
@@ -4020,6 +4066,8 @@ export const pages = [
       "caption": "满版图片 · 资本下注的下一个战场",
       "imageSlotCount": 1,
       "imageFit": "cover",
+      "backgroundMode": "unicorn",
+      "unicornScene": "tech",
       "plate": "bottom-left",
       "statCount": 3,
       "highlight": true,
@@ -5311,6 +5359,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "tech",
+        "def": "tech",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "imageSlotCount",
         "label": "图片数量",
         "type": "number",
@@ -5453,6 +5547,8 @@ export const pages = [
       "caption": "满版图片 · 退出窗口开启，估值迎来定价时刻",
       "imageSlotCount": 1,
       "imageFit": "cover",
+      "backgroundMode": "unicorn",
+      "unicornScene": "tech",
       "plate": "bottom-right",
       "statCount": 3,
       "highlight": true,
@@ -8502,6 +8598,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "automations",
+        "def": "automations",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "imageSlotCount",
         "label": "图片数量",
         "type": "number",
@@ -8621,6 +8763,8 @@ export const pages = [
       "caption": "满版图片 · 数据中心，资本的新战场",
       "imageSlotCount": 1,
       "imageFit": "cover",
+      "backgroundMode": "unicorn",
+      "unicornScene": "automations",
       "statCount": 3,
       "highlight": true,
       "highlightIndex": 1,
@@ -8638,6 +8782,52 @@ export const pages = [
     "label": "杂志封面 · 算力军备竞赛",
     "bgClass": "",
     "controls": [
+      {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "moving",
+        "def": "moving",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
       {
         "key": "imageSlotCount",
         "label": "图片数量",
@@ -8775,6 +8965,8 @@ export const pages = [
       "caption": "杂志封面 · 算力成为这场竞赛最确定的底层资产",
       "imageSlotCount": 1,
       "imageFit": "cover",
+      "backgroundMode": "unicorn",
+      "unicornScene": "moving",
       "titleLineCount": 3,
       "noteCount": 3,
       "showBigStat": true,

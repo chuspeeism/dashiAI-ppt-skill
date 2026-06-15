@@ -53,7 +53,7 @@ if (typeof document !== 'undefined' && !document.getElementById('kx-rmp-css')) {
 
   /* ---- horizontal timeline (hero) ---- */
   .kx-rmp-track{flex:1;min-height:0;position:relative;display:flex;align-items:stretch;margin-top:14px;}
-  .kx-rmp-axis{position:absolute;left:0;right:0;top:118px;height:3px;
+  .kx-rmp-axis{position:absolute;left:0;right:0;top:104px;height:3px;
     background:linear-gradient(90deg,var(--kx-accent) 0 60%,rgba(255,255,255,.14) 60% 100%);
     background-color:rgba(255,255,255,.14);}
   .kx-rmp-axis::after{content:'';position:absolute;right:0;top:50%;transform:translateY(-50%);

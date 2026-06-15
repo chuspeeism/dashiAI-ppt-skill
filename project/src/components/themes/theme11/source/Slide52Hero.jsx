@@ -9,6 +9,7 @@
  * (object-fit cover); 0 images falls back to a striped placeholder fill.
  */
 import { Slide, Grain, Edge, Ghost, Rail, Corners, Frame, Wordmark, EmberText, ImageSlot, injectCSS, clampInt } from './ignBase.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../unicorn-background.jsx';
 
 const CSS = `
 .ign-hero .ign-frame{justify-content:space-between;z-index:6}
@@ -33,6 +34,8 @@ const CSS = `
 export const heroDefaultProps = {
   surface: 'ember',
   images: [],
+  backgroundMode: 'unicorn',
+  unicornScene: 'goey',
   showScrim: true,
   showTag: true,
   showSub: true,
@@ -60,6 +63,8 @@ export const heroDefaultProps = {
 };
 
 export const heroControls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl('goey'),
   { key: 'surface', type: 'select', label: '背景基调', default: 'ember',
     options: [{ value: 'ink', label: '深色' }, { value: 'paper', label: '浅色' }, { value: 'ember', label: '暖橙' }],
     describe: '页面背景主题，用于在相邻页之间制造色彩跳跃。' },
@@ -79,11 +84,14 @@ export default function HeroSlide(props) {
   const images = Array.isArray(p.images) ? p.images : [];
   const sc = clampInt(p.statCount, 2, 3);
   const stats = (Array.isArray(p.stats) ? p.stats : []).slice(0, sc);
+  const useUnicorn = p.backgroundMode === 'unicorn';
 
   return (
     <Slide surface={p.surface} className="ign-hero">
       <div className="ign-hero-img">
-        <ImageSlot src={images[0]} placeholder={p.imagePlaceholder} mode="fill" height="100%" radius={0} />
+        {useUnicorn
+          ? <UnicornBackground scene={p.unicornScene} accent="var(--ign-a,#ffb168)" />
+          : <ImageSlot src={images[0]} placeholder={p.imagePlaceholder} mode="fill" height="100%" radius={0} />}
       </div>
       {p.showScrim && <div className="ign-hero-scrim" />}
       <Grain /><Edge />

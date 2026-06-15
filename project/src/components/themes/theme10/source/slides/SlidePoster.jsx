@@ -18,21 +18,26 @@
 
 import React from 'react';
 import { DeckImageSlot } from '../components/DeckImageSlot.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 function SlidePoster({
   idPrefix = 'poster',
   kicker = '第三章 · 长期主义', headline = '时间，是\n最被低估的\n复利',
   footL = '自主指数 · 2025 年度报告', footR = '03 / 05',
   headlinePos = 'center', scrim = 66, showKicker = true, showFooter = true, showRule = true,
+  backgroundMode = 'unicorn', unicornScene = 'tech',
 }) {
   React.useEffect(() => { pstInjectStyle(); }, []);
   const sc = Math.max(0, Math.min(95, scrim)) / 100;
   const lines = String(headline).split('\n');
+  const useUnicorn = backgroundMode === 'unicorn';
 
   return (
     <div className={`pst-root pos-${headlinePos}`}>
       <div className="pst-img">
-        <DeckImageSlot id={`${idPrefix}-bg`} fit="cover" radius={0} placeholder="POSTER IMAGE" />
+        {useUnicorn
+          ? <UnicornBackground scene={unicornScene} accent="var(--ds-accent,#5479e8)" />
+          : <DeckImageSlot id={`${idPrefix}-bg`} fit="cover" radius={0} placeholder="POSTER IMAGE" />}
       </div>
       <div className="pst-scrim" style={{ '--pst-sc': sc }} />
 
@@ -85,8 +90,10 @@ function pstInjectStyle() {
 
 SlidePoster.META = {
   id: 'poster', title: '主视觉海报',
-  defaults: { headlinePos: 'center', scrim: 66, showKicker: true, showFooter: true, showRule: true },
+  defaults: { headlinePos: 'center', scrim: 66, showKicker: true, showFooter: true, showRule: true, backgroundMode: 'unicorn', unicornScene: 'tech' },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('tech'),
     { key: 'headlinePos', type: 'radio', label: '标题位置', default: 'center',
       options: [{ value: 'top', label: '顶部' }, { value: 'center', label: '居中' }, { value: 'bottom', label: '底部' }],
       description: '超大标题在画面中的垂直位置。' },

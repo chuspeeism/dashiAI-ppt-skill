@@ -1,5 +1,6 @@
 import { useDeckStyles, deckTheme, deckLabel, SlideShell } from './DeckKit.jsx';
 import { FillSlot } from './ImageStrip.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 /* ============================================================================
    SlideCoverStory — 杂志封面（满幅主图 + 叠印刊头 / 封面线 / 竖排书脊）
    标准 ES Module。主图用 FillSlot 满版裁切铺满全屏；可选侧栏小图条。
@@ -22,6 +23,8 @@ import { FillSlot } from './ImageStrip.jsx';
    组件内部以 { ...defaultProps, ...props } 合并，外部传同名 props 逐项覆盖。 */
 export const defaultProps = {
   imgCount: 3,
+  backgroundMode: 'unicorn',
+  unicornScene: 'tech',
   textPos: 'left',
   showMasthead: true,
   tagCount: 3,
@@ -44,9 +47,10 @@ function SlideCoverStory(props){
 
   const {
     imgCount, textPos, showMasthead, tagCount, focus, labelType, masthead,
-    issue, kicker, title, sub, tags, credit,
+    issue, kicker, title, sub, tags, credit, backgroundMode, unicornScene,
   } = { ...defaultProps, ...props };
 
+  const useUnicorn = backgroundMode === 'unicorn';
   const insets = Math.max(0, Math.min(imgCount - 1, 3)); // 侧栏小图数量
   const tagN = Math.max(0, Math.min(tagCount, tags.length));
   const left = textPos !== 'right';
@@ -56,7 +60,9 @@ function SlideCoverStory(props){
     <SlideShell pad={false}>
       {/* 满幅主图 */}
       <div style={{position:'absolute', inset:0}}>
-        <FillSlot idPrefix="coverstory" idx={0} placeholder="封面主视觉 / cover image" accent={ACC} theme={props.theme} />
+        {useUnicorn
+          ? <UnicornBackground scene={unicornScene} accent={ACC} />
+          : <FillSlot idPrefix="coverstory" idx={0} placeholder="封面主视觉 / cover image" accent={ACC} theme={props.theme} />}
       </div>
       {/* 压暗渐变（朝封面线一侧加深，保证文字可读） */}
       <div style={{position:'absolute', inset:0, pointerEvents:'none',
@@ -138,6 +144,8 @@ export default SlideCoverStory;
 
 /* ── 模板参数 schema（自描述 · 迁移即带控件；Tweaks 由此自动生成） ── */
 export const slideSpec = { defaults: defaultProps, slot:'coverstory', name:'杂志封面 · CoverStory', controls:[
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl(defaultProps.unicornScene),
   { prop:'imgCount', type:'slider', label:'图片槽数量', default:3, min:1, max:4, step:1, desc:'1=纯满幅；>1 加侧栏小图' },
   { prop:'textPos', type:'radio', label:'文字位置', default:'左', options:['左','右'], map:(v)=> v==='右'?'right':'left' },
   { prop:'tagCount', type:'slider', label:'标签数量', default:3, min:0, max:4, step:1 },

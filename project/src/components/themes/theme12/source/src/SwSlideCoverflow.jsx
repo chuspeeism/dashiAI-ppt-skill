@@ -11,7 +11,7 @@
 import React from 'react';
 import { swTheme } from './swTheme.js';
 import { SlideRoot, Bar, Footer, Kicker, Hl, renderSwText } from './swBase.jsx';
-import SwImageSlot from './SwImageSlot.jsx';
+import SwImageSlot, { normalizeMedia } from './SwImageSlot.jsx';
 
 const C = swTheme.color, F = swTheme.font;
 const COVER_TINT = ['#3bb6ec', '#baf04f', '#c44ee0', '#f15a29', '#1f6b2a', '#fbb24d', '#74d2f0'];
@@ -97,6 +97,7 @@ export default function SwSlideCoverflow(props) {
         display: 'flex', alignItems: 'center', justifyContent: 'center', overflow: 'hidden' }}>
         <div style={{ position: 'relative', transformStyle: 'preserve-3d', width: size, height: size }}>
           {Array.from({ length: count }).map((_, i) => {
+            const reflectionMedia = normalizeMedia(p.media[i]);
             const d = i - focus;
             const isFocus = d === 0;
             const rot = isFocus ? 0 : (d < 0 ? 24 : -24);
@@ -124,9 +125,12 @@ export default function SwSlideCoverflow(props) {
                     opacity: 0.3, borderRadius: 8, overflow: 'hidden',
                     maskImage: 'linear-gradient(to bottom, rgba(0,0,0,.7), transparent)',
                     WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,.7), transparent)',
-                    background: p.media[i] ? '#000' : 'transparent' }}>
-                    {p.media[i] && <img src={p.media[i]} alt="" style={{ width: '100%', height: '100%',
-                      objectFit: p.mediaFit }} />}
+                    background: reflectionMedia?.src ? '#000' : 'transparent' }}>
+                    {reflectionMedia?.src && (
+                      reflectionMedia.kind === 'video'
+                        ? <video src={reflectionMedia.src} muted playsInline loop autoPlay preload="metadata" style={{ width: '100%', height: '100%', objectFit: p.mediaFit }} />
+                        : <img src={reflectionMedia.src} alt="" style={{ width: '100%', height: '100%', objectFit: p.mediaFit }} />
+                    )}
                   </div>
                 )}
               </div>

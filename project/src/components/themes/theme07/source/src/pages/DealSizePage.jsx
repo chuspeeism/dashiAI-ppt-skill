@@ -134,7 +134,7 @@ const HEAT = ['pos','accent','pos','warn','pos','pos','accent','warn','pos','acc
 
 export default function DealSizePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, countLabel: p.countLabel !== undefined ? p.countLabel : COPY.countLabel, amountLabel: p.amountLabel !== undefined ? p.amountLabel : COPY.amountLabel, rows: p.rows !== undefined ? p.rows : COPY.rows };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-dz', CSS);
   const vars = themeVars(p.accentColor);

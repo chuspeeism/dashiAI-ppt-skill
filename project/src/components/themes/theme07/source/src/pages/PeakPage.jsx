@@ -159,7 +159,7 @@ const CM = { l: 58, r: 28, t: 64, b: 46 };
 
 export default function PeakPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, peakTag: p.peakTag !== undefined ? p.peakTag : COPY.peakTag, avgLabel: p.avgLabel !== undefined ? p.avgLabel : COPY.avgLabel, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, months: p.months !== undefined ? p.months : COPY.months, monthLabels: p.monthLabels !== undefined ? p.monthLabels : COPY.monthLabels, q3Range: p.q3Range !== undefined ? p.q3Range : COPY.q3Range };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-peak', CSS);
   const vars = themeVars(p.accentColor);

@@ -161,7 +161,7 @@ function Glyph({ type }) {
 
 export default function ResourceTriadPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, quoteLead: p.quoteLead !== undefined ? p.quoteLead : COPY.quoteLead, quoteEm: p.quoteEm !== undefined ? p.quoteEm : COPY.quoteEm, quoteTail: p.quoteTail !== undefined ? p.quoteTail : COPY.quoteTail, source: p.source !== undefined ? p.source : COPY.source, pillars: p.pillars !== undefined ? p.pillars : COPY.pillars };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-tri', CSS);
   const vars = themeVars(p.accentColor);

@@ -1,8 +1,3 @@
-// icons.js — DEMO asset catalogue for the 3D sticker emblems.
-// NOT imported by slide components (they stay portable and only receive a
-// `decorSrc` URL via props). The preview harness + Tweaks panel use this list
-// to offer an icon picker.
-
 export const ICONS = [
   { id: "01", src: "assets/3d/01.png", label: "胜利手势" },
   { id: "02", src: "assets/3d/02.png", label: "YES 按键" },

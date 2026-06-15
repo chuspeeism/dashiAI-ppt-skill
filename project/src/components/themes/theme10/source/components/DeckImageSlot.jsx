@@ -17,8 +17,8 @@ import React from 'react';
 
 function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, onAspect, className = '' }) {
   const storeKey = id ? `dslot:${id}` : null;
-  const [src, setSrc] = React.useState(() => {
-    try { return storeKey ? (localStorage.getItem(storeKey) || '') : ''; } catch (e) { return ''; }
+  const [media, setMedia] = React.useState(() => {
+    try { return storeKey ? readStoredMedia(localStorage.getItem(storeKey) || '') : null; } catch (e) { return null; }
   });
   const [over, setOver] = React.useState(false);
   const inputRef = React.useRef(null);
@@ -27,58 +27,85 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
 
   // Re-read when id changes (slots reused across counts keep their own image).
   React.useEffect(() => {
-    try { setSrc(storeKey ? (localStorage.getItem(storeKey) || '') : ''); } catch (e) { /* noop */ }
+    try { setMedia(storeKey ? readStoredMedia(localStorage.getItem(storeKey) || '') : null); } catch (e) { /* noop */ }
   }, [storeKey]);
 
-  const report = React.useCallback((dataUrl) => {
-    if (!onAspect || !dataUrl) return;
+  const report = React.useCallback((item) => {
+    if (!onAspect || !item?.src || item.kind === 'video') return;
     const im = new Image();
     im.onload = () => onAspect(im.naturalWidth / im.naturalHeight);
-    im.src = dataUrl;
+    im.src = item.src;
   }, [onAspect]);
 
-  React.useEffect(() => { if (src) report(src); }, [src, report]);
+  React.useEffect(() => { if (media?.src) report(media); }, [media, report]);
 
   const ingest = (file) => {
-    if (!file || !file.type.startsWith('image/')) return;
+    if (!file || !/^(image|video)\//.test(file.type || '')) return;
     const reader = new FileReader();
     reader.onload = () => {
       const url = String(reader.result);
-      setSrc(url);
-      try { if (storeKey) localStorage.setItem(storeKey, url); } catch (e) { /* quota */ }
+      const item = {
+        src: url,
+        type: file.type,
+        kind: file.type.startsWith('video/') ? 'video' : 'image',
+      };
+      setMedia(item);
+      try { if (storeKey) localStorage.setItem(storeKey, JSON.stringify(item)); } catch (e) { /* quota */ }
     };
     reader.readAsDataURL(file);
   };
 
-  const onDrop = (e) => { e.preventDefault(); setOver(false); ingest(e.dataTransfer.files && e.dataTransfer.files[0]); };
+  const stopSlotNavigation = (e) => e.stopPropagation();
+  const openPicker = (e) => {
+    e.stopPropagation();
+    inputRef.current && inputRef.current.click();
+  };
+  const onDrop = (e) => { e.preventDefault(); e.stopPropagation(); setOver(false); ingest(e.dataTransfer.files && e.dataTransfer.files[0]); };
   const clear = (e) => {
     e.stopPropagation();
-    setSrc('');
+    setMedia(null);
     try { if (storeKey) localStorage.removeItem(storeKey); } catch (err) { /* noop */ }
   };
 
   return (
-    <div className={`dslot ${over ? 'is-over' : ''} ${src ? 'is-filled' : ''} ${className}`}
+    <div className={`dslot ${over ? 'is-over' : ''} ${media?.src ? 'is-filled' : ''} ${className}`}
          style={{ borderRadius: radius }}
-         onClick={() => inputRef.current && inputRef.current.click()}
-         onDragOver={(e) => { e.preventDefault(); setOver(true); }}
-         onDragLeave={() => setOver(false)}
+         onPointerDown={stopSlotNavigation}
+         onMouseDown={stopSlotNavigation}
+         onClick={openPicker}
+         onDragOver={(e) => { e.preventDefault(); e.stopPropagation(); setOver(true); }}
+         onDragLeave={(e) => { e.stopPropagation(); setOver(false); }}
          onDrop={onDrop}>
-      {src ? (
+      {media?.src ? (
         <>
-          <img className="dslot-img" src={src} alt="" style={{ objectFit: fit }} />
+          {media.kind === 'video'
+            ? <video className="dslot-img" src={media.src} muted playsInline loop preload="metadata" style={{ objectFit: fit }} />
+            : <img className="dslot-img" src={media.src} alt="" style={{ objectFit: fit }} />}
           <button className="dslot-clear" onClick={clear} aria-label="清除图片">✕</button>
         </>
       ) : (
         <div className="dslot-empty">
           <span className="dslot-label">{placeholder}</span>
-          <span className="dslot-hint">点击或拖入图片</span>
+          <span className="dslot-hint">点击或拖入媒体</span>
         </div>
       )}
-      <input ref={inputRef} type="file" accept="image/*" hidden
-             onChange={(e) => ingest(e.target.files && e.target.files[0])} />
+      <input ref={inputRef} type="file" accept="image/*,video/mp4,video/webm,video/quicktime,video/*" hidden
+             onClick={(e) => e.stopPropagation()}
+             onChange={(e) => { ingest(e.target.files && e.target.files[0]); e.target.value = ''; }} />
     </div>
   );
+}
+
+function readStoredMedia(raw) {
+  if (!raw) return null;
+  try {
+    const parsed = JSON.parse(raw);
+    if (parsed?.src) return {
+      ...parsed,
+      kind: parsed.kind || (String(parsed.type || parsed.src).startsWith('video/') || String(parsed.src).startsWith('data:video/') ? 'video' : 'image'),
+    };
+  } catch {}
+  return { src: raw, kind: raw.startsWith('data:video/') ? 'video' : 'image' };
 }
 
 function dslotInjectStyle() {

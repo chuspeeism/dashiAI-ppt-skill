@@ -8,6 +8,7 @@
 // imageSlotCount 0 the dreamy bokeh background shows through instead.
 import React from 'react';
 import { SlideFrame, ImageSlot, MonoCaption, hexA } from './SlideKit.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 export const defaultProps = {
   kicker: '前沿 · 新基建',
@@ -25,6 +26,8 @@ export const defaultProps = {
   // tweakable (universal names)
   imageSlotCount: 1,
   imageFit: 'cover',
+  backgroundMode: 'unicorn',
+  unicornScene: 'automations',
   statCount: 3,
   highlight: true,
   highlightIndex: 1,
@@ -34,6 +37,8 @@ export const defaultProps = {
 };
 
 export const controls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl(defaultProps.unicornScene),
   { key: 'imageSlotCount', label: '图片数量', type: 'number', default: 1, min: 0, max: 1, step: 1, unit: ' 张', countKey: 'imageSlotCount',
     description: '满版背景图数量（0 时显示柔光 bokeh 背景）。' },
   { key: 'images', label: '上传图片', type: 'images', countKey: 'imageSlotCount',
@@ -78,22 +83,28 @@ function Marked({ text, word, color, on }) {
 export default function SlideHeroOverlay(props) {
   const p = { ...defaultProps, ...props };
   const ac = p.accentColor;
-  const hasImage = p.imageSlotCount > 0;
+  const useUnicorn = p.backgroundMode === 'unicorn';
+  const hasImage = !useUnicorn && p.imageSlotCount > 0;
+  const hasBackdrop = useUnicorn || hasImage;
   const stats = p.stats.slice(0, Math.max(0, Math.min(3, p.statCount)));
 
   return (
     <SlideFrame bg="a">
       {/* full-bleed image layer — cancels .aip-content padding to reach every edge */}
-      {hasImage && (
+      {hasBackdrop && (
         <div style={{
           position: 'absolute', zIndex: 0,
           top: 'calc(var(--aip-pad-top) * -1)', left: 'calc(var(--aip-pad-x) * -1)',
           width: 'calc(100% + var(--aip-pad-x) * 2)',
           height: 'calc(100% + var(--aip-pad-top) + var(--aip-pad-bottom))',
         }}>
-          <ImageSlot slot={0} src={p.images[0] || ''} placeholder="满版背景图 · 数据中心 / 机房"
-            fit={p.imageFit} ratioMode="fill" accent={ac} radius={0}
-            style={{ height: '100%', borderRadius: 0, border: 'none', boxShadow: 'none' }} />
+          {useUnicorn ? (
+            <UnicornBackground scene={p.unicornScene} accent={ac} />
+          ) : (
+            <ImageSlot slot={0} src={p.images[0] || ''} placeholder="满版背景图 · 数据中心 / 机房"
+              fit={p.imageFit} ratioMode="fill" accent={ac} radius={0}
+              style={{ height: '100%', borderRadius: 0, border: 'none', boxShadow: 'none' }} />
+          )}
           {/* legibility scrim — darker toward the lower-left where the plate sits */}
           <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background:
             'linear-gradient(75deg, rgba(14,16,24,.72) 0%, rgba(14,16,24,.30) 42%, rgba(14,16,24,0) 70%)' }} />
@@ -106,9 +117,9 @@ export default function SlideHeroOverlay(props) {
       <div style={{ position: 'relative', zIndex: 1, flex: 1, minHeight: 0,
         display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', alignItems: 'flex-start', paddingBottom: 52 }}>
         <div style={{ maxWidth: 1180,
-          background: hasImage ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.5)',
+          background: hasBackdrop ? 'rgba(255,255,255,.16)' : 'rgba(255,255,255,.5)',
           backdropFilter: 'blur(30px) saturate(150%)', WebkitBackdropFilter: 'blur(30px) saturate(150%)',
-          border: `1px solid ${hasImage ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.7)'}`,
+          border: `1px solid ${hasBackdrop ? 'rgba(255,255,255,.28)' : 'rgba(255,255,255,.7)'}`,
           borderRadius: 30, padding: '52px 60px',
           boxShadow: '0 1px 0 rgba(255,255,255,.4) inset, 0 32px 80px rgba(10,12,22,.4)' }}>
 
@@ -119,30 +130,30 @@ export default function SlideHeroOverlay(props) {
           </span>
 
           <h2 style={{ margin: '20px 0 0', fontSize: 94, fontWeight: 900, lineHeight: 1.0, letterSpacing: '.01em',
-            color: hasImage ? '#fff' : 'var(--aip-ink)', textShadow: hasImage ? '0 4px 30px rgba(0,0,0,.4)' : 'none' }}>
+            color: hasBackdrop ? '#fff' : 'var(--aip-ink)', textShadow: hasBackdrop ? '0 4px 30px rgba(0,0,0,.4)' : 'none' }}>
             <Marked text={p.title} word={p.highlightWord} color={ac} on={p.showHighlighter} />
           </h2>
 
           <div style={{ marginTop: 16, fontFamily: "'Space Mono', monospace", textTransform: 'uppercase',
-            letterSpacing: '.16em', fontSize: 26, color: hasImage ? 'rgba(255,255,255,.75)' : 'var(--aip-ink-3)' }}>{p.en}</div>
+            letterSpacing: '.16em', fontSize: 26, color: hasBackdrop ? 'rgba(255,255,255,.75)' : 'var(--aip-ink-3)' }}>{p.en}</div>
 
           <p style={{ margin: '20px 0 0', maxWidth: 980, fontSize: 32, lineHeight: 1.5, fontWeight: 500, textWrap: 'pretty',
-            color: hasImage ? 'rgba(255,255,255,.92)' : 'var(--aip-ink-2)' }}>{p.lead}</p>
+            color: hasBackdrop ? 'rgba(255,255,255,.92)' : 'var(--aip-ink-2)' }}>{p.lead}</p>
 
           {stats.length > 0 && (
             <div style={{ marginTop: 34, display: 'flex', flexWrap: 'wrap', gap: 16 }}>
               {stats.map((s, i) => {
                 const on = p.highlight && i === p.highlightIndex;
-                const fg = on ? readableOn(ac) : (hasImage ? '#fff' : 'var(--aip-ink)');
+                const fg = on ? readableOn(ac) : (hasBackdrop ? '#fff' : 'var(--aip-ink)');
                 return (
                   <div key={i} style={{ display: 'flex', alignItems: 'baseline', gap: 8, padding: '16px 26px', borderRadius: 18,
                     transform: on ? 'rotate(-1.2deg)' : 'none',
-                    background: on ? ac : (hasImage ? 'rgba(255,255,255,.14)' : 'rgba(255,255,255,.6)'),
-                    border: `1px solid ${on ? hexA(ac, 0.5) : (hasImage ? 'rgba(255,255,255,.3)' : 'rgba(255,255,255,.8)')}`,
+                    background: on ? ac : (hasBackdrop ? 'rgba(255,255,255,.14)' : 'rgba(255,255,255,.6)'),
+                    border: `1px solid ${on ? hexA(ac, 0.5) : (hasBackdrop ? 'rgba(255,255,255,.3)' : 'rgba(255,255,255,.8)')}`,
                     boxShadow: on ? `0 18px 40px ${hexA(ac, 0.45)}` : '0 12px 30px rgba(10,12,22,.25)' }}>
                     <span style={{ fontSize: 56, fontWeight: 900, lineHeight: 0.9, letterSpacing: '-.02em', color: fg }}>{s.value}</span>
-                    <span style={{ fontSize: 28, fontWeight: 900, color: on ? fg : (hasImage ? 'rgba(255,255,255,.85)' : 'var(--aip-ink-2)') }}>{s.unit}</span>
-                    <span style={{ marginLeft: 8, fontSize: 25, fontWeight: 700, color: on ? hexA(readableOn(ac), 0.82) : (hasImage ? 'rgba(255,255,255,.8)' : 'var(--aip-ink-2)'), whiteSpace: 'nowrap' }}>{s.label}</span>
+                    <span style={{ fontSize: 28, fontWeight: 900, color: on ? fg : (hasBackdrop ? 'rgba(255,255,255,.85)' : 'var(--aip-ink-2)') }}>{s.unit}</span>
+                    <span style={{ marginLeft: 8, fontSize: 25, fontWeight: 700, color: on ? hexA(readableOn(ac), 0.82) : (hasBackdrop ? 'rgba(255,255,255,.8)' : 'var(--aip-ink-2)'), whiteSpace: 'nowrap' }}>{s.label}</span>
                   </div>
                 );
               })}
@@ -151,7 +162,7 @@ export default function SlideHeroOverlay(props) {
         </div>
 
         {p.showCaption && (
-          <MonoCaption style={{ position: 'absolute', left: 0, bottom: 0, color: hasImage ? 'rgba(255,255,255,.7)' : 'var(--aip-ink-3)' }}>{p.caption}</MonoCaption>
+          <MonoCaption style={{ position: 'absolute', left: 0, bottom: 0, color: hasBackdrop ? 'rgba(255,255,255,.7)' : 'var(--aip-ink-3)' }}>{p.caption}</MonoCaption>
         )}
       </div>
     </SlideFrame>

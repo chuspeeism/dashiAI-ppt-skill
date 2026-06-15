@@ -16,6 +16,7 @@
 
 import React from 'react';
 import { DeckImageSlot } from '../components/DeckImageSlot.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 function SlideProfile({
   idPrefix = 'profile',
@@ -24,12 +25,16 @@ function SlideProfile({
   quote = '我不预测市场，我只确保无论市场怎样，纪律都在执行。',
   creds = ['前量化对冲基金合伙人', 'CFA · 15 年跨周期实盘', '主导自主再平衡引擎设计'],
   textSide = 'left', showQuote = true, showCreds = true,
+  backgroundMode = 'unicorn', unicornScene = 'automations',
 }) {
   React.useEffect(() => { pfInjectStyle(); }, []);
+  const useUnicorn = backgroundMode === 'unicorn';
   return (
     <div className={`pf-root pf-${textSide}`}>
       <div className="pf-media">
-        <DeckImageSlot id={`${idPrefix}-portrait`} fit="cover" radius={0} placeholder="PORTRAIT" />
+        {useUnicorn
+          ? <UnicornBackground scene={unicornScene} accent="var(--ds-accent,#6f9bd8)" />
+          : <DeckImageSlot id={`${idPrefix}-portrait`} fit="cover" radius={0} placeholder="PORTRAIT" />}
       </div>
       <div className="pf-scrim" />
       <div className="pf-overlay">
@@ -90,8 +95,10 @@ function pfInjectStyle() {
 
 SlideProfile.META = {
   id: 'profile', title: '人物特写',
-  defaults: { textSide: 'left', showQuote: true, showCreds: true },
+  defaults: { textSide: 'left', showQuote: true, showCreds: true, backgroundMode: 'unicorn', unicornScene: 'automations' },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('automations'),
     { key: 'textSide', type: 'radio', label: '文字位置', default: 'left',
       options: [{ value: 'left', label: '左侧' }, { value: 'right', label: '右侧' }],
       description: '叠加文字块与暗角渐变所锚定的一侧（满幅肖像作背景）。' },

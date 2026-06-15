@@ -79,18 +79,18 @@ export default function Page56GeoAnchor(props) {
         .acl-ga__f--dim{ opacity:.5; }
 
         /* right: giant number */
-        .acl-ga__right{ flex:0 0 880px; position:relative; display:flex; flex-direction:column;
+        .acl-ga__right{ flex:0 0 820px; position:relative; display:flex; flex-direction:column;
           justify-content:center; }
-        .acl-ga__numwrap{ position:relative; display:flex; align-items:flex-start; justify-content:flex-end; }
+        .acl-ga__numwrap{ position:relative; display:flex; align-items:flex-start; justify-content:flex-end; gap:6px; }
         .acl-ga__num{ position:relative; z-index:1; font-family:var(--acl-font-num);
-          font-size:clamp(340px, 33vw, 500px); line-height:.78; letter-spacing:-.03em;
-          color:var(--acl-pink); text-shadow:8px 9px 0 var(--acl-ink); }
-        .acl-ga--ink .acl-ga__num{ color:var(--acl-yellow); text-shadow:8px 9px 0 rgba(0,0,0,.5); }
+          font-size:clamp(230px, 23vw, 332px); line-height:.82; letter-spacing:-.03em;
+          color:var(--acl-pink); text-shadow:7px 8px 0 var(--acl-ink); }
+        .acl-ga--ink .acl-ga__num{ color:var(--acl-yellow); text-shadow:7px 8px 0 rgba(0,0,0,.5); }
         .acl-ga__unit{ position:relative; z-index:1; font-family:var(--acl-font-num);
-          font-size:200px; line-height:.78; color:var(--acl-ink); }
+          font-size:120px; line-height:1; margin-top:28px; color:var(--acl-ink); }
         .acl-ga--ink .acl-ga__unit{ color:var(--acl-paper); }
 
-        .acl-ga__tiles{ position:relative; z-index:1; display:flex; gap:18px; margin-top:18px;
+        .acl-ga__tiles{ position:relative; z-index:1; display:flex; gap:18px; margin-top:48px;
           justify-content:flex-end; }
         .acl-ga__tile{ flex:0 1 200px; border-top:5px solid var(--acl-ink); padding-top:11px; text-align:right; }
         .acl-ga--ink .acl-ga__tile{ border-color:var(--acl-yellow); }
@@ -103,7 +103,7 @@ export default function Page56GeoAnchor(props) {
           margin-left:5px; color:rgba(22,21,15,.55); }
         .acl-ga--ink .acl-ga__tv em{ color:rgba(251,250,244,.55); }
 
-        .acl-ga__pin{ position:absolute; left:-6px; top:2px; z-index:2; }
+        .acl-ga__pin{ position:absolute; right:2px; top:-30px; z-index:2; }
 
         .acl-ga__foot{ display:flex; align-items:center; gap:14px; font-family:var(--acl-font-hand);
           font-size:28px; flex:0 0 auto; z-index:3; margin-top:4px; }

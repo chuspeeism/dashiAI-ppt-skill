@@ -7518,7 +7518,7 @@ export const pages = [
         "min": 3,
         "max": 4,
         "step": 1,
-        "desc": "投资人类型分段的数量(3–4)"
+        "desc": "分类类型分段的数量(3–4)"
       },
       {
         "key": "focusEnabled",
@@ -12141,7 +12141,7 @@ export const pages = [
         "min": 0,
         "max": 100,
         "step": 1,
-        "desc": "环形仪表扫过的百分比（通常等于主数字）"
+        "desc": "环形仪表扫过的百分比（主数字带 % 时会自动跟随主数字，此值作为后备）"
       },
       {
         "key": "metricCount",
@@ -12771,103 +12771,6 @@ export const pages = [
     "themeKey": "theme08",
     "pageNumber": 83,
     "layout": "THEME08-083",
-    "slot": "p89",
-    "label": "(89) 章节 · Diagonal",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "backgroundTheme",
-        "label": "背景主题",
-        "type": "enum",
-        "default": "primary",
-        "options": [
-          "primary",
-          "muted",
-          "ink"
-        ],
-        "desc": "主色(电光黄) / 次色(淡紫灰) / 深色"
-      },
-      {
-        "key": "numberStyle",
-        "label": "章节号样式",
-        "type": "enum",
-        "default": "solid",
-        "options": [
-          "solid",
-          "outline"
-        ],
-        "desc": "巨型章节号：实心 / 描边"
-      },
-      {
-        "key": "showIndex",
-        "label": "大章节号",
-        "type": "boolean",
-        "default": true,
-        "desc": "跨越对角分割的巨型章节编号 显隐"
-      },
-      {
-        "key": "keywordCount",
-        "label": "关键词数量",
-        "type": "number",
-        "default": 4,
-        "min": 0,
-        "max": 6,
-        "step": 1,
-        "desc": "底部本章关键词标签数量(0–6)"
-      },
-      {
-        "key": "focusEnabled",
-        "label": "重点强调",
-        "type": "boolean",
-        "default": true,
-        "desc": "是否高亮某一个关键词"
-      },
-      {
-        "key": "focusIndex",
-        "label": "重点对象",
-        "type": "number",
-        "default": 0,
-        "min": 0,
-        "max": 5,
-        "step": 1,
-        "desc": "被高亮的关键词序号(从 0 起)"
-      },
-      {
-        "key": "showDecor",
-        "label": "装饰元素",
-        "type": "boolean",
-        "default": true,
-        "desc": "手绘装饰与贴纸标签 显隐"
-      }
-    ],
-    "defaultProps": {
-      "backgroundTheme": "primary",
-      "numberStyle": "solid",
-      "showIndex": true,
-      "keywordCount": 4,
-      "focusEnabled": true,
-      "focusIndex": 0,
-      "showDecor": true,
-      "eyebrow": "Chapter 06",
-      "indexLabel": "06",
-      "headline": "附录与<b>方法</b>",
-      "subheadline": "口径、来源与复盘",
-      "keywords": [
-        "数据口径",
-        "样本范围",
-        "指标定义",
-        "引用来源",
-        "复盘清单",
-        "免责说明"
-      ],
-      "closingLine": "把方法摊开，结论才站得住。"
-    }
-  },
-  {
-    "key": "theme08_page084",
-    "themeKey": "theme08",
-    "pageNumber": 84,
-    "layout": "THEME08-084",
     "slot": "p90",
     "label": "(90) 记分卡 · Scorecard",
     "bgClass": "",
@@ -13083,10 +12986,10 @@ export const pages = [
     }
   },
   {
-    "key": "theme08_page085",
+    "key": "theme08_page084",
     "themeKey": "theme08",
-    "pageNumber": 85,
-    "layout": "THEME08-085",
+    "pageNumber": 84,
+    "layout": "THEME08-084",
     "slot": "p91",
     "label": "(91) 金句 · Two-Field",
     "bgClass": "",
@@ -13174,140 +13077,6 @@ export const pages = [
         "穿越周期的，从来是现金流而非估值。"
       ],
       "source": "AI CAPITAL LAB · 全年调研总结"
-    }
-  },
-  {
-    "key": "theme08_page086",
-    "themeKey": "theme08",
-    "pageNumber": 86,
-    "layout": "THEME08-086",
-    "slot": "p92",
-    "label": "(92) 图片 · Ribbon",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "backgroundTheme",
-        "label": "背景主题",
-        "type": "enum",
-        "default": "primary",
-        "options": [
-          "primary",
-          "muted"
-        ],
-        "desc": "主色(电光黄) 或 次色(淡紫灰) 底色"
-      },
-      {
-        "key": "mediaCount",
-        "label": "图片数量",
-        "type": "number",
-        "default": 3,
-        "min": 0,
-        "max": 4,
-        "step": 1,
-        "desc": "对角飘带上的图片槽数量(0–4)；布局随数量自动平衡，每槽按上传图片比例自适应"
-      },
-      {
-        "key": "metricCount",
-        "label": "指标数量",
-        "type": "number",
-        "default": 3,
-        "min": 2,
-        "max": 4,
-        "step": 1,
-        "desc": "底部支撑指标格数量(2–4)"
-      },
-      {
-        "key": "showRibbon",
-        "label": "斜向色带",
-        "type": "boolean",
-        "default": true,
-        "desc": "图片背后的斜向色带 显隐"
-      },
-      {
-        "key": "showCaptions",
-        "label": "照片标签",
-        "type": "boolean",
-        "default": true,
-        "desc": "每张照片的贴纸标签 显隐"
-      },
-      {
-        "key": "focusEnabled",
-        "label": "重点强调",
-        "type": "boolean",
-        "default": true,
-        "desc": "是否放大突出某一张照片"
-      },
-      {
-        "key": "focusIndex",
-        "label": "重点对象",
-        "type": "number",
-        "default": 1,
-        "min": 0,
-        "max": 3,
-        "step": 1,
-        "desc": "被放大突出的照片序号(从 0 起)"
-      },
-      {
-        "key": "showDecor",
-        "label": "装饰元素",
-        "type": "boolean",
-        "default": true,
-        "desc": "手绘装饰与贴纸标签 显隐"
-      }
-    ],
-    "defaultProps": {
-      "backgroundTheme": "primary",
-      "mediaCount": 3,
-      "metricCount": 3,
-      "showRibbon": true,
-      "showCaptions": true,
-      "focusEnabled": true,
-      "focusIndex": 1,
-      "showDecor": true,
-      "eyebrow": "Upward · 上行轨迹",
-      "headline": "一年走高的曲线",
-      "subheadline": "对角飘带",
-      "summary": "把节点串成一条<b>向上的飘带</b>，让趋势一眼可读。",
-      "tiles": [
-        {
-          "name": "起点",
-          "tag": "Q1",
-          "ratio": 0.84
-        },
-        {
-          "name": "加速",
-          "tag": "Q2",
-          "ratio": 1.1
-        },
-        {
-          "name": "高点",
-          "tag": "Q4",
-          "ratio": 0.9
-        },
-        {
-          "name": "展望",
-          "tag": "2025",
-          "ratio": 1.2
-        }
-      ],
-      "metrics": [
-        {
-          "k": "全年增速",
-          "v": "2.3",
-          "unit": "×"
-        },
-        {
-          "k": "季度峰值",
-          "v": "312",
-          "unit": "亿"
-        },
-        {
-          "k": "高光节点",
-          "v": "4",
-          "unit": "个"
-        }
-      ],
-      "closingLine": "趋势比单点更有说服力。"
     }
   }
 ];

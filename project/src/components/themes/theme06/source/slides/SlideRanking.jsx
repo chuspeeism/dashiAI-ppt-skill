@@ -22,12 +22,12 @@ import { KxEyebrow, KxGrid } from './kit.jsx';
     .kx-rnk-title{font-size:66px;}
     .kx-rnk-sub{font-family:var(--kx-mono);font-size:26px;color:var(--kx-mute-2);letter-spacing:.04em;text-align:right;}
     .kx-rnk-rows{flex:1;display:flex;flex-direction:column;justify-content:center;}
-    .kx-rnk-row{display:grid;grid-template-columns:84px 300px 1fr 150px;gap:32px;align-items:center;
+    .kx-rnk-row{display:grid;grid-template-columns:84px 380px 1fr 150px;gap:32px;align-items:center;
       padding:0 0;border-bottom:1px solid var(--kx-line-d);position:relative;}
     .kx-rnk-idx{font-family:var(--kx-disp);font-weight:900;font-size:40px;color:var(--kx-mute-2);line-height:1;}
     .kx-rnk-nm{display:flex;flex-direction:column;gap:3px;}
-    .kx-rnk-nm b{font-family:var(--kx-disp);font-weight:900;font-size:32px;letter-spacing:.01em;}
-    .kx-rnk-nm span{font-family:var(--kx-mono);font-size:22px;color:var(--kx-mute-2);text-transform:uppercase;letter-spacing:.04em;}
+    .kx-rnk-nm b{font-family:var(--kx-disp);font-weight:900;font-size:32px;letter-spacing:.01em;white-space:nowrap;}
+    .kx-rnk-nm span{font-family:var(--kx-mono);font-size:22px;color:var(--kx-mute-2);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;}
     .kx-rnk-track{height:26px;background:rgba(0,0,0,.06);position:relative;}
     .kx-rnk-fill{height:100%;background:var(--kx-ink);min-width:4px;display:block;}
     .kx-rnk-dots{display:flex;gap:6px;align-items:center;height:26px;flex-wrap:wrap;align-content:center;}

@@ -70,11 +70,11 @@ if (typeof document !== 'undefined' && !document.getElementById('kx-cas-css')) {
   /* hero */
   .kx-cas-hero{margin-top:20px;}
   .kx-cas-hv{display:flex;align-items:baseline;gap:10px;font-family:var(--kx-disp);font-weight:800;
-    letter-spacing:-.03em;line-height:.8;white-space:nowrap;}
+    letter-spacing:-.03em;line-height:.9;white-space:nowrap;}
   .kx-cas-hv .kx-n{font-size:144px;color:var(--kx-accent);}
   .kx-cas-hv .kx-u{font-size:52px;color:var(--kx-mute);}
   .kx-cas-hl{font-family:var(--kx-mono);font-size:24px;color:var(--kx-mute-2);text-transform:uppercase;
-    letter-spacing:.04em;margin-top:10px;}
+    letter-spacing:.04em;margin-top:14px;}
   /* metric cards (2-up grid) */
   .kx-cas-metrics{display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:auto;
     border-top:1px solid var(--kx-line);}

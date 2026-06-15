@@ -18,6 +18,7 @@
 
 import React from 'react';
 import { DeckImageSlot } from '../components/DeckImageSlot.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 function SlideShowcase({
   idPrefix = 'showcase',
@@ -29,16 +30,20 @@ function SlideShowcase({
     { value: '4.9 / 5', label: '客户满意度' },
   ],
   textPos = 'bottom-left', scrim = 60, showTicker = true, tickerCount = 3, showOverline = true,
+  backgroundMode = 'unicorn', unicornScene = 'moving',
 }) {
   React.useEffect(() => { shwInjectStyle(); }, []);
   const tc = Math.max(2, Math.min(ticks.length, tickerCount));
   const used = ticks.slice(0, tc);
   const sc = Math.max(0, Math.min(95, scrim)) / 100;
+  const useUnicorn = backgroundMode === 'unicorn';
 
   return (
     <div className={`shw-root pos-${textPos === 'center' ? 'center' : 'bl'}`}>
       <div className="shw-img">
-        <DeckImageSlot id={`${idPrefix}-hero`} fit="cover" radius={0} placeholder="FULL-BLEED HERO" />
+        {useUnicorn
+          ? <UnicornBackground scene={unicornScene} accent="var(--ds-accent,#6f9bd8)" />
+          : <DeckImageSlot id={`${idPrefix}-hero`} fit="cover" radius={0} placeholder="FULL-BLEED HERO" />}
       </div>
       <div className="shw-scrim" style={{ '--shw-sc': sc }} />
 
@@ -89,8 +94,10 @@ function shwInjectStyle() {
 
 SlideShowcase.META = {
   id: 'showcase', title: '沉浸大图',
-  defaults: { textPos: 'bottom-left', scrim: 60, showTicker: true, tickerCount: 3, showOverline: true },
+  defaults: { textPos: 'bottom-left', scrim: 60, showTicker: true, tickerCount: 3, showOverline: true, backgroundMode: 'unicorn', unicornScene: 'moving' },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('moving'),
     { key: 'textPos', type: 'radio', label: '文字位置', default: 'bottom-left',
       options: [{ value: 'bottom-left', label: '左下' }, { value: 'center', label: '居中' }],
       description: '标题块在画面中的位置。' },

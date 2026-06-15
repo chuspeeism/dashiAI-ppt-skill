@@ -22,6 +22,7 @@
  * 迁移：import Slide36CoverSection, { defaults, controls } from './Slide36CoverSection.jsx'
  */
 import React from 'react';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 const XHSCV_TONES = { green: '#27E021', yellow: '#FFC700', blue: '#15A7F0', pink: '#FF9FE2' };
 
@@ -59,6 +60,8 @@ function Slide36CoverSection(props) {
       progressData = XHSCV_PROGRESS,
       chapterData = XHSCV_CHAPTER,
     mediaCount = 1,
+    backgroundMode = 'unicorn',
+    unicornScene = 'automations',
     partNumber = 4,
     accentTone = 'pink',
     textAlign = 'left',
@@ -69,7 +72,8 @@ function Slide36CoverSection(props) {
   } = props;
 
   const accent = XHSCV_TONES[accentTone] || XHSCV_TONES.pink;
-  const hasImg = mediaCount >= 1;
+  const useUnicorn = backgroundMode === 'unicorn';
+  const hasImg = !useUnicorn && mediaCount >= 1;
   const part = Math.max(1, Math.min(6, partNumber));
   const partStr = String(part).padStart(2, '0');
   const pcount = Math.max(3, Math.min(6, progressCount));
@@ -82,7 +86,9 @@ function Slide36CoverSection(props) {
       <style>{XHSCV_CSS}</style>
 
       <div className="xhsCv-bg" aria-hidden="true">
-        {hasImg ? (
+        {useUnicorn ? (
+          <UnicornBackground scene={unicornScene} accent={accent} />
+        ) : hasImg ? (
           <image-slot id="xhsCv-bg-0" fit="cover" shape="rect" placeholder={copy.placeholder001}></image-slot>
         ) : (
           <div className="xhsCv-gradient" />
@@ -188,6 +194,8 @@ const META = {
       progressData: XHSCV_PROGRESS,
       chapterData: XHSCV_CHAPTER,
     mediaCount: 1,
+    backgroundMode: 'unicorn',
+    unicornScene: 'automations',
     partNumber: 4,
     accentTone: 'pink',
     textAlign: 'left',
@@ -197,11 +205,13 @@ const META = {
     showDecorations: true,
   },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('automations'),
     { type: 'section', label: '文案 / 单位' },
     { key: 'copy', type: 'list', label: '可见文案', itemLabel: '文案', single: true, fields: [{ key: "placeholder001", label: "placeholder001" }, { key: "text001", label: "text001" }], default: SLIDE36COVERSECTION_COPY, desc: '页面中的固定可见文案、单位和图片槽提示' },
     { key: 'progressData', type: 'list', label: 'progressData', itemLabel: '数据', primitive: true, default: XHSCV_PROGRESS, desc: '默认数据内容' },
     { key: 'chapterData', type: 'list', label: 'chapterData', itemLabel: '数据', single: true, fields: [{ key: "zh", label: "zh" }, { key: "en", label: "en" }, { key: "lead", label: "lead" }], default: XHSCV_CHAPTER, desc: '默认数据内容' },
-    { key: 'mediaCount', type: 'slider', label: '整屏背景图', min: 0, max: 1, step: 1, default: 1, desc: '整屏背景图片槽(0=霓虹渐变底)' },
+    { key: 'mediaCount', type: 'slider', label: '整屏背景图', min: 0, max: 1, step: 1, default: 1, dependsOn: 'backgroundMode', dependsOnValue: 'media', desc: '整屏背景图片槽(0=霓虹渐变底)' },
     { key: 'partNumber', type: 'slider', label: '章节编号', min: 1, max: 6, step: 1, default: 4, desc: '大号 Part 编号徽章' },
     { key: 'accentTone', type: 'radio', label: '主色调', options: ['green', 'yellow', 'blue', 'pink'], optionLabels: ['绿', '黄', '蓝', '粉'], default: 'pink', desc: '页面主色调' },
     { key: 'textAlign', type: 'radio', label: '文案对齐', options: ['left', 'center'], optionLabels: ['左下', '居中'], default: 'left', desc: '文案靠左下 / 居中' },

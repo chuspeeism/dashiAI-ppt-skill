@@ -247,7 +247,7 @@ const sourcePages = [
 const rawPages = sourcePages.map((entry, index) => ({
   ...entry,
   Comp: withTheme02Deck(entry.Comp),
-  controls: [...THEME02_DECK_CONTROLS, ...(entry.controls || [])],
+  controls: withTheme02Controls(entry.controls || []),
   defaults: {
     ...(entry.defaults || {}),
     ...THEME02_DECK_DEFAULTS,
@@ -256,6 +256,17 @@ const rawPages = sourcePages.map((entry, index) => ({
 }));
 
 export const runtimePages = normalizeRuntimePages(rawPages, { themeKey: 'theme02', layoutPrefix: 'THEME02' });
+
+function withTheme02Controls(controls) {
+  const backgroundControls = controls.filter(control => control.key === 'backgroundMode' || control.key === 'unicornScene');
+  const rest = controls.filter(control => control.key !== 'backgroundMode' && control.key !== 'unicornScene');
+  if (backgroundControls.length) return [
+    ...backgroundControls,
+    ...THEME02_DECK_CONTROLS,
+    ...rest,
+  ];
+  return [...THEME02_DECK_CONTROLS, ...controls];
+}
 
 function theme02SchemeProps(deck) {
   const selected = GXN_SCHEMES[deck.scheme] || GXN_SCHEMES.green;

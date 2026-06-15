@@ -1,3 +1,70 @@
+import React from 'react';
+import './PulseImageFrame.jsx';
+const window = globalThis.__theme05Window || (globalThis.__theme05Window = {});
+globalThis.React = React;
+function withTheme05Copy(Component) {
+  const defaultCopy = Component.copyDefaults || Component.defaults?.copy || null;
+  function Theme05CopyWrapped(props = {}) {
+    const copy = mergeTheme05Copy(defaultCopy, props.copy);
+    const element = Component({ ...props, copy });
+    return replaceTheme05Text(element, theme05ReplacementMap(defaultCopy, copy));
+  }
+  Theme05CopyWrapped.controls = Component.controls || [];
+  Theme05CopyWrapped.defaults = { ...(Component.defaults || {}), ...(defaultCopy ? { copy: defaultCopy } : {}) };
+  return Theme05CopyWrapped;
+}
+
+function mergeTheme05Copy(base, override) {
+  if (!base || typeof base !== 'object') return override || base;
+  if (!override || typeof override !== 'object') return base;
+  if (Array.isArray(base)) return Array.isArray(override) ? override : base;
+  const next = { ...base };
+  for (const [key, value] of Object.entries(override)) {
+    next[key] = base[key] && typeof base[key] === 'object' && value && typeof value === 'object'
+      ? mergeTheme05Copy(base[key], value)
+      : value;
+  }
+  return next;
+}
+
+function theme05ReplacementMap(base, copy, map = new Map()) {
+  if (!base || !copy) return map;
+  if (typeof base === 'string' || typeof base === 'number') {
+    const from = String(base).replace(/\u00a0/g, ' ');
+    const to = typeof copy === 'string' || typeof copy === 'number' ? String(copy) : copy;
+    if (from && to !== undefined && to !== null && (!map.has(from) || String(to) !== from)) map.set(from, to);
+    return map;
+  }
+  if (Array.isArray(base) && Array.isArray(copy)) {
+    base.forEach((item, index) => theme05ReplacementMap(item, copy[index], map));
+    return map;
+  }
+  if (typeof base === 'object' && typeof copy === 'object') {
+    Object.keys(base).forEach(key => theme05ReplacementMap(base[key], copy[key], map));
+  }
+  return map;
+}
+
+function replaceTheme05Text(node, replacements) {
+  if (!replacements?.size) return node;
+  if (typeof node === 'string' || typeof node === 'number') {
+    return replacements.get(String(node).replace(/\u00a0/g, ' ')) ?? node;
+  }
+  if (Array.isArray(node)) return node.map(child => replaceTheme05Text(child, replacements));
+  if (!React.isValidElement(node)) return node;
+  const nextProps = {};
+  let changed = false;
+  for (const key of ['children', 'label', 'placeholder', 'title', 'alt', 'aria-label']) {
+    if (!(key in node.props)) continue;
+    const next = replaceTheme05Text(node.props[key], replacements);
+    if (next !== node.props[key]) {
+      nextProps[key] = next;
+      changed = true;
+    }
+  }
+  return changed ? React.cloneElement(node, nextProps) : node;
+}
+
 /* =========================================================================
    PulseStatement — P33 statement page ("金句 / Bold Statement" archetype).
    A generic single-statement slide for stage-ending punctuation: one oversized
@@ -8,31 +75,32 @@
    Self-contained & migratable: depends only on React + the .pulse-stmt / shared
    .pulse-* CSS. Controlled ENTIRELY by props (text lives in COPY, structure /
    style in props). See PulseStatement.controls for the typed parameter list.
+
+   To migrate into a bundler: delete the `window.PulseStatement = …` line at the
    bottom and instead `export default PulseStatement` (controls / defaults are
    already attached as static props, and are also exported as named consts).
    ========================================================================= */
-import React from 'react';
+(function () {
+  const SPECTRUM = ["#d8402e", "#e2742c", "#efbe2e", "#3c9a52", "#4da0c6", "#2c44a0", "#7a3c90"];
 
-const SPECTRUM = ["#d8402e","#e2742c","#efbe2e","#3c9a52","#4da0c6","#2c44a0","#7a3c90"];
-
-// Static copy (text intentionally NOT prop-driven, per spec — edit here).
-const COPY = {
-  kicker: "DEVELOPER TOOLS · 开发者工具赛道",
-  index: "33",
-  sheet: "STATEMENT · 33 / 80",
-  // statement rendered as JSX so key phrases can be emphasised
-  quote: (
+  // Static copy (text intentionally NOT prop-driven, per spec — edit here).
+  const COPY = {
+    kicker: "DEVELOPER TOOLS · 开发者工具赛道",
+    index: "33",
+    sheet: "STATEMENT · 33 / 80",
+    // statement rendered as JSX so key phrases can be emphasised
+    quote:
     <React.Fragment>
-      研发效率，是企业<br />
-      <span className="hl">最直接</span>的 AI <span className="mute">预算入口</span>之一。
-    </React.Fragment>
-  ),
-  sub: "效率工具最贴近开发团队的日常，预算决策链路短、落地周期快。",
-  keywords: ["一句话判断", "信息密度 · 低", "阶段性收束"],
-};
+        研发效率，是企业<br />
+        <span className="hl">最直接</span>的 AI <span className="mute">预算入口</span>之一。
+      </React.Fragment>,
 
-// ---- adjustable parameters (schema = documentation = control source) ----
-const controls = [
+    sub: "效率工具最贴近开发团队的日常，预算决策链路短、落地周期快。",
+    keywords: ["一句话判断", "信息密度 · 低", "阶段性收束"]
+  };
+
+  // ---- adjustable parameters (schema = documentation = control source) ----
+  const controls = [
   { key: "theme", type: "radio", label: "背景主题", default: "dark",
     options: [{ value: "paper", label: "纸色" }, { value: "dark", label: "深色" }, { value: "color", label: "色块" }],
     description: "页面背景：纸色 / 深色 / 整页强调色块。" },
@@ -54,68 +122,75 @@ const controls = [
   { key: "showColorBand", type: "toggle", label: "色谱条", default: true,
     description: "右下角的小色谱条带。" },
   { key: "showSheetLabel", type: "toggle", label: "页码标签", default: true,
-    description: "右上角的页码 / 章节标签。" },
-];
-const defaults = controls.reduce((o, c) => { o[c.key] = c.default; return o; }, {});
+    description: "右上角的页码 / 章节标签。" }];
 
-function PulseStatement(props) {
-  const p = Object.assign({}, defaults, props);
-  const accent = p.accentColor;
-  const isColor = p.theme === "color";
-  const cls =
-    "pulse-slide pulse-stmt" +
-    (p.theme === "dark" ? " pulse-stmt--dark" : "") +
-    (isColor ? " pulse-stmt--color" : "");
-  const center = p.align === "center";
-  const nKw = Math.max(0, Math.min(COPY.keywords.length, p.keywordCount));
-  const keywords = COPY.keywords.slice(0, nKw);
+  const defaults = controls.reduce((o, c) => {o[c.key] = c.default;return o;}, {});
 
-  const style = { "--pulse-accent": accent };
-  if (isColor) style.background = p.bgColor;
+  function PulseStatement(props) {
+    const p = Object.assign({}, defaults, props);
+    const accent = p.accentColor;
+    const isColor = p.theme === "color";
+    const cls =
+    "pulse-slide pulse-stmt" + (
+    p.theme === "dark" ? " pulse-stmt--dark" : "") + (
+    isColor ? " pulse-stmt--color" : "");
+    const center = p.align === "center";
+    const nKw = Math.max(0, Math.min(COPY.keywords.length, p.keywordCount));
+    const keywords = COPY.keywords.slice(0, nKw);
 
-  // emphasis off → strip the highlight class so the line reads flat
-  const quote = p.emphasis ? COPY.quote : (
+    const style = { "--pulse-accent": accent };
+    if (isColor) style.background = p.bgColor;
+
+    // emphasis off → strip the highlight class so the line reads flat
+    const quote = p.emphasis ? COPY.quote :
     <React.Fragment>
-      研发效率，是企业<br />最直接的 AI 预算入口之一。
-    </React.Fragment>
-  );
+        研发效率，是企业<br />最直接的 AI 预算入口之一。
+      </React.Fragment>;
 
-  return (
-    <div className={cls} style={style}>
-      <div className="pulse-stmt__top">
-        <div className="pulse-stmt__kicker">{COPY.kicker}</div>
-        {p.showSheetLabel && <div className="pulse-stmt__sheet">{COPY.sheet}</div>}
-      </div>
 
-      <div className={"pulse-stmt__main" + (center ? " pulse-stmt__main--center" : "")}>
-        {p.showIndex && <div className="pulse-stmt__ghost" aria-hidden="true">{COPY.index}</div>}
-        <div className="pulse-stmt__lead">研发效率 <span>Developer Productivity</span></div>
-        <div className="pulse-stmt__quote">{quote}</div>
-        {p.showSub && <div className="pulse-stmt__sub">{COPY.sub}</div>}
-      </div>
-
-      {(nKw > 0 || p.showColorBand) && (
-        <div className="pulse-stmt__foot">
-          {nKw > 0 ? (
-            <div className="pulse-stmt__kw">
-              {keywords.map((k, i) => <span className="pulse-stmt__chip" key={i}>{k}</span>)}
-            </div>
-          ) : <span />}
-          {p.showColorBand && (
-            <div className="pulse-stmt__band" aria-hidden="true">
-              {SPECTRUM.map((c, i) => <i key={i} style={{ background: c }} />)}
-            </div>
-          )}
+    return (
+      <div className={cls} style={style}>
+        <div className="pulse-stmt__top">
+          <div className="pulse-stmt__kicker">{COPY.kicker}</div>
+          {p.showSheetLabel && <div className="pulse-stmt__sheet">{COPY.sheet}</div>}
         </div>
-      )}
-    </div>
-  );
-}
 
-PulseStatement.controls = controls;
-PulseStatement.defaults = defaults;
+        <div className={"pulse-stmt__main" + (center ? " pulse-stmt__main--center" : "")}>
+          {p.showIndex && <div className="pulse-stmt__ghost" aria-hidden="true">{COPY.index}</div>}
+          <div className="pulse-stmt__lead">研发效率 <span>Developer Productivity</span></div>
+          <div className="pulse-stmt__quote">{quote}</div>
+          {p.showSub && <div className="pulse-stmt__sub" style={{ width: "1050px" }}>{COPY.sub}</div>}
+        </div>
 
-// ---- preview-only registration (swap for `export default` in a bundler) ----
-export default PulseStatement;
-export { controls };
-export { defaults };
+        {(nKw > 0 || p.showColorBand) &&
+        <div className="pulse-stmt__foot">
+            {nKw > 0 ?
+          <div className="pulse-stmt__kw">
+                {keywords.map((k, i) => <span className="pulse-stmt__chip" key={i}>{k}</span>)}
+              </div> :
+          <span />}
+            {p.showColorBand &&
+          <div className="pulse-stmt__band" aria-hidden="true">
+                {SPECTRUM.map((c, i) => <i key={i} style={{ background: c }} />)}
+              </div>
+          }
+          </div>
+        }
+      </div>);
+
+  }
+
+  PulseStatement.controls = controls;
+  PulseStatement.defaults = defaults;
+
+  // ---- preview-only registration (swap for `export default` in a bundler) ----
+  if (typeof window !== "undefined") PulseStatement.copyDefaults = COPY;
+  PulseStatement.defaults = { ...(PulseStatement.defaults || {}), copy: COPY };
+  window.PulseStatement = PulseStatement;
+})();
+const Component = window.PulseStatement;
+if (!Component) throw new Error('Missing theme05 component PulseStatement');
+const WrappedComponent = withTheme05Copy(Component);
+export const controls = WrappedComponent.controls || [];
+export const defaults = WrappedComponent.defaults || {};
+export default WrappedComponent;

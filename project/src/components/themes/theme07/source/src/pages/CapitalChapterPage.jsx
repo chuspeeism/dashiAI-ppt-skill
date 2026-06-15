@@ -92,8 +92,8 @@ const CSS = `
   background: radial-gradient(closest-side, color-mix(in srgb, var(--aic-accent) 32%, transparent), transparent 70%); }
 
 /* giant index watermark */
-.aic-c4 .c4-index { position: absolute; left: -30px; bottom: -150px; font-family: var(--aic-font-display);
-  font-weight: 700; font-size: 720px; line-height: .7; color: transparent;
+.aic-c4 .c4-index { position: absolute; left: -30px; bottom: -180px; font-family: var(--aic-font-display);
+  font-weight: 700; font-size: 560px; line-height: .7; color: transparent;
   -webkit-text-stroke: 3px var(--c4-hair); letter-spacing: -.04em; pointer-events: none; user-select: none;
   font-variant-numeric: lining-nums; }
 
@@ -157,7 +157,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','warn','accent
 
 export default function CapitalChapterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, index: p.index !== undefined ? p.index : COPY.index, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, clusterTitle: p.clusterTitle !== undefined ? p.clusterTitle : COPY.clusterTitle, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords, hubs: p.hubs !== undefined ? p.hubs : COPY.hubs };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-c4', CSS);
   const vars = themeVars(p.accentColor);

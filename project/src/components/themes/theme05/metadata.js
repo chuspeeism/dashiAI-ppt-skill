@@ -24,15 +24,13 @@ export const pages = [
           "#F2C00C",
           "#2F9450",
           "#2742C2"
-        ],
-        "desc": "眉标、指标英文与装饰元素的强调色。"
+        ]
       },
       {
         "key": "showRail",
         "label": "右侧指标栏",
         "type": "toggle",
-        "default": true,
-        "desc": "显示右侧深色四项指标参数栏；关闭后标题区铺满整页。"
+        "default": true
       },
       {
         "key": "specCount",
@@ -41,22 +39,19 @@ export const pages = [
         "default": 4,
         "min": 1,
         "max": 4,
-        "step": 1,
-        "desc": "右侧指标栏展示的指标行数量。"
+        "step": 1
       },
       {
         "key": "showSwatch",
         "label": "色卡",
         "type": "toggle",
-        "default": true,
-        "desc": "右侧指标栏底部的四色色卡。"
+        "default": true
       },
       {
         "key": "showFooter",
         "label": "底部色谱条",
         "type": "toggle",
-        "default": true,
-        "desc": "页面底部贯穿的文件信息与色谱条。"
+        "default": true
       }
     ],
     "defaultProps": {
@@ -64,7 +59,45 @@ export const pages = [
       "showRail": true,
       "specCount": 4,
       "showSwatch": true,
-      "showFooter": true
+      "showFooter": true,
+      "copy": {
+        "brand": "智造",
+        "brandEn": "SMARTWORKS",
+        "meta": [
+          "INDUSTRY 4.0",
+          "2026 — 2027",
+          "COMPUTER INTEGRATED"
+        ],
+        "kicker": "智能化改造实施方案 · Implementation Plan",
+        "titleTop": "精益智造",
+        "titleBottom": "提质增效",
+        "subtitle": "2026 生产基地智能化改造实施方案",
+        "subtitleEn": "Lean Manufacturing · Quality & Efficiency Upgrade",
+        "railHead": "PROGRAM",
+        "specs": [
+          {
+            "k": "指标 01",
+            "v": "降本",
+            "vn": "Cost Down"
+          },
+          {
+            "k": "指标 02",
+            "v": "提效",
+            "vn": "Efficiency"
+          },
+          {
+            "k": "指标 03",
+            "v": "革新",
+            "vn": "Innovation"
+          },
+          {
+            "k": "指标 04",
+            "v": "突围",
+            "vn": "Breakthrough"
+          }
+        ],
+        "footer": "FILE · LEAN-2026 / REV.A"
+      }
     }
   },
   {
@@ -80,15 +113,13 @@ export const pages = [
         "key": "showTopRule",
         "label": "顶部分隔线",
         "type": "toggle",
-        "default": true,
-        "desc": "标题上方贯穿的品牌实验室分隔线。"
+        "default": true
       },
       {
         "key": "showNumber",
         "label": "编号徽标",
         "type": "toggle",
-        "default": true,
-        "desc": "标题上方的 “NO. 02” 编号徽标。"
+        "default": true
       },
       {
         "key": "chipCount",
@@ -97,22 +128,29 @@ export const pages = [
         "default": 5,
         "min": 1,
         "max": 5,
-        "step": 1,
-        "desc": "标题下方的彩色色块条数量。"
+        "step": 1
       },
       {
         "key": "showBanner",
         "label": "底部标语条",
         "type": "toggle",
-        "default": true,
-        "desc": "页面底部的深色标语横幅。"
+        "default": true
       }
     ],
     "defaultProps": {
       "showTopRule": true,
       "showNumber": true,
       "chipCount": 5,
-      "showBanner": true
+      "showBanner": true,
+      "copy": {
+        "top": "PULSE® BRAND LAB · FULL-FUNNEL MARKETING",
+        "number": "NO. 02",
+        "caption": "2026 年度全平台品牌整合营销方案",
+        "titleTop": "创意破圈",
+        "titleBottom": "流量赋能",
+        "banner": "内容驱动传播 · 创意引爆市场",
+        "bannerEn": "Content Drives Reach · Idea Ignites Market"
+      }
     }
   },
   {
@@ -135,36 +173,44 @@ export const pages = [
           "#F2C00C",
           "#2F9450",
           "#2742C2"
-        ],
-        "desc": "中部眉标的强调色。"
+        ]
       },
       {
         "key": "showYear",
         "label": "年份水印",
         "type": "toggle",
-        "default": true,
-        "desc": "左上角的大号年份水印 2026—2028。"
+        "default": true
       },
       {
         "key": "showSummary",
         "label": "右上摘要",
         "type": "toggle",
-        "default": true,
-        "desc": "右上角的战略摘要文本块。"
+        "default": true
       },
       {
         "key": "showBotBand",
         "label": "底部色谱条",
         "type": "toggle",
-        "default": true,
-        "desc": "页面底部贯穿的色谱条。"
+        "default": true
       }
     ],
     "defaultProps": {
       "accentColor": "#E8741C",
       "showYear": true,
       "showSummary": true,
-      "showBotBand": true
+      "showBotBand": true,
+      "copy": {
+        "brand": "链网",
+        "brandEn": "SUPPLY-NET",
+        "meta": "GROUP SUPPLY CHAIN · STRATEGY 03 / 04",
+        "year": "2026—2028",
+        "summary": "打通物流脉络 构筑产业护城河",
+        "summaryEn": "Connect The Network · Build The Moat",
+        "kicker": "集团供应链体系三年发展战略",
+        "titleTop": "链通全国",
+        "titleBottom": "高效履约",
+        "subtitle": "Three-Year Supply Chain Development Strategy"
+      }
     }
   },
   {
@@ -187,15 +233,13 @@ export const pages = [
           "#F2C00C",
           "#2F9450",
           "#7A3C9A"
-        ],
-        "desc": "菜单当前选中行的高亮底色。"
+        ]
       },
       {
         "key": "showFrame",
         "label": "内边框",
         "type": "toggle",
-        "default": true,
-        "desc": "页面四周的双线内边框装饰。"
+        "default": true
       },
       {
         "key": "menuCount",
@@ -204,22 +248,48 @@ export const pages = [
         "default": 4,
         "min": 1,
         "max": 4,
-        "step": 1,
-        "desc": "底部模拟菜单的条目数量。"
+        "step": 1
       },
       {
         "key": "showFoot",
         "label": "底部标语",
         "type": "toggle",
-        "default": true,
-        "desc": "页脚的口号与操作提示两行文本。"
+        "default": true
       }
     ],
     "defaultProps": {
       "accentColor": "#E0301E",
       "showFrame": true,
       "menuCount": 4,
-      "showFoot": true
+      "showFoot": true,
+      "copy": {
+        "setup": "SETUP · RETAIL OPS",
+        "cornerLeft": "门店运营培训",
+        "cornerRight": "SHEET 04 / 04",
+        "titleTop": "把握消费趋势",
+        "titleBottom": "激活终端潜力",
+        "subtitle": "全国零售门店运营管理暨营销实战培训",
+        "menu": [
+          {
+            "label": "消费趋势 TREND SENSING",
+            "tag": "ON"
+          },
+          {
+            "label": "终端潜力 STORE POTENTIAL",
+            "tag": "ON"
+          },
+          {
+            "label": "运营管理 OPS MANAGEMENT",
+            "tag": "16TH"
+          },
+          {
+            "label": "营销实战 FIELD MARKETING",
+            "tag": "+6 DB"
+          }
+        ],
+        "slogan": "用心服务客户，实干创造业绩",
+        "foot": "PRESS (MENU) TO BEGIN · SERVE WITH HEART, ACHIEVE BY ACTION"
+      }
     }
   },
   {
@@ -304,7 +374,46 @@ export const pages = [
       "metaCount": 4,
       "showSwatches": true,
       "showColorBand": true,
-      "showTagline": true
+      "showTagline": true,
+      "copy": {
+        "brand": "AICL",
+        "meta": [
+          "UNITED STATES · AI",
+          "2024 FY",
+          "DEALS ≥ $100M"
+        ],
+        "eyebrow": "美国 AI 大额融资 · RESEARCH",
+        "display": "2024",
+        "titleLines": [
+          "美国大额融资",
+          "AI 公司调研报告"
+        ],
+        "sub": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元",
+        "tagline": "从资本流向，看 AI 产业下一阶段的真实重心。",
+        "panelHead": "SPECIFICATION",
+        "specs": [
+          {
+            "k": "数据口径",
+            "v": "≥ $100M"
+          },
+          {
+            "k": "大额事件",
+            "v": "97 笔"
+          },
+          {
+            "k": "研究主题",
+            "v": "美国 AI"
+          },
+          {
+            "k": "报告日期",
+            "v": "2026.06"
+          },
+          {
+            "k": "报告篇幅",
+            "v": "14 页"
+          }
+        ]
+      }
     }
   },
   {
@@ -392,7 +501,68 @@ export const pages = [
       "accentColor": "#2c44a0",
       "chartType": "bar",
       "showProportionBar": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "title": "报告摘要",
+        "sheet": "OVERVIEW · 02 / 32",
+        "figCap": "FIG.1 — 资本流向全景",
+        "figMono": "97 DEALS · 16 SECTORS · 4 QUARTERS",
+        "leadPre": "2024 年美国 AI 初创公司吸纳约 ",
+        "leadHL1": "970 亿美元",
+        "leadMid": " 风险投资，单笔 ≥ 1 亿美元的大额融资事件达 ",
+        "leadHL2": "97 笔",
+        "leadPost": "，资本向头部高度集中。",
+        "specs": [
+          {
+            "k": "全年融资",
+            "v": "970 亿美元"
+          },
+          {
+            "k": "大额事件",
+            "v": "97 笔"
+          },
+          {
+            "k": "平均单笔",
+            "v": "10 亿美元"
+          },
+          {
+            "k": "湾区占比",
+            "v": "63.9%"
+          },
+          {
+            "k": "Top10 集中",
+            "v": "23.8%"
+          }
+        ],
+        "propTitle": "赛道融资占比",
+        "props": [
+          {
+            "name": "通用大模型",
+            "v": 43.3,
+            "c": "#d8402e"
+          },
+          {
+            "name": "垂直应用",
+            "v": 25.3,
+            "c": "#e2742c"
+          },
+          {
+            "name": "基础设施",
+            "v": 16.3,
+            "c": "#4da0c6"
+          },
+          {
+            "name": "AI 芯片",
+            "v": 10,
+            "c": "#2c44a0"
+          },
+          {
+            "name": "其他",
+            "v": 5.1,
+            "c": "#3c9a52"
+          }
+        ]
+      }
     }
   },
   {
@@ -478,7 +648,274 @@ export const pages = [
       "showCardGraphic": true,
       "showCardIndex": true,
       "showCardCode": true,
-      "showNote": true
+      "showNote": true,
+      "copy": {
+        "title": "报告结构",
+        "note": [
+          "07 章 · 横纵分析",
+          "FROM METHOD TO OUTLOOK"
+        ],
+        "chapters": [
+          {
+            "zh": "研究方法",
+            "en": "METHODOLOGY",
+            "code": "MT"
+          },
+          {
+            "zh": "市场全景",
+            "en": "MARKET PANORAMA",
+            "code": "MK"
+          },
+          {
+            "zh": "横向透视",
+            "en": "CROSS-SECTION",
+            "code": "CS"
+          },
+          {
+            "zh": "产业链分层",
+            "en": "VALUE CHAIN",
+            "code": "VC"
+          },
+          {
+            "zh": "典型案例",
+            "en": "CASE STUDIES",
+            "code": "CA"
+          },
+          {
+            "zh": "风险研判",
+            "en": "RISK ASSESSMENT",
+            "code": "RK"
+          },
+          {
+            "zh": "结论展望",
+            "en": "OUTLOOK",
+            "code": "OL"
+          },
+          {
+            "zh": "附录数据",
+            "en": "APPENDIX",
+            "code": "AP"
+          }
+        ],
+        "skins": [
+          {
+            "bg": "#d8402e",
+            "fg": "#fff",
+            "blocks": [
+              [
+                2,
+                42,
+                40,
+                58,
+                "#efbe2e"
+              ],
+              [
+                34,
+                8,
+                34,
+                54,
+                "#e2742c"
+              ],
+              [
+                64,
+                30,
+                34,
+                70,
+                "#f2efe4"
+              ]
+            ]
+          },
+          {
+            "bg": "#f2efe4",
+            "fg": "#1a1814",
+            "blocks": [
+              [
+                2,
+                30,
+                30,
+                70,
+                "#d8402e"
+              ],
+              [
+                30,
+                55,
+                34,
+                45,
+                "#2c44a0"
+              ],
+              [
+                62,
+                18,
+                36,
+                82,
+                "#efbe2e"
+              ]
+            ]
+          },
+          {
+            "bg": "#3c9a52",
+            "fg": "#fff",
+            "blocks": [
+              [
+                0,
+                20,
+                46,
+                40,
+                "#efbe2e"
+              ],
+              [
+                40,
+                48,
+                38,
+                52,
+                "#4da0c6"
+              ],
+              [
+                70,
+                6,
+                30,
+                46,
+                "#f2efe4"
+              ]
+            ]
+          },
+          {
+            "bg": "#2c44a0",
+            "fg": "#fff",
+            "blocks": [
+              [
+                2,
+                48,
+                36,
+                52,
+                "#4da0c6"
+              ],
+              [
+                30,
+                12,
+                36,
+                46,
+                "#d8402e"
+              ],
+              [
+                62,
+                40,
+                36,
+                60,
+                "#efbe2e"
+              ]
+            ]
+          },
+          {
+            "bg": "#efbe2e",
+            "fg": "#1a1814",
+            "blocks": [
+              [
+                0,
+                30,
+                42,
+                50,
+                "#d8402e"
+              ],
+              [
+                38,
+                10,
+                30,
+                64,
+                "#2c44a0"
+              ],
+              [
+                64,
+                46,
+                36,
+                54,
+                "#3c9a52"
+              ]
+            ]
+          },
+          {
+            "bg": "#1a1814",
+            "fg": "#f2efe4",
+            "blocks": [
+              [
+                2,
+                24,
+                32,
+                54,
+                "#3c9a52"
+              ],
+              [
+                32,
+                46,
+                34,
+                54,
+                "#e2742c"
+              ],
+              [
+                62,
+                16,
+                36,
+                62,
+                "#4da0c6"
+              ]
+            ]
+          },
+          {
+            "bg": "#4da0c6",
+            "fg": "#fff",
+            "blocks": [
+              [
+                0,
+                40,
+                40,
+                60,
+                "#2c44a0"
+              ],
+              [
+                34,
+                14,
+                34,
+                50,
+                "#efbe2e"
+              ],
+              [
+                64,
+                34,
+                36,
+                66,
+                "#d8402e"
+              ]
+            ]
+          },
+          {
+            "bg": "#7a3c90",
+            "fg": "#fff",
+            "blocks": [
+              [
+                2,
+                30,
+                36,
+                62,
+                "#efbe2e"
+              ],
+              [
+                32,
+                54,
+                34,
+                46,
+                "#4da0c6"
+              ],
+              [
+                62,
+                12,
+                36,
+                60,
+                "#e2742c"
+              ]
+            ]
+          }
+        ]
+      }
     }
   },
   {
@@ -580,7 +1017,59 @@ export const pages = [
       "accentColor": "#d8402e",
       "specRowCount": 4,
       "showColorBand": true,
-      "showWordmark": true
+      "showWordmark": true,
+      "copy": {
+        "eyebrow": "METHODOLOGY",
+        "title": "横纵分析法",
+        "sub": "横向看空间对比，纵向看时间演化，交叉锁定资本流向。",
+        "specs": [
+          {
+            "k": "横向 / Horizontal",
+            "v": "空间对比"
+          },
+          {
+            "k": "纵向 / Vertical",
+            "v": "时间演化"
+          },
+          {
+            "k": "交叉 / Cross",
+            "v": "产业分层"
+          },
+          {
+            "k": "目标 / Output",
+            "v": "资本流向"
+          }
+        ],
+        "brand": "AICL",
+        "panelHead": "分析框架 · METHOD",
+        "menu": [
+          {
+            "k": "横向分析",
+            "v": "空间"
+          },
+          {
+            "k": "纵向分析",
+            "v": "时间"
+          },
+          {
+            "k": "交叉分析",
+            "v": "分层"
+          },
+          {
+            "k": "数据口径",
+            "v": "≥ $100M"
+          },
+          {
+            "k": "样本规模",
+            "v": "97 笔"
+          },
+          {
+            "k": "输出结论",
+            "v": "投资判断"
+          }
+        ],
+        "panelFoot": "SELECT WITH (▲ ▼) · 横纵交叉定位资本流向"
+      }
     }
   },
   {
@@ -694,7 +1183,38 @@ export const pages = [
       "showMetrics": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "MARKET PANORAMA",
+        "title": "市场全景 · 纵向趋势",
+        "sub": "逐季度融资额走势",
+        "sheet": "TREND · 05 / 32",
+        "primaryName": "融资额（亿美元）",
+        "secondaryName": "事件数（笔）",
+        "points": [
+          {
+            "axis": "Q1",
+            "v": 162,
+            "s": 18
+          },
+          {
+            "axis": "Q2",
+            "v": 284,
+            "s": 26
+          },
+          {
+            "axis": "Q3",
+            "v": 318,
+            "s": 31
+          },
+          {
+            "axis": "Q4",
+            "v": 206,
+            "s": 22
+          }
+        ],
+        "conclusion": "高峰过后不是崩塌，而是市场开始筛选。"
+      }
     }
   },
   {
@@ -800,7 +1320,42 @@ export const pages = [
       "showLegend": true,
       "showConclusion": true,
       "accentColor": "#d8402e",
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "CROSS-SECTION",
+        "title": "横向透视 · 赛道占比",
+        "sub": "钱流向哪些赛道",
+        "sheet": "SHARE · 06 / 32",
+        "unit": "SHARE OF $97B",
+        "segments": [
+          {
+            "name": "通用大模型",
+            "v": 43.3,
+            "c": "#d8402e"
+          },
+          {
+            "name": "垂直应用",
+            "v": 25.3,
+            "c": "#e2742c"
+          },
+          {
+            "name": "基础设施",
+            "v": 16.3,
+            "c": "#4da0c6"
+          },
+          {
+            "name": "AI 芯片",
+            "v": 10,
+            "c": "#2c44a0"
+          },
+          {
+            "name": "其他",
+            "v": 5.1,
+            "c": "#3c9a52"
+          }
+        ],
+        "conclusion": "融资额排名背后，是资本对叙事和兑现的双重押注。"
+      }
     }
   },
   {
@@ -892,7 +1447,79 @@ export const pages = [
       "showSidePanel": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "VALUE CHAIN",
+        "title": "产业链分层透视",
+        "sub": "上游、中游、下游的资本位置",
+        "sheet": "CHAIN · 07 / 32",
+        "layers": [
+          {
+            "zh": "上游",
+            "en": "UPSTREAM",
+            "c": "#4da0c6",
+            "items": [
+              "算力",
+              "芯片",
+              "数据"
+            ]
+          },
+          {
+            "zh": "中游",
+            "en": "MIDSTREAM",
+            "c": "#2c44a0",
+            "items": [
+              "通用模型",
+              "专用模型"
+            ]
+          },
+          {
+            "zh": "下游",
+            "en": "DOWNSTREAM",
+            "c": "#3c9a52",
+            "items": [
+              "企业应用",
+              "搜索",
+              "机器人"
+            ]
+          },
+          {
+            "zh": "支撑",
+            "en": "ENABLERS",
+            "c": "#7a3c90",
+            "items": [
+              "安全",
+              "评测",
+              "数据标注"
+            ]
+          }
+        ],
+        "sideHead": "地区分布",
+        "sideUnit": "GEO SHARE",
+        "dist": [
+          {
+            "name": "旧金山湾区",
+            "v": 63.9,
+            "c": "#d8402e"
+          },
+          {
+            "name": "纽约",
+            "v": 12.4,
+            "c": "#e2742c"
+          },
+          {
+            "name": "西雅图",
+            "v": 9.8,
+            "c": "#efbe2e"
+          },
+          {
+            "name": "波士顿",
+            "v": 7.7,
+            "c": "#3c9a52"
+          }
+        ],
+        "conclusion": "产业链分层决定了资本确定性与商业风险的不同位置。"
+      }
     }
   },
   {
@@ -987,7 +1614,97 @@ export const pages = [
       "showMetrics": true,
       "showGalleryCaption": true,
       "accentColor": "#d8402e",
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "CASE STUDIES",
+        "title": "典型案例深度剖析",
+        "sub": "三类资本逻辑的代表公司",
+        "sheet": "CASES · 08 / 32",
+        "cards": [
+          {
+            "en": "ANTHROPIC",
+            "zh": "安全可靠模型",
+            "c": "#d8402e",
+            "fg": "#fff",
+            "metrics": [
+              [
+                "融资",
+                "650 亿+"
+              ],
+              [
+                "方向",
+                "安全对齐"
+              ],
+              [
+                "产品",
+                "Claude"
+              ]
+            ]
+          },
+          {
+            "en": "XAI",
+            "zh": "实时数据生态",
+            "c": "#2c44a0",
+            "fg": "#fff",
+            "metrics": [
+              [
+                "融资",
+                "50 亿"
+              ],
+              [
+                "数据",
+                "X 平台"
+              ],
+              [
+                "方向",
+                "多模态"
+              ]
+            ]
+          },
+          {
+            "en": "COREWEAVE",
+            "zh": "算力基础设施",
+            "c": "#3c9a52",
+            "fg": "#fff",
+            "metrics": [
+              [
+                "融资",
+                "110 亿"
+              ],
+              [
+                "GPU",
+                "7.8 万张"
+              ],
+              [
+                "方向",
+                "算力云"
+              ]
+            ]
+          },
+          {
+            "en": "OPENAI",
+            "zh": "商业化标杆",
+            "c": "#7a3c90",
+            "fg": "#fff",
+            "metrics": [
+              [
+                "融资",
+                "66 亿"
+              ],
+              [
+                "客户",
+                "9.4 万家"
+              ],
+              [
+                "方向",
+                "通用模型"
+              ]
+            ]
+          }
+        ],
+        "galleryCap": "案例图示",
+        "galleryUnit": "DROP IMAGES"
+      }
     }
   },
   {
@@ -1120,7 +1837,65 @@ export const pages = [
       "showScaleLegend": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "MONTHLY HEATMAP",
+        "title": "市场月度热力",
+        "sub": "12 个月融资节奏",
+        "sheet": "DETAIL · 09 / 32",
+        "unit": "亿美元 / 月",
+        "cells": [
+          {
+            "k": "1月",
+            "v": 45
+          },
+          {
+            "k": "2月",
+            "v": 58
+          },
+          {
+            "k": "3月",
+            "v": 59
+          },
+          {
+            "k": "4月",
+            "v": 86
+          },
+          {
+            "k": "5月",
+            "v": 105
+          },
+          {
+            "k": "6月",
+            "v": 93
+          },
+          {
+            "k": "7月",
+            "v": 92
+          },
+          {
+            "k": "8月",
+            "v": 118
+          },
+          {
+            "k": "9月",
+            "v": 108
+          },
+          {
+            "k": "10月",
+            "v": 73
+          },
+          {
+            "k": "11月",
+            "v": 81
+          },
+          {
+            "k": "12月",
+            "v": 52
+          }
+        ],
+        "conclusion": "融资节奏的核心不是平均值，而是峰值背后的超级交易。"
+      }
     }
   },
   {
@@ -1242,7 +2017,67 @@ export const pages = [
       "showValue": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "TOP FUNDED COMPANIES",
+        "title": "Top 10 融资公司",
+        "sub": "头部玩家资金排名",
+        "sheet": "RANKING · 10 / 32",
+        "unit": "最大单笔 · 亿美元",
+        "rows": [
+          {
+            "name": "OpenAI",
+            "cat": "通用大模型",
+            "v": 66
+          },
+          {
+            "name": "Anthropic",
+            "cat": "通用大模型",
+            "v": 65
+          },
+          {
+            "name": "xAI",
+            "cat": "通用大模型",
+            "v": 50
+          },
+          {
+            "name": "CoreWeave",
+            "cat": "算力基础设施",
+            "v": 11
+          },
+          {
+            "name": "SSI",
+            "cat": "安全智能",
+            "v": 10
+          },
+          {
+            "name": "Scale AI",
+            "cat": "数据基础设施",
+            "v": 10
+          },
+          {
+            "name": "Figure AI",
+            "cat": "具身智能",
+            "v": 6.8
+          },
+          {
+            "name": "Perplexity",
+            "cat": "AI 搜索",
+            "v": 5.2
+          },
+          {
+            "name": "Databricks",
+            "cat": "数据平台",
+            "v": 5
+          },
+          {
+            "name": "Glean",
+            "cat": "企业搜索",
+            "v": 2.6
+          }
+        ],
+        "conclusion": "头部融资规模既反映技术叙事，也反映资源绑定能力。"
+      }
     }
   },
   {
@@ -1339,7 +2174,119 @@ export const pages = [
       "showAxisLabels": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "HEAT vs. MONETIZATION",
+        "title": "资本热度 × 商业兑现",
+        "sub": "四象限机会判断",
+        "sheet": "OPPORTUNITY · 11 / 32",
+        "axisX": "商业兑现",
+        "axisY": "资本热度",
+        "quads": [
+          {
+            "zh": "明星兑现",
+            "en": "STAR DELIVERY",
+            "c": "#3c9a52",
+            "area": "tr",
+            "note": "高热度 · 高兑现",
+            "items": [
+              "基础设施",
+              "数据平台"
+            ],
+            "dots": [
+              [
+                30,
+                38
+              ],
+              [
+                58,
+                26
+              ],
+              [
+                72,
+                60
+              ]
+            ]
+          },
+          {
+            "zh": "叙事泡沫",
+            "en": "NARRATIVE BUBBLE",
+            "c": "#d8402e",
+            "area": "tl",
+            "note": "高热度 · 低兑现",
+            "items": [
+              "通用模型",
+              "AGI 实验室"
+            ],
+            "dots": [
+              [
+                40,
+                30
+              ],
+              [
+                64,
+                52
+              ],
+              [
+                28,
+                64
+              ]
+            ]
+          },
+          {
+            "zh": "隐形价值",
+            "en": "HIDDEN VALUE",
+            "c": "#2c44a0",
+            "area": "br",
+            "note": "低热度 · 高兑现",
+            "items": [
+              "垂直应用",
+              "企业搜索"
+            ],
+            "dots": [
+              [
+                34,
+                44
+              ],
+              [
+                60,
+                34
+              ],
+              [
+                50,
+                66
+              ]
+            ]
+          },
+          {
+            "zh": "等待验证",
+            "en": "TO BE PROVEN",
+            "c": "#e2742c",
+            "area": "bl",
+            "note": "低热度 · 低兑现",
+            "items": [
+              "长尾工具",
+              "安全",
+              "早期硬件"
+            ],
+            "dots": [
+              [
+                36,
+                40
+              ],
+              [
+                58,
+                58
+              ],
+              [
+                70,
+                30
+              ]
+            ]
+          }
+        ],
+        "conclusion": "资本正在从叙事驱动转向兑现驱动。"
+      }
     }
   },
   {
@@ -1461,7 +2408,60 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "RISK ASSESSMENT",
+        "title": "风险研判",
+        "sub": "资本大年背后的下行因素",
+        "sheet": "RISK · 12 / 32",
+        "chain": [
+          "高估值预期",
+          "盈利兑现承压",
+          "算力成本攀升",
+          "资本转向观望",
+          "估值锚重定价"
+        ],
+        "cards": [
+          {
+            "en": "VALUATION",
+            "zh": "估值泡沫",
+            "c": "#d8402e",
+            "level": "高",
+            "note": "一级估值远超当期收入支撑"
+          },
+          {
+            "en": "REVENUE",
+            "zh": "盈利模式未验证",
+            "c": "#2c44a0",
+            "level": "高",
+            "note": "多数公司仍停留在试点阶段"
+          },
+          {
+            "en": "REGULATION",
+            "zh": "监管成本上升",
+            "c": "#e2742c",
+            "level": "中",
+            "note": "隐私、版权与合规推高交付成本"
+          },
+          {
+            "en": "COMPETITION",
+            "zh": "开源与大厂挤压",
+            "c": "#7a3c90",
+            "level": "中",
+            "note": "模型能力被快速商品化"
+          },
+          {
+            "en": "COMPUTE",
+            "zh": "算力供应链卡脖子",
+            "c": "#3c9a52",
+            "level": "高",
+            "note": "GPU 供给与成本约束毛利"
+          }
+        ],
+        "galleryCap": "风险示意",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "下一阶段会淘汰只会讲故事的公司。"
+      }
     }
   },
   {
@@ -1590,7 +2590,84 @@ export const pages = [
       "rightColor": "#d8402e",
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "INVESTMENT OUTLOOK",
+        "title": "投资建议与阶段性策略",
+        "sheet": "OUTLOOK · 13 / 32",
+        "columns": [
+          {
+            "zh": "看好方向",
+            "en": "OVERWEIGHT",
+            "sign": "＋",
+            "items": [
+              {
+                "name": "垂直应用",
+                "note": "嵌入刚性工作流，看付费留存与席位扩张"
+              },
+              {
+                "name": "基础设施",
+                "note": "GPU 云与数据底座，最接近刚性预算"
+              },
+              {
+                "name": "具身智能",
+                "note": "长周期硬科技，看供应链与量产能力"
+              },
+              {
+                "name": "数据平台",
+                "note": "存量客户优势，商业化路径更短"
+              }
+            ]
+          },
+          {
+            "zh": "谨慎方向",
+            "en": "UNDERWEIGHT",
+            "sign": "－",
+            "items": [
+              {
+                "name": "高估值纯模型",
+                "note": "叙事先行，后续兑现压力较高"
+              },
+              {
+                "name": "AI 包装项目",
+                "note": "缺乏数据与工作流壁垒，易被商品化"
+              },
+              {
+                "name": "低壁垒消费应用",
+                "note": "留存与付费意愿仍待长期验证"
+              },
+              {
+                "name": "同质化工具",
+                "note": "竞争拥挤，差异化与定价权不足"
+              }
+            ]
+          }
+        ],
+        "timelineCap": "阶段性观察 · 2024 → 2027",
+        "timeline": [
+          {
+            "year": "2024",
+            "label": "资本大年",
+            "note": "970 亿美元 · 97 笔"
+          },
+          {
+            "year": "2025",
+            "label": "观察兑现",
+            "note": "IPO 窗口逐步开启"
+          },
+          {
+            "year": "2026",
+            "label": "收入验证",
+            "note": "看收入与毛利曲线"
+          },
+          {
+            "year": "2027",
+            "label": "格局定型",
+            "note": "兑现分化决定胜负"
+          }
+        ],
+        "conclusion": "看融资只是起点，看兑现才是判断。"
+      }
     }
   },
   {
@@ -1699,7 +2776,74 @@ export const pages = [
       "accentColor": "#d8402e",
       "showSource": true,
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "CONCLUSION",
+        "sheet": "CONCLUSION · 14 / 32",
+        "quote": {
+          "key": null,
+          "ref": null,
+          "props": {
+            "children": [
+              "资本下一阶段，将从",
+              {
+                "type": "span",
+                "key": null,
+                "ref": null,
+                "props": {
+                  "className": "mute",
+                  "children": "赌叙事"
+                },
+                "_owner": null,
+                "_store": {}
+              },
+              "，",
+              {
+                "type": "br",
+                "key": null,
+                "ref": null,
+                "props": {},
+                "_owner": null,
+                "_store": {}
+              },
+              "转向",
+              {
+                "type": "span",
+                "key": null,
+                "ref": null,
+                "props": {
+                  "className": "hl",
+                  "children": "看兑现"
+                },
+                "_owner": null,
+                "_store": {}
+              },
+              "。"
+            ]
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        "sub": "三条核心结论",
+        "points": [
+          {
+            "n": "01",
+            "t": "头部集中",
+            "d": "资金高度向头部公司集中，赢家通吃格局确立。"
+          },
+          {
+            "n": "02",
+            "t": "兑现为王",
+            "d": "估值锚从叙事转向收入、毛利与客户留存。"
+          },
+          {
+            "n": "03",
+            "t": "底座确定",
+            "d": "算力与数据基础设施最接近企业刚性预算。"
+          }
+        ],
+        "source": "数据口径：2024 全年 · 单笔 ≥1 亿美元 · 样本 97 笔"
+      }
     }
   },
   {
@@ -1811,7 +2955,22 @@ export const pages = [
       "accentColor": "#d8402e",
       "showColorBand": true,
       "showWordmark": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "brand": "AICL",
+        "barMeta": "SECTION DIVIDER",
+        "eyebrow": "CHAPTER 02",
+        "num": "02",
+        "title": "市场数据深拆",
+        "sub": "融资节奏、集中度与交易规模",
+        "sheet": "15 / 32",
+        "keywords": [
+          "集中度",
+          "季度节奏",
+          "峰谷对比",
+          "资金贡献"
+        ]
+      }
     }
   },
   {
@@ -1936,7 +3095,41 @@ export const pages = [
       "showLegend": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "DEAL MAP",
+        "title": "融资事件规模分层",
+        "sub": "大额融资事件地图 · 气泡 = 单笔金额",
+        "sheet": "DEAL MAP · 16 / 32",
+        "plotNote": "BUBBLE = AMOUNT · COLOR = SECTOR · 97 DEALS",
+        "tiers": [
+          {
+            "range": "1–2 亿美元",
+            "count": 41,
+            "sum": "58 亿",
+            "rep": 1.5
+          },
+          {
+            "range": "2–5 亿美元",
+            "count": 29,
+            "sum": "91 亿",
+            "rep": 3.5
+          },
+          {
+            "range": "5–10 亿美元",
+            "count": 15,
+            "sum": "103 亿",
+            "rep": 7.5
+          },
+          {
+            "range": "10 亿美元以上",
+            "count": 12,
+            "sum": "718 亿",
+            "rep": 30
+          }
+        ],
+        "conclusion": "数量最多的不一定最重要，影响最大的往往是巨额交易。"
+      }
     }
   },
   {
@@ -2053,7 +3246,55 @@ export const pages = [
       "showSwatches": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "QUARTER BREAKDOWN",
+        "title": "冷启动季度",
+        "sub": "Q1 融资拆解",
+        "sheet": "Q1 · 17 / 32",
+        "glyph": "Q1",
+        "name": "Q1 融资拆解 · 起步阶段",
+        "metrics": [
+          {
+            "k": "融资额",
+            "v": "162",
+            "u": "亿美元"
+          },
+          {
+            "k": "事件数",
+            "v": "18",
+            "u": "笔"
+          },
+          {
+            "k": "平均单笔",
+            "v": "9.0",
+            "u": "亿美元"
+          },
+          {
+            "k": "最大单笔",
+            "v": "32",
+            "u": "亿美元"
+          }
+        ],
+        "panelTitle": "月度拆解",
+        "panelNote": "MONTHLY · Q1",
+        "unit": "亿美元 / 月",
+        "points": [
+          {
+            "axis": "1月",
+            "v": 45
+          },
+          {
+            "axis": "2月",
+            "v": 58
+          },
+          {
+            "axis": "3月",
+            "v": 59
+          }
+        ],
+        "conclusion": "全年热度从保守启动开始。"
+      }
     }
   },
   {
@@ -2172,7 +3413,70 @@ export const pages = [
       "showSwatches": true,
       "accentColor": "#e2742c",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "QUARTER BREAKDOWN",
+        "title": "加速季度",
+        "sub": "Q2 融资拆解",
+        "sheet": "Q2 · 18 / 32",
+        "glyph": "Q2",
+        "name": "Q2 融资拆解 · 加速阶段",
+        "metrics": [
+          {
+            "k": "融资额",
+            "v": "284",
+            "u": "亿美元"
+          },
+          {
+            "k": "事件数",
+            "v": "26",
+            "u": "笔"
+          },
+          {
+            "k": "平均单笔",
+            "v": "10.9",
+            "u": "亿美元"
+          },
+          {
+            "k": "环比增长",
+            "v": "75.3",
+            "u": "%"
+          }
+        ],
+        "panelTitle": "环比对比",
+        "panelNote": "QoQ · Q1 → Q2",
+        "delta": {
+          "sign": "+",
+          "value": "75.3%",
+          "cap": "对比 Q1：162 → 284 亿美元"
+        },
+        "compare": [
+          {
+            "axis": "Q1",
+            "v": 162
+          },
+          {
+            "axis": "Q2",
+            "v": 284
+          }
+        ],
+        "unit": "亿美元 / 月",
+        "rows": [
+          {
+            "axis": "4月",
+            "v": 86
+          },
+          {
+            "axis": "5月",
+            "v": 105
+          },
+          {
+            "axis": "6月",
+            "v": 93
+          }
+        ],
+        "conclusion": "Q2 是融资窗口打开的关键节点。"
+      }
     }
   },
   {
@@ -2316,7 +3620,56 @@ export const pages = [
       "showSwatches": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "QUARTER BREAKDOWN",
+        "title": "全年峰值季度",
+        "sub": "Q3 融资拆解",
+        "sheet": "Q3 · 19 / 32",
+        "glyph": "Q3",
+        "name": "Q3 融资拆解 · 全年高点",
+        "metrics": [
+          {
+            "k": "融资额",
+            "v": "318",
+            "u": "亿美元"
+          },
+          {
+            "k": "事件数",
+            "v": "31",
+            "u": "笔"
+          },
+          {
+            "k": "平均单笔",
+            "v": "10.3",
+            "u": "亿美元"
+          },
+          {
+            "k": "峰值月份",
+            "v": "8",
+            "u": "月"
+          }
+        ],
+        "panelTitle": "峰值月度",
+        "unit": "亿美元 / 月",
+        "points": [
+          {
+            "axis": "7月",
+            "v": 92
+          },
+          {
+            "axis": "8月",
+            "v": 118
+          },
+          {
+            "axis": "9月",
+            "v": 108
+          }
+        ],
+        "galleryCap": "峰值示意",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "高峰之后，市场开始从热度转向筛选。"
+      }
     }
   },
   {
@@ -2452,7 +3805,73 @@ export const pages = [
       "showSwatches": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "QUARTER BREAKDOWN",
+        "title": "理性回落季度",
+        "sub": "Q4 融资拆解",
+        "sheet": "Q4 · 20 / 32",
+        "glyph": "Q4",
+        "name": "Q4 融资拆解 · 回落但仍高位",
+        "metrics": [
+          {
+            "k": "融资额",
+            "v": "206",
+            "u": "亿美元"
+          },
+          {
+            "k": "事件数",
+            "v": "22",
+            "u": "笔"
+          },
+          {
+            "k": "平均单笔",
+            "v": "9.4",
+            "u": "亿美元"
+          },
+          {
+            "k": "较 Q3 下降",
+            "v": "35.2",
+            "u": "%"
+          }
+        ],
+        "panelTitle": "走势回落",
+        "deltaBadge": "较 Q3 −35.2%",
+        "unit": "亿美元",
+        "year": [
+          {
+            "axis": "Q1",
+            "v": 162
+          },
+          {
+            "axis": "Q2",
+            "v": 284
+          },
+          {
+            "axis": "Q3",
+            "v": 318
+          },
+          {
+            "axis": "Q4",
+            "v": 206
+          }
+        ],
+        "month": [
+          {
+            "axis": "10月",
+            "v": 73
+          },
+          {
+            "axis": "11月",
+            "v": 81
+          },
+          {
+            "axis": "12月",
+            "v": 52
+          }
+        ],
+        "conclusion": "回落不是终点，而是分化的开始。"
+      }
     }
   },
   {
@@ -2597,7 +4016,39 @@ export const pages = [
       "lowColor": "#4da0c6",
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "PEAK AND TROUGH",
+        "title": "峰值与低位",
+        "sub": "月度峰谷对比",
+        "sheet": "PEAK · 21 / 32",
+        "unit": "亿美元 / 月",
+        "highLabel": "高位",
+        "lowLabel": "低位",
+        "points": [
+          {
+            "axis": "8 月",
+            "v": 118
+          },
+          {
+            "axis": "9 月",
+            "v": 108
+          },
+          {
+            "axis": "5 月",
+            "v": 105
+          },
+          {
+            "axis": "12 月",
+            "v": 52
+          },
+          {
+            "axis": "1 月",
+            "v": 45
+          }
+        ],
+        "conclusion": "月度波动背后是头部交易节奏。"
+      }
     }
   },
   {
@@ -2727,7 +4178,43 @@ export const pages = [
       "showLegend": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "FUNDING WATERFALL",
+        "title": "赛道贡献拆分",
+        "sub": "融资额贡献瀑布",
+        "sheet": "WATERFALL · 22 / 32",
+        "unit": "亿美元",
+        "totalLabel": "全年合计",
+        "steps": [
+          {
+            "name": "通用大模型",
+            "v": 420,
+            "c": "#d8402e"
+          },
+          {
+            "name": "垂直应用",
+            "v": 245,
+            "c": "#e2742c"
+          },
+          {
+            "name": "基础设施",
+            "v": 158,
+            "c": "#4da0c6"
+          },
+          {
+            "name": "AI 芯片",
+            "v": 97,
+            "c": "#2c44a0"
+          },
+          {
+            "name": "其他",
+            "v": 50,
+            "c": "#3c9a52"
+          }
+        ],
+        "conclusion": "大模型制造热度，基础设施和应用承接兑现。"
+      }
     }
   },
   {
@@ -2827,7 +4314,48 @@ export const pages = [
       "showLegend": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "DEAL SIZE SPLIT",
+        "title": "金额区间结构",
+        "sub": "交易规模分布",
+        "sheet": "SPLIT · 23 / 32",
+        "measureA": {
+          "name": "笔数",
+          "unit": "笔"
+        },
+        "measureB": {
+          "name": "金额",
+          "unit": "亿美元"
+        },
+        "segments": [
+          {
+            "name": "1–2 亿美元",
+            "a": 41,
+            "b": 58,
+            "c": "#3c9a52"
+          },
+          {
+            "name": "2–5 亿美元",
+            "a": 29,
+            "b": 91,
+            "c": "#4da0c6"
+          },
+          {
+            "name": "5–10 亿美元",
+            "a": 15,
+            "b": 103,
+            "c": "#e2742c"
+          },
+          {
+            "name": "10 亿以上",
+            "a": 12,
+            "b": 718,
+            "c": "#d8402e"
+          }
+        ],
+        "conclusion": "市场被少数超级交易重新定价。"
+      }
     }
   },
   {
@@ -2934,7 +4462,34 @@ export const pages = [
       "accentColor": "#2c44a0",
       "showWordmark": true,
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "AVERAGE TICKET",
+        "title": "赛道平均融资额",
+        "sub": "平均单笔规模",
+        "sheet": "AVERAGE · 24 / 32",
+        "number": "10",
+        "unit": "亿美元",
+        "caption": "全年单笔大额融资的平均规模。",
+        "message": "融资规模越大，后续兑现压力越高。",
+        "aux": [
+          {
+            "k": "大额事件",
+            "v": "97",
+            "u": "笔"
+          },
+          {
+            "k": "全年融资",
+            "v": "970",
+            "u": "亿美元"
+          },
+          {
+            "k": "最大单笔",
+            "v": "66",
+            "u": "亿美元"
+          }
+        ]
+      }
     }
   },
   {
@@ -3044,7 +4599,33 @@ export const pages = [
       "showMetrics": true,
       "accentColor": "#7a3c90",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "CAPITAL CURVE",
+        "title": "累计资金分布",
+        "sub": "资本集中曲线",
+        "sheet": "CURVE · 25 / 32",
+        "unit": "累计资金占比 %",
+        "nodes": [
+          {
+            "axis": "Top 3",
+            "v": 18.7
+          },
+          {
+            "axis": "Top 10",
+            "v": 23.8
+          },
+          {
+            "axis": "Top 25",
+            "v": 48.5
+          },
+          {
+            "axis": "Top 50",
+            "v": 71.2
+          }
+        ],
+        "conclusion": "集中度本身就是市场结构。"
+      }
     }
   },
   {
@@ -3156,7 +4737,22 @@ export const pages = [
       "accentColor": "#d8402e",
       "showColorBand": true,
       "showWordmark": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "brand": "AICL",
+        "barMeta": "SECTION DIVIDER",
+        "eyebrow": "CHAPTER 03",
+        "num": "03",
+        "title": "赛道结构细分",
+        "sub": "从大模型到垂直应用",
+        "sheet": "26 / 32",
+        "keywords": [
+          "通用模型",
+          "Agent",
+          "企业搜索",
+          "开发者工具"
+        ]
+      }
     }
   },
   {
@@ -3264,7 +4860,33 @@ export const pages = [
       "showMetrics": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "MODEL LAB RACE",
+        "title": "算力、数据、人才与渠道",
+        "sub": "模型实验室竞争",
+        "sheet": "RADAR · 27 / 32",
+        "unit": "同比变化 %",
+        "axes": [
+          {
+            "k": "算力预算",
+            "v": 64
+          },
+          {
+            "k": "研究团队",
+            "v": 38
+          },
+          {
+            "k": "企业 API 客户",
+            "v": 52
+          },
+          {
+            "k": "推理成本",
+            "v": -21
+          }
+        ],
+        "conclusion": "模型能力只是入口，交付能力才是商业化。"
+      }
     }
   },
   {
@@ -3362,7 +4984,39 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "SEGMENT PROFILE",
+        "en": "AI AGENTS",
+        "title": "工作流自动化机会",
+        "sub": "AI Agent 赛道",
+        "sheet": "SEGMENT · 28 / 32",
+        "metrics": [
+          [
+            "融资额",
+            "72",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "16",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "4.5",
+            "亿美元"
+          ],
+          [
+            "样本 ARR 中位数",
+            "4200",
+            "万美元"
+          ]
+        ],
+        "galleryCap": "赛道图示",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "能进入工作流的 Agent 才有长期价值。"
+      }
     }
   },
   {
@@ -3505,7 +5159,40 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#efbe2e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "ENTERPRISE SEARCH",
+        "en": "ENTERPRISE SEARCH",
+        "title": "知识入口机会",
+        "sub": "企业搜索赛道",
+        "sheet": "SEGMENT · 29 / 32",
+        "lead": "企业搜索是较早形成明确付费场景的应用方向；接入内部知识后具备高频使用场景。",
+        "metrics": [
+          [
+            "融资额",
+            "38",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "9",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "4.2",
+            "亿美元"
+          ],
+          [
+            "付费客户中位数",
+            "620",
+            "家"
+          ]
+        ],
+        "mediaCap": "赛道主视觉",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "企业知识入口是 AI 应用的重要落地点。"
+      }
     }
   },
   {
@@ -3605,7 +5292,60 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "LEGAL AI",
+        "title": "专业服务高客单价",
+        "sub": "法律 AI 赛道",
+        "sheet": "MATRIX · 30 / 32",
+        "lead": "法律 AI 具备高客单价、强专业壁垒和明确效率提升空间。",
+        "tag": "维度 × 模拟数据 × 代表场景 × 判断",
+        "headers": [
+          "维度",
+          "模拟数据",
+          "代表场景",
+          "判断"
+        ],
+        "rows": [
+          {
+            "k": "合同审查",
+            "sub": "Contract Review",
+            "num": "46",
+            "unit": "% 场景占比",
+            "ex": "条款比对 · 风险标注",
+            "chip": "高频",
+            "c": "#d8402e"
+          },
+          {
+            "k": "尽职调查",
+            "sub": "Due Diligence",
+            "num": "12",
+            "unit": "亿美元",
+            "ex": "文档归集 · 引用核验",
+            "chip": "高值",
+            "c": "#2c44a0"
+          },
+          {
+            "k": "法律检索",
+            "sub": "Legal Research",
+            "num": "4.3",
+            "unit": "亿美元/笔",
+            "ex": "判例检索 · 摘要生成",
+            "chip": "成熟",
+            "c": "#3c9a52"
+          },
+          {
+            "k": "合规问答",
+            "sub": "Compliance Q&A",
+            "num": "6",
+            "unit": "笔事件",
+            "ex": "政策解读 · 审计链路",
+            "chip": "壁垒",
+            "c": "#4da0c6"
+          }
+        ],
+        "conclusion": "法律 AI 是垂直应用商业化样本。"
+      }
     }
   },
   {
@@ -3752,7 +5492,38 @@ export const pages = [
       "showTotal": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "HEALTHCARE AI",
+        "en": "HEALTHCARE AI",
+        "title": "慢变量高壁垒",
+        "sub": "医疗 AI 赛道",
+        "sheet": "BREAKDOWN · 31 / 32",
+        "totalK": "赛道融资额",
+        "totalV": "34",
+        "totalUnit": "亿美元 · 8 笔",
+        "unit": "亿美元",
+        "items": [
+          {
+            "name": "药物发现",
+            "v": 14,
+            "c": "#2c44a0"
+          },
+          {
+            "name": "影像诊断",
+            "v": 11,
+            "c": "#d8402e"
+          },
+          {
+            "name": "临床文书",
+            "v": 9,
+            "c": "#3c9a52"
+          }
+        ],
+        "mediaCap": "赛道图示",
+        "mediaUnit": "DROP IMAGES",
+        "conclusion": "慢场景不代表低价值。"
+      }
     }
   },
   {
@@ -3865,7 +5636,39 @@ export const pages = [
       "showLegend": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "FINANCE AI",
+        "en": "FINANCE AI",
+        "title": "投研、风控与合规",
+        "sub": "金融 AI 赛道",
+        "sheet": "SCENE · 32 / 32",
+        "unit": "SCENE SHARE",
+        "scenes": [
+          {
+            "name": "投研",
+            "v": 31,
+            "c": "#2c44a0"
+          },
+          {
+            "name": "合规",
+            "v": 28,
+            "c": "#d8402e"
+          },
+          {
+            "name": "风控",
+            "v": 24,
+            "c": "#3c9a52"
+          },
+          {
+            "name": "客服",
+            "v": 17,
+            "c": "#e2742c"
+          }
+        ],
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "高价值行业需要更强可信度。"
+      }
     }
   },
   {
@@ -4003,7 +5806,61 @@ export const pages = [
       "showSub": true,
       "accentColor": "#efbe2e",
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "kicker": "DEVELOPER TOOLS · 开发者工具赛道",
+        "index": "33",
+        "sheet": "STATEMENT · 33 / 80",
+        "quote": {
+          "key": null,
+          "ref": null,
+          "props": {
+            "children": [
+              "研发效率，是企业",
+              {
+                "type": "br",
+                "key": null,
+                "ref": null,
+                "props": {},
+                "_owner": null,
+                "_store": {}
+              },
+              {
+                "type": "span",
+                "key": null,
+                "ref": null,
+                "props": {
+                  "className": "hl",
+                  "children": "最直接"
+                },
+                "_owner": null,
+                "_store": {}
+              },
+              "的 AI ",
+              {
+                "type": "span",
+                "key": null,
+                "ref": null,
+                "props": {
+                  "className": "mute",
+                  "children": "预算入口"
+                },
+                "_owner": null,
+                "_store": {}
+              },
+              "之一。"
+            ]
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        "sub": "效率工具最贴近开发团队的日常，预算决策链路短、落地周期快。",
+        "keywords": [
+          "一句话判断",
+          "信息密度 · 低",
+          "阶段性收束"
+        ]
+      }
     }
   },
   {
@@ -4139,7 +5996,81 @@ export const pages = [
       "showFlowCaption": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "DATA INFRASTRUCTURE",
+        "title": "企业 AI 底座",
+        "sheet": "FLOW · 34 / 80",
+        "flowCap": "数据流转管线",
+        "flowUnit": "INGEST → SERVE",
+        "stages": [
+          {
+            "en": "INGEST",
+            "zh": "数据采集",
+            "note": "多源接入",
+            "color": "#2c44a0"
+          },
+          {
+            "en": "CLEAN",
+            "zh": "清洗治理",
+            "note": "质量校验",
+            "color": "#4da0c6"
+          },
+          {
+            "en": "INDEX",
+            "zh": "向量索引",
+            "note": "RAG 检索",
+            "color": "#3c9a52"
+          },
+          {
+            "en": "SERVE",
+            "zh": "服务编排",
+            "note": "应用调用",
+            "color": "#d8402e"
+          },
+          {
+            "en": "GOVERN",
+            "zh": "监控治理",
+            "note": "权限审计",
+            "color": "#7a3c90"
+          }
+        ],
+        "metrics": [
+          [
+            "融资额",
+            "61",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "12",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "5.1",
+            "亿美元"
+          ]
+        ],
+        "growthValue": "+47",
+        "growthUnit": "%",
+        "growthLabel": "企业客户同比增长",
+        "growthSeries": [
+          {
+            "axis": "Q1",
+            "v": 100
+          },
+          {
+            "axis": "Q2",
+            "v": 126
+          },
+          {
+            "axis": "Q3",
+            "v": 147
+          }
+        ],
+        "conclusion": "没有数据底座，AI 应用很难稳定落地。"
+      }
     }
   },
   {
@@ -4263,7 +6194,40 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "VECTOR DATABASE",
+        "title": "RAG 基础组件",
+        "sheet": "DIAGRAM · 35 / 80",
+        "en": "VECTOR DATABASE",
+        "zh": "RAG 基础组件",
+        "lead": "向量数据库从概念热度，进入企业部署的竞争阶段。",
+        "metrics": [
+          [
+            "融资额",
+            "18",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "5",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "3.6",
+            "亿美元"
+          ],
+          [
+            "付费客户中位数",
+            "620",
+            "家"
+          ]
+        ],
+        "mediaCap": "RAG 架构图",
+        "mediaUnit": "DROP DIAGRAM",
+        "conclusion": "基础组件的胜负，取决于企业级可靠性。"
+      }
     }
   },
   {
@@ -4406,7 +6370,46 @@ export const pages = [
       "showMetrics": true,
       "accentColor": "#e2742c",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "DATA LABELING",
+        "title": "高质量数据供给",
+        "sheet": "MIX · 36 / 80",
+        "en": "DATA LABELING",
+        "zh": "数据标注与合成数据",
+        "metrics": [
+          [
+            "融资额",
+            "33",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "6",
+            "笔"
+          ]
+        ],
+        "splitCap": "训练数据构成",
+        "splitUnit": "DATA MIX",
+        "bars": [
+          {
+            "name": "合成数据",
+            "v": 42,
+            "color": "#d8402e"
+          },
+          {
+            "name": "人类反馈数据",
+            "v": 35,
+            "color": "#3c9a52"
+          },
+          {
+            "name": "真实采集",
+            "v": 23,
+            "color": "#2c44a0"
+          }
+        ],
+        "conclusion": "数据越稀缺，数据基础设施越有价值。"
+      }
     }
   },
   {
@@ -4560,7 +6563,62 @@ export const pages = [
       "metricCount": 4,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "GPU CLOUD",
+        "title": "算力供给稀缺",
+        "sheet": "CHART · 37 / 80",
+        "gridCap": "算力集群占用示意",
+        "gridUnit": "CLUSTER LOAD",
+        "utilLabel": "高端算力占用率",
+        "metrics": [
+          [
+            "融资额",
+            "64",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "9",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "7.1",
+            "亿美元"
+          ],
+          [
+            "H100/H200 占比",
+            "58",
+            "%"
+          ]
+        ],
+        "shareCap": "资源构成",
+        "shareUnit": "BY CHIP",
+        "shares": [
+          {
+            "k": "H100",
+            "v": 38,
+            "c": "#d8402e"
+          },
+          {
+            "k": "H200",
+            "v": 20,
+            "c": "#e2742c"
+          },
+          {
+            "k": "A100",
+            "v": 27,
+            "c": "#4da0c6"
+          },
+          {
+            "k": "其他",
+            "v": 15,
+            "c": "#7a3c90"
+          }
+        ],
+        "conclusion": "算力是 AI 时代最直接的硬资源。"
+      }
     }
   },
   {
@@ -4698,7 +6756,54 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "AI CHIPS",
+        "title": "训练与推理硬件",
+        "sheet": "TABLE · 38 / 80",
+        "lead": "AI 芯片融资集中在训练加速器、推理芯片与边缘 AI。",
+        "tag": "层级 × 资金规模 × 资金占比 × 判断",
+        "unit": "亿美元",
+        "totalLabel": "合计",
+        "totalEn": "TOTAL FUNDING",
+        "headers": [
+          "层级",
+          "资金规模",
+          "资金占比",
+          "判断"
+        ],
+        "rows": [
+          {
+            "k": "训练芯片",
+            "en": "Training Accelerator",
+            "v": 46,
+            "chip": "高资本",
+            "c": "#d8402e"
+          },
+          {
+            "k": "推理芯片",
+            "en": "Inference Chip",
+            "v": 32,
+            "chip": "放量",
+            "c": "#2c44a0"
+          },
+          {
+            "k": "边缘 AI",
+            "en": "Edge AI",
+            "v": 19,
+            "chip": "早期",
+            "c": "#3c9a52"
+          },
+          {
+            "k": "封装互联",
+            "en": "Packaging / Interconnect",
+            "v": 12,
+            "chip": "壁垒",
+            "c": "#4da0c6"
+          }
+        ],
+        "conclusion": "硬件方向看长期确定性。"
+      }
     }
   },
   {
@@ -4860,7 +6965,59 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "EMBODIED AI",
+        "title": "从软件走向物理世界",
+        "en": "EMBODIED AI",
+        "zh": "机器人与具身智能",
+        "sheet": "IMAGE · 39 / 80",
+        "lead": "具身智能成为 AI 从软件能力延伸到物理场景的重要方向。",
+        "metrics": [
+          [
+            "融资额",
+            "41",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "7",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "5.9",
+            "亿美元"
+          ],
+          [
+            "人形机器人占比",
+            "51",
+            "%"
+          ]
+        ],
+        "mediaCap": "机器人场景",
+        "mediaUnit": "DROP IMAGE",
+        "distCap": "应用分布",
+        "distUnit": "BY APPLICATION",
+        "dist": [
+          {
+            "k": "人形机器人",
+            "v": 21,
+            "c": "#d8402e"
+          },
+          {
+            "k": "工业自动化",
+            "v": 11,
+            "c": "#2c44a0"
+          },
+          {
+            "k": "仓储机器人",
+            "v": 9,
+            "c": "#3c9a52"
+          }
+        ],
+        "conclusion": "长周期赛道需要看供应链和量产能力。"
+      }
     }
   },
   {
@@ -5022,7 +7179,65 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "AUTONOMOUS AI",
+        "title": "车载模型升级",
+        "en": "AUTONOMOUS AI",
+        "zh": "自动驾驶与车载 AI",
+        "sheet": "IMAGE · 40 / 80",
+        "lead": "车载 AI 从感知模块转向端到端模型和座舱智能。",
+        "metrics": [
+          [
+            "融资额",
+            "29",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "6",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "4.8",
+            "亿美元"
+          ],
+          [
+            "端到端占比",
+            "45",
+            "%"
+          ]
+        ],
+        "mediaCap": "车载 AI 架构",
+        "mediaUnit": "DROP DIAGRAM",
+        "sceneCap": "场景拆分",
+        "sceneUnit": "BY SCENE",
+        "scenes": [
+          {
+            "en": "END-TO-END",
+            "zh": "端到端驾驶",
+            "num": "13",
+            "unit": "亿美元",
+            "c": "#2c44a0"
+          },
+          {
+            "en": "SIMULATION",
+            "zh": "仿真平台",
+            "num": "9",
+            "unit": "亿美元",
+            "c": "#3c9a52"
+          },
+          {
+            "en": "IN-CAR COPILOT",
+            "zh": "车载助手",
+            "num": "7",
+            "unit": "亿美元",
+            "c": "#e2742c"
+          }
+        ],
+        "conclusion": "自动驾驶回暖，但更看重工程兑现。"
+      }
     }
   },
   {
@@ -5151,7 +7366,66 @@ export const pages = [
       "showNote": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "AI SAFETY",
+        "title": "评测、红队与合规",
+        "sheet": "CHART · 41 / 80",
+        "layerCap": "安全防线分层",
+        "layerUnit": "DEFENSE LAYERS",
+        "layers": [
+          {
+            "en": "EVALUATION",
+            "zh": "模型评测",
+            "v": 6,
+            "c": "#2c44a0"
+          },
+          {
+            "en": "RED TEAM",
+            "zh": "红队测试",
+            "v": 4,
+            "c": "#d8402e"
+          },
+          {
+            "en": "CONTENT",
+            "zh": "内容安全",
+            "v": 5,
+            "c": "#e2742c"
+          },
+          {
+            "en": "COMPLIANCE",
+            "zh": "合规监测",
+            "v": 5,
+            "c": "#3c9a52"
+          }
+        ],
+        "metricCap": "赛道指标",
+        "metricUnit": "BY SEGMENT",
+        "metrics": [
+          [
+            "融资额",
+            "16",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "8",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "2.0",
+            "亿美元"
+          ],
+          [
+            "预算属性",
+            "刚性",
+            ""
+          ]
+        ],
+        "note": "监管收紧会把 AI 安全从可选预算变成刚性预算。",
+        "conclusion": "安全能力会成为企业采购门槛。"
+      }
     }
   },
   {
@@ -5278,7 +7552,67 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "GENERATIVE CONTENT",
+        "title": "图像、视频与创意",
+        "sub": "内容生成赛道",
+        "sheet": "IMAGE · 42 / 80",
+        "metrics": [
+          [
+            "融资额",
+            "31",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "11",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "2.8",
+            "亿美元"
+          ]
+        ],
+        "galleryCap": "内容类型型录",
+        "galleryUnit": "DROP IMAGES",
+        "cards": [
+          {
+            "en": "VIDEO",
+            "zh": "视频生成",
+            "code": "VG",
+            "v": 14,
+            "unit": "亿美元",
+            "c": "#d8402e"
+          },
+          {
+            "en": "ADS",
+            "zh": "广告创意",
+            "code": "AD",
+            "v": 8,
+            "unit": "亿美元",
+            "c": "#efbe2e"
+          },
+          {
+            "en": "IMAGE",
+            "zh": "图像生成",
+            "code": "IM",
+            "v": 5,
+            "unit": "亿美元",
+            "c": "#2c44a0"
+          },
+          {
+            "en": "AUDIO",
+            "zh": "音乐音频",
+            "code": "AU",
+            "v": 4,
+            "unit": "亿美元",
+            "c": "#4da0c6"
+          }
+        ],
+        "conclusion": "流量热度不等于商业壁垒。"
+      }
     }
   },
   {
@@ -5426,7 +7760,77 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "EDUCATION AI",
+        "title": "个性化学习与教师工具",
+        "sheet": "IMAGE · 43 / 80",
+        "lead": "教育 AI 从通用答疑转向个性化辅导和教师工作台。",
+        "metrics": [
+          [
+            "融资额",
+            "14",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "5",
+            "笔"
+          ]
+        ],
+        "pathCap": "学习路径",
+        "pathUnit": "LEARNING PATH",
+        "stages": [
+          {
+            "en": "Q&A",
+            "zh": "通用答疑",
+            "d": "标准化问答与作业批改"
+          },
+          {
+            "en": "ADAPTIVE",
+            "zh": "个性化辅导",
+            "d": "按能力分层的自适应练习"
+          },
+          {
+            "en": "PLANNING",
+            "zh": "路径规划",
+            "d": "学习目标与节奏编排"
+          },
+          {
+            "en": "TEACHER",
+            "zh": "教师工作台",
+            "d": "备课、评估与学情看板"
+          }
+        ],
+        "galleryCap": "场景图示",
+        "galleryUnit": "DROP IMAGES",
+        "sceneCap": "场景拆分",
+        "sceneUnit": "BY SCENE",
+        "scenes": [
+          {
+            "en": "K12",
+            "zh": "K12 辅导",
+            "v": "6",
+            "unit": "亿美元",
+            "c": "#3c9a52"
+          },
+          {
+            "en": "ENTERPRISE",
+            "zh": "企业培训",
+            "v": "5",
+            "unit": "亿美元",
+            "c": "#e2742c"
+          },
+          {
+            "en": "TEACHER",
+            "zh": "教师工具",
+            "v": "3",
+            "unit": "亿美元",
+            "c": "#2c44a0"
+          }
+        ],
+        "conclusion": "教育 AI 需要用结果证明价值。"
+      }
     }
   },
   {
@@ -5561,7 +7965,90 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "CUSTOMER SUPPORT AI",
+        "title": "可量化降本场景",
+        "sub": "客服 AI 赛道",
+        "sheet": "TABLE · 44 / 80",
+        "lead": "客服 AI 是最容易量化 ROI 的垂直应用之一。",
+        "tag": "指标 × 当前值 × 行业基准 × 判断",
+        "metrics": [
+          [
+            "融资额",
+            "27",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "9",
+            "笔"
+          ]
+        ],
+        "process": [
+          {
+            "zh": "受理",
+            "en": "INTAKE"
+          },
+          {
+            "zh": "自动分流",
+            "en": "ROUTE"
+          },
+          {
+            "zh": "AI 回复",
+            "en": "AI REPLY"
+          },
+          {
+            "zh": "人工升级",
+            "en": "ESCALATE"
+          }
+        ],
+        "headers": [
+          "指标",
+          "当前值",
+          "对比行业基准",
+          "判断"
+        ],
+        "rows": [
+          {
+            "k": "对话替代率",
+            "en": "Deflection Rate",
+            "val": 32,
+            "unit": "%",
+            "base": 20,
+            "chip": "可量化",
+            "c": "#d8402e"
+          },
+          {
+            "k": "工单时长下降",
+            "en": "Handle Time",
+            "val": 41,
+            "unit": "%",
+            "base": 25,
+            "chip": "高 ROI",
+            "c": "#3c9a52"
+          },
+          {
+            "k": "首次解决率",
+            "en": "First Contact",
+            "val": 68,
+            "unit": "%",
+            "base": 55,
+            "chip": "稳健",
+            "c": "#2c44a0"
+          },
+          {
+            "k": "客户满意度",
+            "en": "CSAT",
+            "val": 88,
+            "unit": "%",
+            "base": 80,
+            "chip": "正向",
+            "c": "#4da0c6"
+          }
+        ],
+        "conclusion": "能量化 ROI 的场景更容易获得预算。"
+      }
     }
   },
   {
@@ -5698,7 +8185,56 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#e2742c",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "SALES & MARKETING AI",
+        "title": "增长效率工具",
+        "sheet": "IMAGE · 45 / 80",
+        "lead": "销售与营销 AI 集中在线索评分、自动外呼、邮件和广告创意。",
+        "metrics": [
+          [
+            "融资额",
+            "24",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "10",
+            "笔"
+          ]
+        ],
+        "funnelCap": "增长漏斗",
+        "funnelUnit": "GROWTH FUNNEL",
+        "tiers": [
+          {
+            "en": "REACH",
+            "zh": "广告创意",
+            "v": 8,
+            "c": "#efbe2e"
+          },
+          {
+            "en": "LEAD",
+            "zh": "线索评分",
+            "v": 7,
+            "c": "#d8402e"
+          },
+          {
+            "en": "OUTREACH",
+            "zh": "自动外呼",
+            "v": 6,
+            "c": "#2c44a0"
+          },
+          {
+            "en": "CONVERT",
+            "zh": "转化成交",
+            "v": 4,
+            "c": "#3c9a52"
+          }
+        ],
+        "galleryCap": "场景图示",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "营销 AI 要用转化率证明自己。"
+      }
     }
   },
   {
@@ -5816,7 +8352,36 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "LOW-CODE AI",
+        "title": "企业流程嵌入",
+        "sheet": "BIG NUMBER · 46 / 80",
+        "number": "118",
+        "unit": "%",
+        "caption": "净收入留存 · NRR",
+        "message": "低代码 AI 平台帮助企业把模型能力嵌入内部流程。",
+        "aux": [
+          [
+            "融资额",
+            "19",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "6",
+            "笔"
+          ],
+          [
+            "企业客户中位数",
+            "430",
+            "家"
+          ]
+        ],
+        "galleryCap": "平台图示",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "能被业务团队使用的平台更容易扩散。"
+      }
     }
   },
   {
@@ -5941,7 +8506,45 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#7a3c90",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "OPEN-SOURCE MODELS",
+        "title": "社区影响力变现",
+        "sheet": "IMAGE · 47 / 80",
+        "lead": "开源模型公司通过社区影响力、托管服务和企业支持变现。",
+        "metrics": [
+          [
+            "融资额",
+            "28",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "7",
+            "笔"
+          ]
+        ],
+        "fluxCap": "影响力变现路径",
+        "fluxUnit": "COMMUNITY → REVENUE",
+        "transfer": "托管服务 · 企业支持",
+        "source": {
+          "en": "COMMUNITY",
+          "zh": "开源社区",
+          "num": "2.8",
+          "unit": "亿次",
+          "cap": "社区下载量"
+        },
+        "dest": {
+          "en": "ENTERPRISE",
+          "zh": "企业服务",
+          "num": "37",
+          "unit": "%",
+          "cap": "企业服务收入占比"
+        },
+        "galleryCap": "场景图示",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "开源是入口，不是完整商业模式。"
+      }
     }
   },
   {
@@ -6060,7 +8663,56 @@ export const pages = [
       "showNote": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "MODEL ALIGNMENT",
+        "title": "安全与对齐工具",
+        "sheet": "CHART · 48 / 80",
+        "lead": "模型安全和对齐公司吸引长期资本关注。",
+        "pipeCap": "安全评测流程",
+        "pipeUnit": "EVAL PIPELINE",
+        "stages": [
+          {
+            "en": "EVALUATION",
+            "zh": "评测平台",
+            "v": 8,
+            "c": "#2c44a0"
+          },
+          {
+            "en": "ALIGNMENT",
+            "zh": "对齐工具",
+            "v": 7,
+            "c": "#3c9a52"
+          },
+          {
+            "en": "RED TEAM",
+            "zh": "红队服务",
+            "v": 6,
+            "c": "#d8402e"
+          }
+        ],
+        "metricCap": "赛道指标",
+        "metricUnit": "BY SEGMENT",
+        "metrics": [
+          [
+            "融资额",
+            "21",
+            "亿美元"
+          ],
+          [
+            "事件数",
+            "5",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "4.2",
+            "亿美元"
+          ]
+        ],
+        "note": "安全对齐既是技术壁垒，也是大客户信任入口。",
+        "conclusion": "可信 AI 会成为企业级 AI 的基础设施。"
+      }
     }
   },
   {
@@ -6172,7 +8824,24 @@ export const pages = [
       "accentColor": "#2c44a0",
       "showColorBand": true,
       "showWordmark": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "brand": "AICL",
+        "barMeta": "SECTION DIVIDER",
+        "eyebrow": "CHAPTER 04",
+        "num": "04",
+        "title": "资本与地区结构",
+        "sub": "轮次、投资人和地理集群",
+        "sheet": "49 / 80",
+        "keywords": [
+          "后期轮",
+          "战略投资",
+          "云资源",
+          "湾区",
+          "纽约",
+          "西雅图"
+        ]
+      }
     }
   },
   {
@@ -6291,7 +8960,71 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#efbe2e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "EARLY STAGE SIGNAL",
+        "title": "新主题萌芽",
+        "sheet": "SIGNAL · 50 / 80",
+        "lead": "Seed 和 A 轮金额较小，但代表新主题正在形成。",
+        "headlines": [
+          [
+            "早期轮占事件数",
+            "20.6",
+            "%"
+          ],
+          [
+            "Seed + A 轮事件",
+            "20",
+            "笔"
+          ]
+        ],
+        "headers": [
+          "早期主题",
+          "早期轮数据",
+          "代表方向",
+          "信号强度"
+        ],
+        "signalHead": "SIGNAL",
+        "rows": [
+          {
+            "k": "智能体",
+            "en": "Agents",
+            "count": "12",
+            "unit": "笔",
+            "amt": "1.8 亿美元",
+            "dir": "任务编排 · 工具调用",
+            "sig": 4
+          },
+          {
+            "k": "安全对齐",
+            "en": "Safety",
+            "count": "8",
+            "unit": "笔",
+            "amt": "1.2 亿美元",
+            "dir": "评测 · 对齐 · 红队",
+            "sig": 3
+          },
+          {
+            "k": "具身智能",
+            "en": "Embodied",
+            "count": "6",
+            "unit": "笔",
+            "amt": "0.9 亿美元",
+            "dir": "操作策略 · 机器人",
+            "sig": 3
+          },
+          {
+            "k": "行业模型",
+            "en": "Vertical",
+            "count": "5",
+            "unit": "笔",
+            "amt": "0.7 亿美元",
+            "dir": "法律 · 医疗 · 金融",
+            "sig": 2
+          }
+        ],
+        "conclusion": "小金额交易往往藏着下一轮主题。"
+      }
     }
   },
   {
@@ -6409,7 +9142,49 @@ export const pages = [
       "showLegend": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "UNDISCLOSED MEGA ROUNDS",
+        "title": "复杂交易结构",
+        "sheet": "STRUCTURE · 51 / 80",
+        "lead": "未披露轮次常对应战略投资、债务组合或云资源置换。",
+        "cap": "交易结构拆解",
+        "capUnit": "DEAL STRUCTURE",
+        "anchor": {
+          "en": "UNDISCLOSED ROUND",
+          "zh": "未披露巨额轮",
+          "num": "18.6",
+          "unit": "亿美元",
+          "sub": "平均单笔 · 22 笔事件"
+        },
+        "parts": [
+          {
+            "k": "云资源置换",
+            "en": "Cloud Credits",
+            "v": 39,
+            "c": "#4da0c6"
+          },
+          {
+            "k": "战略投资",
+            "en": "Strategic",
+            "v": 31,
+            "c": "#2c44a0"
+          },
+          {
+            "k": "债务组合",
+            "en": "Debt",
+            "v": 18,
+            "c": "#7a3c90"
+          },
+          {
+            "k": "普通股权",
+            "en": "Equity",
+            "v": 12,
+            "c": "#3c9a52"
+          }
+        ],
+        "conclusion": "AI 融资越来越像资源组合交易。"
+      }
     }
   },
   {
@@ -6423,13 +9198,13 @@ export const pages = [
     "controls": [
       {
         "key": "typeCount",
-        "label": "投资人类型数",
+        "label": "分类数量",
         "type": "slider",
         "default": 4,
         "min": 2,
         "max": 4,
         "step": 1,
-        "desc": "投资人类型环图的分段数量。"
+        "desc": "分类类型环图的分段数量。"
       },
       {
         "key": "chartType",
@@ -6463,7 +9238,7 @@ export const pages = [
         "min": 1,
         "max": 4,
         "step": 1,
-        "desc": "被突出的投资人类型序号（从 1 起）。"
+        "desc": "被突出的分类类型序号（从 1 起）。"
       },
       {
         "key": "showLegend",
@@ -6541,7 +9316,66 @@ export const pages = [
       "timelineFocus": 4,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "INVESTOR MIX",
+        "title": "资本来源结构",
+        "sheet": "TIMELINE · 52 / 80",
+        "lead": "传统 VC、企业战略投资者、成长基金和云厂商共同推动 AI 大额融资。",
+        "shareCap": "投资人类型分布",
+        "shareUnit": "BY TYPE",
+        "types": [
+          {
+            "name": "传统 VC",
+            "en": "Venture",
+            "v": 42,
+            "c": "#2c44a0"
+          },
+          {
+            "name": "企业战略",
+            "en": "Strategic",
+            "v": 27,
+            "c": "#d8402e"
+          },
+          {
+            "name": "成长基金",
+            "en": "Growth",
+            "v": 18,
+            "c": "#3c9a52"
+          },
+          {
+            "name": "云厂商相关",
+            "en": "Cloud",
+            "v": 13,
+            "c": "#e2742c"
+          }
+        ],
+        "timeCap": "资本来源演进",
+        "timeUnit": "CAPITAL EVOLUTION",
+        "nodes": [
+          {
+            "i": "STAGE 01",
+            "t": "纯 VC 主导",
+            "d": "早期由传统风险资本独立定价。"
+          },
+          {
+            "i": "STAGE 02",
+            "t": "战略资本进入",
+            "d": "云厂商与大厂以资源换股权。"
+          },
+          {
+            "i": "STAGE 03",
+            "t": "成长基金加注",
+            "d": "后期成长基金主导大额轮次。"
+          },
+          {
+            "i": "STAGE 04",
+            "t": "产业混合交易",
+            "d": "VC + 产业 + 债务的混合结构。"
+          }
+        ],
+        "conclusion": "钱的来源本身也是产业结构信号。"
+      }
     }
   },
   {
@@ -6670,7 +9504,46 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "STRATEGIC INVESTORS",
+        "title": "钱以外的资源",
+        "sheet": "IMAGE · 53 / 80",
+        "lead": "战略投资者提供渠道、云资源、芯片供应和客户入口 —— 交易真正价值经常不只在现金，而在关键资源绑定。",
+        "tiles": [
+          {
+            "en": "CLOUD CREDIT",
+            "zh": "云资源授信",
+            "v": "118",
+            "unit": "亿美元",
+            "c": "#2c44a0"
+          },
+          {
+            "en": "CO-SELLING",
+            "zh": "联合销售",
+            "v": "36",
+            "unit": "起",
+            "c": "#d8402e"
+          },
+          {
+            "en": "CHIP SUPPLY",
+            "zh": "芯片供应",
+            "v": "22",
+            "unit": "起",
+            "c": "#3c9a52"
+          },
+          {
+            "en": "DATA PARTNERSHIP",
+            "zh": "数据合作",
+            "v": "17",
+            "unit": "起",
+            "c": "#e2742c"
+          }
+        ],
+        "mediaCap": "资源绑定",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "AI 公司融资是在锁定未来资源。"
+      }
     }
   },
   {
@@ -6781,7 +9654,62 @@ export const pages = [
       "showReturn": true,
       "accentColor": "#e2742c",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "CLOUD ALLIANCES",
+        "title": "投资与算力消费闭环",
+        "sheet": "CHART · 54 / 80",
+        "lead": "云厂商投资 AI 公司，并通过算力消费回收价值 —— 云投资本质上是在锁定未来算力需求。",
+        "barCap": "云厂商联盟",
+        "barUnit": "BY VENDOR · 亿美元",
+        "vendors": [
+          {
+            "en": "AZURE",
+            "zh": "Azure 相关",
+            "v": 88,
+            "c": "#3c9a52"
+          },
+          {
+            "en": "AWS",
+            "zh": "AWS 相关",
+            "v": 74,
+            "c": "#e2742c"
+          },
+          {
+            "en": "GOOGLE CLOUD",
+            "zh": "Google Cloud 相关",
+            "v": 69,
+            "c": "#2c44a0"
+          },
+          {
+            "en": "ORACLE CLOUD",
+            "zh": "Oracle Cloud 相关",
+            "v": 21,
+            "c": "#d8402e"
+          }
+        ],
+        "loopCap": "资金—算力闭环",
+        "loopUnit": "CLOSED LOOP",
+        "stages": [
+          {
+            "i": "01",
+            "t": "资本投入",
+            "d": "云厂商以现金 + 信用入股模型公司。"
+          },
+          {
+            "i": "02",
+            "t": "算力消费",
+            "d": "融资被投回云上训练与推理。"
+          },
+          {
+            "i": "03",
+            "t": "价值回收",
+            "d": "云收入与算力需求被同步锁定。"
+          }
+        ],
+        "returnLabel": "价值回流",
+        "conclusion": "云资源正在成为融资交易的一部分。"
+      }
     }
   },
   {
@@ -6910,7 +9838,46 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "NVIDIA ECOSYSTEM",
+        "title": "GPU 资源链条",
+        "sheet": "IMAGE · 55 / 80",
+        "lead": "NVIDIA 生态内融资围绕 GPU、网络、集群运维和推理优化展开。",
+        "hub": {
+          "en": "GPU",
+          "zh": "算力核心"
+        },
+        "nodes": [
+          {
+            "en": "GPU CLOUD",
+            "zh": "GPU 云",
+            "v": 64,
+            "c": "#3c9a52"
+          },
+          {
+            "en": "CLUSTER OPS",
+            "zh": "集群管理",
+            "v": 12,
+            "c": "#2c44a0"
+          },
+          {
+            "en": "INFERENCE",
+            "zh": "推理优化",
+            "v": 9,
+            "c": "#e2742c"
+          },
+          {
+            "en": "INTERCONNECT",
+            "zh": "芯片互联",
+            "v": 7,
+            "c": "#d8402e"
+          }
+        ],
+        "mediaCap": "GPU 生态",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "算力供给能力正在变成融资能力。"
+      }
     }
   },
   {
@@ -7043,7 +10010,37 @@ export const pages = [
       "accentColor": "#2c44a0",
       "showWordmark": true,
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "BAY AREA CLUSTER",
+        "title": "最大地理中心",
+        "sheet": "BIG NUMBER · 56 / 80",
+        "number": "63.9",
+        "unit": "%",
+        "pct": 63.9,
+        "caption": "旧金山湾区融资额占比",
+        "message": "优势来自人才密度、资本网络、云厂商和模型实验室邻近。",
+        "shareLabel": "湾区",
+        "restLabel": "其余地区",
+        "aux": [
+          [
+            "其余地区合计",
+            "36.1",
+            "%"
+          ],
+          [
+            "枢纽城市",
+            "旧金山",
+            ""
+          ],
+          [
+            "集中度排名",
+            "TOP 1",
+            ""
+          ]
+        ],
+        "conclusion": "湾区仍是 AI 资本重力中心。"
+      }
     }
   },
   {
@@ -7205,7 +10202,47 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "NEW YORK CLUSTER",
+        "title": "行业客户优势",
+        "sheet": "IMAGE · 57 / 80",
+        "cluster": "NEW YORK",
+        "locale": "纽约集群",
+        "locator": "EAST · 40.7°N",
+        "lead": "纽约 AI 融资以金融、媒体、企业服务和法律 AI 为主 —— 优势不在基础模型，而在高价值行业客户。",
+        "tags": [
+          "金融",
+          "媒体",
+          "企业服务",
+          "法律 AI"
+        ],
+        "metrics": [
+          [
+            "融资额",
+            "120",
+            "亿美元"
+          ],
+          [
+            "市场占比",
+            "12.4",
+            "%"
+          ],
+          [
+            "事件数",
+            "14",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "8.6",
+            "亿美元"
+          ]
+        ],
+        "mediaCap": "城市场景",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "行业客户密度决定垂直应用机会。"
+      }
     }
   },
   {
@@ -7370,7 +10407,48 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "SEATTLE CLUSTER",
+        "title": "云计算人才外溢",
+        "sheet": "IMAGE · 58 / 80",
+        "marker": "SEATTLE",
+        "locale": "西雅图集群",
+        "lead": "西雅图受益于云计算生态和大厂工程人才外溢，更适合孕育基础设施、开发者工具和企业 AI。",
+        "tags": [
+          "云基础设施",
+          "开发者工具",
+          "企业 AI",
+          "工程人才"
+        ],
+        "metrics": [
+          [
+            "融资额",
+            "95",
+            "亿美元"
+          ],
+          [
+            "市场占比",
+            "9.8",
+            "%"
+          ],
+          [
+            "事件数",
+            "10",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "9.5",
+            "亿美元"
+          ]
+        ],
+        "mediaCap": "云生态场景",
+        "mediaUnit": "DROP IMAGE",
+        "mosaicCap": "区域定位",
+        "mosaicUnit": "TERRITORY MAP",
+        "conclusion": "云计算底座带来 AI 基础设施机会。"
+      }
     }
   },
   {
@@ -7502,7 +10580,46 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#7a3c90",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "BOSTON CLUSTER",
+        "title": "科研与硬科技",
+        "sheet": "IMAGE · 59 / 80",
+        "cluster": "BOSTON",
+        "locale": "波士顿集群",
+        "lead": "波士顿集中在医疗 AI、机器人和硬科技方向 —— 高校科研与硬科技转化构成其优势。",
+        "metrics": [
+          [
+            "融资额",
+            "75",
+            "亿美元"
+          ],
+          [
+            "市场占比",
+            "7.7",
+            "%"
+          ],
+          [
+            "事件数",
+            "8",
+            "笔"
+          ],
+          [
+            "平均单笔",
+            "9.4",
+            "亿美元"
+          ]
+        ],
+        "tags": [
+          "医疗 AI",
+          "机器人",
+          "硬科技",
+          "高校科研"
+        ],
+        "mediaCap": "科研场景",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "科研城市更适合长周期技术资产。"
+      }
     }
   },
   {
@@ -7646,7 +10763,56 @@ export const pages = [
       "imageCount": 0,
       "accentColor": "#e2742c",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "OTHER REGIONS",
+        "title": "分散型应用落地",
+        "sheet": "CHART · 60 / 80",
+        "locale": "其他地区机会",
+        "lead": "其他地区融资规模较小，但出现行业专用模型和本地化应用机会 —— 更适合做行业落地，而非争夺通用模型。",
+        "metrics": [
+          [
+            "融资额",
+            "60",
+            "亿美元"
+          ],
+          [
+            "市场占比",
+            "6.2",
+            "%"
+          ]
+        ],
+        "matrixNote": "事件数 11 笔 · 平均单笔 5.5 亿美元",
+        "matrixCap": "区域分布",
+        "matrixUnit": "DISPERSED FOOTPRINT",
+        "categories": [
+          {
+            "name": "行业专用模型",
+            "en": "VERTICAL MODELS",
+            "c": "#d8402e"
+          },
+          {
+            "name": "本地化应用",
+            "en": "LOCALIZED APPS",
+            "c": "#3c9a52"
+          },
+          {
+            "name": "垂直 SaaS",
+            "en": "VERTICAL SAAS",
+            "c": "#2c44a0"
+          },
+          {
+            "name": "区域服务",
+            "en": "REGIONAL OPS",
+            "c": "#e2742c"
+          }
+        ],
+        "legendCap": "落地方向",
+        "legendUnit": "BY THEME",
+        "mediaCap": "落地场景",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "本地行业资源也能形成应用机会。"
+      }
     }
   },
   {
@@ -7793,7 +10959,39 @@ export const pages = [
       "accentColor": "#d8402e",
       "showSub": true,
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "kicker": "TALENT · CAPITAL · COMPUTE",
+        "lead": "三类关键资源",
+        "leadSub": "人才 · 资本 · 算力",
+        "quote": "AI 竞争首先是{资源组织能力}竞争。",
+        "sub": "谁能把人才、资本与算力组织进同一张网，谁就掌握了下一阶段的主动权。",
+        "railCap": "资源三角",
+        "railUnit": "RESOURCE TRIANGLE",
+        "op": "+",
+        "pillars": [
+          {
+            "en": "TALENT",
+            "zh": "人才",
+            "note": "顶尖研究员与工程团队的密度",
+            "c": "#d8402e"
+          },
+          {
+            "en": "CAPITAL",
+            "zh": "资本",
+            "note": "持续、巨额且有耐心的资金",
+            "c": "#2c44a0"
+          },
+          {
+            "en": "COMPUTE",
+            "zh": "算力",
+            "note": "可调度的大规模训练与推理",
+            "c": "#3c9a52"
+          }
+        ],
+        "src": "EXPANDED SLIDE · P61",
+        "sheet": "QUOTE · 61 / 80"
+      }
     }
   },
   {
@@ -7925,7 +11123,42 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "BENCHMARK CASE",
+        "title": "商业化标杆",
+        "sheet": "CASE · 62 / 80",
+        "en": "OPENAI",
+        "zh": "通用大模型样本",
+        "sub": "OpenAI 案例",
+        "lead": "模型能力、生态入口与企业商业化能否同时领先，是衡量这一阶段标杆的核心标尺。",
+        "badge": "BENCHMARK",
+        "kpis": [
+          [
+            "最大单笔融资",
+            "66",
+            "亿美元"
+          ],
+          [
+            "企业客户",
+            "9.4",
+            "万家"
+          ],
+          [
+            "年度化收入",
+            "38",
+            "亿美元"
+          ],
+          [
+            "赛道",
+            "通用大模型",
+            ""
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "模型能力必须转成生态和收入。"
+      }
     }
   },
   {
@@ -8079,7 +11312,48 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#efbe2e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "TRUST DOSSIER",
+        "title": "安全可靠模型",
+        "sheet": "CASE · 63 / 80",
+        "filing": "FILE · A-02 · ENTERPRISE",
+        "en": "ANTHROPIC",
+        "zh": "企业级可信模型",
+        "sub": "安全与可靠的定位",
+        "lead": "优势不是更激进的叙事，而是更可信的企业采用 —— 安全、对齐与稳定本身构成壁垒。",
+        "tags": [
+          "安全对齐",
+          "长上下文",
+          "企业采用",
+          "可信交付"
+        ],
+        "ledger": [
+          [
+            "累计融资",
+            "650+",
+            "亿美元"
+          ],
+          [
+            "估值",
+            "9650",
+            "亿美元"
+          ],
+          [
+            "核心客户",
+            "云 / 金融 / 专业服务",
+            ""
+          ],
+          [
+            "关键能力",
+            "安全 · 长上下文",
+            ""
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "conclusion": "可信度本身可以成为商业壁垒。"
+      }
     }
   },
   {
@@ -8241,7 +11515,62 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "ECOSYSTEM NEXUS",
+        "title": "实时数据生态",
+        "sheet": "CASE · 64 / 80",
+        "en": "XAI",
+        "zh": "实时数据差异化",
+        "sub": "xAI 案例",
+        "lead": "核心资产不是模型本身，而是实时数据与生态流量 —— 独特的数据入口构成模型差异化。",
+        "metrics": [
+          [
+            "单笔融资",
+            "50",
+            "亿美元"
+          ],
+          [
+            "估值",
+            "500",
+            "亿美元"
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "netCap": "生态连接",
+        "netUnit": "DATA + ECOSYSTEM",
+        "hubEn": "XAI",
+        "hubZh": "实时数据内核",
+        "hubNote": "以实时数据与马斯克生态为差异化中枢",
+        "nodes": [
+          {
+            "zh": "X 平台",
+            "en": "DATA GATEWAY",
+            "role": "数据入口",
+            "c": "#d8402e"
+          },
+          {
+            "zh": "特斯拉",
+            "en": "FLEET SIGNALS",
+            "role": "协同",
+            "c": "#2c44a0"
+          },
+          {
+            "zh": "多模态",
+            "en": "MULTIMODAL",
+            "role": "能力",
+            "c": "#3c9a52"
+          },
+          {
+            "zh": "实时搜索",
+            "en": "LIVE SEARCH",
+            "role": "场景",
+            "c": "#4da0c6"
+          }
+        ],
+        "conclusion": "独特数据入口可以成为模型差异化。"
+      }
     }
   },
   {
@@ -8414,7 +11743,44 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "COREWEAVE CASE",
+        "title": "算力基础设施",
+        "sheet": "CASE · 65 / 80",
+        "en": "COREWEAVE",
+        "zh": "GPU 云算力供应",
+        "sub": "CoreWeave 案例",
+        "lead": "当模型公司都在抢 GPU，算力供应商获得资本溢价 —— 确定性需求叠加稀缺供给。",
+        "kpis": [
+          [
+            "融资额",
+            "110",
+            "亿美元"
+          ],
+          [
+            "估值",
+            "190",
+            "亿美元"
+          ],
+          [
+            "GPU 资源",
+            "7.8",
+            "万张"
+          ],
+          [
+            "核心客户",
+            "模型 · 内容 · 推理",
+            ""
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "rackCap": "GPU 集群",
+        "rackUnit": "CLUSTER UTILIZATION",
+        "rackReadK": "在网算力占用",
+        "conclusion": "卖铲子的人也能成为核心资产。"
+      }
     }
   },
   {
@@ -8552,7 +11918,84 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "SCALE AI CASE",
+        "title": "数据基础设施",
+        "sheet": "CASE · 66 / 80",
+        "lead": "Scale AI 代表数据标注、RLHF 和评测数据需求 —— 模型越依赖高质量数据，数据层越有价值。",
+        "headlines": [
+          [
+            "最大单笔融资",
+            "10",
+            "亿美元"
+          ],
+          [
+            "企业客户",
+            "1200",
+            "家"
+          ]
+        ],
+        "stages": [
+          {
+            "zh": "数据采集",
+            "en": "COLLECT"
+          },
+          {
+            "zh": "人工标注",
+            "en": "LABEL"
+          },
+          {
+            "zh": "RLHF 反馈",
+            "en": "FEEDBACK"
+          },
+          {
+            "zh": "模型评测",
+            "en": "EVALUATE"
+          }
+        ],
+        "headers": [
+          "业务维度",
+          "模拟数据",
+          "代表对象",
+          "判断"
+        ],
+        "rows": [
+          {
+            "stage": 1,
+            "k": "数据标注",
+            "en": "Annotation",
+            "data": "1200 家企业客户",
+            "rep": "标注 · 质检 · 数据集",
+            "v": "核心"
+          },
+          {
+            "stage": 2,
+            "k": "人类反馈",
+            "en": "RLHF",
+            "data": "偏好对齐数据",
+            "rep": "奖励建模 · 偏好",
+            "v": "关键"
+          },
+          {
+            "stage": 3,
+            "k": "模型评测",
+            "en": "Evaluation",
+            "data": "政府客户 18%",
+            "rep": "安全 · 合规 · 红队",
+            "v": "高价值"
+          },
+          {
+            "stage": 0,
+            "k": "规模交付",
+            "en": "Operations",
+            "data": "10 亿美元单笔",
+            "rep": "众包 · 流水线",
+            "v": "壁垒"
+          }
+        ],
+        "conclusion": "数据质量是模型竞争的底层变量。"
+      }
     }
   },
   {
@@ -8722,7 +12165,63 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#7a3c90",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "PERPLEXITY CASE",
+        "title": "AI 搜索入口",
+        "sheet": "CASE · 67 / 80",
+        "en": "PERPLEXITY",
+        "zh": "答案引擎 · 信息入口",
+        "sub": "Perplexity AI 案例",
+        "lead": "机会在于重构信息入口，挑战是内容版权和用户留存 —— 新入口要用留存证明价值。",
+        "kpis": [
+          [
+            "最大单笔融资",
+            "5.2",
+            "亿美元"
+          ],
+          [
+            "月活用户",
+            "4800",
+            "万"
+          ],
+          [
+            "赛道",
+            "AI 搜索",
+            ""
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "ladderCap": "用户漏斗",
+        "ladderUnit": "REACH → SUBSCRIBER",
+        "ladder": [
+          {
+            "k": "月活用户",
+            "en": "MONTHLY ACTIVE",
+            "v": "4800",
+            "unit": "万",
+            "w": 100
+          },
+          {
+            "k": "活跃互动",
+            "en": "ENGAGED",
+            "v": "1800",
+            "unit": "万",
+            "w": 56,
+            "rate": "37.5%"
+          },
+          {
+            "k": "付费订阅",
+            "en": "SUBSCRIBER",
+            "v": "278",
+            "unit": "万",
+            "w": 18,
+            "rate": "5.8%"
+          }
+        ],
+        "conclusion": "新入口要用留存证明价值。"
+      }
     }
   },
   {
@@ -8855,7 +12354,81 @@ export const pages = [
       "showLead": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "DATABRICKS CASE",
+        "title": "数据平台延展",
+        "sheet": "CASE · 68 / 80",
+        "en": "DATABRICKS",
+        "zh": "数据平台 → AI 平台",
+        "sub": "Databricks 案例",
+        "lead": "已有数据平台更容易把 AI 能力卖给现有企业客户 —— 存量客户基础是 AI 商业化捷径。",
+        "ledger": [
+          [
+            "最大单笔融资",
+            "5.0",
+            "亿美元"
+          ],
+          [
+            "企业客户",
+            "1.1",
+            "万家"
+          ],
+          [
+            "净收入留存",
+            "132",
+            "%"
+          ],
+          [
+            "赛道",
+            "数据平台",
+            ""
+          ]
+        ],
+        "stackCap": "平台架构",
+        "stackUnit": "DATA → AI EXTENSION",
+        "tiers": [
+          {
+            "zh": "智能应用",
+            "en": "AI APPS",
+            "items": [
+              "助手",
+              "检索增强",
+              "智能决策"
+            ]
+          },
+          {
+            "zh": "ML / AI 平台",
+            "en": "ML PLATFORM",
+            "items": [
+              "模型训练",
+              "特征工程",
+              "MLOps"
+            ]
+          },
+          {
+            "zh": "计算引擎",
+            "en": "COMPUTE",
+            "items": [
+              "Spark",
+              "SQL 引擎",
+              "流批一体"
+            ]
+          },
+          {
+            "zh": "数据湖仓",
+            "en": "LAKEHOUSE",
+            "items": [
+              "统一存储",
+              "数据治理",
+              "开放表格式"
+            ]
+          }
+        ],
+        "expandK": "净收入留存",
+        "expandNote": "存量客户向 AI 层扩张",
+        "conclusion": "存量客户基础是 AI 商业化捷径。"
+      }
     }
   },
   {
@@ -9033,7 +12606,68 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#3c9a52",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "GLEAN CASE",
+        "title": "企业知识入口",
+        "sheet": "CASE · 69 / 80",
+        "en": "GLEAN",
+        "zh": "企业搜索 · 知识工作流",
+        "sub": "Glean 案例",
+        "lead": "接入知识库后，企业搜索会成为高频工作入口 —— 窄场景也能产生高价值。",
+        "kpis": [
+          [
+            "最大单笔融资",
+            "2.6",
+            "亿美元"
+          ],
+          [
+            "付费客户",
+            "780",
+            "家"
+          ],
+          [
+            "赛道",
+            "企业搜索",
+            ""
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "dirCap": "知识来源索引",
+        "dirUnit": "INDEXED SOURCES",
+        "sources": [
+          {
+            "k": "文档与云盘",
+            "en": "DOCS · DRIVE",
+            "w": 92
+          },
+          {
+            "k": "工单与邮件",
+            "en": "TICKETS · MAIL",
+            "w": 74
+          },
+          {
+            "k": "代码与知识库",
+            "en": "CODE · WIKI",
+            "w": 61
+          },
+          {
+            "k": "会话与日历",
+            "en": "CHAT · CAL",
+            "w": 48
+          },
+          {
+            "k": "数据看板",
+            "en": "DASHBOARDS",
+            "w": 35
+          }
+        ],
+        "ringCap": "续约率",
+        "ringValue": 91,
+        "ringNote": "高留存验证入口价值",
+        "conclusion": "窄场景也能产生高价值。"
+      }
     }
   },
   {
@@ -9155,7 +12789,36 @@ export const pages = [
       "showMessage": true,
       "accentColor": "#efbe2e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "FIGURE AI CASE",
+        "title": "人形机器人",
+        "sheet": "CASE · 70 / 80",
+        "number": "6.8",
+        "unit": "亿美元",
+        "caption": "Figure AI 最大单笔融资。",
+        "message": "关键不只是 demo，而是供应链、可靠性和量产成本。",
+        "meterCap": "量产就绪度",
+        "meterUnit": "READINESS LEVEL",
+        "aux": [
+          {
+            "k": "硬件迭代",
+            "v": "3",
+            "u": "代"
+          },
+          {
+            "k": "合作产线",
+            "v": "2",
+            "u": "条"
+          },
+          {
+            "k": "赛道",
+            "v": "人形机器人",
+            "u": ""
+          }
+        ],
+        "conclusion": "硬件 AI 要用量产证明自己。"
+      }
     }
   },
   {
@@ -9335,7 +12998,62 @@ export const pages = [
       "showGalleryCaption": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "SSI CASE",
+        "title": "强叙事模型实验室",
+        "sheet": "CASE · 71 / 80",
+        "en": "SSI",
+        "zh": "安全智能 · 长期技术",
+        "sub": "SSI 案例",
+        "lead": "强团队、强叙事、弱商业化验证 —— 短期难以用收入评价，价值建立在长期技术想象上。",
+        "kpis": [
+          [
+            "最大单笔融资",
+            "10",
+            "亿美元"
+          ],
+          [
+            "产品收入",
+            "0",
+            ""
+          ],
+          [
+            "团队规模",
+            "85",
+            "人"
+          ],
+          [
+            "赛道",
+            "安全智能",
+            ""
+          ]
+        ],
+        "galleryCap": "案例主视觉",
+        "galleryUnit": "DROP IMAGES",
+        "horizonCap": "兑现周期",
+        "horizonUnit": "NOW → HORIZON",
+        "startLabel": "现在 · 收入 0",
+        "endLabel": "长期技术兑现",
+        "milestones": [
+          {
+            "t": 0.3,
+            "k": "研究突破",
+            "en": "RESEARCH"
+          },
+          {
+            "t": 0.55,
+            "k": "原型验证",
+            "en": "PROTOTYPE"
+          },
+          {
+            "t": 0.78,
+            "k": "商业化",
+            "en": "COMMERCIAL"
+          }
+        ],
+        "conclusion": "强叙事需要更长时间兑现。"
+      }
     }
   },
   {
@@ -9482,7 +13200,44 @@ export const pages = [
       "accentColor": "#d8402e",
       "showColorBand": true,
       "showWordmark": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "brand": "AICL",
+        "boardMeta": "SECTION DIVIDER",
+        "eyebrow": "CHAPTER 05",
+        "num": "05",
+        "title": "风险与策略",
+        "sub": "从估值压力到投资筛选",
+        "sheet": "72 / 80",
+        "platformLabel": "CHAPTER",
+        "rows": [
+          {
+            "code": "05·1",
+            "k": "估值泡沫",
+            "en": "VALUATION"
+          },
+          {
+            "code": "05·2",
+            "k": "收入验证",
+            "en": "REVENUE"
+          },
+          {
+            "code": "05·3",
+            "k": "合规监管",
+            "en": "COMPLIANCE"
+          },
+          {
+            "code": "05·4",
+            "k": "算力成本",
+            "en": "COMPUTE COST"
+          },
+          {
+            "code": "05·5",
+            "k": "垂直应用筛选",
+            "en": "VERTICAL PICK"
+          }
+        ]
+      }
     }
   },
   {
@@ -9641,7 +13396,63 @@ export const pages = [
       "showLead": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "REVENUE RISK",
+        "title": "从试点到稳定收入",
+        "sheet": "RISK · 73 / 80",
+        "lead": "多数 AI 公司需要证明自己能从试点项目转向稳定订阅收入。",
+        "stageCap": "试点 → 收入 转化阶梯",
+        "stageUnit": "PILOT → REVENUE",
+        "stages": [
+          {
+            "k": "试点客户",
+            "en": "PILOT",
+            "v": 100
+          },
+          {
+            "k": "付费转化",
+            "en": "PAID",
+            "v": 28
+          },
+          {
+            "k": "12 个月留存",
+            "en": "RETAINED",
+            "v": 23
+          },
+          {
+            "k": "营收扩张",
+            "en": "EXPANSION",
+            "v": 11
+          }
+        ],
+        "cardTitle": "收入验证",
+        "cardEn": "REVENUE VALIDATION",
+        "cardLead": "收入验证要看留存、毛利和客户扩张，而不是只看 Logo。",
+        "kpis": [
+          [
+            "试点转付费率",
+            "28",
+            "%"
+          ],
+          [
+            "企业年流失率",
+            "17",
+            "%"
+          ],
+          [
+            "毛利率中位数",
+            "54",
+            "%"
+          ],
+          [
+            "推理成本占收入",
+            "31",
+            "%"
+          ]
+        ],
+        "conclusion": "客户试点不等于商业化成功。"
+      }
     }
   },
   {
@@ -9768,7 +13579,71 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "REGULATION RISK",
+        "title": "隐私、版权与安全",
+        "sheet": "RISK · 74 / 80",
+        "lead": "隐私、版权、安全和行业监管会增加交付成本。",
+        "headlines": [
+          [
+            "合规团队增长",
+            "+42",
+            "%"
+          ],
+          [
+            "采购审查周期",
+            "+36",
+            "%"
+          ]
+        ],
+        "headers": [
+          "维度",
+          "模拟数据",
+          "代表对象",
+          "严重度"
+        ],
+        "sevHead": "SEVERITY",
+        "rows": [
+          {
+            "k": "数据隐私",
+            "en": "Privacy",
+            "num": "58",
+            "unit": "%",
+            "sub": "数据隔离需求",
+            "rep": "医疗 · 金融客户",
+            "level": 5
+          },
+          {
+            "k": "版权合规",
+            "en": "Copyright",
+            "num": "19",
+            "unit": "起",
+            "sub": "版权风险事件",
+            "rep": "图像 · 视频生成",
+            "level": 4
+          },
+          {
+            "k": "模型安全",
+            "en": "Safety",
+            "num": "+42",
+            "unit": "%",
+            "sub": "合规团队增长",
+            "rep": "通用大模型",
+            "level": 3
+          },
+          {
+            "k": "行业监管",
+            "en": "Regulation",
+            "num": "+36",
+            "unit": "%",
+            "sub": "采购审查周期",
+            "rep": "受监管行业",
+            "level": 3
+          }
+        ],
+        "conclusion": "合规能力会成为企业采购门槛。"
+      }
     }
   },
   {
@@ -9886,7 +13761,38 @@ export const pages = [
       "showMessage": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "COMPUTE COST RISK",
+        "title": "毛利天花板",
+        "sheet": "RISK · 75 / 80",
+        "number": "61",
+        "unit": "%",
+        "caption": "训练预算模拟增长幅度。",
+        "message": "如果推理成本降不下来，收入增长会被毛利吞掉。",
+        "gaugeCap": "成本压力线",
+        "gaugeUnit": "COST PRESSURE",
+        "ceilingLabel": "毛利天花板",
+        "floorLabel": "收入基线",
+        "aux": [
+          {
+            "k": "推理成本占收入",
+            "v": "31",
+            "u": "%"
+          },
+          {
+            "k": "毛利率中位数",
+            "v": "54",
+            "u": "%"
+          },
+          {
+            "k": "风险",
+            "v": "算力成本",
+            "u": ""
+          }
+        ],
+        "conclusion": "算力成本是模型商业化的硬约束。"
+      }
     }
   },
   {
@@ -10020,7 +13926,41 @@ export const pages = [
       "showLead": true,
       "accentColor": "#7a3c90",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "OPEN SOURCE RISK",
+        "title": "壁垒被压缩",
+        "sheet": "RISK · 76 / 80",
+        "lead": "开源模型降低能力门槛，大厂生态压缩初创公司的独立空间。",
+        "plotCap": "竞争格局 · 壁垒侵蚀",
+        "plotUnit": "PRESSURE → MOAT",
+        "pressures": [
+          {
+            "k": "开源模型性能逼近",
+            "en": "OPEN SOURCE",
+            "p": 86,
+            "color": "#d8402e"
+          },
+          {
+            "k": "大厂产品覆盖",
+            "en": "PLATFORM",
+            "p": 72,
+            "color": "#2c44a0"
+          },
+          {
+            "k": "企业自建意愿",
+            "en": "IN-HOUSE",
+            "p": 34,
+            "color": "#3c9a52"
+          }
+        ],
+        "wallLabel": "壁垒墙",
+        "anchorNum": "14",
+        "anchorUnit": "%",
+        "anchorLabel": "剩余独立壁垒空间",
+        "anchorNote": "初创公司必须找到数据、工作流或行业入口壁垒。",
+        "conclusion": "没有壁垒的模型能力会迅速商品化。"
+      }
     }
   },
   {
@@ -10172,7 +14112,63 @@ export const pages = [
       "showLead": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "INFRASTRUCTURE STRATEGY · 策略：优先基础设施",
+        "title": "确定性预算",
+        "sheet": "STRATEGY · 77 / 80",
+        "lead": "基础设施公司更接近刚性预算，收入确定性相对更强。",
+        "boardCap": "推荐方向",
+        "boardUnit": "RECOMMENDED",
+        "cards": [
+          {
+            "en": "CLOUD",
+            "k": "GPU 云",
+            "tag": "算力供给 · 刚性预算",
+            "color": "#d8402e"
+          },
+          {
+            "en": "DATA",
+            "k": "数据平台",
+            "tag": "数据治理 · 长期锁定",
+            "color": "#2c44a0"
+          },
+          {
+            "en": "EVAL",
+            "k": "评测工具",
+            "tag": "合规评测 · 采购门槛",
+            "color": "#3c9a52"
+          },
+          {
+            "en": "INFER",
+            "k": "推理优化",
+            "tag": "降本增效 · 全行业需求",
+            "color": "#e2742c"
+          }
+        ],
+        "criteriaCap": "筛选指标",
+        "criteriaUnit": "SCREEN BY",
+        "criteria": [
+          {
+            "k": "收入增速",
+            "en": "GROWTH"
+          },
+          {
+            "k": "毛利率",
+            "en": "MARGIN"
+          },
+          {
+            "k": "客户集中度",
+            "en": "CONCENTRATION"
+          },
+          {
+            "k": "资源锁定",
+            "en": "LOCK-IN"
+          }
+        ],
+        "criteriaNote": "模型胜负未定时，卖铲子仍是更稳的资本逻辑。",
+        "conclusion": "优先看能支撑全行业增长的基础设施。"
+      }
     }
   },
   {
@@ -10324,7 +14320,64 @@ export const pages = [
       "showLead": true,
       "accentColor": "#e2742c",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "VERTICAL STRATEGY · 策略：筛选垂直应用",
+        "title": "嵌入工作流",
+        "sheet": "STRATEGY · 78 / 80",
+        "lead": "垂直应用要看是否嵌入刚性流程，而不是只看生成效果。",
+        "flowCap": "工作流嵌入点",
+        "flowUnit": "EMBED IN PROCESS",
+        "embedBadge": "AI 嵌入",
+        "stages": [
+          {
+            "k": "业务输入",
+            "en": "INPUT"
+          },
+          {
+            "k": "流程处理",
+            "en": "PROCESS"
+          },
+          {
+            "k": "决策审批",
+            "en": "DECISION"
+          },
+          {
+            "k": "结果交付",
+            "en": "DELIVERY"
+          }
+        ],
+        "metricCap": "关注指标",
+        "metricUnit": "WATCH",
+        "metrics": [
+          {
+            "k": "付费留存",
+            "en": "RETENTION"
+          },
+          {
+            "k": "使用频次",
+            "en": "FREQUENCY"
+          },
+          {
+            "k": "席位扩张",
+            "en": "SEATS"
+          },
+          {
+            "k": "净收入留存",
+            "en": "NRR"
+          }
+        ],
+        "metricNote": "好的垂直 AI 应用应该成为工作流的一部分。",
+        "sceneCap": "落地场景",
+        "scenes": [
+          "法律",
+          "医疗",
+          "客服",
+          "企业搜索",
+          "开发者工具"
+        ],
+        "conclusion": "应用价值来自流程位置。"
+      }
     }
   },
   {
@@ -10476,7 +14529,67 @@ export const pages = [
       "showLead": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "IPO WATCH · 策略：观察 IPO 窗口",
+        "title": "估值锚重定价",
+        "sheet": "TIMELINE · 79 / 80",
+        "lead": "头部公司 IPO 表现会影响整个 AI 一级市场估值锚。",
+        "watchCap": "观察对象",
+        "watchUnit": "WATCHLIST",
+        "watch": [
+          "OpenAI",
+          "Anthropic",
+          "Databricks",
+          "CoreWeave"
+        ],
+        "timeCap": "IPO 观察窗口",
+        "timeUnit": "IPO WINDOW",
+        "nodes": [
+          {
+            "i": "PHASE 01",
+            "t": "窗口开启",
+            "d": "头部公司启动上市筹备，开始路演与定价。"
+          },
+          {
+            "i": "PHASE 02",
+            "t": "首日表现",
+            "d": "挂牌首日股价表现给出第一个公开锚点。"
+          },
+          {
+            "i": "PHASE 03",
+            "t": "季度兑现",
+            "d": "上市后季报检验收入增速与毛利率。"
+          },
+          {
+            "i": "PHASE 04",
+            "t": "估值回传",
+            "d": "公开市场定价回传一级市场预期。"
+          }
+        ],
+        "indCap": "观察指标",
+        "indUnit": "INDICATORS",
+        "indicators": [
+          {
+            "k": "上市表现",
+            "en": "IPO PERF"
+          },
+          {
+            "k": "收入增速",
+            "en": "REV GROWTH"
+          },
+          {
+            "k": "毛利率",
+            "en": "GROSS MARGIN"
+          },
+          {
+            "k": "云成本占比",
+            "en": "CLOUD COST"
+          }
+        ],
+        "note": "如果头部公司上市后估值承压，一级市场会同步下修预期。",
+        "conclusion": "公开市场会重新定价 AI 叙事。"
+      }
     }
   },
   {
@@ -10619,7 +14732,69 @@ export const pages = [
       "showFooter": true,
       "showColorBand": true,
       "accentColor": "#d8402e",
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "kicker": "CLOSING · 收尾页",
+        "sheet": "VERDICT · 80 / 80",
+        "tag": "最终判断",
+        "tagEn": "FINAL VERDICT",
+        "quote": {
+          "key": null,
+          "ref": null,
+          "props": {
+            "children": [
+              "融资盛宴之后，",
+              {
+                "type": "br",
+                "key": null,
+                "ref": null,
+                "props": {},
+                "_owner": null,
+                "_store": {}
+              },
+              {
+                "type": "span",
+                "key": null,
+                "ref": null,
+                "props": {
+                  "className": "hl",
+                  "children": "真正的竞争"
+                },
+                "_owner": null,
+                "_store": {}
+              },
+              "才刚开始。"
+            ]
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        "quotePlain": {
+          "key": null,
+          "ref": null,
+          "props": {
+            "children": [
+              "融资盛宴之后，",
+              {
+                "type": "br",
+                "key": null,
+                "ref": null,
+                "props": {},
+                "_owner": null,
+                "_store": {}
+              },
+              "真正的竞争才刚开始。"
+            ]
+          },
+          "_owner": null,
+          "_store": {}
+        },
+        "sub": "下一阶段比拼的不再是融资规模，而是把叙事兑现为收入的能力。",
+        "marker": "完",
+        "markerEn": "END",
+        "brand": "AICL",
+        "ref": "美国大额融资 AI 公司调研报告 · 2024"
+      }
     }
   },
   {
@@ -10741,7 +14916,69 @@ export const pages = [
       "showDelta": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Ranking Shift",
+        "title": "赛道排名变迁",
+        "sheet": "CHART · 83 / 86",
+        "fromLabel": "2023",
+        "toLabel": "2024",
+        "fromCap": "上一周期排名",
+        "toCap": "本周期排名",
+        "unit": "亿美元",
+        "items": [
+          {
+            "name": "大模型基础设施",
+            "en": "Foundation",
+            "prev": 58,
+            "now": 182,
+            "cat": 0
+          },
+          {
+            "name": "AI 应用层",
+            "en": "Applications",
+            "prev": 96,
+            "now": 121,
+            "cat": 3
+          },
+          {
+            "name": "算力与芯片",
+            "en": "Compute",
+            "prev": 74,
+            "now": 110,
+            "cat": 5
+          },
+          {
+            "name": "企业服务",
+            "en": "Enterprise",
+            "prev": 88,
+            "now": 64,
+            "cat": 4
+          },
+          {
+            "name": "数据与安全",
+            "en": "Data & Safety",
+            "prev": 41,
+            "now": 58,
+            "cat": 6
+          },
+          {
+            "name": "医疗 AI",
+            "en": "Healthcare",
+            "prev": 63,
+            "now": 47,
+            "cat": 1
+          },
+          {
+            "name": "机器人与具身",
+            "en": "Robotics",
+            "prev": 22,
+            "now": 39,
+            "cat": 2
+          }
+        ],
+        "conclusion": "基础设施一年内跃居首位，资本重心由应用回流底层。"
+      }
     }
   },
   {
@@ -10896,7 +15133,112 @@ export const pages = [
       "showIntro": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Composite Scorecard",
+        "title": "赛道综合评分",
+        "sheet": "TABLE · 84 / 86",
+        "intro": "六条评分维度按 0–100 标准化，综合分加权汇总，用于横向比较各赛道当前的投资性价比。",
+        "subjectHead": "赛道 / Segment",
+        "overallHead": "综合",
+        "cols": [
+          {
+            "name": "融资热度",
+            "en": "Heat"
+          },
+          {
+            "name": "商业兑现",
+            "en": "Revenue"
+          },
+          {
+            "name": "技术壁垒",
+            "en": "Moat"
+          },
+          {
+            "name": "风险控制",
+            "en": "Risk"
+          },
+          {
+            "name": "退出预期",
+            "en": "Exit"
+          }
+        ],
+        "rows": [
+          {
+            "name": "大模型基础设施",
+            "en": "Foundation",
+            "scores": [
+              96,
+              71,
+              92,
+              64,
+              78
+            ],
+            "overall": 84
+          },
+          {
+            "name": "AI 应用层",
+            "en": "Applications",
+            "scores": [
+              88,
+              83,
+              58,
+              72,
+              80
+            ],
+            "overall": 78
+          },
+          {
+            "name": "算力与芯片",
+            "en": "Compute",
+            "scores": [
+              82,
+              66,
+              88,
+              60,
+              70
+            ],
+            "overall": 75
+          },
+          {
+            "name": "企业服务",
+            "en": "Enterprise",
+            "scores": [
+              70,
+              86,
+              62,
+              81,
+              74
+            ],
+            "overall": 74
+          },
+          {
+            "name": "医疗 AI",
+            "en": "Healthcare",
+            "scores": [
+              61,
+              54,
+              79,
+              58,
+              56
+            ],
+            "overall": 62
+          },
+          {
+            "name": "机器人与具身",
+            "en": "Robotics",
+            "scores": [
+              74,
+              41,
+              70,
+              47,
+              52
+            ],
+            "overall": 55
+          }
+        ],
+        "conclusion": "基础设施综合分领先，应用层胜在兑现与退出预期均衡。"
+      }
     }
   },
   {
@@ -11014,7 +15356,59 @@ export const pages = [
       "showAxisCaps": true,
       "accentColor": "#2c44a0",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Capital Cycle",
+        "title": "资本周期回顾",
+        "sheet": "TIMELINE · 85 / 86",
+        "startCap": "周期起点",
+        "endCap": "当前位置",
+        "nodes": [
+          {
+            "time": "23 Q4",
+            "title": "叙事启动",
+            "note": "大模型热度点燃一级市场，资金开始排队入场。",
+            "value": "58",
+            "unit": "亿美元"
+          },
+          {
+            "time": "24 Q1",
+            "title": "冷启动",
+            "note": "大额事件稀少，资本观望，估值预期重新校准。",
+            "value": "41",
+            "unit": "亿美元"
+          },
+          {
+            "time": "24 Q2",
+            "title": "加速",
+            "note": "基础设施轮次集中落地，单笔金额快速抬升。",
+            "value": "96",
+            "unit": "亿美元"
+          },
+          {
+            "time": "24 Q3",
+            "title": "峰值",
+            "note": "全年峰值季度，头部公司吸走绝大部分资金。",
+            "value": "182",
+            "unit": "亿美元"
+          },
+          {
+            "time": "24 Q4",
+            "title": "理性回落",
+            "note": "热度由叙事转向兑现，资金更挑剔、更集中。",
+            "value": "121",
+            "unit": "亿美元"
+          },
+          {
+            "time": "25 H1",
+            "title": "结构分化",
+            "note": "底层与应用分道，壁垒清晰者获得溢价。",
+            "value": "—",
+            "unit": "展望"
+          }
+        ],
+        "conclusion": "一个完整周期里，资本从赌叙事走向看兑现。"
+      }
     }
   },
   {
@@ -11140,7 +15534,24 @@ export const pages = [
       "showMediaCaption": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Visual Field Notes",
+        "title": "代表企业影像",
+        "sheet": "IMAGE · 86 / 86",
+        "display": "97",
+        "displayCap": "笔大额事件 · 影像档案",
+        "lead": "用一组现场影像收束报告 —— 实验室、数据中心、路演与产品现场，构成 2024 美国 AI 资本最直观的注脚。",
+        "tags": [
+          "大模型",
+          "算力集群",
+          "机器人",
+          "医疗 AI"
+        ],
+        "mediaCap": "影像档案",
+        "mediaUnit": "DROP IMAGE",
+        "conclusion": "数字之外，是一群正在把资本变成产品的人。"
+      }
     }
   },
   {
@@ -11153,6 +15564,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "goey",
+        "def": "goey",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "imageCount",
         "label": "图片槽数量",
         "type": "slider",
@@ -11160,6 +15617,8 @@ export const pages = [
         "min": 0,
         "max": 3,
         "step": 1,
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "media",
         "desc": "全幅图片槽数量（0–3）。1 张铺满整幅；多张按比例自适应分列；为 0 时显示色谱占位。"
       },
       {
@@ -11267,6 +15726,8 @@ export const pages = [
       }
     ],
     "defaultProps": {
+      "backgroundMode": "unicorn",
+      "unicornScene": "goey",
       "imageCount": 1,
       "panelPosition": "tl",
       "panelTheme": "ink",
@@ -11276,7 +15737,33 @@ export const pages = [
       "showScrim": true,
       "showMediaCaption": true,
       "accentColor": "#d8402e",
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Field · 现场",
+        "title": "硅谷的一天",
+        "sheet": "IMAGE · 87 / 90",
+        "kicker": "湾区是美国 AI 资本最密集的现场 —— 实验室、机房与路演同时运转。",
+        "ticker": [
+          [
+            "集群占比",
+            "41%"
+          ],
+          [
+            "大额事件",
+            "39 笔"
+          ],
+          [
+            "平均单笔",
+            "11.6 亿美元"
+          ],
+          [
+            "头部公司",
+            "OpenAI · Anthropic"
+          ]
+        ],
+        "mediaCap": "现场影像",
+        "mediaUnit": "DROP IMAGE"
+      }
     }
   },
   {
@@ -11387,7 +15874,86 @@ export const pages = [
       "showLegend": true,
       "accentColor": "#d8402e",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Size × Composition",
+        "title": "赛道规模 × 轮次构成",
+        "sheet": "CHART · 88 / 90",
+        "intro": "列宽 = 赛道融资体量，列内分段 = 该赛道各轮次占比 —— 一张图同时读出「谁更大」与「钱在哪个阶段」。",
+        "unit": "亿美元",
+        "segs": [
+          {
+            "name": "早期"
+          },
+          {
+            "name": "成长期"
+          },
+          {
+            "name": "后期"
+          },
+          {
+            "name": "并购/上市"
+          }
+        ],
+        "cols": [
+          {
+            "name": "基础设施",
+            "en": "Infra",
+            "total": 182,
+            "parts": [
+              28,
+              64,
+              70,
+              20
+            ]
+          },
+          {
+            "name": "应用层",
+            "en": "Apps",
+            "total": 121,
+            "parts": [
+              52,
+              44,
+              18,
+              7
+            ]
+          },
+          {
+            "name": "算力芯片",
+            "en": "Compute",
+            "total": 110,
+            "parts": [
+              16,
+              38,
+              40,
+              16
+            ]
+          },
+          {
+            "name": "企业服务",
+            "en": "Enterprise",
+            "total": 64,
+            "parts": [
+              22,
+              26,
+              12,
+              4
+            ]
+          },
+          {
+            "name": "医疗 AI",
+            "en": "Health",
+            "total": 47,
+            "parts": [
+              20,
+              17,
+              8,
+              2
+            ]
+          }
+        ],
+        "conclusion": "基础设施不仅最大，且资金集中在后期 —— 兑现压力最高。"
+      }
     }
   },
   {
@@ -11520,7 +16086,47 @@ export const pages = [
       "accentColor": "#d8402e",
       "showWordmark": true,
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Concentration",
+        "title": "头部与长尾",
+        "sheet": "BIG NUMBER · 89 / 90",
+        "left": {
+          "label": "TOP 5 公司",
+          "value": "63",
+          "unit": "%",
+          "caption": "拿走全年大额融资的六成以上。"
+        },
+        "right": {
+          "label": "其余 90+ 公司",
+          "value": "37",
+          "unit": "%",
+          "caption": "分食剩下的不到四成资金。"
+        },
+        "badge": {
+          "value": "1.7×",
+          "note": "头部 / 长尾 倍差"
+        },
+        "aux": [
+          [
+            "大额事件",
+            "97",
+            "笔"
+          ],
+          [
+            "头部均单笔",
+            "24",
+            "亿美元"
+          ],
+          [
+            "长尾均单笔",
+            "3.1",
+            "亿美元"
+          ]
+        ],
+        "wordmark": "AICL",
+        "closing": "资本高度向头部集中，长尾的窗口正在收窄。"
+      }
     }
   },
   {
@@ -11655,7 +16261,15 @@ export const pages = [
       "showTag": true,
       "accentColor": "#d8402e",
       "showColorBand": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "Editorial · 收束",
+        "sheet": "QUOTE · 90 / 90",
+        "lead": "当资本不再为故事付费，AI 公司必须用收入证明自己配得上这个价格。",
+        "hot": "用收入证明",
+        "source": "— 美国大额融资 AI 公司调研报告 · 结语",
+        "tag": "RE-ANCHORING VALUE"
+      }
     }
   },
   {
@@ -11810,7 +16424,69 @@ export const pages = [
       "showLead": true,
       "accentColor": "#4da0c6",
       "showConclusion": true,
-      "showSheetLabel": true
+      "showSheetLabel": true,
+      "copy": {
+        "eyebrow": "APPENDIX · 数据来源与研究方法",
+        "title": "数据来源与研究方法",
+        "sheet": "APPENDIX · A1",
+        "lead": "本报告基于公开融资数据与行业访谈交叉验证，统一口径后汇总。",
+        "scopeCap": "研究口径",
+        "scopeUnit": "SCOPE",
+        "scope": [
+          {
+            "k": "数据口径",
+            "v": "≥ $100M"
+          },
+          {
+            "k": "时间范围",
+            "v": "2024 FY"
+          },
+          {
+            "k": "样本规模",
+            "v": "97 笔"
+          },
+          {
+            "k": "覆盖地区",
+            "v": "美国"
+          },
+          {
+            "k": "货币单位",
+            "v": "美元"
+          }
+        ],
+        "sourceCap": "数据来源",
+        "sourceUnit": "SOURCES",
+        "sources": [
+          {
+            "name": "公开融资数据库",
+            "en": "FUNDING DB",
+            "d": "一级市场融资事件、金额与轮次记录。"
+          },
+          {
+            "name": "公司公告与新闻稿",
+            "en": "FILINGS",
+            "d": "官方融资公告、估值与投资人披露。"
+          },
+          {
+            "name": "行业访谈",
+            "en": "INTERVIEWS",
+            "d": "投资人与从业者的定性交叉验证。"
+          },
+          {
+            "name": "第三方研究报告",
+            "en": "RESEARCH",
+            "d": "赛道规模与趋势的外部参照。"
+          }
+        ],
+        "methodCap": "方法说明",
+        "methods": [
+          "口径统一",
+          "事件去重",
+          "区间分层",
+          "汇率折算"
+        ],
+        "conclusion": "口径与方法决定结论的可比性。"
+      }
     }
   },
   {
@@ -11956,7 +16632,39 @@ export const pages = [
       "showSwatches": true,
       "showColorBand": true,
       "accentColor": "#d8402e",
-      "showSheetLabel": false
+      "showSheetLabel": false,
+      "copy": {
+        "brand": "AICL",
+        "meta": [
+          "UNITED STATES · AI",
+          "2024 FY",
+          "DEALS ≥ $100M"
+        ],
+        "eyebrow": "THANK YOU · 感谢阅读",
+        "display": "感谢阅读",
+        "titleRecap": "美国大额融资 AI 公司调研报告",
+        "closing": "从资本流向，看 AI 产业下一阶段的真实重心。",
+        "panelHead": "COLOPHON",
+        "specs": [
+          {
+            "k": "研究主题",
+            "v": "美国 AI"
+          },
+          {
+            "k": "数据口径",
+            "v": "≥ $100M"
+          },
+          {
+            "k": "大额事件",
+            "v": "97 笔"
+          },
+          {
+            "k": "报告日期",
+            "v": "2026.06"
+          }
+        ],
+        "sheet": "BACK COVER"
+      }
     }
   }
 ];

@@ -94,7 +94,7 @@ export default function Page74Regulation(props) {
           margin-left:3px; opacity:.6; }
         .acl-rg__delta{ display:inline-flex; align-items:center; gap:6px; font-family:var(--acl-font-num);
           font-size:30px; padding:5px 12px; border:2.5px solid var(--acl-ink); background:var(--acl-red);
-          color:var(--acl-paper); align-self:start; justify-self:start; line-height:1; }
+          color:var(--acl-paper); align-self:center; justify-self:start; line-height:1; white-space:nowrap; }
         .acl-rg__delta svg{ display:block; }
         .acl-rg__rate{ display:flex; align-items:center; gap:10px; }
         .acl-rg__dots{ display:flex; gap:5px; }

@@ -315,7 +315,7 @@ function ShareDonut({ split }) {
 
 export default function RegionsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, shareTitle: p.shareTitle !== undefined ? p.shareTitle : COPY.shareTitle, mapTitle: p.mapTitle !== undefined ? p.mapTitle : COPY.mapTitle, mapLegend: p.mapLegend !== undefined ? p.mapLegend : COPY.mapLegend, closing: p.closing !== undefined ? p.closing : COPY.closing, shareSplit: p.shareSplit !== undefined ? p.shareSplit : COPY.shareSplit, tags: p.tags !== undefined ? p.tags : COPY.tags, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, hubs: p.hubs !== undefined ? p.hubs : COPY.hubs };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-reg', CSS);
   const vars = themeVars(p.accentColor);

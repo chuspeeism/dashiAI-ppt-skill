@@ -9,6 +9,7 @@
  * treatment. Slot adapts to upload (cover-fill); 0 images = striped placeholder.
  */
 import { Slide, Grain, Edge, Ghost, Frame, EmberText, ImageSlot, injectCSS, clampInt } from './ignBase.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../unicorn-background.jsx';
 
 const CSS = `
 .ign-mh{position:absolute;inset:0}
@@ -44,6 +45,8 @@ const CSS = `
 export const mastheadDefaultProps = {
   surface: 'ink',
   images: [],
+  backgroundMode: 'unicorn',
+  unicornScene: 'tech',
   showMast: true,
   showIssue: true,
   showDeck: true,
@@ -70,6 +73,8 @@ export const mastheadDefaultProps = {
 };
 
 export const mastheadControls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl('tech'),
   { key: 'surface', type: 'select', label: '背景基调', default: 'ink',
     options: [{ value: 'ink', label: '深色' }, { value: 'paper', label: '浅色' }, { value: 'ember', label: '暖橙' }],
     describe: '页面背景主题，用于在相邻页之间制造色彩跳跃。' },
@@ -92,10 +97,15 @@ export default function MastheadSlide(props) {
   const lines = (Array.isArray(p.lines) ? p.lines : []).slice(0, ln);
   const issueSegs = Array.isArray(p.issueSegs) ? p.issueSegs : [];
   const bars = [10, 4, 7, 3, 12, 5, 8, 4, 11, 6, 3, 9, 5, 7];
+  const useUnicorn = p.backgroundMode === 'unicorn';
 
   return (
     <Slide surface={p.surface} className="ign-mh">
-      <div className="ign-mh-img"><ImageSlot src={images[0]} placeholder={p.imagePlaceholder} mode="fill" height="100%" radius={0} /></div>
+      <div className="ign-mh-img">
+        {useUnicorn
+          ? <UnicornBackground scene={p.unicornScene} accent="var(--ign-a,#ffb168)" />
+          : <ImageSlot src={images[0]} placeholder={p.imagePlaceholder} mode="fill" height="100%" radius={0} />}
+      </div>
       {p.showScrim && <div className={`ign-mh-scrim ${p.showLines ? 'side' : ''}`} />}
       <Grain /><Edge />
       {p.showGhostMark && <Ghost>{p.ghostMark}</Ghost>}

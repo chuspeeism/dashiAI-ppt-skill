@@ -137,7 +137,7 @@ const DECO = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function CrossPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, shareTitle: p.shareTitle !== undefined ? p.shareTitle : COPY.shareTitle, roundTitle: p.roundTitle !== undefined ? p.roundTitle : COPY.roundTitle, roundUnit: p.roundUnit !== undefined ? p.roundUnit : COPY.roundUnit, tracks: p.tracks !== undefined ? p.tracks : COPY.tracks, rounds: p.rounds !== undefined ? p.rounds : COPY.rounds };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-cross', CSS);
   const vars = themeVars(p.accentColor);

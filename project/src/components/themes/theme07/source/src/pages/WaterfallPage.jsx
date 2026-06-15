@@ -124,7 +124,7 @@ const M = { l: 8, r: 8, t: 56, b: 64 };
 
 export default function WaterfallPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, totalLabel: p.totalLabel !== undefined ? p.totalLabel : COPY.totalLabel, totalUnit: p.totalUnit !== undefined ? p.totalUnit : COPY.totalUnit, steps: p.steps !== undefined ? p.steps : COPY.steps };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-wf', CSS);
   const vars = themeVars(p.accentColor);

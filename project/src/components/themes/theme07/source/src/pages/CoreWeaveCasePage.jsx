@@ -261,7 +261,7 @@ function ClusterGrid({ cols }) {
 
 export default function CoreWeaveCasePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, logic: p.logic !== undefined ? p.logic : COPY.logic, company: p.company !== undefined ? p.company : COPY.company, enName: p.enName !== undefined ? p.enName : COPY.enName, badge: p.badge !== undefined ? p.badge : COPY.badge, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, clusterValue: p.clusterValue !== undefined ? p.clusterValue : COPY.clusterValue, clusterUnit: p.clusterUnit !== undefined ? p.clusterUnit : COPY.clusterUnit, clusterLabel: p.clusterLabel !== undefined ? p.clusterLabel : COPY.clusterLabel, clusterNote: p.clusterNote !== undefined ? p.clusterNote : COPY.clusterNote, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, tags: p.tags !== undefined ? p.tags : COPY.tags };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-cwc', CSS);
   const vars = themeVars(p.accentColor);

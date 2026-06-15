@@ -105,8 +105,11 @@ function copyRuntimeAssets(outDir) {
   copyFileIfExists(path.join(ROOT, 'node_modules/gsap/dist/gsap.min.js'), path.join(assetsDir, 'vendor/gsap.min.js'));
   copyFileIfExists(path.join(ROOT, 'node_modules/pptxgenjs/dist/pptxgen.bundle.js'), path.join(assetsDir, 'vendor/pptxgen.bundle.js'));
   copyFileIfExists(path.join(ROOT, 'node_modules/html-to-image/dist/html-to-image.js'), path.join(assetsDir, 'vendor/html-to-image.js'));
+  copyDirectoryIfExists(path.join(ROOT, 'assets/unicorn'), path.join(assetsDir, 'unicorn'));
   copyImportedThemeAssets(outDir);
   buildImportedThemeRuntime(path.join(assetsDir, 'imported-theme-runtime.js'));
+  const imageSlotStateFile = path.join(outDir, '.image-slots.state.json');
+  if (!fs.existsSync(imageSlotStateFile)) fs.writeFileSync(imageSlotStateFile, '{}\n');
 }
 
 function buildImportedThemeRuntime(outFile) {
@@ -156,6 +159,21 @@ function collectThemeAssetFiles(dir, out) {
       continue;
     }
     if (/\.(png|jpe?g|webp|gif|svg|mp4|mov)$/i.test(name)) out.push(file);
+  }
+}
+
+function copyDirectoryIfExists(from, to) {
+  if (!fs.existsSync(from)) return;
+  for (const name of fs.readdirSync(from)) {
+    const source = path.join(from, name);
+    const target = path.join(to, name);
+    const stat = fs.statSync(source);
+    if (stat.isDirectory()) {
+      copyDirectoryIfExists(source, target);
+    } else {
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.copyFileSync(source, target);
+    }
   }
 }
 

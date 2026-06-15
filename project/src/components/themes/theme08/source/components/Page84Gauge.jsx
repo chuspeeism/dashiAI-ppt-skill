@@ -26,7 +26,12 @@ export default function Page84Gauge(props) {
 
   const outline = numberStyle === 'outline';
   const tiles = metrics.slice(0, Math.max(2, metricCount));
-  const pct = Math.max(0, Math.min(100, gaugePct));
+  // ring sweep is COUPLED to the big number when it's a percentage, so the
+  // yellow arc length always matches the figure shown in the center; falls back
+  // to the explicit gaugePct otherwise.
+  const numVal = parseFloat(bigNumber);
+  const coupled = bigUnit === '%' && isFinite(numVal);
+  const pct = Math.max(0, Math.min(100, coupled ? numVal : gaugePct));
   // ring geometry
   const R = 360, SW = 30, C = 2 * Math.PI * R;
   const accent = isInk ? 'var(--acl-yellow)' : 'var(--acl-pink)';
@@ -48,7 +53,7 @@ export default function Page84Gauge(props) {
 
         .acl-gg__body{ flex:1; display:flex; align-items:center; justify-content:center; min-height:0;
           position:relative; }
-        .acl-gg__stage{ position:relative; width:740px; height:740px; display:grid; place-items:center;
+        .acl-gg__stage{ position:relative; width:760px; height:760px; display:grid; place-items:center;
           flex:0 0 auto; }
         .acl-gg__svg{ position:absolute; inset:0; transform:rotate(-90deg); }
         .acl-gg__track{ fill:none; stroke:rgba(22,21,15,.14); stroke-width:${SW}; }
@@ -62,17 +67,17 @@ export default function Page84Gauge(props) {
 
         .acl-gg__center{ position:relative; z-index:2; display:flex; flex-direction:column;
           align-items:center; text-align:center; }
-        .acl-gg__label{ font-family:var(--acl-font-mono); font-weight:700; font-size:22px;
-          letter-spacing:.1em; text-transform:uppercase; color:rgba(22,21,15,.55); margin-bottom:6px; }
+        .acl-gg__label{ font-family:var(--acl-font-mono); font-weight:700; font-size:21px;
+          letter-spacing:.1em; text-transform:uppercase; color:rgba(22,21,15,.55); margin-bottom:14px; }
         .acl-gg--ink .acl-gg__label{ color:rgba(251,250,244,.55); }
         .acl-gg__numrow{ display:flex; align-items:flex-start; gap:14px; }
-        .acl-gg__num{ font-family:var(--acl-font-num); font-size:340px; line-height:.78; letter-spacing:-.03em;
-          color:${accent}; text-shadow:8px 9px 0 var(--acl-ink); }
-        .acl-gg--ink .acl-gg__num{ text-shadow:8px 9px 0 rgba(0,0,0,.5); }
+        .acl-gg__num{ font-family:var(--acl-font-num); font-size:248px; line-height:.78; letter-spacing:-.03em;
+          color:${accent}; text-shadow:6px 7px 0 var(--acl-ink); }
+        .acl-gg--ink .acl-gg__num{ text-shadow:6px 7px 0 rgba(0,0,0,.5); }
         .acl-gg__num--outline{ color:transparent; -webkit-text-stroke:5px ${isInk ? 'var(--acl-yellow)' : 'var(--acl-ink)'};
           text-shadow:none; }
-        .acl-gg__unit{ font-family:var(--acl-font-cn); font-weight:900; font-size:72px; line-height:1; margin-top:30px; }
-        .acl-gg__cap{ font-weight:700; font-size:25px; line-height:1.4; max-width:520px; margin-top:6px;
+        .acl-gg__unit{ font-family:var(--acl-font-cn); font-weight:900; font-size:60px; line-height:1; margin-top:22px; }
+        .acl-gg__cap{ font-weight:700; font-size:24px; line-height:1.45; max-width:460px; margin-top:14px;
           text-wrap:balance; }
         .acl-gg__cap b{ background:var(--acl-blue); padding:0 .12em; box-decoration-break:clone;
           -webkit-box-decoration-break:clone; }
@@ -80,12 +85,13 @@ export default function Page84Gauge(props) {
         .acl-gg__sidefx{ position:absolute; z-index:3; }
 
         .acl-gg__tiles{ flex:0 0 auto; display:flex; gap:20px; z-index:3; margin-top:8px; }
-        .acl-gg__tile{ flex:1 1 0; border-top:5px solid var(--acl-ink); padding-top:13px; }
+        .acl-gg__tile{ flex:1 1 0; border-top:5px solid var(--acl-ink); padding-top:14px;
+          display:flex; align-items:baseline; justify-content:space-between; gap:18px; }
         .acl-gg--ink .acl-gg__tile{ border-color:var(--acl-yellow); }
-        .acl-gg__tk{ font-family:var(--acl-font-mono); font-size:15px; letter-spacing:.05em;
-          text-transform:uppercase; color:rgba(22,21,15,.55); }
-        .acl-gg--ink .acl-gg__tk{ color:rgba(251,250,244,.55); }
-        .acl-gg__tv{ font-family:var(--acl-font-num); font-size:62px; line-height:.96; margin-top:3px; }
+        .acl-gg__tk{ font-family:var(--acl-font-cn); font-weight:900; font-size:27px; line-height:1;
+          color:rgba(22,21,15,.62); }
+        .acl-gg--ink .acl-gg__tk{ color:rgba(251,250,244,.72); }
+        .acl-gg__tv{ font-family:var(--acl-font-num); font-size:64px; line-height:.9; white-space:nowrap; }
         .acl-gg--ink .acl-gg__tv{ color:var(--acl-yellow); }
         .acl-gg__tv em{ font-style:normal; font-family:var(--acl-font-cn); font-weight:700; font-size:20px;
           margin-left:5px; color:rgba(22,21,15,.55); }
@@ -120,7 +126,6 @@ export default function Page84Gauge(props) {
                 <circle className="acl-gg__track" cx="400" cy="400" r={R} />
                 <circle className="acl-gg__prog" cx="400" cy="400" r={R} />
               </svg>
-              <div className="acl-gg__tick">{pct}%</div>
             </React.Fragment>
           )}
           {showDecor && (
@@ -196,7 +201,7 @@ Page84Gauge.controls = [
   { key: 'showRing', type: 'boolean', default: true,
     label: '环形仪表', desc: '数字外圈的环形进度仪表 显隐' },
   { key: 'gaugePct', type: 'number', default: 67, min: 0, max: 100, step: 1, showIf: 'showRing',
-    label: '仪表百分比', desc: '环形仪表扫过的百分比（通常等于主数字）' },
+    label: '仪表百分比', desc: '环形仪表扫过的百分比（主数字带 % 时会自动跟随主数字，此值作为后备）' },
   { key: 'metricCount', type: 'number', default: 3, min: 2, max: 3, step: 1,
     label: '指标数量', desc: '底部支撑指标格数量(2–3)' },
   { key: 'showDecor', type: 'boolean', default: true,

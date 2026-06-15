@@ -14,48 +14,6 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
-        "key": "logo",
-        "label": "机构名",
-        "type": "text",
-        "default": "智 造 集 团"
-      },
-      {
-        "key": "phase",
-        "label": "右上标签",
-        "type": "text",
-        "default": "实施方案 · IMPLEMENTATION"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "SMART · MANUFACTURING"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "精益智造"
-      },
-      {
-        "key": "titleL2",
-        "label": "标题行2",
-        "type": "text",
-        "default": "提质增效"
-      },
-      {
-        "key": "year",
-        "label": "年份",
-        "type": "text",
-        "default": "2026"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "text",
-        "default": "生产基地智能化改造实施方案"
-      },
-      {
         "key": "showSweep",
         "label": "光晕扫光",
         "type": "toggle",
@@ -121,54 +79,6 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
-        "key": "phaseLeft",
-        "label": "左上标签",
-        "type": "text",
-        "default": "Supply Chain Strategy"
-      },
-      {
-        "key": "phaseRight",
-        "label": "右上标签",
-        "type": "text",
-        "default": "2026—2028"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "THREE-YEAR · STRATEGY"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "链通全国"
-      },
-      {
-        "key": "titleL2",
-        "label": "标题行2",
-        "type": "text",
-        "default": "高效履约"
-      },
-      {
-        "key": "summary",
-        "label": "底部结语",
-        "type": "text",
-        "default": "打通物流脉络，构筑产业护城河"
-      },
-      {
-        "key": "logo",
-        "label": "机构名",
-        "type": "text",
-        "default": "集 团 供 应 链"
-      },
-      {
-        "key": "photoLabel",
-        "label": "图片占位文案",
-        "type": "text",
-        "default": "[ 物流网络 / 配送图景 ]"
-      },
-      {
         "key": "showTimeline",
         "label": "年份时间轴",
         "type": "toggle",
@@ -229,42 +139,6 @@ export const pages = [
     "label": "03 封面 04 · 把握趋势",
     "bgClass": "",
     "controls": [
-      {
-        "key": "logo",
-        "label": "机构名",
-        "type": "text",
-        "default": "零 售 运 营 学 院"
-      },
-      {
-        "key": "phase",
-        "label": "右上标签",
-        "type": "text",
-        "default": "实战培训 · TRAINING"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "把握消费趋势"
-      },
-      {
-        "key": "titleL2",
-        "label": "标题行2",
-        "type": "text",
-        "default": "激活终端潜力"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "text",
-        "default": "全国零售门店运营管理暨营销实战培训"
-      },
-      {
-        "key": "slogan",
-        "label": "口号",
-        "type": "text",
-        "default": "用心服务客户，实干创造业绩"
-      },
       {
         "key": "showCrumbs",
         "label": "面包屑标签",
@@ -329,60 +203,6 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
-        "key": "markCn",
-        "label": "机构名",
-        "type": "text",
-        "default": "链通集团"
-      },
-      {
-        "key": "markEn",
-        "label": "机构英文名",
-        "type": "text",
-        "default": "LIANTONG GROUP"
-      },
-      {
-        "key": "pageno",
-        "label": "页码",
-        "type": "text",
-        "default": "03 / 04"
-      },
-      {
-        "key": "pill",
-        "label": "标签胶囊",
-        "type": "text",
-        "default": "集团供应链体系 · 三年发展战略"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "2026 – 2028 Supply Chain Strategy"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "链通全国"
-      },
-      {
-        "key": "titleL2",
-        "label": "标题行2",
-        "type": "text",
-        "default": "高效履约"
-      },
-      {
-        "key": "summary",
-        "label": "底部结语",
-        "type": "text",
-        "default": "打通物流脉络，构筑产业护城河"
-      },
-      {
-        "key": "footEn",
-        "label": "底部英文",
-        "type": "text",
-        "default": "3-Year Roadmap"
-      },
-      {
         "key": "showNetwork",
         "label": "供应链网络图",
         "type": "toggle",
@@ -431,414 +251,10 @@ export const pages = [
     "themeKey": "theme07",
     "pageNumber": 5,
     "layout": "THEME07-005",
-    "slot": "cover-retail-training-page",
-    "label": "05 封面 08 · 零售实战培训",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "markCn",
-        "label": "机构名",
-        "type": "text",
-        "default": "优享零售"
-      },
-      {
-        "key": "markEn",
-        "label": "机构英文名",
-        "type": "text",
-        "default": "YOUXIANG RETAIL"
-      },
-      {
-        "key": "pageno",
-        "label": "页码",
-        "type": "text",
-        "default": "04 / 04"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "全国零售门店运营管理暨营销实战培训"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "把握消费趋势"
-      },
-      {
-        "key": "titleL2pre",
-        "label": "标题行2前缀",
-        "type": "text",
-        "default": "激活"
-      },
-      {
-        "key": "titleL2hl",
-        "label": "标题行2高亮",
-        "type": "text",
-        "default": "终端潜力"
-      },
-      {
-        "key": "slogan",
-        "label": "口号",
-        "type": "text",
-        "default": "用心服务客户，实干创造业绩"
-      },
-      {
-        "key": "showLensCrown",
-        "label": "透镜冠饰",
-        "type": "toggle",
-        "default": true,
-        "desc": "顶部三枚透镜组成的冠饰装饰显隐。"
-      },
-      {
-        "key": "showTicker",
-        "label": "渠道占比条",
-        "type": "toggle",
-        "default": true,
-        "desc": "底部渠道占比指标与条码条的显隐。"
-      },
-      {
-        "key": "accentColor",
-        "label": "主题色",
-        "type": "color",
-        "default": "#8FE327",
-        "options": [
-          "#8FE327",
-          "#23C76A",
-          "#2F7BFF",
-          "#F5A623",
-          "#0B0F08"
-        ],
-        "desc": "品牌强调色（作用于透镜、高亮下划线与占比条）。"
-      }
-    ],
-    "defaultProps": {
-      "markCn": "优享零售",
-      "markEn": "YOUXIANG RETAIL",
-      "pageno": "04 / 04",
-      "eyebrow": "全国零售门店运营管理暨营销实战培训",
-      "titleL1": "把握消费趋势",
-      "titleL2pre": "激活",
-      "titleL2hl": "终端潜力",
-      "slogan": "用心服务客户，实干创造业绩",
-      "segments": [
-        {
-          "label": "门店",
-          "value": 58.6,
-          "tone": "lime"
-        },
-        {
-          "label": "线上",
-          "value": 26.6,
-          "tone": "orange"
-        },
-        {
-          "label": "其他",
-          "value": 11.7,
-          "tone": "red"
-        }
-      ],
-      "legend": [
-        {
-          "label": "增长",
-          "tone": "lime"
-        },
-        {
-          "label": "持平",
-          "tone": "orange"
-        },
-        {
-          "label": "承压",
-          "tone": "red"
-        }
-      ],
-      "showLensCrown": true,
-      "showTicker": true,
-      "accentColor": "#8FE327"
-    }
-  },
-  {
-    "key": "theme07_page006",
-    "themeKey": "theme07",
-    "pageNumber": 6,
-    "layout": "THEME07-006",
-    "slot": "cover-tech-launch-page",
-    "label": "06 封面 09 · 科技发布会",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "markCn",
-        "label": "机构名",
-        "type": "text",
-        "default": "智联"
-      },
-      {
-        "key": "markEn",
-        "label": "机构英文名",
-        "type": "text",
-        "default": "INTELLI-NEXUS"
-      },
-      {
-        "key": "tagTop",
-        "label": "右上标签",
-        "type": "text",
-        "default": "Product Launch · 2026"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "2026 全新产品体系发布暨技术路演"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "智联万物"
-      },
-      {
-        "key": "titleL2",
-        "label": "标题行2",
-        "type": "text",
-        "default": "重构体验"
-      },
-      {
-        "key": "tagline",
-        "label": "英文标语",
-        "type": "text",
-        "default": "Intelligence × Everything — Reinvent the Experience."
-      },
-      {
-        "key": "summary",
-        "label": "底部结语",
-        "type": "text",
-        "default": "以技术突破，定义下一代数字生活。"
-      },
-      {
-        "key": "pill",
-        "label": "右下徽标",
-        "type": "text",
-        "default": "Keynote 2026"
-      },
-      {
-        "key": "showChartline",
-        "label": "走势曲线",
-        "type": "toggle",
-        "default": true,
-        "desc": "底部白色走势曲线装饰的显隐。"
-      },
-      {
-        "key": "showLenses",
-        "label": "透镜瀑布",
-        "type": "toggle",
-        "default": true,
-        "desc": "右上角三枚透镜瀑布装饰的显隐。"
-      },
-      {
-        "key": "accentColor",
-        "label": "主题色",
-        "type": "color",
-        "default": "#8FE327",
-        "options": [
-          "#8FE327",
-          "#23C76A",
-          "#2F7BFF",
-          "#F5A623",
-          "#0B0F08"
-        ],
-        "desc": "品牌强调色（作用于背景光晕、透镜与徽标）。"
-      }
-    ],
-    "defaultProps": {
-      "markCn": "智联",
-      "markEn": "INTELLI-NEXUS",
-      "tagTop": "Product Launch · 2026",
-      "eyebrow": "2026 全新产品体系发布暨技术路演",
-      "titleL1": "智联万物",
-      "titleL2": "重构体验",
-      "tagline": "Intelligence × Everything — Reinvent the Experience.",
-      "summary": "以技术突破，定义下一代数字生活。",
-      "pill": "Keynote 2026",
-      "showChartline": true,
-      "showLenses": true,
-      "accentColor": "#8FE327"
-    }
-  },
-  {
-    "key": "theme07_page007",
-    "themeKey": "theme07",
-    "pageNumber": 7,
-    "layout": "THEME07-007",
-    "slot": "cover-biz-plan-page",
-    "label": "07 封面 11 · 商业计划书",
-    "bgClass": "",
-    "controls": [
-      {
-        "key": "markCn",
-        "label": "机构名",
-        "type": "text",
-        "default": "恒元资本"
-      },
-      {
-        "key": "markEn",
-        "label": "机构英文名",
-        "type": "text",
-        "default": "HENGYUAN CAPITAL"
-      },
-      {
-        "key": "pageno",
-        "label": "页码",
-        "type": "text",
-        "default": "03 / 04"
-      },
-      {
-        "key": "pill",
-        "label": "标签胶囊",
-        "type": "text",
-        "default": "面向机构投资人 · 专属方案"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "精准布局，"
-      },
-      {
-        "key": "title2pre",
-        "label": "标题行2前缀",
-        "type": "text",
-        "default": "与"
-      },
-      {
-        "key": "title2hl",
-        "label": "标题行2高亮",
-        "type": "text",
-        "default": "时代红利"
-      },
-      {
-        "key": "title2post",
-        "label": "标题行2后缀",
-        "type": "text",
-        "default": "同行"
-      },
-      {
-        "key": "footEn",
-        "label": "底部英文",
-        "type": "text",
-        "default": "XX Capital · Business Plan"
-      },
-      {
-        "key": "showChartline",
-        "label": "走势曲线",
-        "type": "toggle",
-        "default": true,
-        "desc": "底部贯穿走势曲线装饰的显隐。"
-      },
-      {
-        "key": "showFrame",
-        "label": "内描边框",
-        "type": "toggle",
-        "default": true,
-        "desc": "高级感内描边框的显隐。"
-      },
-      {
-        "key": "accentColor",
-        "label": "主题色",
-        "type": "color",
-        "default": "#8FE327",
-        "options": [
-          "#8FE327",
-          "#23C76A",
-          "#2F7BFF",
-          "#F5A623",
-          "#FFFFFF"
-        ],
-        "desc": "品牌强调色（作用于分隔点、走势曲线与高亮词）。"
-      }
-    ],
-    "defaultProps": {
-      "markCn": "恒元资本",
-      "markEn": "HENGYUAN CAPITAL",
-      "pageno": "03 / 04",
-      "pill": "面向机构投资人 · 专属方案",
-      "triple": [
-        "新机遇",
-        "新赛道",
-        "新价值"
-      ],
-      "titleL1": "精准布局，",
-      "title2pre": "与",
-      "title2hl": "时代红利",
-      "title2post": "同行",
-      "footEn": "XX Capital · Business Plan",
-      "showChartline": true,
-      "showFrame": true,
-      "accentColor": "#8FE327"
-    }
-  },
-  {
-    "key": "theme07_page008",
-    "themeKey": "theme07",
-    "pageNumber": 8,
-    "layout": "THEME07-008",
     "slot": "cover-page",
     "label": "09 01",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "AI CAPITAL LAB · 2024"
-      },
-      {
-        "key": "reportTag",
-        "label": "标签",
-        "type": "text",
-        "default": "2024 · 调研报告"
-      },
-      {
-        "key": "titleL1",
-        "label": "标题行1",
-        "type": "text",
-        "default": "美国大额融资"
-      },
-      {
-        "key": "titleL2",
-        "label": "标题行2",
-        "type": "text",
-        "default": "AI 公司调研报告"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元"
-      },
-      {
-        "key": "thesis",
-        "label": "论点",
-        "type": "text",
-        "default": "在资本与算力的浪潮里，每一笔融资都是一次方向的押注。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "从资本流向，看 AI 产业下一阶段的真实重心。"
-      },
-      {
-        "key": "featureNumber",
-        "label": "特征数字",
-        "type": "text",
-        "default": "2024"
-      },
-      {
-        "key": "featureLabel",
-        "label": "特征标签",
-        "type": "text",
-        "default": "DATA YEAR"
-      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -946,44 +362,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page009",
+    "key": "theme07_page006",
     "themeKey": "theme07",
-    "pageNumber": 9,
-    "layout": "THEME07-009",
+    "pageNumber": 6,
+    "layout": "THEME07-006",
     "slot": "summary-page",
     "label": "10 02",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Report Overview"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "报告摘要"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "2024 全年 · 资本大年"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。"
-      },
-      {
-        "key": "chartTitle",
-        "label": "chartTitle",
-        "type": "text",
-        "default": "赛道融资占比"
-      },
       {
         "key": "cardCount",
         "label": "指标卡数量",
@@ -1142,44 +528,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page010",
+    "key": "theme07_page007",
     "themeKey": "theme07",
-    "pageNumber": 10,
-    "layout": "THEME07-010",
+    "pageNumber": 7,
+    "layout": "THEME07-007",
     "slot": "contents-page",
     "label": "11 03",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Structure"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "报告结构"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "从方法到结论的阅读路径"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "整份报告按研究方法、市场全景、横向透视、产业链、典型案例、风险展望和结论展开。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "先建立框架，再进入数据和判断。"
-      },
       {
         "key": "cardCount",
         "label": "章节卡数量",
@@ -1325,44 +681,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page011",
+    "key": "theme07_page008",
     "themeKey": "theme07",
-    "pageNumber": 11,
-    "layout": "THEME07-011",
+    "pageNumber": 8,
+    "layout": "THEME07-008",
     "slot": "method-page",
     "label": "12 04",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Methodology"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "研究方法"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "横纵分析法"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "横向看同一时间截面的公司、赛道、轮次和地区；纵向看融资额、事件数和市场节奏的变化。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "不是罗列融资新闻，而是把融资数据变成结构化判断。"
-      },
       {
         "key": "cardCount",
         "label": "方法卡数量",
@@ -1496,50 +822,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page012",
+    "key": "theme07_page009",
     "themeKey": "theme07",
-    "pageNumber": 12,
-    "layout": "THEME07-012",
+    "pageNumber": 9,
+    "layout": "THEME07-009",
     "slot": "case-page",
     "label": "16 08",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Case Studies"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "典型案例"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "深度剖析"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "三类资本逻辑的代表公司"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "Anthropic、xAI 和 CoreWeave 分别代表安全模型、实时数据生态和算力基础设施三类资本逻辑。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "不同案例共同指向同一个问题：技术优势能否转成可持续收入。"
-      },
       {
         "key": "cardCount",
         "label": "卡片数量",
@@ -1692,68 +982,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page013",
+    "key": "theme07_page010",
     "themeKey": "theme07",
-    "pageNumber": 13,
-    "layout": "THEME07-013",
+    "pageNumber": 10,
+    "layout": "THEME07-010",
     "slot": "monthly-page",
     "label": "17 09",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Monthly Heatmap"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "市场月度热力"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "12 个月融资节奏"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "月度数据展示全年热度并非均匀释放，而是由 5 月、8 月、9 月等峰值月份拉高。"
-      },
-      {
-        "key": "anchorLead",
-        "label": "锚点数字",
-        "type": "text",
-        "default": "118"
-      },
-      {
-        "key": "anchorUnit",
-        "label": "锚点单位",
-        "type": "text",
-        "default": "亿美元"
-      },
-      {
-        "key": "anchorNote",
-        "label": "锚点注释",
-        "type": "text",
-        "default": "全年峰值 · 8 月单月最高，9 月、5 月紧随其后"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "融资节奏的核心不是平均值，而是峰值背后的超级交易。"
-      },
-      {
-        "key": "axisLabel",
-        "label": "坐标标签",
-        "type": "text",
-        "default": "月度融资额 / 亿美元"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -1903,50 +1139,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page014",
+    "key": "theme07_page011",
     "themeKey": "theme07",
-    "pageNumber": 14,
-    "layout": "THEME07-014",
+    "pageNumber": 11,
+    "layout": "THEME07-011",
     "slot": "ranking-page",
     "label": "18 10",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Top Funded Companies"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "Top 10 融资公司"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "头部玩家资金排名"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "头部公司融资额显著领先，通用大模型占据榜单上方位置。"
-      },
-      {
-        "key": "note",
-        "label": "note",
-        "type": "text",
-        "default": "口径：以最大单笔融资计 · 单位 亿美元"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "头部融资规模既反映技术叙事，也反映资源绑定能力。"
-      },
       {
         "key": "rowCount",
         "label": "公司数量",
@@ -2071,56 +1271,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page015",
+    "key": "theme07_page012",
     "themeKey": "theme07",
-    "pageNumber": 15,
-    "layout": "THEME07-015",
+    "pageNumber": 12,
+    "layout": "THEME07-012",
     "slot": "matrix-page",
     "label": "19 11",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Heat vs. Monetization"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "资本热度 × 商业兑现"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "四象限机会判断"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "把资本热度和商业兑现度交叉，可以区分明星兑现、叙事泡沫、隐形价值和等待验证四类机会。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "资本正在从叙事驱动转向兑现驱动。"
-      },
-      {
-        "key": "axisX",
-        "label": "axisX",
-        "type": "text",
-        "default": "商业兑现度"
-      },
-      {
-        "key": "axisY",
-        "label": "axisY",
-        "type": "text",
-        "default": "资本热度"
-      },
       {
         "key": "focusEnabled",
         "label": "重点信息",
@@ -2245,50 +1403,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page016",
+    "key": "theme07_page013",
     "themeKey": "theme07",
-    "pageNumber": 16,
-    "layout": "THEME07-016",
+    "pageNumber": 13,
+    "layout": "THEME07-013",
     "slot": "risk-page",
     "label": "20 12",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Risk Assessment"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "风险研判"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "资本大年背后的下行因素"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "高估值、盈利验证、监管压力、大厂竞争和算力成本共同构成风险链条。"
-      },
-      {
-        "key": "chainTitle",
-        "label": "chainTitle",
-        "type": "text",
-        "default": "风险传导链"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "下一阶段会淘汰只会讲故事的公司。"
-      },
       {
         "key": "cardCount",
         "label": "卡片数量",
@@ -2420,62 +1542,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page017",
+    "key": "theme07_page014",
     "themeKey": "theme07",
-    "pageNumber": 17,
-    "layout": "THEME07-017",
+    "pageNumber": 14,
+    "layout": "THEME07-014",
     "slot": "outlook-page",
     "label": "21 13",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Investment Outlook"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "投资建议与阶段性策略"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "看好方向与谨慎方向"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "后续观察应围绕收入兑现、基础设施确定性和垂直应用 PMF 展开。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "看融资只是起点，看兑现才是判断。"
-      },
-      {
-        "key": "timelineLabel",
-        "label": "timelineLabel",
-        "type": "text",
-        "default": "阶段性观察 · 2025 — 2027"
-      },
-      {
-        "key": "kind",
-        "label": "kind",
-        "type": "text",
-        "default": "看好方向', en: 'Conviction', tone: 'accent"
-      },
-      {
-        "key": "kind",
-        "label": "kind",
-        "type": "text",
-        "default": "谨慎方向', en: 'Caution', tone: 'neg"
-      },
       {
         "key": "columnCount",
         "label": "对比栏数量",
@@ -2634,62 +1708,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page018",
+    "key": "theme07_page015",
     "themeKey": "theme07",
-    "pageNumber": 18,
-    "layout": "THEME07-018",
+    "pageNumber": 15,
+    "layout": "THEME07-015",
     "slot": "quote-page",
     "label": "22 14",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Conclusion"
-      },
-      {
-        "key": "kicker",
-        "label": "kicker",
-        "type": "text",
-        "default": "结论与数据来源"
-      },
-      {
-        "key": "quoteLead",
-        "label": "quoteLead",
-        "type": "text",
-        "default": "资本下一阶段，将从"
-      },
-      {
-        "key": "quoteEm1",
-        "label": "quoteEm1",
-        "type": "text",
-        "default": "赌叙事"
-      },
-      {
-        "key": "quoteMid",
-        "label": "quoteMid",
-        "type": "text",
-        "default": "转向"
-      },
-      {
-        "key": "quoteEm2",
-        "label": "quoteEm2",
-        "type": "text",
-        "default": "看兑现"
-      },
-      {
-        "key": "quoteTail",
-        "label": "quoteTail",
-        "type": "text",
-        "default": "。"
-      },
-      {
-        "key": "source",
-        "label": "来源",
-        "type": "text",
-        "default": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元"
-      },
       {
         "key": "align",
         "label": "对齐方式",
@@ -2796,50 +1822,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page019",
+    "key": "theme07_page016",
     "themeKey": "theme07",
-    "pageNumber": 19,
-    "layout": "THEME07-019",
+    "pageNumber": 16,
+    "layout": "THEME07-016",
     "slot": "chapter-page",
     "label": "23 15",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Chapter"
-      },
-      {
-        "key": "index",
-        "label": "index",
-        "type": "text",
-        "default": "02"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "市场数据深拆"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "融资节奏、集中度与交易规模"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "从本章开始进入市场数据扩展部分，围绕融资集中度、季度节奏和金额区间展开。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "下一组页面进入更细的拆解。"
-      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -2943,68 +1933,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page020",
+    "key": "theme07_page017",
     "themeKey": "theme07",
-    "pageNumber": 20,
-    "layout": "THEME07-020",
+    "pageNumber": 17,
+    "layout": "THEME07-017",
     "slot": "deal-map-page",
     "label": "24 16",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Deal Map"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "融资事件规模分层"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "大额融资事件地图"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "97 笔大额融资可以按金额区间拆成四组，少数超级交易贡献主要融资额。"
-      },
-      {
-        "key": "anchorLead",
-        "label": "锚点数字",
-        "type": "text",
-        "default": "97"
-      },
-      {
-        "key": "anchorUnit",
-        "label": "锚点单位",
-        "type": "text",
-        "default": "笔"
-      },
-      {
-        "key": "anchorNote",
-        "label": "锚点注释",
-        "type": "text",
-        "default": "全年大额事件 · 单笔 ≥1 亿美元"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "数量最多的不一定最重要，影响最大的往往是巨额交易。"
-      },
-      {
-        "key": "legendLabel",
-        "label": "legendLabel",
-        "type": "text",
-        "default": "气泡大小 = 单笔金额 · 颜色 = 赛道"
-      },
       {
         "key": "viewMode",
         "label": "图表类型",
@@ -3168,68 +2104,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page021",
+    "key": "theme07_page018",
     "themeKey": "theme07",
-    "pageNumber": 21,
-    "layout": "THEME07-021",
+    "pageNumber": 18,
+    "layout": "THEME07-018",
     "slot": "cold-start-page",
     "label": "25 17",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Quarter Breakdown"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "Q1"
-      },
-      {
-        "key": "season",
-        "label": "season",
-        "type": "text",
-        "default": "2024 第一季度 · 起步"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "冷启动季度"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "Q1 融资拆解"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "Q1 交易数量稳定，但整体金额尚未进入全年高峰，更像上一年度项目延续，市场仍在等待新一轮验证。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "全年热度从保守启动开始。"
-      },
-      {
-        "key": "chartLabel",
-        "label": "chartLabel",
-        "type": "text",
-        "default": "月度融资额 / 亿美元"
-      },
-      {
-        "key": "contextLabel",
-        "label": "contextLabel",
-        "type": "text",
-        "default": "全年季度对比"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -3397,74 +2279,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page022",
+    "key": "theme07_page019",
     "themeKey": "theme07",
-    "pageNumber": 22,
-    "layout": "THEME07-022",
+    "pageNumber": 19,
+    "layout": "THEME07-019",
     "slot": "accelerate-page",
     "label": "26 18",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Quarter Breakdown"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "Q2"
-      },
-      {
-        "key": "season",
-        "label": "season",
-        "type": "text",
-        "default": "2024 第二季度 · 加速"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "加速季度"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "Q2 融资拆解"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "Q2 进入明显加速期，模型、应用和基础设施同步升温，资本从模型叙事扩散到应用和基础设施。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "Q2 融资额 284 亿美元 · 26 笔事件 · 平均单笔 10.9 亿美元"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "+75.3%"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "季度融资额环比增长"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "Q2 是融资窗口打开的关键节点。"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -3611,74 +2433,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page023",
+    "key": "theme07_page020",
     "themeKey": "theme07",
-    "pageNumber": 23,
-    "layout": "THEME07-023",
+    "pageNumber": 20,
+    "layout": "THEME07-020",
     "slot": "peak-page",
     "label": "27 19",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Quarter Breakdown"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "Q3"
-      },
-      {
-        "key": "season",
-        "label": "season",
-        "type": "text",
-        "default": "2024 第三季度 · 峰值"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "全年峰值季度"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "Q3 融资拆解"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "Q3 融资额和事件数均达到全年最高，是市场情绪高点，强度来自头部公司融资和多赛道同时活跃。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "高峰之后，市场开始从热度转向筛选。"
-      },
-      {
-        "key": "chartLabel",
-        "label": "chartLabel",
-        "type": "text",
-        "default": "全年月度融资额 / 亿美元"
-      },
-      {
-        "key": "peakTag",
-        "label": "peakTag",
-        "type": "text",
-        "default": "全年峰值"
-      },
-      {
-        "key": "avgLabel",
-        "label": "avgLabel",
-        "type": "text",
-        "default": "月度均值 80.8"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -3860,80 +2622,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page024",
+    "key": "theme07_page021",
     "themeKey": "theme07",
-    "pageNumber": 24,
-    "layout": "THEME07-024",
+    "pageNumber": 21,
+    "layout": "THEME07-021",
     "slot": "cooldown-page",
     "label": "28 20",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Quarter Breakdown"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "Q4"
-      },
-      {
-        "key": "season",
-        "label": "season",
-        "type": "text",
-        "default": "2024 第四季度 · 回落"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "理性回落季度"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "Q4 融资拆解"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "Q4 较 Q3 回落，但仍高于年初水平，说明资金并未完全撤离，资本开始挑选确定性更高的标的。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "回落不是终点，而是分化的开始。"
-      },
-      {
-        "key": "baselineLabel",
-        "label": "baselineLabel",
-        "type": "text",
-        "default": "年初水平 · 162"
-      },
-      {
-        "key": "chartLabel",
-        "label": "chartLabel",
-        "type": "text",
-        "default": "全年季度融资额 / 亿美元"
-      },
-      {
-        "key": "declineLabel",
-        "label": "declineLabel",
-        "type": "text",
-        "default": "较 Q3"
-      },
-      {
-        "key": "declineValue",
-        "label": "declineValue",
-        "type": "text",
-        "default": "-35.2%"
-      },
       {
         "key": "nodeCount",
         "label": "节点数量",
@@ -4095,56 +2791,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page025",
+    "key": "theme07_page022",
     "themeKey": "theme07",
-    "pageNumber": 25,
-    "layout": "THEME07-025",
+    "pageNumber": 22,
+    "layout": "THEME07-022",
     "slot": "peak-trough-page",
     "label": "29 21",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Peak and Trough"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "峰值与低位"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "月度峰谷对比"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "8 月为全年峰值，1 月为低位，峰谷差体现交易集中度。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "月度波动背后是头部交易节奏。"
-      },
-      {
-        "key": "chartLabel",
-        "label": "chartLabel",
-        "type": "text",
-        "default": "月度融资额 / 亿美元"
-      },
-      {
-        "key": "avgLabel",
-        "label": "avgLabel",
-        "type": "text",
-        "default": "全年均值"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -4362,62 +3016,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page026",
+    "key": "theme07_page023",
     "themeKey": "theme07",
-    "pageNumber": 26,
-    "layout": "THEME07-026",
+    "pageNumber": 23,
+    "layout": "THEME07-023",
     "slot": "waterfall-page",
     "label": "30 22",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Funding Waterfall"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "赛道贡献拆分"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "融资额贡献瀑布"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "全年 970 亿美元由模型、应用、基础设施、芯片和其他方向共同构成。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "大模型制造热度，基础设施和应用承接兑现。"
-      },
-      {
-        "key": "chartLabel",
-        "label": "chartLabel",
-        "type": "text",
-        "default": "各赛道累计贡献 / 亿美元"
-      },
-      {
-        "key": "totalLabel",
-        "label": "totalLabel",
-        "type": "text",
-        "default": "全年合计"
-      },
-      {
-        "key": "totalUnit",
-        "label": "totalUnit",
-        "type": "text",
-        "default": "亿美元"
-      },
       {
         "key": "stepCount",
         "label": "台阶数量",
@@ -4554,56 +3160,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page027",
+    "key": "theme07_page024",
     "themeKey": "theme07",
-    "pageNumber": 27,
-    "layout": "THEME07-027",
+    "pageNumber": 24,
+    "layout": "THEME07-024",
     "slot": "deal-size-page",
     "label": "31 23",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Deal Size Split"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "金额区间结构"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "交易规模分布"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "大额融资内部仍有层级，低金额段贡献数量，高金额段贡献市场记忆。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "市场被少数超级交易重新定价。"
-      },
-      {
-        "key": "countLabel",
-        "label": "countLabel",
-        "type": "text",
-        "default": "交易数量 / 笔"
-      },
-      {
-        "key": "amountLabel",
-        "label": "amountLabel",
-        "type": "text",
-        "default": "融资金额 / 亿美元"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -4736,62 +3300,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page028",
+    "key": "theme07_page025",
     "themeKey": "theme07",
-    "pageNumber": 28,
-    "layout": "THEME07-028",
+    "pageNumber": 25,
+    "layout": "THEME07-025",
     "slot": "avg-ticket-page",
     "label": "32 24",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Average Ticket"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "赛道平均融资额"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "平均单笔规模"
-      },
-      {
-        "key": "numLead",
-        "label": "numLead",
-        "type": "text",
-        "default": "10"
-      },
-      {
-        "key": "numUnit",
-        "label": "numUnit",
-        "type": "text",
-        "default": "亿美元"
-      },
-      {
-        "key": "numCaption",
-        "label": "numCaption",
-        "type": "text",
-        "default": "全年平均单笔融资规模"
-      },
-      {
-        "key": "note",
-        "label": "note",
-        "type": "text",
-        "default": "垂直应用不应只用融资规模评价，更要看收入效率。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "融资规模越大，后续兑现压力越高。"
-      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -4889,62 +3405,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page029",
+    "key": "theme07_page026",
     "themeKey": "theme07",
-    "pageNumber": 29,
-    "layout": "THEME07-029",
+    "pageNumber": 26,
+    "layout": "THEME07-026",
     "slot": "investor-page",
     "label": "33 25",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Capital Lens"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "活跃资本图谱"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "头部投资机构"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "大额融资背后是一批高频出手的头部机构，资本正从广撒网转向对头部资产的集中下注。"
-      },
-      {
-        "key": "anchorLead",
-        "label": "锚点数字",
-        "type": "text",
-        "default": "48"
-      },
-      {
-        "key": "anchorUnit",
-        "label": "锚点单位",
-        "type": "text",
-        "default": "家"
-      },
-      {
-        "key": "anchorNote",
-        "label": "锚点注释",
-        "type": "text",
-        "default": "全年参与大额轮次的活跃机构"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "钱多不稀缺，稀缺的是愿意下重注的确定性。"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -5087,62 +3555,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page030",
+    "key": "theme07_page027",
     "themeKey": "theme07",
-    "pageNumber": 30,
-    "layout": "THEME07-030",
+    "pageNumber": 27,
+    "layout": "THEME07-027",
     "slot": "active-capital-page",
     "label": "34 26",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Active Capital"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "最活跃投资机构"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "出手次数 Top"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "头部机构的出手频次远高于市场平均，少数几家几乎参与了全年所有标志性轮次。"
-      },
-      {
-        "key": "anchorLead",
-        "label": "锚点数字",
-        "type": "text",
-        "default": "38%"
-      },
-      {
-        "key": "anchorNote",
-        "label": "锚点注释",
-        "type": "text",
-        "default": "前 6 家机构覆盖的大额轮次占比"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "出手越密集，越能定义下一轮叙事。"
-      },
-      {
-        "key": "axisLabel",
-        "label": "坐标标签",
-        "type": "text",
-        "default": "参与大额轮次 / 笔"
-      },
       {
         "key": "rowCount",
         "label": "卡片数量",
@@ -5315,74 +3735,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page031",
+    "key": "theme07_page028",
     "themeKey": "theme07",
-    "pageNumber": 31,
-    "layout": "THEME07-031",
+    "pageNumber": 28,
+    "layout": "THEME07-028",
     "slot": "concentration-page",
     "label": "35 28",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Capital Concentration"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "资本集中度"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "头部集中"
-      },
-      {
-        "key": "numLead",
-        "label": "numLead",
-        "type": "text",
-        "default": "42"
-      },
-      {
-        "key": "numTail",
-        "label": "numTail",
-        "type": "text",
-        "default": "%"
-      },
-      {
-        "key": "numCaption",
-        "label": "numCaption",
-        "type": "text",
-        "default": "全年大额融资中，由 Top 10 机构主导轮次贡献的比例"
-      },
-      {
-        "key": "note",
-        "label": "note",
-        "type": "text",
-        "default": "集中不是终点，而是下一轮分化的起点。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "当资本向头部聚拢，中长尾的窗口正在收窄。"
-      },
-      {
-        "key": "barTitle",
-        "label": "barTitle",
-        "type": "text",
-        "default": "融资额份额 · 按机构排名分层"
-      },
-      {
-        "key": "remainderLabel",
-        "label": "remainderLabel",
-        "type": "text",
-        "default": "其他机构"
-      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -5514,44 +3874,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page032",
+    "key": "theme07_page029",
     "themeKey": "theme07",
-    "pageNumber": 32,
-    "layout": "THEME07-032",
+    "pageNumber": 29,
+    "layout": "THEME07-029",
     "slot": "syndicate-page",
     "label": "36 27",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Notable Deals"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "代表性交易"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "领投阵容"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "少数几笔超大额轮次几乎定义了全年节奏，背后是稳定复现的领投与跟投组合。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "Top 6 交易合计 412 亿美元 · 占全年大额融资的 42%"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -5743,56 +4073,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page033",
+    "key": "theme07_page030",
     "themeKey": "theme07",
-    "pageNumber": 33,
-    "layout": "THEME07-033",
+    "pageNumber": 30,
+    "layout": "THEME07-030",
     "slot": "knowledge-page",
     "label": "37 29",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Enterprise Search"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "企业搜索赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "知识入口机会"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "企业搜索赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "企业搜索是较早形成明确付费场景的应用方向；接入内部知识后，企业搜索具备高频使用场景，成为 AI 应用的重要落地点。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "企业知识入口是 AI 应用的重要落地点。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "企业搜索"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -5946,80 +4234,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page034",
+    "key": "theme07_page031",
     "themeKey": "theme07",
-    "pageNumber": 34,
-    "layout": "THEME07-034",
+    "pageNumber": 31,
+    "layout": "THEME07-031",
     "slot": "legal-page",
     "label": "38 30",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Legal AI"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "法律 AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "专业服务 · 法律"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "专业服务高客单价"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "法律 AI 赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "法律 AI 具备高客单价、强专业壁垒和明确效率提升空间；专业服务行业愿意为准确性和审计链路付费。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 26 亿美元 · 6 笔事件 · 平均单笔 4.3 亿美元"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "46%"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "合同审查占场景比例"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "法律 AI 是垂直应用商业化样本。"
-      },
-      {
-        "key": "flowTitle",
-        "label": "flowTitle",
-        "type": "text",
-        "default": "法律工作流"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -6174,68 +4396,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page035",
+    "key": "theme07_page032",
     "themeKey": "theme07",
-    "pageNumber": 35,
-    "layout": "THEME07-035",
+    "pageNumber": 32,
+    "layout": "THEME07-032",
     "slot": "healthcare-page",
     "label": "39 31",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Healthcare AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "医疗 AI 赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "慢变量高壁垒"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "医疗 AI 赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "医疗 AI 集中在影像、药物发现和临床文书自动化；验证周期长，但进入流程后的壁垒更强。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 34 亿美元 · 8 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "慢场景不代表低价值。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "医疗 AI"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "三大方向 · 融资分布 / 亿美元"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -6377,68 +4545,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page036",
+    "key": "theme07_page033",
     "themeKey": "theme07",
-    "pageNumber": 36,
-    "layout": "THEME07-036",
+    "pageNumber": 33,
+    "layout": "THEME07-033",
     "slot": "finance-page",
     "label": "40 32",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Finance AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "金融 AI 赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "投研、风控与合规"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "金融 AI 赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "金融 AI 聚焦投研、风控、合规和客户服务；金融行业付费能力强，但监管和准确率门槛更高。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 22 亿美元 · 7 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "高价值行业需要更强可信度。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "金融 AI"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "场景占比"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -6607,62 +4721,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page037",
+    "key": "theme07_page034",
     "themeKey": "theme07",
-    "pageNumber": 37,
-    "layout": "THEME07-037",
+    "pageNumber": 34,
+    "layout": "THEME07-034",
     "slot": "compute-page",
     "label": "41 33",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "GPU Cloud"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "GPU 云与算力租赁"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "算力供给稀缺"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "GPU 云与算力租赁"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "GPU 云公司受益于训练和推理双重需求；壁垒来自供给锁定、客户绑定和资本开支效率。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "算力是 AI 时代最直接的硬资源。"
-      },
-      {
-        "key": "chartTitle",
-        "label": "chartTitle",
-        "type": "text",
-        "default": "算力集群 · 资源利用"
-      },
-      {
-        "key": "splitTitle",
-        "label": "splitTitle",
-        "type": "text",
-        "default": "资源构成 / 占比"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -6820,80 +4886,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page038",
+    "key": "theme07_page035",
     "themeKey": "theme07",
-    "pageNumber": 38,
-    "layout": "THEME07-038",
+    "pageNumber": 35,
+    "layout": "THEME07-035",
     "slot": "chip-page",
     "label": "42 34",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "AI Chips"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "硬件"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "AI 芯片赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "训练与推理硬件"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "AI 芯片赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "AI 芯片融资集中在训练加速器、推理芯片和边缘 AI；芯片周期长，但一旦形成供应链优势，壁垒极高。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "主力三大方向合计 · 训练 46 · 推理 32 · 边缘 19（亿美元）"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "97"
-      },
-      {
-        "key": "anchorUnit",
-        "label": "锚点单位",
-        "type": "text",
-        "default": "亿美元"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "全年融资额 · 13 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "硬件方向看长期确定性。"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -7036,68 +5036,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page039",
+    "key": "theme07_page036",
     "themeKey": "theme07",
-    "pageNumber": 39,
-    "layout": "THEME07-039",
+    "pageNumber": 36,
+    "layout": "THEME07-036",
     "slot": "robotics-page",
     "label": "43 35",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Embodied AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "机器人与具身智能"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "从软件走向物理世界"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "机器人与具身智能"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "具身智能成为 AI 从软件能力延伸到物理场景的重要方向；它更像硬科技投资，验证周期更长。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 41 亿美元 · 7 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "长周期赛道需要看供应链和量产能力。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "具身智能"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "应用分布 · 融资 / 亿美元"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -7239,74 +5185,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page040",
+    "key": "theme07_page037",
     "themeKey": "theme07",
-    "pageNumber": 40,
-    "layout": "THEME07-040",
+    "pageNumber": 37,
+    "layout": "THEME07-037",
     "slot": "autonomy-page",
     "label": "44 36",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Autonomous AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "自动驾驶与车载 AI"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "车载模型升级"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "自动驾驶与车载 AI"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "车载 AI 从感知模块转向端到端模型和座舱智能；资本更关注数据闭环和量产路径。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 29 亿美元 · 6 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "自动驾驶回暖，但更看重工程兑现。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "车载 AI"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "场景拆分 / 亿美元"
-      },
-      {
-        "key": "archTitle",
-        "label": "archTitle",
-        "type": "text",
-        "default": "车载 AI 架构"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -7481,68 +5367,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page041",
+    "key": "theme07_page038",
     "themeKey": "theme07",
-    "pageNumber": 41,
-    "layout": "THEME07-041",
+    "pageNumber": 38,
+    "layout": "THEME07-038",
     "slot": "safety-page",
     "label": "45 37",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "AI Safety"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "AI 安全赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "评测、红队与合规"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "AI 安全赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "AI 安全覆盖模型评测、红队测试、内容安全和合规监测；监管收紧会把它从可选预算变成刚性预算。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "安全能力会成为企业采购门槛。"
-      },
-      {
-        "key": "chartTitle",
-        "label": "chartTitle",
-        "type": "text",
-        "default": "安全防线 · 资金 / 亿美元"
-      },
-      {
-        "key": "splitTitle",
-        "label": "splitTitle",
-        "type": "text",
-        "default": "防线资金占比"
-      },
-      {
-        "key": "stripTitle",
-        "label": "stripTitle",
-        "type": "text",
-        "default": "风险拦截示意"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -7710,68 +5542,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page042",
+    "key": "theme07_page039",
     "themeKey": "theme07",
-    "pageNumber": 42,
-    "layout": "THEME07-042",
+    "pageNumber": 39,
+    "layout": "THEME07-039",
     "slot": "content-gen-page",
     "label": "46 38",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Generative Content"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "内容生成赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "图像、视频与创意"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "内容生成赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "内容生成继续保持融资热度，但也面临版权和留存问题；长期价值取决于付费意愿与版权处理。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 31 亿美元 · 11 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "流量热度不等于商业壁垒。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "内容生成"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "媒介分布 · 融资 / 亿美元"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -7922,68 +5700,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page043",
+    "key": "theme07_page040",
     "themeKey": "theme07",
-    "pageNumber": 43,
-    "layout": "THEME07-043",
+    "pageNumber": 40,
+    "layout": "THEME07-040",
     "slot": "education-page",
     "label": "47 39",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Education AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "教育 AI 赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "个性化学习与教师工具"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "教育 AI 赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "教育 AI 从通用答疑转向个性化辅导和教师工作台；难点不是生成答案，而是证明学习效果和付费意愿。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 14 亿美元 · 5 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "教育 AI 需要用结果证明价值。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "教育 AI"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "学习路径 · 融资 / 亿美元"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -8125,74 +5849,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page044",
+    "key": "theme07_page041",
     "themeKey": "theme07",
-    "pageNumber": 44,
-    "layout": "THEME07-044",
+    "pageNumber": 41,
+    "layout": "THEME07-041",
     "slot": "support-page",
     "label": "48 40",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Customer Support AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "客服 AI 赛道"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "可量化降本场景"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "客服 AI 赛道"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "客服 AI 是最容易量化 ROI 的垂直应用之一；商业化看降本效果、接入成本和复杂问题升级率。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "平均替代率 32% · 工单时长下降 41% · 9 笔事件"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "27"
-      },
-      {
-        "key": "anchorUnit",
-        "label": "锚点单位",
-        "type": "text",
-        "default": "亿美元"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "全年融资额 · 9 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "能量化 ROI 的场景更容易获得预算。"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -8334,68 +5998,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page045",
+    "key": "theme07_page042",
     "themeKey": "theme07",
-    "pageNumber": 45,
-    "layout": "THEME07-045",
+    "pageNumber": 42,
+    "layout": "THEME07-042",
     "slot": "sales-page",
     "label": "49 41",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Sales & Marketing AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "销售与营销 AI"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "增长效率工具"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "销售与营销 AI"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "销售与营销 AI 集中在线索评分、自动外呼、邮件和广告创意；短期转化快，但同质化竞争也更明显。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 24 亿美元 · 10 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "营销 AI 要用转化率证明自己。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "销售营销"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "增长漏斗 · 融资 / 亿美元"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -8537,74 +6147,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page046",
+    "key": "theme07_page043",
     "themeKey": "theme07",
-    "pageNumber": 46,
-    "layout": "THEME07-046",
+    "pageNumber": 43,
+    "layout": "THEME07-043",
     "slot": "low-code-page",
     "label": "50 42",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Low-Code AI"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "低代码 AI 平台"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "企业流程嵌入"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "低代码 AI 平台"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "低代码 AI 平台帮助企业把模型能力嵌入内部流程；关键不是模型能力，而是交付速度和治理能力。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 19 亿美元 · 6 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "能被业务团队使用的平台更容易扩散。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "低代码"
-      },
-      {
-        "key": "flowTitle",
-        "label": "flowTitle",
-        "type": "text",
-        "default": "流程编排 · Orchestration"
-      },
-      {
-        "key": "metricTitle",
-        "label": "metricTitle",
-        "type": "text",
-        "default": "客户与留存 · Retention"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -8795,74 +6345,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page047",
+    "key": "theme07_page044",
     "themeKey": "theme07",
-    "pageNumber": 47,
-    "layout": "THEME07-047",
+    "pageNumber": 44,
+    "layout": "THEME07-044",
     "slot": "open-source-page",
     "label": "51 43",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Open-Source Models"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "开源模型公司"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "社区影响力变现"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "开源模型公司"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "开源模型公司通过社区影响力、托管服务和企业支持变现；开源能快速获得开发者，但商业化仍需要企业级能力。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 28 亿美元 · 7 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "开源是入口，不是完整商业模式。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "开源模型"
-      },
-      {
-        "key": "bridgeTitle",
-        "label": "bridgeTitle",
-        "type": "text",
-        "default": "影响力到收入 · 转化路径"
-      },
-      {
-        "key": "ribbonLabel",
-        "label": "ribbonLabel",
-        "type": "text",
-        "default": "影响力 → 收入"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -9014,74 +6504,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page048",
+    "key": "theme07_page045",
     "themeKey": "theme07",
-    "pageNumber": 48,
-    "layout": "THEME07-048",
+    "pageNumber": 45,
+    "layout": "THEME07-045",
     "slot": "alignment-page",
     "label": "52 44",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Model Alignment"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "模型安全公司"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "安全与对齐工具"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "模型安全公司"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "模型安全和对齐公司吸引长期资本关注；安全对齐既是技术壁垒，也是大客户信任入口。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "融资额 21 亿美元 · 5 笔事件"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "可信 AI 会成为企业级 AI 的基础设施。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "安全对齐"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "安全防线 · 融资 / 亿美元"
-      },
-      {
-        "key": "shieldLabel",
-        "label": "shieldLabel",
-        "type": "text",
-        "default": "可信 AI 防线"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -9232,56 +6662,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page049",
+    "key": "theme07_page046",
     "themeKey": "theme07",
-    "pageNumber": 49,
-    "layout": "THEME07-049",
+    "pageNumber": 46,
+    "layout": "THEME07-046",
     "slot": "capital-chapter-page",
     "label": "53 45",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Chapter"
-      },
-      {
-        "key": "index",
-        "label": "index",
-        "type": "text",
-        "default": "04"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "资本与地区结构"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "轮次、投资人和地理集群"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "本章进入资本结构部分，拆解轮次、投资人、云厂商、NVIDIA 生态和地理分布。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "下一组页面进入更细的拆解。"
-      },
-      {
-        "key": "clusterTitle",
-        "label": "clusterTitle",
-        "type": "text",
-        "default": "地理集群 · 资本份额"
-      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -9449,74 +6837,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page050",
+    "key": "theme07_page047",
     "themeKey": "theme07",
-    "pageNumber": 50,
-    "layout": "THEME07-050",
+    "pageNumber": 47,
+    "layout": "THEME07-047",
     "slot": "early-stage-page",
     "label": "54 46",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Early Stage Signal"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "Seed → B"
-      },
-      {
-        "key": "season",
-        "label": "season",
-        "type": "text",
-        "default": "早期轮 · 主题萌芽"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "新主题萌芽"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "早期轮信号"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "Seed 和 A 轮金额较小，但代表新主题正在形成；早期机会集中在 Agent、安全、具身智能和行业专用模型。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "种子轮 8 笔 / 1.2 亿美元 · A 轮 12 笔 / 1.8 亿美元"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "20.6%"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "早期轮占全年事件数"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "小金额交易往往藏着下一轮主题。"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -9682,56 +7010,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page051",
+    "key": "theme07_page048",
     "themeKey": "theme07",
-    "pageNumber": 51,
-    "layout": "THEME07-051",
+    "pageNumber": 48,
+    "layout": "THEME07-048",
     "slot": "deal-structure-page",
     "label": "55 47",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Undisclosed Mega Rounds"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "复杂交易结构"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "未披露巨额轮次"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "未披露巨额轮次"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "未披露轮次常对应战略投资、债务组合或云资源置换；不披露不代表信息不足，而是交易结构更复杂。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "AI 融资越来越像资源组合交易。"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "单笔交易结构拆解 · 构成占比"
-      },
       {
         "key": "componentCount",
         "label": "卡片数量",
@@ -9876,68 +7162,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page052",
+    "key": "theme07_page049",
     "themeKey": "theme07",
-    "pageNumber": 52,
-    "layout": "THEME07-052",
+    "pageNumber": 49,
+    "layout": "THEME07-049",
     "slot": "investor-mix-page",
     "label": "56 48",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Investor Mix"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "资本来源结构"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "投资人类型分布"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "投资人类型分布"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "投资人类型"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "传统 VC、企业战略投资者、成长基金和云厂商共同推动 AI 大额融资；AI 融资已经从纯 VC 交易转向产业资本混合交易。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "钱的来源本身也是产业结构信号。"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "投资人类型占比"
-      },
-      {
-        "key": "timelineLabel",
-        "label": "timelineLabel",
-        "type": "text",
-        "default": "资本来源演进 · 2020 — 2024"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -9953,7 +7185,7 @@ export const pages = [
             "label": "占比条"
           }
         ],
-        "desc": "投资人类型占比图表样式：环形图 / 占比条。"
+        "desc": "分类占比图表样式：环形图 / 占比条。"
       },
       {
         "key": "segmentCount",
@@ -9963,14 +7195,14 @@ export const pages = [
         "min": 2,
         "max": 4,
         "step": 1,
-        "desc": "投资人类型分段数量（2–4）。"
+        "desc": "分类类型分段数量（2–4）。"
       },
       {
         "key": "focusEnabled",
         "label": "重点信息",
         "type": "toggle",
         "default": true,
-        "desc": "是否高亮某一类投资人作为视觉重点。"
+        "desc": "是否高亮某一类角色作为视觉重点。"
       },
       {
         "key": "focusIndex",
@@ -9995,7 +7227,7 @@ export const pages = [
             "label": "第 4 个"
           }
         ],
-        "desc": "选择被高亮的投资人类型。"
+        "desc": "选择被高亮的分类类型。"
       },
       {
         "key": "showLegend",
@@ -10040,7 +7272,7 @@ export const pages = [
           "#F2A93B",
           "#0E110B"
         ],
-        "desc": "品牌强调色，作用于图表、高亮投资人类型与时间轴节点。"
+        "desc": "品牌强调色，作用于图表、高亮分类类型与时间轴节点。"
       }
     ],
     "defaultProps": {
@@ -10104,68 +7336,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page053",
+    "key": "theme07_page050",
     "themeKey": "theme07",
-    "pageNumber": 53,
-    "layout": "THEME07-053",
+    "pageNumber": 50,
+    "layout": "THEME07-050",
     "slot": "resource-page",
     "label": "57 49",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Strategic Investors"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "战略投资者角色"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "钱以外的资源"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "战略投资者角色"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "战略投资者提供渠道、云资源、芯片供应和客户入口；交易真正价值经常不只在现金，而在关键资源绑定。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "资源绑定是大额融资的隐性条款"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "AI 公司融资是在锁定未来资源。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "战略资源"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "战略资源构成"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -10328,92 +7506,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page054",
+    "key": "theme07_page051",
     "themeKey": "theme07",
-    "pageNumber": 54,
-    "layout": "THEME07-054",
+    "pageNumber": 51,
+    "layout": "THEME07-051",
     "slot": "alliance-page",
     "label": "58 50",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Cloud Alliances"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "云厂商联盟"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "投资与算力消费闭环"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "云厂商联盟"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "云厂商投资 AI 公司，并通过算力消费回收价值；云投资本质上是在锁定未来算力需求。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "云资源正在成为融资交易的一部分。"
-      },
-      {
-        "key": "chartTitle",
-        "label": "chartTitle",
-        "type": "text",
-        "default": "云厂商 · 模型公司联盟"
-      },
-      {
-        "key": "barsTitle",
-        "label": "barsTitle",
-        "type": "text",
-        "default": "云厂商相关投资 / 占比"
-      },
-      {
-        "key": "totalVal",
-        "label": "totalVal",
-        "type": "text",
-        "default": "252"
-      },
-      {
-        "key": "totalUnit",
-        "label": "totalUnit",
-        "type": "text",
-        "default": "亿美元"
-      },
-      {
-        "key": "totalLbl",
-        "label": "totalLbl",
-        "type": "text",
-        "default": "云厂商相关投资合计"
-      },
-      {
-        "key": "legendInvest",
-        "label": "legendInvest",
-        "type": "text",
-        "default": "资本投资"
-      },
-      {
-        "key": "legendReturn",
-        "label": "legendReturn",
-        "type": "text",
-        "default": "算力消费回收"
-      },
       {
         "key": "providerCount",
         "label": "卡片数量",
@@ -10565,74 +7665,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page055",
+    "key": "theme07_page052",
     "themeKey": "theme07",
-    "pageNumber": 55,
-    "layout": "THEME07-055",
+    "pageNumber": 52,
+    "layout": "THEME07-052",
     "slot": "ecosystem-page",
     "label": "59 51",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "NVIDIA Ecosystem"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "NVIDIA 生态"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "GPU 资源链条"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "NVIDIA 生态"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "NVIDIA 生态内融资围绕 GPU、网络、集群运维和推理优化展开；谁能稳定拿到算力，谁就更容易获得下一轮资本。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "以 GPU 为中心的资源链条"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "算力供给能力正在变成融资能力。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "GPU 生态"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "生态融资分布"
-      },
-      {
-        "key": "legend",
-        "label": "legend",
-        "type": "text",
-        "default": "节点大小 · 数值 = 融资额（亿美元）"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -10792,68 +7832,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page056",
+    "key": "theme07_page053",
     "themeKey": "theme07",
-    "pageNumber": 56,
-    "layout": "THEME07-056",
+    "pageNumber": 53,
+    "layout": "THEME07-053",
     "slot": "geo-center-page",
     "label": "60 52",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Bay Area Cluster"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "最大地理中心"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "旧金山湾区集群"
-      },
-      {
-        "key": "numLead",
-        "label": "numLead",
-        "type": "text",
-        "default": "63"
-      },
-      {
-        "key": "numTail",
-        "label": "numTail",
-        "type": "text",
-        "default": ".9"
-      },
-      {
-        "key": "numUnit",
-        "label": "numUnit",
-        "type": "text",
-        "default": "%"
-      },
-      {
-        "key": "numCaption",
-        "label": "numCaption",
-        "type": "text",
-        "default": "旧金山湾区融资额占比"
-      },
-      {
-        "key": "note",
-        "label": "note",
-        "type": "text",
-        "default": "优势来自人才密度、资本网络、云厂商和模型实验室邻近。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "湾区仍是 AI 资本重力中心。"
-      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -10951,20 +7937,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page057",
+    "key": "theme07_page054",
     "themeKey": "theme07",
-    "pageNumber": 57,
-    "layout": "THEME07-057",
+    "pageNumber": 54,
+    "layout": "THEME07-054",
     "slot": "region-cluster-page",
     "label": "61 53",
     "bgClass": "",
     "controls": [
-      {
-        "key": "shareTitle",
-        "label": "占比标题",
-        "type": "text",
-        "default": "全美融资额占比"
-      },
       {
         "key": "region",
         "label": "地区",
@@ -11329,50 +8309,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page058",
+    "key": "theme07_page055",
     "themeKey": "theme07",
-    "pageNumber": 58,
-    "layout": "THEME07-058",
+    "pageNumber": 55,
+    "layout": "THEME07-055",
     "slot": "resource-triad-page",
     "label": "62 54",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Talent · Capital · Compute"
-      },
-      {
-        "key": "kicker",
-        "label": "kicker",
-        "type": "text",
-        "default": "人才 · 资本 · 算力三角"
-      },
-      {
-        "key": "quoteLead",
-        "label": "quoteLead",
-        "type": "text",
-        "default": "AI 竞争，首先是"
-      },
-      {
-        "key": "quoteEm",
-        "label": "quoteEm",
-        "type": "text",
-        "default": "资源组织能力"
-      },
-      {
-        "key": "quoteTail",
-        "label": "quoteTail",
-        "type": "text",
-        "default": "的竞争。"
-      },
-      {
-        "key": "source",
-        "label": "来源",
-        "type": "text",
-        "default": "数据来源 · AI Capital Lab 自建数据库 / 公开融资披露 · 2024 全年口径 ≥1 亿美元"
-      },
       {
         "key": "align",
         "label": "对齐方式",
@@ -11510,68 +8454,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page059",
+    "key": "theme07_page056",
     "themeKey": "theme07",
-    "pageNumber": 59,
-    "layout": "THEME07-059",
+    "pageNumber": 56,
+    "layout": "THEME07-056",
     "slot": "open-aicase-page",
     "label": "63 55",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "OpenAI Case"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "商业化标杆"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "OpenAI 案例页"
-      },
-      {
-        "key": "logic",
-        "label": "logic",
-        "type": "text",
-        "default": "通用大模型逻辑"
-      },
-      {
-        "key": "company",
-        "label": "company",
-        "type": "text",
-        "default": "OpenAI"
-      },
-      {
-        "key": "enName",
-        "label": "enName",
-        "type": "text",
-        "default": "OPENAI"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "商业化标杆"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "OpenAI 仍是通用大模型商业化的标杆样本；看点是模型能力、生态入口与企业商业化能否同时领先。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "模型能力必须转成生态和收入。"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -11741,80 +8631,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page060",
+    "key": "theme07_page057",
     "themeKey": "theme07",
-    "pageNumber": 60,
-    "layout": "THEME07-060",
+    "pageNumber": 57,
+    "layout": "THEME07-057",
     "slot": "figure-case-page",
     "label": "64 59",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Figure AI Case"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "人形机器人"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "Figure AI 案例页"
-      },
-      {
-        "key": "kicker",
-        "label": "kicker",
-        "type": "text",
-        "default": "最大单笔融资"
-      },
-      {
-        "key": "numLead",
-        "label": "numLead",
-        "type": "text",
-        "default": "6"
-      },
-      {
-        "key": "numTail",
-        "label": "numTail",
-        "type": "text",
-        "default": ".8"
-      },
-      {
-        "key": "numUnit",
-        "label": "numUnit",
-        "type": "text",
-        "default": "亿美元"
-      },
-      {
-        "key": "ghost",
-        "label": "ghost",
-        "type": "text",
-        "default": "6.8"
-      },
-      {
-        "key": "numCaption",
-        "label": "numCaption",
-        "type": "text",
-        "default": "Figure AI 最大单笔融资"
-      },
-      {
-        "key": "note",
-        "label": "note",
-        "type": "text",
-        "default": "关键不只是 demo，而是供应链、可靠性和量产成本。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "硬件 AI 要用量产证明自己。"
-      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -11922,68 +8746,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page061",
+    "key": "theme07_page058",
     "themeKey": "theme07",
-    "pageNumber": 61,
-    "layout": "THEME07-061",
+    "pageNumber": 58,
+    "layout": "THEME07-058",
     "slot": "ssicase-page",
     "label": "65 60",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "SSI Case"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "强叙事模型实验室"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "SSI 案例页"
-      },
-      {
-        "key": "logic",
-        "label": "logic",
-        "type": "text",
-        "default": "强叙事逻辑"
-      },
-      {
-        "key": "company",
-        "label": "company",
-        "type": "text",
-        "default": "SSI"
-      },
-      {
-        "key": "enName",
-        "label": "enName",
-        "type": "text",
-        "default": "SAFE SUPERINTELLIGENCE"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "安全智能"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "SSI 代表强团队、强叙事、弱商业化验证的模型实验室；短期难以用收入评价，价值建立在长期技术想象上。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "强叙事需要更长时间兑现。"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",
@@ -12153,50 +8923,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page062",
+    "key": "theme07_page059",
     "themeKey": "theme07",
-    "pageNumber": 62,
-    "layout": "THEME07-062",
+    "pageNumber": 59,
+    "layout": "THEME07-059",
     "slot": "risk-chapter-page",
     "label": "66 61",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Chapter"
-      },
-      {
-        "key": "index",
-        "label": "index",
-        "type": "text",
-        "default": "05"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "风险与策略"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "从估值压力到投资筛选"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "从本章开始进入风险与策略部分，集中呈现估值、收入、监管、算力和竞争压力。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "下一组页面进入更细的拆解。"
-      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -12301,68 +9035,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page063",
+    "key": "theme07_page060",
     "themeKey": "theme07",
-    "pageNumber": 63,
-    "layout": "THEME07-063",
+    "pageNumber": 60,
+    "layout": "THEME07-060",
     "slot": "revenue-page",
     "label": "67 62",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Revenue Risk"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "收入验证"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "风险 · 收入验证"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "从试点到稳定收入"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "风险 · 收入验证"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "多数 AI 公司需要证明自己能从试点项目转向稳定订阅收入；收入验证要看留存、毛利和客户扩张，而不是只看 Logo。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "试点转付费率 28% · 企业年流失率 17%"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "客户试点不等于商业化成功。"
-      },
-      {
-        "key": "funnelTitle",
-        "label": "funnelTitle",
-        "type": "text",
-        "default": "试点 → 付费 → 稳定收入 · 转化漏斗"
-      },
       {
         "key": "stageCount",
         "label": "阶段数量",
@@ -12506,80 +9186,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page064",
+    "key": "theme07_page061",
     "themeKey": "theme07",
-    "pageNumber": 64,
-    "layout": "THEME07-064",
+    "pageNumber": 61,
+    "layout": "THEME07-061",
     "slot": "compliance-page",
     "label": "68 63",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Regulation Risk"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "监管合规"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "风险 · 监管合规"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "隐私、版权与安全"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "风险 · 监管合规"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "隐私、版权、安全和行业监管会增加交付成本；监管会挤出缺乏治理能力的公司。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "合规团队增长 +42% · 采购审查周期 +36% · 版权风险事件 19 起"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "58%"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "客户要求数据隔离占比"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "合规能力会成为企业采购门槛。"
-      },
-      {
-        "key": "flowTitle",
-        "label": "flowTitle",
-        "type": "text",
-        "default": "合规交付流程"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -12734,80 +9348,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page065",
+    "key": "theme07_page062",
     "themeKey": "theme07",
-    "pageNumber": 65,
-    "layout": "THEME07-065",
+    "pageNumber": 62,
+    "layout": "THEME07-062",
     "slot": "margin-page",
     "label": "69 64",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Compute Cost Risk"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "毛利天花板"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "风险 · 算力成本"
-      },
-      {
-        "key": "kicker",
-        "label": "kicker",
-        "type": "text",
-        "default": "训练预算压力"
-      },
-      {
-        "key": "numLead",
-        "label": "numLead",
-        "type": "text",
-        "default": "61"
-      },
-      {
-        "key": "numUnit",
-        "label": "numUnit",
-        "type": "text",
-        "default": "%"
-      },
-      {
-        "key": "numCaption",
-        "label": "numCaption",
-        "type": "text",
-        "default": "训练预算模拟增长幅度"
-      },
-      {
-        "key": "ceilingLabel",
-        "label": "ceilingLabel",
-        "type": "text",
-        "default": "毛利天花板"
-      },
-      {
-        "key": "gaugeCap",
-        "label": "gaugeCap",
-        "type": "text",
-        "default": "每 1 元收入的成本构成"
-      },
-      {
-        "key": "note",
-        "label": "note",
-        "type": "text",
-        "default": "如果推理成本降不下来，收入增长会被毛利吞掉。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "算力成本是模型商业化的硬约束。"
-      },
       {
         "key": "numberSlant",
         "label": "数字倾斜",
@@ -12933,92 +9481,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page066",
+    "key": "theme07_page063",
     "themeKey": "theme07",
-    "pageNumber": 66,
-    "layout": "THEME07-066",
+    "pageNumber": 63,
+    "layout": "THEME07-063",
     "slot": "moat-page",
     "label": "70 65",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Open Source Risk"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "开源与大厂竞争"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "风险 · 开源与大厂竞争"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "壁垒被压缩"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "风险 · 开源与大厂竞争"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "开源模型降低能力门槛，大厂生态压缩初创公司的独立空间；初创公司必须找到数据、工作流或行业入口壁垒。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "没有壁垒的模型能力会迅速商品化。"
-      },
-      {
-        "key": "bandTitle",
-        "label": "bandTitle",
-        "type": "text",
-        "default": "初创公司独立空间 · 被两侧压缩"
-      },
-      {
-        "key": "bandLeft",
-        "label": "bandLeft",
-        "type": "text",
-        "default": "开源可替代"
-      },
-      {
-        "key": "bandRight",
-        "label": "bandRight",
-        "type": "text",
-        "default": "大厂生态覆盖"
-      },
-      {
-        "key": "bandCore",
-        "label": "bandCore",
-        "type": "text",
-        "default": "剩余壁垒"
-      },
-      {
-        "key": "bandCoreSub",
-        "label": "bandCoreSub",
-        "type": "text",
-        "default": "数据 · 工作流 · 行业入口"
-      },
-      {
-        "key": "metersTitle",
-        "label": "metersTitle",
-        "type": "text",
-        "default": "竞争压力 · 逼近壁垒线"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -13153,62 +9623,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page067",
+    "key": "theme07_page064",
     "themeKey": "theme07",
-    "pageNumber": 67,
-    "layout": "THEME07-067",
+    "pageNumber": 64,
+    "layout": "THEME07-064",
     "slot": "strategy-infra-page",
     "label": "71 66",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Infrastructure Strategy"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "策略 · 优先基础设施"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "确定性预算"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "策略 · 优先基础设施"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "基础设施公司更接近刚性预算，收入确定性相对更强；模型胜负未定时，卖铲子仍是更稳的资本逻辑。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "优先看能支撑全行业增长的基础设施。"
-      },
-      {
-        "key": "criteriaTitle",
-        "label": "criteriaTitle",
-        "type": "text",
-        "default": "筛选指标 · Screening"
-      },
-      {
-        "key": "cardsTitle",
-        "label": "cardsTitle",
-        "type": "text",
-        "default": "推荐方向 · Infrastructure"
-      },
       {
         "key": "cardCount",
         "label": "卡片数量",
@@ -13371,68 +9793,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page068",
+    "key": "theme07_page065",
     "themeKey": "theme07",
-    "pageNumber": 68,
-    "layout": "THEME07-068",
+    "pageNumber": 65,
+    "layout": "THEME07-065",
     "slot": "strategy-vertical-page",
     "label": "72 67",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Vertical Strategy"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "策略 · 筛选垂直应用"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "嵌入工作流"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "策略 · 筛选垂直应用"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "垂直应用要看是否嵌入刚性流程，而不是只看生成效果；好的垂直 AI 应用应该成为工作流的一部分。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "应用价值来自流程位置。"
-      },
-      {
-        "key": "flowTitle",
-        "label": "flowTitle",
-        "type": "text",
-        "default": "业务工作流 · AI 嵌入位置"
-      },
-      {
-        "key": "cardsTitle",
-        "label": "cardsTitle",
-        "type": "text",
-        "default": "筛选维度 · Retention"
-      },
-      {
-        "key": "tagsTitle",
-        "label": "tagsTitle",
-        "type": "text",
-        "default": "落地场景"
-      },
       {
         "key": "stepCount",
         "label": "流程节点",
@@ -13606,62 +9974,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page069",
+    "key": "theme07_page066",
     "themeKey": "theme07",
-    "pageNumber": 69,
-    "layout": "THEME07-069",
+    "pageNumber": 66,
+    "layout": "THEME07-066",
     "slot": "repricing-page",
     "label": "73 68",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "IPO Watch"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "策略 · 观察 IPO 窗口"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "估值锚重定价"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "策略 · 观察 IPO 窗口"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "头部公司 IPO 表现会影响整个 AI 一级市场估值锚；如果头部上市后估值承压，一级市场会同步下修预期。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "公开市场会重新定价 AI 叙事。"
-      },
-      {
-        "key": "axisLabel",
-        "label": "坐标标签",
-        "type": "text",
-        "default": "IPO 观察序列 · 估值锚定者"
-      },
-      {
-        "key": "metricsTitle",
-        "label": "metricsTitle",
-        "type": "text",
-        "default": "观察指标 · Signals"
-      },
       {
         "key": "nodeCount",
         "label": "节点数量",
@@ -13802,62 +10122,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page070",
+    "key": "theme07_page067",
     "themeKey": "theme07",
-    "pageNumber": 70,
-    "layout": "THEME07-070",
+    "pageNumber": 67,
+    "layout": "THEME07-067",
     "slot": "closing-page",
     "label": "74 69",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Closing"
-      },
-      {
-        "key": "kicker",
-        "label": "kicker",
-        "type": "text",
-        "default": "最终判断"
-      },
-      {
-        "key": "quoteLead",
-        "label": "quoteLead",
-        "type": "text",
-        "default": "融资盛宴之后，"
-      },
-      {
-        "key": "quoteEm",
-        "label": "quoteEm",
-        "type": "text",
-        "default": "真正的竞争"
-      },
-      {
-        "key": "quoteTail",
-        "label": "quoteTail",
-        "type": "text",
-        "default": "才刚开始。"
-      },
-      {
-        "key": "tagline",
-        "label": "tagline",
-        "type": "text",
-        "default": "从资本流向，看 AI 产业下一阶段的真实重心。"
-      },
-      {
-        "key": "brandLabel",
-        "label": "brandLabel",
-        "type": "text",
-        "default": "AI CAPITAL LAB"
-      },
-      {
-        "key": "brandSub",
-        "label": "brandSub",
-        "type": "text",
-        "default": "FUNDING INTELLIGENCE"
-      },
       {
         "key": "align",
         "label": "对齐方式",
@@ -13962,50 +10234,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page071",
+    "key": "theme07_page068",
     "themeKey": "theme07",
-    "pageNumber": 71,
-    "layout": "THEME07-071",
+    "pageNumber": 68,
+    "layout": "THEME07-068",
     "slot": "appendix-chapter-page",
     "label": "75 70",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Appendix"
-      },
-      {
-        "key": "index",
-        "label": "index",
-        "type": "text",
-        "default": "06"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "附录与延展"
-      },
-      {
-        "key": "sub",
-        "label": "次标题",
-        "type": "text",
-        "default": "数据来源、前瞻指标与研究团队"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "正文之外，补充本报告的研究口径、数据来源、2025 年前瞻观察指标，以及研究团队信息，便于复核与延展阅读。"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "数据可复核，判断可延展。"
-      },
       {
         "key": "backgroundVariant",
         "label": "背景风格",
@@ -14109,86 +10345,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page072",
+    "key": "theme07_page069",
     "themeKey": "theme07",
-    "pageNumber": 72,
-    "layout": "THEME07-072",
+    "pageNumber": 69,
+    "layout": "THEME07-069",
     "slot": "forward-page",
     "label": "76 71",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Forward View · 2025"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "2025 前瞻"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "关键指标与观察信号"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "将 2024 的结构外推到 2025：资本可能从规模扩张转向效率验证，少数确定性方向继续获得资本，叙事型估值面临重定价。"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "+38%"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "垂直应用收入兑现 · 2025E 情景增速"
-      },
-      {
-        "key": "scenarioTag",
-        "label": "scenarioTag",
-        "type": "text",
-        "default": "情景推演 · 2024 = 100"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "增量来自兑现，而非叙事。"
-      },
-      {
-        "key": "panelTitle",
-        "label": "panelTitle",
-        "type": "text",
-        "default": "2024 → 2025E 指标推演（指数，2024 = 100）"
-      },
-      {
-        "key": "baselineLabel",
-        "label": "baselineLabel",
-        "type": "text",
-        "default": "2024 基线 · 100"
-      },
-      {
-        "key": "axisFrom",
-        "label": "axisFrom",
-        "type": "text",
-        "default": "2024"
-      },
-      {
-        "key": "axisTo",
-        "label": "axisTo",
-        "type": "text",
-        "default": "2025E"
-      },
       {
         "key": "chartType",
         "label": "图表类型",
@@ -14339,80 +10503,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page073",
+    "key": "theme07_page070",
     "themeKey": "theme07",
-    "pageNumber": 73,
-    "layout": "THEME07-073",
+    "pageNumber": 70,
+    "layout": "THEME07-070",
     "slot": "sources-page",
     "label": "77 72",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "Data & Methodology"
-      },
-      {
-        "key": "marker",
-        "label": "marker",
-        "type": "text",
-        "default": "研究口径"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "附录 · 口径与来源"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "数据来源与口径"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "附录 · 口径与来源"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "本报告以公开披露的 2024 年美国 AI 大额融资事件为样本，统一口径后进行结构化分析；以下为关键口径与数据来源说明。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "样本 97 笔 · 单笔 ≥1 亿美元 · 截至 2024 全年"
-      },
-      {
-        "key": "anchorValue",
-        "label": "anchorValue",
-        "type": "text",
-        "default": "97"
-      },
-      {
-        "key": "anchorLabel",
-        "label": "anchorLabel",
-        "type": "text",
-        "default": "大额融资事件样本量 / 笔"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "口径透明，结论才可被检验。"
-      },
-      {
-        "key": "flowTitle",
-        "label": "flowTitle",
-        "type": "text",
-        "default": "口径处理流程"
-      },
       {
         "key": "rowCount",
         "label": "行数量",
@@ -14576,74 +10674,14 @@ export const pages = [
     }
   },
   {
-    "key": "theme07_page074",
+    "key": "theme07_page071",
     "themeKey": "theme07",
-    "pageNumber": 74,
-    "layout": "THEME07-074",
+    "pageNumber": 71,
+    "layout": "THEME07-071",
     "slot": "about-lab-page",
     "label": "78 73",
     "bgClass": "",
     "controls": [
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "About the Lab"
-      },
-      {
-        "key": "segment",
-        "label": "segment",
-        "type": "text",
-        "default": "研究团队与方法"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "关于 AI Capital Lab"
-      },
-      {
-        "key": "titleTail",
-        "label": "副标题",
-        "type": "text",
-        "default": "研究团队与方法"
-      },
-      {
-        "key": "lead",
-        "label": "导言",
-        "type": "text",
-        "default": "AI Capital Lab 专注于 AI 产业的资本流向研究，用横纵分析法把融资数据转化为结构化判断，服务投资人、创业者与产业研究者。"
-      },
-      {
-        "key": "statLine",
-        "label": "statLine",
-        "type": "text",
-        "default": "横纵分析法 · 多源交叉 · 持续追踪"
-      },
-      {
-        "key": "closing",
-        "label": "结语",
-        "type": "text",
-        "default": "从资本流向，看 AI 产业的真实重心。"
-      },
-      {
-        "key": "badge",
-        "label": "badge",
-        "type": "text",
-        "default": "研究团队"
-      },
-      {
-        "key": "listTitle",
-        "label": "listTitle",
-        "type": "text",
-        "default": "我们做什么"
-      },
-      {
-        "key": "contactTitle",
-        "label": "contactTitle",
-        "type": "text",
-        "default": "联系"
-      },
       {
         "key": "imageCount",
         "label": "图片数量",

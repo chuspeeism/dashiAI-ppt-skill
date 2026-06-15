@@ -1,4 +1,7 @@
 import React from "react";
+import ICONS from "./icons.js";
+
+const decorOptions = ICONS.map(({ src, label }) => ({ value: src, label, image: src }));
 
 /* ============================================================================
    Decor — an optional "stuck-on" 3D sticker emblem.
@@ -30,15 +33,32 @@ export default function Decor({ show, src, scale = 1, base = 280, rotate = 0, po
   );
 }
 
-// Shared controls fragment so every slide exposes the same decor knobs with
-// identical, stable keys. Spread into each slide's `controls`.
 export const decorControls = [
-  { key: "showDecor", label: "3D 装饰", type: "toggle", default: false,
-    help: "悬浮的 3D 贴纸元素显示 / 隐藏" },
-  { key: "decorSrc", label: "选择元素", type: "icons", default: null,
-    help: "挑选一个 3D 贴纸（选项由预览提供）" },
-  { key: "decorScale", label: "元素大小", type: "slider", default: 1, min: 0.6, max: 1.6, step: 0.05,
-    help: "3D 贴纸的缩放比例" },
+  {
+    key: "showDecor",
+    label: "装饰图片",
+    type: "toggle",
+    default: false,
+    help: "显示或隐藏页面上的装饰图片元素",
+  },
+  {
+    key: "decorSrc",
+    label: "装饰元素",
+    type: "icons",
+    default: null,
+    options: decorOptions,
+    help: "从 theme03 内置装饰元素中选择",
+  },
+  {
+    key: "decorScale",
+    label: "图片大小",
+    type: "slider",
+    default: 1,
+    min: 0.6,
+    max: 1.6,
+    step: 0.05,
+    help: "装饰图片的缩放比例",
+  },
 ];
 
 export const decorDefaults = { showDecor: false, decorSrc: null, decorScale: 1 };
@@ -47,7 +67,7 @@ export const decorDefaults = { showDecor: false, decorSrc: null, decorScale: 1 }
    Hero3D — a 3D element INTERLEAVED with a headline (punches through / sits
    between the big title text). Only a drop-shadow is kept (no light halo/mask)
    so it reads as a sticker pressed onto the composition. Same prop semantics as
-   Decor (showDecor / decorSrc / decorScale) but anchored larger and higher z.
+   Decor but anchored larger and higher z.
    Position is passed per slide so it can land in the title gap / over a figure.
    -------------------------------------------------------------------------- */
 export function Hero3D({ show, src, scale = 1, base = 420, rotate = 0, pos = {}, z = 3 }) {

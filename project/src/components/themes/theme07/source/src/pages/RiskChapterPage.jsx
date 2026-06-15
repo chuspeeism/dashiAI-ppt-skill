@@ -120,7 +120,7 @@ const HEAT = ['warn','accent','pos','accent','warn','pos','accent','pos','warn',
 
 export default function RiskChapterPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, index: p.index !== undefined ? p.index : COPY.index, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-ch', CSS);
   const vars = themeVars(p.accentColor);

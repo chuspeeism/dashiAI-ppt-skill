@@ -54,10 +54,10 @@ export default function Page68Platform(props) {
         .acl-pf__cap{ font-weight:700; font-size:24px; line-height:1.46; }
         .acl-pf__cap b{ background:var(--acl-blue); padding:0 .12em; box-decoration-break:clone;
           -webkit-box-decoration-break:clone; }
-        .acl-pf__big{ position:relative; margin-top:26px; }
+        .acl-pf__big{ position:relative; margin-top:30px; }
         .acl-pf__biglabel{ font-family:var(--acl-font-mono); font-size:15px; letter-spacing:.08em;
           text-transform:uppercase; color:rgba(22,21,15,.55); }
-        .acl-pf__bignum{ font-family:var(--acl-font-num); font-size:230px; line-height:.78;
+        .acl-pf__bignum{ font-family:var(--acl-font-num); font-size:230px; line-height:.82; margin-top:20px;
           letter-spacing:-.02em; color:var(--acl-pink); text-shadow:7px 8px 0 var(--acl-ink); }
         .acl-pf__bignum em{ font-style:normal; font-size:88px; color:var(--acl-ink); text-shadow:none; margin-left:4px; }
         .acl-pf__bigpin{ position:absolute; right:8px; top:-2px; z-index:3; }

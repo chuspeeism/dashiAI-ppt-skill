@@ -137,7 +137,7 @@ export const ipoBannerProps = {
   ],
   images: ['', ''],
   caption: '满版图片 · 退出窗口开启，估值迎来定价时刻',
-  imageSlotCount: 1, imageFit: 'cover', plate: 'bottom-right', statCount: 3,
+  imageSlotCount: 1, imageFit: 'cover', backgroundMode: 'unicorn', unicornScene: 'tech', plate: 'bottom-right', statCount: 3,
   highlight: true, highlightIndex: 2, showHighlighter: true, accentColor: '#e8503a', showCaption: true,
 };
 

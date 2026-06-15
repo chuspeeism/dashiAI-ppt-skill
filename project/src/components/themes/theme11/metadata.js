@@ -132,6 +132,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "automations",
+        "def": "automations",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "surface",
         "label": "背景基调",
         "type": "select",
@@ -215,6 +261,8 @@ export const pages = [
     "defaultProps": {
       "surface": "ink",
       "images": [],
+      "backgroundMode": "unicorn",
+      "unicornScene": "automations",
       "showScrim": true,
       "showStatus": true,
       "showLede": true,
@@ -1073,6 +1121,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "moving",
+        "def": "moving",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "surface",
         "label": "背景基调",
         "type": "select",
@@ -1167,6 +1261,8 @@ export const pages = [
       "surface": "ember",
       "imageCount": 1,
       "images": [],
+      "backgroundMode": "unicorn",
+      "unicornScene": "moving",
       "overlayPosition": "left",
       "showCaption": true,
       "showOverlayStat": true,
@@ -4533,20 +4629,20 @@ export const pages = [
       },
       {
         "key": "showChannels",
-        "label": "联系方式",
+        "label": "次级文案",
         "type": "toggle",
         "default": true,
         "desc": "邮箱 / 电话 / 地点等联系信息组。"
       },
       {
         "key": "channelCount",
-        "label": "联系方式数量",
+        "label": "信息条目数量",
         "type": "slider",
         "default": 3,
         "min": 1,
         "max": 3,
         "step": 1,
-        "desc": "展示的联系方式条目数量。"
+        "desc": "展示的次级文案条目数量。"
       },
       {
         "key": "showBigMark",
@@ -8914,6 +9010,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "goey",
+        "def": "goey",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "surface",
         "label": "背景基调",
         "type": "select",
@@ -8997,6 +9139,8 @@ export const pages = [
     "defaultProps": {
       "surface": "ember",
       "images": [],
+      "backgroundMode": "unicorn",
+      "unicornScene": "goey",
       "showScrim": true,
       "showTag": true,
       "showSub": true,
@@ -10488,6 +10632,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "tech",
+        "def": "tech",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "surface",
         "label": "背景基调",
         "type": "select",
@@ -10578,6 +10768,8 @@ export const pages = [
     "defaultProps": {
       "surface": "ink",
       "images": [],
+      "backgroundMode": "unicorn",
+      "unicornScene": "tech",
       "showMast": true,
       "showIssue": true,
       "showDeck": true,
@@ -13955,10 +14147,10 @@ export const pages = [
       },
       {
         "key": "showContact",
-        "label": "联系方式",
+        "label": "次级文案",
         "type": "toggle",
         "default": true,
-        "desc": "排版化的联系方式清单（非按钮控件）。"
+        "desc": "排版化的次级文案清单（非按钮控件）。"
       },
       {
         "key": "contactCount",
@@ -13968,7 +14160,7 @@ export const pages = [
         "min": 1,
         "max": 3,
         "step": 1,
-        "desc": "联系方式的条目数量。"
+        "desc": "次级文案的条目数量。"
       },
       {
         "key": "showKicker",

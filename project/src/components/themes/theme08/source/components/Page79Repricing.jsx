@@ -57,7 +57,7 @@ export default function Page79Repricing(props) {
         .acl-iw__edge--s{ left:0; }
         .acl-iw__edge--e{ right:54px; }
 
-        .acl-iw__col{ position:absolute; top:0; bottom:0; transform:translateX(-50%); width:262px; z-index:3; }
+        .acl-iw__col{ position:absolute; top:0; bottom:0; transform:translateX(-50%); width:312px; z-index:3; }
         .acl-iw__dot{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
           width:26px; height:26px; border-radius:50%; background:var(--acl-paper);
           border:4px solid var(--acl-ink); z-index:4; transition:background .25s, transform .25s; }
@@ -65,19 +65,19 @@ export default function Page79Repricing(props) {
           transform:translateX(-50%); z-index:2; }
         .acl-iw__stem--up{ bottom:50%; height:66px; }
         .acl-iw__stem--dn{ top:50%; height:66px; }
-        .acl-iw__card{ position:absolute; left:50%; transform:translateX(-50%); width:248px;
+        .acl-iw__card{ position:absolute; left:50%; transform:translateX(-50%); width:300px;
           background:var(--acl-paper); border:3px solid var(--acl-ink); box-shadow:6px 8px 0 rgba(22,21,15,.16);
-          padding:18px 20px 16px; display:flex; flex-direction:column; gap:7px;
+          padding:22px 24px 20px; display:flex; flex-direction:column; gap:9px;
           transition:opacity .25s, transform .25s, box-shadow .25s, background .25s; }
         .acl-iw__card--up{ bottom:calc(50% + 66px); }
         .acl-iw__card--dn{ top:calc(50% + 66px); }
-        .acl-iw__cname{ font-weight:900; font-size:32px; line-height:1; }
-        .acl-iw__crole{ font-family:var(--acl-font-mono); font-size:13px; letter-spacing:.05em;
+        .acl-iw__cname{ font-weight:900; font-size:38px; line-height:1; }
+        .acl-iw__crole{ font-family:var(--acl-font-mono); font-size:15px; letter-spacing:.05em;
           text-transform:uppercase; color:rgba(22,21,15,.5); }
-        .acl-iw__cnote{ font-weight:700; font-size:18px; line-height:1.32; color:rgba(22,21,15,.66); }
+        .acl-iw__cnote{ font-weight:700; font-size:21px; line-height:1.34; color:rgba(22,21,15,.66); }
         .acl-iw__badge{ display:inline-flex; align-items:center; gap:8px; align-self:flex-start;
-          font-family:var(--acl-font-mono); font-weight:700; font-size:14px; letter-spacing:.04em;
-          padding:5px 11px; margin-top:2px; }
+          font-family:var(--acl-font-mono); font-weight:700; font-size:16px; letter-spacing:.04em;
+          padding:6px 13px; margin-top:3px; }
         .acl-iw__badge--up{ background:var(--acl-blue); color:var(--acl-ink); }
         .acl-iw__badge--dn{ background:var(--acl-red); color:var(--acl-paper); }
         .acl-iw__badge i{ font-style:normal; font-family:var(--acl-font-num); font-size:20px; line-height:1; }
@@ -138,7 +138,8 @@ export default function Page79Repricing(props) {
           const isF = focusEnabled && i === fIdx;
           const dim = focusEnabled && !isF;
           const dn = w.dir === 'down';
-          const left = `${((i + 0.5) / nodes.length) * 100}%`;
+          const spread = 0.72;  // <1 pulls the nodes in toward the centre
+          const left = `${(0.5 + (((i + 0.5) / nodes.length) - 0.5) * spread) * 100}%`;
           return (
             <div key={i} className={'acl-iw__col' + (isF ? ' acl-iw__col--focus' : '') + (dim ? ' acl-iw__col--dim' : '')}
                  style={{ left, '--i': i }}>

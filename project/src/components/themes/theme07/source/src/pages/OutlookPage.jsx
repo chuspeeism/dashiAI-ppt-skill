@@ -162,7 +162,7 @@ const HEAT = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function OutlookPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, timelineLabel: p.timelineLabel !== undefined ? p.timelineLabel : COPY.timelineLabel, kind: p.kind !== undefined ? p.kind : COPY.kind, kind: p.kind !== undefined ? p.kind : COPY.kind, columns: p.columns !== undefined ? p.columns : COPY.columns, items: p.items !== undefined ? p.items : COPY.items, items: p.items !== undefined ? p.items : COPY.items, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-out', CSS);
   const vars = themeVars(p.accentColor);

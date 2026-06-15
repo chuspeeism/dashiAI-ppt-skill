@@ -1,5 +1,6 @@
 import { normalizeRuntimePages } from '../runtime-helpers.jsx';
 import React from 'react';
+import './source/image-slot.js';
 import { AclTheme } from './source/components/AclPrimitives.jsx';
 import * as M0 from './source/components/PageSupCover01.jsx';
 import * as M1 from './source/components/PageSupCover02.jsx';
@@ -83,10 +84,8 @@ import * as M78 from './source/components/Page85HeroSplit.jsx';
 import * as M79 from './source/components/Page86Dumbbell.jsx';
 import * as M80 from './source/components/Page87Roadmap.jsx';
 import * as M81 from './source/components/Page88PhotoWall.jsx';
-import * as M82 from './source/components/Page89Chapter.jsx';
-import * as M83 from './source/components/Page90Scorecard.jsx';
-import * as M84 from './source/components/Page91Quote.jsx';
-import * as M85 from './source/components/Page92Ribbon.jsx';
+import * as M82 from './source/components/Page90Scorecard.jsx';
+import * as M83 from './source/components/Page91Quote.jsx';
 
 const modules = [
   { id: 'sup1', label: "补充封面-① 智联万物", module: M0 },
@@ -171,10 +170,8 @@ const modules = [
   { id: 'p86', label: "(86) 哑铃图 · Range", module: M79 },
   { id: 'p87', label: "(87) 路线图 · Roadmap", module: M80 },
   { id: 'p88', label: "(88) 照片墙 · Photo Wall", module: M81 },
-  { id: 'p89', label: "(89) 章节 · Diagonal", module: M82 },
-  { id: 'p90', label: "(90) 记分卡 · Scorecard", module: M83 },
-  { id: 'p91', label: "(91) 金句 · Two-Field", module: M84 },
-  { id: 'p92', label: "(92) 图片 · Ribbon", module: M85 }
+  { id: 'p90', label: "(90) 记分卡 · Scorecard", module: M82 },
+  { id: 'p91', label: "(91) 金句 · Two-Field", module: M83 }
 ];
 
 const rawPages = modules.map(entry => ({

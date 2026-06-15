@@ -29,7 +29,7 @@ export default function Page55Ecosystem(props) {
 
   // even angular placement on an ellipse; even counts start on the diagonal so
   // nodes sit in the corners (fills the frame instead of leaving empty corners)
-  const Rx = 47, Ry = 45;
+  const Rx = 47, Ry = 38;
   const startAng = segs.length % 2 === 0 ? -45 : -90;
   const nodes = segs.map((s, i) => {
     const ang = (startAng + (i * 360) / segs.length) * Math.PI / 180;
@@ -60,33 +60,33 @@ export default function Page55Ecosystem(props) {
           width:92%; height:90%; border:3px dashed rgba(22,21,15,.4); border-radius:50%; }
 
         .acl-ec__hub{ position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); z-index:3;
-          width:268px; height:268px; border-radius:50%; background:var(--acl-ink); color:var(--acl-paper);
+          width:402px; height:402px; border-radius:50%; background:var(--acl-ink); color:var(--acl-paper);
           display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;
           box-shadow:6px 9px 0 rgba(22,21,15,.22); }
-        .acl-ec__hub b{ font-family:var(--acl-font-num); font-size:84px; line-height:.78; color:var(--acl-yellow); }
-        .acl-ec__hub span{ font-family:var(--acl-font-mono); font-size:13px; letter-spacing:.1em;
-          text-transform:uppercase; margin-top:8px; color:rgba(251,250,244,.72); }
-        .acl-ec__hub u{ text-decoration:none; font-weight:900; font-size:19px; margin-top:6px; }
+        .acl-ec__hub b{ font-family:var(--acl-font-num); font-size:126px; line-height:.78; color:var(--acl-yellow); }
+        .acl-ec__hub span{ font-family:var(--acl-font-mono); font-size:20px; letter-spacing:.1em;
+          text-transform:uppercase; margin-top:12px; color:rgba(251,250,244,.72); }
+        .acl-ec__hub u{ text-decoration:none; font-weight:900; font-size:28px; margin-top:9px; }
 
         .acl-ec__node{ position:absolute; transform:translate(-50%,-50%); z-index:2;
-          display:flex; flex-direction:column; align-items:center; gap:8px; width:250px;
+          display:flex; flex-direction:column; align-items:center; gap:12px; width:375px;
           transition:opacity .25s; }
         .acl-ec__node--dim{ opacity:.46; }
-        .acl-ec__card{ background:var(--acl-paper); border:3px solid var(--acl-ink); padding:15px 20px 14px;
-          box-shadow:5px 6px 0 rgba(22,21,15,.16); text-align:center; min-width:212px; }
+        .acl-ec__card{ background:var(--acl-paper); border:4px solid var(--acl-ink); padding:22px 30px 21px;
+          box-shadow:8px 9px 0 rgba(22,21,15,.16); text-align:center; min-width:318px; }
         .acl-ec__node--focus .acl-ec__card{ border-color:var(--acl-pink); transform:rotate(-1.2deg);
           box-shadow:7px 9px 0 rgba(22,21,15,.22); }
-        .acl-ec__cl{ font-weight:900; font-size:24px; line-height:1.02; display:flex; align-items:center;
-          justify-content:center; gap:9px; }
-        .acl-ec__cl i{ width:14px; height:14px; flex:0 0 auto; }
-        .acl-ec__cv{ font-family:var(--acl-font-num); font-size:50px; line-height:.9; margin-top:3px; }
-        .acl-ec__cv em{ font-style:normal; font-family:var(--acl-font-mono); font-weight:700; font-size:14px;
+        .acl-ec__cl{ font-weight:900; font-size:36px; line-height:1.02; display:flex; align-items:center;
+          justify-content:center; gap:13px; }
+        .acl-ec__cl i{ width:21px; height:21px; flex:0 0 auto; }
+        .acl-ec__cv{ font-family:var(--acl-font-num); font-size:75px; line-height:.9; margin-top:5px; }
+        .acl-ec__cv em{ font-style:normal; font-family:var(--acl-font-mono); font-weight:700; font-size:21px;
           letter-spacing:.04em; color:rgba(22,21,15,.5); margin-left:5px; text-transform:uppercase; }
-        .acl-ec__vtag{ font-family:var(--acl-font-num); font-size:34px; line-height:1;
-          background:var(--acl-ink); color:var(--acl-yellow); padding:5px 12px; transform:rotate(-2deg); }
-        .acl-ec__vtag em{ font-style:normal; font-family:var(--acl-font-mono); font-size:12px; margin-left:4px;
+        .acl-ec__vtag{ font-family:var(--acl-font-num); font-size:51px; line-height:1;
+          background:var(--acl-ink); color:var(--acl-yellow); padding:8px 18px; transform:rotate(-2deg); }
+        .acl-ec__vtag em{ font-style:normal; font-family:var(--acl-font-mono); font-size:18px; margin-left:6px;
           color:rgba(251,250,244,.7); }
-        .acl-ec__nlabel{ font-weight:900; font-size:21px; text-align:center; }
+        .acl-ec__nlabel{ font-weight:900; font-size:31px; text-align:center; }
 
         .acl-ec__foot{ display:flex; align-items:center; gap:14px; font-family:var(--acl-font-hand);
           font-size:28px; margin-top:8px; flex:0 0 auto; }
@@ -136,10 +136,10 @@ export default function Page55Ecosystem(props) {
                 style={{ left: n.x + '%', top: n.y + '%', '--i': i }}>
                 {asPhoto ? (
                   <React.Fragment>
-                    <AdaptiveImageSlot id={'eco-' + i} box={196} rotate={i % 2 ? 3 : -3} ratio={1}
+                    <AdaptiveImageSlot id={'eco-' + i} box={294} rotate={i % 2 ? 3 : -3} ratio={1}
                       accent={isF ? 'var(--acl-pink)' : 'var(--acl-paper)'} placeholder={n.label}
                       sticker={{ label: n.label, color: isF ? 'var(--acl-pink)' : color, rotate: -3,
-                        subColor: isF ? undefined : undefined, size: 13 }} />
+                        subColor: isF ? undefined : undefined, size: 19 }} />
                     {showValueLabels && <div className="acl-ec__vtag">{n.value}<em>亿</em></div>}
                   </React.Fragment>
                 ) : (

@@ -120,16 +120,40 @@ export function ImageSlot({ src, placeholder = '图片', mode = 'ratio', height,
   const [picked, setPicked] = React.useState(null);
   const [drag, setDrag] = React.useState(false);
   const inputRef = React.useRef(null);
-  const eff = picked || src;
+  const media = normalizeMedia(picked || src);
+  const eff = media?.src;
   const onLoad = (e) => setRatio(`${e.target.naturalWidth} / ${e.target.naturalHeight}`);
   const ingest = (f) => {
-    if (!f || !/^image\//.test(f.type)) return;
+    if (!f || !/^(image|video)\//.test(f.type || '')) return;
     const rd = new FileReader();
-    rd.onload = () => { setRatio(null); setPicked(rd.result); };
+    rd.onload = () => {
+      const url = rd.result;
+      if (f.type.startsWith('video/')) {
+        const video = document.createElement('video');
+        video.preload = 'metadata';
+        video.onloadedmetadata = () => {
+          const nextRatio = video.videoWidth && video.videoHeight ? `${video.videoWidth} / ${video.videoHeight}` : null;
+          setRatio(nextRatio);
+          setPicked({ src: url, kind: 'video', type: f.type });
+        };
+        video.onerror = () => setPicked({ src: url, kind: 'video', type: f.type });
+        video.src = url;
+        return;
+      }
+      setRatio(null);
+      setPicked({ src: url, kind: 'image', type: f.type });
+    };
     rd.readAsDataURL(f);
   };
-  const onFile = (e) => ingest(e.target.files && e.target.files[0]);
-  const openPicker = () => inputRef.current && inputRef.current.click();
+  const onFile = (e) => {
+    ingest(e.target.files && e.target.files[0]);
+    e.target.value = '';
+  };
+  const stopSlotNavigation = (e) => e.stopPropagation();
+  const openPicker = (e) => {
+    e.stopPropagation();
+    inputRef.current && inputRef.current.click();
+  };
   const onDragOver = (e) => { e.preventDefault(); e.stopPropagation(); if (!drag) setDrag(true); };
   const onDragLeave = (e) => { e.preventDefault(); e.stopPropagation(); setDrag(false); };
   const onDrop = (e) => { e.preventDefault(); e.stopPropagation(); setDrag(false); ingest(e.dataTransfer.files && e.dataTransfer.files[0]); };
@@ -140,23 +164,40 @@ export function ImageSlot({ src, placeholder = '图片', mode = 'ratio', height,
   return (
     <div className={`ign-imgslot${uploadable ? ' ign-imgslot-up' : ''}${drag ? ' ign-imgslot-drag' : ''}`} style={boxStyle}
       onClick={uploadable ? openPicker : undefined}
+      onPointerDown={uploadable ? stopSlotNavigation : undefined}
+      onMouseDown={uploadable ? stopSlotNavigation : undefined}
       onDragOver={uploadable ? onDragOver : undefined}
       onDragLeave={uploadable ? onDragLeave : undefined}
       onDrop={uploadable ? onDrop : undefined}
       role={uploadable ? 'button' : undefined}
-      title={uploadable ? (eff ? '点击或拖拽图片以更换' : '点击或拖拽图片以上传') : undefined}>
+      title={uploadable ? (eff ? '点击或拖拽媒体以更换' : '点击或拖拽媒体以上传') : undefined}>
       {eff
-        ? <img src={eff} alt="" onLoad={onLoad} style={{ width: '100%', height: '100%', objectFit: fit, display: 'block', borderRadius: radius }} />
+        ? (media.kind === 'video'
+          ? <video src={eff} muted playsInline loop autoPlay preload="metadata" style={{ width: '100%', height: '100%', objectFit: fit, display: 'block', borderRadius: radius }} />
+          : <img src={eff} alt="" onLoad={onLoad} style={{ width: '100%', height: '100%', objectFit: fit, display: 'block', borderRadius: radius }} />)
         : <div className="ign-imgslot-ph"><span>{placeholder}</span></div>}
       {uploadable && (
         <>
           <div className="ign-imgslot-hint"><span>{drag ? '释放以上传' : (eff ? '点击 / 拖拽更换' : '点击 / 拖拽上传')}</span></div>
-          <input ref={inputRef} type="file" accept="image/*" onChange={onFile}
+          <input ref={inputRef} type="file" accept="image/*,video/mp4,video/webm,video/quicktime,video/*" onChange={onFile}
+            onClick={(e)=>e.stopPropagation()}
             style={{ position: 'absolute', width: 1, height: 1, opacity: 0, pointerEvents: 'none' }} tabIndex={-1} />
         </>
       )}
     </div>
   );
+}
+
+function normalizeMedia(value) {
+  if (!value) return null;
+  if (typeof value === 'string') return { src: value, kind: value.startsWith('data:video/') ? 'video' : 'image' };
+  if (typeof value === 'object' && value.src) {
+    return {
+      ...value,
+      kind: value.kind || (String(value.type || value.src).startsWith('video/') || String(value.src).startsWith('data:video/') ? 'video' : 'image'),
+    };
+  }
+  return null;
 }
 
 /* ---- small util: clamp a prop into [min,max] ------------------------------- */

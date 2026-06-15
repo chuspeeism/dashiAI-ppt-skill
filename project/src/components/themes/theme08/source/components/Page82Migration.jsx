@@ -125,7 +125,6 @@ export default function Page82Migration(props) {
       <div className="acl-bp__panel">
         <div className="acl-bp__cols">
           <span className="acl-bp__col"><i>{colA.num}</i>{colA.label}</span>
-          {showDecor && <Doodle kind="arrow" size={70} rotate={2} style={{ position: 'static', alignSelf: 'center' }} />}
           <span className="acl-bp__col">{colB.label}<i>{colB.num}</i></span>
         </div>
 
@@ -189,11 +188,6 @@ export default function Page82Migration(props) {
               );
             })}
 
-            {showDecor && focusEnabled && (
-              <div className="acl-bp__anno" style={{ left: '50%', top: -8, transform: 'translateX(-50%)' }}>
-                <Sticker label="重点轨迹" color="var(--acl-yellow)" rotate={-4} />
-              </div>
-            )}
           </div>
         ) : (
           <div className="acl-bp__bars">

@@ -105,7 +105,8 @@ const CSS = `
 .aic-matrix .mx-ylab { position: absolute; left: 0; top: 0; bottom: 52px; width: 56px; display: flex;
   align-items: center; justify-content: center; }
 .aic-matrix .mx-ylab span { transform: rotate(-90deg); white-space: nowrap; font-family: var(--aic-font-display);
-  font-weight: 600; font-size: 20px; letter-spacing: .2em; text-transform: uppercase; color: var(--aic-muted); }
+  font-weight: 600; font-size: 20px; letter-spacing: .2em; text-transform: uppercase; color: var(--aic-muted);
+  background: var(--aic-paper); padding: 6px 18px; }
 .aic-matrix .mx-xlab { position: absolute; left: 56px; right: 0; bottom: 0; height: 52px; display: flex;
   align-items: center; justify-content: center; font-family: var(--aic-font-display); font-weight: 600; font-size: 20px;
   letter-spacing: .2em; text-transform: uppercase; color: var(--aic-muted); }
@@ -122,7 +123,7 @@ const HEAT = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function MatrixPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, axisX: p.axisX !== undefined ? p.axisX : COPY.axisX, axisY: p.axisY !== undefined ? p.axisY : COPY.axisY, quadrants: p.quadrants !== undefined ? p.quadrants : COPY.quadrants };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-matrix', CSS);
   const vars = themeVars(p.accentColor);

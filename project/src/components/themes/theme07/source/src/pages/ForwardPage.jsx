@@ -219,7 +219,7 @@ function SlopeChart({ copy, metrics, focus, focusEnabled, showValues, showBand }
 
 export default function ForwardPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, scenarioTag: p.scenarioTag !== undefined ? p.scenarioTag : COPY.scenarioTag, closing: p.closing !== undefined ? p.closing : COPY.closing, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, baselineLabel: p.baselineLabel !== undefined ? p.baselineLabel : COPY.baselineLabel, axisFrom: p.axisFrom !== undefined ? p.axisFrom : COPY.axisFrom, axisTo: p.axisTo !== undefined ? p.axisTo : COPY.axisTo, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-fwd', CSS);
   const vars = themeVars(p.accentColor);

@@ -20,6 +20,7 @@
  */
 import React from 'react';
 import { HL, hlControls, hlDefaults } from './_Highlight.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 const XHSHR_TONES = { green: '#27E021', yellow: '#FFC700', blue: '#15A7F0', pink: '#FF9FE2' };
 const XHSHR_STATS = [
@@ -48,6 +49,8 @@ function HrSpark({ size = 22, color = '#fff', style }) {
 function Slide18Hero(props) {
   const {
     mediaCount = 1,
+    backgroundMode = 'unicorn',
+    unicornScene = 'moving',
     textAlign = 'left',
     accentTone = 'blue',
     statCount = 3,
@@ -68,7 +71,8 @@ function Slide18Hero(props) {
   } = props;
 
   const accent = XHSHR_TONES[accentTone] || XHSHR_TONES.blue;
-  const hasImg = mediaCount >= 1;
+  const useUnicorn = backgroundMode === 'unicorn';
+  const hasImg = !useUnicorn && mediaCount >= 1;
   const statSrc = Array.isArray(stats) ? stats : XHSHR_STATS;
   const scount = Math.max(0, Math.min(statSrc.length, statCount));
   const shownStats = statSrc.slice(0, scount);
@@ -77,7 +81,11 @@ function Slide18Hero(props) {
     <section className={'xhs-base xhsHr-root is-' + textAlign} data-label="大图封面" style={{ '--c': accent }}>
       <style>{XHSHR_CSS}</style>
 
-      {hasImg ? (
+      {useUnicorn ? (
+        <div className="xhsHr-bg">
+          <UnicornBackground scene={unicornScene} accent={accent} />
+        </div>
+      ) : hasImg ? (
         <div className="xhsHr-bg">
           <image-slot id="xhsHr-media" fit="cover" shape="rect" placeholder={mediaPlaceholder}></image-slot>
         </div>
@@ -161,6 +169,8 @@ const META = {
   defaults: {
     ...hlDefaults,
     mediaCount: 1,
+    backgroundMode: 'unicorn',
+    unicornScene: 'moving',
     textAlign: 'left',
     accentTone: 'blue',
     statCount: 3,
@@ -176,8 +186,10 @@ const META = {
     stats: XHSHR_STATS,
   },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('moving'),
     ...hlControls,
-    { key: 'mediaCount', type: 'slider', label: '背景图数量', min: 0, max: 1, step: 1, default: 1, desc: '整屏 cover 背景图(0=渐变底)' },
+    { key: 'mediaCount', type: 'slider', label: '背景图数量', min: 0, max: 1, step: 1, default: 1, dependsOn: 'backgroundMode', dependsOnValue: 'media', desc: '整屏 cover 背景图(0=渐变底)' },
     { key: 'textAlign', type: 'radio', label: '文案对齐', options: ['left', 'center'], optionLabels: ['左下', '居中'], default: 'left', desc: '浮层文案对齐方式' },
     { key: 'accentTone', type: 'radio', label: '主色调', options: ['green', 'yellow', 'blue', 'pink'], optionLabels: ['绿', '黄', '蓝', '粉'], default: 'blue', desc: '页面主色调' },
     { key: 'statCount', type: 'slider', label: '数据卡数量', min: 0, max: 3, step: 1, default: 3, desc: '底部数据卡数量' },

@@ -1,5 +1,7 @@
 import { THEME_PAGES } from './components/themes/index.jsx';
 
+const REMOVED_CONTROL_TYPES = new Set(['text', 'string', 'input', 'url', 'email', 'textarea', 'multiline']);
+
 export const COUNT_ARRAY_BINDINGS = {
   barCount: ['bars'],
   calloutCount: ['callouts'],
@@ -254,7 +256,7 @@ function normalizeControls(page) {
     page.spec.controls.forEach(control => {
       if (control.prop) defaults[control.prop] = control.default;
     });
-    return page.spec.controls.map(control => normalizeControl({
+    return page.spec.controls.filter(control => !isRemovedControl(control)).map(control => normalizeControl({
       key: control.prop,
       label: control.label,
       type: control.type,
@@ -263,10 +265,16 @@ function normalizeControls(page) {
       max: control.max,
       step: control.step,
       options: control.options,
+      countKey: control.countKey,
+      countIndex: control.countIndex,
+      maxFromKey: control.maxFromKey,
+      dependsOn: control.dependsOn,
+      dependsOnValue: control.dependsOnValue,
+      dependsOnValues: control.dependsOnValues,
     }, defaults));
   }
 
-  return (page.controls || []).map(control => normalizeControl({
+  return (page.controls || []).filter(control => !isRemovedControl(control)).map(control => normalizeControl({
     key: control.key || control.prop,
     label: control.label,
     type: control.type,
@@ -275,24 +283,63 @@ function normalizeControls(page) {
     max: control.max,
     step: control.step,
     options: control.options,
+    countKey: control.countKey,
+    countIndex: control.countIndex,
+    maxFromKey: control.maxFromKey,
+    dependsOn: control.dependsOn,
+    dependsOnValue: control.dependsOnValue,
+    dependsOnValues: control.dependsOnValues,
   }, page.defaultProps || {}));
+}
+
+function isRemovedControl(control) {
+  return REMOVED_CONTROL_TYPES.has(String(control?.type || '').toLowerCase());
 }
 
 function normalizeControl(control, defaults) {
   return {
     key: control.key,
-    label: control.label || control.key,
+    label: genericControlText(control.label || control.key),
     type: normalizeControlType(control.type),
     default: serializeValue(control.defaultValue),
     min: resolveControlValue(control.min, defaults),
     max: resolveControlValue(control.max, defaults),
     step: serializeValue(control.step),
-    options: serializeValue(control.options),
+    options: genericControlValue(serializeValue(control.options)),
+    countKey: serializeValue(control.countKey),
+    countIndex: serializeValue(control.countIndex),
+    maxFromKey: serializeValue(control.maxFromKey),
+    dependsOn: serializeValue(control.dependsOn),
+    dependsOnValue: serializeValue(control.dependsOnValue),
+    dependsOnValues: serializeValue(control.dependsOnValues),
   };
+}
+
+function genericControlText(value) {
+  if (typeof value !== 'string') return value;
+  return value
+    .replaceAll('联系方式数量', '信息条目数量')
+    .replaceAll('联系方式', '次级文案')
+    .replaceAll('投资人类型占比', '分类占比')
+    .replaceAll('投资人类型数', '分类数量')
+    .replaceAll('投资人类型', '分类类型')
+    .replaceAll('平均单笔融资金额', '平均指标')
+    .replaceAll('融资金额', '数值指标')
+    .replaceAll('投资人', '角色')
+    .replaceAll('AI Capital Lab', '研究机构')
+    .replaceAll('AI Capital', '研究机构');
+}
+
+function genericControlValue(value) {
+  if (typeof value === 'string') return genericControlText(value);
+  if (Array.isArray(value)) return value.map(genericControlValue);
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, genericControlValue(item)]));
 }
 
 function normalizeControlType(type) {
   if (type === 'slider' || type === 'number') return 'range';
+  if (type === 'icons') return 'icons';
   if (type === 'radio' || type === 'enum' || type === 'labelType' || type === 'segment' || type === 'color' || type === 'palette') return 'select';
   if (type === 'focus' || type === 'boolean') return 'toggle';
   return type || 'range';

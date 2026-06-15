@@ -25,6 +25,7 @@
 import React from 'react';
 import { ThemeStyle, THEME_CLASS, cx } from '../gxnTheme.js';
 import { ImageSlots } from '../gxnPrimitives.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../../unicorn-background.jsx';
 
 export const slidePosterDefaults = {
   kicker: 'CASE · 估值反超',
@@ -40,6 +41,8 @@ export const slidePosterDefaults = {
   caption: 'Anthropic · Claude 系列',
   imageCount: 1,
   fit: 'cover',
+  backgroundMode: 'unicorn',
+  unicornScene: 'tech',
   titlePos: 'bottom',
   metaCount: 3,
   showQuote: true,
@@ -49,6 +52,8 @@ export const slidePosterDefaults = {
 };
 
 export const slidePosterControls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl(slidePosterDefaults.unicornScene),
   { key: 'imageCount', type: 'number', label: '主图数量', default: 1, min: 0, max: 1, step: 1,
     describe: '主图槽位（0 = 纯文字主视觉海报）' },
   { key: 'fit', type: 'enum', label: '图片填充', default: 'cover',
@@ -66,7 +71,9 @@ export const slidePosterControls = [
 
 export function SlidePoster(props) {
   const p = { ...slidePosterDefaults, ...props };
-  const hasImage = p.imageCount > 0;
+  const useUnicorn = p.backgroundMode === 'unicorn';
+  const hasImage = !useUnicorn && p.imageCount > 0;
+  const hasBackdrop = useUnicorn || hasImage;
   const centered = p.titlePos === 'center';
   const metas = (p.metas || []).slice(0, Math.max(0, Math.min((p.metas || []).length, p.metaCount)));
 
@@ -115,7 +122,9 @@ export function SlidePoster(props) {
       <ThemeStyle />
       <div style={{ position: 'absolute', inset: 0 }}>
         {/* image / texture fill */}
-        {hasImage ? (
+        {useUnicorn ? (
+          <UnicornBackground scene={p.unicornScene} accent="var(--gxn-accent)" />
+        ) : hasImage ? (
           <ImageSlots count={1} items={p.images} arrange="row" fit={p.fit}
                       onActivate={p.onSlotActivate} onClear={p.onSlotClear}
                       placeholder="拖入主图 · POSTER" />
@@ -126,7 +135,7 @@ export function SlidePoster(props) {
         )}
 
         {/* scrim for legibility */}
-        {hasImage && (
+        {hasBackdrop && (
           <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: centered
             ? 'radial-gradient(120% 100% at 50% 50%, rgba(4,6,8,0.34), rgba(4,6,8,0.82))'
             : 'linear-gradient(to top, rgba(4,6,8,0.92) 6%, rgba(4,6,8,0.5) 46%, rgba(4,6,8,0.15) 78%)' }} />
@@ -147,7 +156,7 @@ export function SlidePoster(props) {
         </div>
 
         {/* caption */}
-        {hasImage && p.showCaption && p.caption && (
+        {hasBackdrop && p.showCaption && p.caption && (
           <span className="gxn-mono gxn-rise" style={{ position: 'absolute', left: 76, bottom: 60, zIndex: 3,
             fontSize: 21, color: 'rgba(238,243,241,0.6)' }}>{p.caption}</span>
         )}

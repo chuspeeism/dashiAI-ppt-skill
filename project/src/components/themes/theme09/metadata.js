@@ -3514,6 +3514,52 @@ export const pages = [
     "bgClass": "bg-deep",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "tech",
+        "def": "tech",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "imgCount",
         "prop": "imgCount",
         "label": "图片槽数量",
@@ -3570,6 +3616,8 @@ export const pages = [
     ],
     "defaultProps": {
       "imgCount": 3,
+      "backgroundMode": "unicorn",
+      "unicornScene": "tech",
       "textPos": "left",
       "showMasthead": true,
       "tagCount": 3,
@@ -11634,6 +11682,52 @@ export const pages = [
     "bgClass": "bg-night",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "moving",
+        "def": "moving",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "imgCount",
         "prop": "imgCount",
         "label": "图片槽数量",
@@ -11691,6 +11785,8 @@ export const pages = [
     ],
     "defaultProps": {
       "imgCount": 1,
+      "backgroundMode": "unicorn",
+      "unicornScene": "moving",
       "textPos": "左下",
       "showScrim": true,
       "showRail": true,

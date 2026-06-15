@@ -169,7 +169,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','pos','accent'
 
 export default function DealStructurePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, stats: p.stats !== undefined ? p.stats : COPY.stats, components: p.components !== undefined ? p.components : COPY.components };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-ds', CSS);
   const vars = themeVars(p.accentColor);

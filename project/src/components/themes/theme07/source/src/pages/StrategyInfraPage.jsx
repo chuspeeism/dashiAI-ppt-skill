@@ -171,7 +171,7 @@ const HEAT = ['accent','pos','accent','pos','warn','accent','pos','pos','accent'
 
 export default function StrategyInfraPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, criteriaTitle: p.criteriaTitle !== undefined ? p.criteriaTitle : COPY.criteriaTitle, cardsTitle: p.cardsTitle !== undefined ? p.cardsTitle : COPY.cardsTitle, criteria: p.criteria !== undefined ? p.criteria : COPY.criteria, cards: p.cards !== undefined ? p.cards : COPY.cards };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-sif', CSS);
   const vars = themeVars(p.accentColor);

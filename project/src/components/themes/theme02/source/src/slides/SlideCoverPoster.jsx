@@ -23,6 +23,7 @@
 import React from 'react';
 import { ThemeStyle, THEME_CLASS, cx } from '../gxnTheme.js';
 import { ImageSlots } from '../gxnPrimitives.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../../unicorn-background.jsx';
 
 export const slideCoverPosterDefaults = {
   kicker: 'GENERATIVE AI · 2026',
@@ -37,6 +38,8 @@ export const slideCoverPosterDefaults = {
   caption: '主视觉 · 替换为产业大图',
   imageCount: 1,
   fit: 'cover',
+  backgroundMode: 'unicorn',
+  unicornScene: 'goey',
   titlePos: 'bottom',
   showQuote: true,
   showFrame: true,
@@ -45,6 +48,8 @@ export const slideCoverPosterDefaults = {
 };
 
 export const slideCoverPosterControls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl(slideCoverPosterDefaults.unicornScene),
   { key: 'imageCount', type: 'number', label: '主图', default: 1, min: 0, max: 1, step: 1,
     describe: '满幅主图槽（0 = 纯文字海报）' },
   { key: 'fit', type: 'enum', label: '图片填充', default: 'cover',
@@ -64,7 +69,9 @@ export const slideCoverPosterControls = [
 export function SlideCoverPoster(props) {
   const p = { ...slideCoverPosterDefaults, ...props };
   const metas = (p.metas || []).slice(0, Math.max(0, p.metaCount));
-  const hasImage = p.imageCount > 0;
+  const useUnicorn = p.backgroundMode === 'unicorn';
+  const hasImage = !useUnicorn && p.imageCount > 0;
+  const hasBackdrop = useUnicorn || hasImage;
   const center = p.titlePos === 'center';
 
   return (
@@ -72,12 +79,16 @@ export function SlideCoverPoster(props) {
       <ThemeStyle />
 
       {/* 满幅主图 */}
-      {hasImage && (
+      {hasBackdrop && (
         <div style={{ position: 'absolute', inset: 0 }}>
-          <ImageSlots count={1} arrange="row" fit={p.fit} items={p.images}
-                      onActivate={p.onSlotActivate} onClear={p.onSlotClear}
-                      placeholder="拖入主视觉 · POSTER IMAGE"
-                      style={{ height: '100%' }} />
+          {useUnicorn ? (
+            <UnicornBackground scene={p.unicornScene} accent="var(--gxn-accent)" />
+          ) : (
+            <ImageSlots count={1} arrange="row" fit={p.fit} items={p.images}
+                        onActivate={p.onSlotActivate} onClear={p.onSlotClear}
+                        placeholder="拖入主视觉 · POSTER IMAGE"
+                        style={{ height: '100%' }} />
+          )}
         </div>
       )}
 
@@ -134,7 +145,7 @@ export function SlideCoverPoster(props) {
         </div>
 
         {/* 左下角图注 */}
-        {hasImage && !center && (
+        {hasBackdrop && !center && (
           <span className="gxn-mono gxn-rise-4" style={{ position: 'absolute', bottom: 'var(--gxn-py)', right: 'var(--gxn-px)',
             fontSize: 'var(--gxn-fs-label)', color: 'var(--gxn-faint)' }}>{p.caption}</span>
         )}

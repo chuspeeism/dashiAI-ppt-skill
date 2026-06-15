@@ -98,19 +98,19 @@ export default function Page42Generative(props) {
         .acl-gc__split{ flex:1; background:var(--acl-paper); border:3px solid var(--acl-ink);
           box-shadow:6px 8px 0 rgba(22,21,15,.14); padding:16px 30px 16px; display:flex; flex-direction:column; min-width:0; }
         .acl-gc__splithd{ display:flex; align-items:baseline; justify-content:space-between; gap:14px; }
-        .acl-gc__splitt{ font-family:var(--acl-font-mono); font-weight:700; font-size:14px;
+        .acl-gc__splitt{ font-family:var(--acl-font-mono); font-weight:700; font-size:16px;
           letter-spacing:.1em; text-transform:uppercase; color:rgba(22,21,15,.45); }
-        .acl-gc__splittot{ font-family:var(--acl-font-num); font-size:28px; }
-        .acl-gc__splittot em{ font-style:normal; font-family:var(--acl-font-cn); font-weight:700; font-size:14px;
+        .acl-gc__splittot{ font-family:var(--acl-font-num); font-size:42px; }
+        .acl-gc__splittot em{ font-style:normal; font-family:var(--acl-font-cn); font-weight:700; font-size:18px;
           margin-left:3px; opacity:.6; }
         /* bars */
         .acl-gc__bars{ flex:1; display:flex; gap:24px; align-items:flex-end; margin-top:8px; }
         .acl-gc__bcol{ flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end;
           height:100%; gap:6px; }
-        .acl-gc__bval{ font-family:var(--acl-font-num); font-size:26px; line-height:.8; }
+        .acl-gc__bval{ font-family:var(--acl-font-num); font-size:40px; line-height:.8; }
         .acl-gc__bbar{ width:100%; border:2px solid var(--acl-ink); }
-        .acl-gc__bname{ font-weight:900; font-size:18px; text-align:center; }
-        .acl-gc__bname small{ display:block; font-family:var(--acl-font-mono); font-weight:400; font-size:10px;
+        .acl-gc__bname{ font-weight:900; font-size:26px; text-align:center; }
+        .acl-gc__bname small{ display:block; font-family:var(--acl-font-mono); font-weight:400; font-size:13px;
           letter-spacing:.03em; text-transform:uppercase; color:rgba(22,21,15,.5); }
         /* donut */
         .acl-gc__donutwrap{ flex:1; display:flex; align-items:center; gap:26px; margin-top:6px; }

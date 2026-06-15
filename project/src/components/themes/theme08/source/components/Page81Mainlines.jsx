@@ -64,9 +64,9 @@ export default function Page81Mainlines(props) {
           letter-spacing:.16em; text-transform:uppercase; color:var(--acl-ink); margin-bottom:8px;
           background:var(--acl-yellow); display:inline-block; padding:4px 12px; transform:rotate(-1.5deg);
           white-space:nowrap; }
-        .acl-ho__h{ font-weight:900; font-size:120px; line-height:.84; margin:0; transform:rotate(-2deg);
-          color:var(--acl-paper); -webkit-text-stroke:4px var(--acl-ink);
-          text-shadow:7px 8px 0 rgba(22,21,15,.85); letter-spacing:-.01em; }
+        .acl-ho__h{ font-weight:900; font-size:108px; line-height:1; margin:0; transform:rotate(-2deg);
+          display:inline-block; background:var(--acl-yellow); color:var(--acl-ink);
+          padding:8px 30px 16px; box-shadow:9px 10px 0 rgba(22,21,15,.85); letter-spacing:-.01em; }
         .acl-ho__sub{ position:absolute; right:0; top:-6px; font-family:var(--acl-font-mono); font-weight:700;
           font-size:21px; padding:8px 14px; background:var(--acl-pink); color:var(--acl-paper);
           transform:rotate(2.5deg); box-shadow:3px 4px 0 rgba(22,21,15,.25); white-space:nowrap; z-index:7; }

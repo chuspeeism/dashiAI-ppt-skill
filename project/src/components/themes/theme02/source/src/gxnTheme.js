@@ -183,7 +183,7 @@ const CSS = `
 }
 .gxn-slot.is-filled{ background:#0b0d10; border-color:rgba(var(--gxn-glow),0.3);
   box-shadow:0 0 56px -22px rgba(var(--gxn-glow),0.6); }
-.gxn-slot img{ width:100%; height:100%; object-fit:cover; display:block; }
+.gxn-slot img,.gxn-slot video{ width:100%; height:100%; object-fit:cover; display:block; }
 .gxn-slot-cap{ font-family:var(--gxn-font-mono); font-size:24px; color:var(--gxn-faint);
   letter-spacing:.06em; text-align:center; padding:10px; }
 .gxn-slot-btn{

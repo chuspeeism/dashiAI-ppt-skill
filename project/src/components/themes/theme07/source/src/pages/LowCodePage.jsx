@@ -156,9 +156,9 @@ const CSS = `
   border: 1.5px solid var(--aic-hair); border-radius: 22px; padding: 22px 28px; }
 .aic-lc .lc-ring { position: relative; width: 116px; height: 116px; flex: none; }
 .aic-lc .lc-ring svg { transform: rotate(-90deg); }
-.aic-lc .lc-ring-v { position: absolute; inset: 0; display: grid; place-items: center; font-family: var(--aic-font-display);
-  font-weight: 700; font-size: 30px; color: var(--aic-ink); font-variant-numeric: tabular-nums; }
-.aic-lc .lc-ring-v u { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--aic-muted); margin-left: 1px; }
+.aic-lc .lc-ring-v { position: absolute; inset: 0; display: flex; align-items: baseline; justify-content: center; align-content: center; flex-wrap: wrap; font-family: var(--aic-font-display);
+  font-weight: 700; font-size: 30px; color: var(--aic-ink); font-variant-numeric: tabular-nums; line-height: 116px; }
+.aic-lc .lc-ring-v u { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--aic-muted); margin-left: 1px; line-height: 1; }
 .aic-lc .lc-dial-meta { display: flex; flex-direction: column; gap: 6px; }
 .aic-lc .lc-dial-lbl { font-family: var(--aic-font-display); font-weight: 700; font-size: 23px; color: var(--aic-ink); }
 .aic-lc .lc-dial-note { font-family: var(--aic-font-text); font-weight: 500; font-size: 17px; color: var(--aic-muted); }
@@ -229,7 +229,7 @@ function Placeholder({ i }) {
 
 export default function LowCodePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, closing: p.closing !== undefined ? p.closing : COPY.closing, badge: p.badge !== undefined ? p.badge : COPY.badge, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, metricTitle: p.metricTitle !== undefined ? p.metricTitle : COPY.metricTitle, steps: p.steps !== undefined ? p.steps : COPY.steps, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-lc', CSS);
   const vars = themeVars(p.accentColor);

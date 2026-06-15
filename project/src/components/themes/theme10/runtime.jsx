@@ -303,7 +303,7 @@ const rawPages = SLIDES.map((entry, index) => {
     id: entry.id || meta.id,
     label: SECTION_LABELS[index] || meta.title || entry.id || meta.id,
     Component: withTheme10Base(entry.C),
-    controls: themed ? (meta.controls || []) : [{ ...TONE_CONTROL, default: tone }, ...(meta.controls || [])],
+    controls: withTheme10Controls(themed ? (meta.controls || []) : [{ ...TONE_CONTROL, default: tone }, ...(meta.controls || [])]),
     defaultProps: {
       ...(meta.defaults || {}),
       ...(entry.content || {}),
@@ -314,6 +314,12 @@ const rawPages = SLIDES.map((entry, index) => {
 });
 
 export const runtimePages = normalizeRuntimePages(rawPages, { themeKey: 'theme10', layoutPrefix: 'THEME10' });
+
+function withTheme10Controls(controls) {
+  const backgroundControls = controls.filter(control => control.key === 'backgroundMode' || control.key === 'unicornScene');
+  const rest = controls.filter(control => control.key !== 'backgroundMode' && control.key !== 'unicornScene');
+  return backgroundControls.length ? [...backgroundControls, ...rest] : controls;
+}
 
 function withTheme10Base(Component) {
   return function Theme10Page(props = {}) {

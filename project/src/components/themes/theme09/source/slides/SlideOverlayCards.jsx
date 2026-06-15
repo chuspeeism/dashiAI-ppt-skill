@@ -103,26 +103,40 @@ function CardFill({ idPrefix, idx, placeholder, accent }){
   const [drag, setDrag] = React.useState(false);
   const [hover, setHover] = React.useState(false);
   const inputRef = React.useRef(null);
+  const openPicker = (e)=>{ e.stopPropagation(); inputRef.current && inputRef.current.click(); };
   const save = (d)=>{ setData(d); try{ d?localStorage.setItem(key, JSON.stringify(d)):localStorage.removeItem(key); }catch(e){} };
   const ingest = (file)=>{
-    if(!file || !file.type.startsWith('image/')) return;
+    if(!file || !/^(image|video)\//.test(file.type || '')) return;
     const reader = new FileReader();
-    reader.onload = (e)=>{ const url = e.target.result; const im = new Image();
-      im.onload = ()=> save({ url, aspect: im.naturalWidth/im.naturalHeight }); im.src = url; };
+    reader.onload = (e)=>{ const url = e.target.result;
+      if(file.type.startsWith('video/')){
+        const video = document.createElement('video');
+        video.preload = 'metadata';
+        video.onloadedmetadata = ()=> save({ url, aspect: (video.videoWidth && video.videoHeight) ? video.videoWidth/video.videoHeight : 16/9, kind:'video', type:file.type });
+        video.onerror = ()=> save({ url, aspect: 16/9, kind:'video', type:file.type });
+        video.src = url;
+        return;
+      }
+      const im = new Image();
+      im.onload = ()=> save({ url, aspect: im.naturalWidth/im.naturalHeight, kind:'image', type:file.type }); im.src = url; };
     reader.readAsDataURL(file);
   };
   return (
     <div
       onMouseEnter={()=>setHover(true)} onMouseLeave={()=>setHover(false)}
-      onDragOver={(e)=>{e.preventDefault(); setDrag(true);}} onDragLeave={()=>setDrag(false)}
-      onDrop={(e)=>{e.preventDefault(); setDrag(false); ingest(e.dataTransfer.files[0]);}}
-      onClick={()=> inputRef.current && inputRef.current.click()}
+      onPointerDown={(e)=>e.stopPropagation()}
+      onMouseDown={(e)=>e.stopPropagation()}
+      onDragOver={(e)=>{e.preventDefault(); e.stopPropagation(); setDrag(true);}} onDragLeave={(e)=>{e.stopPropagation(); setDrag(false);}}
+      onDrop={(e)=>{e.preventDefault(); e.stopPropagation(); setDrag(false); ingest(e.dataTransfer.files[0]);}}
+      onClick={openPicker}
       style={{position:'absolute', inset:0, cursor:'pointer', overflow:'hidden',
         background: data ? '#03081e' : 'repeating-linear-gradient(135deg, rgba(255,255,255,.05) 0 16px, rgba(255,255,255,.02) 16px 32px)',
         boxShadow: drag ? `inset 0 0 0 3px ${accent}` : 'none'}}>
-      <input ref={inputRef} type="file" accept="image/*" style={{display:'none'}} onChange={(e)=> ingest(e.target.files[0])} onClick={(e)=>e.stopPropagation()} />
+      <input ref={inputRef} type="file" accept="image/*,video/mp4,video/webm,video/quicktime,video/*" style={{display:'none'}} onChange={(e)=>{ ingest(e.target.files[0]); e.target.value=''; }} onClick={(e)=>e.stopPropagation()} />
       {data ? (
-        <img src={data.url} alt="" style={{width:'100%', height:'100%', objectFit:'cover', display:'block'}} />
+        data.kind === 'video'
+          ? <video src={data.url} muted playsInline loop autoPlay preload="metadata" style={{width:'100%', height:'100%', objectFit:'cover', display:'block'}} />
+          : <img src={data.url} alt="" style={{width:'100%', height:'100%', objectFit:'cover', display:'block'}} />
       ) : (
         <div style={{position:'absolute', inset:0, display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:12, padding:18, textAlign:'center'}}>
           <span style={{width:48, height:48, borderRadius:13, display:'inline-flex', alignItems:'center', justifyContent:'center',

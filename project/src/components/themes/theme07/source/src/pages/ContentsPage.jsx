@@ -111,7 +111,7 @@ const DECO = ['pos','accent','pos','warn','pos','accent','neg','pos','warn','acc
 
 export default function ContentsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chapters: p.chapters !== undefined ? p.chapters : COPY.chapters };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-toc', CSS);
   const vars = themeVars(p.accentColor);

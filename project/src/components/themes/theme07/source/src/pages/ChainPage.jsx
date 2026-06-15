@@ -143,7 +143,7 @@ const DECO = ['pos','accent','pos','warn','neg','pos','accent','pos','warn','acc
 
 export default function ChainPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, regionTitle: p.regionTitle !== undefined ? p.regionTitle : COPY.regionTitle, layers: p.layers !== undefined ? p.layers : COPY.layers, regions: p.regions !== undefined ? p.regions : COPY.regions };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-chain', CSS);
   const vars = themeVars(p.accentColor);

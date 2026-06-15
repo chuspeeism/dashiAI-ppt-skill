@@ -8,6 +8,7 @@
  * upload (object-fit cover); 0 images = striped placeholder fill.
  */
 import { Slide, Grain, Edge, Ghost, Rail, Corners, Frame, Wordmark, EmberText, ImageSlot, injectCSS, clampInt } from './ignBase.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../unicorn-background.jsx';
 
 const CSS = `
 .ign-cvh{position:absolute;inset:0}
@@ -41,6 +42,8 @@ const CSS = `
 export const coverHeroDefaultProps = {
   surface: 'ink',
   images: [],
+  backgroundMode: 'unicorn',
+  unicornScene: 'automations',
   showScrim: true,
   showStatus: true,
   showLede: true,
@@ -66,6 +69,8 @@ export const coverHeroDefaultProps = {
 };
 
 export const coverHeroControls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl('automations'),
   { key: 'surface', type: 'select', label: '背景基调', default: 'ink',
     options: [{ value: 'ink', label: '深色' }, { value: 'paper', label: '浅色' }, { value: 'ember', label: '暖橙' }],
     describe: '页面背景主题，用于在相邻页之间制造色彩跳跃。' },
@@ -84,11 +89,14 @@ export default function CoverHeroSlide(props) {
   const p = { ...coverHeroDefaultProps, ...props };
   const images = Array.isArray(p.images) ? p.images : [];
   const stats = (Array.isArray(p.stats) ? p.stats : []).slice(0, clampInt(p.statCount, 2, 3));
+  const useUnicorn = p.backgroundMode === 'unicorn';
 
   return (
     <Slide surface={p.surface} className="ign-cvh">
       <div className="ign-cvh-img">
-        <ImageSlot src={images[0]} placeholder={p.imagePlaceholder} mode="fill" height="100%" radius={0} />
+        {useUnicorn
+          ? <UnicornBackground scene={p.unicornScene} accent="var(--ign-a,#ffb168)" />
+          : <ImageSlot src={images[0]} placeholder={p.imagePlaceholder} mode="fill" height="100%" radius={0} />}
       </div>
       {p.showScrim && <div className="ign-cvh-scrim" />}
       <Grain /><Edge />

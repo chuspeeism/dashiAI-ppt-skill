@@ -164,7 +164,7 @@ function barColor(kind, highlight) {
 
 export default function PeakTroughPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, avgLabel: p.avgLabel !== undefined ? p.avgLabel : COPY.avgLabel, months: p.months !== undefined ? p.months : COPY.months, extremes: p.extremes !== undefined ? p.extremes : COPY.extremes };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-pt', CSS);
   const vars = themeVars(p.accentColor);

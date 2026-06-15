@@ -53,16 +53,16 @@
 ## theme07
 
 - 主题名: 07-冷白调研图谱
-- 页面数: 74
-- 页面 key: `theme07_page001` 到 `theme07_page074`
+- 页面数: 71
+- 页面 key: `theme07_page001` 到 `theme07_page071`
 - 封面候选: `theme07_page001` 到 `theme07_page005`,一个 deck 只选 1 页
 - 视觉来源: `<skill-root>/project/src/components/themes/theme07`
 
 ## theme08
 
 - 主题名: 08-黑金实验质感
-- 页面数: 86
-- 页面 key: `theme08_page001` 到 `theme08_page086`
+- 页面数: 84
+- 页面 key: `theme08_page001` 到 `theme08_page084`
 - 封面候选: `theme08_page001` 到 `theme08_page005`,一个 deck 只选 1 页
 - 视觉来源: `<skill-root>/project/src/components/themes/theme08`
 

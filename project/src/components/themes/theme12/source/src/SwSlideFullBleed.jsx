@@ -11,7 +11,7 @@
 import React from 'react';
 import { swTheme } from './swTheme.js';
 import { Hl, Shape, injectBaseStyles, useSwReveal, renderSwText } from './swBase.jsx';
-import SwImageSlot from './SwImageSlot.jsx';
+import { SwBackgroundLayer, SW_UNICORN_BACKGROUND_CONTROL, createSwUnicornSceneControl } from './SwUnicornBackground.jsx';
 
 const C = swTheme.color, F = swTheme.font;
 
@@ -23,6 +23,8 @@ export const defaultProps = {
   showScrim: true,         // legibility gradient behind the card
   showCaption: true,
   showShapes: true,
+  backgroundMode: 'unicorn',
+  unicornScene: 'goey',
   mediaFit: 'cover',
   media: [],
   onMediaChange: () => {},
@@ -38,6 +40,8 @@ export const defaultProps = {
 };
 
 export const controls = [
+  SW_UNICORN_BACKGROUND_CONTROL,
+  createSwUnicornSceneControl(defaultProps.unicornScene),
   { key: 'cardCorner', label: '文字卡位置', type: 'segment', def: 'bl',
     options: [{ value: 'bl', label: '左下' }, { value: 'br', label: '右下' }, { value: 'tl', label: '左上' }, { value: 'tr', label: '右上' }],
     desc: '实色文字卡所在的画面角落' },
@@ -59,6 +63,7 @@ export default function SwSlideFullBleed(props) {
   const corner = p.cardCorner;
   const isBottom = corner === 'bl' || corner === 'br';
   const isLeft = corner === 'bl' || corner === 'tl';
+  const hasBackdrop = p.media[0] || p.backgroundMode === 'unicorn';
 
   const cardPos = {
     position: 'absolute', zIndex: 4, maxWidth: 720,
@@ -72,13 +77,12 @@ export default function SwSlideFullBleed(props) {
 
       {/* full-bleed image */}
       <div data-sw-no-reveal="" style={{ position: 'absolute', inset: 0 }}>
-        <SwImageSlot value={p.media[0] || null} onChange={(s) => p.onMediaChange(0, s)}
-          fit={p.mediaFit} accent={accent} radius={0} tone="dark"
-          placeholder={p.mediaPlaceholder} />
+        <SwBackgroundLayer mode={p.backgroundMode} media={p.media} onMediaChange={p.onMediaChange}
+          scene={p.unicornScene} fit={p.mediaFit} accent={accent} placeholder={p.mediaPlaceholder} />
       </div>
 
       {/* legibility scrim */}
-      {p.showScrim && p.media[0] && (
+      {p.showScrim && hasBackdrop && (
         <div style={{ position: 'absolute', inset: 0, zIndex: 2, pointerEvents: 'none',
           background: 'linear-gradient(' + scrimDir + ', rgba(15,11,12,.74) 0%, rgba(15,11,12,.28) 34%, rgba(15,11,12,0) 60%)' }} />
       )}

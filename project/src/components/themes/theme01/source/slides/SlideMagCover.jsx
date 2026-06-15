@@ -6,6 +6,7 @@
 // 贴纸钉在画面上。影像槽 0–2 张：1 张满版、2 张则左右分屏，均按比例自适应不变形。
 import React from 'react';
 import { SlideFrame, ImageSlot, MonoCaption, hexA } from './SlideKit.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 export const defaultProps = {
   kicker: '封面故事 · 算力',
@@ -28,6 +29,8 @@ export const defaultProps = {
   // tweakable（通用命名）
   imageSlotCount: 1,
   imageFit: 'cover',
+  backgroundMode: 'unicorn',
+  unicornScene: 'moving',
   titleLineCount: 3,
   noteCount: 3,
   showBigStat: true,
@@ -37,6 +40,8 @@ export const defaultProps = {
 };
 
 export const controls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl(defaultProps.unicornScene),
   { key: 'imageSlotCount', label: '图片数量', type: 'number', default: 1, min: 0, max: 2, step: 1, unit: ' 张',
     description: '满版影像槽：0 纯色封面 / 1 满版 / 2 左右分屏，均按比例自适应不变形。' },
   { key: 'imageFit', label: '图片填充', type: 'select', default: 'cover',
@@ -76,6 +81,7 @@ export default function SlideMagCover(props) {
   const p = { ...defaultProps, ...props };
   const ac = p.accentColor;
   const onAcc = readableOn(ac);
+  const useUnicorn = p.backgroundMode === 'unicorn';
   const n = Math.max(0, Math.min(2, p.imageSlotCount));
   const lines = (p.titleLines || []).slice(0, Math.max(1, Math.min(3, p.titleLineCount)));
   const notes = (p.notes || []).slice(0, Math.max(0, Math.min(3, p.noteCount)));
@@ -90,7 +96,9 @@ export default function SlideMagCover(props) {
     <SlideFrame bg="a">
       {/* 满版影像层 */}
       <div style={{ position: 'absolute', inset: 0, display: 'flex' }}>
-        {n === 0 ? (
+        {useUnicorn ? (
+          <UnicornBackground scene={p.unicornScene} accent={ac} />
+        ) : n === 0 ? (
           <div style={{ flex: 1, background: 'linear-gradient(140deg, #2a2a34, #15151c)' }} />
         ) : (
           Array.from({ length: n }).map((_, i) => (

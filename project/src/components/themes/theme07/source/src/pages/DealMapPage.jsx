@@ -159,7 +159,7 @@ const RAW = ['#86D62B', '#0E110B', '#34B24A', '#EFA63A'];
 
 export default function DealMapPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, lead: p.lead !== undefined ? p.lead : COPY.lead, anchorLead: p.anchorLead !== undefined ? p.anchorLead : COPY.anchorLead, anchorUnit: p.anchorUnit !== undefined ? p.anchorUnit : COPY.anchorUnit, anchorNote: p.anchorNote !== undefined ? p.anchorNote : COPY.anchorNote, closing: p.closing !== undefined ? p.closing : COPY.closing, legendLabel: p.legendLabel !== undefined ? p.legendLabel : COPY.legendLabel, bands: p.bands !== undefined ? p.bands : COPY.bands, tracks: p.tracks !== undefined ? p.tracks : COPY.tracks };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-deal', CSS);
   const vars = themeVars(p.accentColor);

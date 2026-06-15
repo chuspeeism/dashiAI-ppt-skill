@@ -2,6 +2,7 @@ import React from "react";
 import { FONTS } from "../theme.js";
 import ImageSlot from "../ImageSlot.jsx";
 import Decor, { decorControls, decorDefaults } from "../Decor.jsx";
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from "../../../../unicorn-background.jsx";
 
 /* ============================================================================
    CoverImageSlide — 封面 · 全幅影像式 (full-bleed image cover).
@@ -12,6 +13,8 @@ import Decor, { decorControls, decorDefaults } from "../Decor.jsx";
    ========================================================================== */
 
 export const controls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl("moving"),
   { key: "showEyebrow", label: "装饰标签", type: "toggle", default: true,
     help: "左上角分类标签的显示 / 隐藏" },
   { key: "theme", label: "背景主题", type: "select", default: "light",
@@ -33,6 +36,8 @@ export const defaultProps = {
   showEyebrow: true,
   theme: "light",
   imageCount: 1,
+  backgroundMode: "unicorn",
+  unicornScene: "moving",
   accent: "blue",
   showFigure: true,
   showMeta: true,
@@ -60,7 +65,8 @@ export default function CoverImageSlide(props) {
   const p = { ...defaultProps, ...props };
   const accent = p.accent === "lime" ? "var(--rd-lime)" : "var(--rd-blue)";
   const onLime = p.accent === "lime";
-  const hasImg = p.imageCount > 0;
+  const useUnicorn = p.backgroundMode === "unicorn";
+  const hasImg = !useUnicorn && p.imageCount > 0;
   const meta = p.meta || [];
 
   // scrim derives from the theme bg token → flips with light / dark (and the
@@ -77,7 +83,11 @@ export default function CoverImageSlide(props) {
     <div className={`rd-slide${p.theme === "dark" ? " rd-dark" : ""}`}>
       {/* full-bleed image / field */}
       <div style={{ position: "absolute", inset: 0, background: field }}>
-        {hasImg && <ImageSlot fit="cover" radius={0} caption={p.imageCaption} />}
+        {useUnicorn ? (
+          <UnicornBackground scene={p.unicornScene} accent={accent} />
+        ) : hasImg ? (
+          <ImageSlot fit="cover" radius={0} caption={p.imageCaption} />
+        ) : null}
       </div>
       <div style={{ position: "absolute", inset: 0, background: scrim, pointerEvents: "none" }} />
 

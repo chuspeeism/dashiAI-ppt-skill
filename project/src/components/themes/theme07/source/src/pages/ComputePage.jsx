@@ -182,7 +182,7 @@ function util(i, total) {
 
 export default function ComputePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, splitTitle: p.splitTitle !== undefined ? p.splitTitle : COPY.splitTitle, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics, split: p.split !== undefined ? p.split : COPY.split };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-cmp', CSS);
   const vars = themeVars(p.accentColor);

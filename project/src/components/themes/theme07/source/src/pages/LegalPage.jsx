@@ -135,7 +135,7 @@ const CSS = `
 .aic-legal .lg-dim { display: flex; align-items: center; gap: 16px; }
 .aic-legal .lg-dim .dot { width: 12px; height: 12px; border-radius: 3px; background: var(--aic-hair-strong); flex: none; }
 .aic-legal .lg-row[data-focus="1"] .lg-dim .dot { background: var(--aic-accent); }
-.aic-legal .lg-dim b { font-family: var(--aic-font-display); font-weight: 700; font-size: 32px; color: var(--aic-ink); white-space: nowrap; }
+.aic-legal .lg-dim b { font-family: var(--aic-font-display); font-weight: 700; font-size: 27px; color: var(--aic-ink); white-space: nowrap; }
 .aic-legal .lg-share { display: flex; align-items: center; gap: 18px; }
 .aic-legal .lg-share-track { flex: 1; height: 12px; border-radius: 999px; background: var(--aic-hair); overflow: hidden; min-width: 80px; }
 .aic-legal .lg-share-fill { height: 100%; border-radius: 999px;
@@ -175,7 +175,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function LegalPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, rows: p.rows !== undefined ? p.rows : COPY.rows, flow: p.flow !== undefined ? p.flow : COPY.flow };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-legal', CSS);
   const vars = themeVars(p.accentColor);

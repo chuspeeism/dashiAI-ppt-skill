@@ -71,7 +71,7 @@ if (typeof document !== 'undefined' && !document.getElementById('kx-spt-css')) {
   .kx-spt-pos{font-family:var(--kx-mono);font-size:23px;color:var(--kx-mute);line-height:1.45;letter-spacing:.01em;
     margin-top:16px;text-wrap:pretty;}
   /* signature lime card */
-  .kx-spt-sig{margin-top:20px;border-radius:28px;padding:30px 34px 30px;
+  .kx-spt-sig{margin-top:20px;border-radius:28px;padding:28px 34px 30px;
     background:linear-gradient(150deg,color-mix(in srgb,var(--kx-accent) 100%,white 6%),
       color-mix(in srgb,var(--kx-accent) 86%,black 6%));
     color:var(--kx-ink);position:relative;overflow:hidden;}
@@ -80,11 +80,11 @@ if (typeof document !== 'undefined' && !document.getElementById('kx-spt-css')) {
   .kx-spt-sigk{font-family:var(--kx-mono);font-size:21px;font-weight:700;letter-spacing:.05em;
     text-transform:uppercase;opacity:.62;}
   .kx-spt-sigv{display:flex;align-items:baseline;gap:10px;font-family:var(--kx-disp);font-weight:900;
-    letter-spacing:-.03em;line-height:.78;margin-top:12px;white-space:nowrap;}
-  .kx-spt-sigv .kx-n{font-size:128px;}
+    letter-spacing:-.03em;line-height:.92;margin-top:6px;white-space:nowrap;}
+  .kx-spt-sigv .kx-n{font-size:124px;}
   .kx-spt-sigv .kx-u{font-size:46px;font-weight:800;opacity:.72;}
   .kx-spt-sigl{font-family:var(--kx-mono);font-size:22px;letter-spacing:.03em;text-transform:uppercase;
-    opacity:.72;margin-top:8px;}
+    opacity:.72;margin-top:14px;}
   /* compact metric cards (left) */
   .kx-spt-metrics{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:16px;}
   .kx-spt-metrics.kx-1col{grid-template-columns:1fr;}

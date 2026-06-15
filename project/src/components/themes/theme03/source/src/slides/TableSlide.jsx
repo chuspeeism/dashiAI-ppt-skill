@@ -105,7 +105,7 @@ export default function TableSlide(props) {
               const hot = p.focusEnabled && i === fi;
               const dim = p.focusEnabled && !hot;
               const intensity = r.amt / MAX;
-              const lay = LAYER[r.layer];
+              const lay = LAYER[r.layer] || { bg: "rgba(22,21,19,0.08)", fg: COLORS.ink2 };
               return (
                 <div key={i} style={{
                   flex: 1, display: "grid", gridTemplateColumns: grid, alignItems: "center", gap: 22,

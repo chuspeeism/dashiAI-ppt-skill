@@ -57,7 +57,7 @@ const CSS = `
 .cvpack2{position:absolute;inset:0;overflow:hidden}
 .cvpack2{--lime-1:#C2EE3A;--lime-2:#8FD400;--lime-3:#5BB000;--lime-deep:#3C8A00;--paper:#F4F5F0;--paper-2:#ECEEE6;--ink:#0D100A;--ink-2:#5A5F52;--red:#E2362A;--amber:#F2A413;--grad-green:linear-gradient(135deg,#CDF24E 0%,#8FD400 46%,#54AA00 100%);--grad-green-soft:radial-gradient(120% 120% at 12% 88%, #B6E62E 0%, #8FD400 34%, #E9F2D6 78%, var(--paper) 100%);--type-hero:158px;--type-title:132px;--type-sub:40px;--type-kicker:25px;--type-small:23px;--type-bignum:300px;--font-cjk:"Noto Sans SC","PingFang SC","Microsoft YaHei",sans-serif;--font-lat:"Archivo","Noto Sans SC",sans-serif;}
 .cvpack2 *{box-sizing:border-box; margin:0; padding:0;}
-.cvpack2 .slide{width:100%; height:100%; position:relative; overflow:hidden; background:var(--paper); color:var(--ink); font-family:var(--font-cjk); -webkit-font-smoothing:antialiased;}
+.cvpack2 .slide{width:100%; height:100%; position:relative; overflow:hidden; background:var(--paper); color:var(--ink); font-family:var(--font-cjk); -webkit-font-smoothing:antialiased; pointer-events:auto;}
 .cvpack2 .num{font-family:var(--font-lat); font-weight:800; display:inline-block; transform:skewX(-9deg); letter-spacing:-0.01em;}
 .cvpack2 .lat{font-family:var(--font-lat);}
 .cvpack2 .lens{position:absolute; border-radius:50%; background:radial-gradient(130% 130% at 30% 25%, rgba(255,255,255,.55) 0%, rgba(180,230,40,.18) 26%, rgba(120,200,0,.42) 60%, rgba(70,150,0,.55) 100%); box-shadow: inset 0 0 60px rgba(255,255,255,.35), inset 0 -18px 50px rgba(40,90,0,.35), 0 30px 70px rgba(60,120,0,.25); border:1px solid rgba(255,255,255,.35); mix-blend-mode:multiply;}
@@ -90,6 +90,7 @@ const CSS = `
 .cvpack2 .s3 .right .photo{position:absolute; inset:0; background:repeating-linear-gradient(45deg, rgba(13,16,10,.05) 0 2px, transparent 2px 16px);}
 .cvpack2 .s3 .right .ph-label{position:absolute; left:46px; bottom:44px; z-index:4; font-family:var(--font-lat); font-weight:600; font-size:18px; letter-spacing:.16em; text-transform:uppercase; color:rgba(13,16,10,.5);}
 .cvpack2 .s3 .right .lens{mix-blend-mode:normal;}
+.cvpack2 .s3 .right .logo,.cvpack2 .s3 .right .ph-label,.cvpack2 .s3 .right .lens{pointer-events:none;}
 .cvpack2 .s3 .r-a{width:330px; height:330px; right:-70px; top:120px;}
 .cvpack2 .s3 .r-b{width:210px; height:210px; left:60px; top:380px;}
 .cvpack2 .s3 .r-c{width:150px; height:150px; right:120px; top:470px;}

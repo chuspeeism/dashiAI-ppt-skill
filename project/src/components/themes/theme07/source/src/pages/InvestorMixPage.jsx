@@ -174,7 +174,7 @@ const HEAT = ['pos','accent','pos','warn','pos','accent','pos','pos','accent','w
 
 export default function InvestorMixPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, sub: p.sub !== undefined ? p.sub : COPY.sub, marker: p.marker !== undefined ? p.marker : COPY.marker, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, panelTitle: p.panelTitle !== undefined ? p.panelTitle : COPY.panelTitle, timelineLabel: p.timelineLabel !== undefined ? p.timelineLabel : COPY.timelineLabel, segments: p.segments !== undefined ? p.segments : COPY.segments, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-imx', CSS);
   const vars = themeVars(p.accentColor);

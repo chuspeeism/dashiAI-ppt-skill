@@ -48,12 +48,34 @@ export let COLORS = LIGHT;
 export let RAMP = RAMP_LIGHT;
 
 let _dark = false;
-export function setRDDark(d) {
-  _dark = !!d;
-  COLORS = _dark ? DARK : LIGHT;   // reassign live binding
+let _accent = "blue";
+
+function accentPalette(base) {
+  if (_accent !== "lime") return base;
+  return {
+    ...base,
+    blue: base.lime,
+    blueInk: "#161513",
+  };
+}
+
+function syncPalette() {
+  const base = _dark ? DARK : LIGHT;
+  COLORS = accentPalette(base);
   RAMP = _dark ? RAMP_DARK : RAMP_LIGHT;
 }
+
+export function setRDDark(d) {
+  _dark = !!d;
+  syncPalette();
+}
 export function isRDDark() { return _dark; }
+
+export function setRDAccent(value) {
+  _accent = value === "lime" ? "lime" : "blue";
+  syncPalette();
+}
+export function getRDAccent() { return _accent; }
 
 export const FONTS = {
   sans: '"Archivo","Noto Sans SC",system-ui,sans-serif',

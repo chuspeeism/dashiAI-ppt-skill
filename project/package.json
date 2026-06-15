@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "render:goal": "tsx scripts/render-goal-deck.jsx",
+    "preview:https": "node scripts/serve-preview-https.mjs",
     "validate:swiss": "node scripts/validate-swiss-deck.mjs",
     "validate:goal-copy": "node scripts/validate-goal-copy.mjs"
   },

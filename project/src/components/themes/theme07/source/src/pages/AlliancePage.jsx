@@ -241,7 +241,7 @@ function AllianceMap({ copy, providers, focus, focusEnabled, showLoop, showValue
 
 export default function AlliancePage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, barsTitle: p.barsTitle !== undefined ? p.barsTitle : COPY.barsTitle, totalVal: p.totalVal !== undefined ? p.totalVal : COPY.totalVal, totalUnit: p.totalUnit !== undefined ? p.totalUnit : COPY.totalUnit, totalLbl: p.totalLbl !== undefined ? p.totalLbl : COPY.totalLbl, legendInvest: p.legendInvest !== undefined ? p.legendInvest : COPY.legendInvest, legendReturn: p.legendReturn !== undefined ? p.legendReturn : COPY.legendReturn, cycle: p.cycle !== undefined ? p.cycle : COPY.cycle, providers: p.providers !== undefined ? p.providers : COPY.providers };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-ally', CSS);
   const vars = themeVars(p.accentColor);

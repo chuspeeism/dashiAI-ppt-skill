@@ -167,7 +167,7 @@ const AMAX = 72; // y-axis headroom for Q1 monthly figures (亿美元)
 
 export default function ColdStartPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, season: p.season !== undefined ? p.season : COPY.season, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, chartLabel: p.chartLabel !== undefined ? p.chartLabel : COPY.chartLabel, contextLabel: p.contextLabel !== undefined ? p.contextLabel : COPY.contextLabel, months: p.months !== undefined ? p.months : COPY.months, context: p.context !== undefined ? p.context : COPY.context, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-cold', CSS);
   const vars = themeVars(p.accentColor);

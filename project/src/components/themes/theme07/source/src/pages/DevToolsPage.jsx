@@ -158,7 +158,7 @@ const RAIL_TONE = {
 
 export default function DevToolsPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, kicker: p.kicker !== undefined ? p.kicker : COPY.kicker, tag: p.tag !== undefined ? p.tag : COPY.tag, quoteLead: p.quoteLead !== undefined ? p.quoteLead : COPY.quoteLead, quoteEm1: p.quoteEm1 !== undefined ? p.quoteEm1 : COPY.quoteEm1, quoteMid: p.quoteMid !== undefined ? p.quoteMid : COPY.quoteMid, quoteEm2: p.quoteEm2 !== undefined ? p.quoteEm2 : COPY.quoteEm2, quoteTail: p.quoteTail !== undefined ? p.quoteTail : COPY.quoteTail, source: p.source !== undefined ? p.source : COPY.source, reasons: p.reasons !== undefined ? p.reasons : COPY.reasons };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-dev', CSS);
   const vars = themeVars(p.accentColor);

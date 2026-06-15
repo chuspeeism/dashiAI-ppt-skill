@@ -169,7 +169,7 @@ const SEG_FILL = [
 
 export default function ConcentrationPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, numLead: p.numLead !== undefined ? p.numLead : COPY.numLead, numTail: p.numTail !== undefined ? p.numTail : COPY.numTail, numCaption: p.numCaption !== undefined ? p.numCaption : COPY.numCaption, note: p.note !== undefined ? p.note : COPY.note, closing: p.closing !== undefined ? p.closing : COPY.closing, barTitle: p.barTitle !== undefined ? p.barTitle : COPY.barTitle, remainderLabel: p.remainderLabel !== undefined ? p.remainderLabel : COPY.remainderLabel, tiers: p.tiers !== undefined ? p.tiers : COPY.tiers, aux: p.aux !== undefined ? p.aux : COPY.aux };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-con', CSS);
   const vars = themeVars(p.accentColor);

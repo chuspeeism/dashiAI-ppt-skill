@@ -1,5 +1,7 @@
 import React from "react";
+import ImageSlot from "../ImageSlot.jsx";
 import Decor, { decorControls, decorDefaults } from "../Decor.jsx";
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from "../../../../unicorn-background.jsx";
 
 /* ============================================================================
    CoverPosterSlide — 封面 · 中央对称海报式 (centered symmetric poster).
@@ -8,6 +10,10 @@ import Decor, { decorControls, decorDefaults } from "../Decor.jsx";
    ========================================================================== */
 
 export const controls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl("automations"),
+  { key: "imageCount", label: "背景图", type: "slider", default: 1, min: 0, max: 1, step: 1,
+    dependsOn: "backgroundMode", dependsOnValue: "media", help: "上传模式下的整页背景图槽" },
   { key: "showEyebrow", label: "中央标签", type: "toggle", default: true,
     help: "居中分类标签的显示 / 隐藏" },
   { key: "theme", label: "背景主题", type: "select", default: "light",
@@ -29,6 +35,10 @@ export const defaultProps = {
   showEyebrow: true,
   theme: "light",
   accent: "lime",
+  backgroundMode: "unicorn",
+  unicornScene: "automations",
+  imageCount: 1,
+  imageCaption: "背景图 / DROP IMAGE",
   showFrame: true,
   showFigure: true,
   showMeta: true,
@@ -55,11 +65,26 @@ export default function CoverPosterSlide(props) {
   const p = { ...defaultProps, ...props };
   const accent = p.accent === "lime" ? "var(--rd-lime)" : "var(--rd-blue)";
   const onLime = p.accent === "lime";
+  const useUnicorn = p.backgroundMode === "unicorn";
+  const hasImg = !useUnicorn && p.imageCount > 0;
   const corners = p.corners || [];
   const meta = p.meta || [];
 
   return (
     <div className={`rd-slide${p.theme === "dark" ? " rd-dark" : ""}`}>
+      {(useUnicorn || hasImg) && (
+        <div style={{ position: "absolute", inset: 0, background: p.theme === "dark" ? "#161513" : "#d6d6d3" }}>
+          {useUnicorn ? (
+            <UnicornBackground scene={p.unicornScene} accent={accent} />
+          ) : (
+            <ImageSlot fit="cover" radius={0} caption={p.imageCaption} />
+          )}
+        </div>
+      )}
+      {(useUnicorn || hasImg) && (
+        <div style={{ position: "absolute", inset: 0, pointerEvents: "none",
+          background: p.theme === "dark" ? "rgba(22,21,19,0.58)" : "rgba(214,214,211,0.72)" }} />
+      )}
       <div className="rd-frame" style={{ padding: 64 }}>
         {/* inner outline + corner labels */}
         {p.showFrame && (

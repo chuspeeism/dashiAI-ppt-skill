@@ -164,7 +164,7 @@ const HEAT = ['accent','pos','accent','warn','pos','accent','pos','pos','accent'
 
 export default function RepricingPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, axisLabel: p.axisLabel !== undefined ? p.axisLabel : COPY.axisLabel, metricsTitle: p.metricsTitle !== undefined ? p.metricsTitle : COPY.metricsTitle, nodes: p.nodes !== undefined ? p.nodes : COPY.nodes, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-rp', CSS);
   const vars = themeVars(p.accentColor);

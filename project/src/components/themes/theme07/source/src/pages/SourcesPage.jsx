@@ -129,7 +129,7 @@ const CSS = `
 .aic-src[data-flow="0"] .src-table { bottom: 150px; }
 .aic-src .src-thead { display: grid; align-items: center; gap: 0 36px; padding: 0 26px 14px;
   border-bottom: 2px solid var(--aic-ink); }
-.aic-src .src-th { font-family: var(--aic-font-display); font-weight: 600; font-size: 18px; letter-spacing: .12em;
+.aic-src .src-th { font-family: var(--aic-font-display); font-weight: 600; font-size: 16px; letter-spacing: .12em;
   text-transform: uppercase; color: var(--aic-muted); }
 .aic-src .src-tbody { flex: 1; display: flex; flex-direction: column; }
 .aic-src .src-row { flex: 1; display: grid; align-items: center; gap: 0 36px; padding: 0 26px;
@@ -139,16 +139,16 @@ const CSS = `
 .aic-src .src-dim { display: flex; align-items: center; gap: 16px; }
 .aic-src .src-dim .dot { width: 12px; height: 12px; border-radius: 3px; background: var(--aic-accent); flex: none; opacity: .55; }
 .aic-src .src-row[data-focus="1"] .src-dim .dot { opacity: 1; }
-.aic-src .src-dim b { font-family: var(--aic-font-display); font-weight: 700; font-size: 30px; color: var(--aic-ink); white-space: nowrap; }
+.aic-src .src-dim b { font-family: var(--aic-font-display); font-weight: 700; font-size: 26px; color: var(--aic-ink); white-space: nowrap; }
 .aic-src .src-level { display: flex; align-items: center; gap: 18px; }
 .aic-src .src-level-track { flex: 1; height: 12px; border-radius: 999px; background: var(--aic-hair); overflow: hidden; min-width: 80px; }
 .aic-src .src-level-fill { height: 100%; border-radius: 999px;
   background: linear-gradient(90deg, color-mix(in srgb, var(--aic-accent) 55%, white), var(--aic-accent-deep));
   transition: width .55s cubic-bezier(.3,.7,.4,1); }
-.aic-src .src-level-v { font-family: var(--aic-font-display); font-weight: 700; font-size: 27px; color: var(--aic-ink);
-  font-variant-numeric: tabular-nums; min-width: 96px; text-align: right; }
-.aic-src .src-level-v u { text-decoration: none; font-size: 17px; font-weight: 600; color: var(--aic-muted); margin-left: 4px; }
-.aic-src .src-note { font-family: var(--aic-font-text); font-weight: 500; font-size: 23px; color: var(--aic-ink-dim); }
+.aic-src .src-level-v { font-family: var(--aic-font-display); font-weight: 700; font-size: 24px; color: var(--aic-ink);
+  font-variant-numeric: tabular-nums; min-width: 90px; text-align: right; }
+.aic-src .src-level-v u { text-decoration: none; font-size: 15px; font-weight: 600; color: var(--aic-muted); margin-left: 4px; }
+.aic-src .src-note { font-family: var(--aic-font-text); font-weight: 500; font-size: 20px; color: var(--aic-ink-dim); }
 
 /* pipeline ribbon */
 .aic-src .src-flow { position: absolute; left: var(--pad); right: var(--pad); bottom: 150px; }
@@ -179,7 +179,7 @@ const HEAT = ['accent','pos','accent','pos','warn','accent','pos','pos','accent'
 
 export default function SourcesPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, statLine: p.statLine !== undefined ? p.statLine : COPY.statLine, anchorValue: p.anchorValue !== undefined ? p.anchorValue : COPY.anchorValue, anchorLabel: p.anchorLabel !== undefined ? p.anchorLabel : COPY.anchorLabel, closing: p.closing !== undefined ? p.closing : COPY.closing, flowTitle: p.flowTitle !== undefined ? p.flowTitle : COPY.flowTitle, rows: p.rows !== undefined ? p.rows : COPY.rows, flow: p.flow !== undefined ? p.flow : COPY.flow };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-src', CSS);
   const vars = themeVars(p.accentColor);

@@ -8,6 +8,7 @@
 // / highlight / accent are tweakable; text lives in defaultProps.
 import React from 'react';
 import { SlideFrame, ImageSlot, MonoCaption, hexA } from './SlideKit.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 export const defaultProps = {
   kicker: '前沿赛道 · 具身智能',
@@ -26,6 +27,8 @@ export const defaultProps = {
   // tweakable (universal names)
   imageSlotCount: 1,
   imageFit: 'cover',
+  backgroundMode: 'unicorn',
+  unicornScene: 'tech',
   plate: 'bottom-left',
   statCount: 3,
   highlight: true,
@@ -36,6 +39,8 @@ export const defaultProps = {
 };
 
 export const controls = [
+  UNICORN_BACKGROUND_CONTROL,
+  createUnicornSceneControl(defaultProps.unicornScene),
   { key: 'imageSlotCount', label: '图片数量', type: 'number', default: 1, min: 0, max: 2, step: 1, unit: ' 张',
     description: '满版图片槽数量：0 显示条纹占位、1 单张满版、2 左右双图（各自按比例自适应，不变形）。' },
   { key: 'imageFit', label: '图片填充', type: 'select', default: 'cover',
@@ -79,6 +84,7 @@ function Marked({ text, word, color, on }) {
 export default function SlideImageBanner(props) {
   const p = { ...defaultProps, ...props };
   const ac = p.accentColor;
+  const useUnicorn = p.backgroundMode === 'unicorn';
   const cnt = Math.max(0, Math.min(2, p.imageSlotCount));
   const stats = (p.stats || []).slice(0, Math.max(0, Math.min(3, p.statCount)));
 
@@ -94,7 +100,9 @@ export default function SlideImageBanner(props) {
     <SlideFrame bg="a">
       {/* hero image(s) — full bleed */}
       <div style={{ position: 'absolute', inset: 0, display: 'flex', gap: cnt === 2 ? 6 : 0 }}>
-        {cnt === 0 ? (
+        {useUnicorn ? (
+          <UnicornBackground scene={p.unicornScene} accent={ac} />
+        ) : cnt === 0 ? (
           <ImageSlot src="" placeholder="满版图片 · 人形机器人 / 工厂场景" fit={p.imageFit}
             ratioMode="fill" accent={ac} radius={0} style={{ height: '100%', borderRadius: 0, border: 'none' }} />
         ) : (

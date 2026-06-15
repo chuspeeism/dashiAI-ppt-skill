@@ -78,6 +78,7 @@ import { meta as coverGhost } from './source/slides/Slide75CoverGhost.jsx';
 import { meta as coverBento } from './source/slides/Slide76CoverBento.jsx';
 
 const THEME04_BASE_CSS = ".xhs-base{width:1920px;height:1080px;position:relative;overflow:hidden;box-sizing:border-box;font-family:\"Noto Sans SC\",-apple-system,\"PingFang SC\",\"Microsoft YaHei\",sans-serif;background:#000;color:#fff;-webkit-font-smoothing:antialiased}.xhs-base *{box-sizing:border-box}";
+const THEME04_REMOVED_CONTROL_TYPES = new Set(['text', 'string', 'input', 'url', 'email', 'textarea', 'multiline', 'list', 'section']);
 const rawPages = [
   coverHero, coverIndex, coverGhost, coverBento,
   agenda, contents, method, section, cards, donut, scatter, slope, treemap, waterfall, groupbars, bento, charts, monthchart, stacked, gauges, heatmap, calendar, quartertable, table, spread, scoreboard, ledger, matrix, bignumber, stattrio, deltahero, scorecards, versus, funnel,
@@ -87,9 +88,14 @@ const rawPages = [
 ].map(entry => ({
   ...entry,
   Component: withTheme04Base(entry.Component),
+  controls: cleanTheme04Controls(entry.controls || []),
 }));
 
 export const runtimePages = normalizeRuntimePages(rawPages, { themeKey: 'theme04', layoutPrefix: 'THEME04' });
+
+function cleanTheme04Controls(controls) {
+  return controls.filter(control => !THEME04_REMOVED_CONTROL_TYPES.has(String(control?.type || '').toLowerCase()));
+}
 
 function withTheme04Base(Component) {
   return function Theme04Page(props) {

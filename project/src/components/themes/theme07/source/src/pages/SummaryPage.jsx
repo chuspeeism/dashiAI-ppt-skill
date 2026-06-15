@@ -139,7 +139,7 @@ const CSS = `
 
 export default function SummaryPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, title: p.title !== undefined ? p.title : COPY.title, sub: p.sub !== undefined ? p.sub : COPY.sub, closing: p.closing !== undefined ? p.closing : COPY.closing, chartTitle: p.chartTitle !== undefined ? p.chartTitle : COPY.chartTitle, lead: p.lead !== undefined ? p.lead : COPY.lead, keywords: p.keywords !== undefined ? p.keywords : COPY.keywords, tracks: p.tracks !== undefined ? p.tracks : COPY.tracks, metrics: p.metrics !== undefined ? p.metrics : COPY.metrics };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-sum', CSS);
   const vars = themeVars(p.accentColor);

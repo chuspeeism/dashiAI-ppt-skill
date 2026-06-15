@@ -1,12 +1,12 @@
 // @ds-adherence-ignore -- omelette starter scaffold (raw elements/hex/px by design)
 /* BEGIN USAGE */
 /**
- * <image-slot> — user-fillable image placeholder.
+ * <image-slot> — user-fillable media placeholder.
  *
  * Drop this into a deck, mockup, or page wherever you want the user to
- * supply an image. You control the slot's shape and size; the user fills it
- * by dragging an image file onto it (or clicking to browse). The dropped
- * image persists across reloads via a .image-slots.state.json sidecar —
+ * supply media. You control the slot's shape and size; the user fills it
+ * by dragging an image/video file onto it (or clicking to browse). The dropped
+ * media persists across reloads via a .image-slots.state.json sidecar —
  * same read-via-fetch / write-via-window.omelette pattern as
  * design_canvas.jsx, so the filled slot shows on share links, downloaded
  * zips, and PPTX export. Outside the omelette runtime the slot is read-only.
@@ -32,7 +32,7 @@
  *                corner-drag to scale. The crop persists alongside the image
  *                in the sidecar. contain/fill stay static.
  *   position     object-position for fit=contain|fill.     (default '50% 50%')
- *   placeholder  Empty-state caption.                      (default 'Drop an image')
+ *   placeholder  Empty-state caption.                      (default 'Drop media')
  *   src          Optional initial/fallback image URL. A user drop overrides
  *                it; clearing the drop reveals src again.
  *
@@ -50,14 +50,13 @@
 
 (() => {
   const STATE_FILE = '.image-slots.state.json';
+  const STORAGE_PREFIX = 'dashi-ppt-image-slots';
   // 2× a ~600px slot in a 1920-wide deck — retina-sharp without making the
   // sidecar enormous. A 1200px WebP at q=0.85 is ~150-300KB.
   const MAX_DIM = 1200;
-  // Raster formats only. SVG is excluded (can carry script; createImageBitmap
-  // on SVG blobs is inconsistent). GIF is excluded because the canvas
-  // re-encode keeps only the first frame, so an animated GIF would silently
-  // go still — better to reject than surprise.
-  const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif'];
+  // Raster formats plus browser-native video. Images are downscaled; videos keep
+  // their original data URL and skip crop/reframe controls.
+  const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif', 'video/mp4', 'video/webm', 'video/quicktime'];
 
   // ── Shared sidecar store ────────────────────────────────────────────────
   // One fetch + immediate write-on-change for every <image-slot> on the
@@ -78,6 +77,8 @@
     loadP = fetch(STATE_FILE)
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
+        const saved = readSavedSlots();
+        if (saved) j = Object.assign({}, j || {}, saved);
         // Merge: sidecar loses to any in-memory change that raced ahead of
         // the fetch (drop or clear) so neither is clobbered by hydration.
         if (j && typeof j === 'object') {
@@ -109,11 +110,33 @@
   function save() {
     if (saving) { saveDirty = true; return; }
     const w = window.omelette && window.omelette.writeFile;
-    if (!w) return;
+    if (!w) {
+      writeSavedSlots();
+      return;
+    }
     saving = true;
     Promise.resolve(w(STATE_FILE, JSON.stringify(slots)))
       .catch(() => {})
       .then(() => { saving = false; if (saveDirty) { saveDirty = false; save(); } });
+  }
+
+  function storageKey() {
+    const signature = window.__deckViewModel?.model?.state?.__deckSignature || location.pathname || 'deck';
+    return STORAGE_PREFIX + ':' + signature;
+  }
+
+  function readSavedSlots() {
+    try {
+      return JSON.parse(localStorage.getItem(storageKey()) || '{}') || {};
+    } catch {
+      return {};
+    }
+  }
+
+  function writeSavedSlots() {
+    try {
+      localStorage.setItem(storageKey(), JSON.stringify(slots || {}));
+    } catch {}
   }
 
   const S_MAX = 5;
@@ -124,7 +147,8 @@
   function getSlot(id) {
     const v = slots[id];
     if (!v) return null;
-    return typeof v === 'string' ? { u: v, s: 1, x: 0, y: 0 } : v;
+    if (typeof v === 'string') return { u: v, kind: v.startsWith('data:video/') ? 'video' : 'image', s: 1, x: 0, y: 0 };
+    return { ...v, kind: v.kind || (String(v.u || '').startsWith('data:video/') ? 'video' : 'image') };
   }
 
   function setSlot(id, val) {
@@ -144,6 +168,7 @@
   // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
   // for photos, so there's no need for per-image format picking.
   async function toDataUrl(file, targetW) {
+    if (file.type.startsWith('video/')) return readFileAsDataUrl(file);
     const bitmap = await createImageBitmap(file);
     try {
       const cap = Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
@@ -159,6 +184,15 @@
     }
   }
 
+  function readFileAsDataUrl(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(reader.error || new Error('read failed'));
+      reader.readAsDataURL(file);
+    });
+  }
+
   // ── Custom element ──────────────────────────────────────────────────────
   const stylesheet =
     ':host{display:inline-block;position:relative;vertical-align:top;' +
@@ -167,7 +201,7 @@
     // .frame img (clipped) and .spill (unclipped ghost + handles) share the
     // same left/top/width/height in frame-%, computed by _applyView(), so the
     // inside-mask crop and the outside-mask spill stay pixel-aligned.
-    '.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);' +
+    '.frame img,.frame video{position:absolute;max-width:none;transform:translate(-50%,-50%);' +
     '  -webkit-user-drag:none;user-select:none;touch-action:none}' +
     // Reframe mode (double-click): the full image spills past the mask. The
     // spill layer is sized to the IMAGE bounds so its corners are where the
@@ -238,6 +272,7 @@
         '<style>' + stylesheet + '</style>' +
         '<div class="frame" part="frame">' +
         '  <img part="image" alt="" draggable="false" style="display:none">' +
+        '  <video part="video" muted playsinline loop autoplay preload="metadata" style="display:none"></video>' +
         '  <div class="empty" part="empty">' + icon +
         '    <div class="cap"></div>' +
         '    <div class="sub">or <u>browse files</u></div></div>' +
@@ -248,12 +283,13 @@
         '  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>' +
         '  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div>' +
         '</div>' +
-        '<div class="ctl"><button data-act="replace" title="Replace image">Replace</button>' +
-        '  <button data-act="clear" title="Remove image">Remove</button></div>' +
+        '<div class="ctl"><button data-act="replace" title="Replace media">Replace</button>' +
+        '  <button data-act="clear" title="Remove media">Remove</button></div>' +
         '<input type="file" accept="' + ACCEPT.join(',') + '" hidden>';
       this._frame = root.querySelector('.frame');
       this._ring = root.querySelector('.ring');
       this._img = root.querySelector('.frame img');
+      this._video = root.querySelector('.frame video');
       this._empty = root.querySelector('.empty');
       this._cap = root.querySelector('.cap');
       this._sub = root.querySelector('.sub');
@@ -267,8 +303,15 @@
       this._subFn = () => this._render();
       // Shadow-DOM listeners live with the shadow DOM — bound once here so
       // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
-      this._empty.addEventListener('click', () => this._input.click());
+      this.addEventListener('pointerdown', e => e.stopPropagation());
+      this.addEventListener('mousedown', e => e.stopPropagation());
+      this._empty.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        this._input.click();
+      });
       root.addEventListener('click', (e) => {
+        e.stopPropagation();
         const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
         if (act === 'replace') { this._exitReframe(true); this._input.click(); }
         if (act === 'clear') {
@@ -277,6 +320,7 @@
           this._local = null;
           if (this.id) setSlot(this.id, null); else this._render();
         }
+        if (!act && !this._empty.contains(e.target) && e.target !== this._input) this._input.click();
       });
       this._input.addEventListener('change', () => {
         const f = this._input.files && this._input.files[0];
@@ -286,6 +330,7 @@
       // naturalWidth/Height aren't known until load — re-apply so the cover
       // baseline is computed from real dimensions, not the 100%×100% fallback.
       this._img.addEventListener('load', () => this._applyView());
+      this._video.addEventListener('loadedmetadata', () => this._applyView());
       // Gated on editable + fit=cover so share links and contain/fill slots
       // stay static.
       this.addEventListener('dblclick', (e) => {
@@ -469,7 +514,7 @@
     async _ingest(file) {
       this._setError(null);
       if (!file || ACCEPT.indexOf(file.type) < 0) {
-        this._setError('Drop a PNG, JPEG, WebP, or AVIF image.');
+        this._setError('Drop a PNG, JPEG, WebP, AVIF image, or MP4/WebM video.');
         return;
       }
       // toDataUrl can take hundreds of ms on a large photo. A Clear or a
@@ -483,7 +528,7 @@
         // Only exit reframe once the new image is in hand — a rejected type
         // or decode failure leaves the in-progress crop untouched.
         this._exitReframe(false);
-        const val = { u: url, s: 1, x: 0, y: 0 };
+        const val = { u: url, kind: file.type.startsWith('video/') ? 'video' : 'image', s: 1, x: 0, y: 0 };
         setSlot(this.id || '', val);
         // Keep a session-local copy for id-less slots so the drop still
         // shows, even though it cannot persist.
@@ -509,6 +554,7 @@
     // keep the old object-fit path and double-click is a no-op.
     _reframes() {
       return this.hasAttribute('data-filled') &&
+        this._mediaKind !== 'video' &&
         (this.getAttribute('fit') || 'cover') === 'cover';
     }
 
@@ -567,6 +613,7 @@
     _commitView() {
       const v = { s: this._view.s, x: this._view.x, y: this._view.y };
       if (this._userUrl) v.u = this._userUrl;
+      if (this._mediaKind) v.kind = this._mediaKind;
       // Framing-only (no u) persists too so an author-src slot remembers its
       // crop; clearing the sidecar still falls through to src=.
       if (this.id) setSlot(this.id, v);
@@ -593,19 +640,21 @@
       this._ring.style.display = mask ? 'none' : '';
 
       // Controls and reframe entry gate on this so share links stay read-only.
-      const editable = !!(window.omelette && window.omelette.writeFile);
+      const editable = !!((window.omelette && window.omelette.writeFile) || window.__deckViewModel);
       this.toggleAttribute('data-editable', editable);
       this._sub.style.display = editable ? '' : 'none';
 
       // Content. The sidecar is also writable by the agent's write_file
       // tool, so its value isn't guaranteed canvas-originated — only accept
-      // data:image/ URLs from it. The `src` attribute is author-controlled
+      // data:image/ or data:video/ URLs from it. The `src` attribute is author-controlled
       // (Claude wrote it into the HTML) so it passes through unchanged.
       let stored = this.id ? getSlot(this.id) : this._local;
-      if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
+      if (stored && stored.u && !/^data:(image|video)\//i.test(stored.u)) stored = null;
       const srcAttr = this.getAttribute('src') || '';
       this._userUrl = (stored && stored.u) || null;
       const url = this._userUrl || srcAttr;
+      const kind = (stored && stored.kind) || (String(url).startsWith('data:video/') || /\.(mp4|webm|mov)(\?|#|$)/i.test(String(url)) ? 'video' : 'image');
+      this._mediaKind = kind;
       // Don't clobber an in-flight reframe with a store-triggered re-render.
       if (!this.hasAttribute('data-reframe')) {
         this._view = {
@@ -614,22 +663,41 @@
           y: stored && Number.isFinite(stored.y) ? stored.y : 0,
         };
       }
-      this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
+      this._cap.textContent = this.getAttribute('placeholder') || 'Drop media';
       // Toggle via style.display — the [hidden] attribute alone loses to
       // the display:flex / display:block rules in the stylesheet above.
       if (url) {
-        if (this._img.getAttribute('src') !== url) {
-          this._img.src = url;
-          this._ghost.src = url;
+        if (kind === 'video') {
+          this._exitReframe(false);
+          if (this._video.getAttribute('src') !== url) this._video.src = url;
+          this._img.style.display = 'none';
+          this._img.removeAttribute('src');
+          this._ghost.removeAttribute('src');
+          this._video.style.display = 'block';
+          this._video.style.width = '100%';
+          this._video.style.height = '100%';
+          this._video.style.left = '50%';
+          this._video.style.top = '50%';
+          this._video.style.objectFit = this.getAttribute('fit') || 'cover';
+          this._video.style.objectPosition = this.getAttribute('position') || '50% 50%';
+        } else {
+          if (this._img.getAttribute('src') !== url) {
+            this._img.src = url;
+            this._ghost.src = url;
+          }
+          this._video.style.display = 'none';
+          this._video.removeAttribute('src');
+          this._img.style.display = 'block';
+          this._clampView();
+          this._applyView();
         }
-        this._img.style.display = 'block';
         this._empty.style.display = 'none';
         this.setAttribute('data-filled', '');
-        this._clampView();
-        this._applyView();
       } else {
         this._img.style.display = 'none';
         this._img.removeAttribute('src');
+        this._video.style.display = 'none';
+        this._video.removeAttribute('src');
         this._ghost.removeAttribute('src');
         this._empty.style.display = 'flex';
         this.removeAttribute('data-filled');

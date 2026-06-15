@@ -53,19 +53,19 @@ export default function Page58Seattle(props) {
           font-weight:700; font-size:19px; padding:8px 14px; background:var(--acl-blue); color:var(--acl-ink);
           transform:rotate(-1.5deg); box-shadow:3px 4px 0 rgba(22,21,15,.18); margin-top:14px; }
 
-        .acl-gs__share{ display:flex; align-items:flex-end; gap:18px; margin:24px 0 4px; }
+        .acl-gs__share{ display:flex; align-items:flex-end; gap:22px; margin:42px 0 14px; }
         .acl-gs__sharev{ font-family:var(--acl-font-num); font-size:150px; line-height:.74;
           color:var(--acl-pink); text-shadow:6px 7px 0 var(--acl-ink); }
         .acl-gs__shareu{ font-family:var(--acl-font-num); font-size:74px; line-height:1; }
         .acl-gs__sharek{ font-family:var(--acl-font-mono); font-size:15px; letter-spacing:.08em;
           text-transform:uppercase; color:rgba(22,21,15,.5); padding-bottom:18px; max-width:160px; }
 
-        .acl-gs__cap{ font-weight:700; font-size:24px; line-height:1.44; max-width:640px; margin-top:6px; }
+        .acl-gs__cap{ font-weight:700; font-size:24px; line-height:1.58; max-width:640px; margin-top:14px; }
         .acl-gs__cap b{ background:var(--acl-blue); padding:0 .12em; box-decoration-break:clone;
           -webkit-box-decoration-break:clone; }
 
         .acl-gs__tagttl{ font-family:var(--acl-font-mono); font-size:14px; letter-spacing:.1em;
-          text-transform:uppercase; color:rgba(22,21,15,.5); margin:24px 0 11px; }
+          text-transform:uppercase; color:rgba(22,21,15,.5); margin:36px 0 12px; }
         .acl-gs__rows{ display:flex; flex-direction:column; gap:9px; }
         .acl-gs__row{ display:flex; align-items:center; gap:14px; padding:11px 16px; border:3px solid var(--acl-ink);
           background:var(--acl-paper); box-shadow:4px 5px 0 rgba(22,21,15,.12);

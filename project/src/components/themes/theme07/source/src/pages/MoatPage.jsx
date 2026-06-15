@@ -187,7 +187,7 @@ const BAR_FILL = [
 
 export default function MoatPage(props) {
   const p = { ...defaultProps, ...props };
-  const copy = { eyebrow: p.eyebrow !== undefined ? p.eyebrow : COPY.eyebrow, marker: p.marker !== undefined ? p.marker : COPY.marker, segment: p.segment !== undefined ? p.segment : COPY.segment, title: p.title !== undefined ? p.title : COPY.title, titleTail: p.titleTail !== undefined ? p.titleTail : COPY.titleTail, lead: p.lead !== undefined ? p.lead : COPY.lead, closing: p.closing !== undefined ? p.closing : COPY.closing, bandTitle: p.bandTitle !== undefined ? p.bandTitle : COPY.bandTitle, bandLeft: p.bandLeft !== undefined ? p.bandLeft : COPY.bandLeft, bandRight: p.bandRight !== undefined ? p.bandRight : COPY.bandRight, bandCore: p.bandCore !== undefined ? p.bandCore : COPY.bandCore, bandCoreSub: p.bandCoreSub !== undefined ? p.bandCoreSub : COPY.bandCoreSub, metersTitle: p.metersTitle !== undefined ? p.metersTitle : COPY.metersTitle, indicators: p.indicators !== undefined ? p.indicators : COPY.indicators };
+  const copy = { ...COPY, ...Object.fromEntries(Object.entries(p).filter(([, v]) => v !== undefined)) };
   ensureFonts();
   injectScopedStyle('aic-mt', CSS);
   const vars = themeVars(p.accentColor);

@@ -44,11 +44,11 @@ export default function Page60OtherRegions(props) {
           padding:7px 13px; background:var(--acl-ink); color:var(--acl-yellow); transform:rotate(-2deg);  white-space:nowrap;}
 
         .acl-gd__head{ display:flex; align-items:flex-end; gap:22px; margin-top:10px; flex:0 0 auto; }
-        .acl-gd__h{ font-weight:900; font-size:66px; line-height:.92; margin:0; }
-        .acl-gd__place{ font-family:var(--acl-font-mono); font-weight:700; font-size:19px;
-          padding:8px 14px; background:var(--acl-blue); color:var(--acl-ink); transform:rotate(-2deg);
-          box-shadow:3px 4px 0 rgba(22,21,15,.18); white-space:nowrap; }
-        .acl-gd__cap{ font-weight:700; font-size:22px; line-height:1.4; max-width:760px; margin:12px 0 0; }
+        .acl-gd__h{ font-weight:900; font-size:72px; line-height:.92; margin:0; }
+        .acl-gd__place{ display:inline-flex; align-self:flex-start; font-family:var(--acl-font-mono); font-weight:700; font-size:19px;
+          padding:8px 14px; background:var(--acl-blue); color:var(--acl-ink); transform:rotate(-1.5deg);
+          box-shadow:3px 4px 0 rgba(22,21,15,.18); white-space:nowrap; margin-top:14px; }
+        .acl-gd__cap{ font-weight:700; font-size:24px; line-height:1.58; max-width:760px; margin:14px 0 0; }
         .acl-gd__cap b{ background:var(--acl-blue); padding:0 .12em; box-decoration-break:clone;
           -webkit-box-decoration-break:clone; }
 
@@ -123,9 +123,9 @@ export default function Page60OtherRegions(props) {
 
       <div className="acl-gd__head">
         <h1 className="acl-gd__h">{headline}</h1>
-        <div className="acl-gd__place">{place}</div>
         {showDecor && <Doodle kind="spark" size={40} rotate={10} fill="var(--acl-yellow)" stroke="var(--acl-ink)" style={{ position: 'static', marginLeft: 'auto', alignSelf: 'center' }} />}
       </div>
+      <div className="acl-gd__place">{place}</div>
       <div className="acl-gd__cap" dangerouslySetInnerHTML={{ __html: caption }} />
 
       {/* ── scatter map ── */}

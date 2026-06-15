@@ -16,6 +16,7 @@
 
 import React from 'react';
 import { DeckImageSlot } from '../components/DeckImageSlot.jsx';
+import UnicornBackground, { UNICORN_BACKGROUND_CONTROL, createUnicornSceneControl } from '../../../unicorn-background.jsx';
 
 function SlideInset({
   idPrefix = 'inset',
@@ -23,15 +24,19 @@ function SlideInset({
   note = '从配置台到风控屏，每一次再平衡都留痕、可回溯、可复盘。',
   insetCaption = '配置控制台 · 实时',
   textPos = 'bottom-left', scrim = 58, showInset = true, showNote = true,
+  backgroundMode = 'unicorn', unicornScene = 'goey',
 }) {
   React.useEffect(() => { insInjectStyle(); }, []);
   const [ar, setAr] = React.useState(1.4);
   const sc = Math.max(0, Math.min(80, scrim)) / 100;
+  const useUnicorn = backgroundMode === 'unicorn';
 
   return (
     <div className={`ins-root ins-${textPos}`}>
       <div className="ins-hero">
-        <DeckImageSlot id={`${idPrefix}-hero`} fit="cover" radius={0} placeholder="HERO IMAGE" />
+        {useUnicorn
+          ? <UnicornBackground scene={unicornScene} accent="var(--ds-accent,#6f9bd8)" />
+          : <DeckImageSlot id={`${idPrefix}-hero`} fit="cover" radius={0} placeholder="HERO IMAGE" />}
       </div>
       <span className="ins-scrim" style={{
         '--s': sc,
@@ -90,8 +95,10 @@ function insInjectStyle() {
 
 SlideInset.META = {
   id: 'inset', title: '满版角嵌',
-  defaults: { textPos: 'bottom-left', scrim: 58, showInset: true, showNote: true },
+  defaults: { textPos: 'bottom-left', scrim: 58, showInset: true, showNote: true, backgroundMode: 'unicorn', unicornScene: 'goey' },
   controls: [
+    UNICORN_BACKGROUND_CONTROL,
+    createUnicornSceneControl('goey'),
     { key: 'textPos', type: 'radio', label: '文字位置', default: 'bottom-left',
       options: [
         { value: 'bottom-left', label: '左下' },

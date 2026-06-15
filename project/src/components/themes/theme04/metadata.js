@@ -123,48 +123,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "资本，正在",
-        "desc": "主标题关键词前的文字"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "重新分配",
-        "desc": "玻璃糖果胶囊里的关键词"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "年度封面 · ANNUAL COVER",
-        "desc": "标题上方的小标"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "text",
-        "default": "2024 全球 AI 大额融资 · 全景年鉴",
-        "desc": "标题下方副标题"
-      },
-      {
-        "key": "brand",
-        "label": "刊名(英)",
-        "type": "text",
-        "default": "AI CAPITAL",
-        "desc": "顶部英文刊名"
-      },
-      {
-        "key": "brandZh",
-        "label": "刊名(中)",
-        "type": "text",
-        "default": "资本观察 · 年度特刊",
-        "desc": "顶部中文刊名"
-      },
-      {
         "key": "stats",
         "label": "数据芯片",
         "type": "list",
@@ -340,76 +298,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "谁在",
-        "desc": "关键词前的文字"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "改写",
-        "desc": "玻璃糖果胶囊里的关键词"
-      },
-      {
-        "key": "titleTail",
-        "label": "标题后半",
-        "type": "text",
-        "default": "估值规则",
-        "desc": "关键词后另起一行的文字"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "封面故事 · COVER STORY",
-        "desc": "标题上方的小标"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "text",
-        "default": "头部玩家、资本流向与一年翻倍的独角兽流水线",
-        "desc": "标题下方副标题"
-      },
-      {
-        "key": "brand",
-        "label": "刊名(英)",
-        "type": "text",
-        "default": "AI CAPITAL",
-        "desc": "顶部英文刊名"
-      },
-      {
-        "key": "brandZh",
-        "label": "刊名(中)",
-        "type": "text",
-        "default": "资本观察 · 特别报告",
-        "desc": "顶部中文刊名"
-      },
-      {
-        "key": "issueNo",
-        "label": "期号前缀",
-        "type": "text",
-        "default": "NO.",
-        "desc": "期号徽标前缀"
-      },
-      {
-        "key": "issueVol",
-        "label": "期号",
-        "type": "text",
-        "default": "04",
-        "desc": "期号数字"
-      },
-      {
-        "key": "issueYr",
-        "label": "期号年份",
-        "type": "text",
-        "default": "2024 年刊",
-        "desc": "期号年份文字"
       },
       {
         "key": "items",
@@ -611,76 +499,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "大额时代",
-        "desc": "关键词前的文字"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "来了",
-        "desc": "玻璃糖果胶囊里的关键词"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "特别报告 · SPECIAL ISSUE",
-        "desc": "标题上方的小标"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "单笔过亿成为新常态 —— 一年里，钱以前所未有的速度涌入",
-        "desc": "标题下方副标题"
-      },
-      {
-        "key": "ghostText",
-        "label": "幽灵数字",
-        "type": "text",
-        "default": "04",
-        "desc": "背景巨型描边数字"
-      },
-      {
-        "key": "brand",
-        "label": "刊名(英)",
-        "type": "text",
-        "default": "AI CAPITAL",
-        "desc": "顶部英文刊名"
-      },
-      {
-        "key": "brandZh",
-        "label": "刊名(中)",
-        "type": "text",
-        "default": "资本观察 · 数据特辑",
-        "desc": "顶部中文刊名"
-      },
-      {
-        "key": "issueNo",
-        "label": "期号前缀",
-        "type": "text",
-        "default": "VOL.",
-        "desc": "期号徽标前缀"
-      },
-      {
-        "key": "issueVol",
-        "label": "期号",
-        "type": "text",
-        "default": "04",
-        "desc": "期号数字"
-      },
-      {
-        "key": "issueYr",
-        "label": "期号年份",
-        "type": "text",
-        "default": "2024 年度",
-        "desc": "期号年份文字"
-      },
-      {
         "key": "lines",
         "label": "导读条",
         "type": "list",
@@ -852,62 +670,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "AI 资本",
-        "desc": "标题第一行"
-      },
-      {
-        "key": "titleTail",
-        "label": "标题后半",
-        "type": "text",
-        "default": "全景图鉴",
-        "desc": "标题第二行"
-      },
-      {
-        "key": "eyebrow",
-        "label": "眉标",
-        "type": "text",
-        "default": "一图速览 · AT A GLANCE",
-        "desc": "标题上方的小标"
-      },
-      {
-        "key": "brand",
-        "label": "刊名(英)",
-        "type": "text",
-        "default": "AI CAPITAL",
-        "desc": "标题板英文刊名"
-      },
-      {
-        "key": "brandZh",
-        "label": "刊名(中)",
-        "type": "text",
-        "default": "资本观察",
-        "desc": "标题板中文刊名"
-      },
-      {
-        "key": "issueNo",
-        "label": "期号前缀",
-        "type": "text",
-        "default": "NO.",
-        "desc": "期号徽标前缀"
-      },
-      {
-        "key": "issueVol",
-        "label": "期号",
-        "type": "text",
-        "default": "04",
-        "desc": "期号数字"
-      },
-      {
-        "key": "issueYr",
-        "label": "期号年份",
-        "type": "text",
-        "default": "2024 年刊",
-        "desc": "期号年份文字"
       },
       {
         "key": "tiles",
@@ -1087,34 +849,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒 / 圆环等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "RESEARCH FRAMEWORK / 调研框架",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLine1",
-        "label": "标题首行",
-        "type": "text",
-        "default": "2024 美国大额融资 AI 公司",
-        "desc": "主标题第一行"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "调研报告",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "footnote",
-        "label": "脚注",
-        "type": "text",
-        "default": "横纵分析法 · 在空间维度与时间维度交叉透视同一组数据",
-        "desc": "底部脚注"
       },
       {
         "key": "items",
@@ -1649,20 +1383,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "lead",
-        "label": "导语",
-        "type": "textarea",
-        "default": "沿时间轴追踪同一指标的演化，回答趋势的走向、拐点与节奏是否可持续——这是「横纵分析法」的纵向维度。",
-        "desc": "海报卡下方导语"
-      },
-      {
-        "key": "indexKicker",
-        "label": "索引眉标",
-        "type": "text",
-        "default": "CONTENTS · 章节导航",
-        "desc": "右侧索引标题"
-      },
-      {
         "key": "chapters",
         "label": "章节",
         "type": "list",
@@ -1840,55 +1560,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "行业赛道 · 资金分布格局",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLine1",
-        "label": "标题首行",
-        "type": "text",
-        "default": "资本高度集中",
-        "desc": "标题第一行"
-      },
-      {
-        "key": "titleKeyword1",
-        "label": "关键词 1",
-        "type": "text",
-        "default": "通用大模型",
-        "desc": "高亮关键词(黄)"
-      },
-      {
-        "key": "titleLead2",
-        "label": "第三行前缀",
-        "type": "text",
-        "default": "占据",
-        "desc": "第三行关键词前文"
-      },
-      {
-        "key": "titleKeyword2",
-        "label": "关键词 2",
-        "type": "text",
-        "default": "近半壁江山",
-        "desc": "高亮关键词(绿)"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "按业务类型对 97 笔 ≥1 亿美元融资归类，统计各赛道吸纳资金占比。",
-        "desc": "标题下方说明"
-      },
-      {
-        "key": "mediaPlaceholder",
-        "label": "图片槽提示",
-        "type": "text",
-        "default": "拖入图片",
-        "desc": "图片槽占位文案"
       },
       {
         "key": "cards",
@@ -2121,48 +1792,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒 / 圆环等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "行业分布 · SECTOR SHARE",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "通用大模型",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "独占近半",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "97 笔大额融资按赛道归类，资金向「底座」高度倾斜——投资人押注 AGI 叙事。",
-        "desc": "标题下方说明"
-      },
-      {
-        "key": "centerUnit",
-        "label": "中心单位",
-        "type": "text",
-        "default": "亿美元",
-        "desc": "环形中心单位"
-      },
-      {
-        "key": "centerCap",
-        "label": "中心说明",
-        "type": "text",
-        "default": "总融资额",
-        "desc": "环形中心说明"
       },
       {
         "key": "segments",
@@ -3827,20 +3456,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "市场节奏 · 融资趋势透视",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "title",
-        "label": "标题",
-        "type": "text",
-        "default": "全年「前高后稳」，资金向头部加速集中",
-        "desc": "页面主标题"
-      },
-      {
         "key": "panels",
         "label": "图表面板",
         "type": "list",
@@ -4062,55 +3677,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "逐月节奏 · MONTHLY TREND",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "全年",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "双峰",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "titleTail",
-        "label": "标题后半",
-        "type": "text",
-        "default": "：5 月、8 月集中关账",
-        "desc": "关键词后文"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "细化到月度，多家头部公司集中关账推高 5 月（105）与 8 月（118）两次峰值，单位：亿美元。",
-        "desc": "标题下方说明"
-      },
-      {
-        "key": "avgLabel",
-        "label": "均线标签",
-        "type": "text",
-        "default": "月均 ≈",
-        "desc": "月均线文字前缀"
-      },
-      {
-        "key": "avgValue",
-        "label": "月均值",
-        "type": "text",
-        "default": "81",
-        "desc": "月均参考线数值"
       },
       {
         "key": "data",
@@ -5773,69 +5339,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "轮次结构 · ROUND STRUCTURE",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "越往后轮次，",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "单笔越大",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "titleTail",
-        "label": "标题后半",
-        "type": "text",
-        "default": "——头部「赢家通吃」",
-        "desc": "关键词后文"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "「D 轮及以后」与「未标明轮次」合计占比过半，平均单笔超 15 亿美元。",
-        "desc": "标题下方说明"
-      },
-      {
-        "key": "colStage",
-        "label": "列头·轮次",
-        "type": "text",
-        "default": "融资轮次",
-        "desc": "第一列表头"
-      },
-      {
-        "key": "colCount",
-        "label": "列头·笔数",
-        "type": "text",
-        "default": "事件笔数",
-        "desc": "第二列表头"
-      },
-      {
-        "key": "colAvg",
-        "label": "列头·均值",
-        "type": "text",
-        "default": "平均单笔 / 亿美元",
-        "desc": "第三列表头"
-      },
-      {
-        "key": "colBar",
-        "label": "列头·柱条",
-        "type": "text",
-        "default": "规模对比",
-        "desc": "柱条列表头"
-      },
-      {
         "key": "rows",
         "label": "数据行",
         "type": "list",
@@ -7088,48 +6591,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "MARKET SCALE · 资本大年",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "pre",
-        "label": "主数字前句",
-        "type": "text",
-        "default": "2024 全年 AI 初创吸纳风投",
-        "desc": "主数字上方引言"
-      },
-      {
-        "key": "mainValue",
-        "label": "主数字",
-        "type": "text",
-        "default": "970",
-        "desc": "巨型主数字"
-      },
-      {
-        "key": "mainUnit",
-        "label": "主数字单位",
-        "type": "text",
-        "default": "亿美元",
-        "desc": "单位后缀"
-      },
-      {
-        "key": "post",
-        "label": "主数字后句",
-        "type": "textarea",
-        "default": "创历史新高 · 平均单笔约 10 亿美元，市场对头部标的高度追捧",
-        "desc": "主数字下方说明"
-      },
-      {
-        "key": "caption",
-        "label": "底部说明",
-        "type": "textarea",
-        "default": "数据口径：2024 全年公开披露的 ≥1 亿美元融资事件 · 占美国 VC 近三分之一",
-        "desc": "数据口径说明"
-      },
-      {
         "key": "stats",
         "label": "支撑卡",
         "type": "list",
@@ -7148,7 +6609,7 @@ export const pages = [
           {
             "value": "≈10",
             "unit": "亿",
-            "label": "平均单笔融资金额",
+            "label": "平均指标",
             "color": "#FF9FE2"
           }
         ],
@@ -8604,34 +8065,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "头部玩家 · TOP 10 单笔融资排名",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "三大模型公司",
-        "desc": "标题关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "霸榜前三",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "text",
-        "default": "单位：亿美元 · 仅取各公司 2024 年最大单笔融资",
-        "desc": "标题下方说明"
-      },
-      {
         "key": "rows",
         "label": "排行条目",
         "type": "list",
@@ -8851,34 +8284,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "产业链分层 · 上 → 中 → 下游",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "越往",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "上游",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "titleTail",
-        "label": "标题后半",
-        "type": "text",
-        "default": "越确定，越往下游越有想象",
-        "desc": "关键词后文"
       },
       {
         "key": "layers",
@@ -9753,41 +9158,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "地理护城河 · 融资地区分布",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "旧金山湾区",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "独占六成",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "captionTotal",
-        "label": "中心总计",
-        "type": "text",
-        "default": "全年 970 亿美元",
-        "desc": "环形中心总计(非焦点态)"
-      },
-      {
-        "key": "captionSub",
-        "label": "中心注释",
-        "type": "text",
-        "default": "按公司总部所在地统计",
-        "desc": "环形中心注释(非焦点态)"
-      },
-      {
         "key": "regions",
         "label": "地区",
         "type": "list",
@@ -9995,41 +9365,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "地区分布 · GEO HUBS",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "资本与算力，",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "高度集聚",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "旧金山湾区独占六成以上，人才、资本、算力的虹吸效应进一步强化「地理护城河」。",
-        "desc": "标题下方说明"
-      },
-      {
-        "key": "mediaPlaceholder",
-        "label": "图片槽提示",
-        "type": "text",
-        "default": "拖入图片",
-        "desc": "图片槽占位文案"
       },
       {
         "key": "items",
@@ -10411,55 +9746,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "选题四象限 · 资本热度 × 商业兑现",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "从「谁融得多」升级为",
-        "desc": "标题关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "「谁能兑现」",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "axisColHigh",
-        "label": "横轴 · 高",
-        "type": "text",
-        "default": "商业兑现度 · 高",
-        "desc": "左列顶轴标"
-      },
-      {
-        "key": "axisColLow",
-        "label": "横轴 · 低",
-        "type": "text",
-        "default": "商业兑现度 · 低 / 待验证",
-        "desc": "右列顶轴标"
-      },
-      {
-        "key": "axisRowHigh",
-        "label": "纵轴 · 高",
-        "type": "text",
-        "default": "资本热度 · 高",
-        "desc": "上行左轴标"
-      },
-      {
-        "key": "axisRowLow",
-        "label": "纵轴 · 低",
-        "type": "text",
-        "default": "资本热度 · 低 / 中",
-        "desc": "下行左轴标"
-      },
-      {
         "key": "cells",
         "label": "象限",
         "type": "list",
@@ -10578,6 +9864,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "tech",
+        "def": "tech",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "copy",
         "label": "可见文案",
         "type": "list",
@@ -10670,6 +10002,8 @@ export const pages = [
         "min": 0,
         "max": 1,
         "step": 1,
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "media",
         "desc": "整屏 cover 背景图片槽(0=霓虹渐变底)"
       },
       {
@@ -10778,6 +10112,8 @@ export const pages = [
       "hlStyle": "glass",
       "hlTilt": 2,
       "mediaCount": 1,
+      "backgroundMode": "unicorn",
+      "unicornScene": "tech",
       "accentTone": "green",
       "lineCount": 4,
       "showMasthead": true,
@@ -10795,6 +10131,52 @@ export const pages = [
     "label": "图背章节页",
     "bgClass": "",
     "controls": [
+      {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "automations",
+        "def": "automations",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
       {
         "key": "copy",
         "label": "可见文案",
@@ -10838,6 +10220,8 @@ export const pages = [
         "min": 0,
         "max": 1,
         "step": 1,
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "media",
         "desc": "整屏背景图片槽(0=霓虹渐变底)"
       },
       {
@@ -10943,6 +10327,8 @@ export const pages = [
         "lead": "镜头拉近到一线——机房、团队、发布会与签约桌，看资本如何在真实场景里落地。"
       },
       "mediaCount": 1,
+      "backgroundMode": "unicorn",
+      "unicornScene": "automations",
       "partNumber": 4,
       "accentTone": "pink",
       "textAlign": "left",
@@ -11831,62 +11217,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "典型案例 · CASE STUDY",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "name",
-        "label": "公司名",
-        "type": "text",
-        "default": "Anthropic",
-        "desc": "案例公司名"
-      },
-      {
-        "key": "tagline",
-        "label": "标语",
-        "type": "text",
-        "default": "从追赶到反超 · 估值登顶",
-        "desc": "公司名下标语"
-      },
-      {
-        "key": "pill",
-        "label": "胶囊数据",
-        "type": "text",
-        "default": "估值 9650 亿美元 · 全球最高",
-        "desc": "糖果胶囊文案"
-      },
-      {
-        "key": "quote",
-        "label": "引言",
-        "type": "textarea",
-        "default": "通过 Constitutional AI 构建可解释、可控的系统，比单纯追求规模更符合长远利益。",
-        "desc": "人物引言"
-      },
-      {
-        "key": "quoteCite",
-        "label": "引言署名",
-        "type": "text",
-        "default": "— Dario Amodei，CEO",
-        "desc": "引言署名"
-      },
-      {
-        "key": "mediaPlaceholder1",
-        "label": "图槽 1 提示",
-        "type": "text",
-        "default": "公司 Logo",
-        "desc": "第 1 个图片槽占位文案"
-      },
-      {
-        "key": "mediaPlaceholder2",
-        "label": "图槽 2 提示",
-        "type": "text",
-        "default": "创始人 / 团队",
-        "desc": "第 2 个图片槽占位文案"
       },
       {
         "key": "milestones",
@@ -12891,6 +12221,52 @@ export const pages = [
     "bgClass": "",
     "controls": [
       {
+        "key": "backgroundMode",
+        "label": "背景替换",
+        "type": "segment",
+        "default": "unicorn",
+        "def": "unicorn",
+        "options": [
+          {
+            "value": "unicorn",
+            "label": "动态"
+          },
+          {
+            "value": "media",
+            "label": "上传"
+          }
+        ],
+        "desc": "动态 shader 或自定义背景媒体"
+      },
+      {
+        "key": "unicornScene",
+        "label": "动态场景",
+        "type": "segment",
+        "default": "moving",
+        "def": "moving",
+        "options": [
+          {
+            "value": "tech",
+            "label": "科技"
+          },
+          {
+            "value": "automations",
+            "label": "自动化"
+          },
+          {
+            "value": "moving",
+            "label": "流动"
+          },
+          {
+            "value": "goey",
+            "label": "黏球"
+          }
+        ],
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "unicorn",
+        "desc": "选择固定 Unicorn shader 场景"
+      },
+      {
         "key": "hlStyle",
         "label": "高亮样式",
         "type": "radio",
@@ -12933,6 +12309,8 @@ export const pages = [
         "min": 0,
         "max": 1,
         "step": 1,
+        "dependsOn": "backgroundMode",
+        "dependsOnValue": "media",
         "desc": "整屏 cover 背景图(0=渐变底)"
       },
       {
@@ -13002,55 +12380,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "典型案例 · 第三次创业",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "name",
-        "label": "主标题",
-        "type": "text",
-        "default": "xAI",
-        "desc": "巨型主标题"
-      },
-      {
-        "key": "taglineLead",
-        "label": "口号前半",
-        "type": "text",
-        "default": "马斯克的",
-        "desc": "口号关键词前文"
-      },
-      {
-        "key": "taglineKeyword",
-        "label": "口号关键词",
-        "type": "text",
-        "default": "第三次创业",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "taglineTail",
-        "label": "口号后半",
-        "type": "text",
-        "default": "",
-        "desc": "关键词后文"
-      },
-      {
-        "key": "body",
-        "label": "正文",
-        "type": "textarea",
-        "default": "背靠 X 平台海量实时社交数据，协同特斯拉自动驾驶团队——Grok 主打「幽默、实时、无审查」，从成立到跻身头部梯队仅用 18 个月。",
-        "desc": "正文段落"
-      },
-      {
-        "key": "mediaPlaceholder",
-        "label": "图片槽提示",
-        "type": "text",
-        "default": "拖入整屏背景图",
-        "desc": "背景图槽占位文案"
-      },
-      {
         "key": "stats",
         "label": "数据卡",
         "type": "list",
@@ -13078,6 +12407,8 @@ export const pages = [
       "hlStyle": "glass",
       "hlTilt": 2,
       "mediaCount": 1,
+      "backgroundMode": "unicorn",
+      "unicornScene": "moving",
       "textAlign": "left",
       "accentTone": "blue",
       "statCount": 3,
@@ -13438,48 +12769,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "典型案例 · 卖铲子的人",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "name",
-        "label": "主标题",
-        "type": "text",
-        "default": "CoreWeave",
-        "desc": "巨型公司名 / 主标题"
-      },
-      {
-        "key": "taglineLead",
-        "label": "口号前半",
-        "type": "text",
-        "default": "淘金热里",
-        "desc": "口号关键词前文"
-      },
-      {
-        "key": "taglineKeyword",
-        "label": "口号关键词",
-        "type": "text",
-        "default": "卖铲子",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "taglineTail",
-        "label": "口号后半",
-        "type": "text",
-        "default": "，也赚翻了",
-        "desc": "关键词后文"
-      },
-      {
-        "key": "body",
-        "label": "正文",
-        "type": "textarea",
-        "default": "从加密货币挖矿转型 AI 算力云，与 NVIDIA 锁定长期供应，手握数万张 H100/H200，成为 OpenAI、Stability AI 等公司的核心算力供应商——当所有模型公司都在抢 GPU，提前锁定算力的人反而成了稀缺标的。",
-        "desc": "正文段落"
       },
       {
         "key": "stats",
@@ -14435,27 +13724,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "投资展望 · 策略对比",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "退潮之后，谁能",
-        "desc": "标题关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "留在牌桌",
-        "desc": "高亮关键词"
-      },
-      {
         "key": "columns",
         "label": "对比列",
         "type": "list",
@@ -14850,27 +14118,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "风险研判 · 传导链条",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "盛宴仍在，但",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "风险在累积",
-        "desc": "高亮关键词"
       },
       {
         "key": "chains",
@@ -15820,34 +15067,6 @@ export const pages = [
         "desc": "星芒等点缀"
       },
       {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "投资展望 · 阶段性策略",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "titleLead",
-        "label": "标题前半",
-        "type": "text",
-        "default": "分三步走，",
-        "desc": "标题关键词前文"
-      },
-      {
-        "key": "titleKeyword",
-        "label": "标题关键词",
-        "type": "text",
-        "default": "穿越周期",
-        "desc": "高亮关键词"
-      },
-      {
-        "key": "sub",
-        "label": "副标题",
-        "type": "textarea",
-        "default": "不押注单点爆发，按时间窗口分阶段布局——用纪律穿越 AI 资本周期的起伏。",
-        "desc": "标题下方说明"
-      },
-      {
         "key": "steps",
         "label": "阶段",
         "type": "list",
@@ -16623,48 +15842,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "quoteLead",
-        "label": "引言前半",
-        "type": "text",
-        "default": "AI 融资盛宴仍在继续，但",
-        "desc": "关键词前文"
-      },
-      {
-        "key": "quoteKeyword",
-        "label": "引言关键词",
-        "type": "text",
-        "default": "音乐节奏正在变化",
-        "desc": "强调关键词"
-      },
-      {
-        "key": "quoteTail",
-        "label": "引言后半",
-        "type": "text",
-        "default": "。",
-        "desc": "关键词后文"
-      },
-      {
-        "key": "sub",
-        "label": "支撑副句",
-        "type": "textarea",
-        "default": "资本的下一阶段，将从「赌叙事」转向「看兑现」——能把技术变成可持续收入的公司，才能在退潮后留在牌桌上。",
-        "desc": "引言下方说明"
-      },
-      {
-        "key": "attribution",
-        "label": "署名",
-        "type": "text",
-        "default": "—— 2024 美国大额融资 AI 调研 · 结论",
-        "desc": "底部署名"
-      },
-      {
-        "key": "mediaPlaceholder",
-        "label": "图片槽提示",
-        "type": "text",
-        "default": "拖入配图",
-        "desc": "配图槽占位文案"
       }
     ],
     "defaultProps": {
@@ -16733,20 +15910,6 @@ export const pages = [
         "type": "toggle",
         "default": true,
         "desc": "星芒等点缀"
-      },
-      {
-        "key": "kicker",
-        "label": "眉标",
-        "type": "text",
-        "default": "CONCLUSION · 核心结论",
-        "desc": "顶部 kicker"
-      },
-      {
-        "key": "footnote",
-        "label": "脚注",
-        "type": "text",
-        "default": "音乐节奏正在变化 · 资本从「赌叙事」走向「看兑现」",
-        "desc": "底部脚注"
       },
       {
         "key": "lines",
