@@ -13,9 +13,14 @@ const TEMPLATE = path.join(ROOT, 'assets/template-swiss.html');
 const OUT_DIR = path.join(ROOT, 'output/editable-pptx-validation');
 const CHROME_PATH = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const EXPECTED_SLIDES = 6;
+const THEME_FILTER_EXPECTED_SLIDES = 2;
 const EDITED_TEXT = 'JAD-64 editable text sentinel';
-const IMAGE_SENTINEL = 'iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAIAAAAmkwkpAAAAI0lEQVR4nGNkYPjPwMDAwMDAwMDAwMDAwMDAwMDAwMDAAAA+MgECr0h9cQAAAABJRU5ErkJggg==';
-const VALIDATION_IMAGE = `data:image/png;base64,${IMAGE_SENTINEL}`;
+const INITIAL_IMAGE_BYTES = Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="32" height="24"><rect width="32" height="24" fill="#e11d48"/><text x="4" y="16" font-size="8" fill="#ffffff">old</text></svg>');
+const REPLACEMENT_IMAGE_BYTES = Buffer.from('<svg xmlns="http://www.w3.org/2000/svg" width="32" height="24"><rect width="32" height="24" fill="#2563eb"/><text x="4" y="16" font-size="8" fill="#ffffff">new</text></svg>');
+const INITIAL_IMAGE_HASH = hashBuffer(INITIAL_IMAGE_BYTES);
+const REPLACEMENT_IMAGE_HASH = hashBuffer(REPLACEMENT_IMAGE_BYTES);
+const INITIAL_IMAGE = `data:image/svg+xml;base64,${INITIAL_IMAGE_BYTES.toString('base64')}`;
+const REPLACEMENT_IMAGE = `data:image/svg+xml;base64,${REPLACEMENT_IMAGE_BYTES.toString('base64')}`;
 
 const args = new Set(process.argv.slice(2));
 const legacyRed = args.has('--legacy-red');
@@ -83,8 +88,11 @@ async function runEditableExportValidation() {
   const { url, close } = await renderValidationDeck();
   const pptxFile = path.join(OUT_DIR, 'editable-export.pptx');
   const reportFile = path.join(OUT_DIR, 'editable-export-report.json');
+  const filteredPptxFile = path.join(OUT_DIR, 'editable-theme-filter-export.pptx');
+  const filteredReportFile = path.join(OUT_DIR, 'editable-theme-filter-report.json');
   const browser = await chromium.launch({ headless: true, executablePath: CHROME_PATH });
   let page;
+  let mutation = null;
   try {
     const context = await browser.newContext({
       viewport: { width: 1920, height: 1080 },
@@ -93,7 +101,10 @@ async function runEditableExportValidation() {
     page.setDefaultTimeout(45000);
     await page.goto(`${url}?editable_validation=${Date.now()}`, { waitUntil: 'domcontentloaded' });
     await page.waitForSelector('#deck > .slide.active, #deck > .slide[data-deck-active]');
-    const mutation = await applyUserEdits(page);
+    const visibleGuard = await runThemeFilterGuard(page, filteredPptxFile, filteredReportFile);
+    if (!visibleGuard.passed) staticFailures.push(visibleGuard.message);
+
+    mutation = await applyUserEdits(page);
     if (!mutation.textEdited) staticFailures.push('Validation could not simulate a user text edit.');
     if (!mutation.imageEdited) staticFailures.push('Validation could not simulate a user image slot edit.');
 
@@ -102,6 +113,7 @@ async function runEditableExportValidation() {
       outFile: pptxFile,
       reportFile,
       title: 'JAD-64 Editable Export Validation',
+      includeAllThemePacks: true,
     });
     if (result.slideCount !== EXPECTED_SLIDES) {
       staticFailures.push(`Editable exporter returned ${result.slideCount} slide(s), expected ${EXPECTED_SLIDES}.`);
@@ -113,6 +125,7 @@ async function runEditableExportValidation() {
   }
 
   const pptx = inspectPptx(pptxFile);
+  const filteredPptx = inspectPptx(filteredPptxFile);
   const report = existsSync(reportFile) ? JSON.parse(readFileSync(reportFile, 'utf8')) : null;
   const failures = [...staticFailures];
   if (pptx.slideCount !== EXPECTED_SLIDES) failures.push(`PPTX has ${pptx.slideCount} slide(s), expected ${EXPECTED_SLIDES}.`);
@@ -120,14 +133,22 @@ async function runEditableExportValidation() {
   if (!pptx.allText.includes(EDITED_TEXT)) failures.push('User-edited text sentinel is missing from PPTX text nodes.');
   if (pptx.shapeCount <= 0) failures.push('PPTX slide XML has no shape objects.');
   if (pptx.pictureCount <= 0) failures.push('PPTX slide XML has no image objects.');
+  if (!pptx.mediaHashes.includes(REPLACEMENT_IMAGE_HASH)) failures.push('Replacement image hash is missing from ppt/media/*.');
+  if (REPLACEMENT_IMAGE_HASH === INITIAL_IMAGE_HASH) failures.push('Replacement image hash unexpectedly equals the initial image hash.');
+  if (!mutation?.imageSlideNumber) failures.push('Validation did not record which slide received the replacement image.');
+  else if (!pptx.slides[mutation.imageSlideNumber - 1]?.pictureMediaHashes.includes(REPLACEMENT_IMAGE_HASH)) {
+    failures.push(`Replacement image is not referenced by target slide ${mutation.imageSlideNumber}.`);
+  }
   if (pptx.fullSlideImageOnlySlides.length) failures.push(`PPTX still has full-slide-image-only pages: ${pptx.fullSlideImageOnlySlides.join(', ')}.`);
   if (pptx.uniqueSlideHashes !== EXPECTED_SLIDES) failures.push('Slide XML content hashes repeat; page switching may have failed.');
+  if (filteredPptx.slideCount !== THEME_FILTER_EXPECTED_SLIDES) failures.push(`Default export ignored current theme filter: got ${filteredPptx.slideCount} slide(s), expected ${THEME_FILTER_EXPECTED_SLIDES}.`);
   if (!report?.warnings || !Array.isArray(report.warnings)) failures.push('Editable exporter did not write a warnings report.');
 
   const result = {
     mode: 'editable-export',
     passed: failures.length === 0,
     pptx: summarizeInspection(pptx),
+    themeFilterGuard: summarizeInspection(filteredPptx),
     report: report ? {
       slideCount: report.slideCount,
       textObjects: report.textObjects,
@@ -192,7 +213,7 @@ async function renderValidationDeck() {
 function createValidationDeckSource() {
   return `import { slide } from '../../src/options.jsx';
 
-const img = '${VALIDATION_IMAGE}';
+const initialImg = '${INITIAL_IMAGE}';
 
 export default {
   title: 'JAD-64 Editable Export Validation',
@@ -205,14 +226,14 @@ export default {
     slide('theme01_page008', {
       title: 'Theme01 Image Slot Baseline',
       imageSlotCount: 1,
-      images: [img],
+      images: [initialImg],
       caption: 'Theme01 image object baseline',
     }),
     slide('theme02_page001', {
       title: 'Theme02 Editable Cover',
       titleEm: 'Text object baseline',
       imageCount: 1,
-      images: [img],
+      images: [initialImg],
     }),
     slide('theme02_page006', {
       title: 'Theme02 Shape Baseline',
@@ -221,16 +242,38 @@ export default {
     slide('theme03_page001', {
       title: 'Theme03 Editable Cover',
       imageCount: 1,
-      images: [{ src: img, kind: 'image' }],
+      images: [{ src: initialImg, kind: 'image' }],
     }),
     slide('theme03_page005', {
       title: 'Theme03 Image Baseline',
       imageCount: 1,
-      images: [{ src: img, kind: 'image' }],
+      images: [{ src: initialImg, kind: 'image' }],
     }),
   ],
 };
 `;
+}
+
+async function runThemeFilterGuard(page, outFile, reportFile) {
+  const mod = await import(pathToFileURL(path.join(ROOT, 'src/export-pptx/editable.mjs')));
+  await page.evaluate(async () => {
+    window.__setActiveThemePack?.('theme02', { navigate: true });
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
+  const visibleCount = await page.evaluate(() => (window.__getVisibleSlides?.() || []).length);
+  const result = await mod.exportEditablePptxFromPage(page, {
+    outFile,
+    reportFile,
+    title: 'JAD-64 Theme Filter Guard',
+  });
+  await page.evaluate(async () => {
+    window.__setActiveThemePack?.('', { navigate: true });
+    await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+  });
+  return {
+    passed: visibleCount === THEME_FILTER_EXPECTED_SLIDES && result.slideCount === visibleCount,
+    message: `Default export should preserve theme-filtered visible slides: visible=${visibleCount}, exported=${result.slideCount}.`,
+  };
 }
 
 async function applyUserEdits(page) {
@@ -274,10 +317,11 @@ async function applyUserEdits(page) {
       window.__initEditableText?.(slide);
       window.go?.(targetIndex, { animate: false, force: true });
       result.imageEdited = !!slide.querySelector('img');
+      result.imageSlideNumber = targetIndex + 1;
       window.go?.(0, { animate: false, force: true });
     }
     return result;
-  }, { text: EDITED_TEXT, image: VALIDATION_IMAGE });
+  }, { text: EDITED_TEXT, image: REPLACEMENT_IMAGE });
 }
 
 function inspectPptx(file) {
@@ -288,9 +332,17 @@ function inspectPptx(file) {
   const slideEntries = entries
     .filter(entry => /^ppt\/slides\/slide\d+\.xml$/.test(entry))
     .sort((a, b) => Number(a.match(/slide(\d+)\.xml/)?.[1] || 0) - Number(b.match(/slide(\d+)\.xml/)?.[1] || 0));
+  const mediaEntries = entries.filter(entry => /^ppt\/media\/[^/]+$/.test(entry)).sort();
+  const media = mediaEntries.map(entry => {
+    const bytes = execFileSync('unzip', ['-p', file, entry], { encoding: 'buffer', maxBuffer: 20 * 1024 * 1024 });
+    return { entry, hash: hashBuffer(bytes), size: bytes.length };
+  });
+  const mediaByEntry = new Map(media.map(item => [item.entry, item]));
   const slides = slideEntries.map((entry, index) => {
     const xml = execFileSync('unzip', ['-p', file, entry], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 });
-    return inspectSlideXml(xml, index + 1);
+    const relsEntry = `ppt/slides/_rels/slide${index + 1}.xml.rels`;
+    const relsXml = entries.includes(relsEntry) ? execFileSync('unzip', ['-p', file, relsEntry], { encoding: 'utf8', maxBuffer: 20 * 1024 * 1024 }) : '';
+    return inspectSlideXml(xml, index + 1, relsXml, mediaByEntry);
   });
   const allText = slides.flatMap(slide => slide.text).join('\n');
   const hashes = new Set(slides.map(slide => slide.hash));
@@ -302,30 +354,49 @@ function inspectPptx(file) {
     textCount: slides.reduce((sum, slide) => sum + slide.text.length, 0),
     shapeCount: slides.reduce((sum, slide) => sum + slide.shapeCount, 0),
     pictureCount: slides.reduce((sum, slide) => sum + slide.pictureCount, 0),
+    media,
+    mediaHashes: media.map(item => item.hash),
     fullSlideImageOnlySlides: slides.filter(slide => slide.fullSlideImageOnly).map(slide => slide.index),
     uniqueSlideHashes: hashes.size,
   };
 }
 
-function inspectSlideXml(xml, index) {
+function inspectSlideXml(xml, index, relsXml, mediaByEntry) {
   const text = [...xml.matchAll(/<a:t>([\s\S]*?)<\/a:t>/g)].map(match => decodeXml(match[1]));
   const shapeCount = (xml.match(/<p:sp\b/g) || []).length;
   const pictureCount = (xml.match(/<p:pic\b/g) || []).length;
   const pictures = [...xml.matchAll(/<p:pic\b[\s\S]*?<\/p:pic>/g)].map(match => {
     const ext = match[0].match(/<a:ext[^>]*\bcx="(\d+)"[^>]*\bcy="(\d+)"/);
+    const embed = match[0].match(/r:embed="([^"]+)"/);
     const cx = Number(ext?.[1] || 0);
     const cy = Number(ext?.[2] || 0);
-    return { cx, cy, nearFullSlide: cx >= 0.9 * 16 * 914400 && cy >= 0.9 * 9 * 914400 };
+    return { cx, cy, rId: embed?.[1] || '', nearFullSlide: cx >= 0.9 * 16 * 914400 && cy >= 0.9 * 9 * 914400 };
   });
+  const relTargets = parseSlideRelationships(relsXml);
+  const pictureMediaHashes = pictures
+    .map(picture => relTargets.get(picture.rId))
+    .filter(Boolean)
+    .map(target => mediaByEntry.get(target)?.hash)
+    .filter(Boolean);
   return {
     index,
     text,
     shapeCount,
     pictureCount,
     pictures,
+    pictureMediaHashes,
     fullSlideImageOnly: text.length === 0 && shapeCount <= 1 && pictures.length === 1 && pictures[0].nearFullSlide,
     hash: createHash('sha256').update(xml.replace(/id="\d+"/g, 'id=""')).digest('hex'),
   };
+}
+
+function parseSlideRelationships(xml) {
+  const out = new Map();
+  for (const match of xml.matchAll(/<Relationship\b[^>]*\bId="([^"]+)"[^>]*\bTarget="([^"]+)"/g)) {
+    const target = match[2].replace(/^\.\.\//, 'ppt/');
+    out.set(match[1], target);
+  }
+  return out;
 }
 
 function summarizeInspection(pptx) {
@@ -335,9 +406,14 @@ function summarizeInspection(pptx) {
     textCount: pptx.textCount,
     shapeCount: pptx.shapeCount,
     pictureCount: pptx.pictureCount,
+    mediaCount: pptx.media.length,
     fullSlideImageOnlySlides: pptx.fullSlideImageOnlySlides,
     uniqueSlideHashes: pptx.uniqueSlideHashes,
   };
+}
+
+function hashBuffer(bytes) {
+  return createHash('sha256').update(bytes).digest('hex');
 }
 
 function decodeXml(value) {

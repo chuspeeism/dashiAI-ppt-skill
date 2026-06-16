@@ -14,7 +14,7 @@ export async function exportEditablePptxFromPage(page, options = {}) {
   const outFile = path.resolve(options.outFile || 'editable-export.pptx');
   const reportFile = options.reportFile ? path.resolve(options.reportFile) : null;
   const title = options.title || 'Editable Deck Export';
-  const deck = await collectEditableDeck(page);
+  const deck = await collectEditableDeck(page, options);
 
   const pptx = new PptxGenJS();
   pptx.defineLayout({ name: 'DASHI_WIDE', width: PPT_W, height: PPT_H });
@@ -125,43 +125,56 @@ function addRect(slide, shape) {
   });
 }
 
-async function collectEditableDeck(page) {
-  await page.evaluate(async () => {
-    window.__setActiveThemePack?.('', { navigate: false });
+async function collectEditableDeck(page, options = {}) {
+  await page.evaluate(async ({ includeAllThemePacks }) => {
+    window.__editablePptxRestoreState = {
+      locked: window.__deckExportLocked,
+      themePack: document.documentElement.dataset.themePack || '',
+    };
+    if (includeAllThemePacks) window.__setActiveThemePack?.('', { navigate: false });
     window.__deckExportLocked = true;
     window.__flushEditableTextState?.();
     window.__syncDeckViewModelFromDom?.();
     window.__setEditableTextMode?.(false);
     window.__layoutDeck?.();
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-  });
+  }, { includeAllThemePacks: options.includeAllThemePacks === true });
 
-  const count = await page.evaluate(() => {
-    const slides = window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')];
-    return slides.length;
-  });
-
-  await installBrowserCollector(page);
-  const slides = [];
-  const warnings = [];
-  for (let i = 0; i < count; i += 1) {
-    await page.evaluate(async index => {
-      window.go?.(index, { animate: false, force: true });
+  try {
+    const count = await page.evaluate(() => {
       const slides = window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')];
-      window.__ensureRuntimeSlideRendered?.(slides[index]);
-      window.__restoreEffectIframes?.(slides[index]);
+      return slides.length;
+    });
+
+    await installBrowserCollector(page);
+    const slides = [];
+    const warnings = [];
+    for (let i = 0; i < count; i += 1) {
+      await page.evaluate(async index => {
+        window.go?.(index, { animate: false, force: true });
+        const slides = window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')];
+        window.__ensureRuntimeSlideRendered?.(slides[index]);
+        window.__restoreEffectIframes?.(slides[index]);
+        window.__layoutDeck?.();
+        await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+      }, i);
+      slides.push(await page.evaluate(index => window.__collectEditablePptxSlide(index), i + 1));
+    }
+
+    return { slides, warnings };
+  } finally {
+    await page.evaluate(async () => {
+      const restore = window.__editablePptxRestoreState || {};
+      if ((document.documentElement.dataset.themePack || '') !== (restore.themePack || '')) {
+        window.__setActiveThemePack?.(restore.themePack || '', { navigate: false });
+      }
+      window.__deckExportLocked = Boolean(restore.locked);
+      window.__setEditableTextMode?.(window.__canEditDeck?.());
+      delete window.__editablePptxRestoreState;
       window.__layoutDeck?.();
       await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
-    }, i);
-    slides.push(await page.evaluate(index => window.__collectEditablePptxSlide(index), i + 1));
+    }).catch(() => {});
   }
-
-  await page.evaluate(() => {
-    window.__deckExportLocked = false;
-    window.__setEditableTextMode?.(window.__canEditDeck?.());
-  });
-
-  return { slides, warnings };
 }
 
 async function installBrowserCollector(page) {
