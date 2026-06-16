@@ -599,6 +599,15 @@ function exitPresentMode(){
 }
 window.__exitPresentMode = exitPresentMode;
 
+document.addEventListener('keydown', event => {
+  if(event.key !== 'Escape' || !isPresentMode()) return;
+  if(document.fullscreenElement){
+    document.exitFullscreen?.().catch(error => console.warn('[present fullscreen escape]', error));
+    return;
+  }
+  exitPresentMode();
+}, true);
+
 document.addEventListener('fullscreenchange', () => {
   if(document.fullscreenElement){
     if(!isPresentMode()) setDeckMode('present');
@@ -1134,7 +1143,7 @@ function commitSlideIndex(nextIndex, opts={}){
   writeStoredSlideIndex(idx);
   dispatchEvent(new CustomEvent('swiss-slide-change', {detail:{index:idx, slide:el}}));
   if(isEditMode() && overviewGrid){
-    if(opts.scrollRail !== false) syncRailActiveState(true);
+    syncRailActiveState(opts.scrollRail !== false);
     requestOverviewThumbRefresh(true);
   }
   preloadAdjacentSlides(idx);
@@ -1709,9 +1718,12 @@ function fitOverviewThumb(wrap, sourceSize=getOverviewSourceSize()){
     if(!clone) return;
     const width = Number(clone.dataset.overviewSourceWidth || 0) || sourceSize.width;
     const height = Number(clone.dataset.overviewSourceHeight || 0) || sourceSize.height;
-    const targetWidth = OVERVIEW_CARD_WIDTH;
-    const targetHeight = OVERVIEW_CARD_WIDTH * OVERVIEW_ASPECT_H / OVERVIEW_ASPECT_W;
-    const fitSignature = `${width}x${height}:${targetWidth}x${targetHeight}`;
+    const rect = wrap.getBoundingClientRect();
+    const targetWidth = rect.width || wrap.clientWidth || OVERVIEW_CARD_WIDTH;
+    const targetHeight = rect.height || wrap.clientHeight || (targetWidth * OVERVIEW_ASPECT_H / OVERVIEW_ASPECT_W);
+    const roundedTargetWidth = Math.round(targetWidth * 100) / 100;
+    const roundedTargetHeight = Math.round(targetHeight * 100) / 100;
+    const fitSignature = `${width}x${height}:${roundedTargetWidth}x${roundedTargetHeight}`;
     if(clone.dataset.overviewFitSignature === fitSignature) return;
     wrap.style.aspectRatio = `${OVERVIEW_ASPECT_W} / ${OVERVIEW_ASPECT_H}`;
     clone.style.width = `${width}px`;
@@ -2329,6 +2341,7 @@ function scheduleOverviewDeckCommit(grid, previousActiveSlide, preferredIndex, d
     const mutationEndAt = performance.now();
     dispatchEvent(new CustomEvent('swiss-slide-reorder', {detail:{from:detail.from, to:detail.to, index:idx}}));
     dispatchEvent(new CustomEvent('swiss-slide-catalog-change', {detail:{...detail, skipOverviewRebuild:true}}));
+    scrollOverviewToCurrent();
     dropMark.deckCommittedAt = performance.now();
     dropMark.deckCommitDurationMs = dropMark.deckCommittedAt - commitStartAt;
     dropMark.deckAppendDurationMs = appendEndAt - commitStartAt;
@@ -2570,6 +2583,7 @@ function buildOverview(fromRects=null, fromThumbs=null){
       dropMark.queueAfterDrop = overviewThumbQueue.length;
       overviewPerfMarks.drops.push(dropMark);
       scheduleOverviewDeckCommit(grid, previousActiveSlide, preferredIndex, {type:'reorder', from:overviewDragFrom, to:targetIndex}, dropMark);
+      scrollOverviewToCurrent();
     }
     overviewDragFrom=null;
     overviewDidDrag=false;
