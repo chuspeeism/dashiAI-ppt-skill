@@ -77,7 +77,7 @@
   .slide-rail-resize::after{content:"";position:absolute;right:2px;top:0;width:1px;height:100%;background:transparent;transition:background .16s}
   .slide-rail-resize:hover::after,.slide-rail-resize:focus-visible::after,body.is-rail-resizing .slide-rail-resize::after{background:var(--pp-blue)}
   .slide-rail-resize:focus-visible{outline:2px solid var(--pp-blue);outline-offset:-3px}
-  #slide-rail-list{flex:1;overflow-y:auto;overflow-x:hidden;padding:12px 12px 18px;scrollbar-width:thin;scrollbar-color:var(--pp-rail) transparent}
+  #slide-rail-list{--rail-pad-x:12px;--rail-scrollbar-w:0px;flex:1;overflow-y:auto;overflow-x:hidden;padding:12px max(2px,calc(var(--rail-pad-x) - var(--rail-scrollbar-w))) 18px var(--rail-pad-x);scrollbar-gutter:stable;scrollbar-width:thin;scrollbar-color:var(--pp-rail) transparent}
   #slide-rail-list::-webkit-scrollbar{width:8px}
   #slide-rail-list::-webkit-scrollbar-track{background:transparent}
   #slide-rail-list::-webkit-scrollbar-thumb{background:var(--pp-rail);border-radius:999px;border:2px solid transparent;background-clip:content-box}
@@ -1187,6 +1187,7 @@ function requestSlideRailResizeLayout(){
   if(slideRailResizeFrame !== null) return;
   slideRailResizeFrame = requestAnimationFrame(() => {
     slideRailResizeFrame = null;
+    syncSlideRailScrollbarPadding();
     layoutDeck();
     if(isEditMode() && overviewGrid){
       const range = getOverviewThumbRange(overviewGrid, {includeNear:true});
@@ -1199,6 +1200,12 @@ function setSlideRailWidth(value){
   document.documentElement.style.setProperty('--slide-rail-w', `${clampSlideRailWidth(value)}px`);
   requestSlideRailResizeLayout();
 }
+function syncSlideRailScrollbarPadding(){
+  if(!slideRailList) return;
+  const scrollbarW = Math.max(0, slideRailList.offsetWidth - slideRailList.clientWidth);
+  slideRailList.style.setProperty('--rail-scrollbar-w', `${scrollbarW}px`);
+}
+window.__syncSlideRailScrollbarPadding = syncSlideRailScrollbarPadding;
 function endSlideRailResize(event){
   if(slideRailResizePointerId === null || event.pointerId !== slideRailResizePointerId) return;
   slideRailResizePointerId = null;
@@ -1539,7 +1546,7 @@ function commitSlideIndex(nextIndex, opts={}){
   writeStoredSlideIndex(idx);
   dispatchEvent(new CustomEvent('swiss-slide-change', {detail:{index:idx, slide:el}}));
   if(isEditMode() && overviewGrid){
-    syncRailActiveState(opts.scrollRail !== false);
+    syncRailActiveState(opts.scrollRail !== false, {refreshThumbs: opts.refreshRailThumbs !== false});
   }
   preloadAdjacentSlides(idx, isEditMode() ? {delay: 520} : {});
   requestOverviewClosedPrewarm();
@@ -1557,7 +1564,7 @@ function releaseDeckNavigationLock(){
   if(!pendingNavigationDirection) return;
   const direction = pendingNavigationDirection;
   pendingNavigationDirection=0;
-  if(isEditMode()) go(idx + direction, {scrollRail:false});
+  if(isEditMode()) go(idx + direction, {refreshRailThumbs:false});
 }
 window.__getDeckNavigationState = () => ({
   locked: lock,
@@ -1791,6 +1798,8 @@ let overviewThumbQueueHandle=null;
 let overviewThumbRunId=0;
 let overviewThumbPauseUntil=0;
 let overviewScrollQueued=false;
+let overviewProgrammaticScrollUntil=0;
+let overviewProgrammaticThumbRefreshNeeded=false;
 let overviewThumbRefreshQueued=false;
 let overviewThumbRefreshTimer=null;
 let overviewDeferredThumbTimers=new Set();
@@ -2563,7 +2572,7 @@ function scrollOverviewToCurrent(){
     const activeSlide = slides[idx];
     const catalogIndex = getCatalogSlides().indexOf(activeSlide);
     const card = catalogIndex >= 0 ? ov.querySelector(`[data-overview-card="true"][data-index="${catalogIndex}"]`) : null;
-    card?.scrollIntoView({block:'center', inline:'nearest'});
+    scrollRailCardIntoView(card, {queueThumbs:false});
     const range = getOverviewThumbRange(overviewGrid, {includeNear:true});
     fitOverviewThumbnails(range.cards);
     observeOverviewThumbs(overviewGrid);
@@ -2583,7 +2592,11 @@ function syncRailActiveState(scroll=false, opts={}){
     const railRect = ov.getBoundingClientRect();
     const cardRect = card.getBoundingClientRect();
     if(!(cardRect.top >= railRect.top + 8 && cardRect.bottom <= railRect.bottom - 8)){
-      card?.scrollIntoView({block:'center', inline:'nearest'});
+      scrollRailCardIntoView(card, {queueThumbs: opts.refreshThumbs === false});
+    }else if(opts.refreshThumbs === false && overviewProgrammaticThumbRefreshNeeded){
+      const wrap = card.querySelector('[data-overview-thumb="true"]');
+      if(wrap?.dataset.overviewRendered !== 'true') requestProgrammaticRailThumbRefresh();
+      else overviewProgrammaticThumbRefreshNeeded=false;
     }
     if(opts.refreshThumbs !== false){
       const range = getOverviewThumbRange(overviewGrid, {includeNear:true});
@@ -2594,6 +2607,20 @@ function syncRailActiveState(scroll=false, opts={}){
   });
 }
 window.__syncRailActiveState = syncRailActiveState;
+
+function scrollRailCardIntoView(card, opts={}){
+  if(!card) return;
+  overviewProgrammaticScrollUntil = performance.now() + 500;
+  card.scrollIntoView({block:'center', inline:'nearest'});
+  if(opts.queueThumbs !== false){
+    overviewProgrammaticThumbRefreshNeeded=true;
+    requestProgrammaticRailThumbRefresh();
+  }
+}
+
+function requestProgrammaticRailThumbRefresh(){
+  requestOverviewThumbRefresh(true, {priority:true});
+}
 
 function cloneOverviewThumb(wrap){
   if(wrap?.dataset?.overviewRendered === 'true'){
@@ -2748,7 +2775,7 @@ function scheduleOverviewDeckCommit(grid, previousActiveSlide, preferredIndex, d
     const mutationEndAt = performance.now();
     dispatchEvent(new CustomEvent('swiss-slide-reorder', {detail:{from:detail.from, to:detail.to, index:idx}}));
     dispatchEvent(new CustomEvent('swiss-slide-catalog-change', {detail:{...detail, skipOverviewRebuild:true}}));
-    scrollOverviewToCurrent();
+    syncRailActiveState(true, {refreshThumbs:false});
     dropMark.deckCommittedAt = performance.now();
     dropMark.deckCommitDurationMs = dropMark.deckCommittedAt - commitStartAt;
     dropMark.deckAppendDurationMs = appendEndAt - commitStartAt;
@@ -3010,6 +3037,7 @@ function buildOverview(fromRects=null, fromThumbs=null){
 
 function refreshRailCatalog(){
   const startAt = performance.now();
+  syncSlideRailScrollbarPadding();
   cancelOverviewThumbQueue();
   const signature = getOverviewStructureSignature();
   if(!overviewGrid || !overviewGrid.isConnected || overviewBuiltSignature !== signature){
@@ -3019,7 +3047,6 @@ function refreshRailCatalog(){
     refreshOverviewCards(overviewGrid);
     updateOverviewProgress();
   }
-  scrollOverviewToCurrent();
   requestOverviewThumbRefresh(false, {priority:true});
   recordOverviewStage('refresh-rail-catalog', startAt, {cardCount:overviewGrid ? getOverviewCards(overviewGrid).length : 0});
 }
@@ -3027,6 +3054,7 @@ window.__refreshRailCatalog = refreshRailCatalog;
 
 ov.addEventListener('scroll', () => {
   if(!isEditMode() || overviewScrollQueued) return;
+  if(performance.now() < overviewProgrammaticScrollUntil) return;
   deferOverviewThumbs(650, 'scroll');
   overviewScrollQueued=true;
   requestAnimationFrame(() => {
@@ -3041,6 +3069,7 @@ ov.addEventListener('scroll', () => {
 
 addEventListener('resize', () => {
   if(isEditMode()){
+    syncSlideRailScrollbarPadding();
     deferOverviewThumbs(650, 'resize');
     refreshOverviewDragRects(overviewGrid);
     const range = getOverviewThumbRange(overviewGrid, {includeNear:true});
@@ -3066,12 +3095,12 @@ function handleDeckKeyNavigation(e,{allowSpace=true}={}){
   if(isEditMode()){
     if(e.key==='ArrowDown'){
       e.preventDefault();
-      go(idx+1, {scrollRail:false});
+      go(idx+1, {refreshRailThumbs:false});
       return;
     }
     if(e.key==='ArrowUp'){
       e.preventDefault();
-      go(idx-1, {scrollRail:false});
+      go(idx-1, {refreshRailThumbs:false});
     }
     return;
   }
@@ -3274,6 +3303,8 @@ refreshRailCatalog();
 
   addEventListener('swiss-slide-change', refreshSlideControls);
   addEventListener('swiss-slide-reorder', refreshSlideControls);
+  addEventListener('rd-themechange', refreshSlideControls);
+  addEventListener('rd-accentchange', refreshSlideControls);
 
   function refreshSlideControls(){
     refreshDeckSlides();
@@ -3321,6 +3352,9 @@ refreshRailCatalog();
     const values = {...defaults, ...sourceProps, ...savedProps};
     controls.forEach(control => {
       values[control.key] = coercePropValue(control, values[control.key]);
+      if(slide?.dataset.themePack === 'theme03' && control.key === 'forceDark'){
+        values[control.key] = readTheme03GlobalDark(values[control.key]);
+      }
     });
     return values;
   }
@@ -3380,7 +3414,7 @@ refreshRailCatalog();
           button.textContent = item.label;
           if(isColor){
             button.textContent = '';
-            button.style.background = item.value;
+            button.style.background = propSwatchColor(control, item);
             button.title = item.label;
             button.dataset.colorLabel = item.label;
             button.setAttribute('aria-label', item.label);
@@ -3611,6 +3645,11 @@ refreshRailCatalog();
     values[control.key] = coercePropValue(control, value);
     Object.assign(values, opts.extra || {});
     const unicornRefresh = control.key === 'backgroundMode' || control.key === 'unicornScene';
+    if(slide.dataset.themePack === 'theme03' && control.key === 'forceDark'){
+      applyTheme03GlobalDark(values[control.key], opts);
+      if(opts.render !== false) renderPropControls();
+      return;
+    }
     if(slide.dataset.themePack === 'theme03' && control.key === 'accent'){
       applyTheme03GlobalAccent(values[control.key], opts);
       if(opts.render !== false) renderPropControls();
@@ -3618,6 +3657,42 @@ refreshRailCatalog();
     }
     applyPropValues(slide, values, {unicornRefresh});
     if(opts.render !== false) renderPropControls();
+  }
+
+  function readTheme03GlobalDark(fallback = true){
+    const runtimeValue = window.__getTheme03GlobalDark?.();
+    if(typeof runtimeValue === 'boolean') return runtimeValue;
+    try {
+      const stored = localStorage.getItem('rd-theme');
+      if(stored === 'light') return false;
+      if(stored === 'dark') return true;
+    } catch {}
+    if(document.body.classList.contains('rd-force-dark')) return true;
+    return fallback !== false;
+  }
+
+  function applyTheme03GlobalDark(forceDark, opts = {}){
+    const dark = !!forceDark;
+    window.__setTheme03GlobalDark?.(dark);
+    document.body.classList.toggle('rd-force-dark', dark);
+    try {
+      localStorage.setItem('rd-theme', dark ? 'dark' : 'light');
+    } catch {}
+    const vmState = viewModel?.getState?.() || {};
+    document.querySelectorAll('#deck > .slide[data-theme-pack="theme03"]').forEach(target => {
+      const root = target.querySelector('[data-prop-controls]');
+      const controls = parsePropControls(root);
+      if(!controls.some(item => item.key === 'forceDark')) return;
+      const values = getSlidePropValues(target, vmState);
+      values.forceDark = dark;
+      if(target === getCurrentSlide()){
+        applyPropValues(target, values);
+      } else {
+        const next = {...parsePropDefaults(root), ...getSlideSourceProps(target), ...values};
+        viewModel?.setProps?.(target.dataset.vmSlideId, next);
+        if(opts.renderAll) applyPropValues(target, values);
+      }
+    });
   }
 
   function applyTheme03GlobalAccent(accent, opts = {}){
@@ -3641,10 +3716,31 @@ refreshRailCatalog();
 
   function normalizePropOptions(options){
     return (options || []).map(item => Array.isArray(item)
-      ? {value:item[0], label:String(item[1] ?? item[0]), image:item[2] || ''}
+      ? {value:item[0], label:String(item[1] ?? item[0]), image:item[2] || '', color:item[3] || ''}
       : item && typeof item === 'object' && 'value' in item
-        ? {value:item.value, label:String(item.label ?? item.value), image:item.image || item.src || ''}
+        ? {value:item.value, label:String(item.label ?? item.value), image:item.image || item.src || '', color:item.color || item.swatch || item.hex || item.background || ''}
       : {value:item, label:String(item), image:''});
+  }
+
+  function propSwatchColor(control, item){
+    if(item.color) return item.color;
+    const named = {
+      scheme: {
+        green: 'linear-gradient(135deg,#c9f24d 0 48%,#37f5ff 52% 100%)',
+        violet: 'linear-gradient(135deg,#8b5cf6 0 48%,#f472b6 52% 100%)',
+      },
+      accent: {
+        blue: '#2742ec',
+        lime: '#c2f53d',
+      },
+      accentTone: {
+        green: '#22c55e',
+        yellow: '#facc15',
+        blue: '#3b82f6',
+        pink: '#ec4899',
+      },
+    };
+    return named[control.key]?.[String(item.value)] || String(item.value || 'transparent');
   }
 
   function coercePropValue(control, value){

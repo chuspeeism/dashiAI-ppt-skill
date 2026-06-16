@@ -80,7 +80,7 @@ export function makeImportedThemePage(layoutKey) {
   return function ImportedThemePage(props) {
     const viewModel = useSlideViewModel();
     const defaults = serializeDefaults(page.defaultProps);
-    const controls = normalizeControls(page.controls, defaults);
+    const controls = normalizeControls(page.controls, defaults, page);
     return (
       <section
         className={`slide imported-theme-slide ${page.bgClass || ''}`}
@@ -105,7 +105,7 @@ export function makeImportedThemePage(layoutKey) {
   };
 }
 
-function normalizeControls(controls, defaults) {
+function normalizeControls(controls, defaults, page) {
   return (controls || [])
     .map(control => {
       const key = control.key || control.prop;
@@ -128,12 +128,18 @@ function normalizeControls(controls, defaults) {
         dependsOnValue: serializeValue(control.dependsOnValue),
         dependsOnValues: serializeValue(control.dependsOnValues),
       };
-      if (type === 'select' && (control.type === 'color' || control.type === 'palette')) {
+      if (type === 'select' && (control.display === 'color' || control.type === 'color' || control.type === 'palette' || isThemeSwatchControl(page, key))) {
         next.display = 'color';
       }
       return next;
     })
     .filter(Boolean);
+}
+
+function isThemeSwatchControl(page, key) {
+  return (page?.themeKey === 'theme02' && key === 'scheme')
+    || (page?.themeKey === 'theme03' && key === 'accent')
+    || (page?.themeKey === 'theme04' && key === 'accentTone');
 }
 
 function normalizeType(type) {

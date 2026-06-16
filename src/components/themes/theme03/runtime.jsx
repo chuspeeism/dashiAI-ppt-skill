@@ -291,3 +291,10 @@ function theme03RemoveToggleButton() {
     theme03ToggleEventsBound = false;
   }
 }
+
+if (typeof window !== 'undefined') {
+  window.__getTheme03GlobalDark = () => theme03GlobalDark;
+  window.__setTheme03GlobalDark = theme03SetGlobalDark;
+  window.__getTheme03GlobalAccent = () => theme03GlobalAccent;
+  window.__setTheme03GlobalAccent = theme03SetGlobalAccent;
+}

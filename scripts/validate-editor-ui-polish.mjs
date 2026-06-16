@@ -40,6 +40,12 @@ try {
     resize: null,
     activeStates: {},
     colorControls: null,
+    themedPropControls: null,
+    theme03GlobalDark: null,
+    railGutterBalance: null,
+    railProgrammaticThumbs: null,
+    railFocusScroll: null,
+    railManualScroll: null,
     shadows: await readPanelShadows(page),
     actionLayouts: [],
     actions: null,
@@ -67,6 +73,12 @@ try {
   result.activeStates.afterRailClick = await readActiveRailStyle(page);
   result.activeStates.afterDrag = await runActiveDragValidation(page);
   result.colorControls = await findAndReadColorControls(page);
+  result.themedPropControls = await runThemedPropControlValidation(page);
+  result.theme03GlobalDark = await runTheme03GlobalDarkValidation(page);
+  result.railGutterBalance = await readRailGutterBalance(page);
+  result.railProgrammaticThumbs = await runRailProgrammaticThumbValidation(page);
+  result.railFocusScroll = await runRailFocusScrollValidation(page);
+  result.railManualScroll = await runRailManualScrollValidation(page);
   result.exportMenu = await runExportMenuValidation(page);
   result.editRailContextMenu = await runEditRailContextMenuValidation(page);
   result.presentContextMenu = await runPresentContextMenuValidation(page);
@@ -362,6 +374,382 @@ async function readColorControls(page, location) {
       return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
     }
   }, location).then(state => ({ ...state, hover, focus }));
+}
+
+async function runThemedPropControlValidation(page) {
+  return {
+    theme02Scheme: await findThemedPropControl(page, { theme: 'theme02', label: '配色方案' }),
+    theme03Accent: await findThemedPropControl(page, { theme: 'theme03', label: '强调色' }),
+    theme04AccentTone: await findThemedPropControl(page, { theme: 'theme04', label: '主色调' }),
+  };
+}
+
+async function findThemedPropControl(page, { theme, label }) {
+  const hasTheme = await page.evaluate(theme => Boolean(document.querySelector(`#preview-theme-pack option[value="${theme}"]:not(:disabled)`)), theme);
+  if (!hasTheme) return { found: false, theme, label, reason: 'theme not available' };
+  await page.selectOption('#preview-theme-pack', theme).catch(() => {});
+  await settle(page, 260);
+  const count = await page.evaluate(() => window.__getVisibleSlides?.().length || document.querySelectorAll('#deck > .slide:not([hidden])').length);
+  for (let index = 0; index < count; index += 1) {
+    await page.evaluate(targetIndex => window.go?.(targetIndex, { animate: false, force: true }), index);
+    await settle(page, 140);
+    const control = await readPropControl(page, label);
+    if (control.found) return { ...control, theme, label, index };
+  }
+  return { found: false, theme, label, scanned: count };
+}
+
+async function readPropControl(page, label) {
+  return page.evaluate(label => {
+    const rows = [...document.querySelectorAll('#preview-props .preview-prop-row')];
+    const row = rows.find(item => {
+      const labelEl = item.querySelector(':scope > span');
+      return (labelEl?.textContent || '').trim() === label;
+    });
+    if (!row) return { found: false };
+    const group = row.querySelector('.preview-prop-choice-group');
+    const buttons = [...(group?.querySelectorAll('.preview-prop-choice') || [])];
+    const groupRect = group?.getBoundingClientRect();
+    const rowsByTop = [...buttons.reduce((map, button) => {
+      const rect = button.getBoundingClientRect();
+      const top = Math.round(rect.top);
+      if (!map.has(top)) map.set(top, []);
+      map.get(top).push({
+        width: rect.width,
+        height: rect.height,
+        text: (button.textContent || '').trim(),
+        label: button.getAttribute('aria-label') || button.title || '',
+        active: button.classList.contains('is-active') || button.getAttribute('aria-pressed') === 'true',
+        background: getComputedStyle(button).backgroundColor,
+      });
+      return map;
+    }, new Map()).values()];
+    return {
+      found: true,
+      rowClass: row.className,
+      hasChoiceGroup: Boolean(group),
+      isColor: Boolean(group?.classList.contains('is-color')),
+      buttonCount: buttons.length,
+      maxButtonsPerRow: rowsByTop.reduce((max, items) => Math.max(max, items.length), 0),
+      minButtonWidth: rowsByTop.flat().reduce((min, item) => Math.min(min, item.width), Infinity),
+      minButtonHeight: rowsByTop.flat().reduce((min, item) => Math.min(min, item.height), Infinity),
+      hasActive: rowsByTop.flat().some(item => item.active),
+      allHaveLabels: rowsByTop.flat().every(item => item.label),
+      hasVisibleTextButtons: rowsByTop.flat().some(item => item.text.length > 0),
+      groupRect: rectOf(groupRect),
+      rows: rowsByTop,
+    };
+
+    function rectOf(rect) {
+      if (!rect) return null;
+      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
+    }
+  }, label);
+}
+
+async function runTheme03GlobalDarkValidation(page) {
+  const first = await findThemedPropControl(page, { theme: 'theme03', label: '全局深色' });
+  if (!first.found) return { found: false, first };
+  await setTheme03DarkSwitch(page, true);
+  await setTheme03DarkSwitch(page, false);
+  const current = await readTheme03DarkSwitch(page);
+  const count = await page.evaluate(() => window.__getVisibleSlides?.().length || 0);
+  const targetIndex = Math.min(count - 1, first.index + 1);
+  await page.evaluate(targetIndex => window.go?.(targetIndex, { animate: false, force: true }), targetIndex);
+  await settle(page, 260);
+  const next = await readTheme03DarkSwitch(page);
+  const global = await page.evaluate(() => ({
+    bodyDark: document.body.classList.contains('rd-force-dark'),
+    storedTheme: localStorage.getItem('rd-theme'),
+  }));
+  return {
+    found: true,
+    firstIndex: first.index,
+    nextIndex: targetIndex,
+    expectedChecked: false,
+    current,
+    next,
+    global,
+  };
+}
+
+async function readTheme03DarkSwitch(page) {
+  return page.evaluate(() => {
+    const rows = [...document.querySelectorAll('#preview-props .preview-prop-row')];
+    const row = rows.find(item => (item.querySelector(':scope > span')?.textContent || '').trim() === '全局深色');
+    const input = row?.querySelector('input[type="checkbox"]');
+    const slide = window.__getVisibleSlides?.()[window.__currentSlideIndex || 0] || document.querySelector('#deck > .slide[data-deck-active]');
+    return {
+      found: Boolean(input),
+      checked: Boolean(input?.checked),
+      index: window.__currentSlideIndex || 0,
+      slideId: slide?.dataset.vmSlideId || '',
+      themePack: slide?.dataset.themePack || '',
+    };
+  });
+}
+
+async function setTheme03DarkSwitch(page, checked) {
+  for (let attempts = 0; attempts < 3; attempts += 1) {
+    const state = await readTheme03DarkSwitch(page);
+    if (!state.found) return state;
+    if (state.checked === checked) return state;
+    await page.locator('#preview-props .preview-prop-row', { hasText: '全局深色' }).locator('.pp-switch').click();
+    await settle(page, 340);
+  }
+  return readTheme03DarkSwitch(page);
+}
+
+async function readRailGutterBalance(page) {
+  await ensureEditMode(page);
+  await page.evaluate(() => {
+    window.__setActiveThemePack?.('theme02', { navigate: false });
+    window.go?.(0, { animate: false, force: true });
+    window.__refreshRailCatalog?.();
+  });
+  await settle(page, 420);
+  return page.evaluate(() => {
+    const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+    const railRect = scroller?.getBoundingClientRect();
+    const card = [...document.querySelectorAll('[data-rail-card="true"],[data-slide-rail-card="true"]')]
+      .find(item => {
+        const rect = item.getBoundingClientRect();
+        return railRect && rect.bottom > railRect.top + 1 && rect.top < railRect.bottom - 1;
+      });
+    const frame = card?.querySelector('[data-rail-frame="true"],[data-overview-frame="true"]');
+    const frameRect = frame?.getBoundingClientRect();
+    const scrollbarWidth = scroller ? scroller.offsetWidth - scroller.clientWidth : 0;
+    const leftGap = railRect && frameRect ? frameRect.left - railRect.left : 0;
+    const rightGap = railRect && frameRect ? railRect.right - frameRect.right : 0;
+    return {
+      found: Boolean(scroller && card && frame),
+      scrollbarWidth,
+      leftGap,
+      rightGap,
+      difference: Math.abs(leftGap - rightGap),
+      railRect: rectOf(railRect),
+      frameRect: rectOf(frameRect),
+    };
+
+    function rectOf(rect) {
+      if (!rect) return null;
+      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
+    }
+  });
+}
+
+async function runRailFocusScrollValidation(page) {
+  await ensureEditMode(page);
+  await page.evaluate(() => {
+    window.__setActiveThemePack?.('theme02', { navigate: false });
+    window.go?.(0, { animate: false, force: true });
+    window.__refreshRailCatalog?.();
+    const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+    if (scroller) scroller.scrollTop = 0;
+  });
+  await settle(page, 260);
+  const before = await readActiveRailVisibility(page);
+  for (let i = 0; i < 24; i += 1) {
+    await page.keyboard.press('ArrowDown');
+    await settle(page, 70);
+  }
+  await settle(page, 420);
+  const after = await readActiveRailVisibility(page);
+  return { before, after };
+}
+
+async function runRailProgrammaticThumbValidation(page) {
+  return {
+    keyboard: await runRailProgrammaticThumbScenario(page, { kind: 'keyboard', preferredIndex: 32 }),
+    presentReturn: await runRailProgrammaticThumbScenario(page, { kind: 'presentReturn', preferredIndex: 40 }),
+  };
+}
+
+async function runRailProgrammaticThumbScenario(page, { kind, preferredIndex }) {
+  await prepareRailProgrammaticThumbScenario(page);
+  const targetIndex = await chooseUnrenderedRailTarget(page, preferredIndex);
+  const before = await readRailThumbState(page, targetIndex);
+  await page.evaluate(() => window.__resetOverviewPerfMarks?.());
+  if (kind === 'keyboard') {
+    for (let index = 0; index < targetIndex; index += 1) {
+      await page.keyboard.press('ArrowDown');
+      await settle(page, 55);
+    }
+  } else {
+    await page.locator('#preview-present-btn').click();
+    await settle(page, 360);
+    await page.evaluate(targetIndex => window.go?.(targetIndex, { animate: false, force: true }), targetIndex);
+    await settle(page, 220);
+    await ensureEditMode(page);
+  }
+  const visible = await readActiveRailThumbState(page);
+  const after = await waitForActiveRailThumbRendered(page);
+  return { kind, targetIndex, before, visible, after };
+}
+
+async function prepareRailProgrammaticThumbScenario(page) {
+  await ensureEditMode(page);
+  await page.evaluate(() => {
+    window.__setActiveThemePack?.('theme02', { navigate: false });
+    window.go?.(0, { animate: false, force: true });
+    window.__refreshRailCatalog?.();
+    const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+    if (scroller) scroller.scrollTop = 0;
+  });
+  await settle(page, 420);
+}
+
+async function chooseUnrenderedRailTarget(page, preferredIndex) {
+  return page.evaluate(preferredIndex => {
+    const cards = [...document.querySelectorAll('[data-rail-card="true"],[data-slide-rail-card="true"]')];
+    if (!cards.length) return 0;
+    const preferred = Math.max(1, Math.min(cards.length - 1, preferredIndex));
+    const candidates = [];
+    for (let index = preferred; index < cards.length; index += 1) candidates.push(cards[index]);
+    for (let index = preferred - 1; index >= 1; index -= 1) candidates.push(cards[index]);
+    const unrendered = candidates.find(card => card.querySelector('[data-overview-thumb="true"],[data-rail-thumb="true"]')?.dataset.overviewRendered !== 'true');
+    return Number((unrendered || cards[preferred]).dataset.index || preferred);
+  }, preferredIndex);
+}
+
+async function waitForActiveRailThumbRendered(page, timeoutMs = 4500) {
+  const startedAt = Date.now();
+  let state = await readActiveRailThumbState(page);
+  while (Date.now() - startedAt < timeoutMs) {
+    if (state.found && state.visible && state.rendered && state.queueTriggered) break;
+    await settle(page, 180);
+    state = await readActiveRailThumbState(page);
+  }
+  return { ...state, waitedMs: Date.now() - startedAt };
+}
+
+async function readRailThumbState(page, index) {
+  return page.evaluate(index => {
+    const card = document.querySelector(`[data-rail-card="true"][data-index="${index}"],[data-slide-rail-card="true"][data-index="${index}"]`);
+    return readThumbState(card);
+
+    function readThumbState(card) {
+      const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+      const railRect = scroller?.getBoundingClientRect();
+      const cardRect = card?.getBoundingClientRect();
+      const wrap = card?.querySelector('[data-overview-thumb="true"],[data-rail-thumb="true"]');
+      const perf = window.__getRailPerfState?.() || window.__getOverviewPerfState?.() || {};
+      const stages = perf.marks?.stages || [];
+      const queueStages = stages.filter(stage => stage.type === 'queue-nearby-overview-thumbs');
+      const thumbStages = stages.filter(stage => /dom-preview-thumbnail|dom-cache-restore|overview-thumb-task/.test(stage.type || ''));
+      return {
+        found: Boolean(card && wrap),
+        index: Number(card?.dataset.index || -1),
+        currentIndex: window.__currentSlideIndex || 0,
+        slideId: card?.dataset.slideId || card?.dataset.slideKey || '',
+        visible: Boolean(railRect && cardRect && cardRect.top >= railRect.top + 4 && cardRect.bottom <= railRect.bottom - 4),
+        rendered: wrap?.dataset.overviewRendered === 'true',
+        queued: wrap?.dataset.overviewQueued === 'true',
+        placeholder: Boolean(wrap?.querySelector('[data-overview-placeholder="true"]')),
+        scrollTop: scroller?.scrollTop || 0,
+        queueTriggered: queueStages.length > 0,
+        queueStageCount: queueStages.length,
+        thumbStageCount: thumbStages.length,
+        visibleRenderedCount: perf.visibleRenderedCount ?? null,
+        visibleMissingCount: perf.visibleMissingCount ?? null,
+        queuedKeys: perf.queuedKeys || [],
+      };
+    }
+  }, index);
+}
+
+async function readActiveRailThumbState(page) {
+  return page.evaluate(() => {
+    const cards = [...document.querySelectorAll('[data-rail-card="true"],[data-slide-rail-card="true"]')];
+    const active = cards.find(card => card.dataset.railActive === 'true' || card.getAttribute('aria-current') === 'true');
+    return readThumbState(active);
+
+    function readThumbState(card) {
+      const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+      const railRect = scroller?.getBoundingClientRect();
+      const cardRect = card?.getBoundingClientRect();
+      const wrap = card?.querySelector('[data-overview-thumb="true"],[data-rail-thumb="true"]');
+      const perf = window.__getRailPerfState?.() || window.__getOverviewPerfState?.() || {};
+      const stages = perf.marks?.stages || [];
+      const queueStages = stages.filter(stage => stage.type === 'queue-nearby-overview-thumbs');
+      const thumbStages = stages.filter(stage => /dom-preview-thumbnail|dom-cache-restore|overview-thumb-task/.test(stage.type || ''));
+      return {
+        found: Boolean(card && wrap),
+        index: Number(card?.dataset.index || -1),
+        currentIndex: window.__currentSlideIndex || 0,
+        slideId: card?.dataset.slideId || card?.dataset.slideKey || '',
+        visible: Boolean(railRect && cardRect && cardRect.top >= railRect.top + 4 && cardRect.bottom <= railRect.bottom - 4),
+        rendered: wrap?.dataset.overviewRendered === 'true',
+        queued: wrap?.dataset.overviewQueued === 'true',
+        placeholder: Boolean(wrap?.querySelector('[data-overview-placeholder="true"]')),
+        scrollTop: scroller?.scrollTop || 0,
+        queueTriggered: queueStages.length > 0,
+        queueStageCount: queueStages.length,
+        thumbStageCount: thumbStages.length,
+        visibleRenderedCount: perf.visibleRenderedCount ?? null,
+        visibleMissingCount: perf.visibleMissingCount ?? null,
+        queuedKeys: perf.queuedKeys || [],
+      };
+    }
+  });
+}
+
+async function runRailManualScrollValidation(page) {
+  await ensureEditMode(page);
+  await page.evaluate(() => {
+    window.__setActiveThemePack?.('theme02', { navigate: false });
+    window.go?.(0, { animate: false, force: true });
+    window.__refreshRailCatalog?.();
+  });
+  await settle(page, 300);
+  const before = await page.evaluate(() => {
+    const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+    if (!scroller) return { found: false };
+    scroller.scrollTop = Math.min(scroller.scrollHeight - scroller.clientHeight, 720);
+    return {
+      found: true,
+      scrollTop: scroller.scrollTop,
+      scrollHeight: scroller.scrollHeight,
+      clientHeight: scroller.clientHeight,
+    };
+  });
+  await settle(page, 220);
+  await page.evaluate(() => window.__refreshRailCatalog?.());
+  await settle(page, 460);
+  const after = await page.evaluate(() => {
+    const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+    return {
+      found: Boolean(scroller),
+      scrollTop: scroller?.scrollTop || 0,
+      scrollHeight: scroller?.scrollHeight || 0,
+      clientHeight: scroller?.clientHeight || 0,
+    };
+  });
+  return { before, after, delta: Math.abs((after.scrollTop || 0) - (before.scrollTop || 0)) };
+}
+
+async function readActiveRailVisibility(page) {
+  return page.evaluate(() => {
+    const scroller = document.querySelector('[data-rail-scroll="true"],#slide-rail-list');
+    const railRect = scroller?.getBoundingClientRect();
+    const cards = [...document.querySelectorAll('[data-rail-card="true"],[data-slide-rail-card="true"]')];
+    const active = cards.find(card => card.dataset.railActive === 'true' || card.getAttribute('aria-current') === 'true');
+    const activeRect = active?.getBoundingClientRect();
+    return {
+      found: Boolean(scroller && active),
+      index: Number(active?.dataset.index || -1),
+      currentIndex: window.__currentSlideIndex || 0,
+      scrollTop: scroller?.scrollTop || 0,
+      visible: Boolean(railRect && activeRect && activeRect.top >= railRect.top + 4 && activeRect.bottom <= railRect.bottom - 4),
+      railRect: rectOf(railRect),
+      activeRect: rectOf(activeRect),
+    };
+
+    function rectOf(rect) {
+      if (!rect) return null;
+      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
+    }
+  });
 }
 
 async function readPanelShadows(page) {
@@ -805,6 +1193,58 @@ function validateResult(result) {
     if (!color.hasActive) failures.push('Color swatch group does not expose the active option.');
     if (!color.allHaveLabels) failures.push('Color swatches should keep readable labels for assistive UI/tooltips.');
     if (!hasVisibleState(color.hover) || !hasVisibleState(color.focus)) failures.push(`Color swatches need clear hover/focus state: ${JSON.stringify({ hover: color.hover, focus: color.focus })}`);
+  }
+
+  for (const [name, control] of Object.entries(result.themedPropControls || {})) {
+    if (!control?.found) {
+      failures.push(`${name} property control was not found: ${JSON.stringify(control)}`);
+      continue;
+    }
+    if (!control.isColor) failures.push(`${name} should render as a color swatch group, got ${JSON.stringify(control)}`);
+    if (control.minButtonWidth < 36 || control.minButtonHeight < 36) failures.push(`${name} swatches should keep large click targets: ${JSON.stringify(control)}`);
+    if (control.maxButtonsPerRow > 3) failures.push(`${name} swatches should wrap at about three per row: ${JSON.stringify(control.rows)}`);
+    if (!control.hasActive) failures.push(`${name} should expose the selected swatch: ${JSON.stringify(control)}`);
+    if (!control.allHaveLabels) failures.push(`${name} swatches should keep accessible labels/tooltips: ${JSON.stringify(control)}`);
+    if (control.hasVisibleTextButtons) failures.push(`${name} should use swatches, not visible text choice buttons: ${JSON.stringify(control)}`);
+  }
+
+  const dark = result.theme03GlobalDark || {};
+  if (!dark.found) failures.push(`Theme03 global dark control was not found: ${JSON.stringify(dark)}`);
+  else {
+    if (!dark.current?.found || !dark.next?.found) failures.push(`Theme03 global dark switch should exist on both pages: ${JSON.stringify(dark)}`);
+    if (dark.current?.checked !== dark.expectedChecked || dark.next?.checked !== dark.expectedChecked) {
+      failures.push(`Theme03 global dark switch should stay synchronized across pages: ${JSON.stringify(dark)}`);
+    }
+    if (dark.global?.bodyDark !== dark.expectedChecked || dark.global?.storedTheme !== 'light') {
+      failures.push(`Theme03 global dark visual/global state should match the panel switch: ${JSON.stringify(dark)}`);
+    }
+  }
+
+  const gutter = result.railGutterBalance || {};
+  if (!gutter.found) failures.push(`Rail gutter balance sample was not found: ${JSON.stringify(gutter)}`);
+  else if (gutter.difference > 3) failures.push(`Rail thumbnail visual gutters should be balanced left/right: ${JSON.stringify(gutter)}`);
+
+  const focus = result.railFocusScroll || {};
+  if (!focus.before?.found || !focus.after?.found) failures.push(`Rail focus scroll validation did not find active rail cards: ${JSON.stringify(focus)}`);
+  else if (!focus.after.visible) failures.push(`Keyboard page navigation should scroll the active rail card into view: ${JSON.stringify(focus)}`);
+
+  for (const [name, state] of Object.entries(result.railProgrammaticThumbs || {})) {
+    if (!state?.before?.found || !state?.visible?.found || !state?.after?.found) {
+      failures.push(`Rail programmatic thumbnail ${name} did not find the target active thumbnail: ${JSON.stringify(state)}`);
+      continue;
+    }
+    if (state.before.rendered) failures.push(`Rail programmatic thumbnail ${name} should start from an unrendered far thumbnail: ${JSON.stringify(state)}`);
+    if (!state.visible.visible) failures.push(`Rail programmatic thumbnail ${name} should first scroll the active card into view: ${JSON.stringify(state)}`);
+    if (!state.after.queueTriggered) failures.push(`Rail programmatic thumbnail ${name} should trigger the visible thumbnail queue after automatic scroll: ${JSON.stringify(state)}`);
+    if (!state.after.rendered || state.after.placeholder) {
+      failures.push(`Rail programmatic thumbnail ${name} should render the active thumbnail without manual scrolling: ${JSON.stringify(state)}`);
+    }
+  }
+
+  const manual = result.railManualScroll || {};
+  if (!manual.before?.found || !manual.after?.found) failures.push(`Rail manual-scroll validation did not find the rail scroller: ${JSON.stringify(manual)}`);
+  else if (manual.before.scrollTop > 24 && manual.delta > 36) {
+    failures.push(`Rail refresh should not pull the user's manual scroll back to the active page: ${JSON.stringify(manual)}`);
   }
 
   if (result.shadows.railHasLargeCanvasShadow) failures.push(`Left rail still casts a large shadow into the canvas: ${result.shadows.railBoxShadow}`);
