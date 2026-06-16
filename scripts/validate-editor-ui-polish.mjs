@@ -41,8 +41,10 @@ try {
     activeStates: {},
     colorControls: null,
     shadows: await readPanelShadows(page),
-    actions: await readActionPriority(page),
+    actionLayouts: [],
+    actions: null,
     exportMenu: null,
+    reset: null,
     editRailContextMenu: null,
     presentContextMenu: null,
     present: null,
@@ -52,7 +54,9 @@ try {
     await page.setViewportSize({ width, height: 900 });
     await settle(page);
     result.layouts.push(await readLayout(page, width));
+    result.actionLayouts.push(await readActionPriority(page, width));
   }
+  result.actions = result.actionLayouts[result.actionLayouts.length - 1] || await readActionPriority(page);
 
   result.resize = await runRailResizeValidation(page);
   result.activeStates.initial = await readActiveRailStyle(page);
@@ -66,6 +70,7 @@ try {
   result.exportMenu = await runExportMenuValidation(page);
   result.editRailContextMenu = await runEditRailContextMenuValidation(page);
   result.presentContextMenu = await runPresentContextMenuValidation(page);
+  result.reset = await runResetValidation(page);
   result.present = await runPresentValidation(page);
 
   const failures = validateResult(result);
@@ -112,25 +117,47 @@ async function readLayout(page, viewportWidth) {
 
 async function runRailResizeValidation(page) {
   const before = await readLayout(page, page.viewportSize()?.width || 1440);
+  const beforeThumbs = await readThumbnailFit(page);
   const handle = page.locator('[data-rail-resize-handle="true"]').first();
-  if (!(await handle.count())) return { hasHandle: false, before };
-  const box = await handle.boundingBox();
-  if (!box) return { hasHandle: true, hasBox: false, before };
-  await page.mouse.move(box.x + box.width / 2, box.y + box.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(box.x + box.width / 2 + 82, box.y + box.height / 2, { steps: 8 });
-  await page.mouse.up();
+  if (!(await handle.count())) return { hasHandle: false, before, beforeThumbs };
+  const hasBox = await dragRailResizeHandle(page, 82);
+  if (!hasBox) return { hasHandle: true, hasBox: false, before, beforeThumbs };
   await settle(page, 220);
-  const after = await readLayout(page, page.viewportSize()?.width || 1440);
-  const thumbs = await readThumbnailFit(page);
+  const wide = await readLayout(page, page.viewportSize()?.width || 1440);
+  const wideThumbs = await readThumbnailFit(page);
+  await dragRailResizeHandle(page, -82);
+  await settle(page, 260);
+  const narrow = await readLayout(page, page.viewportSize()?.width || 1440);
+  const narrowThumbs = await readThumbnailFit(page);
   return {
     hasHandle: true,
     hasBox: true,
     before,
-    after,
-    widthDelta: (after.railRect?.width || 0) - (before.railRect?.width || 0),
-    thumbs,
+    after: wide,
+    narrow,
+    beforeThumbs,
+    thumbs: wideThumbs,
+    narrowThumbs,
+    widthDelta: (wide.railRect?.width || 0) - (before.railRect?.width || 0),
+    shrinkDelta: (wide.railRect?.width || 0) - (narrow.railRect?.width || 0),
+    frameGrowth: (wideThumbs.avgFrameWidth || 0) - (beforeThumbs.avgFrameWidth || 0),
+    contentGrowth: (wideThumbs.avgContentWidth || 0) - (beforeThumbs.avgContentWidth || 0),
+    frameShrink: (wideThumbs.avgFrameWidth || 0) - (narrowThumbs.avgFrameWidth || 0),
+    contentShrink: (wideThumbs.avgContentWidth || 0) - (narrowThumbs.avgContentWidth || 0),
   };
+}
+
+async function dragRailResizeHandle(page, deltaX) {
+  const handle = page.locator('[data-rail-resize-handle="true"]').first();
+  const box = await handle.boundingBox();
+  if (!box) return false;
+  const startX = box.x + box.width / 2;
+  const startY = box.y + box.height / 2;
+  await page.mouse.move(startX, startY);
+  await page.mouse.down();
+  await page.mouse.move(startX + deltaX, startY, { steps: 8 });
+  await page.mouse.up();
+  return true;
 }
 
 async function readThumbnailFit(page) {
@@ -175,14 +202,23 @@ async function readThumbnailFit(page) {
           frameAspect: frameRect ? frameRect.width / frameRect.height : 0,
           contentWidth: contentRect?.width || 0,
           contentHeight: contentRect?.height || 0,
+          widthMismatch: frameRect && contentRect ? Math.abs(frameRect.width - contentRect.width) : 0,
+          heightMismatch: frameRect && contentRect ? Math.abs(frameRect.height - contentRect.height) : 0,
           rightGap: frameRect && contentRect ? frameRect.right - contentRect.right : 0,
           bottomGap: frameRect && contentRect ? frameRect.bottom - contentRect.bottom : 0,
         };
       });
+    const average = (items, key) => items.length ? items.reduce((sum, item) => sum + item[key], 0) / items.length : 0;
     return {
       sampleCount: samples.length,
       samples,
+      avgFrameWidth: average(samples, 'frameWidth'),
+      avgFrameHeight: average(samples, 'frameHeight'),
+      avgContentWidth: average(samples, 'contentWidth'),
+      avgContentHeight: average(samples, 'contentHeight'),
       maxAspectError: samples.reduce((max, item) => Math.max(max, Math.abs(item.frameAspect - 16 / 9)), 0),
+      maxWidthMismatch: samples.reduce((max, item) => Math.max(max, item.widthMismatch), 0),
+      maxHeightMismatch: samples.reduce((max, item) => Math.max(max, item.heightMismatch), 0),
       maxRightGap: samples.reduce((max, item) => Math.max(max, item.rightGap), 0),
       maxBottomGap: samples.reduce((max, item) => Math.max(max, item.bottomGap), 0),
     };
@@ -351,32 +387,70 @@ async function readPanelShadows(page) {
   });
 }
 
-async function readActionPriority(page) {
-  return page.evaluate(() => {
+async function readActionPriority(page, viewportWidth = page.viewportSize()?.width || 0) {
+  return page.evaluate((viewportWidth) => {
     const actions = document.querySelector('.preview-actions');
+    const panel = document.getElementById('preview-panel');
+    const close = document.getElementById('preview-close');
     const present = document.getElementById('preview-present-btn');
     const exportButton = document.getElementById('preview-export-main');
+    const exportWrap = document.getElementById('preview-export-wrap');
+    const reset = document.getElementById('preview-reset');
+    const actionsRect = actions?.getBoundingClientRect();
+    const panelRect = panel?.getBoundingClientRect();
+    const closeRect = close?.getBoundingClientRect();
+    const closeStyle = close ? getComputedStyle(close) : null;
     const presentRect = present?.getBoundingClientRect();
     const exportRect = exportButton?.getBoundingClientRect();
+    const exportWrapRect = exportWrap?.getBoundingClientRect();
+    const resetRect = reset?.getBoundingClientRect();
     const presentStyle = present ? getComputedStyle(present) : null;
     const exportStyle = exportButton ? getComputedStyle(exportButton) : null;
+    const resetStyle = reset ? getComputedStyle(reset) : null;
+    const buttonRects = [presentRect, exportRect, resetRect].filter(Boolean);
+    const sortedRects = [...buttonRects].sort((a, b) => a.left - b.left);
+    const actionChildren = [...(actions?.children || [])].map(child => child.id || child.className || child.tagName);
     return {
+      viewportWidth,
+      actionsRect: rectOf(actionsRect),
+      panelRect: rectOf(panelRect),
+      closeExists: Boolean(close),
+      closeVisible: Boolean(close && closeStyle?.display !== 'none' && closeStyle?.visibility !== 'hidden' && closeRect && closeRect.width > 2 && closeRect.height > 2),
+      closeRect: rectOf(closeRect),
+      actionChildren,
       presentExists: Boolean(present),
       exportExists: Boolean(exportButton),
+      resetExists: Boolean(reset),
       presentInActions: Boolean(actions && present && actions.contains(present)),
       exportInActions: Boolean(actions && exportButton && actions.contains(exportButton)),
+      resetInActions: Boolean(actions && reset && actions.contains(reset)),
       presentRect: rectOf(presentRect),
       exportRect: rectOf(exportRect),
+      exportWrapRect: rectOf(exportWrapRect),
+      resetRect: rectOf(resetRect),
       presentLeftOfExport: Boolean(presentRect && exportRect && presentRect.right <= exportRect.left + 1),
+      exportLeftOfReset: Boolean(exportRect && resetRect && exportRect.right <= resetRect.left + 1),
       sameRow: Boolean(presentRect && exportRect && Math.abs(presentRect.top - exportRect.top) < 8),
+      allThreeSameRow: Boolean(buttonRects.length === 3 && Math.max(...buttonRects.map(rect => rect.top)) - Math.min(...buttonRects.map(rect => rect.top)) < 8),
+      buttonOverlap: sortedRects.some((rect, index) => index > 0 && rect.left < sortedRects[index - 1].right - 1),
+      actionsOverflow: Boolean(actionsRect && buttonRects.some(rect => rect.left < actionsRect.left - 1 || rect.right > actionsRect.right + 1)),
+      panelOverflow: Boolean(panelRect && buttonRects.some(rect => rect.left < panelRect.left - 1 || rect.right > panelRect.right + 1)),
+      labelsFit: [present, exportButton, reset].filter(Boolean).every(button => {
+        const label = button.querySelector('span');
+        return !label || label.scrollWidth <= label.clientWidth + 1;
+      }),
       presentBackground: presentStyle?.backgroundColor || '',
       exportBackground: exportStyle?.backgroundColor || '',
+      resetBackground: resetStyle?.backgroundColor || '',
       presentColor: presentStyle?.color || '',
       exportColor: exportStyle?.color || '',
+      resetColor: resetStyle?.color || '',
       presentBorder: presentStyle?.border || '',
       exportBorder: exportStyle?.border || '',
+      resetBorder: resetStyle?.border || '',
       presentHeight: presentRect?.height || 0,
       exportHeight: exportRect?.height || 0,
+      resetHeight: resetRect?.height || 0,
       backgroundsDiffer: presentStyle?.backgroundColor !== exportStyle?.backgroundColor,
     };
 
@@ -384,7 +458,7 @@ async function readActionPriority(page) {
       if (!rect) return null;
       return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
     }
-  });
+  }, viewportWidth);
 }
 
 async function runExportMenuValidation(page) {
@@ -405,6 +479,37 @@ async function runExportMenuValidation(page) {
   await page.mouse.click(20, 20).catch(() => {});
   await settle(page, 80);
   return state;
+}
+
+async function runResetValidation(page) {
+  await ensureEditMode(page);
+  const button = page.locator('#preview-reset').first();
+  if (!(await button.count())) return { hasButton: false };
+  await page.evaluate(() => {
+    const next = new URL(location.href);
+    next.searchParams.set('deckState', 'jad137-reset-probe');
+    history.replaceState(null, '', next.href);
+    localStorage.setItem('dashi-ppt-preview:jad137-probe', '1');
+  });
+  const beforeUrl = page.url();
+  const navigation = page.waitForNavigation({ waitUntil: 'domcontentloaded', timeout: 6000 }).catch(() => null);
+  await button.click();
+  const nav = await navigation;
+  await page.waitForSelector('#deck > .slide.active, #deck > .slide[data-deck-active]');
+  await settle(page, 360);
+  return page.evaluate(({ beforeUrl, navigated }) => {
+    const current = new URL(location.href);
+    return {
+      hasButton: true,
+      clicked: true,
+      beforeUrl,
+      afterUrl: location.href,
+      navigated,
+      deckStateCleared: !current.searchParams.has('deckState'),
+      probeCleared: localStorage.getItem('dashi-ppt-preview:jad137-probe') === null,
+      mode: document.body.dataset.mode || '',
+    };
+  }, { beforeUrl, navigated: Boolean(nav) });
 }
 
 async function runPresentValidation(page) {
@@ -657,12 +762,29 @@ function validateResult(result) {
   if (!result.resize?.hasHandle) failures.push('Left rail is missing a drag resize handle.');
   else {
     if (result.resize.widthDelta < 48) failures.push(`Dragging the rail resize handle should widen the rail, got delta ${result.resize.widthDelta}px.`);
+    if (result.resize.shrinkDelta < 48) failures.push(`Dragging the rail resize handle back left should narrow the rail, got delta ${result.resize.shrinkDelta}px.`);
     if (result.resize.after?.deckOverlapsRail || result.resize.after?.deckOverlapsPanel || result.resize.after?.panelOverflow) {
-      failures.push(`Resized layout is unstable: ${JSON.stringify(result.resize.after)}`);
+      failures.push(`Widened layout is unstable: ${JSON.stringify(result.resize.after)}`);
     }
-    if ((result.resize.thumbs?.maxAspectError || 0) > 0.025) failures.push(`Rail thumbnails should stay 16:9 after resize: ${JSON.stringify(result.resize.thumbs)}`);
-    if ((result.resize.thumbs?.maxRightGap || 0) > 2 || (result.resize.thumbs?.maxBottomGap || 0) > 2) {
-      failures.push(`Rail thumbnails should fill the resized frame: ${JSON.stringify(result.resize.thumbs)}`);
+    if (result.resize.narrow?.deckOverlapsRail || result.resize.narrow?.deckOverlapsPanel || result.resize.narrow?.panelOverflow) {
+      failures.push(`Narrowed layout is unstable: ${JSON.stringify(result.resize.narrow)}`);
+    }
+    if (result.resize.frameGrowth < 36 || result.resize.contentGrowth < 36) {
+      failures.push(`Rail thumbnails should grow with the widened rail: ${JSON.stringify(result.resize)}`);
+    }
+    if (result.resize.frameShrink < 36 || result.resize.contentShrink < 36) {
+      failures.push(`Rail thumbnails should shrink with the narrowed rail: ${JSON.stringify(result.resize)}`);
+    }
+    for (const [phase, thumbs] of Object.entries({
+      initial: result.resize.beforeThumbs,
+      widened: result.resize.thumbs,
+      narrowed: result.resize.narrowThumbs,
+    })) {
+      if ((thumbs?.sampleCount || 0) < 3) failures.push(`Rail thumbnail ${phase} sample should include visible cards: ${JSON.stringify(thumbs)}`);
+      if ((thumbs?.maxAspectError || 0) > 0.025) failures.push(`Rail thumbnails should stay 16:9 when ${phase}: ${JSON.stringify(thumbs)}`);
+      if ((thumbs?.maxRightGap || 0) > 2 || (thumbs?.maxBottomGap || 0) > 2 || (thumbs?.maxWidthMismatch || 0) > 2 || (thumbs?.maxHeightMismatch || 0) > 2) {
+        failures.push(`Rail thumbnails should fill the ${phase} frame without blank space or crop: ${JSON.stringify(thumbs)}`);
+      }
     }
   }
 
@@ -691,16 +813,30 @@ function validateResult(result) {
   if (!result.shadows.panelBorderLeft || result.shadows.panelBorderLeft === '0px none rgb(0, 0, 0)') failures.push('Right panel needs a clear boundary after removing shadow.');
 
   const actions = result.actions || {};
-  if (!actions.presentExists || !actions.exportExists) failures.push('Present and export buttons must both exist.');
-  if (!actions.presentInActions || !actions.exportInActions || !actions.sameRow) failures.push(`Present and export buttons should share the same action row: ${JSON.stringify(actions)}`);
+  if (actions.closeExists || actions.closeVisible) failures.push(`Right panel header should not show a close icon: ${JSON.stringify(actions)}`);
+  if (!actions.presentExists || !actions.exportExists || !actions.resetExists) failures.push('Present, export, and reset buttons must all exist.');
+  if (!actions.presentInActions || !actions.exportInActions || !actions.resetInActions || !actions.allThreeSameRow) failures.push(`Present, export, and reset buttons should share the same action row: ${JSON.stringify(actions)}`);
   if (!actions.presentLeftOfExport) failures.push('Present button should be to the left of export.');
+  if (!actions.exportLeftOfReset) failures.push('Export button should be to the left of reset.');
+  if (actions.buttonOverlap || actions.actionsOverflow || actions.panelOverflow || !actions.labelsFit) failures.push(`Action buttons should not overlap, overflow, or truncate labels: ${JSON.stringify(actions)}`);
+  for (const actionLayout of result.actionLayouts || []) {
+    if (actionLayout.closeExists || actionLayout.closeVisible) failures.push(`Width ${actionLayout.viewportWidth}: right panel header should not show a close icon.`);
+    if (!actionLayout.presentExists || !actionLayout.exportExists || !actionLayout.resetExists) failures.push(`Width ${actionLayout.viewportWidth}: present/export/reset buttons must all exist.`);
+    if (!actionLayout.presentInActions || !actionLayout.exportInActions || !actionLayout.resetInActions || !actionLayout.allThreeSameRow) failures.push(`Width ${actionLayout.viewportWidth}: action buttons should be in one row: ${JSON.stringify(actionLayout)}`);
+    if (!actionLayout.presentLeftOfExport || !actionLayout.exportLeftOfReset) failures.push(`Width ${actionLayout.viewportWidth}: action button order should be play, export, reset.`);
+    if (actionLayout.buttonOverlap || actionLayout.actionsOverflow || actionLayout.panelOverflow || !actionLayout.labelsFit) failures.push(`Width ${actionLayout.viewportWidth}: action buttons should not overlap, overflow, or truncate labels: ${JSON.stringify(actionLayout)}`);
+  }
   if (!actions.backgroundsDiffer || !/rgb\(13,\s*153,\s*255\)|rgb\(42,\s*165,\s*255\)/.test(actions.presentBackground)) {
     failures.push(`Present button should use the stronger primary style: ${JSON.stringify(actions)}`);
   }
   if (/rgb\(13,\s*153,\s*255\)|rgb\(42,\s*165,\s*255\)/.test(actions.exportBackground)) {
     failures.push(`Export button should be a secondary action: ${JSON.stringify(actions)}`);
   }
+  if (/rgb\(13,\s*153,\s*255\)|rgb\(42,\s*165,\s*255\)/.test(actions.resetBackground)) {
+    failures.push(`Reset button should be a secondary action: ${JSON.stringify(actions)}`);
+  }
   if (!result.exportMenu?.open || !result.exportMenu?.visible || result.exportMenu?.buttonCount < 3) failures.push(`Export menu should still open: ${JSON.stringify(result.exportMenu)}`);
+  if (!result.reset?.clicked || !result.reset?.deckStateCleared || !result.reset?.probeCleared) failures.push(`Reset button should trigger the existing reset flow: ${JSON.stringify(result.reset)}`);
   if (!result.editRailContextMenu?.visible || (result.editRailContextMenu?.buttonCount || 0) < 1) {
     failures.push(`Edit mode rail context menu should still open: ${JSON.stringify(result.editRailContextMenu)}`);
   }

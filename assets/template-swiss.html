@@ -81,14 +81,14 @@
   #slide-rail-list::-webkit-scrollbar{width:8px}
   #slide-rail-list::-webkit-scrollbar-track{background:transparent}
   #slide-rail-list::-webkit-scrollbar-thumb{background:var(--pp-rail);border-radius:999px;border:2px solid transparent;background-clip:content-box}
-  .rail-grid{position:relative;display:grid;grid-template-columns:1fr;gap:12px;align-items:start}
-  .rail-card{position:relative;display:grid;gap:5px;width:100%;padding:5px;border:0;border-radius:8px;background:transparent;color:var(--pp-fg);cursor:pointer;text-align:left;outline:1px solid transparent;transition:outline-color .16s,background .16s,opacity .16s,transform .2s}
+  .rail-grid{position:relative;display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:start;width:100%;min-width:0}
+  .rail-card{position:relative;display:grid;gap:5px;width:100%;min-width:0;max-width:100%;padding:5px;border:0;border-radius:8px;background:transparent;color:var(--pp-fg);cursor:pointer;text-align:left;outline:1px solid transparent;transition:outline-color .16s,background .16s,opacity .16s,transform .2s}
   .rail-card:hover{background:var(--pp-chip)}
   .rail-card[aria-current="true"]{background:#111827;color:#fff;outline-color:rgba(255,255,255,.32)}
   .rail-card[aria-current="true"]:hover{background:#1f2937}
   .rail-card.is-dragging{opacity:.45;cursor:grabbing}
-  .rail-thumb-frame{position:relative;width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:5px;background:var(--paper);box-shadow:0 0 0 1px rgba(0,0,0,.12);contain:layout paint style}
-  .rail-thumb{position:absolute;inset:0;width:100%;height:100%;overflow:hidden;pointer-events:none;background:var(--paper);contain:layout paint style}
+  .rail-thumb-frame{position:relative;width:100%;min-width:0;max-width:100%;aspect-ratio:16/9;overflow:hidden;border-radius:5px;background:var(--paper);box-shadow:0 0 0 1px rgba(0,0,0,.12);contain:layout paint style}
+  .rail-thumb{position:absolute;inset:0;width:100%;min-width:0;max-width:100%;height:100%;overflow:hidden;pointer-events:none;background:var(--paper);contain:layout paint style}
   .rail-label{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 1px;font:600 11px/1.1 var(--mono);letter-spacing:.04em;color:var(--pp-fg2)}
   .rail-card[aria-current="true"] .rail-label{color:#fff}
   .rail-skip-badge{position:absolute;right:10px;top:10px;z-index:3;padding:4px 7px;border-radius:999px;background:rgba(10,10,10,.72);color:#fff;font:600 10px/1 var(--sans-zh);pointer-events:none}
@@ -108,10 +108,6 @@
   .preview-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:14px 12px 14px 16px;border-bottom:1px solid var(--pp-divider)}
   .preview-title{font:600 14.5px/1 var(--sans);letter-spacing:-.01em;color:var(--pp-fg);text-transform:none}
   .preview-count{margin-top:6px;font:500 11.5px/1 var(--sans);color:var(--pp-fg2);white-space:nowrap}
-  .preview-head-actions{display:flex;gap:2px}
-  .pp-ib{width:28px;height:28px;display:grid;place-items:center;border:0;border-radius:6px;background:transparent;color:var(--pp-icon);cursor:pointer}
-  .pp-ib:hover{background:var(--pp-chip)}
-  .pp-ib svg{width:16px;height:16px}
   /* body / fields */
   .preview-fields{flex:1;overflow:auto;display:block}
   .preview-field{padding:13px 16px;border-bottom:1px solid var(--pp-divider);display:grid;gap:11px}
@@ -181,7 +177,7 @@
   .pp-json:focus{border-color:var(--pp-blue);background:var(--pp-bg)}
   .pp-json.is-invalid{border-color:#ef4444;color:#ef4444}
   /* footer actions */
-  .preview-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);align-items:stretch;gap:8px;padding:12px 14px;border-top:1px solid var(--pp-divider)}
+  .preview-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;align-items:stretch;gap:8px;padding:12px 14px;border-top:1px solid var(--pp-divider)}
   #preview-present-btn.pp-present{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;height:36px;border:0;border-radius:6px;cursor:pointer;background:var(--pp-blue);color:#fff;font:600 13px/1 var(--sans-zh)}
   #preview-present-btn.pp-present:hover{background:var(--pp-blue-h)}
   #preview-present-btn.pp-present svg{width:16px;height:16px}
@@ -191,7 +187,7 @@
   #preview-export-main svg{width:16px;height:16px}
   #preview-export-main .pp-cap{transition:transform .2s}
   .pp-export.open #preview-export-main .pp-cap{transform:rotate(180deg)}
-  .pp-export-menu{position:absolute;left:0;right:0;bottom:calc(100% + 6px);z-index:5;display:none;flex-direction:column;padding:4px;background:var(--pp-bg);border:1px solid var(--pp-border);border-radius:8px;box-shadow:0 12px 34px rgba(0,0,0,.22)}
+  .pp-export-menu{position:absolute;right:0;bottom:calc(100% + 6px);z-index:5;display:none;min-width:180px;flex-direction:column;padding:4px;background:var(--pp-bg);border:1px solid var(--pp-border);border-radius:8px;box-shadow:0 12px 34px rgba(0,0,0,.22)}
   .pp-export.open .pp-export-menu{display:flex}
   .pp-export-menu button{display:flex;align-items:center;gap:10px;height:36px;padding:0 9px;border:0;border-radius:6px;background:transparent;cursor:pointer;color:var(--pp-fg);font:500 12.5px/1 var(--sans-zh);text-align:left}
   .pp-export-menu button svg{width:16px;height:16px;color:var(--pp-icon)}
@@ -210,7 +206,7 @@
   .deck-export-cancel{height:32px;padding:0 13px;border:1px solid rgba(255,255,255,.2);border-radius:6px;background:rgba(255,255,255,.08);color:#fff;cursor:pointer;font:600 12.5px/1 var(--sans-zh)}
   .deck-export-cancel:hover{background:rgba(255,255,255,.14)}
   .deck-export-cancel[disabled]{opacity:.62;cursor:default}
-  #preview-reset{display:flex;align-items:center;justify-content:center;gap:6px;height:36px;padding:0 14px;border:1px solid var(--pp-border);border-radius:6px;background:var(--pp-bg);color:var(--pp-fg2);cursor:pointer;font:500 12.5px/1 var(--sans-zh)}
+  #preview-reset{display:flex;align-items:center;justify-content:center;gap:6px;min-width:78px;height:36px;padding:0 11px;border:1px solid var(--pp-border);border-radius:6px;background:var(--pp-bg);color:var(--pp-fg2);cursor:pointer;font:500 12.5px/1 var(--sans-zh)}
   #preview-reset:hover{background:var(--pp-chip);color:var(--pp-fg)}
   #preview-reset svg{width:15px;height:15px}
   [contenteditable="true"]{outline:none;overflow-wrap:normal;word-break:normal}
@@ -296,11 +292,6 @@
     <div>
       <div class="preview-title">控制台</div>
       <div class="preview-count" id="preview-slide-count">0 slides</div>
-    </div>
-    <div class="preview-head-actions">
-      <button class="pp-ib preview-close" id="preview-close" type="button" aria-label="关闭" title="关闭">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6 18 18"/><path d="M18 6 6 18"/></svg>
-      </button>
     </div>
   </div>
   <div class="preview-fields">
@@ -3166,7 +3157,6 @@ refreshRailCatalog();
   const optionsEl = document.getElementById('preview-options');
   const panel = document.getElementById('preview-panel');
   const toggle = document.getElementById('preview-toggle');
-  const close = document.getElementById('preview-close');
   if(!optionsEl || !panel || !toggle) return;
 
   let options = {};
@@ -3713,7 +3703,6 @@ refreshRailCatalog();
   panel.addEventListener('mousedown', e => e.stopPropagation());
   toggle.addEventListener('mousedown', e => e.stopPropagation());
   toggle.addEventListener('click', () => setOpen(!document.body.classList.contains('preview-panel-open')));
-  close?.addEventListener('click', () => setOpen(false));
   document.getElementById('preview-present-btn')?.addEventListener('click', () => window.__enterPresentMode?.());
   setOpen(document.body.classList.contains('preview-panel-open'));
 
