@@ -393,6 +393,7 @@
     setDeletedSlides,
     setProps,
     addDuplicatedSlide,
+    restoreDuplicatedSlide,
     syncFromDom,
     write: writeVm,
     persist,
@@ -442,9 +443,21 @@
   }
 
   function addDuplicatedSlide(record, sourceModel){
-    const copyId = record?.copyId;
+    const copyId = restoreDuplicatedSlide(record, sourceModel);
     const sourceId = record?.sourceId;
     if(!copyId || !sourceId) return;
+    const order = [...(vm.state.slideOrder || [])].filter(id => id !== copyId);
+    const sourceOrderIndex = order.indexOf(sourceId);
+    order.splice(sourceOrderIndex >= 0 ? sourceOrderIndex + 1 : order.length, 0, copyId);
+    vm.state.slideOrder = order;
+    writeVm();
+    persist();
+  }
+
+  function restoreDuplicatedSlide(record, sourceModel){
+    const copyId = record?.copyId;
+    const sourceId = record?.sourceId;
+    if(!copyId || !sourceId) return '';
     vm.state.duplicatedSlides = (vm.state.duplicatedSlides || []).filter(item => item.copyId !== copyId);
     vm.state.duplicatedSlides.push({...record});
     const sourceIndex = (vm.slides || []).findIndex(slide => slide.id === sourceId);
@@ -461,12 +474,8 @@
     if(existingIndex >= 0) vm.slides.splice(existingIndex, 1);
     const insertAt = sourceIndex >= 0 ? sourceIndex + 1 : vm.slides.length;
     vm.slides.splice(insertAt, 0, modelSlide);
-    const order = [...(vm.state.slideOrder || [])].filter(id => id !== copyId);
-    const sourceOrderIndex = order.indexOf(sourceId);
-    order.splice(sourceOrderIndex >= 0 ? sourceOrderIndex + 1 : order.length, 0, copyId);
-    vm.state.slideOrder = order;
     writeVm();
-    persist();
+    return copyId;
   }
 
   function syncFromDom(){
@@ -984,7 +993,7 @@ function restorePersistedCatalogSlides(){
     deck.insertBefore(clone, source.nextSibling);
     slideById.set(record.copyId, clone);
     const sourceModel = window.__deckViewModel?.model?.slides?.find(item => item.id === record.sourceId);
-    window.__deckViewModel?.addDuplicatedSlide?.(record, sourceModel);
+    window.__deckViewModel?.restoreDuplicatedSlide?.(record, sourceModel);
   });
 }
 
@@ -3658,7 +3667,9 @@ refreshRailCatalog();
     Object.keys(localStorage).filter(key => key.startsWith(`${STORE}:`)).forEach(key => localStorage.removeItem(key));
     localStorage.removeItem('dashi-ppt-view-model');
     Object.keys(localStorage).filter(key => key.startsWith('dashi-ppt-current-slide:')).forEach(key => localStorage.removeItem(key));
-    location.reload();
+    const next = new URL(location.href);
+    next.searchParams.delete('deckState');
+    location.replace(next.href);
   });
 
   function getCurrentSlide(){

@@ -28,6 +28,8 @@ const url = cliUrl || server.url;
 const browser = await chromium.launch({ headless: true, executablePath: CHROME_PATH });
 let contextA;
 let contextB;
+let contextC;
+let contextD;
 
 try {
   contextA = await browser.newContext({ viewport: { width: 1440, height: 900 }, ignoreHTTPSErrors: true });
@@ -65,6 +67,22 @@ try {
   await settle(pageB, 700);
   const restored = await readRestoredState(pageB, edited);
 
+  contextC = await browser.newContext({ viewport: { width: 1440, height: 900 }, ignoreHTTPSErrors: true });
+  const pageC = await contextC.newPage();
+  pageC.setDefaultTimeout(30000);
+  await pageC.goto(`${url}?url_state_conflict_seed=${Date.now()}`, { waitUntil: 'domcontentloaded' });
+  await waitForDeck(pageC);
+  const localStorageConflict = await seedConflictingLocalStorage(pageC, edited);
+  await pageC.goto(shareUrl, { waitUntil: 'domcontentloaded' });
+  await waitForDeck(pageC);
+  await settle(pageC, 700);
+  const conflictRestored = await readRestoredState(pageC, edited);
+
+  contextD = await browser.newContext({ viewport: { width: 1440, height: 900 }, ignoreHTTPSErrors: true });
+  const pageD = await contextD.newPage();
+  pageD.setDefaultTimeout(30000);
+  const resetProbe = await runResetProbe(pageD, shareUrl, edited);
+
   const mediaTrimProbe = await runMediaTrimProbe(pageA);
   const tooLargeProbe = await runTooLargeProbe(pageA);
 
@@ -76,6 +94,9 @@ try {
     encodedStateLength: encodedState.length,
     historyProbe,
     restored,
+    localStorageConflict,
+    conflictRestored,
+    resetProbe,
     mediaTrimProbe,
     tooLargeProbe,
   };
@@ -87,6 +108,8 @@ try {
   }
   console.log(JSON.stringify(result, null, 2));
 } finally {
+  await closeContext(contextD);
+  await closeContext(contextC);
   await closeContext(contextB);
   await closeContext(contextA);
   await closeBrowser(browser);
@@ -124,20 +147,16 @@ async function exerciseEditorState(page) {
 
   const textEdit = await editActiveText(page);
   const propEdit = await editCurrentProps(page);
-  const beforeOrder = await readOrder(page);
-  const drag = await dragRailCard(page, 2, 5);
-  await page.waitForFunction(before => {
-    const current = window.__deckViewModel?.getState?.().slideOrder || [];
-    return current.join('|') !== before.join('|');
-  }, beforeOrder);
-  await settle(page, 500);
-
+  await page.evaluate(() => window.__refreshRailCatalog?.());
+  await settle(page, 300);
   const beforeCopy = await readRailState(page);
-  const copyTarget = await chooseRailMutationTarget(page, { preferIndex: 4, requireEditable: true });
-  const copy = await clickRailContextAction(page, copyTarget.slideId, /复制页面|复制/);
+  const copyTarget = await chooseRailMutationTarget(page, { preferIndex: 4 });
+  const copy = copyTarget ? await clickRailContextAction(page, copyTarget.slideId, /复制页面|复制/) : { hasTarget: false, clicked: false };
   const afterCopy = await readRailState(page);
-  const copiedSlideId = findCopiedSlideId(beforeCopy, afterCopy, copyTarget.slideId);
+  const copiedSlideId = findCopiedSlideId(beforeCopy, afterCopy, copyTarget?.slideId);
   const copyTextEdit = await editCopiedSlideTextAndProps(page, copiedSlideId);
+  const copyDrag = await dragCopiedSlideAway(page, copiedSlideId);
+  await settle(page, 500);
 
   const skipTarget = await chooseRailMutationTarget(page, { preferIndex: 6, excludeSlideIds: [copiedSlideId].filter(Boolean) });
   const skip = await clickRailContextAction(page, skipTarget.slideId, /跳过页面/);
@@ -171,11 +190,11 @@ async function exerciseEditorState(page) {
   return {
     textEdit,
     propEdit,
-    drag,
     copy,
     copyTarget,
     copiedSlideId,
     copyTextEdit,
+    copyDrag,
     skip,
     skipTarget,
     delete: deletion,
@@ -289,21 +308,67 @@ async function readRailState(page) {
 }
 
 async function dragRailCard(page, fromIndex, toIndex) {
+  await page.evaluate(() => {
+    const rail = document.querySelector('#slide-rail-list');
+    if (rail) rail.scrollTop = 0;
+  });
+  await settle(page, 80);
   const source = page.locator(`[data-rail-card="true"][data-index="${fromIndex}"],[data-slide-rail-card="true"][data-index="${fromIndex}"]`).first();
   const target = page.locator(`[data-rail-card="true"][data-index="${toIndex}"],[data-slide-rail-card="true"][data-index="${toIndex}"]`).first();
   if (!(await source.count()) || !(await target.count())) return { attempted: false };
-  await source.scrollIntoViewIfNeeded();
-  await target.scrollIntoViewIfNeeded();
-  const sourceBox = await source.boundingBox();
-  const targetBox = await target.boundingBox();
-  if (!sourceBox || !targetBox) return { attempted: false };
-  await page.mouse.move(sourceBox.x + sourceBox.width / 2, sourceBox.y + sourceBox.height / 2);
-  await page.mouse.down();
-  await page.mouse.move(targetBox.x + targetBox.width / 2, targetBox.y + targetBox.height / 2, { steps: 6 });
-  await page.mouse.up();
-  await settle(page, 550);
+  const dispatched = await page.evaluate(({ fromIndex, toIndex }) => {
+    const cardSelector = index => `[data-rail-card="true"][data-index="${index}"],[data-slide-rail-card="true"][data-index="${index}"]`;
+    const source = document.querySelector(cardSelector(fromIndex));
+    const target = document.querySelector(cardSelector(toIndex));
+    const grid = source?.closest('.rail-grid') || target?.closest('.rail-grid');
+    if (!source || !target || !grid || typeof DataTransfer === 'undefined') return { attempted: false };
+    const dataTransfer = new DataTransfer();
+    const sourceRect = source.getBoundingClientRect();
+    const targetRect = target.getBoundingClientRect();
+    const fire = (node, type, rect) => node.dispatchEvent(new DragEvent(type, {
+      bubbles: true,
+      cancelable: true,
+      clientX: rect.left + rect.width / 2,
+      clientY: rect.top + rect.height / 2,
+      dataTransfer,
+    }));
+    fire(source, 'dragstart', sourceRect);
+    fire(grid, 'dragover', targetRect);
+    fire(grid, 'drop', targetRect);
+    fire(source, 'dragend', targetRect);
+    return { attempted: true };
+  }, { fromIndex, toIndex });
+  if (!dispatched.attempted) return dispatched;
+  await settle(page, 650);
   const perf = await page.evaluate(() => window.__getRailPerfState?.() || window.__getOverviewPerfState?.() || null);
   return { attempted: true, lastDrop: perf?.lastDrop || null };
+}
+
+async function dragCopiedSlideAway(page, copiedSlideId) {
+  let last = { attempted: false };
+  for (const offset of [2, 3, 4]) {
+    const positions = await readCopiedOrderPosition(page, copiedSlideId);
+    if (positions.copiedIndex < 0) return { attempted: false, ...positions };
+    const maxIndex = Math.max(0, positions.order.length - 1);
+    const toIndex = Math.min(maxIndex, positions.copiedIndex + offset);
+    if (toIndex === positions.copiedIndex) continue;
+    last = { ...(await dragRailCard(page, positions.copiedIndex, toIndex)), ...(await readCopiedOrderPosition(page, copiedSlideId)) };
+    if (last.attempted && Math.abs((last.copiedIndex ?? -1) - (last.sourceIndex ?? -1)) > 1) return last;
+  }
+  return last;
+}
+
+async function readCopiedOrderPosition(page, slideId) {
+  return page.evaluate(copiedId => {
+    const perf = window.__getRailPerfState?.() || window.__getOverviewPerfState?.() || null;
+    const order = window.__deckViewModel?.getState?.().slideOrder || [];
+    return {
+      lastDrop: perf?.lastDrop || null,
+      copiedIndex: order.indexOf(copiedId),
+      sourceIndex: order.indexOf((window.__deckViewModel?.getState?.().duplicatedSlides || []).find(item => item.copyId === copiedId)?.sourceId),
+      order: [...order],
+    };
+  }, slideId);
 }
 
 async function chooseRailMutationTarget(page, { excludeSlideIds = [], preferIndex = 1, requireEditable = false } = {}) {
@@ -394,6 +459,62 @@ async function readRestoredState(page, edited) {
   }, { edited, target });
 }
 
+async function seedConflictingLocalStorage(page, edited) {
+  return page.evaluate(edited => {
+    const signature = window.__deckViewModel?.model?.state?.__deckSignature || location.pathname || 'deck';
+    const originalOrder = window.__deckViewModel?.getState?.().slideOrder || [];
+    const conflictOrder = [...originalOrder].reverse();
+    const conflictState = {
+      __deckSignature: signature,
+      slideOrder: conflictOrder,
+      skippedSlides: [edited.deleteTarget?.slideId].filter(Boolean),
+      deletedSlides: [edited.skipTarget?.slideId].filter(Boolean),
+      duplicatedSlides: [],
+      text: { [edited.textEdit.key]: 'LOCAL_STORAGE_TEXT_CONFLICT' },
+      props: { [edited.propEdit.slideId]: { [edited.propEdit.key]: 'LOCAL_STORAGE_PROP_CONFLICT' } },
+    };
+    localStorage.setItem('dashi-ppt-view-model', JSON.stringify(conflictState));
+    localStorage.setItem(`dashi-ppt-preview:${signature}`, JSON.stringify({ themePack: 'theme02', pageTransition: 'none' }));
+    localStorage.setItem(`dashi-ppt-current-slide:${signature}`, JSON.stringify({ index: 12, updatedAt: new Date().toISOString() }));
+    return {
+      signature,
+      conflictOrder,
+      conflictText: conflictState.text,
+      conflictProps: conflictState.props,
+      conflictThemePack: 'theme02',
+      conflictIndex: 12,
+    };
+  }, edited);
+}
+
+async function runResetProbe(page, shareUrl, edited) {
+  await page.goto(shareUrl, { waitUntil: 'domcontentloaded' });
+  await waitForDeck(page);
+  await settle(page, 500);
+  const before = await readRestoredState(page, edited);
+  await Promise.all([
+    page.waitForLoadState('domcontentloaded').catch(() => {}),
+    page.locator('#preview-reset').click(),
+  ]);
+  await waitForDeck(page);
+  await settle(page, 700);
+  const after = await page.evaluate(edited => {
+    const vm = window.__deckViewModel?.getState?.() || {};
+    return {
+      href: location.href,
+      hasDeckState: new URL(location.href).searchParams.has('deckState'),
+      currentIndex: window.__currentSlideIndex || 0,
+      textValue: vm.text?.[edited.textEdit.key] || '',
+      propValue: vm.props?.[edited.propEdit.slideId]?.[edited.propEdit.key],
+      slideOrder: [...(vm.slideOrder || [])],
+      skippedSlides: [...(vm.skippedSlides || [])],
+      deletedSlides: [...(vm.deletedSlides || [])],
+      copiedExists: (vm.slideOrder || []).includes(edited.copiedSlideId),
+    };
+  }, edited);
+  return { before, after };
+}
+
 async function runMediaTrimProbe(page) {
   return page.evaluate(async () => {
     const slide = (window.__getVisibleSlides?.() || []).find(item => item.dataset.vmSlideId);
@@ -432,35 +553,56 @@ function validateResult(result) {
 
   if (!edited.textEdit?.found) failures.push('Text edit target was not found.');
   if (!edited.propEdit?.found) failures.push('Props edit target was not found.');
-  if (!edited.drag?.attempted || Number(edited.drag.lastDrop?.deckMoveCount || 0) !== 1) failures.push('Rail drag reorder did not commit one deck move.');
   if (!edited.copy?.clicked || !edited.copiedSlideId || edited.copiedSlideId === edited.copyTarget?.slideId) failures.push('Rail copy did not create an independent copied slide id.');
   if (!edited.copyTextEdit?.found) failures.push('Copied slide text/props edit was not exercised.');
+  if (!edited.copyDrag?.attempted || Number(edited.copyDrag.lastDrop?.deckMoveCount || 0) !== 1) failures.push('Copied slide drag reorder did not commit one deck move.');
+  if (!(Math.abs((edited.copyDrag?.copiedIndex ?? -1) - (edited.copyDrag?.sourceIndex ?? -1)) > 1)) failures.push('Copied slide was not dragged away from its source-adjacent position before sharing.');
   if (!edited.skip?.clicked || !edited.state.skippedSlides.includes(edited.skipTarget?.slideId)) failures.push('Rail skip state was not saved before URL sharing.');
   if (!edited.delete?.clicked || !edited.state.deletedSlides.includes(edited.deleteTarget?.slideId)) failures.push('Rail delete state was not saved before URL sharing.');
   if (!result.encodedStateLength) failures.push('URL did not receive a deckState parameter.');
   if ((historyProbe.replaceState || 0) < 1) failures.push('URL updates should use history.replaceState.');
   if ((historyProbe.pushState || 0) !== 0) failures.push('URL updates must not use history.pushState.');
 
-  if (restored.themePack !== edited.state.themePack) failures.push(`Theme pack did not restore: ${restored.themePack} !== ${edited.state.themePack}`);
-  if (restored.currentIndex !== edited.state.currentIndex) failures.push(`Current slide did not restore: ${restored.currentIndex} !== ${edited.state.currentIndex}`);
-  if (restored.text[edited.textEdit.key] !== edited.textEdit.value) failures.push('Edited text did not restore from URL.');
-  if (restored.props[edited.propEdit.slideId]?.[edited.propEdit.key] !== edited.propEdit.value) failures.push('Edited props did not restore from URL.');
-  if (restored.slideOrder.join('|') !== edited.state.slideOrder.join('|')) failures.push('slideOrder did not restore from URL.');
-  if (!restored.skippedSlides.includes(edited.skipTarget?.slideId)) failures.push('Skipped slide id did not restore from URL.');
-  if (!restored.deletedSlides.includes(edited.deleteTarget?.slideId)) failures.push('Deleted slide id did not restore from URL.');
-  if (!restored.copiedSlideExists) failures.push('Copied slide did not restore from URL.');
-  if (!restored.slideOrder.includes(edited.copiedSlideId)) failures.push('Copied slide id is missing from restored slideOrder.');
-  if (restored.copiedTextKey === edited.copyTarget?.slideId) failures.push('Copied slide text key overlaps the source id.');
-  if (restored.text[edited.copyTextEdit.textKey] !== edited.copyTextEdit.textValue) failures.push('Copied slide text did not restore from URL.');
-  if (restored.props[edited.copiedSlideId]?.[edited.copyTextEdit.propKey] !== edited.copyTextEdit.propValue) failures.push('Copied slide props did not restore from URL.');
-  if (restored.visibleSlideIds.includes(edited.skipTarget?.slideId)) failures.push('Skipped slide is visible after URL restore.');
-  if (restored.visibleSlideIds.includes(edited.deleteTarget?.slideId)) failures.push('Deleted slide is visible after URL restore.');
+  validateRestoredState('empty localStorage', restored, edited, failures);
+  validateRestoredState('conflicting localStorage', result.conflictRestored, edited, failures);
+  if (result.conflictRestored?.text?.[edited.textEdit.key] === result.localStorageConflict?.conflictText?.[edited.textEdit.key]) failures.push('URL text did not override localStorage conflict.');
+  if (result.conflictRestored?.themePack === result.localStorageConflict?.conflictThemePack) failures.push('URL theme did not override localStorage conflict.');
+  if (result.conflictRestored?.currentIndex === result.localStorageConflict?.conflictIndex) failures.push('URL current slide did not override localStorage conflict.');
+
+  const resetAfter = result.resetProbe?.after || {};
+  if (!result.resetProbe?.before?.copiedSlideExists) failures.push('Reset probe did not start from restored URL state.');
+  if (resetAfter.hasDeckState) failures.push('Reset should remove deckState from the URL.');
+  if (resetAfter.textValue === edited.textEdit.value) failures.push('Reset should not restore edited text from URL after reload.');
+  if (resetAfter.propValue === edited.propEdit.value) failures.push('Reset should not restore edited props from URL after reload.');
+  if (resetAfter.copiedExists) failures.push('Reset should not restore copied slide from URL after reload.');
   if (mediaTrimProbe.hrefContainsDataImage || mediaTrimProbe.hrefContainsEncodedDataImage) failures.push('URL state contains media data URL content.');
   if (mediaTrimProbe.status?.tooLarge && !mediaTrimProbe.status?.lastError) failures.push('Too-large URL state should expose a status/error.');
   if (!result.tooLargeProbe.status?.tooLarge || result.tooLargeProbe.status?.lastError !== 'too-large') failures.push('Too-large URL state fallback was not exposed.');
   if (result.tooLargeProbe.hasDeckState) failures.push('Too-large URL state should not leave a stale deckState parameter in the URL.');
 
   return failures;
+}
+
+function validateRestoredState(label, restored, edited, failures) {
+  if (!restored) {
+    failures.push(`${label}: missing restored state.`);
+    return;
+  }
+  if (restored.themePack !== edited.state.themePack) failures.push(`${label}: theme pack did not restore: ${restored.themePack} !== ${edited.state.themePack}`);
+  if (restored.currentIndex !== edited.state.currentIndex) failures.push(`${label}: current slide did not restore: ${restored.currentIndex} !== ${edited.state.currentIndex}`);
+  if (restored.text[edited.textEdit.key] !== edited.textEdit.value) failures.push(`${label}: edited text did not restore from URL.`);
+  if (restored.props[edited.propEdit.slideId]?.[edited.propEdit.key] !== edited.propEdit.value) failures.push(`${label}: edited props did not restore from URL.`);
+  if (restored.slideOrder.join('|') !== edited.state.slideOrder.join('|')) failures.push(`${label}: slideOrder did not restore from URL.`);
+  if (restored.slideOrder.indexOf(edited.copiedSlideId) !== edited.state.slideOrder.indexOf(edited.copiedSlideId)) failures.push(`${label}: copied slide position did not restore from URL.`);
+  if (!restored.skippedSlides.includes(edited.skipTarget?.slideId)) failures.push(`${label}: skipped slide id did not restore from URL.`);
+  if (!restored.deletedSlides.includes(edited.deleteTarget?.slideId)) failures.push(`${label}: deleted slide id did not restore from URL.`);
+  if (!restored.copiedSlideExists) failures.push(`${label}: copied slide did not restore from URL.`);
+  if (!restored.slideOrder.includes(edited.copiedSlideId)) failures.push(`${label}: copied slide id is missing from restored slideOrder.`);
+  if (restored.copiedTextKey === edited.copyTarget?.slideId) failures.push(`${label}: copied slide text key overlaps the source id.`);
+  if (restored.text[edited.copyTextEdit.textKey] !== edited.copyTextEdit.textValue) failures.push(`${label}: copied slide text did not restore from URL.`);
+  if (restored.props[edited.copiedSlideId]?.[edited.copyTextEdit.propKey] !== edited.copyTextEdit.propValue) failures.push(`${label}: copied slide props did not restore from URL.`);
+  if (restored.visibleSlideIds.includes(edited.skipTarget?.slideId)) failures.push(`${label}: skipped slide is visible after URL restore.`);
+  if (restored.visibleSlideIds.includes(edited.deleteTarget?.slideId)) failures.push(`${label}: deleted slide is visible after URL restore.`);
 }
 
 async function settle(page, ms = 280) {
