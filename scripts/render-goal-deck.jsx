@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { composeDeck } from '../src/deckComposer.jsx';
 import { renderDeck } from '../src/renderDeck.jsx';
+import { validateGoalSpec } from './validate-goal-spec.mjs';
 
 const [, , specArg, outArg] = process.argv;
 
@@ -14,6 +15,12 @@ if (!specArg || !outArg) {
 const specPath = path.resolve(specArg);
 const outFile = path.resolve(outArg);
 const spec = JSON.parse(fs.readFileSync(specPath, 'utf8'));
+const specErrors = validateGoalSpec(spec);
+if (specErrors.length) {
+  console.error('Goal spec validation failed:');
+  for (const error of specErrors) console.error(`- ${error}`);
+  process.exit(1);
+}
 const deck = composeDeck(spec);
 
 renderDeck(deck, { outFile });

@@ -36,6 +36,9 @@ export const ROLE_ALIASES = {
   roadmap: 'actions',
   visual: 'image',
   gallery: 'image',
+  media: 'image',
+  picture: 'image',
+  photo: 'image',
 };
 
 const DEFAULT_ROLE_SEQUENCE = [
@@ -66,6 +69,8 @@ export const ROLE_LAYOUT_POOLS = THEME_ROLE_LAYOUT_POOLS[DEFAULT_THEME_PACK] || 
 export const ROLE_LAYOUTS = Object.fromEntries(
   Object.entries(ROLE_LAYOUT_POOLS).map(([role, layouts]) => [role, layouts[0]]),
 );
+
+const THEME_PAGE_BY_KEY = new Map(THEME_PAGES.map(page => [page.key, page]));
 
 export function composeDeck(spec = {}) {
   const goal = spec.goal || spec.title || '主题汇报';
@@ -107,7 +112,6 @@ function composeSlide(page, context) {
     label: page.label,
     logicalIndex: page.logicalIndex,
     copy: page.copy,
-    media: page.media,
   };
 }
 
@@ -116,8 +120,16 @@ function chooseLayout(page, role, { randomSeed, index, usedLayouts, rolePools })
   if (!layouts.length) {
     throw new Error(`Unknown slide role "${page.role}". Use layout directly or choose one of: ${Object.keys(rolePools).join(', ')}`);
   }
-  const available = layouts.filter(layout => !usedLayouts.has(layout));
-  const pool = available.length ? available : layouts;
+  const requestedMediaCount = getRequestedMediaCount(page);
+  const mediaReadyLayouts = requestedMediaCount
+    ? layouts.filter(layout => layoutHasMediaSlot(layout, requestedMediaCount))
+    : layouts;
+  if (requestedMediaCount && !mediaReadyLayouts.length) {
+    throw new Error(`Slide role "${page.role || role}" requires ${requestedMediaCount} media slot(s), but no candidate layout has a usable media slot.`);
+  }
+  const sourceLayouts = mediaReadyLayouts.length ? mediaReadyLayouts : layouts;
+  const available = sourceLayouts.filter(layout => !usedLayouts.has(layout));
+  const pool = available.length ? available : sourceLayouts;
   return pool[hashSeed(`${randomSeed}:${role}:${index}`) % pool.length];
 }
 
@@ -139,7 +151,13 @@ function buildRoleLayoutPools(themeKey) {
   const pages = THEME_PAGES.filter(page => page.themeKey === themeKey);
   const allLayouts = pages.map(page => page.key);
   return Object.fromEntries(Object.entries(ROLE_KEYWORDS).map(([role, keywords]) => {
-    const matched = pages.filter(page => pageMatches(page, keywords)).map(page => page.key);
+    const matched = pages
+      .filter(page => {
+        if (role === 'cover') return page.pageNumber >= 1 && page.pageNumber <= 5;
+        if (role === 'image') return pageHasMediaSlot(page);
+        return pageMatches(page, keywords);
+      })
+      .map(page => page.key);
     return [role, matched.length ? matched : fallbackRoleLayouts(role, allLayouts)];
   }));
 }
@@ -151,9 +169,86 @@ function pageMatches(page, keywords) {
 
 function fallbackRoleLayouts(role, layouts) {
   if (!layouts.length) return [];
-  if (role === 'cover') return [layouts[0]];
+  if (role === 'cover') return layouts.slice(0, 5);
   if (role === 'closing') return [layouts[layouts.length - 1]];
   return layouts;
+}
+
+function getRequestedMediaCount(page = {}) {
+  const provided = countMediaItems(page.providedImages);
+  if (provided) return provided;
+  const planned = countMediaItems(page.plannedImages);
+  if (planned) return planned;
+  if (page.needsVisual === true || page.needsImageGen === true || page.imageGen === true) return 1;
+  return 0;
+}
+
+function countMediaItems(value) {
+  if (Array.isArray(value)) return value.length;
+  if (value === true) return 1;
+  const number = Number(value);
+  if (Number.isFinite(number) && number > 0) return Math.round(number);
+  return 0;
+}
+
+function layoutHasMediaSlot(layout, count = 1) {
+  const page = THEME_PAGE_BY_KEY.get(layout);
+  return page ? pageHasMediaSlot(page, count) : false;
+}
+
+function pageHasMediaSlot(page, count = 1) {
+  return getMediaSlotCapacities(page).some(capacity => capacity >= Math.max(1, Number(count) || 1));
+}
+
+function getMediaSlotCapacities(page) {
+  const props = page.defaultProps || {};
+  const controls = page.spec?.controls || [];
+  const capacities = Object.keys(props)
+    .filter(key => Array.isArray(props[key]) && isMediaArrayKey(key))
+    .map(key => mediaArrayCapacity(key, props, controls));
+
+  for (const control of controls) {
+    if (!isMediaControl(control)) continue;
+    const key = control.prop || control.key;
+    if (!key || capacities.length) continue;
+    capacities.push(mediaControlCapacity(key, props, controls));
+  }
+
+  return capacities;
+}
+
+function mediaArrayCapacity(key, props, controls) {
+  const countControl = controls.find(control => {
+    const prop = control.prop || control.key;
+    return prop && prop.endsWith('Count') && prop.toLowerCase().includes(key.replace(/s$/i, '').toLowerCase());
+  });
+  const max = Number(countControl?.max);
+  if (Number.isFinite(max) && max > 0) return max;
+  return props[key].length || 1;
+}
+
+function mediaControlCapacity(key, props, controls) {
+  const countControl = controls.find(control => {
+    const prop = control.prop || control.key;
+    return prop && prop.endsWith('Count') && prop.toLowerCase().includes(key.replace(/s$/i, '').toLowerCase());
+  });
+  const max = Number(countControl?.max);
+  if (Number.isFinite(max) && max > 0) return max;
+  const value = props[key];
+  return Array.isArray(value) ? Math.max(1, value.length) : 1;
+}
+
+function isMediaControl(control) {
+  const type = String(control.type || '').toLowerCase();
+  const key = String(control.prop || control.key || '').toLowerCase();
+  const label = String(control.label || '').toLowerCase();
+  if (['images', 'image', 'media', 'picture'].includes(type)) return true;
+  if (/^(images|media|photos|pictures|logos|thumbs)$/.test(key)) return true;
+  return /图片|图像|视频|媒体/.test(label) && !/^show/.test(key);
+}
+
+function isMediaArrayKey(key) {
+  return /^(images|media|photos|pictures|logos|thumbs|imageSlots|imgs)$/i.test(String(key || ''));
 }
 
 function getPageCount(spec) {

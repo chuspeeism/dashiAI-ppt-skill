@@ -27,9 +27,12 @@
 |   |-- check_latest_version.mjs - 本地命令脚本。
 |   |-- export-editable-pptx.mjs - 本地命令脚本。
 |   |-- import-claude-themes.jsx - 本地命令脚本。
+|   |-- inspect-layout.mjs - 本地命令脚本。
+|   |-- layout-query.mjs - 本地命令脚本。
 |   |-- render-deck.jsx - 本地命令脚本。
 |   |-- render-goal-deck.jsx - 本地命令脚本。
 |   |-- serve-preview-https.mjs - 本地命令脚本。
+|   |-- skill-workflow-utils.mjs - 本地命令脚本。
 |   |-- sync-skill.mjs - 本地命令脚本。
 |   |-- update-layout-manifest.jsx - 本地命令脚本。
 |   |-- update-project-docs.mjs - 本地命令脚本。
@@ -37,10 +40,13 @@
 |   |-- validate-editor-presenter-modes.mjs - 本地命令脚本。
 |   |-- validate-editor-ui-polish.mjs - 本地命令脚本。
 |   |-- validate-goal-copy.mjs - 本地命令脚本。
+|   |-- validate-goal-spec.mjs - 本地命令脚本。
 |   |-- validate-layout-showcase.mjs - 本地命令脚本。
 |   |-- validate-overview-performance.mjs - 本地命令脚本。
+|   |-- validate-skill-workflow-tools.mjs - 本地命令脚本。
 |   |-- validate-swiss-deck.mjs - 本地命令脚本。
-|   `-- validate-url-state.mjs - 本地命令脚本。
+|   |-- validate-url-state.mjs - 本地命令脚本。
+|   `-- write-safe-props.mjs - 本地命令脚本。
 |-- src/
 |   |-- components/
 |   |   |-- shell/
@@ -1177,6 +1183,7 @@
 |   |   `-- index.jsx - Deck ViewModel 构建层和 React Context。
 |   |-- deckComposer.jsx - 目标 deck 编排器,把用户目标 JSON 计划映射为当前已验收主题页面。
 |   |-- options.jsx - 布局选项注册表,只登记当前已验收主题页面。
+|   |-- prop-contract-core.mjs - 项目源码或配置文件。
 |   |-- propContracts.jsx - 项目源码或配置文件。
 |   |-- react-shim.js - 项目源码或配置文件。
 |   `-- renderDeck.jsx - 核心渲染器,构建 Deck ViewModel 并把 React slides 注入 HTML 模板。

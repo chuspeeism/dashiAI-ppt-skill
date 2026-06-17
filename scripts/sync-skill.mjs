@@ -31,6 +31,12 @@ function syncProjectFiles() {
   copyPath(path.join(ROOT, 'layout-manifest.json'), path.join(projectRoot, 'layout-manifest.json'));
   copyPath(path.join(ROOT, 'assets/template-swiss.html'), path.join(projectRoot, 'assets/template-swiss.html'));
   copyPath(path.join(ROOT, 'src'), path.join(projectRoot, 'src'));
+  copyPath(path.join(ROOT, 'scripts/skill-workflow-utils.mjs'), path.join(projectRoot, 'scripts/skill-workflow-utils.mjs'));
+  copyPath(path.join(ROOT, 'scripts/layout-query.mjs'), path.join(projectRoot, 'scripts/layout-query.mjs'));
+  copyPath(path.join(ROOT, 'scripts/inspect-layout.mjs'), path.join(projectRoot, 'scripts/inspect-layout.mjs'));
+  copyPath(path.join(ROOT, 'scripts/write-safe-props.mjs'), path.join(projectRoot, 'scripts/write-safe-props.mjs'));
+  copyPath(path.join(ROOT, 'scripts/validate-goal-spec.mjs'), path.join(projectRoot, 'scripts/validate-goal-spec.mjs'));
+  copyPath(path.join(ROOT, 'scripts/validate-skill-workflow-tools.mjs'), path.join(projectRoot, 'scripts/validate-skill-workflow-tools.mjs'));
   copyPath(path.join(ROOT, 'scripts/render-goal-deck.jsx'), path.join(projectRoot, 'scripts/render-goal-deck.jsx'));
   copyPath(path.join(ROOT, 'scripts/serve-preview-https.mjs'), path.join(projectRoot, 'scripts/serve-preview-https.mjs'));
   copyPath(path.join(ROOT, 'scripts/validate-swiss-deck.mjs'), path.join(projectRoot, 'scripts/validate-swiss-deck.mjs'));
@@ -45,6 +51,11 @@ function renderRuntimePackage() {
     private: true,
     type: 'module',
     scripts: {
+      'layout:query': 'node scripts/layout-query.mjs',
+      'inspect:layout': 'node scripts/inspect-layout.mjs',
+      'props:safe': 'node scripts/write-safe-props.mjs',
+      'validate:goal-spec': 'node scripts/validate-goal-spec.mjs',
+      'validate:skill-workflow-tools': 'node scripts/validate-skill-workflow-tools.mjs',
       'render:goal': 'tsx scripts/render-goal-deck.jsx',
       'preview:https': 'node scripts/serve-preview-https.mjs',
       'validate:swiss': 'node scripts/validate-swiss-deck.mjs',
@@ -140,7 +151,7 @@ function syncReferences() {
       pageCount: { type: 'number' },
       themePack: { type: 'string', enum: themeMetadata.packs.map(theme => theme.key) },
       text: { type: 'object', additionalProperties: { type: 'string' } },
-      media: { type: 'object' },
+      media: false,
       props: { type: 'object' },
       slides: {
         type: 'array',
@@ -154,8 +165,18 @@ function syncReferences() {
             logicalIndex: { type: 'number' },
             layout: { type: 'string' },
             props: { type: 'object' },
-            media: { type: 'object' },
+            media: false,
             copy: { type: 'object' },
+            needsVisual: { type: 'boolean' },
+            imageGen: { type: 'boolean' },
+            needsImageGen: { type: 'boolean' },
+            plannedImages: { type: ['boolean', 'number'] },
+            providedImages: {
+              oneOf: [
+                { type: 'boolean' },
+                { type: 'array', items: { type: 'string' } },
+              ],
+            },
           },
           additionalProperties: true,
         },
@@ -342,6 +363,7 @@ if [[ ! -d node_modules || package.json -nt node_modules/.package-lock.json || p
   npm install
 fi
 mkdir -p "$(dirname "$OUT_PATH")"
+npm run validate:goal-spec -- "$SPEC_PATH"
 npm run render:goal -- "$SPEC_PATH" "$OUT_PATH"
 npm run validate:swiss -- "$OUT_PATH"
 npm run validate:goal-copy -- "$SPEC_PATH" "$OUT_PATH"
@@ -392,9 +414,11 @@ ${themes}
 
 每套主题的前 5 页都是封面候选。一个 deck 只能使用其中 1 页作为封面,正文页从第 6 页以后选择。
 
-如果当前是在 Codex 环境中执行,且页面有插图/图片槽位或用户主题明显需要插图,必须先询问用户是否同意通过 image-gen 生图并插入 PPT。用户同意后,在对应插图位置/图片槽位写入生成图片;需要多张图时,把每张图拆成独立 subagent 子任务并行生成,完成后再统一写入对应槽位。单个 subagent 失败时只标记对应 slot,不要丢弃其它已生成图片。用户不同意或未回复时,不要生成图片,也不要替换图片槽位。
+选页先使用 \`npm run layout:query -- --theme <themePack> --role <role> --limit 8\`。需要图片槽时加 \`--needs-media\`、\`--planned-images <n>\`、\`--provided-images <n>\` 或 \`--image-gen\`,候选会基于真实 \`mediaSlots\`。
 
-页面属性契约读取项目根目录的 \`layout-manifest.json\`。
+单页契约使用 \`npm run inspect:layout -- <layout>\`。写数组、数量或图片时使用 \`npm run props:safe -- <layout> '<props-json>' [--images <path...>]\`。
+
+图片/视频只写入页面 \`props.images\` / \`props.media\`。不要写 \`slides[].media\`;用户提供图片时先用 \`props:safe --images\` 写入真实 slot。需要 image-gen 时先询问用户,用户只计划后续插图时选择并保留带 media slot 的页面。
 
 需要调整卡片/条目数量时,用 \`cardCount\`、\`itemCount\`、\`stepCount\` 等 count 参数控制显示数量。数组字段是模板内容池,不要为了隐藏元素而截短 \`cards\`、\`items\`、\`steps\`、\`stats\` 等数组;只覆盖当前显示的前 N 项,保留后续默认项供控制面板加回。
 
