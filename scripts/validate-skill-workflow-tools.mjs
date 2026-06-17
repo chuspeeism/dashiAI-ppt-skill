@@ -4,6 +4,7 @@ import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { GENERATED_THEME_PACKS } from '../src/components/themes/generated-metadata.js';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -79,6 +80,13 @@ function testWriteSafeProps() {
   assert(result.props?.imageSlotCount === 2, 'expected imageSlotCount derived from authored images');
   assert(result.props?.images?.length >= 5, 'expected images default tail to be preserved');
   assert(result.props?.items?.length >= 5, 'expected items default tail to be preserved');
+  const itemTail = result.props.items.slice(2);
+  const tailText = JSON.stringify(itemTail);
+  assert(!tailText.includes('xAI') && !tailText.includes('CoreWeave') && !tailText.includes('Figure AI'), 'expected item tail to remove template default copy');
+  assert(itemTail[0].label.includes('请'), 'expected neutral editable placeholder in item tail');
+  assert(charLength(itemTail[0].label) === charLength('xAI'), 'expected placeholder label length to match default label length');
+  assert(charLength(itemTail[0].sub) === charLength('通用大模型'), 'expected placeholder sub length to match default sub length');
+  assert(itemTail[0].tone === 'green', 'expected non-copy visual fields to stay intact');
   const unknown = runJson('scripts/write-safe-props.mjs', ['theme01_page020', JSON.stringify({ madeUpProp: true })]);
   assert(unknown.warnings?.some(item => item.includes('madeUpProp')), 'expected unknown prop warning');
 }
@@ -231,7 +239,19 @@ function testSkillPromptGuidance() {
   if (!skill.includes('--planned-images <n>')) missing.push('planned-images workflow guidance');
   if (!skill.includes('--provided-images <n>')) missing.push('provided-images workflow guidance');
   if (!skill.includes('--image-gen')) missing.push('image-gen workflow guidance');
+  const styleHintLines = skill.match(/`theme\d+`[^。\n]*适合[:：][^。\n]*人群[:：][^。\n]*/g) || [];
+  if (styleHintLines.length !== 12) missing.push('12 short style scene/audience hints in the user-visible style-choice reply');
+  for (const theme of GENERATED_THEME_PACKS) {
+    const line = styleHintLines.find(item => item.includes(`\`${theme.key}\``)) || '';
+    if (!line.includes(theme.displayName)) missing.push(`metadata displayName for ${theme.key}`);
+    if (!line.includes(shortThemeText(theme.scenario))) missing.push(`metadata scenario for ${theme.key}`);
+    if (!line.includes(shortThemeText(theme.audience))) missing.push(`metadata audience for ${theme.key}`);
+  }
+  for (const oldName of ['01-轻拟态质感', 'PULSE 色谱图表', '黑金实验质感']) {
+    if (skill.includes(oldName)) missing.push(`old theme name ${oldName}`);
+  }
   if (!sync.includes('theme-style-grid.png')) missing.push('sync style grid asset handling');
+  if (/THEME_CHOICE_HINTS/.test(sync)) missing.push('hardcoded THEME_CHOICE_HINTS table');
   assert(!missing.length, `Skill prompt guidance missing: ${missing.join(', ')}`);
 }
 
@@ -333,4 +353,17 @@ function runJson(script, args) {
 
 function assert(condition, message) {
   if (!condition) throw new Error(message);
+}
+
+function charLength(value) {
+  return Array.from(String(value || '')).length;
+}
+
+function shortThemeText(value) {
+  return String(value || '')
+    .split(/[、,，]/)
+    .map(item => item.trim())
+    .filter(Boolean)
+    .slice(0, 2)
+    .join(' / ');
 }

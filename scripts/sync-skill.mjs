@@ -10,7 +10,7 @@ const MIGRATION_ONLY_DIRS = new Set(['uploads', 'screens', 'screenshots', 'shots
 const STYLE_GRID_ASSET = path.join('assets', 'skill', 'theme-style-grid.png');
 
 const themeMetadata = loadThemeMetadata();
-const source = renderThemeList(fs.readFileSync(sourcePath, 'utf8'), themeMetadata);
+const source = renderThemeChoiceHints(renderThemeList(fs.readFileSync(sourcePath, 'utf8'), themeMetadata), themeMetadata);
 const preservedSkillAssets = preserveSkillAssets();
 
 writeIfChanged(sourcePath, source);
@@ -356,6 +356,16 @@ function renderThemeList(content, { packs }) {
   );
 }
 
+function renderThemeChoiceHints(content, { packs }) {
+  const lines = packs.map(theme => {
+    return `  - \`${theme.key}\` ${themeDisplayName(theme)} | 适合: ${shortThemeText(theme.scenario)} | 人群: ${shortThemeText(theme.audience)}`;
+  }).join('\n');
+  return content.replace(
+    /<!-- theme-choice-hints:start -->[\s\S]*?<!-- theme-choice-hints:end -->/,
+    `<!-- theme-choice-hints:start -->\n${lines}\n<!-- theme-choice-hints:end -->`,
+  );
+}
+
 function syncRunnerScript() {
   const scriptPath = path.join(SKILL_ROOT, 'scripts/render_goal_deck.sh');
   writeIfChanged(scriptPath, `#!/usr/bin/env bash
@@ -421,6 +431,9 @@ function renderOptionsReference({ packs }) {
     '|---|---|---|---|',
     ...packs.map(theme => `| \`${theme.key}\` | ${themeDisplayName(theme)} | ${theme.scenario} | ${theme.audience} |`),
   ].join('\n');
+  const themeHints = packs.map(theme => {
+    return `- \`${theme.key}\` ${themeDisplayName(theme)}: 适合 ${shortThemeText(theme.scenario)}; 人群 ${shortThemeText(theme.audience)}`;
+  }).join('\n');
   const firstLayout = packs[0] ? `${packs[0].key}_page001` : 'theme01_page001';
   const lastLayout = packs.at(-1) ? `${packs.at(-1).key}_page001` : firstLayout;
   return `# Current Options
@@ -430,6 +443,10 @@ function renderOptionsReference({ packs }) {
 ${themes}
 
 用户没有明确指定风格时,先列出以上风格并询问。
+
+默认风格选择回复只给极简适配提示:
+
+${themeHints}
 
 ## slide
 
@@ -511,4 +528,13 @@ function copyPath(from, to) {
 
 function themeDisplayName(theme) {
   return theme.displayName || theme.label || theme.name || theme.key;
+}
+
+function shortThemeText(value) {
+  return String(value || '')
+    .split(/[、,，]/)
+    .map(item => item.trim())
+    .filter(Boolean)
+    .slice(0, 2)
+    .join(' / ');
 }

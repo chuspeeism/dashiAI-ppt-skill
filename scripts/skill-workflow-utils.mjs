@@ -186,7 +186,7 @@ export function normalizeProps(layout, props = {}) {
   try {
     const propsWithCountSafety = normalizeSlidePropsForContract(layout, props, record.contract);
     return {
-      props: mergeDefaultArrayTails(propsWithCountSafety, record.defaultProps),
+      props: mergeDefaultArrayTails(propsWithCountSafety, record.defaultProps, props),
       warnings,
       errors: [],
     };
@@ -227,14 +227,16 @@ export function getPreferredMediaSlot(layout, { kind = 'images', count = 1 } = {
     || null;
 }
 
-function mergeDefaultArrayTails(props, defaults) {
+function mergeDefaultArrayTails(props, defaults, authoredProps = props) {
   const next = { ...(props || {}) };
   for (const [key, value] of Object.entries(props || {})) {
     if (!Array.isArray(value) || !Array.isArray(defaults?.[key])) continue;
-    if (value.length >= defaults[key].length) continue;
+    if (isMediaArrayKey(key)) continue;
+    const authoredLength = Array.isArray(authoredProps?.[key]) ? authoredProps[key].length : value.length;
+    if (authoredLength >= defaults[key].length) continue;
     next[key] = [
-      ...value.map((item, index) => mergeArrayItem(defaults[key][index], item)),
-      ...defaults[key].slice(value.length),
+      ...value.slice(0, authoredLength).map((item, index) => mergeArrayItem(defaults[key][index], item)),
+      ...defaults[key].slice(authoredLength).map(item => neutralizeDefaultCopy(item)),
     ];
   }
   return next;
@@ -243,6 +245,32 @@ function mergeDefaultArrayTails(props, defaults) {
 function mergeArrayItem(defaultItem, item) {
   if (isPlainObject(defaultItem) && isPlainObject(item)) return { ...defaultItem, ...item };
   return item;
+}
+
+function neutralizeDefaultCopy(value, field = '') {
+  if (typeof value === 'string') return shouldNeutralizeString(field, value) ? neutralPlaceholder(value) : value;
+  if (Array.isArray(value)) return value.map(item => neutralizeDefaultCopy(item, field));
+  if (!isPlainObject(value)) return value;
+  return Object.fromEntries(Object.entries(value).map(([key, item]) => [
+    key,
+    neutralizeDefaultCopy(item, key),
+  ]));
+}
+
+function shouldNeutralizeString(field, value) {
+  if (!value) return false;
+  if (/^(id|key|type|tone|color|colour|accent|variant|style|theme|layout|align|side|position|icon|href|url|src|fit)$/i.test(field)) return false;
+  if (/^(show|is|has)[A-Z_]/.test(field)) return false;
+  if (/(Color|Colour|Tone|Variant|Style|Mode|Layout|Align|Side|Index|Id|Key|Url|Src|Fit)$/i.test(field)) return false;
+  if (/^(https?:|data:|#)/i.test(value)) return false;
+  return true;
+}
+
+function neutralPlaceholder(value) {
+  const length = Array.from(value).length;
+  if (!length) return value;
+  const seed = Array.from('请输入文本');
+  return Array.from({ length }, (_, index) => seed[index % seed.length]).join('');
 }
 
 export function getLayoutRecord(layout) {

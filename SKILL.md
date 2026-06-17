@@ -30,8 +30,22 @@ node scripts/check_latest_version.mjs
 ## 使用规则
 
 - 运行生成器需要 Node.js 18+ 和 npm;首次生成时渲染脚本会在 Skill 内置 `project/` 目录安装依赖。
-- 开始阶段先确认用户想要的风格。用户没有明确指定时,如果当前环境支持图片展示,风格选择提问的用户可见回复必须嵌入 `assets/skill/theme-style-grid.png`;发送前把 Skill 根目录展开成绝对路径,例如 `![风格选择参考](<skill-root>/assets/skill/theme-style-grid.png)`。不能只在内部进度提示中提到这张图,不要只发文字编号让用户选。默认只列风格名让用户选;只有用户需要解释时再读取 `references/options.md` 的适配场景/人群。
+- 开始阶段先确认用户想要的风格。用户没有明确指定时,如果当前环境支持图片展示,风格选择提问的用户可见回复必须嵌入 `assets/skill/theme-style-grid.png`;发送前把 Skill 根目录展开成绝对路径,例如 `![风格选择参考](<skill-root>/assets/skill/theme-style-grid.png)`。不能只在内部进度提示中提到这张图,不要只发文字编号让用户选。默认风格选择回复必须包含风格图、12 个风格短名称和极简“适合/人群”提示;只有用户需要详细解释时再读取 `references/options.md`。
 - 当前可选风格: `theme01` 轻拟态风、`theme02` 炫光紫绿风、`theme03` 深浅代码风、`theme04` 玻璃糖果风、`theme05` 色谱图表风、`theme06` 深色图谱风、`theme07` 冷白调研风、`theme08` 黑金实验风、`theme09` 深蓝杂志风、`theme10` 金色指数风、`theme11` 高能增长风、`theme12` 声波霓虹风。
+<!-- theme-choice-hints:start -->
+  - `theme01` 轻拟态风 | 适合: 产品介绍 / 企业汇报 | 人群: 创业团队 / 产品经理
+  - `theme02` 炫光紫绿风 | 适合: 科技发布会 / AI/自动驾驶/机器人主题 | 人群: 科技公司创始人 / 技术负责人
+  - `theme03` 深浅代码风 | 适合: 技术方案 / 开发者大会 | 人群: 工程师 / 技术管理者
+  - `theme04` 玻璃糖果风 | 适合: 年轻化品牌 / 消费产品 | 人群: 品牌团队 / 设计师
+  - `theme05` 色谱图表风 | 适合: 数据报告 / 市场分析 | 人群: 数据分析师 / 咨询顾问
+  - `theme06` 深色图谱风 | 适合: 高密度数据展示 / 战略分析 | 人群: 战略团队 / 投资人
+  - `theme07` 冷白调研风 | 适合: 调研报告 / 白皮书 | 人群: 研究机构 / 咨询团队
+  - `theme08` 黑金实验风 | 适合: 高端发布 / 品牌提案 | 人群: 高端品牌 / 创意总监
+  - `theme09` 深蓝杂志风 | 适合: 品牌故事 / 人物访谈 | 人群: 公关团队 / 媒体编辑
+  - `theme10` 金色指数风 | 适合: 金融数据 / 投资报告 | 人群: 投资机构 / 金融分析师
+  - `theme11` 高能增长风 | 适合: 增长复盘 / 商业计划 | 人群: 创业者 / 增长团队
+  - `theme12` 声波霓虹风 | 适合: 音乐娱乐 / 潮流活动 | 人群: 娱乐品牌 / 活动策划
+<!-- theme-choice-hints:end -->
 - 不使用旧 token、旧主题、旧图片 slot、旧风格分支或旧入场动画控制。
 - 普通生成不要直接打开大型 `layout-manifest.json` 或 `generated-metadata.js`。选页先运行 `npm run layout:query -- --theme <themePack> --role <role> --limit 8`;需要图片槽时加 `--needs-media`、`--planned-images <n>`、`--provided-images <n>` 或 `--image-gen`。`layout:query` 已输出候选页的 `copyKeys` 和 `mediaSlots`;不要为每一页机械运行 `inspect:layout`。
 - 只有选中页面字段不清楚、需要数组/count、或要写图片/媒体时,才运行 `npm run inspect:layout -- <layout>`;只有写复杂数组或图片 props 时,才运行 `npm run props:safe -- <layout> '<props-json>' [--images <path...>]`。
