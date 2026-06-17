@@ -3455,10 +3455,10 @@ export const pages = [
         "label": "阶段数值",
         "type": "toggle",
         "default": true,
-        "desc": "每段漏斗内的数值数值。",
+        "desc": "每段漏斗内的数值。",
         "publicKey": "showValueLabels",
         "publicLabel": "阶段数值",
-        "description": "每段漏斗内的数值数值。"
+        "description": "每段漏斗内的数值。"
       },
       {
         "key": "showStepRate",

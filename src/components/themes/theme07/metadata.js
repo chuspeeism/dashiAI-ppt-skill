@@ -5131,10 +5131,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "分支柱顶部数值数值标签的显隐。",
+        "desc": "分支柱顶部数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "分支柱顶部数值数值标签的显隐。"
+        "description": "分支柱顶部数值标签的显隐。"
       },
       {
         "key": "showDecorations",
@@ -5867,10 +5867,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "应用柱顶部数值数值标签的显隐。",
+        "desc": "应用柱顶部数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "应用柱顶部数值数值标签的显隐。"
+        "description": "应用柱顶部数值标签的显隐。"
       },
       {
         "key": "showDecorations",
@@ -6455,10 +6455,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "分布行末端数值数值标签的显隐。",
+        "desc": "分布行末端数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "分布行末端数值数值标签的显隐。"
+        "description": "分布行末端数值标签的显隐。"
       },
       {
         "key": "showDecorations",
@@ -6633,10 +6633,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "阶段节点内数值数值标签的显隐。",
+        "desc": "阶段节点内数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "阶段节点内数值数值标签的显隐。"
+        "description": "阶段节点内数值标签的显隐。"
       },
       {
         "key": "showDecorations",
@@ -6976,10 +6976,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "漏斗阶段内数值数值标签的显隐。",
+        "desc": "漏斗阶段内数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "漏斗阶段内数值数值标签的显隐。"
+        "description": "漏斗阶段内数值标签的显隐。"
       },
       {
         "key": "showDecorations",
@@ -7573,10 +7573,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "防线柱内数值数值标签的显隐。",
+        "desc": "防线柱内数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "防线柱内数值数值标签的显隐。"
+        "description": "防线柱内数值标签的显隐。"
       },
       {
         "key": "showDecorations",
@@ -8912,10 +8912,10 @@ export const pages = [
         "label": "数值标签",
         "type": "toggle",
         "default": true,
-        "desc": "节点内数值数值标签的显隐。",
+        "desc": "节点内数值标签的显隐。",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "节点内数值数值标签的显隐。"
+        "description": "节点内数值标签的显隐。"
       },
       {
         "key": "showDecorations",

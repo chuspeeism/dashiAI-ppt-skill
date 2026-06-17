@@ -4434,10 +4434,10 @@ export const pages = [
         "label": "数值条",
         "type": "toggle",
         "default": true,
-        "desc": "显示/隐藏每支数值数值条（装饰数据）",
+        "desc": "显示/隐藏每支数值条（装饰数据）",
         "publicKey": "showValueLabels",
         "publicLabel": "数值条",
-        "description": "显示/隐藏每支数值数值条（装饰数据）"
+        "description": "显示/隐藏每支数值条（装饰数据）"
       },
       {
         "key": "showRootBadge",
@@ -6690,10 +6690,10 @@ export const pages = [
         "label": "数值条",
         "type": "toggle",
         "default": true,
-        "desc": "显示/隐藏每支数值数值条（装饰数据）",
+        "desc": "显示/隐藏每支数值条（装饰数据）",
         "publicKey": "showValueLabels",
         "publicLabel": "数值条",
-        "description": "显示/隐藏每支数值数值条（装饰数据）"
+        "description": "显示/隐藏每支数值条（装饰数据）"
       },
       {
         "key": "showRootBadge",

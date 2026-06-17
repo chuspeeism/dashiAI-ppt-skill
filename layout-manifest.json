@@ -1820,10 +1820,10 @@
           "min": 3,
           "max": 5,
           "step": 1,
-          "desc": "展示的分类分类数量（其余并入末项）。",
+          "desc": "展示的分类数量（其余并入末项）。",
           "publicKey": "categoryCount",
           "publicLabel": "分类数量",
-          "description": "展示的分类分类数量（其余并入末项）。"
+          "description": "展示的分类数量（其余并入末项）。"
         },
         {
           "key": "highlight",
@@ -66824,10 +66824,10 @@
           "label": "数值条",
           "type": "toggle",
           "default": true,
-          "desc": "显示/隐藏每支数值数值条（装饰数据）",
+          "desc": "显示/隐藏每支数值条（装饰数据）",
           "publicKey": "showValueLabels",
           "publicLabel": "数值条",
-          "description": "显示/隐藏每支数值数值条（装饰数据）"
+          "description": "显示/隐藏每支数值条（装饰数据）"
         },
         {
           "key": "showRootBadge",
@@ -68603,10 +68603,10 @@
           "label": "数值条",
           "type": "toggle",
           "default": true,
-          "desc": "显示/隐藏每支数值数值条（装饰数据）",
+          "desc": "显示/隐藏每支数值条（装饰数据）",
           "publicKey": "showValueLabels",
           "publicLabel": "数值条",
-          "description": "显示/隐藏每支数值数值条（装饰数据）"
+          "description": "显示/隐藏每支数值条（装饰数据）"
         },
         {
           "key": "showRootBadge",
@@ -77186,10 +77186,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "分支柱顶部数值数值标签的显隐。",
+          "desc": "分支柱顶部数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "分支柱顶部数值数值标签的显隐。"
+          "description": "分支柱顶部数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -77772,10 +77772,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "应用柱顶部数值数值标签的显隐。",
+          "desc": "应用柱顶部数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "应用柱顶部数值数值标签的显隐。"
+          "description": "应用柱顶部数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -78253,10 +78253,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "分布行末端数值数值标签的显隐。",
+          "desc": "分布行末端数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "分布行末端数值数值标签的显隐。"
+          "description": "分布行末端数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -78400,10 +78400,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "阶段节点内数值数值标签的显隐。",
+          "desc": "阶段节点内数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "阶段节点内数值数值标签的显隐。"
+          "description": "阶段节点内数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -78672,10 +78672,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "漏斗阶段内数值数值标签的显隐。",
+          "desc": "漏斗阶段内数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "漏斗阶段内数值数值标签的显隐。"
+          "description": "漏斗阶段内数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -79166,10 +79166,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "防线柱内数值数值标签的显隐。",
+          "desc": "防线柱内数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "防线柱内数值数值标签的显隐。"
+          "description": "防线柱内数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -80197,10 +80197,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "节点内数值数值标签的显隐。",
+          "desc": "节点内数值标签的显隐。",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "节点内数值数值标签的显隐。"
+          "description": "节点内数值标签的显隐。"
         },
         {
           "key": "showDecorations",
@@ -86979,10 +86979,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "各模块数值数值的显示/隐藏",
+          "desc": "各模块数值的显示/隐藏",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "各模块数值数值的显示/隐藏"
+          "description": "各模块数值的显示/隐藏"
         },
         {
           "key": "metricCount",
@@ -88521,10 +88521,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "各节点数值数值 显隐",
+          "desc": "各节点数值 显隐",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "各节点数值数值 显隐"
+          "description": "各节点数值 显隐"
         },
         {
           "key": "showDecor",
@@ -89116,10 +89116,10 @@
           "label": "数值标签",
           "type": "toggle",
           "default": true,
-          "desc": "各节点的数值数值 显隐",
+          "desc": "各节点的数值 显隐",
           "publicKey": "showValueLabels",
           "publicLabel": "数值标签",
-          "description": "各节点的数值数值 显隐"
+          "description": "各节点的数值 显隐"
         },
         {
           "key": "focusEnabled",
@@ -104906,10 +104906,10 @@
           "label": "阶段数值",
           "type": "toggle",
           "default": true,
-          "desc": "每段漏斗内的数值数值。",
+          "desc": "每段漏斗内的数值。",
           "publicKey": "showValueLabels",
           "publicLabel": "阶段数值",
-          "description": "每段漏斗内的数值数值。"
+          "description": "每段漏斗内的数值。"
         },
         {
           "key": "showStepRate",

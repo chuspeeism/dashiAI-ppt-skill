@@ -44,6 +44,14 @@ const BUSINESS_TERMS = [
 
 const BUSINESS_KEY_TERMS = ['risk', 'asset', 'track', 'record', 'scene', 'deal', 'round', 'sector', 'valuation', 'capital', 'funding', 'holding', 'portfolio', 'artist', 'music'];
 
+const REPEATED_GENERIC_TERMS = [
+  '分类分类',
+  '数值数值',
+  '状态状态',
+  '条目条目',
+  '指标指标',
+];
+
 const manifest = JSON.parse(readFileSync(path.join(ROOT, 'layout-manifest.json'), 'utf8'));
 const generatedPagesByKey = new Map(GENERATED_THEME_PAGES.map(page => [page.key, page]));
 
@@ -133,6 +141,11 @@ function validateTextField(source, layout, key, field, value) {
   for (const term of HARD_BLOCKED_TERMS) {
     if (value.includes(term)) {
       errors.push(`${source} ${layout}.${key}.${field} contains hard-blocked term "${term}": ${value}`);
+    }
+  }
+  for (const term of REPEATED_GENERIC_TERMS) {
+    if (value.includes(term)) {
+      errors.push(`${source} ${layout}.${key}.${field} contains repeated generic term "${term}": ${value}`);
     }
   }
   for (const term of BUSINESS_TERMS) {

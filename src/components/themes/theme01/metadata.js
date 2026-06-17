@@ -2161,10 +2161,10 @@ export const pages = [
         "min": 3,
         "max": 5,
         "step": 1,
-        "desc": "展示的分类分类数量（其余并入末项）。",
+        "desc": "展示的分类数量（其余并入末项）。",
         "publicKey": "categoryCount",
         "publicLabel": "分类数量",
-        "description": "展示的分类分类数量（其余并入末项）。"
+        "description": "展示的分类数量（其余并入末项）。"
       },
       {
         "key": "highlight",

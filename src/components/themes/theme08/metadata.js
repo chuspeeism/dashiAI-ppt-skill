@@ -6767,10 +6767,10 @@ export const pages = [
         "label": "数值标签",
         "type": "boolean",
         "default": true,
-        "desc": "各模块数值数值的显示/隐藏",
+        "desc": "各模块数值的显示/隐藏",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "各模块数值数值的显示/隐藏"
+        "description": "各模块数值的显示/隐藏"
       },
       {
         "key": "metricCount",
@@ -9151,10 +9151,10 @@ export const pages = [
         "label": "数值标签",
         "type": "boolean",
         "default": true,
-        "desc": "各节点数值数值 显隐",
+        "desc": "各节点数值 显隐",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "各节点数值数值 显隐"
+        "description": "各节点数值 显隐"
       },
       {
         "key": "showDecor",
@@ -10158,10 +10158,10 @@ export const pages = [
         "label": "数值标签",
         "type": "boolean",
         "default": true,
-        "desc": "各节点的数值数值 显隐",
+        "desc": "各节点的数值 显隐",
         "publicKey": "showValueLabels",
         "publicLabel": "数值标签",
-        "description": "各节点的数值数值 显隐"
+        "description": "各节点的数值 显隐"
       },
       {
         "key": "focusEnabled",

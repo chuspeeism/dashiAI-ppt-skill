@@ -145,10 +145,21 @@ const KEY_REPLACEMENTS = [
   ['music', 'media'],
 ];
 
+const REPEATED_GENERIC_TEXT_REPLACEMENTS = [
+  ['分类分类', '分类'],
+  ['数值数值', '数值'],
+  ['状态状态', '状态'],
+  ['条目条目', '条目'],
+  ['指标指标', '指标'],
+];
+
 export function normalizeControlText(value) {
   if (typeof value !== 'string') return value;
   let next = value;
   for (const [from, to] of TEXT_REPLACEMENTS) {
+    next = next.replaceAll(from, to);
+  }
+  for (const [from, to] of REPEATED_GENERIC_TEXT_REPLACEMENTS) {
     next = next.replaceAll(from, to);
   }
   return next.replace(/\s+/g, ' ').trim();
