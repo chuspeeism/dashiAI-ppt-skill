@@ -109,6 +109,7 @@ function copyRuntimeAssets(outDir) {
     copyFileIfExists(path.join(ROOT, 'node_modules/pptxgenjs/dist/pptxgen.bundle.js'), path.join(assetsDir, 'vendor/pptxgen.bundle.js'));
     copyFileIfExists(path.join(ROOT, 'node_modules/html-to-image/dist/html-to-image.js'), path.join(assetsDir, 'vendor/html-to-image.js'));
     copyDirectoryIfExists(path.join(ROOT, 'assets/unicorn'), path.join(assetsDir, 'unicorn'));
+    copyDirectoryIfExists(path.join(ROOT, 'assets/social-icons'), path.join(assetsDir, 'social-icons'));
     copyImportedThemeAssets(outDir);
     buildImportedThemeRuntime(path.join(assetsDir, 'imported-theme-runtime.js'));
     restoreUserMediaDirs(preservedUserMedia, outDir);

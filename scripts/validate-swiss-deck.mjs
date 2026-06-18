@@ -93,21 +93,21 @@ if (!previewPanelSource) {
   }
 
   const requiredSocialLinks = [
-    ['github', 'GitHub'],
-    ['douyin', '抖音'],
-    ['xiaohongshu', '小红书'],
-    ['bilibili', 'B 站'],
+    ['github', 'GitHub', 'assets/social-icons/github.svg'],
+    ['douyin', '抖音', 'assets/social-icons/douyin.svg'],
+    ['xiaohongshu', '小红书', 'assets/social-icons/redbook.svg'],
+    ['bilibili', 'Bilibili', 'assets/social-icons/bilibili.svg'],
   ];
   const missingSocialLinks = requiredSocialLinks
-    .filter(([platform]) => !new RegExp(`<a\\b(?=[^>]*data-platform="${platform}")(?=[^>]*href="[^"]+")[^>]*>[\\s\\S]*?<svg\\b`).test(previewAuthorSource))
+    .filter(([platform, , icon]) => !new RegExp(`<a\\b(?=[^>]*data-platform="${platform}")(?=[^>]*href="[^"]+")[^>]*>[\\s\\S]*?<img\\b(?=[^>]*data-social-icon="${platform}")(?=[^>]*src="${icon}")`).test(previewAuthorSource))
     .map(([, label]) => label);
   if (missingSocialLinks.length) {
-    errors.push(`Preview console author info must include SVG icon links for: ${missingSocialLinks.join(', ')}.`);
+    errors.push(`Preview console author info must include local SVG asset icon links for: ${missingSocialLinks.join(', ')}.`);
   }
 
   const socialAnchors = [...previewAuthorSource.matchAll(/<a\b([^>]*)data-platform="([^"]+)"([^>]*)>([\s\S]*?)<\/a>/g)];
   for (const [, beforeAttrs, platform, afterAttrs, body] of socialAnchors) {
-    const text = body.replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, '').trim();
+    const text = body.replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<img\b[^>]*>/g, '').replace(/<[^>]+>/g, '').trim();
     if (text) {
       errors.push(`Preview console ${platform} social link must be icon-only, without visible text.`);
     }

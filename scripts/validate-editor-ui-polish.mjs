@@ -12,6 +12,28 @@ const ROOT = path.resolve(__dirname, '..');
 const PREVIEW_INDEX = path.join(ROOT, 'output/theme-preview/ppt/index.html');
 const CHROME_PATH = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const cliUrl = getArg('--url');
+const EXPECTED_AUTHOR_LINKS = {
+  github: {
+    label: 'GitHub',
+    icon: 'assets/social-icons/github.svg',
+    href: 'https://github.com/jadon7/dashi-ppt-skill',
+  },
+  douyin: {
+    label: '抖音',
+    icon: 'assets/social-icons/douyin.svg',
+    href: 'https://www.douyin.com/user/MS4wLjABAAAAohe8JB4RvITJitJ69b7cV4NTaYTMYrVI43C-3SUnPPc',
+  },
+  xiaohongshu: {
+    label: '小红书',
+    icon: 'assets/social-icons/redbook.svg',
+    href: 'https://www.xiaohongshu.com/user/profile/62e0c2bb000000001501408c?xsec_token=ABrZskc1MUcZWWuuMx7Fw52HYKSmhrHM2leT3iiPnMmG8%3D&xsec_source=pc_search',
+  },
+  bilibili: {
+    label: 'Bilibili',
+    icon: 'assets/social-icons/bilibili.svg',
+    href: 'https://space.bilibili.com/3537118131391269/',
+  },
+};
 
 if (!existsSync(CHROME_PATH)) {
   throw new Error(`Chrome executable not found: ${CHROME_PATH}`);
@@ -46,6 +68,8 @@ try {
     railProgrammaticThumbs: null,
     railFocusScroll: null,
     railManualScroll: null,
+    panelCollapse: null,
+    authorLinks: null,
     shadows: await readPanelShadows(page),
     actionLayouts: [],
     actions: null,
@@ -63,6 +87,8 @@ try {
     result.actionLayouts.push(await readActionPriority(page, width));
   }
   result.actions = result.actionLayouts[result.actionLayouts.length - 1] || await readActionPriority(page);
+  result.panelCollapse = await runPanelCollapseValidation(page);
+  result.authorLinks = await runAuthorLinksValidation(page);
 
   result.resize = await runRailResizeValidation(page);
   result.activeStates.initial = await readActiveRailStyle(page);
@@ -125,6 +151,155 @@ async function readLayout(page, viewportWidth) {
       return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
     }
   }, viewportWidth);
+}
+
+async function runPanelCollapseValidation(page) {
+  await ensureEditMode(page);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await settle(page);
+  await page.evaluate(() => {
+    window.__setActiveThemePack?.('theme02', { navigate: false });
+    window.go?.(2, { animate: false, force: true });
+  });
+  await settle(page, 260);
+  const before = await readPanelCollapseState(page, 'before');
+  const button = page.locator('#preview-panel-collapse').first();
+  if (!(await button.count())) return { hasButton: false, before };
+  await button.click();
+  await settle(page, 320);
+  const collapsed = await readPanelCollapseState(page, 'collapsed');
+  await button.click();
+  await settle(page, 340);
+  const restored = await readPanelCollapseState(page, 'restored');
+  return {
+    hasButton: true,
+    before,
+    collapsed,
+    restored,
+    indexPreserved: before.currentIndex === restored.currentIndex,
+    activeRailPreserved: before.activeRailIndex === restored.activeRailIndex,
+    propControlsPreserved: before.propControlCount === restored.propControlCount,
+  };
+}
+
+async function readPanelCollapseState(page, phase) {
+  return page.evaluate((phase) => {
+    const rail = document.getElementById('slide-rail');
+    const panel = document.getElementById('preview-panel');
+    const deck = document.getElementById('deck-viewport');
+    const button = document.getElementById('preview-panel-collapse');
+    const activeRail = document.querySelector('[data-rail-card="true"][aria-current="true"],[data-slide-rail-card="true"][aria-current="true"]');
+    const deckRect = deck?.getBoundingClientRect();
+    const buttonRect = button?.getBoundingClientRect();
+    const buttonStyle = button ? getComputedStyle(button) : null;
+    const buttonSvg = button?.querySelector('svg');
+    return {
+      phase,
+      mode: document.body.dataset.mode || '',
+      collapsedClass: document.body.classList.contains('editor-panels-collapsed'),
+      panelOpenClass: document.body.classList.contains('preview-panel-open'),
+      railVisible: isVisible(rail),
+      panelVisible: isVisible(panel),
+      deckVisible: isVisible(deck),
+      deckRect: rectOf(deckRect),
+      deckAspect: deckRect ? deckRect.width / deckRect.height : 0,
+      currentIndex: window.__currentSlideIndex || 0,
+      activeRailIndex: Number(activeRail?.dataset.index || -1),
+      propControlCount: panel?.querySelectorAll('#preview-props input,#preview-props button,#preview-props select,#preview-props textarea').length || 0,
+      editableCount: document.querySelectorAll('#deck > .slide.active [contenteditable="true"]').length,
+      canEdit: Boolean(window.__canEditDeck?.()),
+      buttonVisible: isVisible(button),
+      buttonHasIcon: Boolean(buttonSvg),
+      buttonAriaLabel: button?.getAttribute('aria-label') || '',
+      buttonTitle: button?.getAttribute('title') || '',
+      buttonExpanded: button?.getAttribute('aria-expanded') || '',
+      buttonRect: rectOf(buttonRect),
+      buttonInViewport: Boolean(buttonRect && buttonRect.left >= -1 && buttonRect.top >= -1 && buttonRect.right <= innerWidth + 1 && buttonRect.bottom <= innerHeight + 1),
+      buttonOverlapsDeck: Boolean(buttonRect && deckRect && buttonRect.left < deckRect.right - 1 && buttonRect.right > deckRect.left + 1 && buttonRect.top < deckRect.bottom - 1 && buttonRect.bottom > deckRect.top + 1),
+      buttonDisplay: buttonStyle?.display || '',
+    };
+
+    function isVisible(el) {
+      if (!el) return false;
+      const style = getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 2 && rect.height > 2;
+    }
+
+    function rectOf(rect) {
+      if (!rect) return null;
+      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
+    }
+  }, phase);
+}
+
+async function runAuthorLinksValidation(page) {
+  await ensureEditMode(page);
+  await page.setViewportSize({ width: 1440, height: 900 });
+  await settle(page);
+  const before = await readAuthorLinks(page, EXPECTED_AUTHOR_LINKS);
+  await page.locator('#preview-panel-collapse').click();
+  await settle(page, 220);
+  await page.locator('#preview-panel-collapse').click();
+  await settle(page, 260);
+  const afterRestore = await readAuthorLinks(page, EXPECTED_AUTHOR_LINKS);
+  return {
+    expected: EXPECTED_AUTHOR_LINKS,
+    before,
+    afterRestore,
+    restoredMatches: JSON.stringify(before.links) === JSON.stringify(afterRestore.links),
+  };
+}
+
+async function readAuthorLinks(page, expected) {
+  return page.evaluate(async (expected) => {
+    const container = document.querySelector('.preview-author-links');
+    const links = {};
+    for (const [platform, config] of Object.entries(expected)) {
+      const anchor = container?.querySelector(`a[data-platform="${platform}"]`);
+      const img = anchor?.querySelector('img[data-social-icon]');
+      const svg = anchor?.querySelector(':scope > svg');
+      const rect = anchor?.getBoundingClientRect();
+      const imgRect = img?.getBoundingClientRect();
+      const href = anchor?.getAttribute('href') || '';
+      const src = img?.getAttribute('src') || '';
+      const absoluteSrc = img?.src || '';
+      links[platform] = {
+        exists: Boolean(anchor),
+        href,
+        label: anchor?.getAttribute('aria-label') || anchor?.getAttribute('title') || '',
+        hasInlineSvg: Boolean(svg),
+        hasImg: Boolean(img),
+        iconAttr: img?.dataset.socialIcon || '',
+        src,
+        srcMatches: src === config.icon,
+        complete: Boolean(img?.complete),
+        naturalWidth: img?.naturalWidth || 0,
+        naturalHeight: img?.naturalHeight || 0,
+        fetchOk: absoluteSrc ? await fetch(absoluteSrc).then(response => response.ok).catch(() => false) : false,
+        rect: rectOf(rect),
+        imgRect: rectOf(imgRect),
+        iconFitsAnchor: Boolean(rect && imgRect && imgRect.left >= rect.left - 1 && imgRect.right <= rect.right + 1 && imgRect.top >= rect.top - 1 && imgRect.bottom <= rect.bottom + 1),
+      };
+    }
+    return {
+      visible: isVisible(container),
+      linkCount: container?.querySelectorAll('a[data-platform]').length || 0,
+      links,
+    };
+
+    function isVisible(el) {
+      if (!el) return false;
+      const style = getComputedStyle(el);
+      const rect = el.getBoundingClientRect();
+      return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 2 && rect.height > 2;
+    }
+
+    function rectOf(rect) {
+      if (!rect) return null;
+      return { left: rect.left, top: rect.top, width: rect.width, height: rect.height, right: rect.right, bottom: rect.bottom };
+    }
+  }, expected);
 }
 
 async function runRailResizeValidation(page) {
@@ -1246,6 +1421,60 @@ function validateResult(result) {
   else if (manual.before.scrollTop > 24 && manual.delta > 36) {
     failures.push(`Rail refresh should not pull the user's manual scroll back to the active page: ${JSON.stringify(manual)}`);
   }
+
+  const collapse = result.panelCollapse || {};
+  if (!collapse.hasButton) failures.push(`Right panel is missing the panel collapse icon button: ${JSON.stringify(collapse)}`);
+  else {
+    const before = collapse.before || {};
+    const collapsed = collapse.collapsed || {};
+    const restored = collapse.restored || {};
+    if (!before.buttonVisible || !before.buttonHasIcon) failures.push(`Collapse button should be visible as an icon in the open right panel: ${JSON.stringify(before)}`);
+    if (!/收起/.test(before.buttonAriaLabel) || !/收起/.test(before.buttonTitle) || before.buttonExpanded !== 'true') {
+      failures.push(`Collapse button should expose the open-state label and expanded state: ${JSON.stringify(before)}`);
+    }
+    if (!collapsed.collapsedClass || collapsed.panelOpenClass || collapsed.railVisible || collapsed.panelVisible) {
+      failures.push(`Clicking collapse should hide both side panels: ${JSON.stringify(collapsed)}`);
+    }
+    if (!collapsed.buttonVisible || !collapsed.buttonHasIcon || !/展开/.test(collapsed.buttonAriaLabel) || collapsed.buttonExpanded !== 'false') {
+      failures.push(`Collapsed mode should keep a visible expand icon button: ${JSON.stringify(collapsed)}`);
+    }
+    if (!collapsed.buttonInViewport || collapsed.buttonOverlapsDeck) failures.push(`Collapsed button should stay in a safe viewport position: ${JSON.stringify(collapsed)}`);
+    if (Math.abs((collapsed.deckAspect || 0) - 16 / 9) > 0.025) failures.push(`Collapsed deck should stay 16:9: ${JSON.stringify(collapsed)}`);
+    if (!restored.railVisible || !restored.panelVisible || !restored.panelOpenClass || restored.collapsedClass) {
+      failures.push(`Clicking the collapsed icon should restore the three-panel edit layout: ${JSON.stringify(restored)}`);
+    }
+    if (!collapse.indexPreserved || !collapse.activeRailPreserved || !collapse.propControlsPreserved) {
+      failures.push(`Panel collapse/restore should preserve page, rail, and property-panel state: ${JSON.stringify(collapse)}`);
+    }
+    if (!restored.canEdit || (before.editableCount || 0) !== (restored.editableCount || 0)) {
+      failures.push(`Panel collapse/restore should preserve editability: ${JSON.stringify({ before, restored })}`);
+    }
+  }
+
+  const author = result.authorLinks || {};
+  if (!author.before?.visible || (author.before?.linkCount || 0) !== 4) {
+    failures.push(`Author links should show four platform links in the right panel: ${JSON.stringify(author.before)}`);
+  }
+  for (const [platform, config] of Object.entries(EXPECTED_AUTHOR_LINKS)) {
+    const before = author.before?.links?.[platform] || {};
+    const restored = author.afterRestore?.links?.[platform] || {};
+    if (!before.exists) {
+      failures.push(`Author link ${platform} is missing.`);
+      continue;
+    }
+    if (before.href !== config.href) failures.push(`Author link ${platform} URL changed: ${JSON.stringify(before)}`);
+    if (before.label !== config.label) failures.push(`Author link ${platform} label should be ${config.label}: ${JSON.stringify(before)}`);
+    if (before.hasInlineSvg || !before.hasImg || before.iconAttr !== platform || !before.srcMatches || !before.fetchOk) {
+      failures.push(`Author link ${platform} should use project-local SVG asset ${config.icon}: ${JSON.stringify(before)}`);
+    }
+    if (before.naturalWidth < 12 || before.naturalHeight < 12 || !before.iconFitsAnchor) {
+      failures.push(`Author link ${platform} icon should load and fit the existing author-link button: ${JSON.stringify(before)}`);
+    }
+    if (restored.src !== config.icon || restored.href !== config.href || !restored.fetchOk) {
+      failures.push(`Author link ${platform} should survive panel collapse/restore: ${JSON.stringify({ before, restored })}`);
+    }
+  }
+  if (!author.restoredMatches) failures.push(`Author links changed after collapse/restore: ${JSON.stringify(author)}`);
 
   if (result.shadows.railHasLargeCanvasShadow) failures.push(`Left rail still casts a large shadow into the canvas: ${result.shadows.railBoxShadow}`);
   if (result.shadows.panelHasLargeCanvasShadow) failures.push(`Right panel still casts a large shadow into the canvas: ${result.shadows.panelBoxShadow}`);
