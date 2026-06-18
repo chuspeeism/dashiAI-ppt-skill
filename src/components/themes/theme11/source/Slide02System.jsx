@@ -8,7 +8,7 @@ const CSS = `
 .ign-os .ign-ghost{font-size:560px;left:60px;bottom:-90px}
 .ign-os-top{display:grid;grid-template-columns:1.35fr 1fr;gap:70px;margin-top:40px}
 .ign-os-top.solo{grid-template-columns:1fr}
-.ign-os-lead .lead-en{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:38px;color:var(--ign-a);margin-bottom:18px}
+.ign-os-lead .lead-en{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:38px;color:var(--ign-a);margin-bottom:18px}
 .ign-os-lead h2{font-size:86px;font-weight:900;line-height:1.02;letter-spacing:-0.03em}
 .ign-os-lead p{margin-top:26px;font-size:26px;font-weight:300;line-height:1.55;color:var(--ign-ink2);max-width:560px}
 .ign-card{background:var(--ign-panel);border:1px solid var(--ign-hair);border-radius:4px}
@@ -20,7 +20,7 @@ const CSS = `
 .ign-os-row:last-child{border-bottom:none;padding-bottom:0}
 .ign-os-row .k{font-size:26px;color:var(--ign-ink2)}
 .ign-os-row .v{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:30px;white-space:nowrap}
-.ign-os-row .v em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;color:var(--ign-a);font-size:24px}
+.ign-os-row .v em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;color:var(--ign-a);font-size:24px}
 .ign-flow{display:flex;align-items:stretch}
 .ign-fstep{flex:1;padding-top:30px;border-top:1px solid var(--ign-hair);position:relative}
 .ign-fstep::before{content:"";position:absolute;top:-5px;left:0;width:9px;height:9px;border-radius:50%;background:var(--ign-b);box-shadow:0 0 14px var(--ign-b)}

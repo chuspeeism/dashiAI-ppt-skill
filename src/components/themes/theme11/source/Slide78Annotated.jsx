@@ -19,7 +19,7 @@ const CSS = `
 .ign-ant-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:22px}
 .ign-ant-head h2{font-size:54px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-ant-head h2 .ign-serif{color:var(--ign-a)}
-.ign-ant-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:23px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
+.ign-ant-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:23px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
 .ign-ant-stage{flex:1;position:relative;margin-top:22px;border-radius:8px;overflow:hidden;border:1px solid var(--ign-hair);min-height:0}
 .ign-ant-stage .ign-imgslot{position:absolute;inset:0;width:100%;height:100%;border-radius:8px}
 .ign-ant-scrim{position:absolute;inset:0;z-index:2;background:radial-gradient(120% 120% at 50% 40%,rgba(6,5,4,0) 55%,rgba(6,5,4,0.42) 100%)}

@@ -14,7 +14,7 @@ const CSS = `
   background:radial-gradient(50% 50% at 50% 50%,rgba(255,120,52,0.4),rgba(226,42,12,0) 66%);filter:blur(56px)}
 .ign-prn .ign-ghost{font-size:600px;right:30px;bottom:-150px}
 .ign-prn-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:6px}
-.ign-prn-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:28px;color:var(--ign-a);margin-bottom:12px}
+.ign-prn-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:28px;color:var(--ign-a);margin-bottom:12px}
 .ign-prn-head h2{font-size:74px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-prn-head h2 .ign-serif{color:var(--ign-a)}
 .ign-prn-head p{font-size:24px;font-weight:300;line-height:1.5;color:var(--ign-ink2);max-width:430px;text-align:right;text-wrap:pretty}

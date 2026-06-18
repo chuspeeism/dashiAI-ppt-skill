@@ -19,7 +19,7 @@ const CSS = `
 .ign-scr-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:24px}
 .ign-scr-head h2{font-size:56px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-scr-head h2 .ign-serif{color:var(--ign-a)}
-.ign-scr-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
+.ign-scr-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
 .ign-scr-tbl{flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:14px}
 .ign-scr-colhead,.ign-scr-row{display:grid;grid-template-columns:1.5fr 1fr 150px 150px;align-items:center;gap:28px}
 .ign-scr-colhead{padding-bottom:14px;border-bottom:1px solid var(--ign-hair2);

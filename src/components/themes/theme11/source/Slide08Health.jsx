@@ -12,8 +12,8 @@ const CSS = `
 .ign-health-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:36px;gap:48px}
 .ign-health-head h2{font-size:70px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-health-head h2 .ign-serif{color:var(--ign-a)}
-.ign-health-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;color:var(--ign-a);margin-bottom:12px}
-.ign-health-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);max-width:320px;text-align:right;line-height:1.4}
+.ign-health-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;color:var(--ign-a);margin-bottom:12px}
+.ign-health-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);max-width:320px;text-align:right;line-height:1.4}
 .ign-health-body{display:grid;grid-template-columns:0.78fr 1.22fr;gap:74px;margin-top:8px;align-items:center}
 .ign-health-body.solo{grid-template-columns:1fr}
 .ign-gauge{position:relative;display:flex;flex-direction:column;align-items:center}

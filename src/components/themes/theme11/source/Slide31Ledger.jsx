@@ -14,7 +14,7 @@ const CSS = `
   background:radial-gradient(50% 50% at 50% 50%,rgba(255,120,52,0.34),rgba(226,42,12,0) 68%);filter:blur(58px)}
 .ign-led .ign-ghost{font-size:520px;left:20px;bottom:-130px}
 .ign-led-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:6px}
-.ign-led-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:28px;color:var(--ign-a);margin-bottom:12px}
+.ign-led-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:28px;color:var(--ign-a);margin-bottom:12px}
 .ign-led-head h2{font-size:60px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-led-head h2 .ign-serif{color:var(--ign-a)}
 .ign-led-head p{font-size:23px;font-weight:300;line-height:1.5;color:var(--ign-ink2);max-width:400px;text-align:right;text-wrap:pretty}
@@ -39,7 +39,7 @@ const CSS = `
 .ign-led-net .lbl{font-size:30px;font-weight:700}
 .ign-led-net .lbl .en{display:block;font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:400;letter-spacing:0.12em;text-transform:uppercase;color:var(--ign-a);margin-top:4px}
 .ign-led-net .big{font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:600;letter-spacing:-0.03em}
-.ign-led-foot{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:23px;color:var(--ign-ink3);margin-top:12px;text-align:right}
+.ign-led-foot{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:23px;color:var(--ign-ink3);margin-top:12px;text-align:right}
 `;
 
 export const ledgerDefaultProps = {

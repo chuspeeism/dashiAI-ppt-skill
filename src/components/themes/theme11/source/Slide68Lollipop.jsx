@@ -19,7 +19,7 @@ const CSS = `
 .ign-lol-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:24px}
 .ign-lol-head h2{font-size:58px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-lol-head h2 .ign-serif{color:var(--ign-a)}
-.ign-lol-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
+.ign-lol-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
 .ign-lol-plot{flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:14px;position:relative}
 .ign-lol-grid{position:absolute;inset:0;left:230px;right:96px;z-index:0;pointer-events:none}
 .ign-lol-gl{position:absolute;top:0;bottom:0;width:1px;background:var(--ign-hair)}

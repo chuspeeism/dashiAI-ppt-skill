@@ -22,14 +22,14 @@ const CSS = `
 .ign-edt-kick .no{color:var(--ign-a)}
 .ign-edt-kick .tick{width:30px;height:1px;background:linear-gradient(90deg,var(--ign-b),transparent)}
 .ign-edt h2{font-size:62px;font-weight:900;line-height:1.04;letter-spacing:-0.03em}
-.ign-edt h2 .ign-serif{color:var(--ign-a);font-weight:400}
+.ign-edt h2 .ign-serif{color:var(--ign-a);font-weight:800}
 .ign-edt-cols{column-gap:48px;margin-top:34px;font-size:24px;font-weight:300;line-height:1.62;color:var(--ign-ink2);text-wrap:pretty}
 .ign-edt-cols p{margin-bottom:18px;break-inside:avoid}
 .ign-edt-cols p:last-child{margin-bottom:0}
-.ign-edt-cols .cap::first-letter{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:500;font-size:104px;line-height:0.74;
+.ign-edt-cols .cap::first-letter{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:104px;line-height:0.74;
   float:left;margin:8px 16px 0 0;background:var(--ign-ember);-webkit-background-clip:text;background-clip:text;color:transparent}
 .ign-edt-pull{border-left:3px solid;border-image:var(--ign-ember) 1;padding-left:26px;margin:30px 0;
-  font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:34px;line-height:1.34;color:var(--ign-ink);max-width:560px;text-wrap:pretty}
+  font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:34px;line-height:1.34;color:var(--ign-ink);max-width:560px;text-wrap:pretty}
 .ign-edt-by{display:flex;align-items:center;gap:14px;margin-top:30px;font-family:'Space Grotesk',sans-serif;
   font-size:21px;letter-spacing:0.1em;color:var(--ign-ink3)}
 .ign-edt-by .ln{width:40px;height:1px;background:var(--ign-hair2)}

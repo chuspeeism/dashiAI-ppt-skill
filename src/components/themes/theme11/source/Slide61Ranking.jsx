@@ -18,7 +18,7 @@ const CSS = `
 .ign-rnk-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:24px}
 .ign-rnk-head h2{font-size:58px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-rnk-head h2 .ign-serif{color:var(--ign-a)}
-.ign-rnk-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
+.ign-rnk-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
 .ign-rnk-list{flex:1;display:flex;flex-direction:column;justify-content:center;margin-top:18px;gap:4px}
 .ign-rnk-row{display:grid;grid-template-columns:96px 1fr 220px;align-items:center;gap:30px;padding:18px 0;border-bottom:1px solid var(--ign-hair)}
 .ign-rnk-row:first-child{border-top:1px solid var(--ign-hair)}

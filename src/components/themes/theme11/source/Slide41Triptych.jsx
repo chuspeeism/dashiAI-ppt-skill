@@ -19,7 +19,7 @@ const CSS = `
 .ign-trp-head .lead .tick{width:34px;height:1px;background:linear-gradient(90deg,var(--ign-b),transparent)}
 .ign-trp-head .lead .no{color:var(--ign-a)}
 .ign-trp-head h2{font-size:60px;font-weight:900;line-height:1.0;letter-spacing:-0.03em;max-width:1180px}
-.ign-trp-head h2 .ign-serif{color:var(--ign-a);font-weight:400}
+.ign-trp-head h2 .ign-serif{color:var(--ign-a);font-weight:800}
 .ign-trp-body{flex:1;display:grid;align-items:center;border-top:1px solid var(--ign-hair2);border-bottom:1px solid var(--ign-hair2)}
 .ign-trp-body.stack{display:flex;flex-direction:column;justify-content:center}
 .ign-trp-cell{padding:30px 44px;display:flex;flex-direction:column;justify-content:center}

@@ -16,7 +16,7 @@ const CSS = `
 .ign-vcs .ign-ghost{font-size:560px;right:0;bottom:-150px}
 
 .ign-vcs-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:6px}
-.ign-vcs-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:28px;color:var(--ign-a);margin-bottom:12px}
+.ign-vcs-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:28px;color:var(--ign-a);margin-bottom:12px}
 .ign-vcs-head h2{font-size:64px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-vcs-stat{text-align:right;flex:none}
 .ign-vcs-stat .v{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:76px;line-height:0.85;letter-spacing:-0.04em}
@@ -30,7 +30,7 @@ const CSS = `
 .ign-vcs-lead{position:relative;display:flex;flex-direction:column;justify-content:center;padding-left:44px}
 .ign-vcs-lead::before{content:"";position:absolute;left:0;top:8px;bottom:8px;width:3px;
   background:var(--ign-ember);border-radius:3px}
-.ign-vcs-lead .mark{font-family:'Newsreader','Noto Serif SC',serif;font-weight:500;font-size:170px;line-height:0.5;height:82px;
+.ign-vcs-lead .mark{font-family:'Newsreader','Noto Serif SC',serif;font-weight:800;font-size:170px;line-height:0.5;height:82px;
   color:var(--ign-a);letter-spacing:-0.04em}
 .ign-vcs-lead .lq{font-size:46px;line-height:1.3;font-weight:500;letter-spacing:-0.015em;text-wrap:pretty;margin-top:6px}
 .ign-vcs-lead .lq .hl{color:var(--ign-a)}

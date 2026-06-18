@@ -22,10 +22,10 @@ const CSS = `
 .ign-man-kick .tick{width:40px;height:1px;background:linear-gradient(90deg,var(--ign-b),transparent)}
 .ign-man-kick .no{color:var(--ign-a)}
 .ign-man-h{font-size:132px;font-weight:900;line-height:0.98;letter-spacing:-0.045em;max-width:1480px}
-.ign-man-h .ign-serif{font-weight:400;color:var(--ign-a)}
+.ign-man-h .ign-serif{font-weight:800;color:var(--ign-a)}
 .ign-man-rule{width:160px;height:3px;background:var(--ign-ember);margin-top:48px;border-radius:2px}
 .ign-man-body.center .ign-man-rule{margin-left:auto;margin-right:auto}
-.ign-man-foot{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:34px;color:var(--ign-ink2);margin-top:36px;
+.ign-man-foot{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:34px;color:var(--ign-ink2);margin-top:36px;
   max-width:920px;line-height:1.4;text-wrap:pretty}
 `;
 

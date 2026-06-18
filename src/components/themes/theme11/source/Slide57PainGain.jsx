@@ -27,7 +27,7 @@ const CSS = `
 .ign-pg-gain .tx{font-size:30px;font-weight:600;color:var(--ign-ink);line-height:1.3;text-wrap:pretty}
 .ign-pg-gain .tx b{font-weight:600}
 .ign-pg-row.dim{opacity:0.34;filter:saturate(0.5)}
-.ign-pg-foot{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);margin-top:22px}
+.ign-pg-foot{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);margin-top:22px}
 `;
 
 export const painGainDefaultProps = {

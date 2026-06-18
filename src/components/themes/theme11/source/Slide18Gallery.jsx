@@ -13,7 +13,7 @@ const CSS = `
 .ign-gal-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:30px;gap:48px}
 .ign-gal-head h2{font-size:64px;font-weight:900;line-height:1.02;letter-spacing:-0.03em}
 .ign-gal-head h2 .ign-serif{color:var(--ign-a)}
-.ign-gal-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);max-width:360px;text-align:right;line-height:1.4}
+.ign-gal-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);max-width:360px;text-align:right;line-height:1.4}
 .ign-gal-grid{flex:1;display:grid;gap:26px;margin-top:28px;min-height:0}
 .ign-gal-grid.n1{grid-template-columns:1fr}
 .ign-gal-grid.n2{grid-template-columns:1fr 1fr}
@@ -29,7 +29,7 @@ const CSS = `
 .ign-gal-empty{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
   border:1px solid var(--ign-hair);border-radius:6px;margin-top:28px;
   background:repeating-linear-gradient(135deg,var(--ign-panel) 0 12px,transparent 12px 24px)}
-.ign-gal-empty .big{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:52px;color:var(--ign-ink2)}
+.ign-gal-empty .big{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:52px;color:var(--ign-ink2)}
 .ign-gal-empty .hint{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.12em;color:var(--ign-ink3);margin-top:16px}
 `;
 

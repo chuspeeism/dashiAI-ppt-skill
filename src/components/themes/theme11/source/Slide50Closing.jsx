@@ -23,7 +23,7 @@ const CSS = `
 .ign-cls-kick .tick{width:40px;height:1px;background:linear-gradient(90deg,var(--ign-b),transparent)}
 .ign-cls-kick .no{color:var(--ign-a)}
 .ign-cls-h{font-size:104px;font-weight:900;line-height:0.96;letter-spacing:-0.04em}
-.ign-cls-h .ign-serif{font-weight:400;color:var(--ign-a)}
+.ign-cls-h .ign-serif{font-weight:800;color:var(--ign-a)}
 .ign-cls-sub{font-size:27px;font-weight:300;line-height:1.5;color:var(--ign-ink2);margin-top:28px;max-width:520px;text-wrap:pretty}
 .ign-cls-rule{width:160px;height:3px;background:var(--ign-ember);margin:40px 0 32px;border-radius:2px}
 .ign-cls-contact{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ign-hair)}

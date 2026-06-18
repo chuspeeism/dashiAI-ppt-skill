@@ -25,7 +25,7 @@ const CSS = `
   letter-spacing:-0.04em;margin:22px 0 20px;align-self:flex-start}
 .ign-cvm-h{font-size:102px;font-weight:800;line-height:1.44;letter-spacing:-0.035em;text-wrap:balance;align-self:flex-start}
 .ign-cvm-h .row{display:block}
-.ign-cvm-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em}
+.ign-cvm-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;letter-spacing:-0.01em}
 .ign-cvm-foot{display:flex;align-items:flex-end;justify-content:space-between;gap:40px;
   border-top:1px solid var(--ign-hair);padding-top:26px}
 .ign-cvm-ribbon{display:flex;gap:0}

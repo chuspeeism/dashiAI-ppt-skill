@@ -16,7 +16,7 @@ const CSS = `
 .ign-fnl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:8px}
 .ign-fnl-head h2{font-size:74px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-fnl-head h2 .ign-serif{color:var(--ign-a)}
-.ign-fnl-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:28px;color:var(--ign-a);margin-bottom:12px}
+.ign-fnl-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:28px;color:var(--ign-a);margin-bottom:12px}
 .ign-fnl-head p{font-size:24px;font-weight:300;line-height:1.5;color:var(--ign-ink2);max-width:430px;text-align:right;text-wrap:pretty}
 .ign-fnl-body{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;padding:6px 0}
 .ign-fnl-row{display:grid;grid-template-columns:1fr 660px 1fr;align-items:center;gap:30px}

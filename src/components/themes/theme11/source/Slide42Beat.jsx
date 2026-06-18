@@ -17,7 +17,7 @@ const CSS = `
 .ign-bet-body.flip{direction:rtl}
 .ign-bet-body.flip > *{direction:ltr}
 .ign-bet-txt h2{font-size:64px;font-weight:900;line-height:1.02;letter-spacing:-0.03em;margin-top:20px}
-.ign-bet-txt h2 .ign-serif{color:var(--ign-a);font-weight:400}
+.ign-bet-txt h2 .ign-serif{color:var(--ign-a);font-weight:800}
 .ign-bet-lede{font-size:25px;font-weight:300;line-height:1.55;color:var(--ign-ink2);margin-top:24px;max-width:560px;text-wrap:pretty}
 .ign-bet-points{margin-top:34px;display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ign-hair)}
 .ign-bet-pt{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:baseline;padding:20px 0;border-bottom:1px solid var(--ign-hair)}

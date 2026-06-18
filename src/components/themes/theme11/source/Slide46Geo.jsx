@@ -15,7 +15,7 @@ const CSS = `
   background:radial-gradient(48% 50% at 50% 50%,rgba(255,120,52,0.28),rgba(226,42,12,0) 68%);filter:blur(62px)}
 .ign-geo .ign-ghost{font-size:480px;left:20px;bottom:-120px}
 .ign-geo-body{flex:1;display:grid;grid-template-columns:0.64fr 1.36fr;gap:64px;align-items:center;margin-top:6px}
-.ign-geo-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:28px;color:var(--ign-a);margin-bottom:14px}
+.ign-geo-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:28px;color:var(--ign-a);margin-bottom:14px}
 .ign-geo-head h2{font-size:66px;font-weight:900;line-height:0.98;letter-spacing:-0.03em}
 .ign-geo-head h2 .ign-serif{color:var(--ign-a)}
 .ign-geo-head p{font-size:24px;font-weight:300;line-height:1.55;color:var(--ign-ink2);margin-top:24px;max-width:380px;text-wrap:pretty}

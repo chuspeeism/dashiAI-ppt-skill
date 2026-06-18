@@ -12,7 +12,7 @@ const CSS = `
 .ign-mix-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:34px;gap:48px}
 .ign-mix-head h2{font-size:64px;font-weight:900;line-height:1.02;letter-spacing:-0.03em}
 .ign-mix-head h2 .ign-serif{color:var(--ign-a)}
-.ign-mix-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);max-width:360px;text-align:right;line-height:1.4}
+.ign-mix-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);max-width:360px;text-align:right;line-height:1.4}
 .ign-mix-body{display:grid;grid-template-columns:0.9fr 1.1fr;gap:80px;align-items:center;margin-top:8px}
 .ign-mix-body.solo{grid-template-columns:1fr;max-width:1000px}
 .ign-mix-viz{position:relative;display:flex;align-items:center;justify-content:center}

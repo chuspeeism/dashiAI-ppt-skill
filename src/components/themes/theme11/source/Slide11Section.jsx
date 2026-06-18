@@ -16,15 +16,15 @@ const CSS = `
 .ign-sec-tag .ch{font-weight:600;color:var(--ign-a)}
 .ign-sec-tag .ln{width:72px;height:1px;background:linear-gradient(90deg,var(--ign-b),transparent)}
 .ign-sec h2{font-size:150px;font-weight:900;line-height:0.96;letter-spacing:-0.045em;margin-top:34px}
-.ign-sec h2 .ign-serif{color:var(--ign-a);font-weight:400}
-.ign-sec-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:34px;color:var(--ign-ink2);
+.ign-sec h2 .ign-serif{color:var(--ign-a);font-weight:800}
+.ign-sec-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:34px;color:var(--ign-ink2);
   max-width:880px;margin-top:36px;line-height:1.42;text-wrap:pretty}
 .ign-sec-agenda{display:flex;margin-top:60px;border-top:1px solid var(--ign-hair2)}
 .ign-sec-ag{flex:1;padding:28px 40px 0 0}
 .ign-sec-ag + .ign-sec-ag{border-left:1px solid var(--ign-hair);padding-left:40px}
 .ign-sec-ag .n{font-family:'Space Grotesk',sans-serif;font-size:24px;color:var(--ign-a);letter-spacing:0.14em}
 .ign-sec-ag .t{font-size:32px;font-weight:700;margin-top:16px;line-height:1.15}
-.ign-sec-ag .e{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);margin-top:8px}
+.ign-sec-ag .e{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);margin-top:8px}
 `;
 
 export const sectionDefaultProps = {

@@ -28,7 +28,7 @@ const CSS = `
   box-shadow:0 24px 50px -18px rgba(20,10,4,0.55),0 2px 0 rgba(255,255,255,0.6) inset}
 .ign-slide[data-surface="paper"] .ign-pol-card{background:#FFFDF8}
 .ign-pol-card .ign-imgslot{width:100%}
-.ign-pol-cap{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:25px;color:#2A1C12;
+.ign-pol-cap{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:25px;color:#2A1C12;
   padding:16px 4px 18px;line-height:1.2;text-align:center}
 .ign-pol-cap b{font-style:normal;font-weight:500;color:#C7401A}
 .ign-pol-pin{position:absolute;top:-9px;left:50%;transform:translateX(-50%);width:16px;height:16px;border-radius:50%;

@@ -24,10 +24,10 @@ const CSS = `
   border-radius:999px;padding:11px 22px;white-space:nowrap}
 .ign-cvh-status .dot{width:8px;height:8px;border-radius:50%;background:#54d17a;box-shadow:0 0 12px #54d17a}
 .ign-cvh-foot{margin-top:auto}
-.ign-cvh-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:40px;color:var(--ign-a);margin-bottom:18px}
+.ign-cvh-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:40px;color:var(--ign-a);margin-bottom:18px}
 .ign-cvh-h{font-size:170px;font-weight:900;line-height:0.92;letter-spacing:-0.045em;color:#F7F0E7}
 .ign-cvh-h .row{display:block;white-space:nowrap}
-.ign-cvh-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400}
+.ign-cvh-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800}
 .ign-cvh-sub{margin-top:26px;font-size:34px;font-weight:300;color:rgba(246,239,230,0.78)}
 .ign-cvh-strip{display:flex;gap:0;margin-top:40px;border-top:1px solid rgba(246,239,230,0.26);padding-top:26px}
 .ign-cvh-stat{padding-right:54px}

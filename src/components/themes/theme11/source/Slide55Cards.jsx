@@ -18,7 +18,7 @@ const CSS = `
 .ign-cd-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:26px}
 .ign-cd-head h2{font-size:58px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-cd-head h2 .ign-serif{color:var(--ign-a)}
-.ign-cd-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:25px;color:var(--ign-ink3);text-align:right;max-width:340px;line-height:1.4}
+.ign-cd-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:25px;color:var(--ign-ink3);text-align:right;max-width:340px;line-height:1.4}
 .ign-cd-row{flex:1;display:grid;gap:36px;align-items:stretch;margin-top:30px}
 .ign-cd-card{display:flex;flex-direction:column;min-width:0;min-height:0}
 .ign-cd-media{flex:1;min-height:0}

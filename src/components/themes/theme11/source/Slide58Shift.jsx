@@ -18,7 +18,7 @@ const CSS = `
 .ign-ba-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:24px}
 .ign-ba-head h2{font-size:56px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-ba-head h2 .ign-serif{color:var(--ign-a)}
-.ign-ba-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
+.ign-ba-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
 .ign-ba-stage{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0;margin-top:24px;position:relative;min-height:0}
 .ign-ba-panel{position:relative;overflow:hidden}
 .ign-ba-panel .ign-imgslot{width:100%;height:100%;border-radius:0}

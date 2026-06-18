@@ -19,7 +19,7 @@ const CSS = `
 .ign-bul-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:24px}
 .ign-bul-head h2{font-size:56px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-bul-head h2 .ign-serif{color:var(--ign-a)}
-.ign-bul-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
+.ign-bul-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:300px;line-height:1.4}
 .ign-bul-list{flex:1;display:flex;flex-direction:column;justify-content:center;gap:10px;margin-top:8px}
 .ign-bul-row{display:grid;grid-template-columns:262px 1fr 156px;align-items:center;gap:26px;padding:14px 0;
   border-bottom:1px solid var(--ign-hair)}

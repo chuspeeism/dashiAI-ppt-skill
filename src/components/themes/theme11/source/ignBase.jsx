@@ -226,7 +226,7 @@ const IGN_CSS = `
   font-synthesis-style:none}
 .ign-slide *{box-sizing:border-box;margin:0;padding:0}
 .ign-en{font-family:'Space Grotesk','Noto Sans SC',sans-serif}
-.ign-serif{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400}
+.ign-serif{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800}
 .ign-ember-text{background:var(--ign-ember);-webkit-background-clip:text;background-clip:text;color:transparent}
 
 .ign-bloom{position:absolute;pointer-events:none;z-index:0;opacity:var(--ign-glow)}
@@ -256,7 +256,7 @@ const IGN_CSS = `
 .ign-util{display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
 .ign-lock{display:flex;align-items:center;gap:14px}
 .ign-wm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:25px;letter-spacing:0.02em;white-space:nowrap}
-.ign-wm em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;color:var(--ign-a)}
+.ign-wm em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;color:var(--ign-a)}
 .ign-nav{display:flex;align-items:center;gap:30px;font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.14em;white-space:nowrap}
 .ign-nav span{color:var(--ign-ink3);display:flex;align-items:center;gap:10px}
 .ign-nav span.on{color:var(--ign-ink)}
@@ -269,7 +269,7 @@ const IGN_CSS = `
 .ign-meta{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;border-top:1px solid var(--ign-hair);
   padding-top:22px;font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.16em;color:var(--ign-ink3)}
 .ign-meta .r{text-align:right;white-space:nowrap}
-.ign-meta .mid{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;color:var(--ign-ink2);letter-spacing:0.01em;white-space:nowrap}
+.ign-meta .mid{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;color:var(--ign-ink2);letter-spacing:0.01em;white-space:nowrap}
 .ign-prog{display:inline-flex;align-items:center;gap:12px;justify-content:flex-end;white-space:nowrap}
 .ign-prog .track{width:120px;height:2px;background:var(--ign-hair);position:relative}
 .ign-prog .fill{position:absolute;left:0;top:0;height:100%;background:linear-gradient(90deg,var(--ign-a),var(--ign-b))}

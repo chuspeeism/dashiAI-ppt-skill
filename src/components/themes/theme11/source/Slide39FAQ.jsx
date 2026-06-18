@@ -14,7 +14,7 @@ const CSS = `
   background:radial-gradient(50% 50% at 50% 50%,rgba(255,120,52,0.3),rgba(226,42,12,0) 68%);filter:blur(58px)}
 .ign-faq .ign-ghost{font-size:560px;right:10px;bottom:-150px}
 .ign-faq-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:6px}
-.ign-faq-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:28px;color:var(--ign-a);margin-bottom:12px}
+.ign-faq-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:28px;color:var(--ign-a);margin-bottom:12px}
 .ign-faq-head h2{font-size:64px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-faq-head h2 .ign-serif{color:var(--ign-a)}
 .ign-faq-head p{font-size:23px;font-weight:300;line-height:1.5;color:var(--ign-ink2);max-width:380px;text-align:right;text-wrap:pretty}
@@ -24,7 +24,7 @@ const CSS = `
 .ign-faq-row:first-child{border-top:1px solid var(--ign-hair2)}
 .ign-faq-no{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:34px;letter-spacing:-0.02em;color:var(--ign-ink3);line-height:1}
 .ign-faq-q{font-size:30px;font-weight:700;line-height:1.32;letter-spacing:-0.01em}
-.ign-faq-q .qm{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;color:var(--ign-a);margin-right:8px}
+.ign-faq-q .qm{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;color:var(--ign-a);margin-right:8px}
 .ign-faq-a{font-size:24px;font-weight:300;line-height:1.5;color:var(--ign-ink2);text-wrap:pretty}
 .ign-faq-a .am{font-family:'Space Grotesk',sans-serif;font-weight:600;color:var(--ign-a);margin-right:10px;letter-spacing:0.04em}
 .ign-faq-row.lit .ign-faq-no{color:var(--ign-a)}

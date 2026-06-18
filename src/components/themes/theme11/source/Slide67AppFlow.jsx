@@ -20,7 +20,7 @@ const CSS = `
 .ign-afl-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:24px}
 .ign-afl-head h2{font-size:58px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-afl-head h2 .ign-serif{color:var(--ign-a)}
-.ign-afl-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
+.ign-afl-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
 .ign-afl-row{flex:1;display:flex;align-items:center;justify-content:center;gap:0;margin-top:8px}
 .ign-afl-step{display:flex;flex-direction:column;align-items:center;gap:22px;flex:0 0 auto}
 .ign-afl-phone{position:relative;width:228px;aspect-ratio:9 / 19;border-radius:30px;padding:9px;

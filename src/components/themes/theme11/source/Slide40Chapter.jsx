@@ -23,7 +23,7 @@ const CSS = `
 .ign-chp-left .lead .tick{width:40px;height:1px;background:linear-gradient(90deg,var(--ign-b),transparent)}
 .ign-chp-left .lead .no{color:var(--ign-a)}
 .ign-chp-h{font-size:84px;font-weight:900;line-height:0.98;letter-spacing:-0.04em;margin-bottom:22px}
-.ign-chp-h .ign-serif{font-weight:400;color:var(--ign-a)}
+.ign-chp-h .ign-serif{font-weight:800;color:var(--ign-a)}
 .ign-chp-sub{font-size:25px;font-weight:300;line-height:1.5;color:var(--ign-ink2);max-width:560px;text-wrap:pretty;margin-bottom:34px}
 .ign-chp-agenda{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--ign-hair2)}
 .ign-chp-item{display:grid;grid-template-columns:54px 1fr auto;gap:22px;align-items:center;

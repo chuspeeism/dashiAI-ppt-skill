@@ -25,10 +25,10 @@ const CSS = `
 .ign-cvp-kick .no{color:var(--ign-a)}
 .ign-cvp-h{font-size:150px;font-weight:900;line-height:1.4;letter-spacing:-0.05em;width:fit-content}
 .ign-cvp-h .row{display:block;white-space:nowrap}
-.ign-cvp-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em}
+.ign-cvp-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;letter-spacing:-0.01em}
 .ign-cvp-sweep{height:18px;width:480px;margin:36px 0 30px;border-radius:999px;
   background:var(--ign-ember);box-shadow:0 14px 50px -14px rgba(226,42,12,0.6)}
-.ign-cvp-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:40px;line-height:1.3;
+.ign-cvp-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:40px;line-height:1.3;
   color:var(--ign-ink2);max-width:1040px;text-wrap:pretty}
 .ign-cvp-lede b{font-style:normal;font-weight:500;color:var(--ign-ink)}
 .ign-cvp-foot{display:flex;align-items:center;justify-content:space-between;gap:40px;

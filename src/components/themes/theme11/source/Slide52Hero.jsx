@@ -22,8 +22,8 @@ const CSS = `
 .ign-hero-tag .dot{width:8px;height:8px;border-radius:50%;background:var(--ign-b);box-shadow:0 0 14px var(--ign-b)}
 .ign-hero-foot{margin-top:auto}
 .ign-hero-foot h2{font-size:104px;font-weight:900;line-height:0.96;letter-spacing:-0.04em;max-width:1280px;text-wrap:balance}
-.ign-hero-foot h2 .ign-serif{color:var(--ign-a);font-weight:400}
-.ign-hero-sub{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;color:var(--ign-ink2);margin-top:24px;max-width:680px}
+.ign-hero-foot h2 .ign-serif{color:var(--ign-a);font-weight:800}
+.ign-hero-sub{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;color:var(--ign-ink2);margin-top:24px;max-width:680px}
 .ign-hero-strip{display:flex;gap:0;margin-top:42px;border-top:1px solid var(--ign-hair2);padding-top:26px}
 .ign-hero-stat{padding-right:54px}
 .ign-hero-stat + .ign-hero-stat{border-left:1px solid var(--ign-hair2);padding-left:54px}

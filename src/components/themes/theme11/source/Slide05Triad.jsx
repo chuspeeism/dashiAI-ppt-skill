@@ -12,14 +12,14 @@ const CSS = `
 .ign-triad-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:40px;gap:48px}
 .ign-triad-head h2{font-size:78px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-triad-head h2 .ign-serif{color:var(--ign-a)}
-.ign-triad-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);max-width:360px;text-align:right;line-height:1.4}
+.ign-triad-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);max-width:360px;text-align:right;line-height:1.4}
 .ign-triad-grid{display:grid;gap:0}
 .ign-pillar{padding:38px 48px 8px 0;border-top:2px solid var(--ign-hair2);position:relative}
 .ign-pillar + .ign-pillar{border-left:1px solid var(--ign-hair);padding-left:48px}
 .ign-pillar.hot{border-top-color:var(--ign-b)}
 .ign-pillar .pn{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.2em;color:var(--ign-ink3);text-transform:uppercase}
 .ign-pillar .pw{font-size:56px;font-weight:900;letter-spacing:-0.02em;margin-top:20px;line-height:1}
-.ign-pillar .pe{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;color:var(--ign-ink3);margin-top:10px}
+.ign-pillar .pe{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;color:var(--ign-ink3);margin-top:10px}
 .ign-pillar .pd{font-size:26px;font-weight:300;line-height:1.55;color:var(--ign-ink2);margin-top:24px;max-width:380px}
 .ign-pillar .pstat{display:flex;align-items:baseline;gap:14px;margin-top:30px;padding-top:24px;border-top:1px solid var(--ign-hair)}
 .ign-pillar .pstat .v{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:46px;letter-spacing:-0.02em}

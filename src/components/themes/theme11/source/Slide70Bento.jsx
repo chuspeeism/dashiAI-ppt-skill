@@ -20,7 +20,7 @@ const CSS = `
 .ign-bto-head{display:flex;align-items:flex-end;justify-content:space-between;gap:48px;margin-top:22px}
 .ign-bto-head h2{font-size:54px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-bto-head h2 .ign-serif{color:var(--ign-a)}
-.ign-bto-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:23px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
+.ign-bto-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:23px;color:var(--ign-ink3);text-align:right;max-width:320px;line-height:1.4}
 .ign-bto-grid{flex:1;display:grid;grid-template-columns:1.32fr 0.84fr 0.84fr;grid-template-rows:1fr 1fr;
   gap:18px;margin-top:24px;
   grid-template-areas:"hero shot stat" "hero kpi band"}

@@ -28,7 +28,7 @@ const CSS = `
 .ign-crv-card{padding:36px 40px 28px}
 .ign-crv-card-h{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
 .ign-crv-card-h .ct{font-family:'Space Grotesk',sans-serif;font-size:23px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ign-ink3)}
-.ign-crv-card-h .yu{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:23px;color:var(--ign-ink3)}
+.ign-crv-card-h .yu{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:23px;color:var(--ign-ink3)}
 .ign-crv-card svg{width:100%;display:block;overflow:visible}
 .ign-crv-x{display:flex;justify-content:space-between;font-family:'Space Grotesk',sans-serif;font-size:21px;color:var(--ign-ink3);margin-top:14px}
 `;

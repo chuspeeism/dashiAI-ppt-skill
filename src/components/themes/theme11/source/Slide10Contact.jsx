@@ -11,7 +11,7 @@ const CSS = `
   radial-gradient(70% 90% at 50% 100%,rgba(226,42,12,0.4),rgba(120,20,8,0) 72%);filter:blur(46px)}
 .ign-contact .ign-ghost{font-size:300px;right:96px;top:90px}
 .ign-contact-mid{flex:1;display:flex;flex-direction:column;justify-content:center}
-.ign-contact-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:40px;color:var(--ign-a);margin-bottom:22px}
+.ign-contact-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:40px;color:var(--ign-a);margin-bottom:22px}
 .ign-contact-h{font-size:128px;font-weight:900;line-height:1.02;letter-spacing:-0.035em}
 .ign-contact-sub{margin-top:26px;font-size:32px;font-weight:300;color:var(--ign-ink2);max-width:880px;line-height:1.5}
 .ign-contact-cta{margin-top:48px;max-width:980px;padding-bottom:26px;border-bottom:2px solid var(--ign-hair2)}
@@ -28,7 +28,7 @@ const CSS = `
 .ign-partner-logos{display:flex;align-items:center;gap:34px}
 .ign-contact-mark{display:flex;align-items:center;gap:16px;flex:none}
 .ign-contact-mark .wm{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:27px;letter-spacing:0.02em}
-.ign-contact-mark .wm em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;color:var(--ign-a)}
+.ign-contact-mark .wm em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;color:var(--ign-a)}
 `;
 
 const MARKS = ['DAZZ', 'MULTIPLY', 'VOLT', 'DENSIFY'];

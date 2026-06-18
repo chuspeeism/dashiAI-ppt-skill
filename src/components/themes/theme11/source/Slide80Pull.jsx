@@ -17,9 +17,9 @@ const CSS = `
 .ign-puq .ign-ghost{font-size:720px;right:0;top:-140px}
 .ign-puq-body{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative}
 .ign-puq-body.center{align-items:center;text-align:center}
-.ign-puq-mark{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;font-size:280px;line-height:0.5;
+.ign-puq-mark{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:280px;line-height:0.5;
   color:var(--ign-a);height:108px;margin-bottom:8px;user-select:none}
-.ign-puq-q{quotes:none;font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;font-size:76px;line-height:1.22;
+.ign-puq-q{quotes:none;font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:76px;line-height:1.22;
   letter-spacing:-0.01em;max-width:1380px;text-wrap:pretty}
 .ign-puq-body.center .ign-puq-q{max-width:1500px}
 .ign-puq-big{display:inline-flex;align-items:baseline;font-family:'Space Grotesk',sans-serif;font-style:normal;font-weight:700;

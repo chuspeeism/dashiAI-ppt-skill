@@ -10,7 +10,7 @@ const CSS = `
 .ign-out-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:34px}
 .ign-out-head h2{font-size:62px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-out-head h2 .ign-serif{color:var(--ign-a)}
-.ign-out-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);max-width:300px;text-align:right}
+.ign-out-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);max-width:300px;text-align:right}
 .ign-stat-grid{display:grid;gap:0}
 .ign-stat-cell{padding:30px 44px 30px 0}
 .ign-stat-cell + .ign-stat-cell{border-left:1px solid var(--ign-hair);padding-left:44px}
@@ -27,7 +27,7 @@ const CSS = `
 .ign-rarrow::after{content:"";position:absolute;right:0;top:-3px;width:7px;height:7px;border-top:1px solid var(--ign-ink3);border-right:1px solid var(--ign-ink3);transform:rotate(45deg)}
 .ign-out-cta{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
 .ign-quote{display:flex;align-items:center;gap:26px;max-width:760px}
-.ign-quote .qtext .q{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;line-height:1.4;color:var(--ign-ink)}
+.ign-quote .qtext .q{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;line-height:1.4;color:var(--ign-ink)}
 .ign-quote .qtext .qa{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.1em;color:var(--ign-ink3);margin-top:14px}
 .ign-out-cta .right{text-align:right;flex:none}
 .ign-out-cta .cs{font-family:'Space Grotesk',sans-serif;font-size:24px;color:var(--ign-ink3);margin-bottom:16px;letter-spacing:0.06em;white-space:nowrap}

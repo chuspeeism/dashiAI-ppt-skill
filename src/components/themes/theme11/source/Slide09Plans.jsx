@@ -12,7 +12,7 @@ const CSS = `
 .ign-plans-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:38px;gap:48px}
 .ign-plans-head h2{font-size:70px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-plans-head h2 .ign-serif{color:var(--ign-a)}
-.ign-plans-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);max-width:340px;text-align:right;line-height:1.4}
+.ign-plans-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);max-width:340px;text-align:right;line-height:1.4}
 .ign-plans-grid{display:grid;gap:24px}
 .ign-plan{border:1px solid var(--ign-hair);border-radius:6px;padding:34px 34px 30px;display:flex;flex-direction:column;position:relative}
 .ign-plan.hot{border-color:var(--ign-b);background:rgba(255,110,46,0.05)}
@@ -20,7 +20,7 @@ const CSS = `
   text-transform:uppercase;color:var(--ign-b);background:var(--ign-bg);padding:0 12px;display:inline-flex;align-items:center;gap:9px}
 .ign-plan .tag::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--ign-b);box-shadow:0 0 11px var(--ign-b)}
 .ign-plan .pname{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.16em;text-transform:uppercase;color:var(--ign-ink3)}
-.ign-plan .pname em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;text-transform:none;color:var(--ign-a);font-size:26px;letter-spacing:0;margin-left:8px}
+.ign-plan .pname em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;text-transform:none;color:var(--ign-a);font-size:26px;letter-spacing:0;margin-left:8px}
 .ign-plan .pprice{display:flex;align-items:baseline;gap:8px;margin-top:22px;padding-bottom:24px;border-bottom:1px solid var(--ign-hair)}
 .ign-plan .pprice .cur{font-family:'Space Grotesk',sans-serif;font-size:34px;color:var(--ign-ink2)}
 .ign-plan .pprice .amt{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:62px;line-height:0.9;letter-spacing:-0.03em}

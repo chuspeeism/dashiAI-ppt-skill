@@ -15,7 +15,7 @@ const CSS = `
 .ign-pl-row:last-child{border-bottom:1px solid var(--ign-hair)}
 .ign-pl-row .n{font-family:'Space Grotesk',sans-serif;font-size:24px;color:var(--ign-a);width:34px;flex:none}
 .ign-pl-row .t{font-size:28px;font-weight:700}
-.ign-pl-row .e{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);margin-left:auto;white-space:nowrap}
+.ign-pl-row .e{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);margin-left:auto;white-space:nowrap}
 .ign-pills{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
 .ign-pills span{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.06em;color:var(--ign-ink2);
   border:1px solid var(--ign-hair2);border-radius:999px;padding:9px 18px;white-space:nowrap}

@@ -10,9 +10,9 @@ const CSS = `
   background:radial-gradient(50% 50% at 50% 50%,rgba(255,110,46,0.26),rgba(226,42,12,0) 70%);filter:blur(58px)}
 .ign-quo .ign-ghost{font-size:680px;right:10px;top:-110px}
 .ign-quo-body{flex:1;display:flex;flex-direction:column;justify-content:center;position:relative}
-.ign-quo-mark{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;font-size:300px;line-height:0.5;
+.ign-quo-mark{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:300px;line-height:0.5;
   color:var(--ign-a);opacity:0.9;height:120px;margin-bottom:18px;user-select:none}
-.ign-quo q{quotes:none;font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;font-size:88px;line-height:1.16;
+.ign-quo q{quotes:none;font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:88px;line-height:1.16;
   letter-spacing:-0.01em;display:block;max-width:1340px;text-wrap:pretty}
 .ign-quo q .ign-ember-text{font-style:italic}
 .ign-quo-attr{display:flex;align-items:center;gap:24px;margin-top:54px;padding-top:30px;border-top:1px solid var(--ign-hair)}

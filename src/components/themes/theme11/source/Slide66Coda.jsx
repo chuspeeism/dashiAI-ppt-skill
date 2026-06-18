@@ -24,7 +24,7 @@ const CSS = `
 .ign-cda-kick .no{color:var(--ign-a)}
 .ign-cda-q{font-size:96px;font-weight:900;line-height:1.04;letter-spacing:-0.035em;max-width:1380px;text-wrap:balance}
 .ign-cda-body.center .ign-cda-q{max-width:1480px}
-.ign-cda-q .ign-serif{font-weight:400;color:var(--ign-a)}
+.ign-cda-q .ign-serif{font-weight:800;color:var(--ign-a)}
 .ign-cda-arrow{display:inline-block;color:var(--ign-a);transform:translateY(6px)}
 .ign-cda-rule{display:flex;align-items:center;gap:22px;margin-top:46px}
 .ign-cda-body.center .ign-cda-rule{justify-content:center}

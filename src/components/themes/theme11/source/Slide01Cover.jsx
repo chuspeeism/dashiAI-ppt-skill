@@ -15,7 +15,7 @@ const CSS = `
 .ign-status{display:flex;align-items:center;gap:12px;font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.18em;
   text-transform:uppercase;color:var(--ign-ink2);border:1px solid var(--ign-hair2);border-radius:999px;padding:11px 22px;margin-bottom:30px;white-space:nowrap}
 .ign-status .dot{width:8px;height:8px;border-radius:50%;background:#54d17a;box-shadow:0 0 12px #54d17a}
-.ign-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:40px;color:var(--ign-a);margin-bottom:24px;white-space:nowrap}
+.ign-lede{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:40px;color:var(--ign-a);margin-bottom:24px;white-space:nowrap}
 .ign-cover-h{font-size:140px;font-weight:900;line-height:1.18;letter-spacing:-0.035em;text-align:center}
 .ign-cover-h .row{display:block;white-space:nowrap}
 .ign-cover-sub{margin-top:30px;font-size:34px;font-weight:300;color:var(--ign-ink2);white-space:nowrap}
@@ -27,7 +27,7 @@ const CSS = `
 .ign-trusted .tl{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.2em;text-transform:uppercase;color:var(--ign-ink3);white-space:nowrap}
 .ign-marks{display:flex;align-items:center;gap:46px;flex:1}
 .ign-marks span{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:27px;letter-spacing:0.04em;color:var(--ign-ink4);white-space:nowrap}
-.ign-marks span em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400}
+.ign-marks span em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800}
 .ign-logos{display:flex;align-items:center;gap:34px;flex:1}
 `;
 

@@ -14,7 +14,7 @@ const CSS = `
   background:radial-gradient(50% 50% at 50% 50%,rgba(255,120,52,0.42),rgba(226,42,12,0) 66%);filter:blur(56px)}
 .ign-idx .ign-ghost{font-size:600px;right:30px;bottom:-150px}
 .ign-idx-body{flex:1;display:grid;grid-template-columns:0.62fr 1.38fr;gap:96px;align-items:center;margin-top:10px}
-.ign-idx-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;color:var(--ign-a);margin-bottom:16px}
+.ign-idx-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;color:var(--ign-a);margin-bottom:16px}
 .ign-idx-head h2{font-size:90px;font-weight:900;line-height:0.96;letter-spacing:-0.035em}
 .ign-idx-head h2 .ign-serif{color:var(--ign-a)}
 .ign-idx-head p{font-size:25px;font-weight:300;line-height:1.55;color:var(--ign-ink2);margin-top:28px;max-width:360px;text-wrap:pretty}

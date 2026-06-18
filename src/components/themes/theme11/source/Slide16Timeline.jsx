@@ -10,7 +10,7 @@ const CSS = `
   background:radial-gradient(50% 50% at 50% 50%,rgba(255,120,52,0.4),rgba(226,42,12,0) 68%);filter:blur(54px)}
 .ign-tl .ign-ghost{font-size:560px;left:30px;top:-90px}
 .ign-tl-body{flex:1;display:grid;grid-template-columns:0.78fr 1.22fr;gap:80px;align-items:center;margin-top:14px}
-.ign-tl-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;color:var(--ign-a);margin-bottom:14px}
+.ign-tl-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;color:var(--ign-a);margin-bottom:14px}
 .ign-tl-head h2{font-size:78px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-tl-head h2 .ign-serif{color:var(--ign-a)}
 .ign-tl-head p{font-size:26px;font-weight:300;line-height:1.55;color:var(--ign-ink2);margin-top:26px;max-width:420px;text-wrap:pretty}

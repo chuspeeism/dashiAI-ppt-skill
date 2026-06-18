@@ -12,8 +12,8 @@ const CSS = `
 .ign-flow7-head{display:flex;align-items:flex-end;justify-content:space-between;margin-top:40px;gap:48px}
 .ign-flow7-head h2{font-size:74px;font-weight:900;line-height:1.0;letter-spacing:-0.03em}
 .ign-flow7-head h2 .ign-serif{color:var(--ign-a)}
-.ign-flow7-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:30px;color:var(--ign-a);margin-bottom:12px}
-.ign-flow7-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);max-width:340px;text-align:right;line-height:1.4}
+.ign-flow7-head .lead{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:30px;color:var(--ign-a);margin-bottom:12px}
+.ign-flow7-head .note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);max-width:340px;text-align:right;line-height:1.4}
 .ign-flow7-track{display:flex;align-items:center;margin-top:8px}
 .ign-flow7-start{width:64px;height:64px;border-radius:50%;flex:none;display:flex;align-items:center;justify-content:center;position:relative;
   border:1px solid var(--ign-hair2)}
@@ -25,7 +25,7 @@ const CSS = `
 .ign-flow7-node.hot{border-color:var(--ign-b);background:rgba(255,110,46,0.06)}
 .ign-flow7-node .nn{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.18em;color:var(--ign-a)}
 .ign-flow7-node .nt{font-size:30px;font-weight:700;margin-top:18px;line-height:1.2}
-.ign-flow7-node .ne{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:24px;color:var(--ign-ink3);margin-top:8px}
+.ign-flow7-node .ne{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:24px;color:var(--ign-ink3);margin-top:8px}
 .ign-flow7-caps{display:grid;gap:48px;border-top:1px solid var(--ign-hair);padding-top:28px}
 .ign-flow7-caps .cap .ct{font-family:'Space Grotesk',sans-serif;font-size:24px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ign-a);margin-bottom:12px}
 .ign-flow7-caps .cap .cd{font-size:26px;font-weight:300;line-height:1.5;color:var(--ign-ink2)}

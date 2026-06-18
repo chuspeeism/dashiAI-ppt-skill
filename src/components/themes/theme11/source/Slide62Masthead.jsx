@@ -26,7 +26,7 @@ const CSS = `
   font-size:21px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(246,239,230,0.72)}
 .ign-mh-mast{font-family:'Space Grotesk',sans-serif;font-weight:700;letter-spacing:-0.04em;line-height:0.82;
   font-size:228px;margin-top:6px}
-.ign-mh-mast em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400;letter-spacing:-0.01em}
+.ign-mh-mast em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;letter-spacing:-0.01em}
 .ign-mh-issue{display:flex;align-items:center;gap:18px;margin-top:18px;font-family:'Space Grotesk',sans-serif;
   font-size:22px;letter-spacing:0.06em;color:rgba(246,239,230,0.82)}
 .ign-mh-issue .bar{width:42px;height:1px;background:rgba(246,239,230,0.5)}

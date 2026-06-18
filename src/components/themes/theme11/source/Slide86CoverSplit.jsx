@@ -26,8 +26,8 @@ const CSS = `
 .ign-cvs-kick .dot{width:9px;height:9px;border-radius:50%;background:var(--ign-b);box-shadow:0 0 14px var(--ign-b)}
 .ign-cvs-h{font-size:130px;font-weight:900;line-height:1.36;letter-spacing:-0.045em}
 .ign-cvs-h .row{display:block;white-space:nowrap}
-.ign-cvs-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:400}
-.ign-cvs-lede{margin-top:30px;font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:36px;
+.ign-cvs-h em{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800}
+.ign-cvs-lede{margin-top:30px;font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:36px;
   color:var(--ign-ink2);max-width:660px;line-height:1.34;text-wrap:pretty}
 .ign-cvs-lede b{font-style:normal;font-weight:500;color:var(--ign-ink)}
 .ign-cvs-foot{display:flex;align-items:center;gap:16px;font-family:'Space Grotesk',sans-serif;font-size:24px;

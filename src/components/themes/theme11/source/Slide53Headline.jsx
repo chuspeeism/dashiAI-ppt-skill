@@ -25,7 +25,7 @@ const CSS = `
   font-size:clamp(320px,30vw,460px);display:inline-flex;align-items:flex-start}
 .ign-hl-num .u{font-size:0.32em;font-weight:400;color:var(--ign-ink2);margin-top:0.12em;letter-spacing:0}
 .ign-hl-num .pre{font-size:0.42em;font-weight:400;color:var(--ign-ink2);margin-top:0.16em;margin-right:0.04em}
-.ign-hl-sub{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:34px;color:var(--ign-ink);margin-top:8px;max-width:880px;text-wrap:pretty}
+.ign-hl-sub{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:34px;color:var(--ign-ink);margin-top:8px;max-width:880px;text-wrap:pretty}
 .ign-hl-body.center .ign-hl-sub{max-width:920px}
 .ign-hl-foot{display:flex;gap:0;border-top:1px solid var(--ign-hair);padding-top:24px}
 .ign-hl-body.center .ign-hl-foot{justify-content:center}

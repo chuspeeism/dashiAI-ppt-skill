@@ -23,7 +23,7 @@ const CSS = `
 .ign-met-sub + .ign-met-sub{border-left:1px solid var(--ign-hair)}
 .ign-met-sub .sv{font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:54px;line-height:0.9;letter-spacing:-0.03em}
 .ign-met-sub .sl{font-size:24px;font-weight:300;color:var(--ign-ink2);margin-top:12px}
-.ign-met-note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-size:26px;color:var(--ign-ink3);text-align:center}
+.ign-met-note{font-family:'Newsreader','Noto Serif SC',serif;font-style:italic;font-weight:800;font-size:26px;color:var(--ign-ink3);text-align:center}
 `;
 
 export const metricDefaultProps = {
