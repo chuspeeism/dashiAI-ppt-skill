@@ -13,6 +13,8 @@ const html = readFileSync(file, 'utf8');
 const htmlForSlides = html.replace(/<!--[\s\S]*?-->/g, '');
 const errors = [];
 const warnings = [];
+const normalizedFile = file.replace(/\\/g, '/');
+const isSwissTemplateShell = normalizedFile.endsWith('assets/template-swiss.html');
 
 const manifestFile = 'layout-manifest.json';
 const optionsFile = 'src/options.jsx';
@@ -29,7 +31,7 @@ const allowedLayouts = new Set(registeredLayouts.length ? registeredLayouts : ['
 const slideRe = /<section\b[^>]*class="[^"]*\bslide\b[^"]*"[^>]*>[\s\S]*?<\/section>/g;
 const slides = [...htmlForSlides.matchAll(slideRe)].map((m, idx) => ({ idx: idx + 1, html: m[0], tag: m[0].match(/<section\b[^>]*>/)?.[0] ?? '' }));
 
-if (!slides.length) {
+if (!slides.length && !isSwissTemplateShell) {
   errors.push('No <section class="slide"> pages found.');
 }
 
@@ -55,16 +57,73 @@ const pdfExportEnd = pdfExportStart >= 0 ? html.indexOf('window.__exportDeckPptx
 const pdfExportSource = pdfExportStart >= 0 && pdfExportEnd > pdfExportStart
   ? html.slice(pdfExportStart, pdfExportEnd)
   : '';
-if (!/runBrowserPrint\s*\(/.test(pdfExportSource) || !/function runBrowserPrint\(\)[\s\S]*?window\.print\(\)/.test(html)) {
-  errors.push('PDF export must use the browser print flow.');
+if (!/\/api\/export-pdf/.test(pdfExportSource) || !/startServerExportDownload\s*\(/.test(pdfExportSource)) {
+  errors.push('PDF export must use the local screenshot PDF service and trigger a browser download.');
 }
 
-if (/(htmlToImage|captureSlide|buildPdfFromJpegs|toJpeg|toPng|downloadBlob)/.test(pdfExportSource)) {
-  errors.push('PDF export must not use screenshot capture, generated PDF blobs, or download blob flows.');
+if (/runBrowserPrint\s*\(|window\.print\s*\(/.test(pdfExportSource)) {
+  errors.push('PDF export must not use the browser print flow as its default path.');
+}
+
+if (!/buildPdfExportSnapshot/.test(pdfExportSource)) {
+  errors.push('PDF export must send the current deck state to the screenshot PDF service.');
 }
 
 if (!html.includes('deck-export-cancel')) {
   errors.push('Deck export overlay is missing a cancel button.');
+}
+
+const previewPanelStart = html.indexOf('<aside id="preview-panel"');
+const previewPanelEnd = previewPanelStart >= 0 ? html.indexOf('</aside>', previewPanelStart) : -1;
+const previewPanelSource = previewPanelStart >= 0 && previewPanelEnd > previewPanelStart
+  ? html.slice(previewPanelStart, previewPanelEnd)
+  : '';
+const previewActionsIndex = previewPanelSource.indexOf('class="preview-actions"');
+const previewAuthorIndex = previewPanelSource.indexOf('class="preview-author"');
+const previewAuthorSource = previewAuthorIndex >= 0
+  ? previewPanelSource.slice(previewAuthorIndex, previewActionsIndex > previewAuthorIndex ? previewActionsIndex : undefined)
+  : '';
+if (!previewPanelSource) {
+  errors.push('Preview console is missing the preview-panel container.');
+} else if (previewAuthorIndex < 0 || !previewAuthorSource.includes('@大师的AI小灶')) {
+  errors.push('Preview console footer must show @大师的AI小灶 author info above the action buttons.');
+} else {
+  if (previewActionsIndex >= 0 && previewAuthorIndex > previewActionsIndex) {
+    errors.push('Preview console author info must be placed above the footer action buttons.');
+  }
+
+  const requiredSocialLinks = [
+    ['github', 'GitHub'],
+    ['douyin', '抖音'],
+    ['xiaohongshu', '小红书'],
+    ['bilibili', 'B 站'],
+  ];
+  const missingSocialLinks = requiredSocialLinks
+    .filter(([platform]) => !new RegExp(`<a\\b(?=[^>]*data-platform="${platform}")(?=[^>]*href="[^"]+")[^>]*>[\\s\\S]*?<svg\\b`).test(previewAuthorSource))
+    .map(([, label]) => label);
+  if (missingSocialLinks.length) {
+    errors.push(`Preview console author info must include SVG icon links for: ${missingSocialLinks.join(', ')}.`);
+  }
+
+  const socialAnchors = [...previewAuthorSource.matchAll(/<a\b([^>]*)data-platform="([^"]+)"([^>]*)>([\s\S]*?)<\/a>/g)];
+  for (const [, beforeAttrs, platform, afterAttrs, body] of socialAnchors) {
+    const text = body.replace(/<svg\b[\s\S]*?<\/svg>/g, '').replace(/<[^>]+>/g, '').trim();
+    if (text) {
+      errors.push(`Preview console ${platform} social link must be icon-only, without visible text.`);
+    }
+    const attrs = `${beforeAttrs} ${afterAttrs}`;
+    if (!/\b(?:aria-label|title)=/.test(attrs)) {
+      errors.push(`Preview console ${platform} social link must keep an accessible label.`);
+    }
+  }
+
+  const expectedXiaohongshuHref = 'https://www.xiaohongshu.com/user/profile/62e0c2bb000000001501408c?xsec_token=ABrZskc1MUcZWWuuMx7Fw52HYKSmhrHM2leT3iiPnMmG8%3D&amp;xsec_source=pc_search';
+  const xiaohongshuAnchor = socialAnchors.find(([, , platform]) => platform === 'xiaohongshu');
+  const xiaohongshuAttrs = xiaohongshuAnchor ? `${xiaohongshuAnchor[1]} ${xiaohongshuAnchor[3]}` : '';
+  const xiaohongshuHref = xiaohongshuAttrs.match(/\bhref="([^"]+)"/)?.[1] || '';
+  if (xiaohongshuHref && xiaohongshuHref !== expectedXiaohongshuHref) {
+    errors.push('Preview console 小红书 href must match the exact profile URL.');
+  }
 }
 
 if (!/function isPointInsideDeckStage\(/.test(html)) {

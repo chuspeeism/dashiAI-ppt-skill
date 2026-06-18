@@ -184,7 +184,13 @@
   .pp-json:focus{border-color:var(--pp-blue);background:var(--pp-bg)}
   .pp-json.is-invalid{border-color:#ef4444;color:#ef4444}
   /* footer actions */
-  .preview-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;align-items:stretch;gap:8px;padding:12px 14px;border-top:1px solid var(--pp-divider)}
+  .preview-author{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px 0;border-top:1px solid var(--pp-divider)}
+  .preview-author-name{min-width:0;color:var(--pp-fg2);font:650 12px/1 var(--sans-zh);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .preview-author-links{display:flex;align-items:center;gap:6px;flex:none}
+  .preview-author-links a{width:28px;height:28px;display:grid;place-items:center;border:1px solid transparent;border-radius:6px;color:var(--pp-icon);text-decoration:none;transition:background .15s,color .15s,border-color .15s}
+  .preview-author-links a:hover{background:var(--pp-chip);border-color:var(--pp-border);color:var(--pp-fg)}
+  .preview-author-links svg{width:16px;height:16px;display:block}
+  .preview-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;align-items:stretch;gap:8px;padding:8px 14px 12px}
   #preview-present-btn.pp-present{display:flex;align-items:center;justify-content:center;gap:8px;min-width:0;height:36px;border:0;border-radius:6px;cursor:pointer;background:var(--pp-blue);color:#fff;font:600 13px/1 var(--sans-zh)}
   #preview-present-btn.pp-present:hover{background:var(--pp-blue-h)}
   #preview-present-btn.pp-present svg{width:16px;height:16px}
@@ -318,6 +324,23 @@
       <div class="preview-props" id="preview-props"></div>
     </div>
   </div>
+  <div class="preview-author" aria-label="作者信息">
+    <div class="preview-author-name">@大师的AI小灶</div>
+    <div class="preview-author-links" aria-label="作者社媒链接">
+      <a href="https://github.com/jadon7/dashi-ppt-skill" target="_blank" rel="noopener noreferrer" data-platform="github" aria-label="GitHub" title="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .9a11 11 0 0 0-3.5 21.4c.55.1.75-.23.75-.53v-2c-3.05.66-3.7-1.3-3.7-1.3-.5-1.27-1.22-1.6-1.22-1.6-1-.69.08-.68.08-.68 1.1.08 1.68 1.13 1.68 1.13.98 1.67 2.57 1.19 3.2.9.1-.7.38-1.18.7-1.45-2.44-.28-5-1.22-5-5.43 0-1.2.43-2.18 1.13-2.95-.12-.28-.5-1.4.1-2.9 0 0 .93-.3 3.03 1.12a10.4 10.4 0 0 1 5.5 0c2.1-1.42 3.02-1.12 3.02-1.12.6 1.5.23 2.62.12 2.9.7.77 1.12 1.75 1.12 2.95 0 4.22-2.57 5.15-5.02 5.42.4.34.75 1 .75 2.03v2.99c0 .3.2.64.76.53A11 11 0 0 0 12 .9Z"/></svg>
+      </a>
+      <a href="https://www.douyin.com/user/MS4wLjABAAAAohe8JB4RvITJitJ69b7cV4NTaYTMYrVI43C-3SUnPPc" target="_blank" rel="noopener noreferrer" data-platform="douyin" aria-label="抖音" title="抖音">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M14.4 3.3v10.3a4.2 4.2 0 1 1-3.1-4.1v3.1a1.5 1.5 0 1 0 .8 1.3V3.3h2.3Z" fill="currentColor"/><path d="M14.4 5.2c1.1 2.1 2.6 3.2 5 3.4v3.1c-2-.05-3.7-.7-5-1.8V5.2Z" fill="currentColor"/></svg>
+      </a>
+      <a href="https://www.xiaohongshu.com/user/profile/62e0c2bb000000001501408c?xsec_token=ABrZskc1MUcZWWuuMx7Fw52HYKSmhrHM2leT3iiPnMmG8%3D&amp;xsec_source=pc_search" target="_blank" rel="noopener noreferrer" data-platform="xiaohongshu" aria-label="小红书" title="小红书">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4"/><path d="M8 8.5h8"/><path d="M8 12h8"/><path d="M9 15.5h6"/></svg>
+      </a>
+      <a href="https://space.bilibili.com/3537118131391269/" target="_blank" rel="noopener noreferrer" data-platform="bilibili" aria-label="B 站" title="B 站">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 4 2.2 2.5"/><path d="M16 4 13.8 6.5"/><rect x="4" y="7" width="16" height="13" rx="3"/><path d="M10 12v3"/><path d="M14 12v3"/><path d="M9 17h6"/></svg>
+      </a>
+    </div>
+  </div>
   <div class="preview-actions">
     <button class="pp-present" id="preview-present-btn" data-present-toggle="true" type="button" aria-label="播放预览" title="播放预览">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.8v12.4c0 .8.9 1.3 1.6.9l9.1-6.2a1 1 0 0 0 0-1.8L9.6 4.9C8.9 4.5 8 5 8 5.8Z"/></svg>
@@ -331,7 +354,7 @@
       </button>
       <div class="pp-export-menu" role="menu">
         <button id="preview-export" type="button" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m8 8-4 4 4 4"/><path d="m16 8 4 4-4 4"/></svg><span>HTML</span><kbd>离线包</kbd></button>
-        <button id="preview-export-pdf" type="button" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><span>PDF</span><kbd>打印</kbd></button>
+        <button id="preview-export-pdf" type="button" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9Z"/><path d="M14 3v6h6"/><line x1="8" y1="13" x2="16" y2="13"/><line x1="8" y1="17" x2="13" y2="17"/></svg><span>PDF</span><kbd>下载</kbd></button>
         <button id="preview-export-pptx" type="button" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h20"/><path d="M4 4v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4"/><path d="m9 20 3-3 3 3"/></svg><span>PPTX</span><kbd>可编辑</kbd></button>
       </div>
     </div>
@@ -3989,38 +4012,96 @@ refreshRailCatalog();
 
   window.__exportDeckPdf = async function(){
     if(window.__deckExportLocked) return;
-    const restoreState = captureExportViewState();
     let exportUi = null;
-    let restorePrintState = null;
+    let progressPoll = null;
     try {
+      if(location.protocol === 'file:'){
+        const message = 'PDF 直接下载需要通过本地 HTTPS 预览服务打开。请运行 npm run preview:start -- <输出 ppt 目录> <port>，再打开 https://jadon.local:<port>/ 后导出。';
+        window.__httpPreviewRequiredMessage = message;
+        alert(message);
+        return;
+      }
       exportUi = beginDeckExport('PDF');
-      updateDeckExport(exportUi, 0, 1, '准备页面状态...');
+      const progressId = createPdfExportProgressId();
+      progressPoll = beginPdfExportProgressPolling(exportUi, progressId);
+      updateDeckExport(exportUi, 0, 1, '提交截图 PDF 生成任务...');
       window.__syncDeckPageNumbers?.();
       window.__flushEditableTextState?.();
       window.__syncDeckViewModelFromDom?.();
       throwIfDeckExportCancelled(exportUi);
-      setDeckMode('present');
-      window.__layoutDeck?.();
-      window.__restoreEffectIframes?.(document);
-      const slides = await materializeExportSlides(exportUi, 'PDF');
+      const slides = window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')];
+      const response = await fetch('/api/export-pdf', {
+        method: 'POST',
+        headers: {'content-type': 'application/json'},
+        body: JSON.stringify({
+          title: document.title || 'Presentation',
+          fileName: getDeckFileName(),
+          sourcePath: location.pathname + location.search,
+          progressId,
+          snapshot: buildPdfExportSnapshot(),
+        }),
+      });
+      progressPoll.stop();
+      progressPoll = null;
       throwIfDeckExportCancelled(exportUi);
-      restorePrintState = prepareSlidesForPrint(slides);
-      await nextFrame();
-      await waitForExportFonts();
-      await nextFrame();
-      updateDeckExport(exportUi, slides.length, slides.length, '正在打开浏览器打印...');
-      await runBrowserPrint(window);
+      if(!response.ok){
+        let detail = '';
+        try { detail = (await response.json())?.error || ''; } catch {}
+        if(response.status === 404) detail = '当前页面没有 PDF 截图导出服务。请通过 npm run preview:start 启动本地预览后再导出。';
+        throw new Error(detail || `PDF export endpoint failed (${response.status})`);
+      }
+      const result = await response.json();
+      if(!result?.filePath) throw new Error('PDF export did not return a saved file path.');
+      window.__lastPdfExportResult = result;
+      const downloadStarted = startServerExportDownload(result.downloadUrl, result.downloadName || `${getDeckFileName()}.pdf`);
+      window.__lastPdfExportResult.downloadStarted = downloadStarted;
+      updateDeckExport(exportUi, slides.length, slides.length, downloadStarted ? 'PDF 已开始下载' : `PDF 已保存：${result.relativePath || result.filePath}`);
+      if(!downloadStarted) alert(`PDF 已保存到：\n${result.filePath}`);
     } catch (error) {
       if(isDeckExportCancelledError(error)) return;
       console.error('[export pdf]', error);
-      alert('PDF 导出失败，请在浏览器控制台查看错误。');
+      alert(error?.message || 'PDF 导出失败，请在浏览器控制台查看错误。');
     } finally {
-      restorePrintState?.();
-      restoreExportViewState(restoreState);
+      progressPoll?.stop?.();
       endDeckExport(exportUi);
       window.__syncActiveEffects?.();
     }
   };
+
+  function createPdfExportProgressId(){
+    const random = Math.random().toString(36).slice(2, 10);
+    return `pdf-${Date.now().toString(36)}-${random}`;
+  }
+
+  function beginPdfExportProgressPolling(exportUi, progressId){
+    let stopped = false;
+    const read = async () => {
+      if(stopped || !progressId) return;
+      try {
+        const response = await fetch(`/api/export-pdf-progress?id=${encodeURIComponent(progressId)}`, {
+          cache: 'no-store',
+          credentials: 'same-origin',
+        });
+        if(!response.ok) return;
+        const progress = await response.json();
+        const percent = Math.max(0, Math.min(100, Number(progress.percent || 0)));
+        const detail = progress.detail || '正在生成截图 PDF';
+        updateDeckExport(exportUi, percent, 100, `${detail} · ${Math.round(percent)}%`);
+      } catch {}
+      if(!stopped) setTimeout(read, 450);
+    };
+    read();
+    return { stop(){ stopped = true; } };
+  }
+
+  function buildPdfExportSnapshot(){
+    return {
+      themePack: document.documentElement.dataset.themePack || '',
+      currentIndex: window.__currentSlideIndex || 0,
+      state: window.__getDeckViewModelState?.() || {},
+      canvasSnapshots: collectEditablePptxCanvasSnapshots(),
+    };
+  }
 
   window.__exportDeckPptx = async function(){
     if(window.__deckExportLocked) return;
@@ -4031,7 +4112,7 @@ refreshRailCatalog();
       return;
     }
     if(location.protocol === 'file:'){
-      const message = '可编辑 PPTX 导出需要通过本地 HTTPS 预览服务打开。请运行 npm run preview:start -- <输出 ppt 目录> <port>，再打开 https://jadon.local:<port>/ 后导出。';
+      const message = '可编辑 PPTX 导出需要通过本地 HTTP/HTTPS 预览服务打开。请运行 npm run preview:start -- <输出 ppt 目录> <port>，优先打开本机 HTTP 地址 http://127.0.0.1:<port>/ 或 http://localhost:<port>/ 后导出。http://jadon.local:<port>/ 这类 HTTP LAN/jadon.local 地址可能导致下载失败，不作为导出主入口；直接打开本地 HTML/file:// 不能导出可编辑 PPTX。';
       window.__httpPreviewRequiredMessage = message;
       alert(message);
       return;
@@ -4086,7 +4167,11 @@ refreshRailCatalog();
     } catch (error) {
       if(isDeckExportCancelledError(error)) return;
       console.error('[export pptx]', error);
-      alert('可编辑 PPTX 导出失败，请确认当前页面是通过本地 HTTP/HTTPS 预览服务打开，而不是 file:// 直接打开。');
+      const message = location.protocol === 'http:' || location.protocol === 'https:'
+        ? `可编辑 PPTX 导出失败：当前页面是 HTTP/HTTPS 地址,但没有连到本地预览导出服务、服务目录不匹配，或使用了会影响下载的 HTTP LAN/jadon.local 地址。请确认用 npm run preview:start -- <输出 ppt 目录> <port> 启动，并优先打开本机 HTTP 地址 http://127.0.0.1:<port>/ 或 http://localhost:<port>/ 后导出。错误：${error?.message || '未知错误'}`
+        : '可编辑 PPTX 导出失败，请通过本地 HTTP/HTTPS 预览服务打开。直接打开本地 HTML/file:// 不能导出可编辑 PPTX。';
+      window.__lastPptxExportErrorMessage = message;
+      alert(message);
     } finally {
       progressPoll?.stop?.();
       document.body.classList.remove('pptx-export-capturing');

@@ -478,6 +478,10 @@ async function installBrowserCollector(page) {
         ${isInlineTextChild.toString()}
         ${hasInlineVisualTreatment.toString()}
         ${captureTextNode.toString()}
+        ${splitWrappedTextNode.toString()}
+        ${groupLineRects.toString()}
+        ${lineIndexForRect.toString()}
+        ${rangeBoundsForOffsets.toString()}
         ${effectiveTextStyle.toString()}
         ${elementRenderRect.toString()}
         ${transparentCssPaint.toString()}
@@ -533,6 +537,8 @@ async function installBrowserCollector(page) {
         ${hasPaint.toString()}
         ${hasAnyBorder.toString()}
         ${cssPx.toString()}
+        ${cssLengthPx.toString()}
+        ${translateFromTransform.toString()}
         window.__finishEditablePptxAnimations = finishEditablePptxAnimations;
         return collectActiveSlide;
       })();
@@ -572,6 +578,7 @@ function renderBox(slide, node, slideRect, warnings, totals) {
   const radius = Math.min(radiusPx, 48) / slideRect.w * PPT_W;
   const borders = readBorders(style);
   const hasBorder = borders.some(border => border.width > 0 && border.color);
+  const uniformBorder = uniformBorderStyle(borders);
   const shadow = parseBoxShadow(style.boxShadow);
   const rotate = rotateFromTransform(style.transform) || 0;
   const hasFill = fill && fill.alpha > 0.01;
@@ -593,6 +600,8 @@ function renderBox(slide, node, slideRect, warnings, totals) {
     ? { color: fill?.color || 'FFFFFF', transparency: 100 }
     : hasBorder && rotate
     ? { color: firstBorder?.color || fill?.color || 'FFFFFF', transparency: combinedTransparency(firstBorder?.alpha || 1, style.opacity), width: Math.max(...borders.map(border => border.width || 0)) * PX_TO_PT }
+    : hasBorder && uniformBorder
+    ? { color: uniformBorder.color, transparency: combinedTransparency(uniformBorder.alpha, style.opacity), width: uniformBorder.width * PX_TO_PT }
     : { color: hasBorder ? firstBorder?.color || fill?.color || 'FFFFFF' : 'FFFFFF', transparency: 100 };
 
   if (hasFill || hasBorder || borderTriangle) {
@@ -614,7 +623,9 @@ function renderBox(slide, node, slideRect, warnings, totals) {
     }
   }
 
-  if (hasBorder && !rotate && !borderTriangle && shapeName !== 'ellipse') renderBorders(slide, c, borders, slideRect, style.opacity, totals);
+  if (hasBorder && !uniformBorder && !rotate && !borderTriangle && shapeName !== 'ellipse') {
+    renderBorders(slide, c, borders, slideRect, style.opacity, totals);
+  }
 }
 
 function isTinyRotatedBorderOnlyPseudo(node, c, hasFill, hasBorder, rotate) {
@@ -649,8 +660,15 @@ function renderBorders(slide, c, borders, slideRect, opacity, totals) {
   }
 }
 
+function uniformBorderStyle(borders) {
+  if (!borders.length || !borders.every(border => border.width > 0 && border.color)) return null;
+  const [first] = borders;
+  if (!borders.every(border => Math.abs(border.width - first.width) < 0.25 && border.color === first.color && Math.abs(border.alpha - first.alpha) < 0.02)) return null;
+  return first;
+}
+
 function renderText(slide, node, slideRect, warnings, totals) {
-  const value = applyTextTransform(node.text || '', node.style?.textTransform);
+  let value = applyTextTransform(node.text || '', node.style?.textTransform);
   if (!value.trim()) return;
   const c = coords(node, slideRect);
   if (c.w < 0.01 || c.h < 0.01) return;
@@ -662,6 +680,14 @@ function renderText(slide, node, slideRect, warnings, totals) {
   if (isDecorativeRotatedSmallText(value, style, fontSizePx, node)) return;
   if (isDecorativeSparkleText(value)) {
     return;
+  }
+  const leadingSymbol = leadingNativeSymbol(value);
+  if (leadingSymbol) {
+    const symbolWidth = renderLeadingNativeSymbol(slide, c, style, leadingSymbol, totals);
+    value = value.slice(leadingSymbol.raw.length).trimStart();
+    if (!value.trim()) return;
+    c.x += symbolWidth;
+    c.w = Math.max(0.08, c.w - symbolWidth);
   }
   const fontFace = firstFont(style.fontFamily);
   const weight = String(style.fontWeight || '');
@@ -711,6 +737,44 @@ function renderText(slide, node, slideRect, warnings, totals) {
   } catch {
     warnings.push({ slide: node.slideIndex, type: 'render-text-failed', text: value.slice(0, 60) });
   }
+}
+
+function leadingNativeSymbol(value) {
+  const match = String(value || '').match(/^([→➜➤▶►])\s*/);
+  if (!match) return null;
+  return { raw: match[0], symbol: match[1], shape: 'rightArrow' };
+}
+
+function renderLeadingNativeSymbol(slide, box, style, symbol, totals) {
+  const color = textColorForStyle(style);
+  const size = Math.max(0.08, Math.min(0.18, box.h * 0.42));
+  const width = size * 1.75;
+  try {
+    slide.addShape(symbol.shape, {
+      x: box.x,
+      y: box.y + Math.max(0, (box.h - size) / 2),
+      w: size * 1.45,
+      h: size,
+      fill: { color: color.color, transparency: combinedTransparency(color.alpha, style.opacity) },
+      line: { color: color.color, transparency: 100 },
+    });
+    totals.shapeObjects += 1;
+    return width;
+  } catch {
+    try {
+      slide.addShape('triangle', {
+        x: box.x,
+        y: box.y + Math.max(0, (box.h - size) / 2),
+        w: size,
+        h: size,
+        rotate: 90,
+        fill: { color: color.color, transparency: combinedTransparency(color.alpha, style.opacity) },
+        line: { color: color.color, transparency: 100 },
+      });
+      totals.shapeObjects += 1;
+    } catch {}
+  }
+  return width;
 }
 
 function isDecorativeStrokeOnlyText(style, fontSizePx) {
@@ -953,7 +1017,8 @@ async function captureElement(el, slideRect, warnings, depth, slideIndex) {
     for (const child of childNodes) {
       if (child.nodeType === Node.TEXT_NODE) {
         const textNode = captureTextNode(child, el, slideRect, style, slideIndex);
-        if (textNode) node.children.push(textNode);
+        if (Array.isArray(textNode)) node.children.push(...textNode);
+        else if (textNode) node.children.push(textNode);
       } else if (child.nodeType === Node.ELEMENT_NODE) {
         const childNode = await captureElement(child, slideRect, warnings, depth + 1, slideIndex);
         if (childNode) node.children.push(childNode);
@@ -987,33 +1052,41 @@ function pseudoRect(el, style, slideRect) {
   const parent = el.getBoundingClientRect();
   const stageScaleX = (slideRect?.w || 1920) / 1920;
   const stageScaleY = (slideRect?.h || 1080) / 1080;
-  const width = cssPx(style.width);
-  const height = cssPx(style.height);
+  const parentWidth = el.offsetWidth || parent.width / stageScaleX;
+  const parentHeight = el.offsetHeight || parent.height / stageScaleY;
+  const width = cssLengthPx(style.width, parentWidth);
+  const height = cssLengthPx(style.height, parentHeight);
   if (width == null || height == null) return null;
-  const left = cssPx(style.left);
-  const top = cssPx(style.top);
-  const right = cssPx(style.right);
-  const bottom = cssPx(style.bottom);
+  const borderLeft = parseFloat(style.borderLeftWidth || '0') || 0;
+  const borderRight = parseFloat(style.borderRightWidth || '0') || 0;
+  const borderTop = parseFloat(style.borderTopWidth || '0') || 0;
+  const borderBottom = parseFloat(style.borderBottomWidth || '0') || 0;
+  const boxWidth = width + borderLeft + borderRight;
+  const boxHeight = height + borderTop + borderBottom;
+  const left = cssLengthPx(style.left, parentWidth);
+  const top = cssLengthPx(style.top, parentHeight);
+  const right = cssLengthPx(style.right, parentWidth);
+  const bottom = cssLengthPx(style.bottom, parentHeight);
   const parentStyle = getComputedStyle(el);
   const parentRotation = rotateFromTransform(parentStyle.transform);
   if (parentRotation && (left != null || right != null) && (top != null || bottom != null)) {
-    const parentWidth = el.offsetWidth || parent.width / stageScaleX;
-    const parentHeight = el.offsetHeight || parent.height / stageScaleY;
     const [originXRaw = '0', originYRaw = '0'] = String(parentStyle.transformOrigin || '').split(/\s+/);
-    const originX = cssPx(originXRaw) ?? parentWidth / 2;
-    const originY = cssPx(originYRaw) ?? parentHeight / 2;
-    const localX = left != null ? left : parentWidth - (right + width);
-    const localY = top != null ? top : parentHeight - (bottom + height);
-    const dx = (localX + width / 2 - originX) * stageScaleX;
-    const dy = (localY + height / 2 - originY) * stageScaleY;
+    const originX = cssLengthPx(originXRaw, parentWidth) ?? parentWidth / 2;
+    const originY = cssLengthPx(originYRaw, parentHeight) ?? parentHeight / 2;
+    const localX = left != null ? left : parentWidth - (right + boxWidth);
+    const localY = top != null ? top : parentHeight - (bottom + boxHeight);
+    const translate = translateFromTransform(style.transform, boxWidth, boxHeight);
+    const dx = (localX + translate.x + boxWidth / 2 - originX) * stageScaleX;
+    const dy = (localY + translate.y + boxHeight / 2 - originY) * stageScaleY;
     const angle = parentRotation * Math.PI / 180;
     const cx = parent.left + parent.width / 2 + dx * Math.cos(angle) - dy * Math.sin(angle);
     const cy = parent.top + parent.height / 2 + dx * Math.sin(angle) + dy * Math.cos(angle);
-    return { x: cx - width * stageScaleX / 2, y: cy - height * stageScaleY / 2, w: width * stageScaleX, h: height * stageScaleY };
+    return { x: cx - boxWidth * stageScaleX / 2, y: cy - boxHeight * stageScaleY / 2, w: boxWidth * stageScaleX, h: boxHeight * stageScaleY };
   }
-  const x = left != null ? parent.left + left * stageScaleX : right != null ? parent.right - (right + width) * stageScaleX : parent.left;
-  const y = top != null ? parent.top + top * stageScaleY : bottom != null ? parent.bottom - (bottom + height) * stageScaleY : parent.top;
-  return { x, y, w: width * stageScaleX, h: height * stageScaleY };
+  const translate = translateFromTransform(style.transform, boxWidth, boxHeight);
+  const x = (left != null ? parent.left + left * stageScaleX : right != null ? parent.right - (right + boxWidth) * stageScaleX : parent.left) + translate.x * stageScaleX;
+  const y = (top != null ? parent.top + top * stageScaleY : bottom != null ? parent.bottom - (bottom + boxHeight) * stageScaleY : parent.top) + translate.y * stageScaleY;
+  return { x, y, w: boxWidth * stageScaleX, h: boxHeight * stageScaleY };
 }
 
 function captureWholeTextElement(el, slideRect, style, slideIndex) {
@@ -1066,9 +1139,27 @@ function captureTextNode(textNode, parent, slideRect, style, slideIndex) {
   range.selectNodeContents(textNode);
   const lineRects = [...range.getClientRects()].filter(rect => rect.width > 1 && rect.height > 1);
   const singleLine = lineRects.length <= 1 && !/[\r\n]/.test(value);
-  let clipped = clippedRect(range.getBoundingClientRect(), slideRect);
-  range.detach?.();
   const tag = parent.tagName.toLowerCase();
+  const wrappedFragments = splitWrappedTextNode(textNode, lineRects, slideRect, keepWhitespace);
+  if (wrappedFragments.length > 1) {
+    range.detach?.();
+    const parentStyle = effectiveTextStyle(parent, slideRect);
+    return wrappedFragments.map(fragment => ({
+      tag: '#text',
+      slideIndex,
+      rect: fragment.rect,
+      style: parentStyle,
+      text: fragment.text,
+      singleLine: true,
+      parentTag: tag,
+      requiredText: parent.hasAttribute('data-editable-pptx-required-text'),
+      href: parent.closest('a')?.href || undefined,
+      children: [],
+    }));
+  }
+  const bounds = range.getBoundingClientRect();
+  let clipped = clippedRect(lineRects.length === 1 ? lineRects[0] : bounds, slideRect);
+  range.detach?.();
   const textNodeCount = [...parent.childNodes]
     .filter(child => child.nodeType === Node.TEXT_NODE && normalizeText(child.textContent || ''))
     .length;
@@ -1092,6 +1183,104 @@ function captureTextNode(textNode, parent, slideRect, style, slideIndex) {
     href: parent.closest('a')?.href || undefined,
     children: [],
   };
+}
+
+function splitWrappedTextNode(textNode, lineRects, slideRect, keepWhitespace) {
+  if (lineRects.length <= 1) return [];
+  const raw = textNode.textContent || '';
+  if (!raw.trim() || raw.length > 600) return [];
+  const lines = groupLineRects(lineRects);
+  if (lines.length <= 1 || lines.length > 20) return [];
+  const chars = Array.from(raw);
+  const offsets = [];
+  let offset = 0;
+  for (const char of chars) {
+    const end = offset + char.length;
+    offsets.push({ char, start: offset, end });
+    offset = end;
+  }
+  const spans = lines.map(() => ({ start: Infinity, end: -Infinity }));
+  for (const item of offsets) {
+    const rect = rangeBoundsForOffsets(textNode, item.start, item.end);
+    if (!rect || rect.width <= 0.25 || rect.height <= 0.25) continue;
+    const lineIndex = lineIndexForRect(rect, lines);
+    if (lineIndex < 0) continue;
+    spans[lineIndex].start = Math.min(spans[lineIndex].start, item.start);
+    spans[lineIndex].end = Math.max(spans[lineIndex].end, item.end);
+  }
+  const fragments = [];
+  for (const span of spans) {
+    if (!Number.isFinite(span.start) || span.end <= span.start) continue;
+    const text = keepWhitespace ? raw.slice(span.start, span.end) : normalizeText(raw.slice(span.start, span.end));
+    if (!text.trim()) continue;
+    const rect = rangeBoundsForOffsets(textNode, span.start, span.end);
+    const clipped = rect ? clippedRect(rect, slideRect) : null;
+    if (!clipped || clipped.width < 1 || clipped.height < 1) continue;
+    fragments.push({ text, rect: rectObject(clipped) });
+  }
+  return fragments.length > 1 ? fragments : [];
+}
+
+function groupLineRects(rects) {
+  const lines = [];
+  for (const rect of [...rects].sort((a, b) => a.top - b.top || a.left - b.left)) {
+    const centerY = rect.top + rect.height / 2;
+    const line = lines.find(item => {
+      const overlap = Math.min(item.bottom, rect.bottom) - Math.max(item.top, rect.top);
+      return overlap > Math.min(item.height, rect.height) * 0.5
+        || Math.abs(centerY - item.centerY) <= Math.max(2, Math.min(item.height, rect.height) * 0.35);
+    });
+    if (!line) {
+      lines.push({
+        left: rect.left,
+        right: rect.right,
+        top: rect.top,
+        bottom: rect.bottom,
+        width: rect.width,
+        height: rect.height,
+        centerY,
+      });
+      continue;
+    }
+    line.left = Math.min(line.left, rect.left);
+    line.right = Math.max(line.right, rect.right);
+    line.top = Math.min(line.top, rect.top);
+    line.bottom = Math.max(line.bottom, rect.bottom);
+    line.width = line.right - line.left;
+    line.height = line.bottom - line.top;
+    line.centerY = line.top + line.height / 2;
+  }
+  return lines.sort((a, b) => a.top - b.top || a.left - b.left);
+}
+
+function lineIndexForRect(rect, lines) {
+  let best = -1;
+  let bestScore = Infinity;
+  const centerY = rect.top + rect.height / 2;
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const overlap = Math.max(0, Math.min(line.bottom, rect.bottom) - Math.max(line.top, rect.top));
+    const score = Math.abs(centerY - line.centerY) - overlap;
+    if (score < bestScore) {
+      best = index;
+      bestScore = score;
+    }
+  }
+  return best;
+}
+
+function rangeBoundsForOffsets(textNode, start, end) {
+  if (end <= start) return null;
+  const range = document.createRange();
+  try {
+    range.setStart(textNode, start);
+    range.setEnd(textNode, end);
+    const rects = [...range.getClientRects()].filter(rect => rect.width > 0.25 && rect.height > 0.25);
+    if (!rects.length) return range.getBoundingClientRect();
+    return rects.length === 1 ? rects[0] : range.getBoundingClientRect();
+  } finally {
+    range.detach?.();
+  }
 }
 
 function effectiveTextStyle(parent, slideRect) {
@@ -1807,7 +1996,8 @@ function collectDomFallbackTextNodes(root, slideRect, slideIndex) {
         const parent = child.parentElement;
         if (!parent || !isVisibleElement(parent, slideRect)) continue;
         const textNode = captureTextNode(child, parent, slideRect, readStyle(parent), slideIndex);
-        if (textNode) nodes.push(textNode);
+        if (Array.isArray(textNode)) nodes.push(...textNode);
+        else if (textNode) nodes.push(textNode);
       } else if (child.nodeType === Node.ELEMENT_NODE && isVisibleElement(child, slideRect)) {
         walk(child);
       }
@@ -1935,6 +2125,48 @@ function cssPx(value) {
   return Number.isFinite(n) ? n : null;
 }
 
+function cssLengthPx(value, base = 0) {
+  const raw = String(value || '').trim();
+  if (!raw || raw === 'auto') return null;
+  const n = parseFloat(raw);
+  if (!Number.isFinite(n)) return null;
+  if (raw.endsWith('%')) return n / 100 * (Number(base) || 0);
+  return n;
+}
+
+function translateFromTransform(value, width = 0, height = 0) {
+  const raw = String(value || '');
+  if (!raw || raw === 'none') return { x: 0, y: 0 };
+  const matrix3d = raw.match(/matrix3d\(([^)]+)\)/i);
+  if (matrix3d) {
+    const parts = splitCssArgs(matrix3d[1]).map(Number);
+    return {
+      x: Number.isFinite(parts[12]) ? parts[12] : 0,
+      y: Number.isFinite(parts[13]) ? parts[13] : 0,
+    };
+  }
+  const matrix = raw.match(/matrix\(([^)]+)\)/i);
+  if (matrix) {
+    const parts = splitCssArgs(matrix[1]).map(Number);
+    return {
+      x: Number.isFinite(parts[4]) ? parts[4] : 0,
+      y: Number.isFinite(parts[5]) ? parts[5] : 0,
+    };
+  }
+  const translate = raw.match(/translate(?:3d)?\(([^)]+)\)/i);
+  const translateX = raw.match(/translateX\(([^)]+)\)/i);
+  const translateY = raw.match(/translateY\(([^)]+)\)/i);
+  const out = { x: 0, y: 0 };
+  if (translate) {
+    const [x = '0', y = '0'] = splitCssArgs(translate[1]);
+    out.x += cssLengthPx(x, width) || 0;
+    out.y += cssLengthPx(y, height) || 0;
+  }
+  if (translateX) out.x += cssLengthPx(translateX[1], width) || 0;
+  if (translateY) out.y += cssLengthPx(translateY[1], height) || 0;
+  return out;
+}
+
 function isTextClippedBackground(style) {
   const clip = `${style?.backgroundClip || ''} ${style?.webkitBackgroundClip || ''}`.toLowerCase();
   return clip.includes('text');
@@ -1949,23 +2181,43 @@ function shouldUseNativeGradientShape(style = {}, width = 0, height = 0) {
 }
 
 function cssBorderTriangle(style = {}, c) {
-  const left = parseFloat(style.borderLeftWidth || '0') || 0;
-  const right = parseFloat(style.borderRightWidth || '0') || 0;
-  const bottom = parseFloat(style.borderBottomWidth || '0') || 0;
-  const top = parseFloat(style.borderTopWidth || '0') || 0;
-  const bottomColor = parseCssColor(style.borderBottomColor);
-  const leftColor = parseCssColor(style.borderLeftColor);
-  const rightColor = parseCssColor(style.borderRightColor);
-  if (bottom <= 0 || left <= 0 || right <= 0 || top > 0 || !bottomColor || leftColor || rightColor) return null;
-  return {
-    fill: bottomColor,
-    points: [
+  const sides = [
+    { side: 'top', width: parseFloat(style.borderTopWidth || '0') || 0, color: parseCssColor(style.borderTopColor) },
+    { side: 'right', width: parseFloat(style.borderRightWidth || '0') || 0, color: parseCssColor(style.borderRightColor) },
+    { side: 'bottom', width: parseFloat(style.borderBottomWidth || '0') || 0, color: parseCssColor(style.borderBottomColor) },
+    { side: 'left', width: parseFloat(style.borderLeftWidth || '0') || 0, color: parseCssColor(style.borderLeftColor) },
+  ];
+  const visible = sides.filter(item => item.width > 0 && item.color);
+  const transparent = sides.filter(item => item.width > 0 && !item.color);
+  if (visible.length !== 1 || transparent.length < 2) return null;
+  const color = visible[0].color;
+  const pointsBySide = {
+    top: [
+      { x: 0, y: 0, moveTo: true },
+      { x: round(c.w), y: 0 },
+      { x: round(c.w / 2), y: round(c.h) },
+      { close: true },
+    ],
+    right: [
+      { x: round(c.w), y: 0, moveTo: true },
+      { x: round(c.w), y: round(c.h) },
+      { x: 0, y: round(c.h / 2) },
+      { close: true },
+    ],
+    bottom: [
       { x: round(c.w / 2), y: 0, moveTo: true },
       { x: round(c.w), y: round(c.h) },
       { x: 0, y: round(c.h) },
       { close: true },
     ],
+    left: [
+      { x: 0, y: 0, moveTo: true },
+      { x: round(c.w), y: round(c.h / 2) },
+      { x: 0, y: round(c.h) },
+      { close: true },
+    ],
   };
+  return { fill: color, points: pointsBySide[visible[0].side] };
 }
 
 function cssClipPolygonPoints(clipPath, c) {
