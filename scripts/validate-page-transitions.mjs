@@ -15,6 +15,8 @@ const ARTIFACT_ROOT = path.join(ROOT, 'output/page-transition-validation/latest'
 const CHROME_PATH = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 const cliUrl = getArg('--url');
 const REMOVED_MODES = ['canvasWipe', 'videoBands', 'videoDisplace', 'videoZoom', 'videoRotate'];
+const CUSTOM_TRANSITION_COLOR = '#b91c1c';
+const CUSTOM_TRANSITION_COLOR_RGB = 'rgb(185, 28, 28)';
 const REQUIRED_MODES = [
   { value: 'pixelReveal', family: 'codrops/PixelTransition demo 1 row-random grid', type: 'pixel', reference: 'codrops/PixelTransition', variant: 'demo1-row-grid', minRows: 8, minColumns: 14, minCells: 112, axis: 'scale' },
   { value: 'pixelStretch', family: 'codrops/PixelTransition demo 2 side stretch grid', type: 'pixel', reference: 'codrops/PixelTransition', variant: 'demo2-side-stretch', minRows: 9, minColumns: 17, minCells: 153, axis: 'scale' },
@@ -64,6 +66,7 @@ try {
   await settle(page, 500);
 
   const options = await readTransitionOptions(page);
+  const colorControl = await probeTransitionColorControl(page);
   const setMode = [];
   const lifecycles = [];
   const reverseLifecycles = [];
@@ -86,6 +89,7 @@ try {
     contactSheet: path.join(ARTIFACT_ROOT, 'contact-sheet.html'),
     staticChecks,
     options,
+    colorControl,
     setMode,
     removedModeProbes,
     lifecycles,
@@ -126,6 +130,12 @@ function runStaticChecks() {
   }
   if (!options.includes('none')) failures.push('Template transition select is missing existing "none" mode.');
   if (!options.includes('liquidMorph')) failures.push('Template transition select is missing existing "liquidMorph" mode.');
+  if (!/id="preview-transition-color-field"/.test(html) || !/id="preview-transition-color"/.test(html)) {
+    failures.push('Template transition controls are missing the Pixel/Slice color picker field.');
+  }
+  if (!/__setPageTransitionColor/.test(html) || !/__getPageTransitionColor/.test(html)) {
+    failures.push('Transition runtime does not expose page transition color accessors.');
+  }
   if (!/transitionReference/.test(html)) failures.push('Transition runtime does not mark stages with reference-specific mechanisms.');
   if (!/transitionVariant/.test(html)) failures.push('Transition runtime does not expose demo-specific variants.');
   return { options, failures };
@@ -150,6 +160,56 @@ async function probeSetMode(page, mode) {
       global: window.__pageTransitionMode || '',
     };
   }, mode);
+}
+
+async function probeTransitionColorControl(page) {
+  const colorModes = REQUIRED_MODES.filter(mode => ['pixel', 'slice'].includes(mode.type)).map(mode => mode.value);
+  return page.evaluate(({ color, colorModes }) => {
+    const select = document.getElementById('preview-transition');
+    const field = document.getElementById('preview-transition-color-field');
+    const input = document.getElementById('preview-transition-color');
+    const isVisible = element => Boolean(element)
+      && !element.classList.contains('is-hidden')
+      && getComputedStyle(element).display !== 'none'
+      && getComputedStyle(element).visibility !== 'hidden';
+    const setMode = mode => {
+      if (select) {
+        select.value = mode;
+        select.dispatchEvent(new Event('change', { bubbles: true }));
+      } else {
+        window.__setPageTransition?.(mode);
+      }
+    };
+    setMode('pixelReveal');
+    const visibleForPixel = isVisible(field);
+    setMode('sliceHorizontal');
+    const visibleForSlice = isVisible(field);
+    setMode('containerSlide');
+    const hiddenForContainer = !isVisible(field);
+    const stored = [];
+    for (const mode of colorModes) {
+      setMode(mode);
+      if (input) {
+        input.value = color;
+        input.dispatchEvent(new Event('input', { bubbles: true }));
+        input.dispatchEvent(new Event('change', { bubbles: true }));
+      }
+      stored.push({
+        mode,
+        value: input?.value || '',
+        stored: window.__getPageTransitionColor?.(mode) || '',
+      });
+    }
+    return {
+      fieldExists: Boolean(field),
+      inputExists: Boolean(input),
+      inputType: input?.type || '',
+      visibleForPixel,
+      visibleForSlice,
+      hiddenForContainer,
+      stored,
+    };
+  }, { color: CUSTOM_TRANSITION_COLOR, colorModes });
 }
 
 async function runModeTransition(page, mode, route) {
@@ -470,6 +530,7 @@ function validateResult(result) {
   for (const probe of result.removedModeProbes) {
     if (probe.stored === probe.mode || probe.global === probe.mode) failures.push(`Removed video mode "${probe.mode}" can still be stored by __setPageTransition.`);
   }
+  validateColorControl(result.colorControl, failures);
   for (const lifecycle of [...result.lifecycles, ...result.reverseLifecycles]) {
     validateLifecycle(lifecycle, failures);
   }
@@ -509,6 +570,7 @@ function validateModeMechanism(result, config, failures) {
   }
   if (state.reference !== config.reference) failures.push(`${config.value} is marked "${state.reference}", expected "${config.reference}".`);
   if (state.variant !== config.variant) failures.push(`${config.value} variant is "${state.variant}", expected "${config.variant}".`);
+  if (config.value === 'containerSlide' && lifecycle.earlyStage.container.currentOpacity < 0.9) failures.push(`${config.value} current container is dimmed to ${lifecycle.earlyStage.container.currentOpacity.toFixed(2)} at transition start, expected dimming to stay synchronized with the slide motion.`);
   if (config.type === 'pixel') validatePixelMode(state, config, failures);
   if (config.type === 'slice') validateSliceMode(state, config, failures);
   if (config.type === 'container') validateContainerMode(state, config, failures);
@@ -533,6 +595,19 @@ function validateReverseMechanism(result, config, failures) {
   }
 }
 
+function validateColorControl(colorControl, failures) {
+  if (!colorControl?.fieldExists || !colorControl.inputExists) failures.push('Pixel/Slice transition color picker is missing at runtime.');
+  if (colorControl?.inputType !== 'color') failures.push(`Transition color picker input type is "${colorControl?.inputType || ''}", expected "color".`);
+  if (!colorControl?.visibleForPixel) failures.push('Transition color picker is not visible for Pixel modes.');
+  if (!colorControl?.visibleForSlice) failures.push('Transition color picker is not visible for Slice modes.');
+  if (!colorControl?.hiddenForContainer) failures.push('Transition color picker remains visible for non Pixel/Slice modes.');
+  for (const item of colorControl?.stored || []) {
+    if (item.value.toLowerCase() !== CUSTOM_TRANSITION_COLOR || item.stored.toLowerCase() !== CUSTOM_TRANSITION_COLOR) {
+      failures.push(`${item.mode} did not store the selected transition color ${CUSTOM_TRANSITION_COLOR}.`);
+    }
+  }
+}
+
 function validatePixelMode(state, config, failures) {
   if (state.pixel.count < config.minCells) failures.push(`${config.value} uses ${state.pixel.count} cells, expected at least ${config.minCells}.`);
   if (state.pixel.rows < config.minRows || state.pixel.columns < config.minColumns) failures.push(`${config.value} grid is ${state.pixel.rows}x${state.pixel.columns}, expected at least ${config.minRows}x${config.minColumns}.`);
@@ -540,6 +615,7 @@ function validatePixelMode(state, config, failures) {
   if (state.pixel.phase !== 'cover-uncover') failures.push(`${config.value} does not expose a cover/uncover pixel phase.`);
   if (state.pixel.axis !== config.axis) failures.push(`${config.value} pixel axis is "${state.pixel.axis}", expected "${config.axis}".`);
   if (state.pixel.colors.length !== 1) failures.push(`${config.value} uses mixed pixel colors (${state.pixel.colors.join(', ')}), expected one solid cover color.`);
+  if (state.pixel.colors[0] !== CUSTOM_TRANSITION_COLOR_RGB) failures.push(`${config.value} uses pixel color "${state.pixel.colors[0] || ''}", expected selected color "${CUSTOM_TRANSITION_COLOR_RGB}".`);
   if (state.timeline.pixel.count < 2) failures.push(`${config.value} does not expose separate pixel cover/uncover tweens.`);
   if (state.timeline.pixel.coverUncoverGap > 0.06) failures.push(`${config.value} leaves a ${state.timeline.pixel.coverUncoverGap.toFixed(2)}s black-field gap between pixel cover and reveal, expected <= 0.06s.`);
   if (state.timeline.pixel.coverUncoverGap < -0.08) failures.push(`${config.value} starts pixel reveal ${Math.abs(state.timeline.pixel.coverUncoverGap).toFixed(2)}s before cover is established, expected tighter sequencing.`);
@@ -551,6 +627,7 @@ function validateSliceMode(state, config, failures) {
   if (state.slice.variant !== config.variant) failures.push(`${config.value} slice variant is "${state.slice.variant}", expected "${config.variant}".`);
   if (!state.slice.orientation || !state.slice.originShow || !state.slice.originHide) failures.push(`${config.value} does not expose orientation/show/hide slice origins.`);
   if (state.slice.colors.length !== 1) failures.push(`${config.value} uses mixed slice colors (${state.slice.colors.join(', ')}), expected one solid cover color.`);
+  if (state.slice.colors[0] !== CUSTOM_TRANSITION_COLOR_RGB) failures.push(`${config.value} uses slice color "${state.slice.colors[0] || ''}", expected selected color "${CUSTOM_TRANSITION_COLOR_RGB}".`);
   if (state.slice.coverage < 0.42) failures.push(`${config.value} slice coverage at mid-transition is ${state.slice.coverage.toFixed(2)}, expected slices to actively cover/reveal the slide.`);
   if (['sliceReveal', 'sliceHorizontal'].includes(config.value)) {
     if (state.timeline.slice.count < 2) failures.push(`${config.value} does not expose separate slice cover/uncover tweens.`);

@@ -126,6 +126,11 @@
   .preview-field label,.preview-prop-row>span{font:600 13px/1.2 var(--sans);letter-spacing:0;color:var(--pp-fg);text-transform:none}
   .preview-field select{height:34px;border:1px solid transparent;border-radius:6px;background:var(--pp-chip);color:var(--pp-fg);padding:0 10px;font:500 12.5px/1 var(--sans-zh);cursor:pointer;appearance:none;-webkit-appearance:none;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b6b6b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='m6 9 6 6 6-6'/></svg>");background-repeat:no-repeat;background-position:right 9px center;padding-right:30px}
   .preview-field select:hover{background-color:var(--pp-chip-h)}
+  .preview-transition-color-control{display:grid;grid-template-columns:42px minmax(0,1fr);align-items:center;gap:10px}
+  #preview-transition-color{width:42px;height:34px;padding:0;border:1px solid var(--pp-border);border-radius:7px;background:var(--pp-chip);cursor:pointer}
+  #preview-transition-color::-webkit-color-swatch-wrapper{padding:3px}
+  #preview-transition-color::-webkit-color-swatch{border:0;border-radius:5px}
+  .preview-transition-color-value{height:34px;display:flex;align-items:center;padding:0 10px;border-radius:7px;background:var(--pp-chip);color:var(--pp-fg2);font:600 12px/1 var(--mono);letter-spacing:.02em;text-transform:uppercase}
   .preview-props{display:grid;gap:13px}
   /* property rows */
   .preview-prop-row{display:grid;grid-template-columns:minmax(92px,max-content) minmax(0,1fr);align-items:center;gap:10px}
@@ -350,6 +355,13 @@
         <option value="containerSlide">Codrops 横滑</option>
       </select>
     </div>
+    <div class="preview-field is-hidden" id="preview-transition-color-field">
+      <label for="preview-transition-color">色块颜色</label>
+      <div class="preview-transition-color-control">
+        <input id="preview-transition-color" type="color" value="#05070b" aria-label="色块颜色">
+        <div class="preview-transition-color-value" id="preview-transition-color-value">#05070B</div>
+      </div>
+    </div>
     <div class="preview-field is-hidden" id="preview-props-field">
       <label>页面属性</label>
       <div class="preview-props" id="preview-props"></div>
@@ -407,11 +419,33 @@
 	    'sliceReveal', 'sliceHorizontal', 'sliceGallery',
 	    'containerClip', 'containerSlide'
 	  ];
+  const transitionColorDefaults = {
+    pixelReveal:'#05070b',
+    pixelStretch:'#05070b',
+    pixelZoom:'#05070b',
+    pixelTight:'#05070b',
+    pixelBarsY:'#05070b',
+    pixelBarsX:'#05070b',
+    sliceReveal:'#111111',
+    sliceHorizontal:'#f7f7f2',
+    sliceGallery:'#f7f7f2',
+  };
   window.__pageTransitionMode = 'none';
+  window.__pageTransitionColorDefaults = transitionColorDefaults;
+  window.__pageTransitionColors = {};
   window.__setPageTransition = value => {
     window.__pageTransitionMode = window.__pageTransitionModes.includes(value) ? value : 'none';
   };
   window.__getPageTransition = () => window.__pageTransitionMode || 'none';
+  window.__isPageTransitionColorMode = mode => Boolean(transitionColorDefaults[mode]);
+  window.__setPageTransitionColor = (mode, value) => {
+    if(!transitionColorDefaults[mode]) return;
+    window.__pageTransitionColors[mode] = normalizeTransitionColor(value) || transitionColorDefaults[mode];
+  };
+  window.__getPageTransitionColor = mode => window.__pageTransitionColors[mode] || transitionColorDefaults[mode] || '#05070b';
+  function normalizeTransitionColor(value){
+    return /^#[0-9a-f]{6}$/i.test(value || '') ? value.toLowerCase() : '';
+  }
   function updateHint(){
     const hint = document.getElementById('hint');
     if(hint) hint.textContent = '';
@@ -3338,6 +3372,9 @@ refreshRailCatalog();
   const themePackField = document.getElementById('preview-theme-field');
   const themePackSelect = document.getElementById('preview-theme-pack');
   const transitionSelect = document.getElementById('preview-transition');
+  const transitionColorField = document.getElementById('preview-transition-color-field');
+  const transitionColorInput = document.getElementById('preview-transition-color');
+  const transitionColorValue = document.getElementById('preview-transition-color-value');
 
   const urlViewState = window.__deckUrlStateInitial?.view || {};
   const saved = readSaved();
@@ -3353,6 +3390,7 @@ refreshRailCatalog();
     pageTransition: transitionModes.includes(saved.pageTransition)
       ? saved.pageTransition
       : (transitionModes.includes(options.current?.pageTransition) ? options.current.pageTransition : 'none'),
+    pageTransitionColors: sanitizeTransitionColors(saved.pageTransitionColors || options.current?.pageTransitionColors || {}),
   };
   window.__getPreviewState = () => ({...state});
 
@@ -3420,11 +3458,34 @@ refreshRailCatalog();
     return value;
   }
 
+  function normalizeTransitionColor(value){
+    return /^#[0-9a-f]{6}$/i.test(value || '') ? value.toLowerCase() : '';
+  }
+
+  function sanitizeTransitionColors(source){
+    const colors = {};
+    const defaults = window.__pageTransitionColorDefaults || {};
+    Object.entries(source || {}).forEach(([mode, value]) => {
+      const color = normalizeTransitionColor(value);
+      if(defaults[mode] && color) colors[mode] = color;
+    });
+    return colors;
+  }
+
   transitionSelect?.addEventListener('change', () => {
     state.pageTransition = transitionSelect.value || 'none';
     window.__setPageTransition?.(state.pageTransition);
+    syncTransitionColorControl();
     transitionSelect.blur();
     writeSaved();
+  });
+
+  transitionColorInput?.addEventListener('input', () => {
+    updateTransitionColor(transitionColorInput.value, {persist:true});
+  });
+
+  transitionColorInput?.addEventListener('change', () => {
+    updateTransitionColor(transitionColorInput.value, {persist:true});
   });
 
   themePackSelect?.addEventListener('change', () => {
@@ -3450,6 +3511,31 @@ refreshRailCatalog();
   function syncTransitionControl(){
     if(transitionSelect) transitionSelect.value = state.pageTransition || 'none';
     window.__setPageTransition?.(state.pageTransition || 'none');
+    Object.entries(state.pageTransitionColors || {}).forEach(([mode, color]) => window.__setPageTransitionColor?.(mode, color));
+    syncTransitionColorControl();
+  }
+
+  function syncTransitionColorControl(){
+    if(!transitionColorField || !transitionColorInput) return;
+    const mode = state.pageTransition || 'none';
+    const canColor = !!window.__isPageTransitionColorMode?.(mode);
+    transitionColorField.classList.toggle('is-hidden', !canColor);
+    if(!canColor) return;
+    const color = state.pageTransitionColors?.[mode] || window.__getPageTransitionColor?.(mode) || '#05070b';
+    transitionColorInput.value = color;
+    if(transitionColorValue) transitionColorValue.textContent = color.toUpperCase();
+    window.__setPageTransitionColor?.(mode, color);
+  }
+
+  function updateTransitionColor(value, opts={}){
+    const mode = state.pageTransition || 'none';
+    if(!window.__isPageTransitionColorMode?.(mode)) return;
+    const color = normalizeTransitionColor(value);
+    if(!color) return;
+    state.pageTransitionColors = {...(state.pageTransitionColors || {}), [mode]: color};
+    window.__setPageTransitionColor?.(mode, color);
+    if(transitionColorValue) transitionColorValue.textContent = color.toUpperCase();
+    if(opts.persist) writeSaved();
   }
 
   function applyStoredSlideControls(){
@@ -5344,6 +5430,8 @@ refreshRailCatalog();
 			    grid.dataset.pixelPhase = 'cover-uncover';
 			    grid.dataset.pixelAxis = config.axis;
 			    grid.dataset.pixelFrom = config.from;
+			    const color = transitionBlockColor(ctx.mode, config.color || '#05070b');
+			    grid.dataset.transitionColor = color;
 			    const rows = config.rows;
 			    const cols = config.columns;
 			    const originIn = resolveConfigValue(config.originIn, ctx);
@@ -5360,9 +5448,10 @@ refreshRailCatalog();
 		        cell.dataset.pixelColumn = String(col);
 			        cell.style.left = `${col * 100 / cols}%`;
 			        cell.style.top = `${row * 100 / rows}%`;
-			        cell.style.width = `${100 / cols + .16}%`;
-			        cell.style.height = `${100 / rows + .18}%`;
-			        cell.style.transformOrigin = originIn;
+		        cell.style.width = `${100 / cols + .16}%`;
+		        cell.style.height = `${100 / rows + .18}%`;
+		        cell.style.transformOrigin = originIn;
+			        cell.style.background = color;
 			        grid.appendChild(cell);
 			        cells.push(cell);
 			      }
@@ -5410,6 +5499,8 @@ refreshRailCatalog();
 			    grid.dataset.sliceCover = 'true';
 			    grid.dataset.sliceVariant = config.variant;
 			    grid.dataset.sliceOrientation = config.orientation;
+			    const color = transitionBlockColor(ctx.mode, config.color);
+			    grid.dataset.transitionColor = color;
 			    const showOrigin = sliceOriginForDirection(config.orientation, config.show, ctx.direction);
 			    const hideOrigin = sliceOriginForDirection(config.orientation, config.hide, ctx.direction);
 			    grid.dataset.sliceOriginShow = showOrigin;
@@ -5421,7 +5512,7 @@ refreshRailCatalog();
 		      slice.className = 'page-transition-slice';
 		      slice.dataset.transitionProbe = 'true';
 		      slice.dataset.sliceIndex = String(index);
-		      slice.style.background = config.color;
+		      slice.style.background = color;
 		      if(config.orientation === 'vertical'){
 		        slice.style.left = `${index * 100 / config.count}%`;
 		        slice.style.width = `${100 / config.count + .18}%`;
@@ -5493,7 +5584,7 @@ refreshRailCatalog();
 			        gsap.set(nextContainer, {zIndex:2, opacity:1, x:`${100 * ctx.direction}%`, force3D:true});
 			        gsap.set(ctx.next, {autoAlpha:1});
 			        tl.to(currentContainer, {x:`${-50 * ctx.direction}%`, scale:.8, duration:1.05, ease:'power4.inOut', force3D:true}, 0)
-			          .to(currentContainer, {opacity:.38, duration:.42, ease:'power2.out'}, 0)
+			          .to(currentContainer, {opacity:.38, duration:1.05, ease:'none'}, 0)
 			          .to(nextContainer, {x:'0%', duration:1.05, ease:'power4.inOut', force3D:true}, 0)
 			          .add(ctx.startTargetEnter, .5);
 			        return;
@@ -5532,6 +5623,10 @@ refreshRailCatalog();
 		  }
 		  function resolveNumber(value, fallback){
 		    return value == null ? fallback : value;
+		  }
+		  function transitionBlockColor(mode, fallback){
+		    const color = window.__getPageTransitionColor?.(mode) || fallback || '#05070b';
+		    return /^#[0-9a-f]{6}$/i.test(color) ? color : fallback || '#05070b';
 		  }
 		  function firstPixelIndex(cells, rows, cols, mode, direction){
 		    let bestIndex = 0;
