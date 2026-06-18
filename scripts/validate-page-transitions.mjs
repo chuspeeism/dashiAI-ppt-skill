@@ -260,8 +260,7 @@ async function runModeTransition(page, mode, route) {
   }, route.to);
   await page.waitForTimeout(40);
   const earlyStage = await readStageState(page);
-  await page.waitForTimeout(430);
-  const midStage = await readStageState(page);
+  const midStage = await waitForVisibleMechanismFrame(page, mode);
   const screenshot = await captureStageScreenshot(page, `${mode}-${route.label}`, midStage.stageRect);
   await waitForStageGone(page, 2600);
   const final = await page.evaluate(() => {
@@ -548,6 +547,33 @@ async function waitForStageGone(page, timeoutMs) {
     await page.waitForTimeout(50);
   }
   return false;
+}
+
+async function waitForVisibleMechanismFrame(page, mode) {
+  const config = REQUIRED_MODES.find(item => item.value === mode);
+  const deadline = Date.now() + 1000;
+  let state = await readStageState(page);
+  while (Date.now() < deadline) {
+    state = await readStageState(page);
+    if (isVisibleMechanismFrame(state, config)) return state;
+    await page.waitForTimeout(50);
+  }
+  return state;
+}
+
+function isVisibleMechanismFrame(state, config) {
+  if (!state?.exists) return false;
+  if (config?.type === 'pixel') return state.pixel.coverage >= 0.45;
+  if (config?.type === 'slice') return state.slice.coverage >= 0.42;
+  if (config?.type === 'container') {
+    return state.container.hasCurrent
+      && state.container.hasNext
+      && state.container.currentTransform
+      && state.container.currentTransform !== 'none'
+      && state.container.currentOpacity > 0
+      && state.container.currentOpacity <= 0.75;
+  }
+  return true;
 }
 
 function validateResult(result) {
