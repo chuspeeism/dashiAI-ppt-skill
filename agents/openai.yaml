@@ -1,5 +1,5 @@
 interface:
-  display_name: "DashiAI PPT"
+  display_name: "DashAI PPT DEV"
   short_description: "Generate editable HTML PPT decks"
   icon_small: "./assets/skill/dashiai-ppt-small.png"
   icon_large: "./assets/skill/dashiai-ppt.png"

@@ -149,7 +149,7 @@ function syncReferences() {
 `);
   writeIfChanged(path.join(refsRoot, 'goal-spec.schema.json'), JSON.stringify({
     $schema: 'https://json-schema.org/draft/2020-12/schema',
-    title: 'DashiAI PPT Goal Spec',
+    title: 'DashAI PPT Goal Spec',
     type: 'object',
     required: ['title', 'goal'],
     additionalProperties: true,
@@ -260,9 +260,21 @@ function renderInstalledSkill(content) {
 
 function syncDistributionFiles() {
   copyPath(path.join(ROOT, 'assets/skill'), path.join(SKILL_ROOT, 'assets/skill'));
-  copyPath(path.join(ROOT, 'agents'), path.join(SKILL_ROOT, 'agents'));
+  const agentsRoot = path.join(SKILL_ROOT, 'agents');
+  fs.mkdirSync(agentsRoot, { recursive: true });
+  writeIfChanged(path.join(agentsRoot, 'openai.yaml'), renderAgentMetadata());
   writeIfChanged(path.join(SKILL_ROOT, 'README.md'), renderReadme(themeMetadata));
   writeIfChanged(path.join(SKILL_ROOT, '.gitignore'), renderGitignore());
+}
+
+function renderAgentMetadata() {
+  return `interface:
+  display_name: "DashAI PPT"
+  short_description: "Generate editable HTML PPT decks"
+  icon_small: "./assets/skill/dashiai-ppt-small.png"
+  icon_large: "./assets/skill/dashiai-ppt.png"
+  default_prompt: "Use $dashiai-ppt to turn my presentation goal into an editable HTML PPT deck."
+`;
 }
 
 function preserveSkillAssets() {
@@ -299,9 +311,9 @@ function cleanupLegacySkillRoot() {
 function renderReadme({ packs }) {
   const version = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
   const themes = packs.map(theme => `- \`${theme.key}\` ${themeDisplayName(theme)} (${theme.pageCount} 页): 适配场景: ${theme.scenario}; 适配人群: ${theme.audience}`).join('\n');
-  return `# DashiAI PPT
+  return `# DashAI PPT
 
-DashiAI PPT 是一个本地 PPT 生成助手。你给它一个汇报目标、受众、页数和内容重点,它会从已接入的视觉页面中组合出一份可离线打开、可翻页、可编辑和可导出的 HTML PPT。
+DashAI PPT 是一个本地 PPT 生成助手。你给它一个汇报目标、受众、页数和内容重点,它会从已接入的视觉页面中组合出一份可离线打开、可翻页、可编辑和可导出的 HTML PPT。
 
 当前版本: \`${version}\`
 

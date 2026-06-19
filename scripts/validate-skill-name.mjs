@@ -5,7 +5,8 @@ import path from 'node:path';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const MACHINE_ID = 'dashiai-ppt';
-const DISPLAY_NAME = 'DashiAI PPT';
+const SKILL_DISPLAY_NAME = 'DashAI PPT';
+const REPO_DISPLAY_NAME = 'DashAI PPT DEV';
 const LEGACY_DISPLAY_NAMES = ['Dashi ' + 'PPT Skill', 'Dashi ' + 'Skill'];
 const SKILL_ROOT = process.env.DASHI_PPT_SKILL_ROOT || path.join(os.homedir(), `.agents/skills/${MACHINE_ID}`);
 const LEGACY_SKILL_ROOT = path.join(os.homedir(), '.agents/skills/dashi-ppt-skill');
@@ -18,8 +19,14 @@ checkSkillFile(path.join(ROOT, 'SKILL.md'), 'source SKILL.md');
 checkPackageName(path.join(ROOT, 'package.json'), 'source package.json');
 checkPackageName(path.join(ROOT, 'package-lock.json'), 'source package-lock.json');
 
-checkBrandFile(path.join(ROOT, 'SKILL.md'), 'source SKILL.md', { requiredHeading: `# ${DISPLAY_NAME}` });
-checkBrandFile(path.join(ROOT, 'README.md'), 'source README.md', { requiredHeading: `# ${DISPLAY_NAME}` });
+checkBrandFile(path.join(ROOT, 'SKILL.md'), 'source SKILL.md', {
+  displayName: SKILL_DISPLAY_NAME,
+  requiredHeading: `# ${SKILL_DISPLAY_NAME}`,
+});
+checkBrandFile(path.join(ROOT, 'README.md'), 'source README.md', {
+  displayName: REPO_DISPLAY_NAME,
+  requiredHeading: `# ${REPO_DISPLAY_NAME}`,
+});
 checkBrandFile(path.join(ROOT, 'scripts/sync-skill.mjs'), 'skill sync generator');
 checkBrandFile(path.join(ROOT, 'scripts/check_latest_version.mjs'), 'version update prompt');
 checkBrandFile(path.join(ROOT, 'src/export-pdf/screenshot.mjs'), 'PDF author metadata');
@@ -28,8 +35,8 @@ checkBrandFile(path.join(ROOT, 'scripts/validate-skill-workflow-tools.mjs'), 'wo
 
 if (shouldCheckInstalled) {
   checkSkillFile(path.join(SKILL_ROOT, 'SKILL.md'), 'installed SKILL.md');
-  checkBrandFile(path.join(SKILL_ROOT, 'SKILL.md'), 'installed SKILL.md', { requiredHeading: `# ${DISPLAY_NAME}` });
-  checkBrandFile(path.join(SKILL_ROOT, 'README.md'), 'installed README.md', { requiredHeading: `# ${DISPLAY_NAME}` });
+  checkBrandFile(path.join(SKILL_ROOT, 'SKILL.md'), 'installed SKILL.md', { requiredHeading: `# ${SKILL_DISPLAY_NAME}` });
+  checkBrandFile(path.join(SKILL_ROOT, 'README.md'), 'installed README.md', { requiredHeading: `# ${SKILL_DISPLAY_NAME}` });
   if (SKILL_ROOT !== LEGACY_SKILL_ROOT && fs.existsSync(path.join(LEGACY_SKILL_ROOT, 'SKILL.md'))) {
     failures.push(`legacy installed skill metadata still exists at ${path.join(LEGACY_SKILL_ROOT, 'SKILL.md')}`);
   }
@@ -42,7 +49,7 @@ if (failures.length) {
 }
 
 const checked = shouldCheckInstalled ? `source and installed skill at ${SKILL_ROOT}` : 'source skill';
-console.log(`Skill name validation passed for ${DISPLAY_NAME} (${MACHINE_ID}) in ${checked}.`);
+console.log(`Skill name validation passed for ${SKILL_DISPLAY_NAME} (${MACHINE_ID}) in ${checked}.`);
 
 function checkSkillFile(filePath, label) {
   const content = readRequired(filePath, label);
@@ -75,7 +82,8 @@ function checkPackageName(filePath, label) {
 function checkBrandFile(filePath, label, options = {}) {
   const content = readRequired(filePath, label);
   if (!content) return;
-  if (!content.includes(DISPLAY_NAME)) failures.push(`${label} does not include visible display name "${DISPLAY_NAME}"`);
+  const displayName = options.displayName || SKILL_DISPLAY_NAME;
+  if (!content.includes(displayName)) failures.push(`${label} does not include visible display name "${displayName}"`);
   if (options.requiredHeading && !content.includes(options.requiredHeading)) {
     failures.push(`${label} does not include heading "${options.requiredHeading}"`);
   }

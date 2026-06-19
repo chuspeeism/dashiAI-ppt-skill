@@ -20,7 +20,7 @@ async function main() {
   if (!remoteVersion) return;
   if (compareVersions(remoteVersion, localVersion) <= 0) return;
   process.stdout.write(
-    `发现 DashiAI PPT 新版本 ${remoteVersion}（当前 ${localVersion}）。建议更新：重新拉取 https://github.com/jadon7/dashi-ppt-skill 后替换本地 DashiAI PPT。\n`
+    `发现 DashAI PPT 新版本 ${remoteVersion}（当前 ${localVersion}）。建议更新：重新拉取 https://github.com/jadon7/dashi-ppt-skill 后替换本地 DashAI PPT。\n`
   );
 }
 

@@ -1,11 +1,11 @@
 ---
 name: dashiai-ppt
-description: DashiAI PPT 根据用户目标随机组合已接入主题页面,生成可离线打开和导出的静态 HTML PPT。
+description: DashAI PPT 根据用户目标随机组合已接入主题页面,生成可离线打开和导出的静态 HTML PPT。
 ---
 
-# DashiAI PPT
+# DashAI PPT
 
-DashiAI PPT 生成静态 HTML 横向翻页 PPT。根据用户输入先整理 JSON 计划,再调用本地生成器输出 `index.html` 和 `assets/`。
+DashAI PPT 生成静态 HTML 横向翻页 PPT。根据用户输入先整理 JSON 计划,再调用本地生成器输出 `index.html` 和 `assets/`。
 
 ## 版本
 

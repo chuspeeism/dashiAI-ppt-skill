@@ -18,7 +18,7 @@ export async function exportEditablePptxFromPage(page, options = {}) {
   const pptx = new PptxGenJS();
   pptx.defineLayout({ name: 'DASHI_WIDE', width: PPT_W, height: PPT_H });
   pptx.layout = 'DASHI_WIDE';
-  pptx.author = 'DashiAI PPT';
+  pptx.author = 'DashAI PPT';
   pptx.subject = 'Editable PPTX export';
   pptx.title = title;
 
