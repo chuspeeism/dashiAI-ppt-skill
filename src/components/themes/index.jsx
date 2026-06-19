@@ -119,6 +119,7 @@ function normalizeControls(controls, defaults, page) {
       if (!key) return null;
       const type = normalizeType(control.type);
       if (REMOVED_CONTROL_TYPES.has(String(control.type || type || '').toLowerCase())) return null;
+      const options = normalizeControlValue(serializeValue(control.options));
       const next = {
         key,
         label: control.label || key,
@@ -127,7 +128,7 @@ function normalizeControls(controls, defaults, page) {
         min: serializeValue(resolveValue(control.min, defaults)),
         max: serializeValue(resolveValue(control.max, defaults)),
         step: serializeValue(control.step),
-        options: normalizeControlValue(serializeValue(control.options)),
+        options,
         countKey: serializeValue(control.countKey),
         countIndex: serializeValue(control.countIndex),
         maxFromKey: serializeValue(control.maxFromKey),
@@ -136,8 +137,13 @@ function normalizeControls(controls, defaults, page) {
         dependsOnValues: serializeValue(control.dependsOnValues),
         desc: serializeValue(control.desc || control.description || control.describe),
       };
-      if (type === 'select' && (control.display === 'color' || control.type === 'color' || control.type === 'palette' || isThemeSwatchControl(page, key))) {
+      const sourceType = String(control.type || '').toLowerCase();
+      if (type === 'select' && (control.display === 'color' || sourceType === 'color' || sourceType === 'palette' || isThemeSwatchControl(page, key))) {
         next.display = 'color';
+      }
+      const optionCount = Array.isArray(options) ? options.length : 0;
+      if (type === 'select' && next.display !== 'color' && optionCount > 0 && optionCount <= 5) {
+        next.display = 'tab';
       }
       return next;
     })

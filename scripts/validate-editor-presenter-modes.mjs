@@ -1912,9 +1912,9 @@ function validateResult(result) {
     if (layout.panelRect && layout.panelRect.right > layout.viewportWidth + 1) failures.push(`Layout ${layout.viewportWidth}: right panel overflows the viewport.`);
   }
 
-  if (result.editNavigation.afterRight !== result.editNavigation.start) failures.push('Edit mode ArrowRight should not change page.');
-  if (result.editNavigation.afterSpace !== result.editNavigation.start) failures.push('Edit mode Space should not change page.');
-  if (result.editNavigation.afterClick !== result.editNavigation.start) failures.push('Edit mode deck click should not advance page.');
+  if (result.editNavigation.afterRight <= result.editNavigation.start) failures.push('Edit mode ArrowRight should advance one page.');
+  if (result.editNavigation.afterSpace !== result.editNavigation.afterRight) failures.push('Edit mode Space should not change page.');
+  if (result.editNavigation.afterClick !== result.editNavigation.afterSpace) failures.push('Edit mode deck click should not advance page.');
   if (result.editNavigation.afterDown <= result.editNavigation.afterClick) failures.push('Edit mode ArrowDown should advance one page.');
   if (result.editNavigation.afterUp !== result.editNavigation.afterClick) failures.push('Edit mode ArrowUp should return to the previous page.');
 

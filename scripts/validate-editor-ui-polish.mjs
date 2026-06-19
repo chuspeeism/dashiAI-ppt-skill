@@ -1160,8 +1160,10 @@ async function readPanelShadows(page) {
 
 async function readActionPriority(page, viewportWidth = page.viewportSize()?.width || 0) {
   return page.evaluate((viewportWidth) => {
-    const actions = document.querySelector('.preview-actions');
+    const actions = document.querySelector('.preview-actions') || document.querySelector('.pp-topbar-actions');
+    const isTopbarActions = actions?.classList.contains('pp-topbar-actions') || false;
     const panel = document.getElementById('preview-panel');
+    const topbar = document.getElementById('deck-topbar');
     const close = document.getElementById('preview-close');
     const present = document.getElementById('preview-present-btn');
     const exportButton = document.getElementById('preview-export-main');
@@ -1169,6 +1171,7 @@ async function readActionPriority(page, viewportWidth = page.viewportSize()?.wid
     const reset = document.getElementById('preview-reset');
     const actionsRect = actions?.getBoundingClientRect();
     const panelRect = panel?.getBoundingClientRect();
+    const topbarRect = topbar?.getBoundingClientRect();
     const closeRect = close?.getBoundingClientRect();
     const closeStyle = close ? getComputedStyle(close) : null;
     const presentRect = present?.getBoundingClientRect();
@@ -1185,6 +1188,8 @@ async function readActionPriority(page, viewportWidth = page.viewportSize()?.wid
       viewportWidth,
       actionsRect: rectOf(actionsRect),
       panelRect: rectOf(panelRect),
+      topbarRect: rectOf(topbarRect),
+      actionContainer: isTopbarActions ? 'topbar' : 'panel',
       closeExists: Boolean(close),
       closeVisible: Boolean(close && closeStyle?.display !== 'none' && closeStyle?.visibility !== 'hidden' && closeRect && closeRect.width > 2 && closeRect.height > 2),
       closeRect: rectOf(closeRect),
@@ -1205,7 +1210,7 @@ async function readActionPriority(page, viewportWidth = page.viewportSize()?.wid
       allThreeSameRow: Boolean(buttonRects.length === 3 && Math.max(...buttonRects.map(rect => rect.top)) - Math.min(...buttonRects.map(rect => rect.top)) < 8),
       buttonOverlap: sortedRects.some((rect, index) => index > 0 && rect.left < sortedRects[index - 1].right - 1),
       actionsOverflow: Boolean(actionsRect && buttonRects.some(rect => rect.left < actionsRect.left - 1 || rect.right > actionsRect.right + 1)),
-      panelOverflow: Boolean(panelRect && buttonRects.some(rect => rect.left < panelRect.left - 1 || rect.right > panelRect.right + 1)),
+      panelOverflow: Boolean((isTopbarActions ? topbarRect : panelRect) && buttonRects.some(rect => rect.left < (isTopbarActions ? topbarRect : panelRect).left - 1 || rect.right > (isTopbarActions ? topbarRect : panelRect).right + 1)),
       labelsFit: [present, exportButton, reset].filter(Boolean).every(button => {
         const label = button.querySelector('span');
         return !label || label.scrollWidth <= label.clientWidth + 1;
@@ -1738,7 +1743,7 @@ function validateResult(result) {
     if (!actionLayout.presentLeftOfExport || !actionLayout.exportLeftOfReset) failures.push(`Width ${actionLayout.viewportWidth}: action button order should be play, export, reset.`);
     if (actionLayout.buttonOverlap || actionLayout.actionsOverflow || actionLayout.panelOverflow || !actionLayout.labelsFit) failures.push(`Width ${actionLayout.viewportWidth}: action buttons should not overlap, overflow, or truncate labels: ${JSON.stringify(actionLayout)}`);
   }
-  if (!actions.backgroundsDiffer || !/rgb\(13,\s*153,\s*255\)|rgb\(42,\s*165,\s*255\)/.test(actions.presentBackground)) {
+  if (!actions.backgroundsDiffer || !/rgb\(13,\s*153,\s*255\)|rgb\(42,\s*165,\s*255\)|rgb\(14,\s*159,\s*110\)|rgb\(52,\s*206,\s*152\)/.test(actions.presentBackground)) {
     failures.push(`Present button should use the stronger primary style: ${JSON.stringify(actions)}`);
   }
   if (/rgb\(13,\s*153,\s*255\)|rgb\(42,\s*165,\s*255\)/.test(actions.exportBackground)) {
