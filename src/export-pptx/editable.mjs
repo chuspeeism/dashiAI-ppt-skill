@@ -1963,13 +1963,10 @@ function shouldScreenshotRoundedVisual(el, style, clipped, rawRect, slideRect) {
   const background = String(style.backgroundImage || '');
   const hasVisualBackground = (background && background !== 'none') || hasPaint(style.backgroundColor) || hasAnyBorder(style) || (style.boxShadow && style.boxShadow !== 'none');
   if (!hasVisualBackground) return false;
-  if (hasNonUniformCssRadius(style, clipped.width, clipped.height)) return true;
   if (!hasRoundedClipStyle(style, clipped.width, clipped.height)) return false;
   const children = visibleElementChildren(el, slideRect);
   if (!children.length || hasOnlyInlineTextChildren(el)) return false;
-  return Boolean(el.querySelector?.('image-slot,[data-dashi-host-image-slot="true"],svg,canvas,img,video'))
-    || background.includes('gradient')
-    || (style.boxShadow && style.boxShadow !== 'none');
+  return Boolean(el.querySelector?.('image-slot,[data-dashi-host-image-slot="true"],canvas,img,video'));
 }
 
 function cornerRadiiPx(style, width = 0, height = 0) {
