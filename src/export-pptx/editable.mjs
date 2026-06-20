@@ -244,13 +244,23 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
     let hiddenToken = null;
     try {
       if (node.stripTextForScreenshot || node.stripOverlayForScreenshot) {
-        hiddenToken = await page.evaluate(({ exportId, mode, stripText, stripOverlay }) => {
+        hiddenToken = await page.evaluate(({ exportId, mode, stripText, stripOverlay, screenshotRect }) => {
           const root = document.querySelector(`#deck > .slide.active [data-editable-pptx-export-id="${exportId}"], #deck > .slide[data-deck-active] [data-editable-pptx-export-id="${exportId}"]`)
             || document.querySelector(`[data-editable-pptx-export-id="${exportId}"]`);
           if (!root) return null;
           const token = `hide-${Date.now()}-${Math.random().toString(36).slice(2)}`;
           const entries = [];
           const rootRect = root.getBoundingClientRect();
+          const targetRect = screenshotRect
+            ? {
+              left: Number(screenshotRect.x || 0),
+              top: Number(screenshotRect.y || 0),
+              right: Number(screenshotRect.x || 0) + Number(screenshotRect.w || 0),
+              bottom: Number(screenshotRect.y || 0) + Number(screenshotRect.h || 0),
+              width: Number(screenshotRect.w || 0),
+              height: Number(screenshotRect.h || 0),
+            }
+            : rootRect;
           const slide = mode === 'screenshot-rect'
             ? root.closest('#deck > .slide') || document.querySelector('#deck > .slide.active, #deck > .slide[data-deck-active]')
             : root;
@@ -294,12 +304,12 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
           };
           const isMostlyRootSized = (rect) => {
             const area = rect.width * rect.height;
-            const rootArea = Math.max(1, rootRect.width * rootRect.height);
-            return area / rootArea > 0.86
-              && Math.abs(rect.left - rootRect.left) < 8
-              && Math.abs(rect.top - rootRect.top) < 8
-              && Math.abs(rect.right - rootRect.right) < 8
-              && Math.abs(rect.bottom - rootRect.bottom) < 8;
+            const targetArea = Math.max(1, targetRect.width * targetRect.height);
+            return area / targetArea > 0.86
+              && Math.abs(rect.left - targetRect.left) < 8
+              && Math.abs(rect.top - targetRect.top) < 8
+              && Math.abs(rect.right - targetRect.right) < 8
+              && Math.abs(rect.bottom - targetRect.bottom) < 8;
           };
           const isVisible = (el) => {
             const style = getComputedStyle(el);
@@ -315,7 +325,7 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
               if (el === root || root.contains(el) || el.contains(root)) return;
               if (!isVisible(el)) return;
               const rect = el.getBoundingClientRect();
-              if (!intersects(rect, rootRect) || isMostlyRootSized(rect) || !hasOverlayPaint(el)) return;
+              if (!intersects(rect, targetRect) || isMostlyRootSized(rect) || !hasOverlayPaint(el)) return;
               markOverlay(el);
             });
           }
@@ -323,7 +333,7 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
             if (mode !== 'screenshot-rect') return true;
             const rects = [...range.getClientRects()];
             const bounds = range.getBoundingClientRect();
-            return (rects.length ? rects : [bounds]).some(rect => rect.width > 1 && rect.height > 1 && intersects(rect, rootRect));
+            return (rects.length ? rects : [bounds]).some(rect => rect.width > 1 && rect.height > 1 && intersects(rect, targetRect));
           };
           if (stripText) {
             const walker = document.createTreeWalker(slide || root, NodeFilter.SHOW_TEXT);
@@ -341,7 +351,7 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
                 return;
               }
               const rect = el.getBoundingClientRect();
-              if (rect.width > 1 && rect.height > 1 && intersects(rect, rootRect)) mark(el);
+              if (rect.width > 1 && rect.height > 1 && intersects(rect, targetRect)) mark(el);
             });
           }
           window.__editablePptxHiddenTextStyles ||= new Map();
@@ -349,22 +359,24 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
           return token;
         }, {
           exportId: node.exportId,
-          mode: node.imageKind === 'unicorn-background' ? 'screenshot-rect' : 'descendant',
+          mode: node.screenshotMode || (node.imageKind === 'unicorn-background' ? 'screenshot-rect' : 'descendant'),
           stripText: Boolean(node.stripTextForScreenshot),
           stripOverlay: Boolean(node.stripOverlayForScreenshot),
+          screenshotRect: node.screenshotRect || null,
         });
       }
       if (hiddenToken) {
         await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
       }
       const locator = page.locator(`#deck > .slide.active [data-editable-pptx-export-id="${node.exportId}"], #deck > .slide[data-deck-active] [data-editable-pptx-export-id="${node.exportId}"]`).first();
+      const clip = node.screenshotRect ? screenshotClip(node.screenshotRect) : null;
       let bytes = null;
       if (shouldUseAlphaMatteScreenshot(node)) {
-        bytes = await captureAlphaMatteScreenshot(page, locator, node.exportId, node.imageKind).catch(() => null);
+        bytes = await captureAlphaMatteScreenshot(page, locator, node.exportId, node.imageKind, clip).catch(() => null);
         if (!bytes) warnings.push({ slide: node.slideIndex, type: 'alpha-matte-screenshot-failed', tag: node.tag, kind: node.imageKind });
       }
-      if (!bytes) bytes = await locator.screenshot({ type: 'png' });
-      if (node.elementScreenshot) bytes = applyNodeRadiusAlphaMask(bytes, node);
+      if (!bytes) bytes = clip ? await page.screenshot({ type: 'png', clip }) : await locator.screenshot({ type: 'png' });
+      if (node.elementScreenshot && !['effect-background', 'masked-element'].includes(node.imageKind)) bytes = applyNodeRadiusAlphaMask(bytes, node);
       node.imageData = pngBufferToDataUrl(bytes);
       if (hiddenToken) {
         await page.evaluate(token => {
@@ -414,10 +426,10 @@ async function resolveElementScreenshots(page, root, warnings, options = {}) {
 }
 
 function shouldUseAlphaMatteScreenshot(node) {
-  return node.imageKind === 'material-background' || node.imageKind === 'unicorn-background';
+  return ['material-background', 'unicorn-background', 'effect-background', 'masked-element'].includes(node.imageKind);
 }
 
-async function captureAlphaMatteScreenshot(page, locator, exportId, imageKind) {
+async function captureAlphaMatteScreenshot(page, locator, exportId, imageKind, clip = null) {
   let token = null;
   try {
     token = await page.evaluate(({ exportId, imageKind }) => {
@@ -465,7 +477,8 @@ async function captureAlphaMatteScreenshot(page, locator, exportId, imageKind) {
     }, { exportId, imageKind });
     if (!token) return null;
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-    const blackBytes = await locator.screenshot({ type: 'png' });
+    const shoot = () => clip ? page.screenshot({ type: 'png', clip }) : locator.screenshot({ type: 'png' });
+    const blackBytes = await shoot();
     await page.evaluate(({ token, color }) => {
       const state = window.__editablePptxAlphaMatteStyles?.get(token);
       if (!state) return;
@@ -474,7 +487,7 @@ async function captureAlphaMatteScreenshot(page, locator, exportId, imageKind) {
       }
     }, { token, color: '#fff' });
     await page.evaluate(() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve))));
-    const whiteBytes = await locator.screenshot({ type: 'png' });
+    const whiteBytes = await shoot();
     return composeAlphaMattePng(blackBytes, whiteBytes);
   } finally {
     if (token) {
@@ -748,6 +761,11 @@ async function installBrowserCollector(page) {
         ${expandedClampedRect.toString()}
         ${shadowOutsetPx.toString()}
         ${splitShadowLayers.toString()}
+        ${visualScreenshotFallbackKind.toString()}
+        ${visualScreenshotRect.toString()}
+        ${hasCssMask.toString()}
+        ${visibleElementChildren.toString()}
+        ${shouldScreenshotGradientEffect.toString()}
         ${shouldUseLocalMaterialFallback.toString()}
         ${isEditableTextContainer.toString()}
         ${isInsideEditableTextContainer.toString()}
@@ -873,8 +891,10 @@ function renderBox(slide, node, slideRect, warnings, totals) {
   const isNarrowGradientLine = fill?.gradient && Math.min(c.w, c.h) <= 0.12 && Math.max(c.w, c.h) >= 0.35;
   const isDecorativeGradient = fill?.gradient && !isLargeGradient && !isNarrowGradientLine && !(node.children || []).length;
   const fillAlpha = isDecorativeGradient ? Math.min(fill.alpha, 0.08) : fill?.alpha;
+  const forceRectForThinPill = radius > 0.02 && !hasBorder && Math.min(c.w, c.h) <= 0.1 && Math.max(c.w, c.h) >= 0.35;
   const shapeName = polygonPoints ? 'custGeom'
     : isCircleLikeBox(node, radiusPx) ? 'ellipse'
+    : forceRectForThinPill ? 'rect'
     : isDecorativeGradient && radius > Math.min(c.w, c.h) * 0.2
     ? 'ellipse'
     : radius > 0.02 ? 'roundRect' : 'rect';
@@ -1018,6 +1038,8 @@ function renderText(slide, node, slideRect, warnings, totals) {
     transparency: combinedTransparency(color.alpha, style.opacity),
     charSpacing: letterSpacing(style.letterSpacing),
   };
+  const yOffset = pptTextYOffset(c, fontSizePx, fontFace, style, value);
+  if (yOffset) options.y += yOffset;
   const lineSpacing = pptLineSpacing(style.lineHeight, fontSizePx, fontFace, style, value);
   if (lineSpacing) {
     options.lineSpacing = lineSpacing;
@@ -1322,6 +1344,33 @@ async function captureElement(el, slideRect, warnings, depth, slideIndex, clipRe
     if (node.imageData) warnings.push({ slide: slideIndex, type: 'node-image-fallback', node: 'svg', count: 1 });
     else warnings.push({ slide: slideIndex, type: 'svg-skipped', reason: 'rasterize-failed' });
     node.children.push(...svgTexts);
+    return node;
+  }
+
+  const visualFallback = visualScreenshotFallbackKind(el, style, clipped, rawRect, slideRect);
+  if (visualFallback) {
+    const exportId = `editable-pptx-${slideIndex}-${depth}-${Math.random().toString(36).slice(2, 9)}`;
+    const screenshotRect = visualScreenshotRect(rawRect, style, slideRect);
+    el.setAttribute('data-editable-pptx-export-id', exportId);
+    node.exportId = exportId;
+    node.elementScreenshot = true;
+    node.imageKind = visualFallback;
+    node.rect = rectObject(screenshotRect);
+    node.screenshotRect = rectObject(screenshotRect);
+    node.screenshotMode = 'screenshot-rect';
+    const textNodes = collectDomFallbackTextNodes(el, slideRect, slideIndex);
+    const overlayText = visibleTextInScreenshotRect(el, slideRect, screenshotRect);
+    const overlayPaint = visibleOverlayPaintInScreenshotRect(el, slideRect, screenshotRect);
+    if (textNodes.length) node.children.push(...textNodes);
+    node.stripTextForScreenshot = textNodes.length > 0 || overlayText.count > 0;
+    node.stripOverlayForScreenshot = overlayPaint.count > 0;
+    if (textNodes.length || overlayText.count) {
+      warnings.push({ slide: slideIndex, type: 'node-image-fallback-text-extracted', node: visualFallback, textCount: Math.max(textNodes.length, overlayText.count), sample: overlayText.sample });
+    }
+    if (overlayPaint.count) {
+      warnings.push({ slide: slideIndex, type: 'node-image-fallback-overlay-extracted', node: visualFallback, overlayCount: overlayPaint.count, sample: overlayPaint.sample, scope: 'screenshot-rect' });
+    }
+    warnings.push({ slide: slideIndex, type: 'node-image-fallback', node: visualFallback, count: 1, source: 'browser-visual-effect' });
     return node;
   }
 
@@ -1687,8 +1736,10 @@ function elementRenderRect(el, clipped, style, slideRect) {
   const scale = scaleFromTransform(style.transform);
   const stageScaleX = (slideRect?.w || 1920) / 1920;
   const stageScaleY = (slideRect?.h || 1080) / 1080;
-  const width = (el.offsetWidth || clipped.width) * scale.x * stageScaleX;
-  const height = (el.offsetHeight || clipped.height) * scale.y * stageScaleY;
+  const cssWidth = parseFloat(style.width || '0') || 0;
+  const cssHeight = parseFloat(style.height || '0') || 0;
+  const width = (el.offsetWidth || cssWidth || clipped.width) * scale.x * stageScaleX;
+  const height = (el.offsetHeight || cssHeight || clipped.height) * scale.y * stageScaleY;
   if (!width || !height) return null;
   const cx = clipped.left + clipped.width / 2;
   const cy = clipped.top + clipped.height / 2;
@@ -1769,6 +1820,60 @@ function splitShadowLayers(value) {
   return splitCssLayers(raw);
 }
 
+function visualScreenshotFallbackKind(el, style, clipped, rawRect, slideRect) {
+  if (isTextClippedBackground(style)) return null;
+  const tag = el.tagName.toLowerCase();
+  if (['section', 'main', 'article', 'svg', 'canvas', 'img', 'video'].includes(tag)) return null;
+  const clipPath = String(style.clipPath || '').trim();
+  const masked = hasCssMask(style);
+  const clippedByPath = clipPath && clipPath !== 'none';
+  const background = String(style.backgroundImage || '');
+  const hasVisualBackground = (background && background !== 'none') || hasPaint(style.backgroundColor) || hasAnyBorder(style) || (style.boxShadow && style.boxShadow !== 'none');
+  if ((masked || clippedByPath) && hasVisualBackground) return 'masked-element';
+  if (shouldScreenshotGradientEffect(el, style, clipped, rawRect, slideRect)) return 'effect-background';
+  return null;
+}
+
+function visualScreenshotRect(rawRect, style, slideRect) {
+  return visualEffectRect(rawRect, style, slideRect);
+}
+
+function hasCssMask(style = {}) {
+  const mask = `${style.mask || ''} ${style.maskImage || ''} ${style.webkitMask || ''} ${style.webkitMaskImage || ''}`.trim();
+  return Boolean(mask && !/^none(?:\s+none)*$/i.test(mask));
+}
+
+function visibleElementChildren(el, slideRect) {
+  return [...(el.children || [])].filter(child => {
+    const childStyle = getComputedStyle(child);
+    const rect = child.getBoundingClientRect();
+    return childStyle.display !== 'none'
+      && childStyle.visibility !== 'hidden'
+      && Number(childStyle.opacity || 1) > 0.01
+      && rect.width > 2
+      && rect.height > 2
+      && rect.right >= slideRect.x
+      && rect.left <= slideRect.x + slideRect.w
+      && rect.bottom >= slideRect.y
+      && rect.top <= slideRect.y + slideRect.h;
+  });
+}
+
+function shouldScreenshotGradientEffect(el, style, clipped, rawRect, slideRect) {
+  const background = String(style.backgroundImage || '');
+  if (!background.includes('gradient') || backgroundUrl(background) || /repeating-linear-gradient/i.test(background)) return false;
+  if ((el.innerText || el.textContent || '').trim()) return false;
+  if (visibleElementChildren(el, slideRect).length) return false;
+  const areaRatio = clipped.width * clipped.height / Math.max(1, slideRect.w * slideRect.h);
+  const hasFilterEffect = style.filter && style.filter !== 'none';
+  const isTransparentRadial = /radial-gradient/i.test(background)
+    && backgroundHasTransparentStop(background)
+    && transparentCssPaint(style.backgroundColor);
+  const isComplexGradient = /color-mix\(|color\(|closest-side|closest-corner|farthest-side|farthest-corner/i.test(background);
+  if (hasFilterEffect || hasCssMask(style)) return true;
+  return isTransparentRadial && (isComplexGradient || areaRatio > 0.005 || !sameClientRect(rawRect, clipped));
+}
+
 function shouldUseLocalMaterialFallback(el, style, clipped, slideRect) {
   if (isTextClippedBackground(style) || String(style.clipPath || '').includes('polygon(')) return false;
   const tag = el.tagName.toLowerCase();
@@ -1788,15 +1893,7 @@ function shouldUseLocalMaterialFallback(el, style, clipped, slideRect) {
     || rawRect.bottom > slideBottom + 1) {
     return false;
   }
-  const visibleChildren = [...(el.children || [])].filter(child => {
-    const childStyle = getComputedStyle(child);
-    const rect = child.getBoundingClientRect();
-    return childStyle.display !== 'none'
-      && childStyle.visibility !== 'hidden'
-      && Number(childStyle.opacity || 1) > 0.01
-      && rect.width > 2
-      && rect.height > 2;
-  });
+  const visibleChildren = visibleElementChildren(el, slideRect);
   if (visibleChildren.length && !hasOnlyInlineTextChildren(el)) return false;
   const background = String(style.backgroundImage || '');
   if (!background.includes('gradient') && !background.includes('url(')) return false;
@@ -1845,15 +1942,7 @@ function shouldSkipDecorativeGradientFallback(el, style, clipped, slideRect) {
   const areaRatio = clipped.width * clipped.height / Math.max(1, slideRect.w * slideRect.h);
   if (areaRatio <= 0.18) return false;
   if ((el.innerText || '').trim()) return false;
-  const visibleChildren = [...(el.children || [])].filter(child => {
-    const childStyle = getComputedStyle(child);
-    const rect = child.getBoundingClientRect();
-    return childStyle.display !== 'none'
-      && childStyle.visibility !== 'hidden'
-      && Number(childStyle.opacity || 1) > 0.01
-      && rect.width > 2
-      && rect.height > 2;
-  });
+  const visibleChildren = visibleElementChildren(el, slideRect);
   if (visibleChildren.length) return false;
   if (background.includes('radial-gradient') && transparentCssPaint(style.backgroundColor) && !String(style.filter || '').includes('blur(')) return false;
   return String(style.filter || '').includes('blur(')
@@ -2490,9 +2579,9 @@ function visibleTextInSubtree(root, slideRect) {
   return texts;
 }
 
-function visibleTextInScreenshotRect(root, slideRect) {
+function visibleTextInScreenshotRect(root, slideRect, target = null) {
   const slide = root.closest('#deck > .slide') || root;
-  const targetRect = root.getBoundingClientRect();
+  const targetRect = target || root.getBoundingClientRect();
   const texts = [];
   const seen = new Set();
   const add = (text, rect) => {
@@ -2528,9 +2617,9 @@ function visibleTextInScreenshotRect(root, slideRect) {
   return { count: texts.length, sample: texts.join(' ').slice(0, 160) };
 }
 
-function visibleOverlayPaintInScreenshotRect(root, slideRect) {
+function visibleOverlayPaintInScreenshotRect(root, slideRect, target = null) {
   const slide = root.closest('#deck > .slide') || root;
-  const targetRect = root.getBoundingClientRect();
+  const targetRect = target || root.getBoundingClientRect();
   const items = [];
   const seen = new Set();
   const intersects = (a, b) => a.left < b.right && a.right > b.left && a.top < b.bottom && a.bottom > b.top;
@@ -3090,6 +3179,19 @@ function pptLineSpacing(value, fontSizePx, fontFace, style = {}, text = '') {
   const lineHeightPx = raw.endsWith('px') ? n : n <= 4 ? n * fontSizePx : n;
   if (!Number.isFinite(lineHeightPx) || lineHeightPx <= 0) return null;
   return pptFontSize(lineHeightPx, fontFace, style, text);
+}
+
+function pptTextYOffset(box, fontSizePx, fontFace, style = {}, text = '') {
+  const stack = fontStack(style, fontFace);
+  if (fontSizePx < 28) return 0;
+  if (hasCjkText(text)) {
+    if (fontSizePx >= 96) return box.h * 0.085;
+    if (fontSizePx >= 48) return box.h * 0.06;
+    return box.h * 0.025;
+  }
+  if (/Anton/i.test(stack) && fontSizePx >= 80) return box.h * 0.09;
+  if (/Space Grotesk|Archivo|Arimo|IBM Plex Sans|Newsreader|Caveat/i.test(stack) && fontSizePx >= 48) return box.h * 0.045;
+  return 0;
 }
 
 function normalizeAlign(value) {
