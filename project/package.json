@@ -26,6 +26,7 @@
   },
   "devDependencies": {
     "tsx": "^4.20.0",
-    "esbuild": "^0.28.0"
+    "esbuild": "^0.28.0",
+    "playwright-core": "^1.60.0"
   }
 }
