@@ -903,7 +903,7 @@ function renderBox(slide, node, slideRect, warnings, totals) {
     ? parseCssColor(style.backgroundColor)
     : parseCssColor(style.backgroundColor) || (allowGradientFillApproximation ? colorFromBackgroundImage(style.backgroundImage) : null));
   const radiusPx = maxCssRadius(style, node.rect?.w || 0, node.rect?.h || 0);
-  const radius = Math.min(radiusPx, Math.min(node.rect?.w || 0, node.rect?.h || 0) / 2) / slideRect.w * PPT_W;
+  const radius = Math.min(radiusPx, 48) / slideRect.w * PPT_W;
   const borders = readBorders(style);
   const hasBorder = borders.some(border => border.width > 0 && border.color);
   const uniformBorder = uniformBorderStyle(borders);
@@ -1023,25 +1023,18 @@ function renderText(slide, node, slideRect, warnings, totals) {
   if (c.w < 0.01 || c.h < 0.01) return;
   const style = node.style || {};
   const color = textColorForStyle(style, node);
-  const fontSizePx = Math.max(4, Math.min(260, parseFloat(style.fontSize || '16') || 16));
+  const fontSizePx = Math.max(4, Math.min(900, parseFloat(style.fontSize || '16') || 16));
   if (isDecorativeStrokeOnlyText(style, fontSizePx)) return;
   if (isDecorativeLowAlphaText(color, style, fontSizePx)) return;
   if (isDecorativeRotatedSmallText(value, style, fontSizePx, node)) return;
   if (isDecorativeSparkleText(value)) {
     return;
   }
-  const leadingSymbol = leadingNativeSymbol(value);
-  if (leadingSymbol) {
-    const symbolWidth = renderLeadingNativeSymbol(slide, c, style, leadingSymbol, totals);
-    value = value.slice(leadingSymbol.raw.length).trimStart();
-    if (!value.trim()) return;
-    c.x += symbolWidth;
-    c.w = Math.max(0.08, c.w - symbolWidth);
-  }
   const fontFace = fontFaceForText(style.fontFamily, value);
   const weight = String(style.fontWeight || '');
   const singleLine = node.singleLine && !/[\r\n]/.test(value);
   const verticalText = isVerticalWritingMode(style);
+  const verticalContainerText = Boolean(node.textMetrics?.verticalContainer);
   const autoWidth = !node.clipped && !verticalText && singleLine && shouldUseAutoWidthText(value, fontSizePx, c, node);
   const align = normalizeAlign(style.textAlign);
   const options = {
@@ -1060,12 +1053,12 @@ function renderText(slide, node, slideRect, warnings, totals) {
     underline: String(style.textDecorationLine || '').includes('underline'),
     strike: String(style.textDecorationLine || '').includes('line-through'),
     align,
-    valign: normalizeValign(style.verticalAlign),
+    valign: verticalContainerText ? 'mid' : normalizeValign(style.verticalAlign),
     rotate: rotateFromTransform(style.transform) || 0,
     transparency: combinedTransparency(color.alpha, style.opacity),
     charSpacing: letterSpacing(style.letterSpacing),
   };
-  const yOffset = pptTextYOffset(c, fontSizePx, fontFace, style, value, node);
+  const yOffset = verticalContainerText ? 0 : pptTextYOffset(c, fontSizePx, fontFace, style, value, node);
   if (yOffset) options.y += yOffset;
   const lineSpacing = pptLineSpacing(style.lineHeight, fontSizePx, fontFace, style, value);
   if (lineSpacing) {
@@ -1095,63 +1088,6 @@ function renderText(slide, node, slideRect, warnings, totals) {
   } catch {
     warnings.push({ slide: node.slideIndex, type: 'render-text-failed', text: value.slice(0, 60) });
   }
-}
-
-function leadingNativeSymbol(value) {
-  const match = String(value || '').match(/^([→➜➤▶►➡↗↘↑↓←↖↙▲▼])\s*/);
-  if (!match) return null;
-  const symbol = match[1];
-  return {
-    raw: match[0],
-    symbol,
-    shape: symbol === '▲' || symbol === '▼' ? 'triangle' : 'rightArrow',
-    rotate: symbolRotation(symbol),
-  };
-}
-
-function renderLeadingNativeSymbol(slide, box, style, symbol, totals) {
-  const color = textColorForStyle(style);
-  const size = Math.max(0.08, Math.min(0.18, box.h * 0.42));
-  const width = size * 1.75;
-  try {
-    slide.addShape(symbol.shape, {
-      x: box.x,
-      y: box.y + Math.max(0, (box.h - size) / 2),
-      w: size * 1.45,
-      h: size,
-      rotate: symbol.rotate || undefined,
-      fill: { color: color.color, transparency: combinedTransparency(color.alpha, style.opacity) },
-      line: { color: color.color, transparency: 100 },
-    });
-    totals.shapeObjects += 1;
-    return width;
-  } catch {
-    try {
-      slide.addShape('triangle', {
-        x: box.x,
-        y: box.y + Math.max(0, (box.h - size) / 2),
-        w: size,
-        h: size,
-        rotate: 90,
-        fill: { color: color.color, transparency: combinedTransparency(color.alpha, style.opacity) },
-        line: { color: color.color, transparency: 100 },
-      });
-      totals.shapeObjects += 1;
-    } catch {}
-  }
-  return width;
-}
-
-function symbolRotation(symbol) {
-  if (symbol === '←') return 180;
-  if (symbol === '↑') return 270;
-  if (symbol === '↓') return 90;
-  if (symbol === '▼') return 180;
-  if (symbol === '↗') return 315;
-  if (symbol === '↘') return 45;
-  if (symbol === '↖') return 225;
-  if (symbol === '↙') return 135;
-  return 0;
 }
 
 function isDecorativeStrokeOnlyText(style, fontSizePx) {
@@ -1480,7 +1416,7 @@ async function captureElement(el, slideRect, warnings, depth, slideIndex, clipRe
   } else if (String(style.backgroundImage || '').includes('repeating-linear-gradient')) {
     node.patternImageData = patternBackgroundImageData(style.backgroundImage, clipped.width, clipped.height, maxCssRadius(style, clipped.width, clipped.height));
     if (node.patternImageData) warnings.push({ slide: slideIndex, type: 'node-image-fallback', node: 'css-pattern-background', count: 1 });
-  } else if (!isTextClippedBackground(style) && String(style.backgroundImage || '').includes('gradient') && !(el.innerText || el.textContent || '').trim() && !shouldSkipDecorativeGradientFallback(el, style, clipped, slideRect) && !shouldUseNativeGradientShape(style, clipped.width, clipped.height) && !shouldUseNativeGradientShape(style, (el.offsetWidth || clipped.width) * (slideRect.w || 1920) / 1920, (el.offsetHeight || clipped.height) * (slideRect.h || 1080) / 1080) && !String(style.clipPath || '').includes('polygon(')) {
+  } else if (!isTextClippedBackground(style) && String(style.backgroundImage || '').includes('gradient') && !shouldSkipDecorativeGradientFallback(el, style, clipped, slideRect) && !shouldUseNativeGradientShape(style, clipped.width, clipped.height) && !shouldUseNativeGradientShape(style, (el.offsetWidth || clipped.width) * (slideRect.w || 1920) / 1920, (el.offsetHeight || clipped.height) * (slideRect.h || 1080) / 1080) && !String(style.clipPath || '').includes('polygon(')) {
     node.backgroundImageData = gradientBackgroundImageData(
       style.backgroundImage,
       rawRect.width || clipped.width,
@@ -1600,6 +1536,7 @@ function captureWholeTextElement(el, slideRect, style, slideIndex, clipRect = nu
     rect: rectObject(clipped),
     style: effectiveTextStyle(el, slideRect),
     text: value,
+    textMetrics: { usesLineBox: true },
     singleLine: lineRects.length <= 1 && !/[\r\n]/.test(value),
     clipped: !sameClientRect(rawRect, clipped),
     parentTag: tag,
@@ -1653,12 +1590,28 @@ function captureTextNode(textNode, parent, slideRect, style, slideIndex, clipRec
   }
   const bounds = range.getBoundingClientRect();
   let rawTextRect = lineRects.length === 1 ? lineRects[0] : bounds;
-  let clipped = intersectClientRect(rawTextRect, clipRect || slideClipRect(slideRect));
   range.detach?.();
   const textNodeCount = [...parent.childNodes]
     .filter(child => child.nodeType === Node.TEXT_NODE && normalizeText(child.textContent || ''))
     .length;
   const visibleElementChildren = [...parent.children].filter(child => isVisibleElement(child, slideRect)).length;
+  let textMetrics = null;
+  if (singleLine && textNodeCount === 1 && visibleElementChildren === 0 && hasInlineVisualTreatment(parent)) {
+    const parentRect = parent.getBoundingClientRect();
+    const parentClipped = intersectClientRect(parentRect, clipRect || slideClipRect(slideRect));
+    if (parentClipped && parentRect.height > rawTextRect.height + 2 && parentRect.width > rawTextRect.width + 2) {
+      rawTextRect = {
+        left: rawTextRect.left,
+        top: parentRect.top,
+        right: rawTextRect.right,
+        bottom: parentRect.bottom,
+        width: rawTextRect.width,
+        height: parentRect.height,
+      };
+      textMetrics = { verticalContainer: true };
+    }
+  }
+  let clipped = intersectClientRect(rawTextRect, clipRect || slideClipRect(slideRect));
   if (['h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li', 'td', 'th', 'blockquote', 'button', 'label'].includes(tag)
       && textNodeCount === 1
       && visibleElementChildren === 0) {
@@ -1673,6 +1626,7 @@ function captureTextNode(textNode, parent, slideRect, style, slideIndex, clipRec
     rect: rectObject(clipped),
     style: parentStyle,
     text: value,
+    textMetrics,
     singleLine,
     clipped: !sameClientRect(rawTextRect, clipped),
     parentTag: tag,
@@ -1963,10 +1917,20 @@ function shouldScreenshotRoundedVisual(el, style, clipped, rawRect, slideRect) {
   const background = String(style.backgroundImage || '');
   const hasVisualBackground = (background && background !== 'none') || hasPaint(style.backgroundColor) || hasAnyBorder(style) || (style.boxShadow && style.boxShadow !== 'none');
   if (!hasVisualBackground) return false;
-  if (!hasRoundedClipStyle(style, clipped.width, clipped.height)) return false;
+  if (hasNonUniformCssRadius(style, clipped.width, clipped.height)) return true;
+  const radius = maxCssRadius(style, clipped.width, clipped.height);
   const children = visibleElementChildren(el, slideRect);
+  const paintedRoundedContainer = radius >= 6
+    && (hasAnyBorder(style) || (style.boxShadow && style.boxShadow !== 'none'))
+    && children.length > 0
+    && !hasOnlyInlineTextChildren(el)
+    && !isEditableTextContainer(el);
+  if (paintedRoundedContainer) return true;
+  if (!hasRoundedClipStyle(style, clipped.width, clipped.height)) return false;
   if (!children.length || hasOnlyInlineTextChildren(el)) return false;
-  return Boolean(el.querySelector?.('image-slot,[data-dashi-host-image-slot="true"],canvas,img,video'));
+  return Boolean(el.querySelector?.('image-slot,[data-dashi-host-image-slot="true"],svg,canvas,img,video'))
+    || background.includes('gradient')
+    || (style.boxShadow && style.boxShadow !== 'none');
 }
 
 function cornerRadiiPx(style, width = 0, height = 0) {
@@ -3326,22 +3290,11 @@ function fontFamilies(value) {
 
 function fontFaceForText(fontFamily, text = '') {
   const families = fontFamilies(fontFamily);
-  if (hasArrowSymbol(text)) {
-    if (hasCjkText(text)) {
-      const cjk = families.find(isCjkFontFamily);
-      if (cjk) return cjk;
-    }
-    return 'Arial Unicode MS';
-  }
   if (hasCjkText(text)) {
     const cjk = families.find(isCjkFontFamily);
     if (cjk) return cjk;
   }
   return families[0] || 'Arial';
-}
-
-function hasArrowSymbol(value) {
-  return /[→➜➤▶►➡↗↘↑↓←↖↙↔↕▲▼]/.test(String(value || ''));
 }
 
 function isCjkFontFamily(value) {
