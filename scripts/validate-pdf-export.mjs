@@ -236,7 +236,7 @@ async function chooseEvidenceIndexes(page, expectedSlides) {
       window.go?.(index, { animate: false, force: true });
       await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
       const slide = slides[index];
-      const hasAnimatedMarker = Boolean(slide.querySelector('[data-chart-motion],.rd-anim,.gxn-anim,.pulse-anim,.acl-anim,.ign-anim,[class*="anim"]'));
+      const hasAnimatedMarker = Boolean(slide.querySelector('.rd-anim,.gxn-anim,.pulse-anim,.acl-anim,.ign-anim,[class*="anim"]'));
       const animations = slide.getAnimations?.({ subtree: true }) || [];
       if (hasAnimatedMarker || animations.length) return index;
     }

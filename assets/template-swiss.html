@@ -298,24 +298,6 @@
   .bt-unicorn-frame{background:#05070b}
   .bt-unicorn-scene{position:absolute;inset:0;width:100%;height:100%;overflow:hidden}
   .bt-unicorn-scene canvas{width:100%!important;height:100%!important;display:block}
-  @media (prefers-reduced-motion:no-preference){
-    [data-deck-active] [data-chart-motion]{animation-delay:calc(var(--chart-motion-i,0) * 28ms)}
-    [data-deck-active] [data-chart-motion="bar"]{transform-box:fill-box;transform-origin:center bottom;animation:deck-chart-grow-y .58s cubic-bezier(.2,.8,.2,1) both}
-    [data-deck-active] [data-chart-motion="row"]{transform-box:fill-box;transform-origin:left center;animation:deck-chart-grow-x .58s cubic-bezier(.2,.8,.2,1) both}
-    [data-deck-active] [data-chart-motion="line"]{stroke-dasharray:var(--chart-motion-len,640);animation:deck-chart-draw .82s cubic-bezier(.3,.7,.2,1) both}
-    [data-deck-active] [data-chart-motion="cell"],
-    [data-deck-active] [data-chart-motion="point"]{transform-box:fill-box;transform-origin:center;animation:deck-chart-pop .48s cubic-bezier(.2,.9,.3,1.15) both}
-    [data-deck-active] [data-chart-motion="area"]{transform-box:fill-box;transform-origin:center bottom;animation:deck-chart-area .7s cubic-bezier(.2,.8,.2,1) both}
-  }
-  @media (prefers-reduced-motion:reduce){
-    [data-deck-active] [data-chart-motion]{animation:deck-chart-fade .16s ease both}
-  }
-  @keyframes deck-chart-grow-y{from{transform:scaleY(.04);opacity:.35}to{transform:scaleY(1);opacity:1}}
-  @keyframes deck-chart-grow-x{from{transform:scaleX(.04);opacity:.35}to{transform:scaleX(1);opacity:1}}
-  @keyframes deck-chart-draw{from{stroke-dashoffset:var(--chart-motion-len,640);opacity:.45}to{stroke-dashoffset:0;opacity:1}}
-  @keyframes deck-chart-pop{from{transform:scale(.72);opacity:.28}to{transform:scale(1);opacity:1}}
-  @keyframes deck-chart-area{from{transform:scaleY(.18);opacity:.28}to{transform:scaleY(1);opacity:1}}
-  @keyframes deck-chart-fade{from{opacity:.75}to{opacity:1}}
   .imported-theme-root{position:absolute;left:0;top:0;width:1920px;height:1080px;overflow:hidden;transform:scale(var(--deck-scale));transform-origin:top left}
   .imported-theme-root *{box-sizing:border-box}
   .bg-blue{background:radial-gradient(125% 135% at 16% 102%,#5a8dff 0%,#2f6bff 20%,#1d4ad8 40%,#122e93 60%,#08164a 80%,#03081e 100%)}
@@ -1675,77 +1657,6 @@ function syncTheme10Motion(activeSlide=getActiveSlide()){
   requestAnimationFrame(attempt);
 }
 
-var chartMotionInclude = /chart|plot|axis|bar|bars|column|line|area|stream|trend|slope|spark|curve|donut|pie|ring|radar|rose|polar|funnel|waterfall|matrix|heat|map|mekko|scatter|bubble|treemap|waffle|gauge|meter|rank|score|stack/i;
-var chartMotionExclude = /icon|logo|avatar|photo|image|media|slot|decor|ornament|bg|backdrop|button|toggle|nav|caption/i;
-
-function chartMotionClassText(el){
-  const value = el?.className;
-  if(!value) return '';
-  if(typeof value === 'string') return value;
-  return value.baseVal || '';
-}
-
-function hasAnimatedAncestor(el, boundary){
-  let current = el;
-  let depth = 0;
-  while(current && current !== boundary && depth++ < 4){
-    const style = getComputedStyle(current);
-    if(style.animationName && style.animationName !== 'none') return true;
-    current = current.parentElement;
-  }
-  return false;
-}
-
-function isChartMotionContext(el, boundary){
-  if(!chartMotionInclude || !chartMotionExclude) return false;
-  let current = el;
-  let depth = 0;
-  while(current && current !== boundary && depth++ < 5){
-    const text = chartMotionClassText(current);
-    if(chartMotionInclude.test(text)) return !chartMotionExclude.test(text);
-    current = current.parentElement;
-  }
-  const svg = el.closest?.('svg');
-  const rootText = `${boundary?.dataset?.pageKey || ''} ${boundary?.dataset?.propControls || ''} ${boundary?.dataset?.propDefaults || ''}`;
-  if(svg && chartMotionInclude.test(rootText) && svg.querySelectorAll('path,polyline,line,rect,circle,ellipse').length >= 3) return true;
-  return false;
-}
-
-function chartMotionRole(el, boundary){
-  if(!isChartMotionContext(el, boundary) || hasAnimatedAncestor(el, boundary)) return '';
-  const tag = String(el.tagName || '').toUpperCase();
-  const text = chartMotionClassText(el);
-  const context = `${chartMotionClassText(el.parentElement)} ${text}`;
-  if((tag === 'PATH' || tag === 'POLYLINE' || tag === 'LINE') && getComputedStyle(el).stroke !== 'none') return /area|stream/i.test(context) ? 'area' : 'line';
-  if(tag === 'CIRCLE' || tag === 'ELLIPSE') return getComputedStyle(el).stroke !== 'none' ? 'line' : 'point';
-  if(tag === 'RECT') return /heat|matrix|waffle|treemap/i.test(context) ? 'cell' : 'bar';
-  if(/bar|column|fill|seg|meter|progress/i.test(text)) return /row|rank|funnel|waterfall|dumbbell/i.test(context) ? 'row' : 'bar';
-  if(/cell|tile|block|bucket|node|dot|point/i.test(text)) return 'cell';
-  return '';
-}
-
-function syncChartGrowthMotion(activeSlide=getActiveSlide(), tries=0){
-  if(!activeSlide?.isConnected || !activeSlide.hasAttribute('data-deck-active')) return;
-  const root = activeSlide?.querySelector?.('.imported-theme-root');
-  if(!root) return;
-  if(root.dataset.themeKey === 'theme10') return;
-  const candidates = [...root.querySelectorAll('svg path,svg polyline,svg line,svg rect,svg circle,svg ellipse,div,span,i,li')];
-  let index = 0;
-  for(const el of candidates){
-    const role = chartMotionRole(el, root);
-    if(!role) continue;
-    el.dataset.chartMotion = role;
-    el.style.setProperty('--chart-motion-i', String(Math.min(index, 24)));
-    if(role === 'line' && typeof el.getTotalLength === 'function'){
-      try { el.style.setProperty('--chart-motion-len', String(Math.ceil(el.getTotalLength()) || 640)); } catch {}
-    }
-    index += 1;
-    if(index >= 160) break;
-  }
-  if(index === 0 && tries < 8) requestAnimationFrame(() => syncChartGrowthMotion(activeSlide, tries + 1));
-}
-window.__syncChartGrowthMotion = syncChartGrowthMotion;
-
 function restoreEffectIframes(scope=document){
   scope.querySelectorAll('iframe[data-effect-src]').forEach(iframe => {
     if(!iframe.getAttribute('src') && iframe.dataset.effectSrc) iframe.setAttribute('src', iframe.dataset.effectSrc);
@@ -1758,7 +1669,6 @@ function syncActiveEffects(activeSlide=getActiveSlide(), opts={}){
   syncIframeActivity(activeSlide);
   if(opts.skipMotion) return;
   syncTheme10Motion(activeSlide);
-  syncChartGrowthMotion(activeSlide);
 }
 window.__syncActiveEffects = syncActiveEffects;
 window.__restoreEffectIframes = restoreEffectIframes;
@@ -2580,7 +2490,7 @@ function createOverviewDomPreview(slide){
   clone.style.transition='none';
   clone.querySelectorAll('script,style,template,noscript').forEach(node => node.remove());
   const freezeStyle = document.createElement('style');
-  freezeStyle.textContent='[data-overview-thumb-preview] *,[data-overview-thumb-preview] *::before,[data-overview-thumb-preview] *::after{animation:none!important;animation-delay:0s!important;animation-duration:0s!important;animation-play-state:paused!important;transition:none!important}[data-overview-thumb-preview] [data-chart-motion]{opacity:1!important;transform:none!important;stroke-dashoffset:0!important}';
+  freezeStyle.textContent='[data-overview-thumb-preview] *,[data-overview-thumb-preview] *::before,[data-overview-thumb-preview] *::after{animation:none!important;animation-delay:0s!important;animation-duration:0s!important;animation-play-state:paused!important;transition:none!important}';
   clone.prepend(freezeStyle);
   clone.querySelectorAll('iframe,video').forEach(node => {
     const placeholder = document.createElement('div');
@@ -5557,7 +5467,6 @@ refreshRailCatalog();
 	    const next = prepareTransitionClone(nextSlide, "next");
 	    stage.append(current, next);
 	    document.body.appendChild(stage);
-	    window.__syncChartGrowthMotion?.(next);
 	    window.__syncTheme10Motion?.(next);
 	    gsap.set([current, next], {position:'absolute', inset:0});
 	    const ctx = {
