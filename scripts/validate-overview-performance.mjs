@@ -6,6 +6,7 @@ import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { ACCEPTED_THEME_KEYS } from '../src/accepted-themes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -1395,9 +1396,8 @@ async function runSortReturnCacheValidation(page) {
 }
 
 async function runFullFrameFitValidation(page) {
-  const themes = ['theme01', 'theme02', 'theme03'];
   const results = [];
-  for (const theme of themes) {
+  for (const theme of ACCEPTED_THEME_KEYS) {
     await ensureOverviewClosed(page);
     await page.evaluate(async (themePack) => {
       window.__setActiveThemePack?.(themePack);
@@ -1409,7 +1409,7 @@ async function runFullFrameFitValidation(page) {
     }, theme);
     await ensureOverviewOpen(page);
     await page.waitForFunction(() => window.__getOverviewPerfState?.().overviewOn);
-    await page.waitForTimeout(THRESHOLDS.theme03VisualReadyMs);
+    await page.waitForTimeout(theme === 'theme03' ? THRESHOLDS.theme03VisualReadyMs : 800);
     const similarity = await runThemeSimilarityValidation(page, {
       sampleCount: THRESHOLDS.fullFrameFitSampleCount,
       stableWaitMs: theme === 'theme02' ? 2500 : 250,

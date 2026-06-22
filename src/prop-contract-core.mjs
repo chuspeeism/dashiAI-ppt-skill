@@ -41,10 +41,11 @@ export function normalizeSlidePropsForContract(layout, props = {}, contract = nu
   const aliasResult = contract ? resolvePublicPropAliases(props, contract.controls) : { props: props || {} };
   const authoredProps = aliasResult.props || {};
   const authoredCounts = deriveAuthoredCounts(authoredProps, contract?.countBindings || []);
-  const next = contract ? mergeCountBoundArrayProps(authoredProps, contract) : { ...authoredProps };
+  const shapeErrors = contract ? validateAuthoredPropShape(authoredProps, contract.defaultProps) : [];
+  const next = contract ? mergeDefaultArrayProps(authoredProps, contract) : { ...authoredProps };
   if (!contract) return next;
 
-  const errors = [];
+  const errors = [...shapeErrors];
   for (const binding of contract.countBindings) {
     const derived = deriveCount(next, binding);
     if (!derived) continue;
@@ -113,6 +114,7 @@ export function createContract(page, themePack) {
     defaultProps: serializeValue(page.defaultProps || {}) || {},
     controls,
     countBindings,
+    propShapes: describePropShapes(page.defaultProps || {}),
   };
 }
 
@@ -125,14 +127,13 @@ function deriveAuthoredCounts(props, bindings) {
   return counts;
 }
 
-function mergeCountBoundArrayProps(props, contract) {
+function mergeDefaultArrayProps(props, contract) {
   const next = { ...(props || {}) };
   const defaults = contract.defaultProps || {};
-  for (const binding of contract.countBindings) {
-    for (const arrayKey of binding.arrays) {
-      if (!Array.isArray(props[arrayKey]) || !Array.isArray(defaults[arrayKey])) continue;
-      next[arrayKey] = mergeArrayWithDefaultTail(props[arrayKey], defaults[arrayKey]);
-    }
+  for (const [arrayKey, value] of Object.entries(props || {})) {
+    if (!Array.isArray(value) || !Array.isArray(defaults[arrayKey])) continue;
+    if (isMediaArrayKey(arrayKey)) continue;
+    next[arrayKey] = mergeArrayWithDefaultTail(value, defaults[arrayKey]);
   }
   return next;
 }
@@ -148,7 +149,9 @@ function mergeArrayWithDefaultTail(items, defaults) {
 }
 
 function mergeArrayItem(defaultItem, item) {
-  if (isPlainObject(defaultItem) && isPlainObject(item)) return { ...defaultItem, ...item };
+  if (isPlainObject(defaultItem) && isPlainObject(item)) {
+    return mergePlainObject(defaultItem, item);
+  }
   return item;
 }
 
@@ -156,9 +159,123 @@ function isPlainObject(value) {
   return !!value && typeof value === 'object' && !Array.isArray(value);
 }
 
+function mergePlainObject(defaultValue, value) {
+  const next = { ...defaultValue };
+  for (const [key, item] of Object.entries(value || {})) {
+    if (Array.isArray(item) && Array.isArray(defaultValue?.[key]) && !isMediaArrayKey(key)) {
+      next[key] = mergeArrayWithDefaultTail(item, defaultValue[key]);
+    } else if (isPlainObject(item) && isPlainObject(defaultValue?.[key])) {
+      next[key] = mergePlainObject(defaultValue[key], item);
+    } else {
+      next[key] = item;
+    }
+  }
+  return next;
+}
+
 function serializeContract(contract) {
-  const { defaultProps, ...publicContract } = contract;
+  const { defaultProps, propShapes, ...publicContract } = contract;
   return publicContract;
+}
+
+export function validateAuthoredPropShape(props = {}, defaults = {}) {
+  const errors = [];
+  for (const [key, value] of Object.entries(props || {})) {
+    if (isMediaArrayKey(key)) continue;
+    if (!Object.prototype.hasOwnProperty.call(defaults || {}, key)) continue;
+    validateValueShape(value, defaults[key], `props.${key}`, errors);
+  }
+  return errors;
+}
+
+function validateValueShape(value, defaultValue, field, errors) {
+  if (Array.isArray(defaultValue)) {
+    if (!Array.isArray(value)) {
+      errors.push(`${field}: expected array`);
+      return;
+    }
+    const shape = mergeObjectShape(defaultValue);
+    if (!shape) return;
+    value.forEach((item, index) => {
+      if (!isPlainObject(item)) {
+        errors.push(`${field}[${index}]: expected object item`);
+        return;
+      }
+      validateObjectShape(item, shape, `${field}[${index}]`, errors);
+    });
+    return;
+  }
+
+  if (isPlainObject(defaultValue)) {
+    if (!isPlainObject(value)) {
+      errors.push(`${field}: expected object`);
+      return;
+    }
+    validateObjectShape(value, defaultValue, field, errors);
+  }
+}
+
+function validateObjectShape(value, shape, field, errors) {
+  const allowed = new Set(Object.keys(shape || {}));
+  for (const [key, item] of Object.entries(value || {})) {
+    if (!allowed.has(key)) {
+      errors.push(`${field}.${key}: unknown nested prop; expected ${formatExpectedKeys(allowed)}`);
+      continue;
+    }
+    validateValueShape(item, shape[key], `${field}.${key}`, errors);
+  }
+}
+
+export function describePropShapes(defaultProps = {}, keys = Object.keys(defaultProps || {})) {
+  return Object.fromEntries([...new Set(keys)]
+    .filter(key => Object.prototype.hasOwnProperty.call(defaultProps || {}, key))
+    .map(key => [key, describeValueShape(defaultProps[key])]));
+}
+
+function describeValueShape(value) {
+  if (Array.isArray(value)) {
+    const objectShape = mergeObjectShape(value);
+    if (objectShape) return [describeValueShape(objectShape)];
+    return value.length ? [describeValueShape(value[0])] : [];
+  }
+  if (isPlainObject(value)) {
+    return Object.fromEntries(Object.entries(value).map(([key, item]) => [key, describeValueShape(item)]));
+  }
+  if (value == null) return 'null';
+  return typeof value;
+}
+
+function mergeObjectShape(items) {
+  const objects = items.filter(isPlainObject);
+  if (!objects.length) return null;
+  return objects.reduce((shape, item) => mergeShape(shape, item), {});
+}
+
+function mergeShape(left, right) {
+  const next = { ...(left || {}) };
+  for (const [key, value] of Object.entries(right || {})) {
+    if (!Object.prototype.hasOwnProperty.call(next, key)) {
+      next[key] = value;
+    } else {
+      next[key] = mergeShapeValue(next[key], value);
+    }
+  }
+  return next;
+}
+
+function mergeShapeValue(left, right) {
+  if (Array.isArray(left) && Array.isArray(right)) return mergeObjectShape([...left, ...right]) ? [...left, ...right] : left;
+  if (isPlainObject(left) && isPlainObject(right)) return mergeShape(left, right);
+  return left;
+}
+
+function formatExpectedKeys(keys) {
+  const list = [...keys].slice(0, 8).join(', ');
+  return keys.size > 8 ? `${list}, ...` : list;
+}
+
+function isMediaArrayKey(key) {
+  return /^(images|media|photos|pictures|logos|thumbs|imageSlots|imgs)$/i.test(String(key || ''));
 }
 
 function inferCountArrayBindings(key, props = {}) {

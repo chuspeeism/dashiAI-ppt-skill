@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import {
   createLayoutContracts,
+  describePropShapes,
   normalizeSlidePropsForContract,
 } from '../src/prop-contract-core.mjs';
 import {
@@ -13,10 +14,14 @@ import {
   GENERATED_THEME_PACKS,
   GENERATED_THEME_PAGES,
 } from '../src/components/themes/generated-metadata.js';
+import {
+  filterAcceptedThemePacks,
+  filterAcceptedThemePages,
+} from '../src/accepted-themes.mjs';
 
 export const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-export const THEME_PACKS = GENERATED_THEME_PACKS;
-export const THEME_PAGES = GENERATED_THEME_PAGES;
+export const THEME_PACKS = filterAcceptedThemePacks(GENERATED_THEME_PACKS);
+export const THEME_PAGES = filterAcceptedThemePages(GENERATED_THEME_PAGES);
 
 const ROLE_KEYWORDS = {
   cover: ['cover', '封面', '首页'],
@@ -182,6 +187,7 @@ export function inspectLayout(layout, { compact = false } = {}) {
 
   return {
     ...base,
+    propShapes: describePropShapes(defaultProps, [...copyKeys, ...arrayKeys]),
     allowedPropKeys: [...new Set([...Object.keys(defaultProps), ...controlKeys])].sort(),
     allowedPublicPropKeys: [...new Set([...Object.keys(toPublicProps(defaultProps, controls)), ...publicControlKeys])].sort(),
   };
@@ -199,7 +205,7 @@ export function normalizeProps(layout, props = {}) {
   const aliasResult = resolvePublicPropAliases(props, record.controls);
   const warnings = unknownPropKeys(record, props).map(key => `Unknown prop "${key}" for ${layout}`);
   try {
-    const propsWithCountSafety = normalizeSlidePropsForContract(layout, aliasResult.props, record.contract);
+    const propsWithCountSafety = normalizeSlidePropsForContract(layout, props, record.contract);
     const propsWithDefaults = mergeDefaultArrayTails(propsWithCountSafety, record.defaultProps, aliasResult.props);
     return {
       props: propsWithDefaults,
@@ -301,18 +307,12 @@ function mergeDefaultArrayTails(props, defaults, authoredProps = props) {
     if (!Array.isArray(value) || !Array.isArray(defaults?.[key])) continue;
     if (isMediaArrayKey(key)) continue;
     const authoredLength = Array.isArray(authoredProps?.[key]) ? authoredProps[key].length : value.length;
-    if (authoredLength >= defaults[key].length) continue;
     next[key] = [
-      ...value.slice(0, authoredLength).map((item, index) => mergeArrayItem(defaults[key][index], item)),
-      ...defaults[key].slice(authoredLength).map(item => neutralizeDefaultCopy(item)),
+      ...value.slice(0, authoredLength),
+      ...value.slice(authoredLength).map(item => neutralizeDefaultCopy(item)),
     ];
   }
   return next;
-}
-
-function mergeArrayItem(defaultItem, item) {
-  if (isPlainObject(defaultItem) && isPlainObject(item)) return { ...defaultItem, ...item };
-  return item;
 }
 
 function neutralizeDefaultCopy(value, field = '') {

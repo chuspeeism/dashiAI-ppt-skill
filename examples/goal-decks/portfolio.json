@@ -48,18 +48,20 @@
       "layout": "theme01_page030",
       "props": {
         "kicker": "# 代表项目",
-        "title": "项目里程碑",
-        "en": "Selected Project Timeline",
+        "title": "代表项目",
+        "en": "Selected Project Impact",
         "cn": "从需求识别到上线交付",
-        "events": [
-          { "date": "2024 · Q1", "round": "SaaS 看板", "amount": "上线", "unit": "", "note": "核心指标体系", "color": "#5b8def" },
-          { "date": "2024 · Q3", "round": "AI 工具", "amount": "落地", "unit": "", "note": "多步骤工作流", "color": "#46b083" },
-          { "date": "2025 · Q2", "round": "组件系统", "amount": "复用", "unit": "", "note": "设计到前端闭环", "color": "#e8503a" }
-        ]
+        "lead": "用三个代表项目展示从产品判断、界面设计到前端交付的完整能力。",
+        "stats": [
+          { "value": "SaaS", "unit": "", "label": "核心指标体系" },
+          { "value": "AI", "unit": "", "label": "多步骤工作流" },
+          { "value": "Design", "unit": "", "label": "组件系统复用" }
+        ],
+        "caption": "代表项目 · 从想法到上线"
       }
     },
     {
-      "layout": "theme01_page089",
+      "layout": "theme01_page084",
       "props": {
         "kicker": "# 联系方式",
         "title": "合作方式与项目说明",

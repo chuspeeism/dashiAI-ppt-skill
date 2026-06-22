@@ -6,6 +6,7 @@ import net from 'node:net';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright-core';
+import { ACCEPTED_THEME_KEYS } from '../src/accepted-themes.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -40,7 +41,7 @@ try {
   await settle(page, 500);
 
   const probes = [];
-  for (const theme of ['theme01', 'theme02', 'theme03']) {
+  for (const theme of ACCEPTED_THEME_KEYS) {
     probes.push(await probeThemeForSlots(page, theme));
   }
 
@@ -272,7 +273,7 @@ async function clickRailMenuAction(page, cardIndex, actionText) {
 
 function validateResult(result) {
   const failures = [...(result.staticChecks.failures || [])];
-  const required = new Set(['theme01', 'theme02', 'theme03']);
+  const required = new Set(ACCEPTED_THEME_KEYS);
   for (const theme of required) {
     if (!result.probes.some(probe => probe.theme === theme)) failures.push(`Missing probe for ${theme}.`);
   }

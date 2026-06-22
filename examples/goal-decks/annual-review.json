@@ -10,73 +10,55 @@
       "layout": "theme08_page001",
       "props": {
         "eyebrow": "AI FUNDING REVIEW · 2024",
-        "year": "2024",
-        "headlineLines": ["美国 AI", "融资年度复盘"],
-        "subheadline": "数据口径：2024 全年 · 单笔 ≥ 1 亿美元",
-        "closingLine": "从资本流向，看 AI 产业下一阶段的真实重心。"
+        "yearTag": "2024",
+        "headlineLine1": "美国 AI",
+        "headlineHl": "融资年度复盘",
+        "headlineTail": "",
+        "subtitle": "数据口径:2024 全年 · 单笔 >= 1 亿美元",
+        "goldenLine": "从资本流向,看 AI 产业下一阶段的真实重心。",
+        "handNote": "投资团队 / 研究团队"
       }
     },
     {
-      "layout": "theme08_page002",
+      "layout": "theme08_page006",
       "props": {
         "eyebrow": "Executive Overview",
         "headline": "报告摘要",
         "subheadline": "2024 全年 · 资本大年",
-        "summary": "美国 AI 初创公司继续吸纳大额资本，头部公司、基础设施和垂直应用共同构成本轮融资主线。",
-        "metrics": [
-          { "value": "970", "unit": "亿美元", "label": "全年融资总额" },
-          { "value": "97", "unit": "笔", "label": "大额融资事件" },
-          { "value": "10", "unit": "亿美元", "label": "平均单笔规模" },
-          { "value": "63.9", "unit": "%", "label": "湾区融资占比" }
-        ],
-        "closingLine": "资本仍在涌入 AI，但下一阶段会从赌叙事转向看兑现。"
+        "summary": "美国 AI 初创公司继续吸纳大额资本,头部公司、基础设施和垂直应用共同构成本轮融资主线。",
+        "closingLine": "资本仍在涌入 AI,但下一阶段会从赌叙事转向看兑现。"
       }
     },
     {
-      "layout": "theme08_page003",
+      "layout": "theme08_page018",
       "props": {
-        "eyebrow": "Structure",
-        "headline": "复盘结构",
-        "subheadline": "从方法到判断的阅读路径",
-        "chapters": [
-          { "name": "研究方法", "en": "Methodology" },
-          { "name": "市场全景", "en": "Market Panorama" },
-          { "name": "资本流向", "en": "Capital Flow" },
-          { "name": "赛道结构", "en": "Sector Structure" },
-          { "name": "典型案例", "en": "Case Studies" },
-          { "name": "风险展望", "en": "Risk & Outlook" }
-        ],
-        "closingLine": "先建立框架，再进入数据和判断。"
+        "eyebrow": "Deal Size Bands",
+        "headline": "大额融资结构",
+        "subheadline": "按交易规模拆分资金密度",
+        "summary": "大额交易继续推高市场总量,但中腰部项目的融资纪律已经开始分化。",
+        "closingLine": "规模不是唯一信号,资金集中度更能解释周期位置。"
       }
     },
     {
-      "layout": "theme08_page004",
+      "layout": "theme08_page030",
       "props": {
-        "eyebrow": "Market Panorama",
-        "headline": "市场全景 · 纵向趋势",
-        "subheadline": "逐季度融资额走势",
-        "summary": "融资热度在 Q2 与 Q3 达峰，Q4 理性回落但仍保持高位。",
-        "closingLine": "高峰过后不是崩塌，而是市场开始筛选。"
-      }
-    },
-    {
-      "layout": "theme08_page010",
-      "props": {
-        "eyebrow": "Heat vs. Monetization",
-        "headline": "资本热度 × 商业兑现",
-        "subheadline": "四象限机会判断",
-        "summary": "把资本热度与商业兑现交叉，可区分明星兑现、叙事泡沫、隐形价值与等待验证四类机会。",
+        "eyebrow": "Capital Flow",
+        "headline": "资本流向 · 典型案例",
+        "subheadline": "基础设施、模型层和垂直应用共同构成融资主线",
+        "summary": "头部公司吸纳超大额资金,中腰部项目需要用商业兑现证明估值。",
+        "badge": "CASE",
         "closingLine": "资本正在从叙事驱动转向兑现驱动。"
       }
     },
     {
-      "layout": "theme08_page082",
+      "layout": "theme08_page074",
       "props": {
-        "eyebrow": "Upward · 上行轨迹",
-        "headline": "一年走高的曲线",
-        "subheadline": "对角飘带",
-        "summary": "把关键节点串成一条向上的飘带，让趋势一眼可读。",
-        "closingLine": "趋势比单点更有说服力。"
+        "eyebrow": "Appendix",
+        "kicker": "数据来源与研究说明",
+        "label": "附录",
+        "source": "DashAI PPT example",
+        "sealTop": "AI",
+        "sealBottom": "2024"
       }
     }
   ]

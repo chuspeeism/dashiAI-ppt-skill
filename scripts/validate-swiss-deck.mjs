@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 import { existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
+import {
+  LOCAL_OUTPUT_ASSET_ROOTS,
+  REQUIRED_OUTPUT_ASSETS,
+} from '../src/runtime-assets.mjs';
 
 const file = process.argv[2];
 const allowExperimental = process.argv.includes('--allow-experimental');
@@ -15,6 +20,108 @@ const errors = [];
 const warnings = [];
 const normalizedFile = file.replace(/\\/g, '/');
 const isSwissTemplateShell = normalizedFile.endsWith('assets/template-swiss.html');
+const deckDir = path.dirname(file);
+
+if (!isSwissTemplateShell) {
+  const referencedAssets = collectLocalAssetRefs(html);
+  const runtimeFile = path.join(deckDir, 'assets/imported-theme-runtime.js');
+  if (existsSync(runtimeFile)) {
+    collectLocalAssetRefs(readFileSync(runtimeFile, 'utf8')).forEach(asset => referencedAssets.add(asset));
+  }
+
+  for (const asset of REQUIRED_OUTPUT_ASSETS) referencedAssets.add(asset);
+
+  [...referencedAssets].sort().forEach(asset => {
+    if (!existsSync(path.join(deckDir, asset))) {
+      errors.push(`Deck output is missing local asset file: ${asset}`);
+    }
+  });
+}
+
+function collectLocalAssetRefs(source) {
+  const refs = new Set();
+  for (const content of collectSourceVariants(source)) {
+    collectAttributeAssetRefs(content, refs);
+    collectCssUrlAssetRefs(content, refs);
+    collectStringAssetRefs(content, refs);
+  }
+  return refs;
+}
+
+function collectSourceVariants(source) {
+  const raw = String(source || '');
+  const variants = new Set([raw]);
+  variants.add(decodeHtmlEntities(raw));
+  for (const variant of [...variants]) {
+    variants.add(variant.replaceAll('\\/', '/'));
+  }
+  return variants;
+}
+
+function collectAttributeAssetRefs(source, refs) {
+  const attrRe = /\b(src|href|poster|srcset)\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/gi;
+  let match;
+  while ((match = attrRe.exec(source))) {
+    const attr = match[1].toLowerCase();
+    const value = match[2] ?? match[3] ?? match[4] ?? '';
+    const candidates = attr === 'srcset' ? splitSrcset(value) : [value];
+    candidates.forEach(candidate => addLocalAssetRef(refs, candidate));
+  }
+}
+
+function collectCssUrlAssetRefs(source, refs) {
+  const urlRe = /url\(\s*["']?([^"')]+)["']?\s*\)/gi;
+  let match;
+  while ((match = urlRe.exec(source))) {
+    addLocalAssetRef(refs, match[1]);
+  }
+}
+
+function collectStringAssetRefs(source, refs) {
+  const stringRe = /(?:^|["'`(,;:\s=])((?:\.\/|\/)?(?:assets|images|uploads)\/[^"'`<>)\s\\]+?\.(?:png|jpe?g|webp|gif|svg|mp4|mov|json|js|css|wasm|woff2?|ttf|otf|ico))(?:[?#][^"'`<>)\s\\]*)?/gi;
+  let match;
+  while ((match = stringRe.exec(source))) {
+    addLocalAssetRef(refs, match[1]);
+  }
+}
+
+function splitSrcset(value) {
+  return String(value || '')
+    .split(',')
+    .map(item => item.trim().split(/\s+/)[0])
+    .filter(Boolean);
+}
+
+function addLocalAssetRef(refs, value) {
+  const ref = normalizeLocalAssetRef(value);
+  if (ref) refs.add(ref);
+}
+
+function normalizeLocalAssetRef(ref) {
+  let value = decodeHtmlEntities(String(ref || '').trim()).replaceAll('\\/', '/');
+  if (!value || /^(?:data:|blob:|https?:|mailto:|tel:|javascript:|about:|file:|#)/i.test(value)) return null;
+  if (value.startsWith('//')) return null;
+  if (value.includes('${') || value.includes('{{')) return null;
+  value = value.split(/[?#]/)[0].trim();
+  if (!value) return null;
+  try {
+    value = decodeURIComponent(value);
+  } catch {}
+  value = value.replace(/^\/+/, '');
+  while (value.startsWith('./')) value = value.slice(2);
+  if (!LOCAL_OUTPUT_ASSET_ROOTS.some(root => value.startsWith(`${root}/`))) return null;
+  if (value.split('/').some(part => !part || part === '..')) return null;
+  return value;
+}
+
+function decodeHtmlEntities(value) {
+  return value
+    .replaceAll('&amp;', '&')
+    .replaceAll('&quot;', '"')
+    .replaceAll('&#39;', "'")
+    .replaceAll('&lt;', '<')
+    .replaceAll('&gt;', '>');
+}
 
 const manifestFile = 'layout-manifest.json';
 const optionsFile = 'src/options.jsx';

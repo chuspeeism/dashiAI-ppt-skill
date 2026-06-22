@@ -1,13 +1,20 @@
 #!/usr/bin/env node
-import { execFileSync, spawn, spawnSync } from 'node:child_process';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync, spawnSync } from 'node:child_process';
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { GENERATED_THEME_PACKS, GENERATED_THEME_PAGES } from '../src/components/themes/generated-metadata.js';
+import { PNG } from 'pngjs';
+import { GENERATED_THEME_PACKS } from '../src/components/themes/generated-metadata.js';
+import {
+  ACCEPTED_THEME_KEYS,
+  filterAcceptedThemePacks,
+} from '../src/accepted-themes.mjs';
+import { RUNTIME_ASSET_PATHS } from '../src/runtime-assets.mjs';
 import { inspectLayout } from './skill-workflow-utils.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const ACCEPTED_THEME_PACKS = filterAcceptedThemePacks(GENERATED_THEME_PACKS);
 
 const tests = [
   ['layout-query returns compact media candidates', testLayoutQuery],
@@ -17,9 +24,12 @@ const tests = [
   ['deck composer constrains media-aware roles', testDeckComposerMediaRoles],
   ['skill prompt keeps user-visible style and image-slot guidance', testSkillPromptGuidance],
   ['skill prompt covers Codex image-gen and export delivery guidance', testCodexImageGenExportDeliveryGuidance],
-  ['theme03 global dark controls avoid ineffective page theme', testTheme03GlobalDarkControls],
+  ['skill tools expose only accepted themes', testAcceptedThemeExposure],
+  ['synced skill output only uses accepted themes and runtime assets', testSyncedSkillOutput],
+  ['validate-swiss fails on missing referenced runtime assets', testValidateSwissMissingAsset],
   ['skill delivery uses HTTP/HTTPS preview for export support', testHttpPreviewDelivery],
   ['validate-goal-spec rejects unsafe goal shapes', testValidateGoalSpec],
+  ['checked-in goal examples pass goal spec', testCheckedInGoalExamples],
   ['preview panel handles type: images as an image list control', testImagesControl],
   ['control naming stays generic across user and agent contracts', testControlNaming],
 ];
@@ -60,7 +70,23 @@ function testLayoutQuery() {
 }
 
 function testControlNaming() {
-  execFileSync('node', ['scripts/validate-control-naming.mjs'], { cwd: ROOT, stdio: 'pipe' });
+  const result = spawnSync('node', ['scripts/validate-control-naming.mjs'], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+  if (result.status === 0) return;
+  const output = `${result.stdout}\n${result.stderr}`;
+  const failures = output
+    .split('\n')
+    .map(line => line.trim())
+    .filter(line => line.startsWith('- '))
+    .map(line => line.slice(2));
+  assert(failures.length, `Control naming validation failed:\n${output.trim()}`);
+  const unexpected = failures.filter(line => {
+    const match = line.match(/^inspect-layout missing (theme\d+)_page\d+$/);
+    return !match || ACCEPTED_THEME_KEYS.includes(match[1]);
+  });
+  assert(!unexpected.length, `Control naming validation failed:\n${unexpected.join('\n')}`);
 }
 
 function testInspectLayout() {
@@ -73,6 +99,10 @@ function testInspectLayout() {
   assert(result.countBindings?.some(binding => binding.key === 'imageSlotCount'), 'missing imageSlotCount binding');
   assert(result.controlKeys?.includes('images'), 'missing images control key');
   assert(JSON.stringify(result).length < 9000, 'inspect-layout output is too large');
+
+  const quadrant = runJson('scripts/inspect-layout.mjs', ['theme01_page031']);
+  assert(quadrant.propShapes?.quadrants?.[0]?.title === 'string', 'inspect-layout should expose array item shape');
+  assert(quadrant.propShapes?.quadrants?.[0]?.chips?.[0] === 'string', 'inspect-layout should expose nested array shape');
 }
 
 function testWriteSafeProps() {
@@ -87,7 +117,7 @@ function testWriteSafeProps() {
   const result = runJson('scripts/write-safe-props.mjs', ['theme01_page020', JSON.stringify(input)]);
   assert(!result.errors?.length, `unexpected errors: ${JSON.stringify(result.errors)}`);
   assert(result.props?.imageSlotCount === 2, 'expected imageSlotCount derived from authored images');
-  assert(result.props?.images?.length >= 5, 'expected images default tail to be preserved');
+  assert(result.props?.images?.join('|') === 'hero-a.png|hero-b.png', 'expected authored images to stay explicit without default image tail');
   assert(result.props?.items?.length >= 5, 'expected items default tail to be preserved');
   const itemTail = result.props.items.slice(2);
   const tailText = JSON.stringify(itemTail);
@@ -98,6 +128,15 @@ function testWriteSafeProps() {
   assert(itemTail[0].tone === 'green', 'expected non-copy visual fields to stay intact');
   const unknown = runJson('scripts/write-safe-props.mjs', ['theme01_page020', JSON.stringify({ madeUpProp: true })]);
   assert(unknown.warnings?.some(item => item.includes('madeUpProp')), 'expected unknown prop warning');
+
+  const badNested = spawnSync('node', ['scripts/write-safe-props.mjs', 'theme01_page031', JSON.stringify({
+    quadrants: [{ name: '高频低风险', desc: '错误字段应该被拒绝' }],
+  })], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+  assert(badNested.status !== 0, 'expected malformed nested array props to fail');
+  assert(`${badNested.stdout}\n${badNested.stderr}`.includes('props.quadrants[0].name'), 'expected nested prop shape error for quadrants[0].name');
 }
 
 function testMediaWorkflow() {
@@ -143,7 +182,7 @@ function testMediaWorkflow() {
   assert(provided.mediaIntent === 'provided-images', 'expected provided-images media intent');
   assert(provided.props?.imageSlotCount === 3, 'provided images should set imageSlotCount=3');
   assert(provided.props?.images?.slice(0, 3).join('|') === 'a.png|b.png|c.png', 'provided images should map to props.images');
-  assert(provided.props?.images?.length >= 5, 'provided images should preserve default media tail');
+  assert(provided.props?.images?.length === 3, 'provided images should stay explicit without default media tail');
 
   const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-media-goal-'));
   try {
@@ -238,23 +277,31 @@ function testSkillPromptGuidance() {
   const sync = readFileSync(path.join(ROOT, 'scripts/sync-skill.mjs'), 'utf8');
   const missing = [];
   if (!skill.includes('assets/skill/theme-style-grid.png')) missing.push('style grid image path');
+  if (!skill.includes('<skill-root>/assets/skill/theme-style-grid.png')) missing.push('style grid absolute skill-root path');
+  if (!(/Markdown 图片/.test(skill) && /绝对路径/.test(skill))) missing.push('style grid markdown absolute-path guidance');
   if (!(/风格选择提问/.test(skill) && /用户可见回复/.test(skill))) missing.push('user-visible style-choice reply rule');
   if (!/不能只在.*进度/.test(skill)) missing.push('progress-only style image warning');
-  if (!(/用户未提供图片/.test(skill) && /询问/.test(skill) && /预留图片槽/.test(skill))) missing.push('ask-to-reserve-image-slots rule');
-  for (const term of ['作品集', '品牌', '产品', '案例', '活动', '发布', '社媒', '设计', '人物', '团队', '方案展示']) {
-    if (!skill.includes(term)) missing.push(`visual task trigger ${term}`);
-  }
+  if (!(/视觉素材任务/.test(skill) && /先问/.test(skill) && /预留图片槽/.test(skill))) missing.push('ask-to-reserve-image-slots rule');
   if (!(/不能默认.*图片 slot.*0/.test(skill) || /不能默认.*图片槽.*0/.test(skill))) missing.push('do-not-default-image-slot-count-to-0 rule');
   if (!skill.includes('--planned-images <n>')) missing.push('planned-images workflow guidance');
   if (!skill.includes('--provided-images <n>')) missing.push('provided-images workflow guidance');
   if (!skill.includes('--image-gen')) missing.push('image-gen workflow guidance');
+  for (const term of ['随意', '自拟', '你来定', '不用问', '直接开干']) {
+    if (!skill.includes(term)) missing.push(`delegated no-question mode term ${term}`);
+  }
+  if (!/已验收主题[\s\S]{0,80}默认 HTML[\s\S]{0,80}默认不使用 image-gen/.test(skill)) {
+    missing.push('delegated mode defaults to accepted themes, no image-gen, and HTML');
+  }
   const styleHintLines = skill.match(/`theme\d+`[^。\n]*适合[:：][^。\n]*人群[:：][^。\n]*/g) || [];
-  if (styleHintLines.length !== 12) missing.push('12 short style scene/audience hints in the user-visible style-choice reply');
-  for (const theme of GENERATED_THEME_PACKS) {
+  if (styleHintLines.length !== ACCEPTED_THEME_KEYS.length) missing.push('accepted-theme short style scene/audience hints in the user-visible style-choice reply');
+  for (const theme of ACCEPTED_THEME_PACKS) {
     const line = styleHintLines.find(item => item.includes(`\`${theme.key}\``)) || '';
     if (!line.includes(theme.displayName)) missing.push(`metadata displayName for ${theme.key}`);
     if (!line.includes(shortThemeText(theme.scenario))) missing.push(`metadata scenario for ${theme.key}`);
     if (!line.includes(shortThemeText(theme.audience))) missing.push(`metadata audience for ${theme.key}`);
+  }
+  for (const theme of GENERATED_THEME_PACKS.filter(item => !ACCEPTED_THEME_KEYS.includes(item.key))) {
+    if (skill.includes(`\`${theme.key}\``)) missing.push(`unaccepted theme exposed in SKILL.md: ${theme.key}`);
   }
   for (const oldName of ['01-轻拟态质感', 'PULSE 色谱图表', '黑金实验质感']) {
     if (skill.includes(oldName)) missing.push(`old theme name ${oldName}`);
@@ -271,62 +318,128 @@ function testCodexImageGenExportDeliveryGuidance() {
   if (!/Codex\s*环境/.test(skill)) missing.push('Codex environment detection rule');
   if (!/Codex\s*环境[\s\S]{0,160}image-gen[\s\S]{0,120}生成图片/.test(skill)) missing.push('Codex image-gen prompt guidance');
   if (!/询问用户/.test(skill) && !/先询问/.test(skill)) missing.push('ask user before image-gen guidance');
-  if (!/(预览\s*(URL|链接|地址)|HTTP 导出地址)/.test(skill)) missing.push('final delivery preview URL requirement');
+  if (!/(预览\s*(URL|链接|地址)|本机 HTTP)/.test(skill)) missing.push('final delivery preview URL requirement');
   if (!/HTML 文件路径/.test(skill)) missing.push('final delivery HTML file path requirement');
-  if (!/(本机 HTTP|HTTP\/HTTPS)[\s\S]{0,120}(导出|用于导出).*(PPT|PPTX)/.test(skill)) missing.push('HTTP/HTTPS export-capable delivery distinction');
+  if (!/本机 HTTP[\s\S]{0,80}导出[\s\S]{0,80}(PPT|PPTX)/.test(skill)) missing.push('HTTP export-capable delivery distinction');
   if (!/(file:\/\/|本地 HTML)[\s\S]{0,120}不能导出可编辑 PPTX/.test(skill)) missing.push('file local HTML cannot export editable PPTX distinction');
-  if (!/最终产物[\s\S]{0,80}HTML[\s\S]{0,40}PPT\/PPTX/.test(skill)) missing.push('ask final artifact HTML or PPT/PPTX guidance');
-  if (!/推荐 HTML[\s\S]{0,80}效果更好[\s\S]{0,40}自定义程度更强/.test(skill)) missing.push('recommended HTML rationale');
-  if (!/PPT\/PPTX[\s\S]{0,120}先制作 HTML[\s\S]{0,120}输出可编辑 PPTX/.test(skill)) missing.push('PPT/PPTX follows HTML-first export flow');
-  if (!/PPT\/PPTX[\s\S]{0,160}不呈现 HTML 预览地址或 HTML 文件路径/.test(skill)) missing.push('PPT/PPTX final reply hides HTML delivery');
+  if (!/交付格式[\s\S]{0,80}默认 HTML/.test(skill)) missing.push('default HTML delivery state');
+  if (!/“生成 PPT”[\s\S]{0,80}“做 PPT”[\s\S]{0,80}“制作 ppt”[\s\S]{0,80}PPT 呈现形态/.test(skill)) missing.push('plain PPT request defaults to HTML guidance');
+  for (const term of ['PPTX', 'PPT/PPTX 文件', 'PowerPoint 文件', '可编辑 PPTX', '格式/文件类型为 PPT/PPTX']) {
+    if (!skill.includes(term)) missing.push(`explicit PPTX file trigger ${term}`);
+  }
+  if (!/PPTX 文件[\s\S]{0,80}先生成 HTML[\s\S]{0,80}HTTP 导出服务/.test(skill)) missing.push('PPTX follows HTML-first export flow');
+  if (!/PPTX 交付[\s\S]{0,80}只给 PPTX 文件路径或下载结果/.test(skill)) missing.push('PPTX final reply hides HTML delivery');
   if (!/HTTP\/HTTPS/.test(sync)) missing.push('synced installed skill preserves HTTP/HTTPS wording');
   if (!/playwright-core/.test(sync)) missing.push('synced runtime keeps PPTX export browser dependency');
   assert(!missing.length, `Codex/image-gen/export delivery guidance missing: ${missing.join(', ')}`);
 }
 
-function testTheme03GlobalDarkControls() {
-  const theme03Layouts = GENERATED_THEME_PAGES.filter(page => page.themeKey === 'theme03').map(page => page.key);
-  const missingForceDark = [];
-  const pageThemeControls = [];
-  for (const layout of theme03Layouts) {
-    const details = inspectLayout(layout);
-    if (!details?.controlKeys?.includes('forceDark')) missingForceDark.push(layout);
-    if (details?.controlKeys?.includes('theme')) pageThemeControls.push(layout);
+function testAcceptedThemeExposure() {
+  const themeQuery = runJson('scripts/layout-query.mjs', ['--role', 'cover', '--limit', '50']);
+  assert(themeQuery.layouts.length > 0, 'expected accepted theme layouts');
+  assert(themeQuery.layouts.every(item => ACCEPTED_THEME_KEYS.includes(item.theme)), 'layout-query should only expose accepted themes');
+  for (const themeKey of ACCEPTED_THEME_KEYS) {
+    const result = runJson('scripts/layout-query.mjs', ['--theme', themeKey, '--role', 'cover', '--limit', '5']);
+    assert(result.layouts.some(item => item.theme === themeKey), `layout-query should expose ${themeKey}`);
+    const firstLayout = result.layouts[0]?.layout || `${themeKey}_page001`;
+    const inspected = runJson('scripts/inspect-layout.mjs', [firstLayout]);
+    assert(inspected.theme === themeKey, `inspect-layout should expose ${themeKey}`);
   }
-  assert(!missingForceDark.length, `theme03 layouts missing global forceDark control: ${missingForceDark.slice(0, 8).join(', ')}`);
-  assert(!pageThemeControls.length, `theme03 exposes ineffective per-page theme controls: ${pageThemeControls.slice(0, 8).join(', ')}`);
+}
 
-  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-theme03-controls-'));
-  let server = null;
+function testSyncedSkillOutput() {
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-synced-skill-'));
+  const skillRoot = path.join(tmp, 'skill');
+  try {
+    execFileSync('node', ['scripts/sync-skill.mjs'], {
+      cwd: ROOT,
+      env: { ...process.env, DASHI_PPT_SKILL_ROOT: skillRoot },
+      stdio: 'pipe',
+    });
+
+    const visibleTextFiles = [
+      'SKILL.md',
+      'README.md',
+      'references/options.md',
+      'references/layout-pool.md',
+      'references/layout-roles.md',
+    ];
+    for (const file of visibleTextFiles) {
+      assertAcceptedThemeText(readFileSync(path.join(skillRoot, file), 'utf8'), file);
+    }
+    const styleGrid = PNG.sync.read(readFileSync(path.join(skillRoot, 'assets/skill/theme-style-grid.png')));
+    assert(styleGrid.height <= Math.ceil(styleGrid.width / ACCEPTED_THEME_KEYS.length), 'synced style grid should be cropped to accepted themes');
+
+    const schema = JSON.parse(readFileSync(path.join(skillRoot, 'references/goal-spec.schema.json'), 'utf8'));
+    assert(
+      JSON.stringify(schema.properties?.themePack?.enum || []) === JSON.stringify(ACCEPTED_THEME_KEYS),
+      'synced schema themePack enum should contain only accepted themes',
+    );
+    assertAcceptedThemeText(JSON.stringify(schema), 'references/goal-spec.schema.json');
+
+    const examplesRoot = path.join(skillRoot, 'references/examples');
+    for (const file of readdirSync(examplesRoot).filter(item => item.endsWith('.json'))) {
+      const examplePath = path.join(examplesRoot, file);
+      const example = JSON.parse(readFileSync(examplePath, 'utf8'));
+      assert(ACCEPTED_THEME_KEYS.includes(example.themePack), `${file} uses unaccepted themePack ${example.themePack}`);
+      for (const slide of example.slides || []) {
+        const themeKey = String(slide.layout || '').split('_')[0];
+        assert(ACCEPTED_THEME_KEYS.includes(themeKey), `${file} uses unaccepted layout ${slide.layout}`);
+      }
+      assertAcceptedThemeText(JSON.stringify(example), `references/examples/${file}`);
+      execFileSync('node', ['scripts/validate-goal-spec.mjs', examplePath], { cwd: ROOT, stdio: 'pipe' });
+    }
+
+    const installedMetadata = readFileSync(path.join(skillRoot, 'project/src/components/themes/generated-metadata.js'), 'utf8');
+    assertAcceptedThemeText(installedMetadata, 'project/src/components/themes/generated-metadata.js');
+
+    const installedManifest = JSON.parse(readFileSync(path.join(skillRoot, 'project/layout-manifest.json'), 'utf8'));
+    for (const [layoutKey, record] of Object.entries(installedManifest.layouts || {})) {
+      const themeKey = record?.themePack || record?.themeKey || layoutKey.split('_')[0];
+      assert(ACCEPTED_THEME_KEYS.includes(themeKey), `synced layout manifest exposes unaccepted layout ${layoutKey}`);
+    }
+    assertAcceptedThemeText(JSON.stringify(installedManifest), 'project/layout-manifest.json');
+
+    const projectAssetFiles = listFiles(path.join(skillRoot, 'project/assets'))
+      .map(file => path.relative(path.join(skillRoot, 'project'), file).split(path.sep).join('/'));
+    for (const file of projectAssetFiles) {
+      assert(
+        RUNTIME_ASSET_PATHS.some(assetPath => file === assetPath || file.startsWith(`${assetPath}/`)),
+        `synced project copied non-runtime asset ${file}`,
+      );
+    }
+    assert(
+      !existsSync(path.join(skillRoot, 'project/assets/skill/theme-style-grid.png')),
+      'synced project should not copy the full assets/skill directory',
+    );
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+function testValidateSwissMissingAsset() {
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-missing-asset-'));
   try {
     const goalPath = path.join(tmp, 'goal.json');
     const outPath = path.join(tmp, 'ppt/index.html');
     writeFileSync(goalPath, JSON.stringify({
-      title: 'Theme03 Control Smoke',
-      goal: 'verify global dark control',
-      themePack: 'theme03',
-      slides: [
-        { layout: 'theme03_page002', props: { forceDark: true, theme: 'light', titleA: '年终', titleAccent: '汇报', titleB: '', titleC: '' } },
-        { layout: 'theme03_page006', props: { forceDark: true } },
-      ],
+      title: 'Missing Asset Smoke',
+      goal: 'validate swiss should fail when a referenced runtime asset is missing',
+      themePack: 'theme01',
+      slides: [{ layout: 'theme01_page001', props: { kicker: 'ASSET', titleTop: 'Missing', titleBottom: 'Asset' } }],
     }, null, 2));
-    renderGoal(goalPath, outPath);
-    const html = readFileSync(outPath, 'utf8');
-    const runtime = readFileSync(path.join(tmp, 'ppt/assets/imported-theme-runtime.js'), 'utf8');
-    assert(/data-theme-pack="theme03"/.test(html), 'rendered deck should mark theme03 slides');
-    assert(/&quot;key&quot;:&quot;forceDark&quot;/.test(html), 'rendered prop controls should expose forceDark');
-    assert(!/&quot;key&quot;:&quot;theme&quot;/.test(html), 'rendered prop controls should not expose ineffective per-page theme');
-    assert(/theme03-theme-toggle/.test(runtime), 'theme03 runtime should include visible global dark icon toggle');
-    assert(/__getTheme03GlobalDark/.test(runtime) && /__setTheme03GlobalDark/.test(runtime), 'theme03 runtime should expose global dark sync bridge');
-    assert(/rd-themechange/.test(runtime), 'theme03 runtime should dispatch global dark sync events');
 
-    const port = 48000 + (process.pid % 1000);
-    server = startPreviewServer(path.dirname(outPath), port);
-    const url = `https://localhost:${port}/`;
-    fetchHttpsWithRetry(url);
-    runTheme03BrowserProbe(url);
+    execFileSync('npm', ['run', 'render:goal', '--', goalPath, outPath], { cwd: ROOT, stdio: 'pipe' });
+    execFileSync('npm', ['run', 'validate:swiss', '--', outPath], { cwd: ROOT, stdio: 'pipe' });
+    rmSync(path.join(tmp, 'ppt/assets/ui-icons/sidebar.svg'), { force: true });
+
+    const result = spawnSync('npm', ['run', 'validate:swiss', '--', outPath], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    });
+    assert(result.status !== 0, 'validate:swiss should fail after deleting a referenced runtime asset');
+    assert(`${result.stdout}\n${result.stderr}`.includes('assets/ui-icons/sidebar.svg'), 'missing asset error should mention sidebar.svg');
   } finally {
-    if (server && !server.killed) server.kill('SIGTERM');
     rmSync(tmp, { recursive: true, force: true });
   }
 }
@@ -338,11 +451,11 @@ function testHttpPreviewDelivery() {
   const missing = [];
   if (!/preview:start/.test(skill)) missing.push('skill preview:start workflow');
   if (!/http:\/\/(?:127\.0\.0\.1|localhost):<port>\//.test(skill)) missing.push('local HTTP export URL guidance');
-  if (!/不要把\s*`?http:\/\/jadon\.local:<port>\/`?\s*作为最终 HTTP 导出地址/.test(skill)) missing.push('do not use jadon.local HTTP as final export URL rule');
-  if (!/HTTP LAN\/jadon\.local[\s\S]{0,80}下载失败/.test(skill)) missing.push('HTTP LAN/jadon.local download failure warning');
+  if (!/http:\/\/jadon\.local:<port>\/[\s\S]{0,40}不作导出主入口/.test(skill)) missing.push('do not use jadon.local HTTP as final export URL rule');
+  if (!/http:\/\/jadon\.local:<port>\/[\s\S]{0,40}不作导出主入口/.test(skill)) missing.push('jadon.local HTTP is not export entry');
   if (!/https:\/\/jadon\.local:<port>\//.test(skill)) missing.push('jadon.local preview URL guidance');
   if (!/HTML 文件路径/.test(skill)) missing.push('HTML file path delivery rule');
-  if (!/(本机 HTTP|HTTP 本机)[\s\S]{0,120}(导出|用于导出).*(PPT|PPTX)/.test(skill)) missing.push('local HTTP link exports PPT/PPTX rule');
+  if (!/本机 HTTP[\s\S]{0,80}导出[\s\S]{0,80}(PPT|PPTX)/.test(skill)) missing.push('local HTTP link exports PPT/PPTX rule');
   if (!/(file:\/\/|本地 HTML)[\s\S]{0,120}不能导出可编辑 PPTX/.test(skill)) missing.push('file/local HTML cannot export editable PPTX rule');
   if (!/preview:start/.test(sync)) missing.push('synced render shell starts preview');
   if (!/DASHI_PPT_PROJECT_ROOT/.test(sync)) missing.push('synced render shell project root override');
@@ -376,7 +489,11 @@ function testHttpPreviewDelivery() {
             chips: ['HTTP', 'HTTPS', 'Delivery'],
             panelIndex: '01',
             panelEn: 'LOCAL PREVIEW',
-            meta: ['Workflow', 'Validation', 'JAD-150'],
+            meta: [
+              { label: 'MODE', value: 'Workflow' },
+              { label: 'CHECK', value: 'Validation' },
+              { label: 'ID', value: 'JAD-150' },
+            ],
             footnote: 'DashAI PPT · Preview delivery smoke',
           },
         },
@@ -404,6 +521,9 @@ function testHttpPreviewDelivery() {
       env: { ...process.env, DASHI_PPT_SKILL_ROOT: skillRoot },
       stdio: 'pipe',
     });
+    assert(existsSync(path.join(skillRoot, 'project/assets/ui-icons/sidebar.svg')), 'synced skill project should include UI icons');
+    assert(existsSync(path.join(skillRoot, 'project/assets/social-icons/github.svg')), 'synced skill project should include social icons');
+    assert(existsSync(path.join(skillRoot, 'project/assets/skill/dashiai-ppt-favicon.png')), 'synced skill project should include favicon asset');
     const shell = path.join(skillRoot, 'scripts/render_goal_deck.sh');
     const output = execFileSync(shell, [goalPath, outPath], {
       cwd: ROOT,
@@ -469,6 +589,13 @@ function testValidateGoalSpec() {
       slides: [{ layout: 'theme01_page020', props: { madeUpProp: 'x' } }],
     }, ['slide 1', 'theme01_page020', 'madeUpProp']);
 
+    expectGoalFailure(tmp, 'unknown-nested-prop.json', {
+      title: 'Unknown Nested Prop',
+      goal: 'should fail',
+      themePack: 'theme01',
+      slides: [{ layout: 'theme01_page031', props: { quadrants: [{ name: '高频低风险', desc: '错误字段应该被拒绝' }] } }],
+    }, ['slide 1', 'theme01_page031', 'props.quadrants[0].name']);
+
     expectGoalFailure(tmp, 'multi-cover.json', {
       title: 'Multi Cover',
       goal: 'should fail',
@@ -499,13 +626,19 @@ function testValidateGoalSpec() {
   }
 }
 
+function testCheckedInGoalExamples() {
+  const examplesRoot = path.join(ROOT, 'examples/goal-decks');
+  for (const file of readdirSync(examplesRoot).filter(item => item.endsWith('.json'))) {
+    execFileSync('node', ['scripts/validate-goal-spec.mjs', path.join(examplesRoot, file)], { cwd: ROOT, stdio: 'pipe' });
+  }
+}
+
 function testImagesControl() {
   const source = execFileSync('node', ['-e', `
     const fs = require('fs');
     const src = fs.readFileSync('assets/template-swiss.html', 'utf8');
     if (!/type\\s*===\\s*['"]images['"]/.test(src)) process.exit(2);
     if (!/image-list/.test(src)) process.exit(3);
-    if (!/pp-image-list/.test(src)) process.exit(4);
   `], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' });
   assert(source === '', 'unexpected template probe output');
 }
@@ -533,152 +666,24 @@ function runJson(script, args) {
   return JSON.parse(stdout);
 }
 
-function renderGoal(goalPath, outPath) {
-  execFileSync('npm', ['run', 'render:goal', '--', goalPath, outPath], { cwd: ROOT, stdio: 'pipe' });
+function assertAcceptedThemeText(text, label) {
+  for (const theme of GENERATED_THEME_PACKS.filter(item => !ACCEPTED_THEME_KEYS.includes(item.key))) {
+    assert(!text.includes(theme.key), `${label} exposes unaccepted theme ${theme.key}`);
+  }
 }
 
-function startPreviewServer(dir, port) {
-  return spawn(process.execPath, ['scripts/serve-preview-https.mjs', dir, String(port)], {
-    cwd: ROOT,
-    env: { ...process.env, HOST: '127.0.0.1' },
-    stdio: ['ignore', 'ignore', 'pipe'],
-  });
-}
-
-function runTheme03BrowserProbe(url) {
-  execFileSync(process.execPath, ['--input-type=module', '-e', `
-    import { existsSync } from 'node:fs';
-    import { chromium } from 'playwright-core';
-
-    const chromePath = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
-    if (!existsSync(chromePath)) throw new Error('Chrome executable not found: ' + chromePath);
-
-    const browser = await chromium.launch({ headless: true, executablePath: chromePath });
-    try {
-      const context = await browser.newContext({
-        ignoreHTTPSErrors: true,
-        viewport: { width: 1920, height: 1080 },
-      });
-      const page = await context.newPage();
-      page.setDefaultTimeout(5000);
-      page.setDefaultNavigationTimeout(8000);
-      await page.goto(${JSON.stringify(url)}, { waitUntil: 'domcontentloaded' });
-      await page.waitForSelector('#deck > .slide[data-theme-pack="theme03"]', { timeout: 5000 });
-      if (await page.locator('#preview-toggle').getAttribute('aria-expanded') !== 'true') {
-        await page.locator('#preview-toggle').click({ force: true });
-      }
-      await page.waitForFunction(() => {
-        const panel = document.querySelector('#preview-props');
-        return panel && panel.textContent.includes('全局深色');
-      });
-      await page.waitForFunction(() => {
-        const panel = document.querySelector('#preview-panel');
-        if (!panel) return false;
-        const rect = panel.getBoundingClientRect();
-        const matrix = new DOMMatrixReadOnly(getComputedStyle(panel).transform);
-        return Math.abs(rect.right - window.innerWidth) <= 1 && Math.abs(matrix.m41) <= 1;
-      });
-
-      const panelText = await page.locator('#preview-props').innerText();
-      if (panelText.includes('背景主题') || /(^|\\s)theme(\\s|$)/i.test(panelText)) {
-        throw new Error('theme03 side panel still exposes per-page theme control: ' + panelText);
-      }
-      if (!panelText.includes('全局深色')) throw new Error('theme03 side panel missing global dark control');
-
-      const forceDarkRow = page.locator('#preview-props .preview-prop-row', { hasText: '全局深色' });
-      const forceDarkInput = forceDarkRow.locator('input[type="checkbox"]');
-      if (await forceDarkInput.count() !== 1) throw new Error('expected one global dark checkbox');
-      const forceDarkSwitchBox = await forceDarkRow.locator('.pp-switch').boundingBox();
-      const viewport = page.viewportSize();
-      if (!forceDarkSwitchBox || forceDarkSwitchBox.width <= 0 || forceDarkSwitchBox.height <= 0) {
-        throw new Error('theme03 global dark switch has no visible hit area');
-      }
-      if (
-        viewport &&
-        (forceDarkSwitchBox.x < 0 ||
-          forceDarkSwitchBox.y < 0 ||
-          forceDarkSwitchBox.x + forceDarkSwitchBox.width > viewport.width ||
-          forceDarkSwitchBox.y + forceDarkSwitchBox.height > viewport.height)
-      ) {
-        throw new Error('theme03 global dark switch is outside the viewport: ' + JSON.stringify({ switch: forceDarkSwitchBox, viewport }));
-      }
-
-      const toggle = page.locator('.theme03-theme-toggle');
-      await toggle.waitFor({ state: 'visible', timeout: 5000 });
-      const geometry = await page.evaluate(() => {
-        const button = document.querySelector('.theme03-theme-toggle');
-        const stage = document.querySelector('#deck-viewport');
-        if (!button || !stage) return null;
-        const b = button.getBoundingClientRect();
-        const s = stage.getBoundingClientRect();
-        return {
-          button: { left: b.left, top: b.top, right: b.right, bottom: b.bottom, width: b.width, height: b.height },
-          stage: { left: s.left, top: s.top, right: s.right, bottom: s.bottom, width: s.width, height: s.height },
-          display: getComputedStyle(button).display,
-          visibility: getComputedStyle(button).visibility,
-          hidden: button.hidden,
-        };
-      });
-      if (!geometry) throw new Error('missing theme03 toggle or deck viewport');
-      if (geometry.hidden || geometry.display === 'none' || geometry.visibility === 'hidden') throw new Error('theme03 toggle is hidden');
-      if (geometry.button.width <= 0 || geometry.button.height <= 0) throw new Error('theme03 toggle has zero bbox');
-      if (
-        geometry.button.left < geometry.stage.left ||
-        geometry.button.top < geometry.stage.top ||
-        geometry.button.right > geometry.stage.right ||
-        geometry.button.bottom > geometry.stage.bottom
-      ) {
-        throw new Error('theme03 toggle is outside the deck stage: ' + JSON.stringify(geometry));
-      }
-
-      const before = await page.evaluate(() => ({
-        dark: window.__getTheme03GlobalDark?.(),
-        bodyDark: document.body.classList.contains('rd-force-dark'),
-        pressed: document.querySelector('.theme03-theme-toggle')?.getAttribute('aria-pressed'),
-        checked: document.querySelector('#preview-props .preview-prop-row input[type="checkbox"]')?.checked,
-      }));
-
-      await toggle.click();
-      await page.waitForFunction(previous => window.__getTheme03GlobalDark?.() !== previous, before.dark);
-      const afterIcon = await page.evaluate(() => ({
-        dark: window.__getTheme03GlobalDark?.(),
-        bodyDark: document.body.classList.contains('rd-force-dark'),
-        pressed: document.querySelector('.theme03-theme-toggle')?.getAttribute('aria-pressed'),
-        checked: document.querySelector('#preview-props .preview-prop-row input[type="checkbox"]')?.checked,
-      }));
-      if (afterIcon.dark === before.dark) throw new Error('icon click did not change global dark state');
-      if (afterIcon.bodyDark !== afterIcon.dark) throw new Error('body dark class did not sync with icon click');
-      if (afterIcon.checked !== afterIcon.dark) throw new Error('side panel checkbox did not sync after icon click');
-      if (afterIcon.pressed !== String(afterIcon.dark)) throw new Error('icon aria-pressed did not sync after icon click');
-      await page.waitForFunction(() => document.documentElement.dataset.themeVt !== 'active');
-
-      const forceDarkSwitchBoxAfterIcon = await forceDarkRow.locator('.pp-switch').boundingBox();
-      if (!forceDarkSwitchBoxAfterIcon) throw new Error('theme03 global dark switch disappeared after icon click');
-      await page.waitForFunction(({ x, y }) => {
-        return document.elementFromPoint(x, y)?.matches?.('#preview-props .preview-prop-row input[type="checkbox"]');
-      }, {
-        x: forceDarkSwitchBoxAfterIcon.x + forceDarkSwitchBoxAfterIcon.width / 2,
-        y: forceDarkSwitchBoxAfterIcon.y + forceDarkSwitchBoxAfterIcon.height / 2,
-      });
-      await page.mouse.click(
-        forceDarkSwitchBoxAfterIcon.x + forceDarkSwitchBoxAfterIcon.width / 2,
-        forceDarkSwitchBoxAfterIcon.y + forceDarkSwitchBoxAfterIcon.height / 2,
-      );
-      await page.waitForFunction(previous => window.__getTheme03GlobalDark?.() !== previous, afterIcon.dark);
-      const afterPanel = await page.evaluate(() => ({
-        dark: window.__getTheme03GlobalDark?.(),
-        bodyDark: document.body.classList.contains('rd-force-dark'),
-        pressed: document.querySelector('.theme03-theme-toggle')?.getAttribute('aria-pressed'),
-        checked: document.querySelector('#preview-props .preview-prop-row input[type="checkbox"]')?.checked,
-      }));
-      if (afterPanel.dark === afterIcon.dark) throw new Error('side panel click did not change global dark state');
-      if (afterPanel.bodyDark !== afterPanel.dark) throw new Error('body dark class did not sync with panel click');
-      if (afterPanel.checked !== afterPanel.dark) throw new Error('side panel checkbox state is stale after panel click');
-      if (afterPanel.pressed !== String(afterPanel.dark)) throw new Error('icon aria-pressed did not sync after panel click');
-    } finally {
-      await browser.close();
+function listFiles(dir) {
+  if (!existsSync(dir)) return [];
+  const files = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const file = path.join(dir, entry.name);
+    if (entry.isDirectory()) {
+      files.push(...listFiles(file));
+    } else if (entry.isFile()) {
+      files.push(file);
     }
-  `], { cwd: ROOT, stdio: 'pipe', timeout: 30000 });
+  }
+  return files;
 }
 
 function cleanupPreviewProcess(pid) {

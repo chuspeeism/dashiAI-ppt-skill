@@ -492,23 +492,20 @@ npm run validate:goal-copy -- <goal-json> <output-html>
 
 ## 本轮执行结果
 
-截至本轮接入,12 个入口全部完成审计。按“Skill 可稳定替换文案、可读取页面属性契约、可离线渲染”的标准,当前通过验收并进入 Skill 可选项的主题为:
+截至本轮接入,12 个入口全部完成审计并进入 Skill 可选项。按 `src/components/themes/generated-metadata.js` 记录,当前已验收主题共 1019 页:
 
-- `theme01`: 大师-轻拟态质感 · 89 页
-- `theme02`: 大师-炫光紫绿 · 74 页
-- `theme08`: AI Capital Lab · 82 页
-
-以下主题未进入 Skill 可选项,已写入 `output/blocked-for-claude.md`:
-
-- `theme03`: 57/77 页缺少足够的 props 文案 / 数据默认值。
-- `theme04`: 入口已确认并可读取 74 页,但 74/74 页缺少足够的 props 文案 / 数据默认值。
-- `theme05`: 依赖 IIFE 和 `window.Pulse*` 全局注册。
-- `theme06`: 45/79 页缺少足够的 props 文案 / 数据默认值,且 79/79 页没有 controls。
-- `theme07`: 70/70 页缺少足够的 props 文案 / 数据默认值。
-- `theme09`: 111/111 页缺少足够的 props 文案 / 数据默认值。
-- `theme10`: 依赖 `window.DeckKit` / `Object.assign(window...)` 浏览器全局运行时。
-- `theme11`: 38/86 页缺少足够的 props 文案 / 数据默认值。
-- `theme12`: 86/86 页缺少足够的 props 文案 / 数据默认值。
+- `theme01`: 轻拟态风 · 84 页
+- `theme02`: 炫光紫绿风 · 74 页
+- `theme03`: 深浅代码风 · 77 页
+- `theme04`: 玻璃糖果风 · 74 页
+- `theme05`: 色谱图表风 · 94 页
+- `theme06`: 深色图谱风 · 83 页
+- `theme07`: 冷白调研风 · 71 页
+- `theme08`: 黑金实验风 · 84 页
+- `theme09`: 深蓝杂志风 · 111 页
+- `theme10`: 金色指数风 · 95 页
+- `theme11`: 高能增长风 · 86 页
+- `theme12`: 声波霓虹风 · 86 页
 
 已通过的关键命令:
 
@@ -521,7 +518,13 @@ npm run render:themes
 npm run skill:sync
 ```
 
-实际 goal 验收:
+12 主题全量页面验收:
+
+- `npm run showcase:update` 覆盖 `theme01` 到 `theme12`,共 1019 个 layout。
+- `npm run render:themes` 渲染 1019 页。
+- `npm run validate:swiss -- output/theme-preview/ppt/index.html` 通过。
+
+实际 goal 抽样验收:
 
 - `theme01`: `examples/goal-decks/portfolio.json` 渲染 5 页,`validate:swiss` 和 `validate:goal-copy` 通过。
 - `theme02`: `output/goal-check-theme02/goal.json` 渲染 8 页,`validate:swiss` 和 `validate:goal-copy` 通过。

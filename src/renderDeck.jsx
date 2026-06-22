@@ -16,6 +16,11 @@ import {
   renderDeckView,
   serializeDeckViewModel,
 } from './view-model/index.jsx';
+import {
+  REQUIRED_OUTPUT_ASSETS,
+  RUNTIME_ASSET_PATHS,
+  RUNTIME_TEMPLATE,
+} from './runtime-assets.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const MIGRATION_ONLY_DIRS = new Set(['uploads', 'screens', 'screenshots', 'shots', 'scratch']);
@@ -30,7 +35,7 @@ export function renderDeck(deck, { outFile, includeThemeSwitcher = deck.preview?
     resolveOption,
   });
   const { key: themePackName } = viewModel.themePack;
-  const template = fs.readFileSync(path.join(ROOT, 'assets/template-swiss.html'), 'utf8');
+  const template = fs.readFileSync(path.join(ROOT, RUNTIME_TEMPLATE), 'utf8');
   const slides = renderToStaticMarkup(<>{renderDeckView(viewModel)}</>);
   let html = insertSlides(template, slides);
   html = html.replace('<html lang="zh-CN">', `<html lang="zh-CN" data-theme-pack="${themePackName}">`);
@@ -109,10 +114,10 @@ function copyRuntimeAssets(outDir) {
     copyFileIfExists(path.join(ROOT, 'node_modules/gsap/dist/gsap.min.js'), path.join(assetsDir, 'vendor/gsap.min.js'));
     copyFileIfExists(path.join(ROOT, 'node_modules/pptxgenjs/dist/pptxgen.bundle.js'), path.join(assetsDir, 'vendor/pptxgen.bundle.js'));
     copyFileIfExists(path.join(ROOT, 'node_modules/html-to-image/dist/html-to-image.js'), path.join(assetsDir, 'vendor/html-to-image.js'));
-    copyFileIfExists(path.join(ROOT, PREVIEW_FAVICON), path.join(outDir, PREVIEW_FAVICON));
-    copyDirectoryIfExists(path.join(ROOT, 'assets/unicorn'), path.join(assetsDir, 'unicorn'));
-    copyDirectoryIfExists(path.join(ROOT, 'assets/social-icons'), path.join(assetsDir, 'social-icons'));
-    copyDirectoryIfExists(path.join(ROOT, 'assets/ui-icons'), path.join(assetsDir, 'ui-icons'));
+    for (const assetPath of RUNTIME_ASSET_PATHS) {
+      if (assetPath === RUNTIME_TEMPLATE) continue;
+      copyRuntimeAsset(assetPath, outDir);
+    }
     copyImportedThemeAssets(outDir);
     buildImportedThemeRuntime(path.join(assetsDir, 'imported-theme-runtime.js'));
     restoreUserMediaDirs(preservedUserMedia, outDir);
@@ -120,6 +125,20 @@ function copyRuntimeAssets(outDir) {
     if (!fs.existsSync(imageSlotStateFile)) fs.writeFileSync(imageSlotStateFile, '{}\n');
   } finally {
     cleanupPreservedUserMedia(preservedUserMedia);
+  }
+}
+
+function copyRuntimeAsset(assetPath, outDir) {
+  const source = path.join(ROOT, assetPath);
+  const target = path.join(outDir, assetPath);
+  if (!fs.existsSync(source)) {
+    throw new Error(`Runtime asset is listed but missing: ${assetPath}`);
+  }
+  if (fs.statSync(source).isDirectory()) {
+    copyDirectoryIfExists(source, target);
+  } else {
+    fs.mkdirSync(path.dirname(target), { recursive: true });
+    fs.copyFileSync(source, target);
   }
 }
 
@@ -170,13 +189,25 @@ function buildImportedThemeRuntime(outFile) {
 function copyImportedThemeAssets(outDir) {
   const themesDir = path.join(ROOT, 'src/components/themes');
   if (!fs.existsSync(themesDir)) return;
-  for (const themeKey of fs.readdirSync(themesDir)) {
+  const copiedByRelativePath = new Map(
+    REQUIRED_OUTPUT_ASSETS.map(assetPath => [
+      assetPath,
+      { themeKey: 'runtime', from: path.join(ROOT, assetPath) },
+    ]),
+  );
+  for (const themeKey of fs.readdirSync(themesDir).sort()) {
     const sourceDir = path.join(themesDir, themeKey, 'source');
     if (!fs.existsSync(sourceDir)) continue;
     const files = [];
     collectThemeAssetFiles(sourceDir, files);
     files.forEach(from => {
       const rel = path.relative(sourceDir, from);
+      const outputRel = rel.replaceAll(path.sep, '/');
+      const existing = copiedByRelativePath.get(outputRel);
+      if (existing) {
+        throw new Error(`Theme asset output path collision: ${outputRel} (${existing.themeKey}: ${existing.from}, ${themeKey}: ${from})`);
+      }
+      copiedByRelativePath.set(outputRel, { themeKey, from });
       const to = path.join(outDir, rel);
       fs.mkdirSync(path.dirname(to), { recursive: true });
       fs.copyFileSync(from, to);
@@ -185,7 +216,7 @@ function copyImportedThemeAssets(outDir) {
 }
 
 function collectThemeAssetFiles(dir, out) {
-  for (const name of fs.readdirSync(dir)) {
+  for (const name of fs.readdirSync(dir).sort()) {
     const file = path.join(dir, name);
     const stat = fs.statSync(file);
     if (stat.isDirectory()) {

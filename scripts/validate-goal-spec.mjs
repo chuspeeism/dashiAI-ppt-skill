@@ -4,6 +4,7 @@ import { pathToFileURL } from 'node:url';
 import {
   getMediaSlotsForLayout,
   getLayoutRecord,
+  getThemePackMetadata,
   isCoverCandidate,
   isCoverLikeLayout,
   layoutExists,
@@ -26,6 +27,10 @@ export function validateGoalSpec(spec) {
   validateFreeHtml(spec?.goal, 'deck', '<deck>', 'goal', errors);
   validateObjectStrings(spec?.text, 'deck', '<deck>', 'text', errors);
   validateObjectStrings(spec?.props, 'deck', '<deck>', 'props', errors);
+
+  if (spec?.themePack && !getThemePackMetadata(spec.themePack)) {
+    errors.push(`deck field themePack: unknown or unavailable themePack "${spec.themePack}"`);
+  }
 
   if (Object.prototype.hasOwnProperty.call(spec || {}, 'media')) {
     errors.push('deck layout <deck> field media: top-level media is not rendered; use each slide props.images or props.media');

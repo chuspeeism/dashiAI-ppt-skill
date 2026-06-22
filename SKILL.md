@@ -30,9 +30,10 @@ node scripts/check_latest_version.mjs
 ## 使用规则
 
 - 运行生成器需要 Node.js 18+ 和 npm;首次生成时渲染脚本会在 Skill 内置 `project/` 目录安装依赖。
-- 开始阶段先判断当前是否为 Codex 环境,例如 Codex 桌面/CLI 会话或工具列表可用 `image_gen`。如果是 Codex 环境,在确认风格和图片意图时必须询问用户是否需要通过 image-gen 生成图片配到 PPT 中;用户同意后再生成图片,并在选页时使用 `--image-gen`。
-- 开始阶段先确认用户想要的风格。用户没有明确指定时,如果当前环境支持图片展示,风格选择提问的用户可见回复必须嵌入 `assets/skill/theme-style-grid.png`;发送前把 Skill 根目录展开成绝对路径,例如 `![风格选择参考](<skill-root>/assets/skill/theme-style-grid.png)`。不能只在内部进度提示中提到这张图,不要只发文字编号让用户选。默认风格选择回复必须包含风格图、12 个风格短名称和极简“适合/人群”提示;只有用户需要详细解释时再读取 `references/options.md`。
-- 开始阶段如果已经需要询问用户风格、图片意图、页数或内容重点,可以一起询问最终产物需要 HTML 还是 PPT/PPTX。推荐 HTML,并说明 HTML 效果更好、自定义程度更强。用户没有明确选择时按 HTML 交付。用户明确选择 PPT/PPTX 时,仍按标准流程先制作 HTML 和启动本机预览服务,再通过本机 HTTP 导出服务输出可编辑 PPTX;最终只呈现 PPT/PPTX 文件路径或下载结果,不把 HTML 预览地址或 HTML 文件路径呈现给用户,除非用户另外要求 HTML 或需要排查导出问题。
+- 风格选择提问:用户可见回复必须嵌入 `<skill-root>/assets/skill/theme-style-grid.png` 的 Markdown 图片,先展开绝对路径;列出当前可选风格和极简“适合/人群”,不能只在内部进度提示中提到风格图。
+- 委托模式:用户说“随意”“自拟”“你来定”“不用问”“直接开干”时,自选已验收主题,默认 HTML,默认不使用 image-gen,最终说明假设。
+- 交付格式:默认 HTML;“生成 PPT”“做 PPT”“做一个 PPT”“制作 ppt”表示 PPT 呈现形态。只有明确 `PPTX`、`PPT/PPTX 文件`、`PPT 文件`、`PowerPoint 文件`、`可编辑 PPTX` 或“格式/文件类型为 PPT/PPTX”时才交付 PPTX 文件。
+- PPTX 文件:仍先生成 HTML 并启动本机预览服务,再调用本机 HTTP 导出服务;最终只给 PPTX 文件路径或下载结果。
 - 当前可选风格: `theme01` 轻拟态风、`theme02` 炫光紫绿风、`theme03` 深浅代码风、`theme04` 玻璃糖果风、`theme05` 色谱图表风、`theme06` 深色图谱风、`theme07` 冷白调研风、`theme08` 黑金实验风、`theme09` 深蓝杂志风、`theme10` 金色指数风、`theme11` 高能增长风、`theme12` 声波霓虹风。
 <!-- theme-choice-hints:start -->
   - `theme01` 轻拟态风 | 适合: 产品介绍 / 企业汇报 | 人群: 创业团队 / 产品经理
@@ -49,9 +50,9 @@ node scripts/check_latest_version.mjs
   - `theme12` 声波霓虹风 | 适合: 音乐娱乐 / 潮流活动 | 人群: 娱乐品牌 / 活动策划
 <!-- theme-choice-hints:end -->
 - 不使用旧 token、旧主题、旧图片 slot、旧风格分支或旧入场动画控制。
-- 普通生成不要直接打开大型 `layout-manifest.json` 或 `generated-metadata.js`。选页先运行 `npm run layout:query -- --theme <themePack> --role <role> --limit 8`;需要图片槽时加 `--needs-media`、`--planned-images <n>`、`--provided-images <n>` 或 `--image-gen`。`layout:query` 已输出候选页的 `copyKeys` 和 `mediaSlots`;不要为每一页机械运行 `inspect:layout`。
-- 只有选中页面字段不清楚、需要数组/count、或要写图片/媒体时,才运行 `npm run inspect:layout -- <layout>`;只有写复杂数组或图片 props 时,才运行 `npm run props:safe -- <layout> '<props-json>' [--images <path...>]`。
-- 图片和视频的真实写入点是页面 `props.images` / `props.media`;不要写顶层 `media` 或 `slides[].media`。用户未提供图片时,如果任务类型可能需要视觉素材,例如作品集、品牌、产品、案例、活动、发布、社媒、设计、人物、团队、方案展示等,必须先询问是否预留图片槽;用户确认不需要时才选纯文案页或隐藏图片槽。不能默认把图片 slot 数量设为 0。用户说要预留图片时使用 `--planned-images <n>`,用户提供图片时使用 `--provided-images <n>`,需要 image-gen 时先询问用户是否同意并使用 `--image-gen`。
+- 选页先用 `npm run layout:query -- --theme <themePack> --role <role> --limit 8`;需要图片槽时加 `--needs-media`、`--planned-images <n>`、`--provided-images <n>` 或 `--image-gen`。
+- 字段不清楚、对象/数组/count、图片/媒体:运行 `inspect:layout`;写对象、数组、数量或图片 props:运行 `props:safe` 并按 `propShapes` 填 key。
+- 图片/视频只写 `props.images` / `props.media`。视觉素材任务先问是否预留图片槽;不能默认图片槽为 0。用户同意用 `--planned-images <n>`,用户给图用 `--provided-images <n>`,Codex 环境 image-gen 生成图片前先询问并用 `--image-gen`。
 - 元素出现动画使用 Claude Design 页面组件自带的原生效果。
 - 页面切换动画可以在预览控制面板里调整。
 - 面向用户交付的 deck 默认不显示风格/主题切换选项;风格切换只保留在内部调试 demo 页面。用户明确要求保留主题切换时,在 goal 顶层写 `preview: {"themeSwitcher": true}`。
@@ -59,27 +60,27 @@ node scripts/check_latest_version.mjs
 - 每套主题的前 5 页 `themeXX_page001` 到 `themeXX_page005` 都是封面候选。一个 deck 只能从前 5 页中选择 1 页作为封面,不要同时使用多个封面页;正文页从第 6 页以后选择。
 - 同一套 PPT 中不要出现重复的页面组件:最终 `slides[].layout` 必须唯一。选页时记录已用 `layout`,不同内容页要换同主题其它候选,不要通过改文案复用同一个 layout。
 - 面向用户交付的 deck 不能只写 `role` 后依赖页面默认文案。除非用户明确要默认 demo,每一页都必须写和用户主题对应的 `props` 文案。
-- 优先只写 `layout:query` 或 `inspect:layout` 暴露的文案字段。用户明确要求调整数量、显隐、强调、颜色、图表或图片槽时,才写对应 control props,并用 `props:safe` 保留数组默认尾部。
+- 优先只写 `layout:query` / `inspect:layout` 暴露的文案字段。字段是对象或数组时按 `propShapes` 填内部 key。
 - 不要改页面元数据、组件源码、className、CSS、样式字段或默认视觉结构来完成内容填充。只在 `props` 内填写内容和用户明确要求的页面属性。
 - 允许用顶层 `text` 覆盖可见文字槽位,但只用于替换文字内容。不要在普通生成中启动浏览器批量抽取全页面文本槽位;只有用户明确要求“彻底清除所有模板默认文案/逐页校对可见文案”时才做运行时槽位抽取。
 - 禁止复用 `output/` 里已有的旧 `goal.json` 或旧 HTML。每次请求都新建本次输出目录和本次 JSON 计划。
-- HTML 交付时,最终回复必须同时给本次请求的本机 HTTP 导出地址、HTTPS/局域网备用预览地址和对应 HTML 文件路径,例如 `http://127.0.0.1:<port>/`、`https://jadon.local:<port>/` 和 `output/<deck-name>/ppt/index.html`。用于导出 PPT/PPTX 的 HTTP 预览地址必须给本机地址,优先 `http://127.0.0.1:<port>/` 或 `http://localhost:<port>/`;不要把 `http://jadon.local:<port>/` 作为最终 HTTP 导出地址给用户。`jadon.local` 可以作为 HTTPS 或局域网浏览备用地址,但必须提示 HTTP LAN/jadon.local 可能导致下载失败,不作为导出主入口。必须明确说明本机 HTTP 链接可用于导出 HTML/PDF/PPT/PPTX,直接打开本地 HTML 路径或 `file://` 只能浏览,不能导出可编辑 PPTX。不要返回 `theme-preview` 或其它调试页。
-- PPT/PPTX 交付时,不要跳过 HTML 渲染和校验;先按标准流程生成 `output/<deck-name>/ppt/index.html` 并启动本机 HTTP/HTTPS 预览服务,再调用本机 HTTP 导出服务生成可编辑 PPTX。示例: `curl -sS -X POST http://127.0.0.1:<port>/api/export-editable-pptx -H 'content-type: application/json' --data '{"title":"<title>","fileName":"<deck-name>","sourcePath":"/"}'`。最终回复只给 PPT/PPTX 文件路径或下载结果,不呈现 HTML 预览地址或 HTML 文件路径,除非用户另外要求。
+- HTML 交付:给 `http://127.0.0.1:<port>/`、`https://jadon.local:<port>/`、HTML 文件路径;本机 HTTP 可导出 HTML/PDF/PPTX,`http://jadon.local:<port>/` 不作导出主入口,本地 HTML 或 `file://` 不能导出可编辑 PPTX。不要返回 `theme-preview`。
+- PPTX 交付:调用 `/api/export-editable-pptx`;最终只给 PPTX 文件路径或下载结果。
 - 如果输出正文里出现与用户主题无关的默认文案,例如 AI Capital / 投融资 / SoundWave / 声浪 / Key Metrics / Roadmap / End of Report 等,必须重写 JSON 后重新渲染,不能交付。
 
 ## 工作流
 
-1. 提炼用户目标: `title`、`goal`、`audience`、`owner`、页数、内容重点和最终产物格式。需要询问用户时可一起问 HTML 还是 PPT/PPTX,推荐 HTML。
+1. 提炼用户目标: `title`、`goal`、`audience`、`owner`、页数、内容重点和最终产物格式。
 2. 确认 `themePack`。用户未指定时先询问风格;用户选定后生成 `randomSeed`,例如 `<主题>-<日期>-<3位随机词>`,保证随机选页可复现。
-3. 判断图片意图:如果当前是 Codex 环境,先询问用户是否需要通过 image-gen 生成图片配到 PPT 中;用户已给图片用 `--provided-images <n>`;用户计划后续配图用 `--planned-images <n>`;需要生图用 `--image-gen` 并先询问。用户未提供图片但任务天然需要视觉素材时,先问是否预留图片槽,不要默认把图片 slot 设为 0。
-4. 快路径:用 `layout:query` 选候选,直接用其 `copyKeys` 写普通文字 props。只有字段不清楚、数组/count 或图片/媒体时,再用 `inspect:layout` / `props:safe`。
+3. 判断图片意图:无图但需要视觉素材时先问是否预留图片槽;Codex image-gen 先询问。
+4. 快路径:用 `layout:query` 选候选;对象/数组/count/图片 props 用 `inspect:layout` + `props:safe`。
 5. 每页只承载一个主要信息角色。无法安全覆盖的页面优先换 layout,不要改样式字段硬凑。
 6. 把 JSON 写入本次工作目录的 `output/<deck-name>/goal.json`;渲染前必须通过 goal spec 校验。
 7. 运行 `npm run render:goal -- output/<deck-name>/goal.json output/<deck-name>/ppt/index.html`。
 8. 运行 `npm run validate:swiss -- output/<deck-name>/ppt/index.html`。
 9. 运行 `npm run validate:goal-copy -- output/<deck-name>/goal.json output/<deck-name>/ppt/index.html`。
 10. 从项目目录启动本地 HTTP/HTTPS 预览服务: `npm run preview:start -- output/<deck-name>/ppt <port>`。
-11. 根据最终产物格式交付:HTML 交付时给本机 HTTP 导出地址、HTTPS/局域网备用预览地址和 HTML 文件路径,并说明本机 HTTP 链接可用于导出 PPT/PPTX,`http://jadon.local:<port>/` 这类 HTTP LAN/jadon.local 地址可能导致下载失败且不作为导出主入口,直接打开本地 HTML 或 `file://` 不能导出可编辑 PPTX;PPT/PPTX 交付时先调用本机 HTTP 导出服务输出可编辑 PPTX,最终只给 PPT/PPTX 文件路径或下载结果,不呈现 HTML 预览地址或 HTML 文件路径。
+11. 按交付格式回复:HTML 给本机 HTTP、HTTPS 备用、HTML 文件路径;PPTX 只给文件路径或下载结果。
 
 ## 返工与浏览器检查
 
@@ -107,7 +108,7 @@ node scripts/check_latest_version.mjs
     {"layout": "theme01_page006", "props": {"kicker": "核心数字", "value": "970", "unit": "亿美元", "sub": "2024 年美国 AI 风险投资规模创历史新高。"}},
     {"layout": "theme01_page010", "props": {"kicker": "# 研究方法", "title": "横纵分析法", "cn": "用时间维度和赛道维度交叉识别融资变化。"}},
     {"layout": "theme01_page030", "props": {"kicker": "# 典型案例", "title": "里程碑 · 头部公司融资节奏"}},
-    {"layout": "theme01_page089", "props": {"kicker": "# 附录", "title": "数据来源与研究说明"}}
+    {"layout": "theme01_page084", "props": {"kicker": "# 附录", "title": "数据来源与研究说明"}}
   ]
 }
 ```
@@ -135,11 +136,10 @@ node scripts/check_latest_version.mjs
 普通生成不要读 `layout-manifest.json`。先用 `layout:query` 输出的候选摘要。只有需要更细契约时,再用 `inspect:layout` 看单页契约:
 
 - `copyKeys`: 可安全改写的文案/数据字段。
+- `propShapes`: `copyKeys` / 数组字段的内部形状;写 `copy`、`cells`、`items`、`rows` 等对象字段时只使用这里列出的 key。
 - `mediaSlots`: 图片/视频写入字段、count key、默认数量和最大数量。
 - `countBindings`: 数量参数与数组字段的绑定。
 - `controlKeys`: 右侧面板可操作字段。
-
-需要写数组、数量或图片时,用 `props:safe` 输出归一化 props。它会保留数组默认尾部,并根据 `props.images` / `props.media` 派生对应 count。
 
 ## 校验
 

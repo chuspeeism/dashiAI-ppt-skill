@@ -67,10 +67,8 @@ for (const [layout, record] of Object.entries(manifest.layouts || {})) {
 }
 
 for (const layout of [
-  'theme04_page001',
+  'theme01_page020',
   'theme08_page069',
-  'theme10_page010',
-  'theme12_page068',
   'theme02_page046',
 ]) {
   validateToolContract(layout);

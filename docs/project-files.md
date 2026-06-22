@@ -1209,13 +1209,15 @@
 |   |-- view-model/
 |   |   |-- context.jsx - Deck ViewModel 构建层和 React Context。
 |   |   `-- index.jsx - Deck ViewModel 构建层和 React Context。
+|   |-- accepted-themes.mjs - 项目源码或配置文件。
 |   |-- control-naming.mjs - 项目源码或配置文件。
 |   |-- deckComposer.jsx - 目标 deck 编排器,把用户目标 JSON 计划映射为当前已验收主题页面。
 |   |-- options.jsx - 布局选项注册表,只登记当前已验收主题页面。
 |   |-- prop-contract-core.mjs - 项目源码或配置文件。
 |   |-- propContracts.jsx - 项目源码或配置文件。
 |   |-- react-shim.js - 项目源码或配置文件。
-|   `-- renderDeck.jsx - 核心渲染器,构建 Deck ViewModel 并把 React slides 注入 HTML 模板。
+|   |-- renderDeck.jsx - 核心渲染器,构建 Deck ViewModel 并把 React slides 注入 HTML 模板。
+|   `-- runtime-assets.mjs - 项目源码或配置文件。
 |-- .gitignore - 项目源码或配置文件。
 |-- AGENTS.md - 项目源码或配置文件。
 |-- layout-manifest.json - 项目源码或配置文件。
