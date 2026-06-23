@@ -1,16 +1,18 @@
 #!/usr/bin/env node
 import { execFileSync, spawnSync } from 'node:child_process';
-import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import net from 'node:net';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { PNG } from 'pngjs';
-import { GENERATED_THEME_PACKS } from '../src/components/themes/generated-metadata.js';
+import { GENERATED_THEME_PACKS, GENERATED_THEME_PAGES } from '../src/components/themes/generated-metadata.js';
 import {
   ACCEPTED_THEME_KEYS,
   filterAcceptedThemePacks,
 } from '../src/accepted-themes.mjs';
 import { RUNTIME_ASSET_PATHS } from '../src/runtime-assets.mjs';
+import { isSerializedReactElementLike } from '../src/prop-contract-core.mjs';
 import { inspectLayout } from './skill-workflow-utils.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -28,17 +30,22 @@ const tests = [
   ['synced skill output only uses accepted themes and runtime assets', testSyncedSkillOutput],
   ['validate-swiss fails on missing referenced runtime assets', testValidateSwissMissingAsset],
   ['skill delivery uses HTTP/HTTPS preview for export support', testHttpPreviewDelivery],
+  ['goal scaffold creates concrete unique deck skeleton', testGoalScaffold],
   ['validate-goal-spec rejects unsafe goal shapes', testValidateGoalSpec],
+  ['generated theme metadata has no serialized React defaults', testGeneratedMetadataNoSerializedReactDefaults],
+  ['validate-goal-copy rejects neutral placeholder copy', testValidateGoalCopyPlaceholders],
+  ['validate-goal-copy ignores hidden nested array tails', testValidateGoalCopyNestedHiddenTails],
   ['checked-in goal examples pass goal spec', testCheckedInGoalExamples],
   ['preview panel handles type: images as an image list control', testImagesControl],
   ['control naming stays generic across user and agent contracts', testControlNaming],
+  ['theme12 shared chrome stays deck-neutral', testTheme12SharedChromeNeutral],
 ];
 
 const failures = [];
 
 for (const [name, fn] of tests) {
   try {
-    fn();
+    await fn();
     console.log(`ok - ${name}`);
   } catch (error) {
     failures.push([name, error]);
@@ -67,6 +74,14 @@ function testLayoutQuery() {
   assert(JSON.stringify(result).length < 7000, 'layout-query output is too large');
   assert(result.layouts.every(item => item.layout?.startsWith('theme01_')), 'expected theme01 layouts only');
   assert(result.layouts.some(item => item.mediaSlots?.length), 'expected at least one media slot candidate');
+
+  const ambient = runJson('scripts/layout-query.mjs', [
+    '--theme', 'theme12',
+    '--role', 'ambient',
+    '--limit', '5',
+  ]);
+  assert(ambient.layouts.length > 0, 'expected ambient background candidates');
+  assert(ambient.layouts.every(item => item.roles?.includes('ambient')), 'ambient candidates should expose ambient role');
 }
 
 function testControlNaming() {
@@ -90,6 +105,12 @@ function testControlNaming() {
 }
 
 function testInspectLayout() {
+  const help = spawnSync('node', ['scripts/inspect-layout.mjs', '--help'], {
+    cwd: ROOT,
+    encoding: 'utf8',
+  });
+  assert(help.status === 0 && `${help.stdout}\n${help.stderr}`.includes('Usage:'), 'inspect-layout --help should print usage');
+
   const result = runJson('scripts/inspect-layout.mjs', ['theme01_page020']);
   assert(result.layout === 'theme01_page020', 'unexpected layout');
   assert(result.copyKeys?.includes('title'), 'missing title copy key');
@@ -98,11 +119,28 @@ function testInspectLayout() {
   assert(result.mediaSlots?.some(slot => slot.field === 'images' && slot.countKey === 'imageSlotCount'), 'missing images media slot');
   assert(result.countBindings?.some(binding => binding.key === 'imageSlotCount'), 'missing imageSlotCount binding');
   assert(result.controlKeys?.includes('images'), 'missing images control key');
+  assert(result.copyBudgets?.title?.density === 'display', 'inspect-layout should expose display copy budget for title');
+  assert(Number(result.copyBudgets?.title?.maxChars) > 0, 'inspect-layout should expose title maxChars');
   assert(JSON.stringify(result).length < 9000, 'inspect-layout output is too large');
 
   const quadrant = runJson('scripts/inspect-layout.mjs', ['theme01_page031']);
   assert(quadrant.propShapes?.quadrants?.[0]?.title === 'string', 'inspect-layout should expose array item shape');
   assert(quadrant.propShapes?.quadrants?.[0]?.chips?.[0] === 'string', 'inspect-layout should expose nested array shape');
+
+  const compactQuadrant = runJson('scripts/inspect-layout.mjs', ['--compact', 'theme01_page031']);
+  assert(compactQuadrant.propShapes?.quadrants?.[0]?.title === 'string', 'compact inspect-layout should expose array item shape');
+  assert(compactQuadrant.propShapes?.quadrants?.[0]?.chips?.[0] === 'string', 'compact inspect-layout should expose nested array shape');
+  assert(Number(compactQuadrant.copyBudgets?.title?.maxChars) > 0, 'compact inspect-layout should expose copy budgets');
+  assert(JSON.stringify(compactQuadrant).length < 5000, 'compact inspect-layout output is too large');
+
+  const statement = runJson('scripts/inspect-layout.mjs', ['theme05_page037']);
+  const statementJson = JSON.stringify(statement);
+  assert(statement.propShapes?.copy?.quote === 'string', 'theme05 statement quote should be exposed as a string, not React internals');
+  assert(!/copy\\.quote\\.props|_owner|_store|ref/.test(statementJson), 'inspect-layout should not expose serialized React element internals');
+
+  const multi = runJson('scripts/inspect-layout.mjs', ['--layout', 'theme01_page020', '--layout=theme01_page031']);
+  assert(Array.isArray(multi.layouts) && multi.layouts.length === 2, 'inspect-layout should support multiple layouts');
+  assert(multi.layouts[0].layout === 'theme01_page020' && multi.layouts[1].layout === 'theme01_page031', 'inspect-layout multi output should keep requested layouts');
 }
 
 function testWriteSafeProps() {
@@ -128,6 +166,40 @@ function testWriteSafeProps() {
   assert(itemTail[0].tone === 'green', 'expected non-copy visual fields to stay intact');
   const unknown = runJson('scripts/write-safe-props.mjs', ['theme01_page020', JSON.stringify({ madeUpProp: true })]);
   assert(unknown.warnings?.some(item => item.includes('madeUpProp')), 'expected unknown prop warning');
+
+  const backgroundMedia = runJson('scripts/write-safe-props.mjs', ['theme12_page020', JSON.stringify({
+    media: ['assets/user-media/hero.webp'],
+  })]);
+  assert(backgroundMedia.props?.backgroundMode === 'media', 'authored media should switch supported backgroundMode to media');
+
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-props-goal-'));
+  try {
+    const goalPath = path.join(tmp, 'goal.json');
+    writeFileSync(goalPath, JSON.stringify({
+      title: 'Props Safe Goal',
+      goal: 'should pass whole-goal props safety check',
+      themePack: 'theme01',
+      slides: [{ layout: 'theme01_page020', props: { title: '整份检查', images: ['x.png'] } }],
+    }, null, 2));
+    const goalSafe = runJson('scripts/write-safe-props.mjs', ['--goal', goalPath]);
+    assert(goalSafe.ok === true && goalSafe.slideCount === 1, 'props:safe --goal should validate a complete goal');
+
+    const badGoalPath = path.join(tmp, 'bad-goal.json');
+    writeFileSync(badGoalPath, JSON.stringify({
+      title: 'Bad Props Safe Goal',
+      goal: 'should fail whole-goal props safety check',
+      themePack: 'theme01',
+      slides: [{ layout: 'theme01_page020', props: { madeUpProp: true } }],
+    }, null, 2));
+    const badGoal = spawnSync('node', ['scripts/write-safe-props.mjs', '--goal', badGoalPath], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    });
+    assert(badGoal.status !== 0, 'props:safe --goal should fail on unsafe goal props');
+    assert(`${badGoal.stdout}\n${badGoal.stderr}`.includes('madeUpProp'), 'props:safe --goal failure should mention bad prop');
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
 
   const badNested = spawnSync('node', ['scripts/write-safe-props.mjs', 'theme01_page031', JSON.stringify({
     quadrants: [{ name: '高频低风险', desc: '错误字段应该被拒绝' }],
@@ -186,6 +258,26 @@ function testMediaWorkflow() {
 
   const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-media-goal-'));
   try {
+    const pngPath = path.join(tmp, 'Sample Media.png');
+    const png = new PNG({ width: 1, height: 1 });
+    png.data[0] = 255;
+    png.data[3] = 255;
+    writeFileSync(pngPath, PNG.sync.write(png));
+    const staged = runJson('scripts/stage-media.mjs', [path.join(tmp, 'ppt'), pngPath]);
+    assert(staged.items?.[0]?.relative === 'assets/user-media/sample-media.png', 'media:stage should copy image assets with stable relative paths');
+    assert(existsSync(path.join(tmp, 'ppt/assets/user-media/sample-media.png')), 'media:stage should write under ppt assets directory');
+
+    const stagedFromDeckRoot = runJson('scripts/stage-media.mjs', [path.join(tmp, 'deck-root'), pngPath]);
+    assert(stagedFromDeckRoot.outDir === path.join(tmp, 'deck-root/ppt'), 'media:stage should treat a deck root as deck-root/ppt');
+    assert(existsSync(path.join(tmp, 'deck-root/ppt/assets/user-media/sample-media.png')), 'media:stage deck root mode should write under ppt assets directory');
+
+    const avifPath = path.join(tmp, 'sample-media.avif');
+    if (tryCreateAvif(pngPath, avifPath)) {
+      const stagedAvif = runJson('scripts/stage-media.mjs', [path.join(tmp, 'ppt-avif'), avifPath]);
+      assert(stagedAvif.items?.[0]?.convertedFrom === 'avif', 'media:stage should report AVIF conversion');
+      assert(/\.(webp|png)$/.test(stagedAvif.items?.[0]?.relative || ''), 'media:stage should convert AVIF to a browser-safe image');
+    }
+
     expectGoalFailure(tmp, 'needs-visual-no-slot.json', {
       title: 'Needs Visual',
       goal: 'should fail',
@@ -283,9 +375,25 @@ function testSkillPromptGuidance() {
   if (!/不能只在.*进度/.test(skill)) missing.push('progress-only style image warning');
   if (!(/视觉素材任务/.test(skill) && /先问/.test(skill) && /预留图片槽/.test(skill))) missing.push('ask-to-reserve-image-slots rule');
   if (!(/不能默认.*图片 slot.*0/.test(skill) || /不能默认.*图片槽.*0/.test(skill))) missing.push('do-not-default-image-slot-count-to-0 rule');
+  if (!(/文案长度/.test(skill) && /短词/.test(skill) && /短句/.test(skill))) missing.push('copy length guidance');
+  if (!(/copyBudgets/.test(skill) && /display/.test(skill) && /metric/.test(skill))) missing.push('copyBudgets display/metric guidance');
+  if (!(/media:stage/.test(skill) && /relative/.test(skill) && /AVIF/.test(skill))) missing.push('media:stage AVIF relative-path guidance');
+  if (!(/本次 deck 目录/.test(skill) && /deck 内相对路径/.test(skill) && /外部绝对路径/.test(skill))) missing.push('deck-local media path guidance');
+  if (!(/渲染后核对/.test(skill) && /ppt\/<relative>/.test(skill) && /HTML 包含文件名/.test(skill))) missing.push('post-render media path check guidance');
+  if (!(/缺失时只补最终 `ppt\/assets`/.test(skill) && /重跑校验/.test(skill))) missing.push('post-render media repair scope guidance');
+  if (!(/props:safe -- --goal/.test(skill) || /props:safe --goal/.test(skill))) missing.push('whole-goal props:safe guidance');
+  if (!(/goal:scaffold/.test(skill) && /唯一 layout 骨架/.test(skill))) missing.push('goal scaffold guidance');
+  if (!(/可见数组项/.test(skill) && /隐藏的尾项/.test(skill) && /请输入文本/.test(skill))) missing.push('visible-vs-hidden placeholder guidance');
+  if (!(/图片\/视频素材每个最多使用一次/.test(skill) && /不要重复填充同一素材/.test(skill))) missing.push('provided media one-time-use guidance');
+  if (!(/素材用完/.test(skill) && /媒体插槽留空/.test(skill) && /无媒体插槽页面/.test(skill))) missing.push('media exhausted empty-or-no-media guidance');
+  if (!(/subagent/.test(skill) && /并行/.test(skill) && /不要串行/.test(skill))) missing.push('parallel image generation guidance');
+  if (!(/subagent 只用于生图/.test(skill) && /不用于选题、文案、选页或校验/.test(skill))) missing.push('subagents only for image generation guidance');
+  if (!(/输出目录/.test(skill) && /当前会话工作目录/.test(skill) && /<skill-root>\/project\/output/.test(skill))) missing.push('output should stay in current thread working directory');
+  if (!(/ambient/.test(skill) && /动态背景页/.test(skill))) missing.push('ambient background page guidance');
   if (!skill.includes('--planned-images <n>')) missing.push('planned-images workflow guidance');
   if (!skill.includes('--provided-images <n>')) missing.push('provided-images workflow guidance');
   if (!skill.includes('--image-gen')) missing.push('image-gen workflow guidance');
+  if (!(/canPresetMedia/.test(skill) && /presetProp/.test(skill))) missing.push('preset media slot guidance');
   for (const term of ['随意', '自拟', '你来定', '不用问', '直接开干']) {
     if (!skill.includes(term)) missing.push(`delegated no-question mode term ${term}`);
   }
@@ -307,6 +415,13 @@ function testSkillPromptGuidance() {
     if (skill.includes(oldName)) missing.push(`old theme name ${oldName}`);
   }
   if (!sync.includes('theme-style-grid.png')) missing.push('sync style grid asset handling');
+  if (!(/copyBudgets/.test(sync) && /media:stage/.test(sync) && /props:safe -- --goal/.test(sync))) missing.push('sync reference copy/media/whole-goal props tool guidance');
+  if (!(/goal:scaffold/.test(sync) && /唯一 layout 骨架/.test(sync))) missing.push('sync reference goal scaffold guidance');
+  if (!(/当前会话工作目录/.test(sync) && /<skill-root>\/project\/output/.test(sync))) missing.push('sync reference current-thread output guidance');
+  if (!(/ambient/.test(sync) && /动态背景/.test(sync))) missing.push('sync reference ambient background guidance');
+  if (!(/subagent/.test(sync) && /并行/.test(sync) && /只用于生图/.test(sync))) missing.push('sync reference parallel image-gen guidance');
+  if (!(/隐藏的尾项/.test(sync) && /请输入文本/.test(sync))) missing.push('sync reference hidden placeholder guidance');
+  if (!(/canPresetMedia/.test(sync) && /presetProp/.test(sync))) missing.push('sync reference preset media guidance');
   if (/THEME_CHOICE_HINTS/.test(sync)) missing.push('hardcoded THEME_CHOICE_HINTS table');
   assert(!missing.length, `Skill prompt guidance missing: ${missing.join(', ')}`);
 }
@@ -324,7 +439,7 @@ function testCodexImageGenExportDeliveryGuidance() {
   if (!/(file:\/\/|本地 HTML)[\s\S]{0,120}不能导出可编辑 PPTX/.test(skill)) missing.push('file local HTML cannot export editable PPTX distinction');
   if (!/交付格式[\s\S]{0,80}默认 HTML/.test(skill)) missing.push('default HTML delivery state');
   if (!/“生成 PPT”[\s\S]{0,80}“做 PPT”[\s\S]{0,80}“制作 ppt”[\s\S]{0,80}PPT 呈现形态/.test(skill)) missing.push('plain PPT request defaults to HTML guidance');
-  for (const term of ['PPTX', 'PPT/PPTX 文件', 'PowerPoint 文件', '可编辑 PPTX', '格式/文件类型为 PPT/PPTX']) {
+  for (const term of ['PPTX', 'PowerPoint', '可编辑 PPTX', '导出 PPTX', 'PPT 格式', '格式/文件类型为 PPT/PPTX']) {
     if (!skill.includes(term)) missing.push(`explicit PPTX file trigger ${term}`);
   }
   if (!/PPTX 文件[\s\S]{0,80}先生成 HTML[\s\S]{0,80}HTTP 导出服务/.test(skill)) missing.push('PPTX follows HTML-first export flow');
@@ -351,11 +466,22 @@ function testSyncedSkillOutput() {
   const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-synced-skill-'));
   const skillRoot = path.join(tmp, 'skill');
   try {
+    const scratchFile = path.join(skillRoot, 'scratch/keep.txt');
+    const localNoteFile = path.join(skillRoot, 'local-note.txt');
+    const syncManifestFile = path.join(skillRoot, '.sync-manifest.json');
+    mkdirSync(path.dirname(scratchFile), { recursive: true });
+    writeFileSync(scratchFile, 'keep');
+    writeFileSync(localNoteFile, 'keep');
+    writeFileSync(syncManifestFile, '{"version":1,"files":["old"]}\n');
+
     execFileSync('node', ['scripts/sync-skill.mjs'], {
       cwd: ROOT,
       env: { ...process.env, DASHI_PPT_SKILL_ROOT: skillRoot },
       stdio: 'pipe',
     });
+    assert(existsSync(scratchFile), 'skill sync should preserve scratch files under an installed skill root');
+    assert(existsSync(localNoteFile), 'skill sync should preserve unrelated installed skill files');
+    assert(!existsSync(syncManifestFile), 'skill sync should not keep a diff-noisy sync manifest in the installed skill root');
 
     const visibleTextFiles = [
       'SKILL.md',
@@ -444,7 +570,7 @@ function testValidateSwissMissingAsset() {
   }
 }
 
-function testHttpPreviewDelivery() {
+async function testHttpPreviewDelivery() {
   const skill = readFileSync(path.join(ROOT, 'SKILL.md'), 'utf8');
   const sync = readFileSync(path.join(ROOT, 'scripts/sync-skill.mjs'), 'utf8');
   const template = readFileSync(path.join(ROOT, 'assets/template-swiss.html'), 'utf8');
@@ -552,6 +678,87 @@ function testHttpPreviewDelivery() {
     assert(previewState.url === `https://jadon.local:${port}/`, 'preview state should keep jadon.local HTTPS URL');
     assert(previewState.pid, 'preview state should include server pid');
     cleanupPreviewProcess(previewState.pid);
+
+    const occupiedRoot = path.join(tmp, 'occupied/ppt');
+    mkdirSync(occupiedRoot, { recursive: true });
+    writeFileSync(path.join(occupiedRoot, 'index.html'), '<!doctype html><title>Occupied Ports</title>');
+    const occupiedPort = 48500 + (process.pid % 300);
+    const occupiedServers = await listenContiguousPorts(occupiedPort, 45);
+    try {
+      const occupiedOutput = execFileSync('node', ['scripts/start-preview-server.mjs', occupiedRoot, String(occupiedPort)], {
+        cwd: ROOT,
+        env: { ...process.env, DASHI_PPT_PREVIEW_HOST: '127.0.0.1' },
+        encoding: 'utf8',
+        stdio: ['ignore', 'pipe', 'pipe'],
+      });
+      const occupiedState = JSON.parse(readFileSync(path.join(occupiedRoot, '.preview-server.json'), 'utf8'));
+      assert(occupiedState.port >= occupiedPort + 45, `preview should scan beyond 40 occupied ports, got ${occupiedState.port}`);
+      assert(occupiedOutput.includes(`:${occupiedState.port}/`), 'preview output should mention the selected fallback port');
+      cleanupPreviewProcess(occupiedState.pid);
+    } finally {
+      closeServers(occupiedServers);
+    }
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+function testGoalScaffold() {
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-goal-scaffold-'));
+  try {
+    for (const themeKey of ACCEPTED_THEME_KEYS) {
+      const goalPath = path.join(tmp, `${themeKey}.json`);
+      execFileSync('npm', ['run', 'goal:scaffold', '--',
+        '--title', '20 页骨架',
+        '--goal', '验证长 deck 先生成具体 layout 骨架',
+        '--theme', themeKey,
+        '--pages', '20',
+        '--chunk-size', '5',
+        '--out', goalPath,
+      ], { cwd: ROOT, stdio: 'pipe' });
+      const spec = JSON.parse(readFileSync(goalPath, 'utf8'));
+      assert(spec.themePack === themeKey, 'scaffold should preserve requested theme');
+      assert(spec.pageCount === 20, 'scaffold should preserve requested page count');
+      assert(spec.slides?.length === 20, 'scaffold should create 20 slides');
+      assert(spec.slides.every(slide => slide.layout?.startsWith(`${themeKey}_`)), 'scaffold should use requested theme layouts');
+      assert(spec.slides.every(slide => !slide.role && slide.props && typeof slide.props === 'object'), 'scaffold should output concrete layouts with props objects');
+      assert(new Set(spec.slides.map(slide => slide.layout)).size === spec.slides.length, 'scaffold should not repeat layouts');
+      const coverLayouts = spec.slides.map(slide => slide.layout).filter(layout => new RegExp(`^${themeKey}_page00[1-5]$`).test(layout));
+      assert(coverLayouts.length === 1, `scaffold should use exactly one cover candidate for ${themeKey}, got ${coverLayouts.join(', ')}`);
+      execFileSync('node', ['scripts/validate-goal-spec.mjs', goalPath], { cwd: ROOT, stdio: 'pipe' });
+
+      const chunks = readdirSync(tmp).filter(file => new RegExp(`^${themeKey}\\.part-\\d+\\.json$`).test(file)).sort();
+      assert(chunks.length === 4, `scaffold should create 4 chunk files for ${themeKey}, got ${chunks.join(', ')}`);
+      const chunkSlides = chunks.flatMap(file => JSON.parse(readFileSync(path.join(tmp, file), 'utf8')).slides || []);
+      assert(JSON.stringify(chunkSlides.map(slide => slide.layout)) === JSON.stringify(spec.slides.map(slide => slide.layout)), 'chunk files should preserve slide order');
+      assert(chunks.every(file => (JSON.parse(readFileSync(path.join(tmp, file), 'utf8')).slides || []).length <= 5), 'chunk files should honor chunk size');
+    }
+
+    const goalPath = path.join(tmp, 'theme09-media.json');
+    execFileSync('npm', ['run', 'goal:scaffold', '--',
+      '--title', '20 页骨架',
+      '--goal', '验证长 deck 先生成具体 layout 骨架',
+      '--theme', 'theme09',
+      '--pages', '20',
+      '--chunk-size', '5',
+      '--out', goalPath,
+    ], { cwd: ROOT, stdio: 'pipe' });
+    const spec = JSON.parse(readFileSync(goalPath, 'utf8'));
+    assert(spec.themePack === 'theme09', 'scaffold should preserve requested theme');
+    assert(spec.pageCount === 20, 'scaffold should preserve requested page count');
+    assert(spec.slides?.length === 20, 'scaffold should create 20 slides');
+    assert(spec.slides.every(slide => slide.layout?.startsWith('theme09_')), 'scaffold should use requested theme layouts');
+    assert(spec.slides.every(slide => !slide.role && slide.props && typeof slide.props === 'object'), 'scaffold should output concrete layouts with props objects');
+    assert(new Set(spec.slides.map(slide => slide.layout)).size === spec.slides.length, 'scaffold should not repeat layouts');
+    const coverLayouts = spec.slides.map(slide => slide.layout).filter(layout => /^theme09_page00[1-5]$/.test(layout));
+    assert(coverLayouts.length === 1, `scaffold should use exactly one cover candidate, got ${coverLayouts.join(', ')}`);
+    execFileSync('node', ['scripts/validate-goal-spec.mjs', goalPath], { cwd: ROOT, stdio: 'pipe' });
+
+    const chunks = readdirSync(tmp).filter(file => /^theme09-media\.part-\d+\.json$/.test(file)).sort();
+    assert(chunks.length === 4, `scaffold should create 4 chunk files, got ${chunks.join(', ')}`);
+    const chunkSlides = chunks.flatMap(file => JSON.parse(readFileSync(path.join(tmp, file), 'utf8')).slides || []);
+    assert(JSON.stringify(chunkSlides.map(slide => slide.layout)) === JSON.stringify(spec.slides.map(slide => slide.layout)), 'chunk files should preserve slide order');
+    assert(chunks.every(file => (JSON.parse(readFileSync(path.join(tmp, file), 'utf8')).slides || []).length <= 5), 'chunk files should honor chunk size');
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
@@ -613,6 +820,75 @@ function testValidateGoalSpec() {
       slides: [{ layout: 'theme01_page020', props: { title: '<div>自由 HTML</div>' } }],
     }, ['slide 1', 'theme01_page020', 'title', 'HTML']);
 
+    expectGoalFailure(tmp, 'duplicate-media.json', {
+      title: 'Duplicate Media',
+      goal: 'should fail',
+      themePack: 'theme01',
+      slides: [
+        { layout: 'theme01_page020', props: { title: '媒体一', images: ['assets/user-media/a.png'] } },
+        { layout: 'theme01_page020', props: { title: '媒体二', images: ['assets/user-media/a.png'] } },
+      ],
+    }, ['media asset', 'assets/user-media/a.png', 'used 2 times']);
+
+    expectGoalFailure(tmp, 'long-display-copy.json', {
+      title: 'Long Display Copy',
+      goal: 'should fail',
+      themePack: 'theme01',
+      slides: [{
+        layout: 'theme01_page020',
+        props: { title: '这是一个被故意写得非常非常非常非常非常非常非常非常非常长的大标题文案' },
+      }],
+    }, ['display copy', 'too long']);
+
+    expectGoalFailure(tmp, 'serialized-react-copy.json', {
+      title: 'Serialized React Copy',
+      goal: 'should fail',
+      themePack: 'theme05',
+      slides: [{
+        layout: 'theme05_page037',
+        props: {
+          copy: {
+            quote: {
+              type: 'span',
+              key: null,
+              ref: null,
+              props: { children: '错误结构' },
+              _owner: null,
+              _store: {},
+            },
+          },
+        },
+      }],
+    }, ['serialized React element', 'props.copy.quote']);
+
+    expectGoalFailure(tmp, 'media-field-string.json', {
+      title: 'Media Field String',
+      goal: 'should fail',
+      themePack: 'theme09',
+      slides: [{ layout: 'theme09_page026', props: { images: 'assets/user-media/a.png' } }],
+    }, ['props.images', 'expected array']);
+
+    expectGoalFailure(tmp, 'media-field-object.json', {
+      title: 'Media Field Object',
+      goal: 'should fail',
+      themePack: 'theme12',
+      slides: [{ layout: 'theme12_page003', props: { media: { src: 'assets/user-media/a.png' } } }],
+    }, ['props.media', 'expected array']);
+
+    expectGoalFailure(tmp, 'media-item-without-src.json', {
+      title: 'Media Item Without Src',
+      goal: 'should fail',
+      themePack: 'theme11',
+      slides: [{ layout: 'theme11_page063', props: { images: [{ url: 'assets/user-media/a.png' }] } }],
+    }, ['props.images[0]', 'src']);
+
+    expectGoalFailure(tmp, 'video-string-media-item.json', {
+      title: 'Video String Media Item',
+      goal: 'should fail',
+      themePack: 'theme12',
+      slides: [{ layout: 'theme12_page003', props: { media: ['assets/user-media/clip.mp4'] } }],
+    }, ['props.media[0]', 'video']);
+
     const validPath = path.join(tmp, 'valid.json');
     writeFileSync(validPath, JSON.stringify({
       title: 'Valid',
@@ -621,6 +897,120 @@ function testValidateGoalSpec() {
       slides: [{ layout: 'theme01_page020', props: { title: '头部案例', images: ['x.png'] } }],
     }, null, 2));
     execFileSync('node', ['scripts/validate-goal-spec.mjs', validPath], { cwd: ROOT, stdio: 'pipe' });
+
+    const explicitReusePath = path.join(tmp, 'explicit-reuse.json');
+    writeFileSync(explicitReusePath, JSON.stringify({
+      title: 'Explicit Reuse',
+      goal: 'should pass when reuse is explicit',
+      themePack: 'theme01',
+      allowMediaReuse: true,
+      slides: [
+        { layout: 'theme01_page020', props: { title: '复用一', images: ['x.png'] } },
+        { layout: 'theme01_page020', props: { title: '复用二', images: ['x.png'] } },
+      ],
+    }, null, 2));
+    execFileSync('node', ['scripts/validate-goal-spec.mjs', explicitReusePath], { cwd: ROOT, stdio: 'pipe' });
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+function testGeneratedMetadataNoSerializedReactDefaults() {
+  const offenders = [];
+  for (const page of GENERATED_THEME_PAGES) {
+    if (!ACCEPTED_THEME_KEYS.includes(page.themeKey)) continue;
+    assertNoSerializedReactDefaults(page.defaultProps, `${page.key}.defaultProps`, offenders);
+  }
+  assert(offenders.length === 0, `generated metadata exposes serialized React defaults: ${offenders.slice(0, 8).join(', ')}`);
+}
+
+function testValidateGoalCopyPlaceholders() {
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-goal-copy-placeholder-'));
+  try {
+    const hiddenGoalPath = path.join(tmp, 'hidden-tail.json');
+    const hiddenOutPath = path.join(tmp, 'hidden-tail/ppt/index.html');
+    const normalized = runJson('scripts/write-safe-props.mjs', ['theme01_page020', JSON.stringify({
+      kicker: '# CHECK',
+      title: '占位校验',
+      en: 'Hidden Tail Check',
+      cn: '隐藏尾项占位校验',
+      images: ['x.png'],
+      items: [{ label: 'Alpha', sub: '已写正文', amount: '1' }],
+      caption: '当前只显示一个卡片,尾项留给面板恢复。',
+    })]);
+    assert(JSON.stringify(normalized.props).includes('请输入文本'), 'test setup should produce neutral placeholder copy');
+    writeFileSync(hiddenGoalPath, JSON.stringify({
+      title: '占位校验',
+      goal: '验证隐藏尾项占位不会被误判为可见残留',
+      themePack: 'theme01',
+      slides: [{
+        layout: 'theme01_page020',
+        props: normalized.props,
+      }],
+    }, null, 2));
+    execFileSync('npm', ['run', 'render:goal', '--', hiddenGoalPath, hiddenOutPath], { cwd: ROOT, stdio: 'pipe' });
+    execFileSync('npm', ['run', 'validate:goal-copy', '--', hiddenGoalPath, hiddenOutPath], { cwd: ROOT, stdio: 'pipe' });
+
+    const visibleGoalPath = path.join(tmp, 'visible-placeholder.json');
+    const visibleOutPath = path.join(tmp, 'visible-placeholder/ppt/index.html');
+    writeFileSync(visibleGoalPath, JSON.stringify({
+      title: '可见占位校验',
+      goal: '验证交付校验会拦截可见占位文案',
+      themePack: 'theme01',
+      slides: [{
+        layout: 'theme01_page001',
+        props: {
+          kicker: 'CHECK',
+          titleTop: '请输入文本',
+          titleBottom: 'Visible',
+          lead: '用于验证实际画面里的占位文本仍会失败。',
+        },
+      }],
+    }, null, 2));
+    execFileSync('npm', ['run', 'render:goal', '--', visibleGoalPath, visibleOutPath], { cwd: ROOT, stdio: 'pipe' });
+    const result = spawnSync('npm', ['run', 'validate:goal-copy', '--', visibleGoalPath, visibleOutPath], {
+      cwd: ROOT,
+      encoding: 'utf8',
+    });
+    assert(result.status !== 0, 'validate:goal-copy should fail when rendered deck still contains neutral placeholder copy');
+    assert(`${result.stdout}\n${result.stderr}`.includes('请输入文本'), 'placeholder failure should mention 请输入文本');
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+function testValidateGoalCopyNestedHiddenTails() {
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-goal-copy-nested-placeholder-'));
+  try {
+    const contract = runJson('scripts/inspect-layout.mjs', ['theme11_page027']);
+    assert(
+      contract.countBindings?.some(binding => binding.key === 'featureCount' && binding.arrays?.includes('plans[].feats')),
+      'theme11_page027 should bind featureCount to nested plans[].feats',
+    );
+
+    const normalized = runJson('scripts/write-safe-props.mjs', ['theme11_page027', JSON.stringify({
+      headingHtml: '商业化套餐',
+      noteHtml: '每张套餐只显示四条权益',
+      planCount: 3,
+      featureCount: 4,
+      plans: [
+        { name: 'Starter', en: 'Starter', cur: '¥', amt: '9k', per: '/ 月', feats: ['路线推荐', '社群挑战', '基础看板', '活动报名'] },
+        { name: 'Growth', en: 'Growth', cur: '¥', amt: '29k', per: '/ 月', feats: ['城市领队', '品牌任务', '赞助权益', '增长复盘'] },
+        { name: 'Scale', en: 'Scale', cur: '', amt: '定制', per: '按城市计费', feats: ['多城运营', '企业合作', '数据接口', '专属支持'] },
+      ],
+    })]);
+    assert(JSON.stringify(normalized.props).includes('请输入文本'), 'test setup should keep neutral nested tail placeholders');
+
+    const goalPath = path.join(tmp, 'nested-hidden-tail.json');
+    const outPath = path.join(tmp, 'nested-hidden-tail/ppt/index.html');
+    writeFileSync(goalPath, JSON.stringify({
+      title: '嵌套隐藏尾项校验',
+      goal: '验证被 featureCount 隐藏的套餐权益占位不会被误判',
+      themePack: 'theme11',
+      slides: [{ layout: 'theme11_page027', props: normalized.props }],
+    }, null, 2));
+    execFileSync('npm', ['run', 'render:goal', '--', goalPath, outPath], { cwd: ROOT, stdio: 'pipe' });
+    execFileSync('npm', ['run', 'validate:goal-copy', '--', goalPath, outPath], { cwd: ROOT, stdio: 'pipe' });
   } finally {
     rmSync(tmp, { recursive: true, force: true });
   }
@@ -641,6 +1031,26 @@ function testImagesControl() {
     if (!/image-list/.test(src)) process.exit(3);
   `], { cwd: ROOT, encoding: 'utf8', stdio: 'pipe' });
   assert(source === '', 'unexpected template probe output');
+}
+
+function testTheme12SharedChromeNeutral() {
+  const swBase = readFileSync(path.join(ROOT, 'src/components/themes/theme12/source/src/swBase.jsx'), 'utf8');
+  assert(!swBase.includes('声浪 SOUNDWAVE'), 'theme12 shared Bar/Footer should not hardcode SoundWave brand');
+  assert(!swBase.includes('Independent Music OS</div>'), 'theme12 shared Footer should not hardcode music OS footer');
+  assert(swBase.includes('CREATIVE SYSTEM'), 'theme12 shared chrome should keep a neutral default label');
+}
+
+function assertNoSerializedReactDefaults(value, pathName, offenders) {
+  if (!value || typeof value !== 'object') return;
+  if (isSerializedReactElementLike(value)) {
+    offenders.push(pathName);
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.forEach((item, index) => assertNoSerializedReactDefaults(item, `${pathName}[${index}]`, offenders));
+    return;
+  }
+  Object.entries(value).forEach(([key, item]) => assertNoSerializedReactDefaults(item, `${pathName}.${key}`, offenders));
 }
 
 function expectGoalFailure(tmp, name, goal, expectedTerms) {
@@ -771,6 +1181,44 @@ function fetchHttpWithRetry(url) {
   throw new Error(`HTTP preview did not respond: ${lastError?.stderr || lastError?.message || 'unknown error'}`);
 }
 
+async function listenContiguousPorts(start, count) {
+  const servers = [];
+  try {
+    for (let offset = 0; offset < count; offset += 1) {
+      const server = net.createServer();
+      await new Promise((resolve, reject) => {
+        server.once('error', reject);
+        server.listen(start + offset, '127.0.0.1', resolve);
+      });
+      servers.push(server);
+    }
+    return servers;
+  } catch (error) {
+    closeServers(servers);
+    throw error;
+  }
+}
+
+function closeServers(servers) {
+  for (const server of servers || []) {
+    try {
+      server.close();
+    } catch {}
+  }
+}
+
 function sleep(ms) {
   Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, ms);
+}
+
+function tryCreateAvif(source, target) {
+  const commands = [
+    ['magick', [source, target]],
+    ['sips', ['-s', 'format', 'avif', source, '--out', target]],
+  ];
+  for (const [command, args] of commands) {
+    const result = spawnSync(command, args, { encoding: 'utf8' });
+    if (result.status === 0 && existsSync(target)) return true;
+  }
+  return false;
 }

@@ -41,6 +41,7 @@
 |   |-- check_latest_version.mjs - 本地命令脚本。
 |   |-- control-naming-allowlist.json - 本地命令脚本。
 |   |-- export-editable-pptx.mjs - 本地命令脚本。
+|   |-- goal-scaffold.mjs - 本地命令脚本。
 |   |-- import-claude-themes.jsx - 本地命令脚本。
 |   |-- inspect-layout.mjs - 本地命令脚本。
 |   |-- layout-query.mjs - 本地命令脚本。

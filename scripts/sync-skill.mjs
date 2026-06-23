@@ -23,7 +23,7 @@ const source = renderThemeChoiceHints(renderThemeList(fs.readFileSync(sourcePath
 const preservedSkillAssets = preserveSkillAssets();
 
 writeIfChanged(sourcePath, source);
-fs.rmSync(SKILL_ROOT, { recursive: true, force: true });
+fs.mkdirSync(SKILL_ROOT, { recursive: true });
 syncProjectFiles();
 syncReferences();
 syncRunnerScript();
@@ -31,6 +31,7 @@ syncVersionCheckScript();
 syncDistributionFiles();
 syncSkillAssets(preservedSkillAssets);
 writeIfChanged(rootSkillPath, renderInstalledSkill(source));
+cleanupSyncManifestArtifact();
 cleanupLegacySkillRoot();
 
 console.log(`Synced SKILL.md to ${SKILL_ROOT}`);
@@ -50,6 +51,7 @@ function syncProjectFiles() {
   copyPath(path.join(ROOT, 'scripts/inspect-layout.mjs'), path.join(projectRoot, 'scripts/inspect-layout.mjs'));
   copyPath(path.join(ROOT, 'scripts/stage-media.mjs'), path.join(projectRoot, 'scripts/stage-media.mjs'));
   copyPath(path.join(ROOT, 'scripts/write-safe-props.mjs'), path.join(projectRoot, 'scripts/write-safe-props.mjs'));
+  copyPath(path.join(ROOT, 'scripts/goal-scaffold.mjs'), path.join(projectRoot, 'scripts/goal-scaffold.mjs'));
   copyPath(path.join(ROOT, 'scripts/validate-goal-spec.mjs'), path.join(projectRoot, 'scripts/validate-goal-spec.mjs'));
   copyPath(path.join(ROOT, 'scripts/validate-skill-workflow-tools.mjs'), path.join(projectRoot, 'scripts/validate-skill-workflow-tools.mjs'));
   copyPath(path.join(ROOT, 'scripts/render-goal-deck.jsx'), path.join(projectRoot, 'scripts/render-goal-deck.jsx'));
@@ -104,6 +106,7 @@ function renderRuntimePackage() {
       'inspect:layout': 'node scripts/inspect-layout.mjs',
       'media:stage': 'node scripts/stage-media.mjs',
       'props:safe': 'node scripts/write-safe-props.mjs',
+      'goal:scaffold': 'node scripts/goal-scaffold.mjs',
       'validate:goal-spec': 'node scripts/validate-goal-spec.mjs',
       'validate:skill-workflow-tools': 'node scripts/validate-skill-workflow-tools.mjs',
       'render:goal': 'tsx scripts/render-goal-deck.jsx',
@@ -182,6 +185,7 @@ function syncReferences() {
 | \`process\` | 产业链、流向、用途、阶段、实施路径 |
 | \`risks\` | 风险研判、预测、关键问答 |
 | \`observation\` | 投资展望、核心结论、观点引述、专题洞察 |
+| \`ambient\` | 动态背景、氛围页、视觉章节页 |
 | \`actions\` | 应用落地、方案、路线、下一步 |
 | \`result\` | 核心结论、数字海报、核心要点 |
 | \`team\` | 团队、关于我们 |
@@ -425,6 +429,10 @@ function cleanupLegacySkillRoot() {
   console.log(`Removed legacy Skill metadata at ${legacySkillPath}`);
 }
 
+function cleanupSyncManifestArtifact() {
+  fs.rmSync(path.join(SKILL_ROOT, '.sync-manifest.json'), { force: true });
+}
+
 function renderReadme({ packs }) {
   const version = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8')).version;
   const themes = packs.map(theme => `- \`${theme.key}\` ${themeDisplayName(theme)} (${theme.pageCount} 页): 适配场景: ${theme.scenario}; 适配人群: ${theme.audience}`).join('\n');
@@ -545,9 +553,10 @@ fi
 
 cd "$PROJECT_ROOT"
 if [[ ! -d node_modules || package.json -nt node_modules/.package-lock.json || package-lock.json -nt node_modules/.package-lock.json ]]; then
-  npm install
+npm install
 fi
 mkdir -p "$(dirname "$OUT_PATH")"
+npm run props:safe -- --goal "$SPEC_PATH"
 npm run validate:goal-spec -- "$SPEC_PATH"
 npm run render:goal -- "$SPEC_PATH" "$OUT_PATH"
 npm run validate:swiss -- "$OUT_PATH"
@@ -615,13 +624,15 @@ ${themeHints}
 
 每套主题的前 5 页都是封面候选。一个 deck 只能使用其中 1 页作为封面,正文页从第 6 页以后选择。
 
-选页先使用 \`npm run layout:query -- --theme <themePack> --role <role> --limit 8\`。需要图片槽时加 \`--needs-media\`、\`--planned-images <n>\`、\`--provided-images <n>\` 或 \`--image-gen\`,候选会基于真实 \`mediaSlots\`。
+选页先使用 \`npm run layout:query -- --theme <themePack> --role <role> --limit 8\`。动态背景页用 \`--role ambient\`。需要图片槽时加 \`--needs-media\`、\`--planned-images <n>\`、\`--provided-images <n>\` 或 \`--image-gen\`,候选会基于真实 \`mediaSlots\`;用户给素材时只用 \`canPresetMedia: true\` 的槽,按 \`presetProp\` 写路径。
 
-单页契约使用 \`npm run inspect:layout -- <layout>\`。\`propShapes\` 会给出 \`copy\`、对象数组和嵌套数组的内部 key;写 \`copy\`、\`cells\`、\`items\`、\`rows\` 等对象字段时只使用 \`propShapes\` 列出的 key,不要凭字段名猜测。写数组、数量或图片时使用 \`npm run props:safe -- <layout> '<props-json>' [--images <path...>]\`。
+长 deck 先用 \`npm run goal:scaffold -- --title <title> --goal <goal> --theme <themePack> --pages <n> --chunk-size 5 --out output/<deck-name>/goal.json\` 生成唯一 layout 骨架,再分段补 \`props\`。输出目录写在当前会话工作目录,不要写入 \`<skill-root>/project/output\`。
 
-图片/视频只写入页面 \`props.images\` / \`props.media\`。不要写 \`slides[].media\`;用户提供图片时先用 \`props:safe --images\` 写入真实 slot。需要 image-gen 时先询问用户,用户只计划后续插图时选择并保留带 media slot 的页面。
+单页契约优先使用 \`npm run inspect:layout -- --compact <layout...>\`,一次传多个 layout 或多次 \`--layout\`。\`copyBudgets\` 给出文案长度预算;\`propShapes\` 给出 \`copy\`、对象数组和嵌套数组的内部 key。写 \`copy\`、\`cells\`、\`items\`、\`rows\` 等对象字段时只使用 \`propShapes\` 列出的 key,不要凭字段名猜测。写数组、数量或图片时使用 \`npm run props:safe -- <layout> '<props-json>' [--images <path...>]\`;写完整 \`goal.json\` 后使用 \`npm run props:safe -- --goal <goal-json>\` 做整份 props 检查。
 
-需要调整卡片/条目数量时,用 \`cardCount\`、\`itemCount\`、\`stepCount\` 等 count 参数控制显示数量。数组字段是模板内容池,不要为了隐藏元素而截短 \`cards\`、\`items\`、\`steps\`、\`stats\` 等数组;只覆盖当前显示的前 N 项,保留后续默认项供控制面板加回。
+图片/视频只写入页面 \`props.images\` / \`props.media\`。不要写 \`slides[].media\`;用户提供本地素材时先运行 \`npm run media:stage -- <deck-output-dir-or-ppt-dir> <media-file...>\`,再把返回的 \`relative\` 路径交给 \`props:safe --images\` 或写入真实 media slot。每个素材最多使用一次。用户明确要求原创视觉图/生图时用 image-gen;未明确生图时先询问用户。需要 image-gen 生成 2 张以上独立图片时,用多个 subagent 并行,不要串行逐张等待;每张图独立生成,不要用一张拼图/素材板再拆分。subagent 只用于生图。用户只计划后续插图时选择并保留带 media slot 的页面。
+
+需要调整卡片/条目数量时,用 \`cardCount\`、\`itemCount\`、\`stepCount\` 等 count 参数控制显示数量。数组字段是模板内容池;只覆盖当前显示的前 N 项。被 count/显隐控制隐藏的尾项可保留“请输入文本”占位。
 
 不要使用旧的 \`theme\`、\`fontSet\`、\`fontWeight\`、\`typeScale\`、\`styleVariant\`、token 或开发者模式字段。
 `;
@@ -668,19 +679,29 @@ function writeIfChanged(filePath, content) {
   fs.writeFileSync(filePath, content);
 }
 
-function writeBufferIfChanged(filePath, content) {
+function writeBufferIfChanged(filePath, content, mode) {
   fs.mkdirSync(path.dirname(filePath), { recursive: true });
   if (fs.existsSync(filePath) && fs.readFileSync(filePath).equals(content)) return;
   fs.writeFileSync(filePath, content);
+  if (mode) fs.chmodSync(filePath, mode & 0o777);
 }
 
 function copyPath(from, to) {
   if (!fs.existsSync(from)) return;
-  fs.mkdirSync(path.dirname(to), { recursive: true });
-  fs.cpSync(from, to, {
-    recursive: true,
-    filter: source => !source.split(path.sep).some(part => MIGRATION_ONLY_DIRS.has(part.toLowerCase())),
-  });
+  if (shouldSkipSyncPath(from)) return;
+  const stat = fs.statSync(from);
+  if (stat.isDirectory()) {
+    fs.mkdirSync(to, { recursive: true });
+    for (const entry of fs.readdirSync(from)) {
+      copyPath(path.join(from, entry), path.join(to, entry));
+    }
+    return;
+  }
+  if (stat.isFile()) writeBufferIfChanged(to, fs.readFileSync(from), stat.mode);
+}
+
+function shouldSkipSyncPath(filePath) {
+  return filePath.split(path.sep).some(part => MIGRATION_ONLY_DIRS.has(part.toLowerCase()));
 }
 
 function themeDisplayName(theme) {

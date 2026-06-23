@@ -3184,50 +3184,7 @@ export const pages = [
       "copy": {
         "eyebrow": "CONCLUSION",
         "sheet": "CONCLUSION · 14 / 32",
-        "quote": {
-          "key": null,
-          "ref": null,
-          "props": {
-            "children": [
-              "资本下一阶段，将从",
-              {
-                "type": "span",
-                "key": null,
-                "ref": null,
-                "props": {
-                  "className": "mute",
-                  "children": "赌叙事"
-                },
-                "_owner": null,
-                "_store": {}
-              },
-              "，",
-              {
-                "type": "br",
-                "key": null,
-                "ref": null,
-                "props": {},
-                "_owner": null,
-                "_store": {}
-              },
-              "转向",
-              {
-                "type": "span",
-                "key": null,
-                "ref": null,
-                "props": {
-                  "className": "hl",
-                  "children": "看兑现"
-                },
-                "_owner": null,
-                "_store": {}
-              },
-              "。"
-            ]
-          },
-          "_owner": null,
-          "_store": {}
-        },
+        "quote": "资本下一阶段，将从赌叙事，\n转向看兑现。",
         "sub": "三条核心结论",
         "points": [
           {
@@ -6773,49 +6730,7 @@ export const pages = [
         "kicker": "DEVELOPER TOOLS · 开发者工具赛道",
         "index": "33",
         "sheet": "STATEMENT · 33 / 80",
-        "quote": {
-          "key": null,
-          "ref": null,
-          "props": {
-            "children": [
-              "研发效率，是企业",
-              {
-                "type": "br",
-                "key": null,
-                "ref": null,
-                "props": {},
-                "_owner": null,
-                "_store": {}
-              },
-              {
-                "type": "span",
-                "key": null,
-                "ref": null,
-                "props": {
-                  "className": "hl",
-                  "children": "最直接"
-                },
-                "_owner": null,
-                "_store": {}
-              },
-              "的 AI ",
-              {
-                "type": "span",
-                "key": null,
-                "ref": null,
-                "props": {
-                  "className": "mute",
-                  "children": "预算入口"
-                },
-                "_owner": null,
-                "_store": {}
-              },
-              "之一。"
-            ]
-          },
-          "_owner": null,
-          "_store": {}
-        },
+        "quote": "研发效率，是企业\n最直接的 AI 预算入口之一。",
         "sub": "效率工具最贴近开发团队的日常，预算决策链路短、落地周期快。",
         "keywords": [
           "一句话判断",
@@ -17368,57 +17283,8 @@ export const pages = [
         "sheet": "VERDICT · 80 / 80",
         "tag": "最终判断",
         "tagEn": "FINAL VERDICT",
-        "quote": {
-          "key": null,
-          "ref": null,
-          "props": {
-            "children": [
-              "融资盛宴之后，",
-              {
-                "type": "br",
-                "key": null,
-                "ref": null,
-                "props": {},
-                "_owner": null,
-                "_store": {}
-              },
-              {
-                "type": "span",
-                "key": null,
-                "ref": null,
-                "props": {
-                  "className": "hl",
-                  "children": "真正的竞争"
-                },
-                "_owner": null,
-                "_store": {}
-              },
-              "才刚开始。"
-            ]
-          },
-          "_owner": null,
-          "_store": {}
-        },
-        "quotePlain": {
-          "key": null,
-          "ref": null,
-          "props": {
-            "children": [
-              "融资盛宴之后，",
-              {
-                "type": "br",
-                "key": null,
-                "ref": null,
-                "props": {},
-                "_owner": null,
-                "_store": {}
-              },
-              "真正的竞争才刚开始。"
-            ]
-          },
-          "_owner": null,
-          "_store": {}
-        },
+        "quote": "融资盛宴之后，\n真正的竞争才刚开始。",
+        "quotePlain": "融资盛宴之后，\n真正的竞争才刚开始。",
         "sub": "下一阶段比拼的不再是融资规模，而是把叙事兑现为收入的能力。",
         "marker": "完",
         "markerEn": "END",

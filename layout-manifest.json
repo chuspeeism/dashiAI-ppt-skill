@@ -21,6 +21,10 @@
       "columns",
       "plans"
     ],
+    "featureCount": [
+      "features",
+      "plans[].feats"
+    ],
     "indexCount": [
       "items",
       "index"
@@ -103224,6 +103228,17 @@
           ],
           "min": 2,
           "max": 4
+        },
+        {
+          "key": "featureCount",
+          "publicKey": "featureCount",
+          "label": "能力行数",
+          "arrays": [
+            "features",
+            "plans[].feats"
+          ],
+          "min": 3,
+          "max": 6
         }
       ]
     },
@@ -114884,6 +114899,17 @@
           ],
           "min": 2,
           "max": 3
+        },
+        {
+          "key": "featureCount",
+          "publicKey": "itemCount",
+          "label": "权益条目数",
+          "arrays": [
+            "features",
+            "plans[].feats"
+          ],
+          "min": 3,
+          "max": 5
         }
       ]
     },

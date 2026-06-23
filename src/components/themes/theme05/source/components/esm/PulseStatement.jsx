@@ -15,8 +15,13 @@ function withTheme05Copy(Component) {
 }
 
 function mergeTheme05Copy(base, override) {
-  if (!base || typeof base !== 'object') return override || base;
-  if (!override || typeof override !== 'object') return base;
+  if (isTheme05ReactElementLike(base)) {
+    if (typeof override === 'string' || typeof override === 'number') return String(override);
+    if (isTheme05ReactElementLike(override)) return theme05ElementText(override);
+    return base;
+  }
+  if (!base || typeof base !== 'object') return override ?? base;
+  if (override == null || typeof override !== 'object') return base;
   if (Array.isArray(base)) return Array.isArray(override) ? override : base;
   const next = { ...base };
   for (const [key, value] of Object.entries(override)) {
@@ -28,10 +33,17 @@ function mergeTheme05Copy(base, override) {
 }
 
 function theme05ReplacementMap(base, copy, map = new Map()) {
-  if (!base || !copy) return map;
+  if (!base || copy == null) return map;
+  if (isTheme05ReactElementLike(base) && (typeof copy === 'string' || typeof copy === 'number')) {
+    const from = theme05ElementText(base).replace(/ /g, ' ');
+    const to = String(copy);
+    if (from && to !== from) map.set(from, to);
+    return map;
+  }
   if (typeof base === 'string' || typeof base === 'number') {
-    const from = String(base).replace(/\u00a0/g, ' ');
-    const to = typeof copy === 'string' || typeof copy === 'number' ? String(copy) : copy;
+    const from = String(base).replace(/ /g, ' ');
+    if (typeof copy !== 'string' && typeof copy !== 'number') return map;
+    const to = String(copy);
     if (from && to !== undefined && to !== null && (!map.has(from) || String(to) !== from)) map.set(from, to);
     return map;
   }
@@ -48,10 +60,12 @@ function theme05ReplacementMap(base, copy, map = new Map()) {
 function replaceTheme05Text(node, replacements) {
   if (!replacements?.size) return node;
   if (typeof node === 'string' || typeof node === 'number') {
-    return replacements.get(String(node).replace(/\u00a0/g, ' ')) ?? node;
+    return replacements.get(String(node).replace(/ /g, ' ')) ?? node;
   }
   if (Array.isArray(node)) return node.map(child => replaceTheme05Text(child, replacements));
   if (!React.isValidElement(node)) return node;
+  const elementText = theme05ElementText(node).replace(/ /g, ' ');
+  if (replacements.has(elementText)) return replacements.get(elementText);
   const nextProps = {};
   let changed = false;
   for (const key of ['children', 'label', 'placeholder', 'title', 'alt', 'aria-label']) {
@@ -63,6 +77,27 @@ function replaceTheme05Text(node, replacements) {
     }
   }
   return changed ? React.cloneElement(node, nextProps) : node;
+}
+
+function isTheme05ReactElementLike(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  if (React.isValidElement(value)) return true;
+  if (!value.props || typeof value.props !== 'object') return false;
+  return Object.prototype.hasOwnProperty.call(value, 'type')
+    || Object.prototype.hasOwnProperty.call(value, 'ref')
+    || Object.prototype.hasOwnProperty.call(value, 'key')
+    || Object.prototype.hasOwnProperty.call(value, '_owner')
+    || Object.prototype.hasOwnProperty.call(value, '_store');
+}
+
+function theme05ElementText(value) {
+  if (value == null || value === false) return '';
+  if (typeof value === 'string' || typeof value === 'number') return String(value);
+  if (Array.isArray(value)) return value.map(theme05ElementText).join('');
+  if (!value || typeof value !== 'object') return '';
+  if (String(value.type || '').toLowerCase() === 'br') return '\n';
+  if (isTheme05ReactElementLike(value)) return theme05ElementText(value.props?.children);
+  return '';
 }
 
 /* =========================================================================

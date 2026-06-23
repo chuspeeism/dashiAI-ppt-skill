@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import {
   normalizePublicControls,
 } from '../src/control-naming.mjs';
+import { serializeValue } from '../src/prop-contract-core.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const THEMES_DIR = path.join(ROOT, 'src/components/themes');
@@ -26,6 +27,7 @@ for (const themeKey of themeDirs) {
   if (!module.theme || !Array.isArray(module.pages) || !module.pages.length) continue;
   const normalizedPages = module.pages.map(page => ({
     ...page,
+    defaultProps: serializeValue(page.defaultProps || {}) || {},
     controls: normalizePageControls(page),
   }));
   const theme = {

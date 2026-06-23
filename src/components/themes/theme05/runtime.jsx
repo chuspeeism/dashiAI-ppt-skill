@@ -204,12 +204,26 @@ const rawPages = modules.map(entry => ({
 export const runtimePages = normalizeRuntimePages(rawPages, { themeKey: 'theme05', layoutPrefix: 'THEME05' });
 
 function withTheme05Base(Component) {
-  return function Theme05Page(props) {
+  return function Theme05Page(props = {}) {
+    const componentProps = normalizeTheme05MediaProps(props);
     return React.createElement(
       React.Fragment,
       null,
       React.createElement('style', null, THEME05_BASE_CSS),
-      React.createElement(Component, props),
+      React.createElement(Component, componentProps),
     );
   };
+}
+
+function normalizeTheme05MediaProps(props) {
+  if (!Array.isArray(props.images)) return props;
+  let changed = false;
+  const images = props.images.map(item => {
+    if (typeof item === 'string') {
+      changed = true;
+      return { src: item };
+    }
+    return item;
+  });
+  return changed ? { ...props, images } : props;
 }

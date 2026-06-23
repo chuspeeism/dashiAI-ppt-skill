@@ -97,7 +97,7 @@ export function Bar({ meta, accent = C.orange, dark = false }) {
       paddingBottom: 20, borderBottom: '1px solid ' + line, flexShrink: 0, position: 'relative', zIndex: 5 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 13 }}>
         <span style={{ width: 16, height: 16, background: accent, borderRadius: 4 }} />
-        <span style={{ fontFamily: F.mono, fontWeight: 700, fontSize: 24, letterSpacing: '.2em', color: fg }}>声浪 SOUNDWAVE</span>
+        <span style={{ fontFamily: F.mono, fontWeight: 700, fontSize: 24, letterSpacing: '.2em', color: fg }}>CREATIVE SYSTEM</span>
       </div>
       <div style={{ fontFamily: F.mono, fontSize: 24, letterSpacing: '.14em', textTransform: 'uppercase', color: metaC }}>{meta}</div>
     </div>
@@ -111,7 +111,7 @@ export function Footer({ page = '01', total = '04', accent = C.orange, dark = fa
     <div data-sw-unit="" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0,
       paddingTop: divider ? 18 : 0, borderTop: divider ? '1px solid ' + line : 'none', fontFamily: F.mono, fontSize: 24,
       letterSpacing: '.12em', textTransform: 'uppercase', color: fg, position: 'relative', zIndex: 5 }}>
-      <div>声浪 SOUNDWAVE — Independent Music OS</div>
+      <div>CREATIVE SYSTEM — Independent Media Kit</div>
       <div><DeckPageNumber page={page} total={total} accentStyle={{ color: accent }} /></div>
     </div>
   );

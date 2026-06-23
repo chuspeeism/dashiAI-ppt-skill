@@ -4,6 +4,7 @@ import {
   normalizeControlValue,
   normalizePublicControls,
 } from '../../control-naming.mjs';
+import { serializeValue } from '../../prop-contract-core.mjs';
 import { GENERATED_THEME_PAGES, GENERATED_THEME_PACKS } from './generated-metadata.js';
 import { ICONS as THEME03_DECOR_ICONS } from './theme03/source/src/icons.js';
 import { PRESET_3D as THEME03_PRESET_3D } from './theme03/source/src/preset3d.js';
@@ -174,16 +175,5 @@ function serializeDefaults(defaultProps) {
     Object.entries(defaultProps || {})
       .map(([key, value]) => [key, serializeValue(value)])
       .filter(([, value]) => value !== undefined),
-  );
-}
-
-function serializeValue(value) {
-  if (value == null || ['string', 'number', 'boolean'].includes(typeof value)) return value;
-  if (Array.isArray(value)) return value.map(serializeValue);
-  if (typeof value !== 'object') return undefined;
-  return Object.fromEntries(
-    Object.entries(value)
-      .map(([key, item]) => [key, serializeValue(item)])
-      .filter(([, item]) => item !== undefined),
   );
 }

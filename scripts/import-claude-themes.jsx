@@ -7,6 +7,7 @@ import {
   normalizeControlValue,
   normalizePublicControls,
 } from '../src/control-naming.mjs';
+import { serializeValue } from '../src/prop-contract-core.mjs';
 
 const ROOT = path.resolve(import.meta.dirname, '..');
 const DEFAULT_GOAL = path.join(ROOT, 'theme-import-goal.json');
@@ -350,8 +351,13 @@ function theme05CopyWrapperSource() {
 }
 
 function mergeTheme05Copy(base, override) {
-  if (!base || typeof base !== 'object') return override || base;
-  if (!override || typeof override !== 'object') return base;
+  if (isTheme05ReactElementLike(base)) {
+    if (typeof override === 'string' || typeof override === 'number') return String(override);
+    if (isTheme05ReactElementLike(override)) return theme05ElementText(override);
+    return base;
+  }
+  if (!base || typeof base !== 'object') return override ?? base;
+  if (override == null || typeof override !== 'object') return base;
   if (Array.isArray(base)) return Array.isArray(override) ? override : base;
   const next = { ...base };
   for (const [key, value] of Object.entries(override)) {
@@ -363,10 +369,17 @@ function mergeTheme05Copy(base, override) {
 }
 
 function theme05ReplacementMap(base, copy, map = new Map()) {
-  if (!base || !copy) return map;
+  if (!base || copy == null) return map;
+  if (isTheme05ReactElementLike(base) && (typeof copy === 'string' || typeof copy === 'number')) {
+    const from = theme05ElementText(base).replace(/\\u00a0/g, ' ');
+    const to = String(copy);
+    if (from && to !== from) map.set(from, to);
+    return map;
+  }
   if (typeof base === 'string' || typeof base === 'number') {
     const from = String(base).replace(/\\u00a0/g, ' ');
-    const to = typeof copy === 'string' || typeof copy === 'number' ? String(copy) : copy;
+    if (typeof copy !== 'string' && typeof copy !== 'number') return map;
+    const to = String(copy);
     if (from && to !== undefined && to !== null && (!map.has(from) || String(to) !== from)) map.set(from, to);
     return map;
   }
@@ -387,6 +400,8 @@ function replaceTheme05Text(node, replacements) {
   }
   if (Array.isArray(node)) return node.map(child => replaceTheme05Text(child, replacements));
   if (!React.isValidElement(node)) return node;
+  const elementText = theme05ElementText(node).replace(/\\u00a0/g, ' ');
+  if (replacements.has(elementText)) return replacements.get(elementText);
   const nextProps = {};
   let changed = false;
   for (const key of ['children', 'label', 'placeholder', 'title', 'alt', 'aria-label']) {
@@ -398,6 +413,27 @@ function replaceTheme05Text(node, replacements) {
     }
   }
   return changed ? React.cloneElement(node, nextProps) : node;
+}
+
+function isTheme05ReactElementLike(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return false;
+  if (React.isValidElement(value)) return true;
+  if (!value.props || typeof value.props !== 'object') return false;
+  return Object.prototype.hasOwnProperty.call(value, 'type')
+    || Object.prototype.hasOwnProperty.call(value, 'ref')
+    || Object.prototype.hasOwnProperty.call(value, 'key')
+    || Object.prototype.hasOwnProperty.call(value, '_owner')
+    || Object.prototype.hasOwnProperty.call(value, '_store');
+}
+
+function theme05ElementText(value) {
+  if (value == null || value === false) return '';
+  if (typeof value === 'string' || typeof value === 'number') return String(value);
+  if (Array.isArray(value)) return value.map(theme05ElementText).join('');
+  if (!value || typeof value !== 'object') return '';
+  if (String(value.type || '').toLowerCase() === 'br') return '\\n';
+  if (isTheme05ReactElementLike(value)) return theme05ElementText(value.props?.children);
+  return '';
 }
 `;
 }
@@ -658,7 +694,7 @@ function theme05Runtime(theme, layoutPrefix, sourceDir) {
     fs.readFileSync(path.join(sourceDir, 'styles/pulse-deck.css'), 'utf8'),
     fs.readFileSync(path.join(sourceDir, 'styles/exc-covers.css'), 'utf8'),
   ].join('\n');
-  return `import React from 'react';\nimport { normalizeRuntimePages } from '../runtime-helpers.jsx';\n${importLines.join('\n')}\n\nconst THEME05_BASE_CSS = ${JSON.stringify(css)};\nconst modules = [\n${items.join(',\n')}\n];\n\nconst rawPages = modules.map(entry => ({\n  id: entry.id,\n  label: entry.label,\n  Component: withTheme05Base(entry.module.default),\n  controls: entry.module.controls || entry.module.default?.controls || [],\n  defaultProps: entry.module.defaults || entry.module.defaultProps || entry.module.default?.defaults || {},\n}));\n\nexport const runtimePages = normalizeRuntimePages(rawPages, { themeKey: '${theme.key}', layoutPrefix: '${layoutPrefix}' });\n\nfunction withTheme05Base(Component) {\n  return function Theme05Page(props) {\n    return React.createElement(\n      React.Fragment,\n      null,\n      React.createElement('style', null, THEME05_BASE_CSS),\n      React.createElement(Component, props),\n    );\n  };\n}\n`;
+  return `import React from 'react';\nimport { normalizeRuntimePages } from '../runtime-helpers.jsx';\n${importLines.join('\n')}\n\nconst THEME05_BASE_CSS = ${JSON.stringify(css)};\nconst modules = [\n${items.join(',\n')}\n];\n\nconst rawPages = modules.map(entry => ({\n  id: entry.id,\n  label: entry.label,\n  Component: withTheme05Base(entry.module.default),\n  controls: entry.module.controls || entry.module.default?.controls || [],\n  defaultProps: entry.module.defaults || entry.module.defaultProps || entry.module.default?.defaults || {},\n}));\n\nexport const runtimePages = normalizeRuntimePages(rawPages, { themeKey: '${theme.key}', layoutPrefix: '${layoutPrefix}' });\n\nfunction withTheme05Base(Component) {\n  return function Theme05Page(props = {}) {\n    const componentProps = normalizeTheme05MediaProps(props);\n    return React.createElement(\n      React.Fragment,\n      null,\n      React.createElement('style', null, THEME05_BASE_CSS),\n      React.createElement(Component, componentProps),\n    );\n  };\n}\n\nfunction normalizeTheme05MediaProps(props) {\n  if (!Array.isArray(props.images)) return props;\n  let changed = false;\n  const images = props.images.map(item => {\n    if (typeof item === 'string') {\n      changed = true;\n      return { src: item };\n    }\n    return item;\n  });\n  return changed ? { ...props, images } : props;\n}\n`;
 }
 
 function theme03Runtime(theme, layoutPrefix, sourceDir) {
@@ -1837,17 +1873,6 @@ function setupDomStubs() {
   }
   globalThis.customElements = globalThis.customElements || { define() {}, get() { return null; } };
   globalThis.HTMLElement = globalThis.HTMLElement || class {};
-}
-
-function serializeValue(value) {
-  if (value == null || ['string', 'number', 'boolean'].includes(typeof value)) return value;
-  if (Array.isArray(value)) return value.map(serializeValue);
-  if (typeof value !== 'object') return undefined;
-  return Object.fromEntries(
-    Object.entries(value)
-      .map(([key, item]) => [key, serializeValue(item)])
-      .filter(([, item]) => item !== undefined),
-  );
 }
 
 function walk(dir, out = []) {

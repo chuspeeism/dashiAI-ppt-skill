@@ -15,9 +15,14 @@
 
 import React from 'react';
 
+export const DeckImageSlotMediaContext = React.createContext(null);
+
 function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, onAspect, className = '' }) {
   const storeKey = id ? `dslot:${id}` : null;
+  const mediaHost = React.useContext(DeckImageSlotMediaContext);
+  const hasHostMedia = Boolean(mediaHost?.get || mediaHost?.set);
   const [media, setMedia] = React.useState(() => {
+    if (hasHostMedia) return normalizeHostMedia(mediaHost?.get?.(id, 0));
     try { return storeKey ? readStoredMedia(localStorage.getItem(storeKey) || '') : null; } catch (e) { return null; }
   });
   const [over, setOver] = React.useState(false);
@@ -27,8 +32,11 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
 
   // Re-read when id changes (slots reused across counts keep their own image).
   React.useEffect(() => {
-    try { setMedia(storeKey ? readStoredMedia(localStorage.getItem(storeKey) || '') : null); } catch (e) { /* noop */ }
-  }, [storeKey]);
+    if (hasHostMedia) setMedia(normalizeHostMedia(mediaHost?.get?.(id, 0)));
+    else {
+      try { setMedia(storeKey ? readStoredMedia(localStorage.getItem(storeKey) || '') : null); } catch (e) { /* noop */ }
+    }
+  }, [storeKey, id, hasHostMedia, mediaHost]);
 
   const report = React.useCallback((item) => {
     if (!onAspect || !item?.src || item.kind === 'video') return;
@@ -38,6 +46,17 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
   }, [onAspect]);
 
   React.useEffect(() => { if (media?.src) report(media); }, [media, report]);
+
+  const save = (item) => {
+    setMedia(item);
+    if (mediaHost?.set) mediaHost.set(id, 0, item);
+    else {
+      try {
+        if (item && storeKey) localStorage.setItem(storeKey, JSON.stringify(item));
+        else if (storeKey) localStorage.removeItem(storeKey);
+      } catch (e) { /* quota */ }
+    }
+  };
 
   const ingest = (file) => {
     if (!file || !/^(image|video)\//.test(file.type || '')) return;
@@ -49,8 +68,7 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
         type: file.type,
         kind: file.type.startsWith('video/') ? 'video' : 'image',
       };
-      setMedia(item);
-      try { if (storeKey) localStorage.setItem(storeKey, JSON.stringify(item)); } catch (e) { /* quota */ }
+      save(item);
     };
     reader.readAsDataURL(file);
   };
@@ -63,8 +81,7 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
   const onDrop = (e) => { e.preventDefault(); e.stopPropagation(); setOver(false); ingest(e.dataTransfer.files && e.dataTransfer.files[0]); };
   const clear = (e) => {
     e.stopPropagation();
-    setMedia(null);
-    try { if (storeKey) localStorage.removeItem(storeKey); } catch (err) { /* noop */ }
+    save(null);
   };
 
   return (
@@ -94,6 +111,21 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
              onChange={(e) => { ingest(e.target.files && e.target.files[0]); e.target.value = ''; }} />
     </div>
   );
+}
+
+function normalizeHostMedia(value) {
+  if (!value) return null;
+  if (typeof value === 'string') return { src: value, kind: value.startsWith('data:video/') ? 'video' : 'image' };
+  if (typeof value === 'object') {
+    const src = value.src || value.url || value.u;
+    if (!src) return null;
+    return {
+      ...value,
+      src,
+      kind: value.kind || (String(value.type || src).startsWith('video/') || String(src).startsWith('data:video/') ? 'video' : 'image'),
+    };
+  }
+  return null;
 }
 
 function readStoredMedia(raw) {

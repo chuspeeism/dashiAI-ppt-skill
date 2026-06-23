@@ -3,6 +3,10 @@ import { flushSync } from 'react-dom';
 import { createRoot } from 'react-dom/client';
 import { ImageSlotActions as theme01ImageSlotActions } from './theme01/source/slides/SlideKit.jsx';
 import { ImageSlotMediaContext as theme03ImageSlotMediaContext } from './theme03/source/src/ImageSlot.jsx';
+import { KxImageSlotMediaContext as theme06KxImageSlotMediaContext } from './theme06/source/slides/kit.jsx';
+import { AdaptiveImageSlotMediaContext as theme08AdaptiveImageSlotMediaContext } from './theme08/source/components/AclPrimitives.jsx';
+import { ImageStripMediaContext as theme09ImageStripMediaContext } from './theme09/source/slides/ImageStrip.jsx';
+import { DeckImageSlotMediaContext as theme10DeckImageSlotMediaContext } from './theme10/source/components/DeckImageSlot.jsx';
 import { runtimePages as theme01Pages } from './theme01/runtime.jsx';
 import { runtimePages as theme02Pages } from './theme02/runtime.jsx';
 import { runtimePages as theme03Pages } from './theme03/runtime.jsx';
@@ -345,9 +349,33 @@ function withImageProviders(element, mediaApi) {
     pick: index => mediaApi.pick('images', index),
     drop: (index, file) => mediaApi.acceptFile('images', index, file),
   };
+  const keyedValue = createKeyedImageBridge(mediaApi);
   return React.createElement(theme01ImageSlotActions.Provider, { value: theme01Value },
-    React.createElement(theme03ImageSlotMediaContext.Provider, { value: theme03Value }, element),
+    React.createElement(theme03ImageSlotMediaContext.Provider, { value: theme03Value },
+      React.createElement(theme06KxImageSlotMediaContext.Provider, { value: keyedValue },
+        React.createElement(theme08AdaptiveImageSlotMediaContext.Provider, { value: keyedValue },
+          React.createElement(theme09ImageStripMediaContext.Provider, { value: keyedValue },
+            React.createElement(theme10DeckImageSlotMediaContext.Provider, { value: keyedValue }, element),
+          ),
+        ),
+      ),
+    ),
   );
+}
+
+function createKeyedImageBridge(mediaApi) {
+  const indexes = new Map();
+  const resolveIndex = (slotKey, fallbackIndex = 0) => {
+    const key = String(slotKey || `slot-${fallbackIndex}`);
+    if (!indexes.has(key)) indexes.set(key, indexes.size);
+    return indexes.get(key);
+  };
+  return {
+    get: (slotKey, fallbackIndex) => mediaApi.get('images', resolveIndex(slotKey, fallbackIndex)),
+    set: (slotKey, fallbackIndex, value) => mediaApi.set('images', resolveIndex(slotKey, fallbackIndex), value),
+    pick: (slotKey, fallbackIndex) => mediaApi.pick('images', resolveIndex(slotKey, fallbackIndex)),
+    drop: (slotKey, fallbackIndex, file) => mediaApi.acceptFile('images', resolveIndex(slotKey, fallbackIndex), file),
+  };
 }
 
 function getGxnSlotIndex(root, slot) {
@@ -383,6 +411,16 @@ function bindRenderedImageSlots(root, mediaApi) {
   });
 }
 
+function applyImageSlotSources(root, mediaApi) {
+  const slots = [...root.querySelectorAll('image-slot')];
+  slots.forEach((slot, index) => {
+    const value = mediaApi.get('media', index) || mediaApi.get('images', index);
+    const src = mediaSrc(value);
+    if (src) slot.setAttribute('src', src);
+    else if (slot.hasAttribute('src')) slot.removeAttribute('src');
+  });
+}
+
 function renderImportedThemeSlide(slide, values = {}) {
   const root = slide?.querySelector?.('.imported-theme-root');
   if (!root) return false;
@@ -402,6 +440,7 @@ function renderImportedThemeSlide(slide, values = {}) {
       componentProps.__mediaApi,
     ));
   });
+  applyImageSlotSources(root, componentProps.__mediaApi);
   bindRenderedImageSlots(root, componentProps.__mediaApi);
   root.dataset.importedThemeRuntime = 'true';
   const pageSpec = inferDeckPagePropSpec(entry);

@@ -14,6 +14,8 @@
 // ============================================================================
 import React from 'react';
 
+export const KxImageSlotMediaContext = React.createContext(null);
+
 const CSS = `
   /* design tokens — scoped to the slide/theme container, never :root */
   .kx-slide{
@@ -207,7 +209,10 @@ export function KxStatusBar({ wordmark = 'AI CAPITAL LAB', center, right, menu }
 // -- Adaptive image slot (self-contained, localStorage, ratio-aware) ------
 export function KxImageSlot({ id, placeholder = 'DROP IMAGE', badge, minRatio = 0.6, maxRatio = 2.4, style }) {
   const key = 'kx-img-' + id;
+  const media = React.useContext(KxImageSlotMediaContext);
+  const hasHostMedia = Boolean(media?.get || media?.set);
   const readStored = () => {
+    if (hasHostMedia) return normalizeHostMedia(media?.get?.(id, 0));
     try { const raw = localStorage.getItem(key); return raw ? JSON.parse(raw) : null; } catch (e) { return null; }
   };
   const [data, setData] = React.useState(readStored);
@@ -216,7 +221,15 @@ export function KxImageSlot({ id, placeholder = 'DROP IMAGE', badge, minRatio = 
 
   React.useEffect(() => {
     setData(readStored());
-  }, [key]);
+  }, [key, id, hasHostMedia, media]);
+
+  const save = (next) => {
+    setData(next);
+    if (media?.set) media.set(id, 0, next);
+    else {
+      try { if (next) localStorage.setItem(key, JSON.stringify(next)); else localStorage.removeItem(key); } catch (er) {}
+    }
+  };
 
   const accept = (file) => {
     if (!file || !/^(image|video)\//.test(file.type || '')) return;
@@ -229,13 +242,11 @@ export function KxImageSlot({ id, placeholder = 'DROP IMAGE', badge, minRatio = 
         video.onloadedmetadata = () => {
           const ratio = Math.min(maxRatio, Math.max(minRatio, video.videoWidth && video.videoHeight ? video.videoWidth / video.videoHeight : 1.6));
           const next = { src, ratio, kind: 'video', type: file.type };
-          setData(next);
-          try { localStorage.setItem(key, JSON.stringify(next)); } catch (er) {}
+          save(next);
         };
         video.onerror = () => {
           const next = { src, ratio: 1.6, kind: 'video', type: file.type };
-          setData(next);
-          try { localStorage.setItem(key, JSON.stringify(next)); } catch (er) {}
+          save(next);
         };
         video.src = src;
         return;
@@ -244,8 +255,7 @@ export function KxImageSlot({ id, placeholder = 'DROP IMAGE', badge, minRatio = 
       img.onload = () => {
         const ratio = Math.min(maxRatio, Math.max(minRatio, img.naturalWidth / img.naturalHeight));
         const next = { src, ratio, kind: 'image', type: file.type };
-        setData(next);
-        try { localStorage.setItem(key, JSON.stringify(next)); } catch (er) {}
+        save(next);
       };
       img.src = src;
     };
@@ -275,4 +285,20 @@ export function KxImageSlot({ id, placeholder = 'DROP IMAGE', badge, minRatio = 
       ref: inputRef, type: 'file', accept: 'image/*,video/mp4,video/webm,video/quicktime,video/*', style: { display: 'none' },
       onChange: (e) => accept(e.target.files[0]),
     }));
+}
+
+function normalizeHostMedia(value) {
+  if (!value) return null;
+  if (typeof value === 'string') return { src: value, ratio: 1.6, kind: value.startsWith('data:video/') ? 'video' : 'image' };
+  if (typeof value === 'object') {
+    const src = value.src || value.url || value.u;
+    if (!src) return null;
+    return {
+      ...value,
+      src,
+      ratio: value.ratio || value.ar || value.aspect || 1.6,
+      kind: value.kind || (String(value.type || src).startsWith('video/') || String(src).startsWith('data:video/') ? 'video' : 'image'),
+    };
+  }
+  return null;
 }

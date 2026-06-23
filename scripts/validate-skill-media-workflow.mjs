@@ -4,13 +4,20 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import https from 'node:https';
 import path from 'node:path';
 import { tmpdir } from 'node:os';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { chromium } from 'playwright-core';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+const CHROME_PATH = process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome';
 
 const tests = [
   ['media contracts distinguish writable slots from count-only controls', testMediaContracts],
   ['provided image query requires initial media write support', testProvidedImageQuery],
+  ['all accepted themes expose provided image candidates', testAllAcceptedThemesProvidedImages],
+  ['theme09 image slots accept provided images', testTheme09ProvidedImageSlots],
+  ['theme05 string image props render as media', testTheme05StringImagePropsRender],
+  ['theme05 string quote props render as text', testTheme05StringQuotePropsRender],
+  ['theme08 adaptive image slots render provided images', testTheme08AdaptiveImagePropsRender],
   ['video query returns only initial video-capable slots', testVideoQuery],
   ['mixed media query requires image and video capable slots', testMixedMediaQuery],
   ['stage-media preserves user media through render and preview', testStageMediaRenderPreview],
@@ -20,7 +27,7 @@ const failures = [];
 
 for (const [name, fn] of tests) {
   try {
-    fn();
+    await fn();
     console.log(`ok - ${name}`);
   } catch (error) {
     failures.push([name, error]);
@@ -56,8 +63,13 @@ function testMediaContracts() {
   assert(imagesSlot.runtimeReplaceable === true, 'theme11_page063 images slot should be runtime replaceable');
   assert(imagesSlot.writeMode === 'initialProps', 'theme11_page063 images slot should use initialProps write mode');
   assert(Array.isArray(imagesSlot.acceptedKinds) && imagesSlot.acceptedKinds.includes('image') && imagesSlot.acceptedKinds.includes('video'), 'theme11_page063 images slot should accept image and video');
-  assert(typeof imagesSlot.valueShape === 'string' && imagesSlot.valueShape.includes('src'), 'theme11_page063 images slot should describe value shape');
+  assert(imagesSlot.valueShape === 'Array<string | {src,kind,type}>', 'theme11_page063 images slot should describe the array field shape');
   assert(imagesSlot.emptySlotBehavior, 'theme11_page063 images slot should describe empty slot behavior');
+
+  const theme05Mosaic = runJson('scripts/inspect-layout.mjs', ['theme05_page088']);
+  assert(!(theme05Mosaic.mediaSlots || []).some(slot => slot.field === 'media'), 'theme05_page088 should not expose props.media unless the component renders it');
+  const theme06Cover = runJson('scripts/inspect-layout.mjs', ['theme06_page005']);
+  assert(!(theme06Cover.mediaSlots || []).some(slot => slot.field === 'media'), 'theme06_page005 should not expose props.media unless the component renders it');
 }
 
 function testProvidedImageQuery() {
@@ -69,13 +81,212 @@ function testProvidedImageQuery() {
   ]);
   assert(result.mediaIntent === 'provided-images', 'expected provided-images media intent');
   assert(result.requireInitialMedia === true, 'expected requireInitialMedia=true in query output');
+  assert(result.layouts.length > 0, 'expected provided image candidates');
   for (const layout of result.layouts) {
     const slots = layout.mediaSlots || [];
     assert(slots.some(slot => slot.initialSrcSupported === true && mediaSlotCapacity(slot) >= 3), `${layout.layout} lacks initial media slot for 3 images`);
+    assert(slots.some(slot => slot.canPresetMedia === true && slot.presetProp), `${layout.layout} lacks canPresetMedia/presetProp hint`);
     for (const slot of slots) {
       assert(slot.field !== 'mediaCount' && slot.field !== 'imageCount', `${layout.layout} exposes count key as media field`);
       assert(slot.fieldPath, `${layout.layout} media slot missing fieldPath`);
+      if (slot.canPresetMedia) assert(slot.presetProp === slot.fieldPath, `${layout.layout} presetProp should match fieldPath`);
     }
+  }
+}
+
+function testAllAcceptedThemesProvidedImages() {
+  const themes = Array.from({ length: 12 }, (_, index) => `theme${String(index + 1).padStart(2, '0')}`);
+  for (const theme of themes) {
+    const result = runJson('scripts/layout-query.mjs', [
+      '--theme', theme,
+      '--provided-images', '1',
+      '--limit', '8',
+    ]);
+    assert(result.layouts.length > 0, `${theme} should expose at least one provided-image layout`);
+    assert(result.layouts.some(layout => (layout.mediaSlots || []).some(slot => {
+      return slot.initialSrcSupported === true
+        && slot.canPresetMedia === true
+        && slot.presetProp
+        && (slot.acceptedKinds || []).includes('image')
+        && mediaSlotCapacity(slot) >= 1;
+    })), `${theme} provided-image candidates should expose a preset image slot`);
+  }
+}
+
+function testTheme09ProvidedImageSlots() {
+  const inspected = runJson('scripts/inspect-layout.mjs', ['theme09_page026']);
+  const inspectedSlot = (inspected.mediaSlots || []).find(slot => slot.field === 'images');
+  assert(inspectedSlot, 'theme09_page026 should expose props.images for initial image content');
+  assert(inspectedSlot.initialSrcSupported === true, 'theme09_page026 images slot should support initial src');
+  assert(inspectedSlot.canPresetMedia === true && inspectedSlot.presetProp === 'props.images', 'theme09_page026 should guide agents to write props.images');
+
+  const result = runJson('scripts/layout-query.mjs', [
+    '--theme', 'theme09',
+    '--provided-images', '1',
+    '--limit', '5',
+  ]);
+  assert(result.mediaIntent === 'provided-images', 'expected provided-images media intent');
+  assert(result.requireInitialMedia === true, 'provided images should require initial media support');
+  assert(result.layouts.length > 0, 'theme09 should return image layouts for provided images');
+  assert(result.layouts.some(layout => (layout.mediaSlots || []).some(slot => {
+    return slot.field === 'images'
+      && slot.canPresetMedia === true
+      && slot.presetProp === 'props.images'
+      && mediaSlotCapacity(slot) >= 1;
+  })), 'theme09 provided-image candidates should expose props.images preset slot');
+
+  const safe = runJson('scripts/write-safe-props.mjs', [
+    'theme09_page026',
+    JSON.stringify({ title: '影像速写', shots: [{ caption: '用户素材' }] }),
+    '--images',
+    'assets/user-media/photo.webp',
+  ]);
+  assert(safe.props?.imgCount === 1, 'theme09 props:safe should set imgCount from provided images');
+  assert(safe.props?.images?.[0] === 'assets/user-media/photo.webp', 'theme09 props:safe should write provided image to props.images');
+}
+
+async function testTheme05StringImagePropsRender() {
+  assert(existsSync(CHROME_PATH), `Chrome executable not found: ${CHROME_PATH}`);
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-theme05-media-'));
+  try {
+    const outDir = path.join(tmp, 'ppt');
+    const mediaDir = path.join(outDir, 'assets/user-media');
+    mkdirSync(mediaDir, { recursive: true });
+    const mediaPath = path.join(mediaDir, 'theme05-string.png');
+    writeFileSync(mediaPath, Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=', 'base64'));
+
+    const goalPath = path.join(tmp, 'goal.json');
+    writeFileSync(goalPath, JSON.stringify({
+      title: 'Theme05 Media Smoke',
+      goal: 'verify theme05 string image props render',
+      themePack: 'theme05',
+      slides: [{
+        layout: 'theme05_page006',
+        props: {
+          imageCount: 1,
+          images: ['assets/user-media/theme05-string.png'],
+        },
+      }],
+    }, null, 2));
+
+    const htmlPath = path.join(outDir, 'index.html');
+    execFileSync('npm', ['run', 'render:goal', '--', goalPath, htmlPath], { cwd: ROOT, stdio: 'pipe' });
+
+    const browser = await chromium.launch({ headless: true, executablePath: CHROME_PATH });
+    const page = await browser.newPage({ viewport: { width: 1365, height: 768 } });
+    const errors = [];
+    page.on('console', message => {
+      if (message.type() === 'error') errors.push(message.text());
+    });
+    page.on('pageerror', error => errors.push(error.message));
+    try {
+      await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'networkidle' });
+      await page.waitForSelector('.pulse-imgframe img', { timeout: 5000 });
+      const src = await page.locator('.pulse-imgframe img').first().getAttribute('src');
+      assert(src && src.includes('assets/user-media/theme05-string.png'), 'theme05 did not render the string image prop');
+      assert(errors.length === 0, `theme05 rendered with console errors: ${errors.slice(0, 3).join(' | ')}`);
+    } finally {
+      await browser.close();
+    }
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+async function testTheme05StringQuotePropsRender() {
+  assert(existsSync(CHROME_PATH), `Chrome executable not found: ${CHROME_PATH}`);
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-theme05-quote-'));
+  try {
+    const outDir = path.join(tmp, 'ppt');
+    mkdirSync(outDir, { recursive: true });
+    const goalPath = path.join(tmp, 'goal.json');
+    writeFileSync(goalPath, JSON.stringify({
+      title: 'Theme05 Quote Smoke',
+      goal: 'verify theme05 string quote props render',
+      themePack: 'theme05',
+      slides: [{
+        layout: 'theme05_page037',
+        props: {
+          copy: {
+            kicker: '最终结论',
+            index: '18',
+            sheet: '18 / Final',
+            quote: '出海上半场拼规模，下半场拼本地经营',
+            sub: '品牌、渠道、补能一起做成当地经营能力。',
+            keywords: ['品牌资产', '渠道效率', '服务体验'],
+          },
+        },
+      }],
+    }, null, 2));
+
+    const htmlPath = path.join(outDir, 'index.html');
+    execFileSync('npm', ['run', 'render:goal', '--', goalPath, htmlPath], { cwd: ROOT, stdio: 'pipe' });
+
+    const browser = await chromium.launch({ headless: true, executablePath: CHROME_PATH });
+    const page = await browser.newPage({ viewport: { width: 1365, height: 768 } });
+    const errors = [];
+    page.on('console', message => {
+      if (message.type() === 'error') errors.push(message.text());
+    });
+    page.on('pageerror', error => errors.push(error.message));
+    try {
+      await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'networkidle' });
+      const bodyText = await page.locator('body').innerText({ timeout: 5000 });
+      assert(bodyText.includes('出海上半场拼规模，下半场拼本地经营'), 'theme05 did not render the string quote prop');
+      assert(errors.length === 0, `theme05 quote rendered with console errors: ${errors.slice(0, 3).join(' | ')}`);
+    } finally {
+      await browser.close();
+    }
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
+  }
+}
+
+async function testTheme08AdaptiveImagePropsRender() {
+  assert(existsSync(CHROME_PATH), `Chrome executable not found: ${CHROME_PATH}`);
+  const tmp = mkdtempSync(path.join(tmpdir(), 'dashi-theme08-media-'));
+  try {
+    const outDir = path.join(tmp, 'ppt');
+    const mediaDir = path.join(outDir, 'assets/user-media');
+    mkdirSync(mediaDir, { recursive: true });
+    const mediaPath = path.join(mediaDir, 'theme08-adaptive.png');
+    writeFileSync(mediaPath, Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+/p9sAAAAASUVORK5CYII=', 'base64'));
+
+    const goalPath = path.join(tmp, 'goal.json');
+    writeFileSync(goalPath, JSON.stringify({
+      title: 'Theme08 Media Smoke',
+      goal: 'verify theme08 adaptive image slots render provided images',
+      themePack: 'theme08',
+      slides: [{
+        layout: 'theme08_page005',
+        props: {
+          mediaCount: 1,
+          images: ['assets/user-media/theme08-adaptive.png'],
+        },
+      }],
+    }, null, 2));
+
+    const htmlPath = path.join(outDir, 'index.html');
+    execFileSync('npm', ['run', 'render:goal', '--', goalPath, htmlPath], { cwd: ROOT, stdio: 'pipe' });
+
+    const browser = await chromium.launch({ headless: true, executablePath: CHROME_PATH });
+    const page = await browser.newPage({ viewport: { width: 1365, height: 768 } });
+    const errors = [];
+    page.on('console', message => {
+      if (message.type() === 'error') errors.push(message.text());
+    });
+    page.on('pageerror', error => errors.push(error.message));
+    try {
+      await page.goto(pathToFileURL(htmlPath).href, { waitUntil: 'networkidle' });
+      await page.waitForSelector('.acl-slot__img', { timeout: 5000 });
+      const src = await page.locator('.acl-slot__img').first().getAttribute('src');
+      assert(src && src.includes('assets/user-media/theme08-adaptive.png'), 'theme08 AdaptiveImageSlot did not render props.images');
+      assert(errors.length === 0, `theme08 rendered with console errors: ${errors.slice(0, 3).join(' | ')}`);
+    } finally {
+      await browser.close();
+    }
+  } finally {
+    rmSync(tmp, { recursive: true, force: true });
   }
 }
 
@@ -90,7 +301,7 @@ function testVideoQuery() {
   assert(result.requireInitialMedia === true, 'expected requireInitialMedia=true');
   assert(result.layouts.length > 0, 'expected video-capable initial media candidates');
   for (const layout of result.layouts) {
-    assert((layout.mediaSlots || []).some(slot => slot.initialSrcSupported === true && (slot.acceptedKinds || []).includes('video')), `${layout.layout} lacks initial video-capable slot`);
+    assert((layout.mediaSlots || []).some(slot => slot.initialSrcSupported === true && slot.canPresetMedia === true && slot.presetProp && (slot.acceptedKinds || []).includes('video')), `${layout.layout} lacks initial video-capable slot`);
   }
 }
 

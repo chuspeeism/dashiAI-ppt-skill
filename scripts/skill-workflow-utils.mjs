@@ -4,7 +4,10 @@ import { fileURLToPath } from 'node:url';
 import {
   createLayoutContracts,
   describePropShapes,
+  isSerializedReactElementLike,
+  neutralizeDefaultCopy,
   normalizeSlidePropsForContract,
+  reactElementText,
 } from '../src/prop-contract-core.mjs';
 import {
   resolvePublicPropAliases,
@@ -39,6 +42,7 @@ const ROLE_KEYWORDS = {
   process: ['process', 'roadmap', 'journey', 'steps', 'gantt', '路径', '流程', '路线', '进程'],
   risks: ['risk', 'faq', 'checklist', '风险', '异议', '问答', '清单'],
   observation: ['quote', 'insight', 'takeaway', 'conclusion', 'statement', 'manifesto', '观点', '洞察', '要点', '结论'],
+  ambient: ['ambient', 'atmosphere', 'background', 'immersive', 'poster', 'hero', '氛围', '背景', '沉浸', '海报'],
   actions: ['action', 'roadmap', 'plan', 'join', 'contact', 'next', '行动', '策略', '计划', '套餐'],
   result: ['result', 'outcome', 'score', 'closing', 'conclusion', '成果', '结果', '完成', '结论'],
   team: ['team', 'roster', 'testimonial', 'voice', '团队', '人物', '见证', '证言'],
@@ -61,12 +65,16 @@ const ROLE_ALIASES = {
   media: 'image',
   picture: 'image',
   photo: 'image',
+  atmosphere: 'ambient',
+  background: 'ambient',
+  dynamic: 'ambient',
 };
 
 const contracts = createLayoutContracts(THEME_PAGES);
 const pagesByKey = new Map(THEME_PAGES.map(page => [page.key, page]));
 const themePacksByKey = new Map(THEME_PACKS.map(theme => [theme.key, theme]));
 const manifest = readManifest();
+const HOST_MEDIA_ARRAY_THEMES = new Set(['theme03', 'theme04', 'theme05', 'theme06', 'theme07', 'theme08', 'theme09', 'theme10']);
 
 export function parseArgs(argv) {
   const args = { _: [] };
@@ -119,10 +127,11 @@ export function listLayouts({
       if (!normalizedRole) return true;
       if (normalizedRole === 'cover') return isCoverCandidate(page.key);
       if (normalizedRole === 'image') return inspectLayout(page.key, { compact: true })?.mediaSlots.length;
+      if (normalizedRole === 'ambient') return hasAmbientBackground(page);
       return pageMatches(page, keywords);
     })
     .filter(page => !keywordText || pageSearchText(page).includes(keywordText))
-    .map(page => inspectLayout(page.key, { compact: true }))
+    .map(page => compactLayoutCandidate(inspectLayout(page.key, { compact: true })))
     .filter(Boolean)
     .filter(row => !requiresMedia || row.mediaSlots.length)
     .filter(row => !requestedMediaCount || mediaSlotsCanFit(row.mediaSlots, requestedMediaCount, { requireInitialMedia: needsInitialMedia, mediaKind: normalizedMediaKind }))
@@ -130,6 +139,12 @@ export function listLayouts({
 
   rows = rows.sort((a, b) => scoreLayout(b, { normalizedRole, keywordText, requiresMedia, requestedMediaCount, normalizedMediaKind, needsInitialMedia }) - scoreLayout(a, { normalizedRole, keywordText, requiresMedia, requestedMediaCount, normalizedMediaKind, needsInitialMedia }));
   return rows.slice(0, Math.max(1, Math.min(50, Number(limit) || 12)));
+}
+
+function compactLayoutCandidate(row) {
+  if (!row) return row;
+  const { copyBudgets, propShapes, ...candidate } = row;
+  return candidate;
 }
 
 export function inspectLayout(layout, { compact = false } = {}) {
@@ -143,6 +158,7 @@ export function inspectLayout(layout, { compact = false } = {}) {
   const mediaSlots = getMediaSlots(record);
   const copyKeys = getCopyKeys(defaultProps, controls, mediaSlots);
   const arrayKeys = getArrayKeys(defaultProps, mediaSlots);
+  const copyBudgets = getCopyBudgets(defaultProps, copyKeys);
   const defaultVisibleCounts = Object.fromEntries(countBindings
     .map(binding => [binding.publicKey || binding.key, defaultProps[binding.key] ?? controls.find(control => control.key === binding.key)?.default])
     .filter(([, value]) => value !== undefined));
@@ -158,6 +174,7 @@ export function inspectLayout(layout, { compact = false } = {}) {
     slot: page.slot,
     roles: inferRoles(page, mediaSlots),
     copyKeys,
+    copyBudgets,
     arrayKeys,
     mediaSlots,
     countBindings,
@@ -168,6 +185,7 @@ export function inspectLayout(layout, { compact = false } = {}) {
   };
 
   if (compact) {
+    const compactKeys = [...new Set([...copyKeys, ...arrayKeys])];
     return {
       layout: base.layout,
       theme: base.theme,
@@ -178,7 +196,9 @@ export function inspectLayout(layout, { compact = false } = {}) {
       slot: base.slot,
       roles: base.roles,
       copyKeys: base.copyKeys.slice(0, 10),
+      copyBudgets: base.copyBudgets,
       arrayKeys: base.arrayKeys.slice(0, 8),
+      propShapes: describePropShapes(defaultProps, compactKeys),
       mediaSlots: base.mediaSlots.map(compactMediaSlot),
       countBindings: base.countBindings.map(compactCountBinding),
       defaultVisibleCounts: base.defaultVisibleCounts,
@@ -188,8 +208,8 @@ export function inspectLayout(layout, { compact = false } = {}) {
   return {
     ...base,
     propShapes: describePropShapes(defaultProps, [...copyKeys, ...arrayKeys]),
-    allowedPropKeys: [...new Set([...Object.keys(defaultProps), ...controlKeys])].sort(),
-    allowedPublicPropKeys: [...new Set([...Object.keys(toPublicProps(defaultProps, controls)), ...publicControlKeys])].sort(),
+    allowedPropKeys: [...new Set([...Object.keys(defaultProps), ...controlKeys, ...mediaSlots.map(slot => slot.field).filter(Boolean)])].sort(),
+    allowedPublicPropKeys: [...new Set([...Object.keys(toPublicProps(defaultProps, controls)), ...publicControlKeys, ...mediaSlots.map(slot => slot.field).filter(Boolean)])].sort(),
   };
 }
 
@@ -238,13 +258,22 @@ function publicControl(control) {
 }
 
 function compactMediaSlot(slot) {
+  const canPresetMedia = slot.initialSrcSupported === true && Boolean(slot.fieldPath);
   return {
     field: slot.field,
+    fieldPath: slot.fieldPath,
     countKey: slot.countKey,
     publicCountKey: slot.publicCountKey || slot.countKey,
+    defaultCount: slot.defaultCount,
     max: slot.max,
     acceptedKinds: slot.acceptedKinds,
+    itemShape: slot.itemShape,
+    valueShape: slot.valueShape,
     initialSrcSupported: slot.initialSrcSupported,
+    writeMode: slot.writeMode,
+    canPresetMedia,
+    presetProp: canPresetMedia ? slot.fieldPath : null,
+    emptySlotBehavior: slot.emptySlotBehavior,
   };
 }
 
@@ -253,6 +282,7 @@ function compactCountBinding(binding) {
     key: binding.key,
     publicKey: binding.publicKey || binding.key,
     label: binding.label,
+    arrays: binding.arrays,
     min: binding.min,
     max: binding.max,
   };
@@ -301,6 +331,14 @@ export function getPreferredMediaSlot(layout, { kind = 'images', count = 1 } = {
     || null;
 }
 
+export function getCopyBudgetsForLayout(layout) {
+  const record = getLayoutRecord(layout);
+  if (!record) return {};
+  const mediaSlots = getMediaSlots(record);
+  const copyKeys = getCopyKeys(record.defaultProps, record.controls, mediaSlots);
+  return getCopyBudgets(record.defaultProps, copyKeys);
+}
+
 function mergeDefaultArrayTails(props, defaults, authoredProps = props) {
   const next = { ...(props || {}) };
   for (const [key, value] of Object.entries(props || {})) {
@@ -315,39 +353,13 @@ function mergeDefaultArrayTails(props, defaults, authoredProps = props) {
   return next;
 }
 
-function neutralizeDefaultCopy(value, field = '') {
-  if (typeof value === 'string') return shouldNeutralizeString(field, value) ? neutralPlaceholder(value) : value;
-  if (Array.isArray(value)) return value.map(item => neutralizeDefaultCopy(item, field));
-  if (!isPlainObject(value)) return value;
-  return Object.fromEntries(Object.entries(value).map(([key, item]) => [
-    key,
-    neutralizeDefaultCopy(item, key),
-  ]));
-}
-
-function shouldNeutralizeString(field, value) {
-  if (!value) return false;
-  if (/^(id|key|type|tone|color|colour|accent|variant|style|theme|layout|align|side|position|icon|href|url|src|fit)$/i.test(field)) return false;
-  if (/^(show|is|has)[A-Z_]/.test(field)) return false;
-  if (/(Color|Colour|Tone|Variant|Style|Mode|Layout|Align|Side|Index|Id|Key|Url|Src|Fit)$/i.test(field)) return false;
-  if (/^(https?:|data:|#)/i.test(value)) return false;
-  return true;
-}
-
-function neutralPlaceholder(value) {
-  const length = Array.from(value).length;
-  if (!length) return value;
-  const seed = Array.from('请输入文本');
-  return Array.from({ length }, (_, index) => seed[index % seed.length]).join('');
-}
-
 export function getLayoutRecord(layout) {
   const page = pagesByKey.get(layout);
   if (!page) return null;
   const baseContract = contracts.get(layout);
   const manifestLayout = manifest.layouts?.[layout] || {};
   const controls = manifestLayout.controls || baseContract?.controls || [];
-  const countBindings = manifestLayout.countBindings || baseContract?.countBindings || [];
+  const countBindings = mergeCountBindings(manifestLayout.countBindings, baseContract?.countBindings);
   const contract = {
     ...(baseContract || {}),
     controls,
@@ -360,6 +372,17 @@ export function getLayoutRecord(layout) {
     countBindings,
     defaultProps: baseContract?.defaultProps || {},
   };
+}
+
+function mergeCountBindings(primary = [], fallback = []) {
+  const result = [];
+  const seen = new Set();
+  for (const binding of [...(primary || []), ...(fallback || [])]) {
+    if (!binding?.key || seen.has(binding.key)) continue;
+    seen.add(binding.key);
+    result.push(binding);
+  }
+  return result;
 }
 
 export function getThemePackMetadata(themeKey) {
@@ -389,18 +412,22 @@ export function isCoverLikeLayout(layout) {
 export function getAllowedPropKeys(layout) {
   const record = getLayoutRecord(layout);
   if (!record) return new Set();
+  const mediaFields = getMediaSlots(record).map(slot => slot.field).filter(Boolean);
   return new Set([
     ...Object.keys(record.defaultProps || {}),
     ...record.controls.map(control => control.key).filter(Boolean),
     ...record.controls.map(control => control.publicKey).filter(Boolean),
+    ...mediaFields,
   ]);
 }
 
 export function unknownPropKeys(record, props = {}) {
+  const mediaFields = getMediaSlots(record).map(slot => slot.field).filter(Boolean);
   const allowed = new Set([
     ...Object.keys(record.defaultProps || {}),
     ...record.controls.map(control => control.key).filter(Boolean),
     ...record.controls.map(control => control.publicKey).filter(Boolean),
+    ...mediaFields,
   ]);
   return Object.keys(props || {}).filter(key => !allowed.has(key));
 }
@@ -418,6 +445,67 @@ function getArrayKeys(defaultProps, mediaSlots) {
   return Object.entries(defaultProps || {})
     .filter(([key, value]) => Array.isArray(value) && !mediaFields.has(key) && !isMediaArrayKey(key))
     .map(([key]) => key);
+}
+
+function getCopyBudgets(defaultProps, copyKeys) {
+  const budgets = {};
+  for (const key of copyKeys) {
+    collectCopyBudgets(defaultProps?.[key], key, budgets);
+  }
+  return budgets;
+}
+
+function collectCopyBudgets(value, pathName, budgets) {
+  if (typeof value === 'string' || typeof value === 'number') {
+    setCopyBudget(budgets, pathName, copyBudget(pathName, value));
+    return;
+  }
+  if (isSerializedReactElementLike(value)) {
+    setCopyBudget(budgets, pathName, copyBudget(pathName, reactElementText(value)));
+    return;
+  }
+  if (Array.isArray(value)) {
+    value.slice(0, 4).forEach(item => collectCopyBudgets(item, `${pathName}[]`, budgets));
+    return;
+  }
+  if (!isPlainObject(value)) return;
+  for (const [key, item] of Object.entries(value)) {
+    collectCopyBudgets(item, `${pathName}.${key}`, budgets);
+  }
+}
+
+function setCopyBudget(budgets, key, budget) {
+  if (!budget) return;
+  const existing = budgets[key];
+  if (!existing || budget.maxChars < existing.maxChars) budgets[key] = budget;
+}
+
+function copyBudget(pathName, value) {
+  const density = inferCopyDensity(pathName);
+  const length = charLength(value);
+  const base = Math.max(length, density === 'body' ? 18 : 6);
+  const maxChars = {
+    metric: Math.max(8, Math.min(16, Math.ceil(base * 1.4))),
+    display: Math.max(18, Math.min(36, Math.ceil(base * 1.8))),
+    compact: Math.max(16, Math.min(42, Math.ceil(base * 1.8))),
+    body: Math.max(36, Math.min(120, Math.ceil(base * 2.2))),
+  }[density];
+  return { density, maxChars };
+}
+
+function inferCopyDensity(pathName) {
+  const normalized = String(pathName || '').toLowerCase();
+  const field = normalized.split('.').at(-1)?.replace(/\[\]/g, '') || normalized;
+  const nested = normalized.includes('.') || normalized.includes('[]');
+  if (/^(value|amount|number|num|score|rate|pct|percent|index|rank|total)$/.test(field)) return 'metric';
+  if (!nested && /^(title|titletop|titlebottom|headline|headlinehl|headlinetail|statement|quote|word|brand|kicker)$/.test(field)) return 'display';
+  if (/^(lead|subtitle|sub|desc|description|summary|body|copy|note|caption|detail|paragraph|footnote)$/.test(field)) return 'body';
+  if (/^(title|headline|label|name|kicker|tag|chip|pill|category)$/.test(field)) return 'compact';
+  return 'compact';
+}
+
+function charLength(value) {
+  return Array.from(String(value ?? '')).length;
 }
 
 function isCopyValue(value) {
@@ -450,6 +538,9 @@ function getMediaSlots(record) {
   }
   for (const control of controls || []) {
     if (!isMediaCountControl(control)) continue;
+    for (const field of hostMediaFields(record, control)) {
+      slots.push(mediaSlot(field, control.key, controls, defaultProps, control, record, { writeMode: 'initialProps' }));
+    }
     slots.push(countOnlyMediaSlot(control, defaultProps, record));
   }
   return dedupeSlots(slots);
@@ -460,6 +551,7 @@ function mediaSlot(field, countKey, controls, defaultProps, source, record, { wr
   const fieldControl = controls.find(control => control.key === field);
   const defaultCount = countKey ? defaultProps[countKey] ?? countControl?.default : Array.isArray(defaultProps[field]) ? defaultProps[field].length : undefined;
   const acceptedKinds = acceptedMediaKinds(record, field, fieldControl);
+  const itemShape = acceptedKinds.includes('video') ? 'string | {src,kind,type}' : 'string | {src}';
   return {
     field,
     fieldPath: `props.${field}`,
@@ -472,10 +564,13 @@ function mediaSlot(field, countKey, controls, defaultProps, source, record, { wr
     publicControlKey: fieldControl?.publicKey || fieldControl?.key || null,
     label: fieldControl?.label || countControl?.label || null,
     acceptedKinds,
-    valueShape: acceptedKinds.includes('video') ? 'string | {src,kind,type}' : 'string | {src}',
+    itemShape,
+    valueShape: `Array<${itemShape}>`,
     initialSrcSupported: writeMode === 'initialProps',
     runtimeReplaceable: true,
     writeMode,
+    canPresetMedia: writeMode === 'initialProps',
+    presetProp: writeMode === 'initialProps' ? `props.${field}` : null,
     emptySlotBehavior: countKey ? 'hiddenByCount' : 'placeholder',
   };
 }
@@ -498,6 +593,8 @@ function countOnlyMediaSlot(control, defaultProps, record) {
     initialSrcSupported: false,
     runtimeReplaceable: true,
     writeMode: 'countOnly',
+    canPresetMedia: false,
+    presetProp: null,
     emptySlotBehavior: 'placeholder',
   };
 }
@@ -568,6 +665,7 @@ function acceptedMediaKinds(record, field, fieldControl) {
   const type = String(fieldControl?.type || '').toLowerCase();
   const key = String(field || '').toLowerCase();
   if (type === 'media' || key === 'media') return ['image', 'video'];
+  if (record?.page?.themeKey === 'theme08' && key === 'images') return ['image', 'video'];
   if (record?.page?.themeKey === 'theme11' && /^(images|media)$/i.test(field)) return ['image', 'video'];
   return ['image'];
 }
@@ -577,6 +675,14 @@ function countOnlyAcceptedMediaKinds(record, control) {
   if (record?.page?.themeKey === 'theme08' && /mediaCount/.test(control.key || '')) return ['image', 'video'];
   if (/video|视频|媒体/i.test(text)) return ['image', 'video'];
   return ['image'];
+}
+
+function hostMediaFields(record, control) {
+  if (!HOST_MEDIA_ARRAY_THEMES.has(record?.page?.themeKey)) return [];
+  const kinds = countOnlyAcceptedMediaKinds(record, control);
+  if (!kinds.includes('image')) return [];
+  if (['theme05', 'theme06', 'theme08'].includes(record?.page?.themeKey)) return ['images'];
+  return kinds.includes('video') ? ['images', 'media'] : ['images'];
 }
 
 function normalizeMediaKind(kind) {
@@ -601,10 +707,16 @@ function inferRoles(page, mediaSlots = []) {
     .filter(([role, keywords]) => {
       if (role === 'cover') return isCoverCandidate(page.key);
       if (role === 'image') return mediaSlots.length > 0;
+      if (role === 'ambient') return hasAmbientBackground(page);
       return pageMatches(page, keywords);
     })
     .map(([role]) => role)
     .slice(0, 6);
+}
+
+function hasAmbientBackground(page) {
+  const props = page?.defaultProps || {};
+  return props.backgroundMode === 'unicorn' || typeof props.unicornScene === 'string';
 }
 
 function pageMatches(page, keywords) {

@@ -985,7 +985,7 @@ let deckLeft=0;
 let deckTop=0;
 let deckScale=1;
 let activeThemePack=document.documentElement.dataset.themePack || '';
-let deckMode='edit';
+let deckMode=document.body.dataset.mode === 'present' ? 'present' : 'edit';
 var overviewGrid=null;
 let adjacentPreloadTimer=null;
 const deckDiagnosticFlags={disableThumbGeneration:false,disableAdjacentPreload:false};
@@ -993,7 +993,9 @@ const CURRENT_SLIDE_STORE='dashi-ppt-current-slide';
 const DECK_ASPECT_W=16;
 const DECK_ASPECT_H=9;
 document.body.dataset.mode=deckMode;
-document.body.classList.add('preview-panel-open');
+if(deckMode === 'edit' && !document.body.classList.contains('editor-panels-collapsed')){
+  document.body.classList.add('preview-panel-open');
+}
 
 function isEditMode(){
   return deckMode === 'edit';
@@ -4593,20 +4595,33 @@ refreshRailCatalog();
   window.__exportDeckHtml = async function(){
     if(window.__deckExportLocked) return;
     window.__deckExportLocked = true;
+    let exportUi = null;
+    const viewState = captureExportViewState();
     try {
+      exportUi = beginDeckExport('HTML');
+      updateDeckExport(exportUi, 0, 1, '准备页面状态...');
       window.__syncDeckPageNumbers?.();
       window.__flushEditableTextState?.();
       window.__syncDeckViewModelFromDom?.();
-      const slides = window.__getVisibleSlides?.() || [...document.querySelectorAll('#deck > .slide:not([hidden])')];
+      throwIfDeckExportCancelled(exportUi);
+      const slides = await materializeExportSlides(exportUi, 'HTML');
+      window.__flushEditableTextState?.();
+      window.__syncDeckViewModelFromDom?.();
+      throwIfDeckExportCancelled(exportUi);
       const clone = document.documentElement.cloneNode(true);
       await prepareSimpleHtmlExportClone(clone, slides);
-      const blob = new Blob(['<!DOCTYPE html>\n' + clone.outerHTML], {type: 'text/html;charset=utf-8'});
+      const html = await serializeHtmlExportClone(clone, exportUi);
+      throwIfDeckExportCancelled(exportUi);
+      const blob = new Blob(['<!DOCTYPE html>\n' + html], {type: 'text/html;charset=utf-8'});
+      updateDeckExport(exportUi, 1, 1, 'HTML 已准备下载');
       await downloadBlob(blob, 'index.html');
     } catch (error) {
+      if(isDeckExportCancelledError(error)) return;
       console.error('[export html]', error);
       alert('HTML 导出失败，请在浏览器控制台查看错误。');
     } finally {
-      window.__deckExportLocked = false;
+      restoreExportViewState(viewState);
+      endDeckExport(exportUi);
       window.__syncActiveEffects?.();
     }
   };
@@ -4668,15 +4683,9 @@ refreshRailCatalog();
     materializeHtmlExportViewModel(clone, visibleSlides);
     await inlineLocalScriptsForHtmlExport(clone);
     await embedUnicornAssetsForExport(clone);
-    clone.querySelector('#deck-topbar')?.remove();
-    clone.querySelector('#deck-page-pager')?.remove();
-    clone.querySelector('#slide-rail')?.remove();
-    clone.querySelector('#preview-panel-collapse')?.remove();
-    clone.querySelector('#image-picker-input')?.remove();
-    clone.querySelector('#media-picker-input')?.remove();
     clone.querySelector('.deck-export-overlay')?.remove();
     clone.querySelector('.page-transition-stage')?.remove();
-    clone.querySelector('body')?.classList.remove('preview-panel-open', 'editor-panels-collapsed', 'exporting-deck');
+    clone.querySelector('body')?.classList.remove('exporting-deck');
     clone.querySelectorAll('iframe[data-effect-src]').forEach(iframe => {
       if(!iframe.getAttribute('src') && iframe.dataset.effectSrc) iframe.setAttribute('src', iframe.dataset.effectSrc);
     });
@@ -4792,6 +4801,75 @@ refreshRailCatalog();
     script.type = 'application/json';
     script.textContent = JSON.stringify(assets).replace(/</g, '\\u003c');
     clone.querySelector('head')?.appendChild(script);
+  }
+
+  async function serializeHtmlExportClone(clone, exportUi){
+    let html = clone.outerHTML;
+    const refs = collectHtmlExportLocalMediaRefs(html);
+    if(!refs.length) return html;
+    let done = 0;
+    const replacements = [];
+    await Promise.all(refs.map(async item => {
+      throwIfDeckExportCancelled(exportUi);
+      const dataUrl = await readHtmlExportLocalAssetDataUrl(item.path);
+      done += 1;
+      updateDeckExport(exportUi, done, refs.length, `HTML 打包素材 ${done} / ${refs.length}`);
+      if(dataUrl) replacements.push({...item, dataUrl});
+    }));
+    replacements.forEach(({variants, dataUrl}) => {
+      variants.forEach(ref => {
+        html = html.split(ref).join(dataUrl);
+      });
+    });
+    return html;
+  }
+
+  function collectHtmlExportLocalMediaRefs(html){
+    const refs = new Map();
+    const pattern = /(?:^|["'`(,;:\s=])((?:\.\/|\/)?(?:assets|images|uploads)\/[^"'`<>)\s\\]+?\.(?:png|jpe?g|webp|gif|svg|avif|mp4|webm|mov)(?:[?#][^"'`<>)\s\\]*)?)/gi;
+    let match;
+    while((match = pattern.exec(html))){
+      const raw = match[1];
+      const path = normalizeHtmlExportLocalMediaRef(raw);
+      if(!path) continue;
+      if(!refs.has(path)) refs.set(path, new Set());
+      refs.get(path).add(raw);
+      const encoded = encodeURI(path);
+      if(encoded !== path) refs.get(path).add(encoded);
+    }
+    return [...refs].map(([path, variants]) => ({path, variants:[...variants]}));
+  }
+
+  function normalizeHtmlExportLocalMediaRef(value){
+    const raw = String(value || '').trim();
+    if(!raw || /^(data:|blob:|https?:|mailto:|tel:|#)/i.test(raw)) return '';
+    const clean = raw
+      .split('#')[0]
+      .split('?')[0]
+      .replace(/^\.?\//, '')
+      .replace(/^\/+/, '');
+    if(!/^(assets|images|uploads)\//.test(clean)) return '';
+    if(!/\.(?:png|jpe?g|webp|gif|svg|avif|mp4|webm|mov)$/i.test(clean)) return '';
+    return clean;
+  }
+
+  async function readHtmlExportLocalAssetDataUrl(path){
+    try {
+      const response = await fetch(path, {cache:'no-store'});
+      if(!response.ok) return '';
+      return await blobToDataUrl(await response.blob());
+    } catch {
+      return '';
+    }
+  }
+
+  function blobToDataUrl(blob){
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || ''));
+      reader.onerror = () => reject(reader.error || new Error('Could not read local export asset.'));
+      reader.readAsDataURL(blob);
+    });
   }
 
   function staticUnicornRuntime(){

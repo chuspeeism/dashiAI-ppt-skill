@@ -11,7 +11,44 @@
      gap        : number  槽间距
      placeholders : {ratio,label}[]  各槽空状态的默认比例与说明文案
 */
+import React from 'react';
 import { useDeckStyles } from './DeckKit.jsx';
+
+export const ImageStripMediaContext = React.createContext(null);
+
+function normalizeMediaItem(value){
+  if(!value) return null;
+  if(typeof value === 'string') return { src:value, kind:value.startsWith('data:video/') ? 'video' : 'image' };
+  if(typeof value === 'object'){
+    const src = value.src || value.url || value.u;
+    if(!src) return null;
+    const kind = value.kind || (String(value.type || src).startsWith('video/') || String(src).startsWith('data:video/') ? 'video' : 'image');
+    return { ...value, src, kind };
+  }
+  return null;
+}
+
+function mediaToSlotData(value){
+  const item = normalizeMediaItem(value);
+  if(!item?.src) return null;
+  return {
+    url:item.src,
+    aspect:item.aspect || item.ratio || item.ar || 1.5,
+    kind:item.kind || 'image',
+    type:item.type,
+  };
+}
+
+function slotDataToMedia(data){
+  if(!data?.url) return null;
+  return {
+    src:data.url,
+    kind:data.kind || (String(data.type || data.url).startsWith('video/') || String(data.url).startsWith('data:video/') ? 'video' : 'image'),
+    type:data.type,
+    ratio:data.aspect || null,
+    ar:data.aspect || null,
+  };
+}
 
 function ImageStrip(props){
   useDeckStyles(props.theme);
@@ -31,16 +68,25 @@ function ImageStrip(props){
   } = props;
 
   const n = Math.max(0, Math.min(count, 6));
+  const media = React.useContext(ImageStripMediaContext);
+  const hasHostMedia = Boolean(media?.get || media?.set);
+  const slotKey = (i)=> `${idPrefix}-${i}`;
 
-  // 每个槽：{ url, aspect } —— 从 localStorage 读取，刷新保留
   const load = (i)=>{
+    if(i >= n) return null;
+    if(hasHostMedia) return mediaToSlotData(media?.get?.(slotKey(i), i));
     try{
-      const raw = localStorage.getItem(`${idPrefix}-${i}`);
+      const raw = localStorage.getItem(slotKey(i));
       if(raw) return JSON.parse(raw);
     }catch(e){}
     return null;
   };
   const [slots, setSlots] = React.useState(()=> Array.from({length:6}, (_,i)=> load(i)));
+
+  React.useEffect(()=>{
+    if(!hasHostMedia) return;
+    setSlots(prev=> prev.map((item, i)=> i < n ? mediaToSlotData(media?.get?.(slotKey(i), i)) || null : null));
+  }, [hasHostMedia, media, idPrefix, n]);
 
   const setSlot = (i, data)=>{
     setSlots(prev=>{
@@ -48,10 +94,13 @@ function ImageStrip(props){
       next[i] = data;
       return next;
     });
-    try{
-      if(data) localStorage.setItem(`${idPrefix}-${i}`, JSON.stringify(data));
-      else localStorage.removeItem(`${idPrefix}-${i}`);
-    }catch(e){}
+    if(media?.set) media.set(slotKey(i), i, slotDataToMedia(data));
+    else {
+      try{
+        if(data) localStorage.setItem(slotKey(i), JSON.stringify(data));
+        else localStorage.removeItem(slotKey(i));
+      }catch(e){}
+    }
   };
 
   const ingest = (i, file)=>{
@@ -172,13 +221,29 @@ function ImageSlotCell({ data, aspect, height, placeholder, onFile, onClear }){
 export function FillSlot({ idPrefix='fill', idx=0, placeholder='图片 / image', accent='#46e3c6', radius=0, theme }){
   useDeckStyles(theme);
   const key = `${idPrefix}-${idx}`;
-  const load = ()=>{ try{ const r = localStorage.getItem(key); if(r) return JSON.parse(r); }catch(e){} return null; };
+  const media = React.useContext(ImageStripMediaContext);
+  const hasHostMedia = Boolean(media?.get || media?.set);
+  const load = ()=>{
+    if(hasHostMedia) return mediaToSlotData(media?.get?.(key, idx));
+    try{ const r = localStorage.getItem(key); if(r) return JSON.parse(r); }catch(e){}
+    return null;
+  };
   const [data, setData] = React.useState(load);
   const [drag, setDrag] = React.useState(false);
   const [hover, setHover] = React.useState(false);
   const inputRef = React.useRef(null);
   const openPicker = (e)=>{ e.stopPropagation(); inputRef.current && inputRef.current.click(); };
-  const save = (d)=>{ setData(d); try{ d?localStorage.setItem(key, JSON.stringify(d)):localStorage.removeItem(key); }catch(e){} };
+  React.useEffect(()=>{
+    if(!hasHostMedia) return;
+    setData(mediaToSlotData(media?.get?.(key, idx)) || null);
+  }, [hasHostMedia, media, key, idx]);
+  const save = (d)=>{
+    setData(d);
+    if(media?.set) media.set(key, idx, slotDataToMedia(d));
+    else {
+      try{ d?localStorage.setItem(key, JSON.stringify(d)):localStorage.removeItem(key); }catch(e){}
+    }
+  };
   const ingest = (file)=>{
     if(!file || !/^(image|video)\//.test(file.type || '')) return;
     const reader = new FileReader();

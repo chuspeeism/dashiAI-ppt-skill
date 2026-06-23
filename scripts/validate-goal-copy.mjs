@@ -12,7 +12,6 @@ const spec = JSON.parse(readFileSync(specArg, 'utf8'));
 const html = readFileSync(htmlArg, 'utf8');
 const layoutManifest = readLayoutManifest();
 const specText = JSON.stringify(spec, null, 2);
-const visibleText = extractSlideText(html);
 const errors = [];
 const COUNT_ARRAY_CANDIDATES = {
   barCount: ['bars'],
@@ -20,6 +19,7 @@ const COUNT_ARRAY_CANDIDATES = {
   cardCount: ['cards'],
   chipCount: ['chips'],
   colCount: ['columns', 'cols'],
+  featureCount: ['features', 'plans[].feats'],
   itemCount: ['items', 'stats', 'data'],
   stepCount: ['steps'],
   laneCount: ['lanes'],
@@ -40,6 +40,7 @@ const COUNT_ARRAY_CANDIDATES = {
   seriesCount: ['series'],
   segmentCount: ['segments'],
 };
+const visibleText = extractSlideText(html);
 const COMMON_TERMS = new Set([
   '一个',
   '一份',
@@ -117,6 +118,11 @@ if (unexpectedDefaultTerms.length) {
   errors.push(`未在 goal.json 中声明的模板默认文案残留: ${unexpectedDefaultTerms.join(', ')}`);
 }
 
+const neutralPlaceholders = findNeutralPlaceholders(visibleText);
+if (neutralPlaceholders.length) {
+  errors.push(`中性占位文案残留: ${neutralPlaceholders.join(', ')}`);
+}
+
 const requestedTerms = pickRequestedTerms(spec);
 if (requestedTerms.length && !requestedTerms.some(term => visibleText.includes(term))) {
   errors.push(`输出正文没有命中用户目标关键词: ${requestedTerms.join(', ')}`);
@@ -156,22 +162,87 @@ function pickRequestedTerms(spec) {
 }
 
 function extractSlideText(html) {
-  const slides = [...html.matchAll(/<section\b[^>]*class="[^"]*\bslide\b[^"]*"[^>]*>[\s\S]*?<\/section>/g)]
-    .map(match => match[0]);
-  return decodeEntities(slides.map(slide => `${stripTags(slide)}\n${extractPropText(slide)}`).join('\n'));
+  return `${extractRenderedSlideText(html)}\n${extractVisibleDeckPropsText(html)}`;
 }
 
-function extractPropText(markup) {
-  const values = [];
-  for (const match of markup.matchAll(/\sdata-prop-defaults="([^"]*)"/g)) {
-    const raw = decodeEntities(match[1]);
-    try {
-      values.push(JSON.stringify(JSON.parse(raw)));
-    } catch {
-      values.push(raw);
-    }
+function extractRenderedSlideText(html) {
+  const slides = [...html.matchAll(/<section\b[^>]*class="[^"]*\bslide\b[^"]*"[^>]*>[\s\S]*?<\/section>/g)]
+    .map(match => match[0]);
+  return decodeEntities(slides.map(slide => stripTags(slide)).join('\n'));
+}
+
+function extractVisibleDeckPropsText(markup) {
+  const model = readJsonScript(markup, 'deck-view-model');
+  if (!model?.slides?.length) return '';
+  const sections = getSlideSections(markup);
+  return JSON.stringify(model.slides.map(slide => ({
+    layout: slide.layout,
+    props: visiblePropsForSlide(slide, readPropControls(sections.get(slide.id) || '')),
+  })));
+}
+
+function visiblePropsForSlide(slide, controls = []) {
+  const props = slide?.props || {};
+  const bindings = getCountBindings(slide, controls);
+  const arrayCounts = new Map();
+  for (const binding of bindings) {
+    const count = numberOrNull(props[binding.key] ?? props[binding.publicKey]);
+    if (count == null) continue;
+    for (const arrayKey of binding.arrays || []) arrayCounts.set(arrayKey, count);
   }
-  return values.join('\n');
+  const fallbackCount = fallbackVisibleCount(props, bindings);
+  return filterVisibleValue(props, '', arrayCounts, fallbackCount);
+}
+
+function filterVisibleValue(value, pathName, arrayCounts, fallbackCount) {
+  if (Array.isArray(value)) {
+    const key = lastPathKey(pathName);
+    const explicitCount = arrayCounts.get(pathName) ?? arrayCounts.get(key);
+    const limit = explicitCount ?? (shouldSliceByFallback(key, value, fallbackCount) ? fallbackCount : null);
+    const visible = limit == null ? value : value.slice(0, limit);
+    const itemPath = pathName ? `${pathName}[]` : '[]';
+    return visible.map(item => filterVisibleValue(item, itemPath, arrayCounts, fallbackCount));
+  }
+  if (!value || typeof value !== 'object') return value;
+  return Object.fromEntries(Object.entries(value).map(([childKey, childValue]) => [
+    childKey,
+    filterVisibleValue(childValue, pathName ? `${pathName}.${childKey}` : childKey, arrayCounts, fallbackCount),
+  ]));
+}
+
+function lastPathKey(pathName) {
+  return String(pathName || '')
+    .split('.')
+    .at(-1)
+    ?.replace(/\[\]$/, '') || '';
+}
+
+function fallbackVisibleCount(props, bindings) {
+  const counts = [...new Set((bindings || [])
+    .map(binding => numberOrNull(props[binding.key] ?? props[binding.publicKey]))
+    .filter(value => value != null))];
+  return counts.length === 1 ? counts[0] : null;
+}
+
+function shouldSliceByFallback(key, value, fallbackCount) {
+  if (fallbackCount == null || !Array.isArray(value) || value.length <= fallbackCount) return false;
+  if (isMediaArrayKey(key)) return false;
+  return /^(items|cards|stats|data|captions|labels|callouts|features|tiles)$/i.test(String(key || ''));
+}
+
+function isMediaArrayKey(key) {
+  return /^(images|media|photos|pictures|logos|thumbs|imageSlots|imgs)$/i.test(String(key || ''));
+}
+
+function numberOrNull(value) {
+  const number = Number(value);
+  return Number.isFinite(number) && number >= 0 ? Math.round(number) : null;
+}
+
+function findNeutralPlaceholders(text) {
+  const hits = new Set();
+  if (String(text || '').includes('请输入文本')) hits.add('请输入文本');
+  return [...hits];
 }
 
 function stripTags(markup) {
@@ -232,12 +303,23 @@ function readLayoutManifest() {
   }
 }
 
-function getCountBindings(slide, controls) {
+function getCountBindings(slide, controls = []) {
   const manifestBindings = layoutManifest?.layouts?.[slide.layout]?.countBindings;
-  if (manifestBindings?.length) return manifestBindings;
-  return controls
+  const fallbackBindings = controls
     .filter(control => COUNT_ARRAY_CANDIDATES[control.key])
     .map(control => ({ ...control, arrays: COUNT_ARRAY_CANDIDATES[control.key] }));
+  return mergeCountBindings(manifestBindings, fallbackBindings);
+}
+
+function mergeCountBindings(primary = [], fallback = []) {
+  const result = [];
+  const seen = new Set();
+  for (const binding of [...(primary || []), ...(fallback || [])]) {
+    if (!binding?.key || seen.has(binding.key)) continue;
+    seen.add(binding.key);
+    result.push(binding);
+  }
+  return result;
 }
 
 function deriveCount(props, key, candidates) {
@@ -248,9 +330,39 @@ function deriveCount(props, key, candidates) {
     });
   }
   for (const arrayKey of candidates) {
-    if (Array.isArray(props[arrayKey])) counts.push({ source: arrayKey, count: props[arrayKey].length });
+    counts.push(...collectArrayCounts(props, arrayKey));
   }
   if (!counts.length) return null;
+  if (candidates.some(isNestedArrayPath)) return collapseNestedCounts(counts);
+  return collapseCounts(counts);
+}
+
+function collectArrayCounts(value, pathName, sourcePrefix = '') {
+  if (!value || typeof value !== 'object') return [];
+  const [segment, ...restParts] = String(pathName || '').split('.');
+  const rest = restParts.join('.');
+  const arraySegment = segment.endsWith('[]');
+  const key = arraySegment ? segment.slice(0, -2) : segment;
+  const next = value[key];
+  const source = sourcePrefix ? `${sourcePrefix}.${key}` : key;
+
+  if (arraySegment) {
+    if (!Array.isArray(next)) return [];
+    if (!rest) return [{ source, count: next.length }];
+    return next.flatMap((item, index) => collectArrayCounts(item, rest, `${source}[${index}]`));
+  }
+
+  if (!rest) {
+    return Array.isArray(next) ? [{ source, count: next.length }] : [];
+  }
+  return collectArrayCounts(next, rest, source);
+}
+
+function isNestedArrayPath(pathName) {
+  return String(pathName || '').includes('[].');
+}
+
+function collapseCounts(counts) {
   const unique = [...new Set(counts.map(item => item.count))];
   if (unique.length > 1) {
     return { error: `${counts.map(item => `${item.source}=${item.count}`).join(', ')} 数量不一致` };
@@ -258,6 +370,13 @@ function deriveCount(props, key, candidates) {
   return {
     count: unique[0],
     source: counts.map(item => item.source).join('/'),
+  };
+}
+
+function collapseNestedCounts(counts) {
+  return {
+    count: Math.min(...counts.map(item => item.count)),
+    source: counts.map(item => `${item.source}=${item.count}`).join('/'),
   };
 }
 

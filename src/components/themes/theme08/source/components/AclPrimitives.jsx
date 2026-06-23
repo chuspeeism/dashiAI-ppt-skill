@@ -13,6 +13,8 @@
 
 import React from 'react';
 
+export const AdaptiveImageSlotMediaContext = React.createContext(null);
+
 // Brand tokens — paste onto any page root so a page works standalone.
 const ACL_TOKENS = `
   --acl-yellow:#ECEF35;
@@ -187,7 +189,24 @@ function MetaTag({ k, v }) {
 function AdaptiveImageSlot({ id, box = 300, ratio = 0.8, placeholder = '拖入图片',
   sticker, rotate = 0, accent = 'var(--acl-paper)' }) {
   const key = 'acl-slot-' + id;
+  const media = React.useContext(AdaptiveImageSlotMediaContext);
+  const hasHostMedia = Boolean(media?.get || media?.set);
+  const normalizeHostMedia = (value) => {
+    if (!value) return null;
+    const item = typeof value === 'string' ? { src: value } : value;
+    if (!item || typeof item !== 'object' || !item.src) return null;
+    const src = String(item.src);
+    const kind = item.kind || (String(item.type || src).startsWith('video/') || src.startsWith('data:video/') || /\.(mp4|m4v|mov|webm|ogv)(?:[?#].*)?$/i.test(src) ? 'video' : 'image');
+    return {
+      ...item,
+      src,
+      kind,
+      w: item.w || item.width || box,
+      h: item.h || item.height || Math.round(box / ratio),
+    };
+  };
   const readStored = () => {
+    if (hasHostMedia) return normalizeHostMedia(media?.get?.(id, 0));
     try { const s = localStorage.getItem(key); return s ? JSON.parse(s) : null; } catch (e) { return null; }
   };
   const [data, setData] = React.useState(readStored);
@@ -196,11 +215,14 @@ function AdaptiveImageSlot({ id, box = 300, ratio = 0.8, placeholder = '拖入�
 
   React.useEffect(() => {
     setData(readStored());
-  }, [key]);
+  }, [key, id, hasHostMedia, media]);
 
   const save = (d) => {
     setData(d);
-    try { d ? localStorage.setItem(key, JSON.stringify(d)) : localStorage.removeItem(key); } catch (e) {}
+    if (media?.set) media.set(id, 0, d);
+    else {
+      try { d ? localStorage.setItem(key, JSON.stringify(d)) : localStorage.removeItem(key); } catch (e) {}
+    }
   };
   const readFile = (file) => {
     if (!file || !/^(image|video)\//.test(file.type || '')) return;

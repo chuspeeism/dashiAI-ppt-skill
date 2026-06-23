@@ -19,6 +19,7 @@
     "inspect:layout": "node scripts/inspect-layout.mjs",
     "media:stage": "node scripts/stage-media.mjs",
     "props:safe": "node scripts/write-safe-props.mjs",
+    "goal:scaffold": "node scripts/goal-scaffold.mjs",
     "validate:goal-spec": "node scripts/validate-goal-spec.mjs",
     "validate:skill-workflow-tools": "node scripts/validate-skill-workflow-tools.mjs",
     "validate:control-naming": "node scripts/validate-control-naming.mjs",
