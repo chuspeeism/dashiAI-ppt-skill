@@ -60,7 +60,6 @@ function withTheme03Base(Component) {
     const { forceDark = true, accent: accentProp = 'blue', ...componentProps } = props;
     const [dark, setDark] = React.useState(() => theme03ReadInitialDark(forceDark !== false));
     const [accent, setAccent] = React.useState(() => theme03ReadInitialAccent(accentProp));
-    const mountedRef = React.useRef(false);
     const accentMountedRef = React.useRef(false);
 
     React.useEffect(() => {
@@ -74,14 +73,6 @@ function withTheme03Base(Component) {
       theme03AccentListeners.add(listener);
       return () => theme03AccentListeners.delete(listener);
     }, []);
-
-    React.useEffect(() => {
-      if (!mountedRef.current) {
-        mountedRef.current = true;
-        return;
-      }
-      theme03SetGlobalDark(forceDark !== false);
-    }, [forceDark]);
 
     React.useEffect(() => {
       if (!accentMountedRef.current) {
@@ -231,7 +222,11 @@ function theme03SetGlobalAccent(next) {
 
 function theme03ApplyBodyDarkClass(dark) {
   if (typeof document === 'undefined') return;
-  document.body?.classList.toggle('rd-force-dark', Boolean(dark));
+  const forceDark = Boolean(dark);
+  document.body?.classList.toggle('rd-force-dark', forceDark);
+  document.querySelectorAll?.('.theme03-theme-shell').forEach(shell => {
+    shell.classList.toggle('theme03-force-dark', forceDark);
+  });
 }
 
 function theme03EnsureToggleButton() {
