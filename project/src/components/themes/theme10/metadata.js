@@ -321,7 +321,7 @@ export const pages = [
         "default": 68,
         "min": 56,
         "max": 76,
-        "step": 2,
+        "step": 1,
         "unit": "%",
         "description": "夜空占整页的高度（地平线的位置）。",
         "publicKey": "horizon",
@@ -491,7 +491,7 @@ export const pages = [
           },
           {
             "value": "vapor",
-            "label": "垂直渐变"
+            "label": "雾光"
           },
           {
             "value": "paper",
@@ -549,11 +549,11 @@ export const pages = [
       {
         "key": "showProgress",
         "type": "toggle",
-        "label": "进度计数",
+        "label": "页码",
         "default": true,
         "description": "右上角的「当前 / 总数」计数标记。",
         "publicKey": "showProgress",
-        "publicLabel": "进度计数",
+        "publicLabel": "页码",
         "desc": "右上角的「当前 / 总数」计数标记。"
       }
     ],
@@ -1780,11 +1780,11 @@ export const pages = [
       {
         "key": "showPrice",
         "type": "toggle",
-        "label": "价格数字",
+        "label": "数字",
         "default": true,
         "description": "表头中每个方案的大号费率 / 价格。",
         "publicKey": "showPrice",
-        "publicLabel": "价格数字",
+        "publicLabel": "数字",
         "desc": "表头中每个方案的大号费率 / 价格。"
       }
     ],
@@ -1836,33 +1836,13 @@ export const pages = [
         "type": "slider",
         "label": "每侧条目",
         "default": 4,
-        "min": 2,
+        "min": 1,
         "max": 5,
         "step": 1,
         "description": "每一侧展示的要点条目数量。",
         "publicKey": "itemCount",
         "publicLabel": "每侧条目",
         "desc": "每一侧展示的要点条目数量。"
-      },
-      {
-        "key": "focusSide",
-        "type": "radio",
-        "label": "强调一侧",
-        "default": "right",
-        "options": [
-          {
-            "value": "left",
-            "label": "左侧"
-          },
-          {
-            "value": "right",
-            "label": "右侧"
-          }
-        ],
-        "description": "被点亮强调的一侧（另一侧弱化为对照）。",
-        "publicKey": "focusSide",
-        "publicLabel": "强调一侧",
-        "desc": "被点亮强调的一侧（另一侧弱化为对照）。"
       },
       {
         "key": "splitBias",
@@ -1901,7 +1881,6 @@ export const pages = [
     ],
     "defaultProps": {
       "pointCount": 4,
-      "focusSide": "right",
       "splitBias": 52,
       "showStat": true,
       "showPoints": true,
@@ -2405,30 +2384,6 @@ export const pages = [
         "description": "选择固定 Unicorn shader 场景"
       },
       {
-        "key": "tone",
-        "type": "radio",
-        "label": "页面底色",
-        "default": "dark",
-        "options": [
-          {
-            "value": "dark",
-            "label": "深色",
-            "image": "",
-            "color": ""
-          },
-          {
-            "value": "light",
-            "label": "浅色",
-            "image": "",
-            "color": ""
-          }
-        ],
-        "description": "整页深色或浅色底。",
-        "publicKey": "tone",
-        "publicLabel": "页面底色",
-        "desc": "整页深色或浅色底。"
-      },
-      {
         "key": "textSide",
         "type": "radio",
         "label": "文字位置",
@@ -2451,21 +2406,21 @@ export const pages = [
       {
         "key": "showQuote",
         "type": "toggle",
-        "label": "人物金句",
+        "label": "大文案",
         "default": true,
         "description": "叠加在肖像上的大号引述。",
         "publicKey": "showQuote",
-        "publicLabel": "人物金句",
+        "publicLabel": "大文案",
         "desc": "叠加在肖像上的大号引述。"
       },
       {
         "key": "showCreds",
         "type": "toggle",
-        "label": "履历清单",
+        "label": "小标签",
         "default": true,
         "description": "姓名下方的横排履历 / 资历条。",
         "publicKey": "showCreds",
-        "publicLabel": "履历清单",
+        "publicLabel": "小标签",
         "desc": "姓名下方的横排履历 / 资历条。"
       }
     ],
@@ -2475,8 +2430,7 @@ export const pages = [
       "showCreds": true,
       "backgroundMode": "unicorn",
       "unicornScene": "automations",
-      "idPrefix": "profile",
-      "tone": "dark"
+      "idPrefix": "profile"
     }
   },
   {
@@ -2485,7 +2439,7 @@ export const pages = [
     "pageNumber": 24,
     "layout": "THEME10-024",
     "slot": "team",
-    "label": "团队墙",
+    "label": "内容墙",
     "bgClass": "",
     "controls": [
       {
@@ -2515,25 +2469,25 @@ export const pages = [
       {
         "key": "memberCount",
         "type": "slider",
-        "label": "成员数量",
+        "label": "内容数量",
         "default": 4,
         "min": 2,
         "max": 6,
         "step": 1,
-        "description": "团队成员肖像格数量（自动分列填满版面）。",
+        "description": "内容卡片数量（自动分列填满版面）。",
         "publicKey": "memberCount",
-        "publicLabel": "成员数量",
-        "desc": "团队成员肖像格数量（自动分列填满版面）。"
+        "publicLabel": "内容数量",
+        "desc": "内容卡片数量（自动分列填满版面）。"
       },
       {
         "key": "showRole",
         "type": "toggle",
-        "label": "职务",
+        "label": "副标签",
         "default": true,
-        "description": "姓名下方的职务说明。",
+        "description": "主标签下方的辅助说明。",
         "publicKey": "showRole",
-        "publicLabel": "职务",
-        "desc": "姓名下方的职务说明。"
+        "publicLabel": "副标签",
+        "desc": "主标签下方的辅助说明。"
       },
       {
         "key": "showIndex",
@@ -2554,10 +2508,10 @@ export const pages = [
         "max": 28,
         "step": 2,
         "unit": "px",
-        "description": "肖像格的圆角半径。",
+        "description": "图片格的圆角半径。",
         "publicKey": "radius",
         "publicLabel": "圆角",
-        "desc": "肖像格的圆角半径。"
+        "desc": "图片格的圆角半径。"
       }
     ],
     "defaultProps": {
@@ -3977,7 +3931,7 @@ export const pages = [
           },
           {
             "value": "vapor",
-            "label": "雾岚"
+            "label": "雾光"
           },
           {
             "value": "paper",
@@ -4055,7 +4009,7 @@ export const pages = [
         "options": [
           {
             "value": "vapor",
-            "label": "垂直渐变"
+            "label": "雾光"
           },
           {
             "value": "dusk",
@@ -4283,16 +4237,13 @@ export const pages = [
       },
       {
         "key": "imageCount",
-        "type": "slider",
-        "label": "图片数量",
-        "default": 1,
-        "min": 0,
-        "max": 1,
-        "step": 1,
-        "description": "0 为纯文字版式（面板展开），1 为带主图。图片随上传比例自适应裁切。",
+        "type": "toggle",
+        "label": "显示图片",
+        "default": true,
+        "description": "显示或隐藏主图。图片随上传比例自适应裁切。",
         "publicKey": "imageCount",
-        "publicLabel": "图片数量",
-        "desc": "0 为纯文字版式（面板展开），1 为带主图。图片随上传比例自适应裁切。"
+        "publicLabel": "显示图片",
+        "desc": "显示或隐藏主图。图片随上传比例自适应裁切。"
       },
       {
         "key": "factCount",
@@ -4330,7 +4281,7 @@ export const pages = [
     ],
     "defaultProps": {
       "imageSide": "right",
-      "imageCount": 1,
+      "imageCount": true,
       "factCount": 2,
       "panelGlass": true,
       "showKicker": true,
@@ -4630,16 +4581,6 @@ export const pages = [
         "desc": "每张卡右上角的说明角标。"
       },
       {
-        "key": "showAxis",
-        "type": "toggle",
-        "label": "基线",
-        "default": false,
-        "description": "迷你走势图的浅色基线。",
-        "publicKey": "showAxis",
-        "publicLabel": "基线",
-        "desc": "迷你走势图的浅色基线。"
-      },
-      {
         "key": "focus",
         "type": "toggle",
         "label": "重点聚焦",
@@ -4667,7 +4608,6 @@ export const pages = [
       "cardCount": 6,
       "trendStyle": "area",
       "showDelta": true,
-      "showAxis": false,
       "focus": true,
       "focusIndex": 1,
       "idPrefix": "spark",
@@ -4680,7 +4620,7 @@ export const pages = [
     "pageNumber": 45,
     "layout": "THEME10-045",
     "slot": "testimonials",
-    "label": "客户实证",
+    "label": "引述清单",
     "bgClass": "",
     "controls": [
       {
@@ -4710,38 +4650,38 @@ export const pages = [
       {
         "key": "cardCount",
         "type": "slider",
-        "label": "实证数量",
+        "label": "内容数量",
         "default": 4,
         "min": 2,
         "max": 4,
         "step": 1,
-        "description": "客户实证总数（1 条放大为主引述，其余进入右侧清单）。",
-        "publicKey": "cardCount",
-        "publicLabel": "实证数量",
-        "desc": "客户实证总数（1 条放大为主引述，其余进入右侧清单）。"
+        "description": "条目总数（1 条放大，其余进入右侧清单）。",
+        "publicKey": "itemCount",
+        "publicLabel": "内容数量",
+        "desc": "条目总数（1 条放大，其余进入右侧清单）。"
       },
       {
         "key": "focusIndex",
         "type": "slider",
-        "label": "主引述",
+        "label": "重点内容",
         "default": 1,
         "min": 1,
         "max": 4,
         "step": 1,
-        "description": "被放大为左侧大引述的那一条（1 起）。",
+        "description": "被放大为左侧重点内容的那一条（1 起）。",
         "publicKey": "focusIndex",
-        "publicLabel": "主引述",
-        "desc": "被放大为左侧大引述的那一条（1 起）。"
+        "publicLabel": "重点内容",
+        "desc": "被放大为左侧重点内容的那一条（1 起）。"
       },
       {
         "key": "showAvatar",
         "type": "toggle",
-        "label": "圆形头像",
+        "label": "圆形图片",
         "default": true,
-        "description": "主引述与清单中的圆形头像图片槽（可拖入图片）。",
+        "description": "重点内容与清单中的圆形图片槽（可拖入媒体）。",
         "publicKey": "showAvatar",
-        "publicLabel": "圆形头像",
-        "desc": "主引述与清单中的圆形头像图片槽（可拖入图片）。"
+        "publicLabel": "圆形图片",
+        "desc": "重点内容与清单中的圆形图片槽（可拖入媒体）。"
       }
     ],
     "defaultProps": {
@@ -5059,10 +4999,10 @@ export const pages = [
         "min": 0,
         "max": 5,
         "step": 1,
-        "description": "横排影像框数量（0 为留空提示态）。各框按图片真实比例自适应宽度。",
+        "description": "横排影像框数量（0 为留空提示态）。各框按数量均分宽度，图片在槽内裁切填满。",
         "publicKey": "imageCount",
         "publicLabel": "影像数量",
-        "desc": "横排影像框数量（0 为留空提示态）。各框按图片真实比例自适应宽度。"
+        "desc": "横排影像框数量（0 为留空提示态）。各框按数量均分宽度，图片在槽内裁切填满。"
       },
       {
         "key": "showCaptions",
@@ -5168,30 +5108,6 @@ export const pages = [
         "description": "选择固定 Unicorn shader 场景"
       },
       {
-        "key": "tone",
-        "type": "radio",
-        "label": "页面底色",
-        "default": "dark",
-        "options": [
-          {
-            "value": "dark",
-            "label": "深色",
-            "image": "",
-            "color": ""
-          },
-          {
-            "value": "light",
-            "label": "浅色",
-            "image": "",
-            "color": ""
-          }
-        ],
-        "description": "整页深色或浅色底。",
-        "publicKey": "tone",
-        "publicLabel": "页面底色",
-        "desc": "整页深色或浅色底。"
-      },
-      {
         "key": "textPos",
         "type": "radio",
         "label": "文字位置",
@@ -5257,8 +5173,7 @@ export const pages = [
       "showNote": true,
       "backgroundMode": "unicorn",
       "unicornScene": "goey",
-      "idPrefix": "inset",
-      "tone": "dark"
+      "idPrefix": "inset"
     }
   },
   {
@@ -5369,7 +5284,7 @@ export const pages = [
           },
           {
             "value": "vapor",
-            "label": "垂直渐变"
+            "label": "雾光"
           },
           {
             "value": "paper",
@@ -5463,7 +5378,7 @@ export const pages = [
           },
           {
             "value": "vapor",
-            "label": "垂直渐变"
+            "label": "雾光"
           },
           {
             "value": "paper",
@@ -5594,8 +5509,9 @@ export const pages = [
       {
         "key": "layout",
         "type": "select",
+        "display": "select",
         "label": "构图方式",
-        "default": "justified",
+        "default": "grid",
         "options": [
           {
             "value": "justified",
@@ -5628,7 +5544,7 @@ export const pages = [
     ],
     "defaultProps": {
       "imageCount": 3,
-      "layout": "justified",
+      "layout": "grid",
       "showCaption": true,
       "idPrefix": "gallery2",
       "tone": "dark"
@@ -5836,7 +5752,7 @@ export const pages = [
           },
           {
             "value": "vapor",
-            "label": "雾岚"
+            "label": "雾光"
           },
           {
             "value": "paper",
@@ -5984,7 +5900,7 @@ export const pages = [
         "default": 100,
         "min": 60,
         "max": 160,
-        "step": 10,
+        "step": 1,
         "unit": "%",
         "description": "所有气泡半径的统一缩放倍数。",
         "publicKey": "bubbleScale",
@@ -6975,7 +6891,7 @@ export const pages = [
         "default": 70,
         "min": 0,
         "max": 100,
-        "step": 10,
+        "step": 1,
         "unit": "%",
         "description": "流带的弯曲程度，0 为直线。",
         "publicKey": "curveAmt",
@@ -8117,7 +8033,7 @@ export const pages = [
         "default": 60,
         "min": 30,
         "max": 85,
-        "step": 5,
+        "step": 1,
         "unit": "%",
         "description": "图片之上的渐变压暗强度，保证文字可读。",
         "publicKey": "scrim",
@@ -8259,7 +8175,7 @@ export const pages = [
         "default": 66,
         "min": 30,
         "max": 85,
-        "step": 5,
+        "step": 1,
         "unit": "%",
         "description": "图片之上的方向性压暗强度（左深右浅）。",
         "publicKey": "scrim",
@@ -9251,7 +9167,7 @@ export const pages = [
         "type": "slider",
         "label": "变量数量",
         "default": 6,
-        "min": 4,
+        "min": 2,
         "max": 7,
         "step": 1,
         "description": "参与敏感性分析的驱动变量条数（自动按总摆幅排序）。",
@@ -9729,7 +9645,7 @@ export const pages = [
     "pageNumber": 93,
     "layout": "THEME10-093",
     "slot": "medallions",
-    "label": "影像勋章",
+    "label": "圆形图集",
     "bgClass": "",
     "controls": [
       {
@@ -9759,35 +9675,35 @@ export const pages = [
       {
         "key": "imageCount",
         "type": "slider",
-        "label": "勋章数量",
+        "label": "内容数量",
         "default": 5,
         "min": 0,
         "max": 6,
         "step": 1,
-        "description": "圆形图片勋章的数量（0 为空态提示）；数量越少单枚越大。",
+        "description": "圆形内容项的数量（0 为空态提示）；数量越少单项越大。",
         "publicKey": "imageCount",
-        "publicLabel": "勋章数量",
-        "desc": "圆形图片勋章的数量（0 为空态提示）；数量越少单枚越大。"
+        "publicLabel": "内容数量",
+        "desc": "圆形内容项的数量（0 为空态提示）；数量越少单项越大。"
       },
       {
         "key": "arc",
         "type": "toggle",
         "label": "弧形排布",
         "default": true,
-        "description": "让中间的勋章微微抬起，形成弧线；关则平排。",
+        "description": "让中间内容项微微抬起，形成弧线；关则平排。",
         "publicKey": "arc",
         "publicLabel": "弧形排布",
-        "desc": "让中间的勋章微微抬起，形成弧线；关则平排。"
+        "desc": "让中间内容项微微抬起，形成弧线；关则平排。"
       },
       {
         "key": "showLabels",
         "type": "toggle",
-        "label": "名称标注",
+        "label": "标题标注",
         "default": true,
-        "description": "每枚勋章下方的名称 + 角色。",
+        "description": "每个内容项下方的主标签 + 副标签。",
         "publicKey": "showLabels",
-        "publicLabel": "名称标注",
-        "desc": "每枚勋章下方的名称 + 角色。"
+        "publicLabel": "标题标注",
+        "desc": "每个内容项下方的主标签 + 副标签。"
       },
       {
         "key": "showLead",

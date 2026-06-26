@@ -8,7 +8,7 @@
 //
 // ── Props (canonical list in SlideMagazine.META.controls) ─────────────────────
 //   imageSide    'left'|'right'   which side the photo bleeds off          ('right')
-//   imageCount   number 0..1      0 = text-only (panel fills), 1 = photo    (1)
+//   imageCount   boolean          show the hero image                      (true)
 //   factCount    number 0..3      pull-fact rows under the lede            (2)
 //   panelGlass   boolean          frosted panel vs solid                   (true)
 //   showKicker   boolean          the kicker overline                      (true)
@@ -28,10 +28,10 @@ function SlideMagazine({
     { value: '每 14 天', label: '自动检查再平衡' },
     { value: '100%', label: '决策可回溯' },
   ],
-  imageSide = 'right', imageCount = 1, factCount = 2, panelGlass = true, showKicker = true,
+  imageSide = 'right', imageCount = true, factCount = 2, panelGlass = true, showKicker = true,
 }) {
   React.useEffect(() => { magInjectStyle(); }, []);
-  const hasImg = imageCount >= 1;
+  const hasImg = imageCount !== false && imageCount !== 0 && imageCount !== '0' && imageCount !== 'false';
   const fc = Math.max(0, Math.min(3, factCount));
   const usedFacts = facts.slice(0, fc);
   const imgLeft = imageSide === 'left';
@@ -95,13 +95,13 @@ function magInjectStyle() {
 
 SlideMagazine.META = {
   id: 'magazine', title: '杂志图文',
-  defaults: { imageSide: 'right', imageCount: 1, factCount: 2, panelGlass: true, showKicker: true },
+  defaults: { imageSide: 'right', imageCount: true, factCount: 2, panelGlass: true, showKicker: true },
   controls: [
     { key: 'imageSide', type: 'radio', label: '图片位置', default: 'right',
       options: [{ value: 'left', label: '左侧' }, { value: 'right', label: '右侧' }],
       description: '大图出血所在的一侧（文字面板在另一侧浮起）。' },
-    { key: 'imageCount', type: 'slider', label: '图片数量', default: 1, min: 0, max: 1, step: 1,
-      description: '0 为纯文字版式（面板展开），1 为带主图。图片随上传比例自适应裁切。' },
+    { key: 'imageCount', type: 'toggle', label: '显示图片', default: true,
+      description: '显示或隐藏主图。图片随上传比例自适应裁切。' },
     { key: 'factCount', type: 'slider', label: '数据条数', default: 2, min: 0, max: 3, step: 1,
       description: '正文下方的关键数据条数量。' },
     { key: 'panelGlass', type: 'toggle', label: '毛玻璃面板', default: true,

@@ -37,11 +37,13 @@ function SlideBoard({
   const n = Math.max(3, Math.min(quotes.length, tileCount));
   const cells = quotes.slice(0, n);
   const cols = Math.max(2, Math.min(4, columns));
+  const rows = Math.ceil(n / cols);
+  const dense = rows >= 4;
   const fIdx = focus ? Math.max(0, Math.min(n - 1, focusIndex - 1)) : -1;
   const spark = (seed) => Array.from({ length: 14 }, (_, i) => 40 + Math.sin(i * 0.8 + seed) * 22 + (i / 13) * 24);
 
   return (
-    <div className="brd-root">
+    <div className={`brd-root ${dense ? 'is-dense' : ''}`}>
       <div className="brd-head">
         <div className="brd-top">
           <div className="brd-overline">{overline}</div>
@@ -115,6 +117,17 @@ function brdInjectStyle() {
   .brd-tile.is-focus .brd-code,.brd-tile.is-focus .brd-name{color:rgba(255,255,255,.72);}
   .brd-tile.is-focus .brd-change,.brd-tile.is-focus .brd-change.is-up,.brd-tile.is-focus .brd-change.is-down{color:#fff;}
   .brd-tile.is-focus .brd-spark{color:rgba(255,255,255,.85);}
+  .brd-root.is-dense .brd-head{margin-bottom:24px;}
+  .brd-root.is-dense .brd-title{font-size:54px;}
+  .brd-root.is-dense .brd-grid{gap:14px;}
+  .brd-root.is-dense .brd-tile{gap:10px;padding:20px 28px;border-radius:16px;}
+  .brd-root.is-dense .brd-code{font-size:20px;}
+  .brd-root.is-dense .brd-change{font-size:21px;gap:6px;white-space:nowrap;}
+  .brd-root.is-dense .brd-arrow{font-size:16px;}
+  .brd-root.is-dense .brd-value{font-size:56px;line-height:.92;}
+  .brd-root.is-dense .brd-tile-bot{gap:12px;}
+  .brd-root.is-dense .brd-name{font-size:22px;}
+  .brd-root.is-dense .brd-spark{width:96px;height:24px;}
   `;
   document.head.appendChild(s);
 }

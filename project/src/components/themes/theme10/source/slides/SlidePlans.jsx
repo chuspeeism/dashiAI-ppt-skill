@@ -137,7 +137,7 @@ SlidePlans.META = {
       description: '将某一方案整列渲染为浅色面板带。' },
     { key: 'highlightIndex', type: 'slider', label: '高亮第几个', default: 2, min: 1, max: 4, step: 1,
       description: '需开启「高亮推荐」后生效。' },
-    { key: 'showPrice', type: 'toggle', label: '价格数字', default: true,
+    { key: 'showPrice', type: 'toggle', label: '数字', default: true,
       description: '表头中每个方案的大号费率 / 价格。' },
   ],
 };

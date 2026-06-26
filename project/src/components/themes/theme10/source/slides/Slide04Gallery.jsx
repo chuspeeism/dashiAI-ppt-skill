@@ -5,7 +5,7 @@
 //
 // ── Props (canonical list in Slide04Gallery.META.controls) ─────────────────────
 //   imageCount   number 0..6                  how many image slots             (3)
-//   layout       'justified'|'grid'|'feature' composition strategy            ('justified')
+//   layout       'justified'|'grid'|'feature' composition strategy            ('grid')
 //   showCaption  boolean                       show the kicker caption line     (true)
 //
 // Layout geometry is computed in the deck's fixed 1920×1080 canvas coordinates,
@@ -17,7 +17,7 @@ import { DeckImageSlot } from '../components/DeckImageSlot.jsx';
 const GL_DEFAULT_RATIOS = [1.5, 0.78, 1.34, 1.0, 1.62, 0.82];
 const GL_GAP = 22;
 
-function Slide04Gallery({ idPrefix = 'gallery', imageCount = 3, layout = 'justified', showCaption = true }) {
+function Slide04Gallery({ idPrefix = 'gallery', imageCount = 3, layout = 'grid', showCaption = true }) {
   React.useEffect(() => { glInjectStyle(); }, []);
   const n = Math.max(0, Math.min(6, imageCount));
 
@@ -190,11 +190,11 @@ function glInjectStyle() {
 Slide04Gallery.META = {
   id: 'gallery',
   title: '图文展示',
-  defaults: { imageCount: 3, layout: 'justified', showCaption: true },
+  defaults: { imageCount: 3, layout: 'grid', showCaption: true },
   controls: [
     { key: 'imageCount', type: 'slider', label: '图片数量', default: 3, min: 0, max: 6, step: 1,
       description: '图片槽位的数量（0 即纯文字版式）；每个槽位自适应所传图片的比例。' },
-    { key: 'layout', type: 'select', label: '构图方式', default: 'justified',
+    { key: 'layout', type: 'select', display: 'select', label: '构图方式', default: 'grid',
       options: [
         { value: 'justified', label: '等高排版（保留原比例）' },
         { value: 'grid', label: '网格（统一裁切）' },

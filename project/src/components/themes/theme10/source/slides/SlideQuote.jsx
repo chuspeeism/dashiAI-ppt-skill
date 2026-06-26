@@ -57,7 +57,7 @@ SlideQuote.META = {
   defaults: { theme: 'vapor', align: 'left', showQuoteMark: true, showAttribution: true },
   controls: [
     { key: 'theme', type: 'select', label: '背景主题', default: 'vapor',
-      options: [{ value: 'vapor', label: '垂直渐变' }, { value: 'dusk', label: '暮光' }, { value: 'midnight', label: '午夜' }, { value: 'graphite', label: '石墨' }, { value: 'dawn', label: '晨光' }, { value: 'paper', label: '纸白' }], description: '引言页背景。' },
+      options: [{ value: 'vapor', label: '雾光' }, { value: 'dusk', label: '暮光' }, { value: 'midnight', label: '午夜' }, { value: 'graphite', label: '石墨' }, { value: 'dawn', label: '晨光' }, { value: 'paper', label: '纸白' }], description: '引言页背景。' },
     { key: 'align', type: 'radio', label: '对齐', default: 'left', options: [{ value: 'left', label: '左对齐' }, { value: 'center', label: '居中' }], description: '文本对齐。' },
     { key: 'showQuoteMark', type: 'toggle', label: '引号装饰', default: true, description: '大号引号符。' },
     { key: 'showAttribution', type: 'toggle', label: '署名', default: true, description: '显示作者与头衔。' },

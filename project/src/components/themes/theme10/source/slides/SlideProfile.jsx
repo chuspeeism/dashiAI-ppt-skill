@@ -102,9 +102,9 @@ SlideProfile.META = {
     { key: 'textSide', type: 'radio', label: '文字位置', default: 'left',
       options: [{ value: 'left', label: '左侧' }, { value: 'right', label: '右侧' }],
       description: '叠加文字块与暗角渐变所锚定的一侧（满幅肖像作背景）。' },
-    { key: 'showQuote', type: 'toggle', label: '人物金句', default: true,
+    { key: 'showQuote', type: 'toggle', label: '大文案', default: true,
       description: '叠加在肖像上的大号引述。' },
-    { key: 'showCreds', type: 'toggle', label: '履历清单', default: true,
+    { key: 'showCreds', type: 'toggle', label: '小标签', default: true,
       description: '姓名下方的横排履历 / 资历条。' },
   ],
 };

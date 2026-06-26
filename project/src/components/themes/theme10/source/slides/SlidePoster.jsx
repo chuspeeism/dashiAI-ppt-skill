@@ -97,7 +97,7 @@ SlidePoster.META = {
     { key: 'headlinePos', type: 'radio', label: '标题位置', default: 'center',
       options: [{ value: 'top', label: '顶部' }, { value: 'center', label: '居中' }, { value: 'bottom', label: '底部' }],
       description: '超大标题在画面中的垂直位置。' },
-    { key: 'scrim', type: 'slider', label: '压暗程度', default: 66, min: 30, max: 85, step: 5, unit: '%',
+    { key: 'scrim', type: 'slider', label: '压暗程度', default: 66, min: 30, max: 85, step: 1, unit: '%',
       description: '图片之上的方向性压暗强度（左深右浅）。' },
     { key: 'showKicker', type: 'toggle', label: '章节标签', default: true,
       description: '大标题上方的等宽章节标签。' },

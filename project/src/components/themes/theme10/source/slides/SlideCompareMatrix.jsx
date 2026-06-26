@@ -20,20 +20,21 @@
 import React from 'react';
 
 function SlideCompareMatrix({
-  overline = '能力对照 · HOW WE COMPARE', title = '同一张表，三种活法',
+  overline = '能力对照 · HOW WE COMPARE', title = '同一张表，多种活法',
   columns = [
     { name: '自己打理', note: 'DIY' },
     { name: '传统投顾', note: '人工 · 高费率' },
     { name: '自主指数', note: '规则 · 自动' },
+    { name: '私人定制', note: '高门槛 · 定制' },
   ],
   rows = [
-    { label: '自动再平衡', cells: ['no', 'partial', 'yes'] },
-    { label: '情绪不干预', cells: ['no', 'partial', 'yes'] },
-    { label: '成本透明可见', cells: ['partial', 'no', 'yes'] },
-    { label: '税务优化', cells: ['no', 'partial', 'yes'] },
-    { label: '7×24 监测', cells: ['no', 'no', 'yes'] },
-    { label: '一键调整目标', cells: ['partial', 'partial', 'yes'] },
-    { label: '可随时赎回', cells: ['yes', 'partial', 'yes'] },
+    { label: '自动再平衡', cells: ['no', 'partial', 'yes', 'yes'] },
+    { label: '情绪不干预', cells: ['no', 'partial', 'yes', 'partial'] },
+    { label: '成本透明可见', cells: ['partial', 'no', 'yes', 'partial'] },
+    { label: '税务优化', cells: ['no', 'partial', 'yes', 'yes'] },
+    { label: '7×24 监测', cells: ['no', 'no', 'yes', 'partial'] },
+    { label: '一键调整目标', cells: ['partial', 'partial', 'yes', 'yes'] },
+    { label: '可随时赎回', cells: ['yes', 'partial', 'yes', 'partial'] },
   ],
   rowCount = 5, colCount = 3, highlightIndex = 3, showHeadNote = true, zebra = true,
 }) {

@@ -126,10 +126,12 @@ function normalizeControls(controls, defaults, page) {
       const type = normalizeType(control.type);
       if (REMOVED_CONTROL_TYPES.has(String(control.type || type || '').toLowerCase())) return null;
       const options = normalizeControlOptions(serializeValue(control.options));
+      const explicitDisplay = serializeValue(control.display);
       const next = {
         key,
         label: control.label || key,
         type,
+        display: explicitDisplay,
         default: serializeValue(control.default ?? control.def ?? defaults[key]),
         min: serializeValue(resolveValue(control.min, defaults)),
         max: serializeValue(resolveValue(control.max, defaults)),
@@ -148,11 +150,11 @@ function normalizeControls(controls, defaults, page) {
         desc: serializeValue(control.desc || control.description || control.describe),
       };
       const sourceType = String(control.type || '').toLowerCase();
-      if (type === 'select' && (control.display === 'color' || sourceType === 'color' || sourceType === 'palette' || isThemeSwatchControl(page, key))) {
+      if (!explicitDisplay && type === 'select' && (sourceType === 'color' || sourceType === 'palette' || isThemeSwatchControl(page, key))) {
         next.display = 'color';
       }
       const optionCount = Array.isArray(options) ? options.length : 0;
-      if (type === 'select' && next.display !== 'color' && optionCount > 0 && optionCount <= 5) {
+      if (!explicitDisplay && type === 'select' && next.display !== 'color' && optionCount > 0 && optionCount <= 5) {
         next.display = 'tab';
       }
       return next;

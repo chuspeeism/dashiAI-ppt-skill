@@ -156,7 +156,7 @@ SlideScatter.META = {
       description: '坐标平面的辅助网格线。' },
     { key: 'showMean', type: 'toggle', label: '均值十字线', default: true,
       description: '在数据均值处绘制十字参考线。' },
-    { key: 'bubbleScale', type: 'slider', label: '气泡大小', default: 100, min: 60, max: 160, step: 10, unit: '%',
+    { key: 'bubbleScale', type: 'slider', label: '气泡大小', default: 100, min: 60, max: 160, step: 1, unit: '%',
       description: '所有气泡半径的统一缩放倍数。' },
     { key: 'focus', type: 'toggle', label: '重点聚焦', default: false,
       description: '高亮某一气泡，其余弱化。' },

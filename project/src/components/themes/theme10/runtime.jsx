@@ -96,8 +96,9 @@ import { SlideMedallions } from './source/slides/SlideMedallions.jsx';
 import { SlideGlossary } from './source/slides/SlideGlossary.jsx';
 import { SlideClosing } from './source/slides/SlideClosing.jsx';
 
-const THEME10_BASE_CSS = "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap');\n.deck-theme,.deck-theme *{box-sizing:border-box;}\n@keyframes ds-rise{from{opacity:0;transform:translateY(28px);}to{opacity:1;transform:none;}}\n  @keyframes ds-fadein{from{opacity:0;}to{opacity:1;}}\n  @media (prefers-reduced-motion:no-preference){\n    [data-deck-active] .ds-anim{\n      animation:ds-rise 640ms cubic-bezier(.22,.61,.36,1) both;\n      animation-delay:var(--ds-d,0ms);will-change:opacity,transform;}\n    [data-deck-active] .ds-fade{\n      animation:ds-fadein 720ms ease both;\n      animation-delay:var(--ds-d,0ms);will-change:opacity;}\n  }\n\n.deck-theme{\n    --ds-bg:radial-gradient(120% 95% at 86% -8%, rgba(92,128,234,.26) 0%, rgba(92,128,234,0) 52%), radial-gradient(115% 95% at -2% 108%, rgba(199,144,98,.24) 0%, rgba(199,144,98,0) 54%), linear-gradient(157deg,#13161d 0%,#0c0d11 56%,#090a0d 100%);\n    --ds-bg-soft:#16181d;\n    --ds-panel:#f3f3f0;\n    --ds-panel-ink:#101216;\n    --ds-ink:#f2f3f6;\n    --ds-muted:rgba(242,243,246,.74);\n    --ds-faint:rgba(242,243,246,.54);\n    --ds-line:rgba(242,243,246,.2);\n    --ds-card:rgba(255,255,255,.06);\n    --ds-accent:#5479e8;\n    --ds-accent-2:#8fa8e6;\n    /* Categorical series palette — a harmonious cool→warm sweep along the brand's\n       own blue→copper axis (plus one periwinkle) so multi-series charts get\n       variety without leaving the family. Tuned luminous for near-black bg. */\n    --ds-c1:#5b80ea;\n    --ds-c2:#46a6d0;\n    --ds-c3:#3fb39a;\n    --ds-c4:#d7a85b;\n    --ds-c5:#d27d58;\n    --ds-c6:#9a82dc;\n    /* Soft (translucent) companions for fills/areas/cells. */\n    --ds-c1-soft:rgba(91,128,234,.22);\n    --ds-c2-soft:rgba(70,166,208,.22);\n    --ds-c3-soft:rgba(63,179,154,.22);\n    --ds-c4-soft:rgba(215,168,91,.22);\n    --ds-c5-soft:rgba(210,125,88,.22);\n    --ds-c6-soft:rgba(154,130,220,.22);\n    /* Vertical gradient for hero bars/areas — accent deepening downward. */\n    --ds-grad-bar:linear-gradient(180deg,#6f93ef 0%,#5479e8 52%,#3f57b8 100%);\n    --ds-grad-cool:linear-gradient(120deg,#5b80ea 0%,#46a6d0 50%,#3fb39a 100%);\n    --ds-grad-warm:linear-gradient(120deg,#d7a85b 0%,#d27d58 100%);\n    /* warm blue→copper gradient kept for cover / section card backgrounds */\n    --ds-grad:linear-gradient(118deg,#1c2740 0%,#33405c 28%,#6f5a4c 66%,#c8966b 100%);\n    --ds-grad-soft:linear-gradient(118deg,rgba(51,64,92,.32) 0%,rgba(111,90,76,.30) 60%,rgba(200,150,107,.34) 100%);\n    --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;\n    --font-sans:'IBM Plex Sans','Noto Sans SC',system-ui,-apple-system,sans-serif;\n    /* slide frame scale (1920×1080) */\n    --pad-x:120px;\n    --pad-y:96px;\n  }\n\n  /* Light surface: overrides the token set locally so any token-driven slide flips\n     to a warm off-white with dark ink. Applied by the controller via a wrapper. */\n  .deck-theme.tone-light{\n    --ds-bg:radial-gradient(110% 90% at 90% -6%, rgba(98,130,192,.22) 0%, rgba(98,130,192,0) 52%), radial-gradient(110% 90% at 0% 108%, rgba(199,144,98,.26) 0%, rgba(199,144,98,0) 54%), linear-gradient(157deg,#f5f4f0 0%,#ece9e3 100%);\n    --ds-bg-soft:#e4e3de;\n    --ds-ink:#15161a;\n    --ds-muted:rgba(21,22,26,.62);\n    --ds-faint:rgba(21,22,26,.42);\n    --ds-line:rgba(21,22,26,.13);\n    --ds-card:rgba(21,22,26,.05);\n    --ds-panel:#15161a;\n    --ds-panel-ink:#f1f0ec;\n    --ds-accent:#3457c4;\n    --ds-accent-2:#5d7fc8;\n    --ds-c1:#3a5fc8;\n    --ds-c2:#1f86ad;\n    --ds-c3:#1f9277;\n    --ds-c4:#b5852f;\n    --ds-c5:#bd6236;\n    --ds-c6:#7459bf;\n    --ds-c1-soft:rgba(58,95,200,.18);\n    --ds-c2-soft:rgba(31,134,173,.18);\n    --ds-c3-soft:rgba(31,146,119,.18);\n    --ds-c4-soft:rgba(181,133,47,.18);\n    --ds-c5-soft:rgba(189,98,54,.18);\n    --ds-c6-soft:rgba(116,89,191,.18);\n    --ds-grad-bar:linear-gradient(180deg,#4a6dd0 0%,#3457c4 52%,#283f93 100%);\n    --ds-grad-cool:linear-gradient(120deg,#3a5fc8 0%,#1f86ad 50%,#1f9277 100%);\n    --ds-grad-warm:linear-gradient(120deg,#b5852f 0%,#bd6236 100%);\n    --ds-grad:linear-gradient(118deg,#2b3650 0%,#4a4a52 30%,#8a6849 68%,#bd824a 100%);\n  }\n  .ds-slidewrap{width:100%;height:100%;}\n";
-const THEMED = new Set(['coverdusk', 'coverfield', 'coveratmostype', 'coverhorizon', 'coverdawn', 'cover', 'chapter', 'sectionstatement', 'quote', 'imagequote', 'fullimg', 'statement', 'bigstat', 'closing', 'showcase', 'poster', 'megafigure', 'divider']);
+const THEME10_BASE_CSS = "@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&family=Noto+Sans+SC:wght@300;400;500&display=swap');\n.deck-theme,.deck-theme *{box-sizing:border-box;}\n@keyframes ds-rise{from{opacity:0;translate:0 28px;}to{opacity:1;translate:0 0;}}\n  @keyframes ds-fadein{from{opacity:0;}to{opacity:1;}}\n  @media (prefers-reduced-motion:no-preference){\n    [data-deck-active] .ds-anim{\n      animation:ds-rise 640ms cubic-bezier(.22,.61,.36,1) both;\n      animation-delay:var(--ds-d,0ms);will-change:opacity,translate;}\n    [data-deck-active] .ds-fade{\n      animation:ds-fadein 720ms ease both;\n      animation-delay:var(--ds-d,0ms);will-change:opacity;}\n  }\n\n.deck-theme{\n    --ds-bg:radial-gradient(120% 95% at 86% -8%, rgba(92,128,234,.26) 0%, rgba(92,128,234,0) 52%), radial-gradient(115% 95% at -2% 108%, rgba(199,144,98,.24) 0%, rgba(199,144,98,0) 54%), linear-gradient(157deg,#13161d 0%,#0c0d11 56%,#090a0d 100%);\n    --ds-bg-soft:#16181d;\n    --ds-panel:#f3f3f0;\n    --ds-panel-ink:#101216;\n    --ds-ink:#f2f3f6;\n    --ds-muted:rgba(242,243,246,.74);\n    --ds-faint:rgba(242,243,246,.54);\n    --ds-line:rgba(242,243,246,.2);\n    --ds-card:rgba(255,255,255,.06);\n    --ds-accent:#5479e8;\n    --ds-accent-2:#8fa8e6;\n    /* Categorical series palette — a harmonious cool→warm sweep along the brand's\n       own blue→copper axis (plus one periwinkle) so multi-series charts get\n       variety without leaving the family. Tuned luminous for near-black bg. */\n    --ds-c1:#5b80ea;\n    --ds-c2:#46a6d0;\n    --ds-c3:#3fb39a;\n    --ds-c4:#d7a85b;\n    --ds-c5:#d27d58;\n    --ds-c6:#9a82dc;\n    /* Soft (translucent) companions for fills/areas/cells. */\n    --ds-c1-soft:rgba(91,128,234,.22);\n    --ds-c2-soft:rgba(70,166,208,.22);\n    --ds-c3-soft:rgba(63,179,154,.22);\n    --ds-c4-soft:rgba(215,168,91,.22);\n    --ds-c5-soft:rgba(210,125,88,.22);\n    --ds-c6-soft:rgba(154,130,220,.22);\n    /* Vertical gradient for hero bars/areas — accent deepening downward. */\n    --ds-grad-bar:linear-gradient(180deg,#6f93ef 0%,#5479e8 52%,#3f57b8 100%);\n    --ds-grad-cool:linear-gradient(120deg,#5b80ea 0%,#46a6d0 50%,#3fb39a 100%);\n    --ds-grad-warm:linear-gradient(120deg,#d7a85b 0%,#d27d58 100%);\n    /* warm blue→copper gradient kept for cover / section card backgrounds */\n    --ds-grad:linear-gradient(118deg,#1c2740 0%,#33405c 28%,#6f5a4c 66%,#c8966b 100%);\n    --ds-grad-soft:linear-gradient(118deg,rgba(51,64,92,.32) 0%,rgba(111,90,76,.30) 60%,rgba(200,150,107,.34) 100%);\n    --font-mono:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;\n    --font-sans:'IBM Plex Sans','Noto Sans SC',system-ui,-apple-system,sans-serif;\n    /* slide frame scale (1920×1080) */\n    --pad-x:120px;\n    --pad-y:96px;\n  }\n\n  /* Light surface: overrides the token set locally so any token-driven slide flips\n     to a warm off-white with dark ink. Applied by the controller via a wrapper. */\n  .deck-theme.tone-light{\n    --ds-bg:radial-gradient(110% 90% at 90% -6%, rgba(98,130,192,.22) 0%, rgba(98,130,192,0) 52%), radial-gradient(110% 90% at 0% 108%, rgba(199,144,98,.26) 0%, rgba(199,144,98,0) 54%), linear-gradient(157deg,#f5f4f0 0%,#ece9e3 100%);\n    --ds-bg-soft:#e4e3de;\n    --ds-ink:#15161a;\n    --ds-muted:rgba(21,22,26,.62);\n    --ds-faint:rgba(21,22,26,.42);\n    --ds-line:rgba(21,22,26,.13);\n    --ds-card:rgba(21,22,26,.05);\n    --ds-panel:#15161a;\n    --ds-panel-ink:#f1f0ec;\n    --ds-accent:#3457c4;\n    --ds-accent-2:#5d7fc8;\n    --ds-c1:#3a5fc8;\n    --ds-c2:#1f86ad;\n    --ds-c3:#1f9277;\n    --ds-c4:#b5852f;\n    --ds-c5:#bd6236;\n    --ds-c6:#7459bf;\n    --ds-c1-soft:rgba(58,95,200,.18);\n    --ds-c2-soft:rgba(31,134,173,.18);\n    --ds-c3-soft:rgba(31,146,119,.18);\n    --ds-c4-soft:rgba(181,133,47,.18);\n    --ds-c5-soft:rgba(189,98,54,.18);\n    --ds-c6-soft:rgba(116,89,191,.18);\n    --ds-grad-bar:linear-gradient(180deg,#4a6dd0 0%,#3457c4 52%,#283f93 100%);\n    --ds-grad-cool:linear-gradient(120deg,#3a5fc8 0%,#1f86ad 50%,#1f9277 100%);\n    --ds-grad-warm:linear-gradient(120deg,#b5852f 0%,#bd6236 100%);\n    --ds-grad:linear-gradient(118deg,#2b3650 0%,#4a4a52 30%,#8a6849 68%,#bd824a 100%);\n    --ds-grad-soft:linear-gradient(118deg,rgba(52,87,196,.12) 0%,rgba(138,104,73,.12) 58%,rgba(189,130,74,.18) 100%);\n  }\n  .ds-slidewrap{width:100%;height:100%;}\n";
+const THEME10_BASE_STYLE_ID = 'theme10-base-css';
+const THEMED = new Set(['coverdusk', 'coverfield', 'coveratmostype', 'coverhorizon', 'coverdawn', 'cover', 'chapter', 'sectionstatement', 'quote', 'imagequote', 'fullimg', 'statement', 'bigstat', 'closing', 'showcase', 'poster', 'megafigure', 'divider', 'profile', 'inset']);
 const TONE_DEFAULTS = { ledger: 'light', plans: 'light', principles: 'light', spark: 'light', journey: 'light', capmatrix: 'light', funnel: 'light', checklist: 'light', grouped: 'light', swimlane: 'light', schedule: 'light', pyramid: 'light', glossary: 'light', spectrum: 'light', allocation: 'light', bullet: 'light', team: 'light', steps: 'light', editorial: 'light', magazine: 'light', feature: 'light', faq: 'light', heatmap: 'light', exhibit: 'light', dumbbell: 'light', slope: 'light', curve: 'light', waterfall: 'light', gantt: 'light', ranking: 'light', calendar: 'light', radar: 'light', meter: 'light', mosaic: 'light', cartogram: 'light', board: 'light' };
 const TONE_CONTROL = { key: 'tone', type: 'radio', label: '页面底色', default: 'dark', options: [['dark', '深色'], ['light', '浅色']], description: '整页深色或浅色底。' };
 const SECTION_LABELS = [
@@ -124,7 +125,7 @@ const SECTION_LABELS = [
   "目标进度",
   "目标子弹图",
   "人物特写",
-  "团队墙",
+  "内容墙",
   "数据仪表盘",
   "收益归因",
   "净值曲线",
@@ -145,7 +146,7 @@ const SECTION_LABELS = [
   "三联影像",
   "横向影像带",
   "持仓小图集",
-  "客户实证",
+  "引述清单",
   "图文特写",
   "图像对照",
   "影像贴墙",
@@ -193,7 +194,7 @@ const SECTION_LABELS = [
   "资产拼花",
   "蜂窝指标",
   "标的档案",
-  "影像勋章",
+  "圆形图集",
   "名词释义",
   "结束"
 ];
@@ -302,7 +303,7 @@ const rawPages = SLIDES.map((entry, index) => {
   return {
     id: entry.id || meta.id,
     label: SECTION_LABELS[index] || meta.title || entry.id || meta.id,
-    Component: withTheme10Base(entry.C),
+    Component: withTheme10Base(entry.C, { toneEnabled: !themed }),
     controls: withTheme10Controls(themed ? (meta.controls || []) : [{ ...TONE_CONTROL, default: tone }, ...(meta.controls || [])]),
     defaultProps: {
       ...(meta.defaults || {}),
@@ -321,16 +322,34 @@ function withTheme10Controls(controls) {
   return backgroundControls.length ? [...backgroundControls, ...rest] : controls;
 }
 
-function withTheme10Base(Component) {
+function Theme10BaseStyle() {
+  if (typeof document === 'undefined') {
+    return React.createElement('style', { 'data-theme10-base': 'true' }, THEME10_BASE_CSS);
+  }
+  ensureTheme10BaseStyle();
+  return null;
+}
+
+function ensureTheme10BaseStyle() {
+  if (document.getElementById(THEME10_BASE_STYLE_ID)) return;
+  const style = document.createElement('style');
+  style.id = THEME10_BASE_STYLE_ID;
+  style.dataset.theme10Base = 'true';
+  style.textContent = THEME10_BASE_CSS;
+  document.head.appendChild(style);
+}
+
+function withTheme10Base(Component, opts = {}) {
   return function Theme10Page(props = {}) {
     const { tone, ...componentProps } = props;
+    const toneClass = opts.toneEnabled && tone === 'light' ? ' tone-light' : '';
     return React.createElement(
       React.Fragment,
       null,
-      React.createElement('style', null, THEME10_BASE_CSS),
+      React.createElement(Theme10BaseStyle, null),
       React.createElement(
         'div',
-        { className: 'ds-slidewrap deck-theme' + (tone === 'light' ? ' tone-light' : '') },
+        { className: 'ds-slidewrap deck-theme' + toneClass },
         React.createElement(Component, componentProps),
       ),
     );

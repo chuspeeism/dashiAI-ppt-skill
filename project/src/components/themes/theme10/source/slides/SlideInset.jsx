@@ -34,9 +34,10 @@ function SlideInset({
   return (
     <div className={`ins-root ins-${textPos}`}>
       <div className="ins-hero">
-        {useUnicorn
-          ? <UnicornBackground scene={unicornScene} accent="var(--ds-accent,#6f9bd8)" />
-          : <DeckImageSlot id={`${idPrefix}-hero`} fit="cover" radius={0} placeholder="HERO IMAGE" />}
+        <div className={`ins-upload-bg ${useUnicorn ? 'is-hidden' : ''}`}>
+          <DeckImageSlot id={`${idPrefix}-hero`} fit="cover" radius={0} placeholder="HERO IMAGE" />
+        </div>
+        {useUnicorn && <UnicornBackground scene={unicornScene} accent="var(--ds-accent,#6f9bd8)" />}
       </div>
       <span className="ins-scrim" style={{
         '--s': sc,
@@ -67,6 +68,8 @@ function insInjectStyle() {
   .ins-root{position:relative;width:100%;height:100%;overflow:hidden;background:var(--ds-bg,#0d0e11);
     color:#f4f4f2;font-family:var(--font-sans);}
   .ins-hero{position:absolute;inset:0;}
+  .ins-upload-bg{position:absolute;inset:0;}
+  .ins-upload-bg.is-hidden{opacity:0;pointer-events:none;}
   .ins-hero .dslot{border-radius:0;}
   .ins-scrim{position:absolute;inset:0;pointer-events:none;--scrim-dir:30deg;}
   .ins-bottom-left{--scrim-dir:30deg;} .ins-top-left{--scrim-dir:150deg;} .ins-bottom-right{--scrim-dir:-30deg;}
@@ -81,6 +84,7 @@ function insInjectStyle() {
   .ins-note{font-family:var(--font-mono);font-size:25px;line-height:1.5;letter-spacing:.02em;
     color:rgba(244,244,242,.78);margin:22px 0 0;}
   .ins-inset{position:absolute;z-index:2;margin:0;width:clamp(300px,22vw,420px);
+    max-height:calc(100% - var(--pad-y,96px) * 2);
     box-shadow:inset 0 0 0 1px rgba(255,255,255,.16);border-radius:10px;background:#0c0d10;overflow:hidden;}
   .ins-bottom-left .ins-inset{right:var(--pad-x,120px);top:var(--pad-y,96px);}
   .ins-top-left .ins-inset{right:var(--pad-x,120px);bottom:var(--pad-y,96px);}

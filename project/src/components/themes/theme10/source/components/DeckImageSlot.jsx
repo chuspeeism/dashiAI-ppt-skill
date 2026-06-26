@@ -1,7 +1,7 @@
-// DeckImageSlot.jsx — a user-fillable image placeholder.
+// DeckImageSlot.jsx — a user-fillable media placeholder.
 // Self-contained & migratable: depends only on React (imported). Click or drag an
-// image onto it; the file is stored as a data URL in localStorage under `id`, so
-// it survives reloads. Reports the image's natural aspect ratio via onAspect(r)
+// image or video onto it; the file is stored as a data URL in localStorage under `id`, so
+// it survives reloads. Reports the media's natural aspect ratio via onAspect(r)
 // so a parent layout can size the slot faithfully (no cropping when fit="cover"
 // and the box already matches the ratio).
 //
@@ -27,6 +27,7 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
   });
   const [over, setOver] = React.useState(false);
   const inputRef = React.useRef(null);
+  const videoRef = React.useRef(null);
 
   React.useEffect(() => { dslotInjectStyle(); }, []);
 
@@ -39,13 +40,30 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
   }, [storeKey, id, hasHostMedia, mediaHost]);
 
   const report = React.useCallback((item) => {
-    if (!onAspect || !item?.src || item.kind === 'video') return;
+    if (!onAspect || !item?.src) return;
+    if (item.kind === 'video') {
+      const video = document.createElement('video');
+      video.preload = 'metadata';
+      video.muted = true;
+      video.onloadedmetadata = () => {
+        if (video.videoWidth && video.videoHeight) onAspect(video.videoWidth / video.videoHeight);
+      };
+      video.src = item.src;
+      return;
+    }
     const im = new Image();
     im.onload = () => onAspect(im.naturalWidth / im.naturalHeight);
     im.src = item.src;
   }, [onAspect]);
 
   React.useEffect(() => { if (media?.src) report(media); }, [media, report]);
+
+  React.useEffect(() => {
+    if (media?.kind !== 'video' || !videoRef.current) return;
+    const video = videoRef.current;
+    video.muted = true;
+    video.play?.().catch(() => {});
+  }, [media?.kind, media?.src]);
 
   const save = (item) => {
     setMedia(item);
@@ -90,6 +108,7 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
 
   return (
     <div className={`dslot ${over ? 'is-over' : ''} ${media?.src ? 'is-filled' : ''} ${className}`}
+         data-dashi-slot-id={id || undefined}
          style={{ borderRadius: radius }}
          onPointerDown={stopSlotNavigation}
          onMouseDown={stopSlotNavigation}
@@ -100,9 +119,9 @@ function DeckImageSlot({ id, placeholder = 'IMAGE', fit = 'cover', radius = 18, 
       {media?.src ? (
         <>
           {media.kind === 'video'
-            ? <video className="dslot-img" src={media.src} muted playsInline loop preload="metadata" style={{ objectFit: fit }} />
+            ? <video ref={videoRef} className="dslot-img" src={media.src} muted playsInline loop autoPlay preload="metadata" style={{ objectFit: fit }} />
             : <img className="dslot-img" src={media.src} alt="" style={{ objectFit: fit }} />}
-          <button className="dslot-clear" onClick={clear} aria-label="清除图片">✕</button>
+          <button className="dslot-clear" onClick={clear} aria-label="清除媒体">✕</button>
         </>
       ) : (
         <div className="dslot-empty">

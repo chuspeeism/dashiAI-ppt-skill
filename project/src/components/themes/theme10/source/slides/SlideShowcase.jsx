@@ -84,7 +84,9 @@ function shwInjectStyle() {
     background:linear-gradient(180deg, rgba(8,9,11,0) 0%, rgba(8,9,11,.55) 100%);
     border-top:1px solid rgba(244,244,242,.16);
     padding:34px var(--pad-x,120px) 40px;gap:64px;backdrop-filter:blur(3px);}
+  .shw-root.pos-center .shw-ticker{justify-content:center;text-align:center;}
   .shw-tick{display:flex;flex-direction:column;gap:8px;padding-right:64px;border-right:1px solid rgba(244,244,242,.16);}
+  .shw-root.pos-center .shw-tick{align-items:center;padding:0 48px;}
   .shw-tick:last-child{border-right:0;}
   .shw-tick-val{font-size:54px;font-weight:300;font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.01em;}
   .shw-tick-lab{font-family:var(--font-mono);font-size:23px;letter-spacing:.05em;color:rgba(244,244,242,.7);}
@@ -101,7 +103,7 @@ SlideShowcase.META = {
     { key: 'textPos', type: 'radio', label: '文字位置', default: 'bottom-left',
       options: [{ value: 'bottom-left', label: '左下' }, { value: 'center', label: '居中' }],
       description: '标题块在画面中的位置。' },
-    { key: 'scrim', type: 'slider', label: '压暗程度', default: 60, min: 30, max: 85, step: 5, unit: '%',
+    { key: 'scrim', type: 'slider', label: '压暗程度', default: 60, min: 30, max: 85, step: 1, unit: '%',
       description: '图片之上的渐变压暗强度，保证文字可读。' },
     { key: 'showTicker', type: 'toggle', label: '指标走马条', default: true,
       description: '底部一排关键指标读数条。' },

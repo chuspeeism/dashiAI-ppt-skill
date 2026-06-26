@@ -1,9 +1,8 @@
-// SlideFilmstrip.jsx — 影像长卷 / adaptive justified image row.
-// A headline band over a single horizontal row of image slots that justify like
-// a gallery row: every slot shares one height and takes width ∝ its image's
-// natural aspect ratio, so nothing is cropped and the row stays balanced at any
-// count (0–5). Distinct from Slide04Gallery (uniform grid) and SlideMosaic
-// (collage): this is one ratio-true filmstrip with per-frame captions.
+// SlideFilmstrip.jsx — 影像长卷 / equal-width image row.
+// A headline band over a single horizontal row of image slots. Slots divide the
+// available row width evenly, and each image crops inside its own slot.
+// Distinct from Slide04Gallery (uniform grid) and SlideMosaic (collage): this is
+// one horizontal filmstrip with per-frame captions.
 // Standalone & migratable: depends only on React + DeckImageSlot (both global).
 // Token-driven. CSS scoped under `.fs-`.
 //
@@ -27,8 +26,6 @@ function SlideFilmstrip({
 }) {
   React.useEffect(() => { fsInjectStyle(); }, []);
   const n = Math.max(0, Math.min(5, imageCount));
-  const [ratios, setRatios] = React.useState({});
-  const setR = (i, r) => setRatios((p) => (p[i] === r ? p : { ...p, [i]: r }));
 
   return (
     <div className="fs-root">
@@ -44,24 +41,20 @@ function SlideFilmstrip({
         </div>
       ) : (
         <div className="fs-strip">
-          {Array.from({ length: n }).map((_, i) => {
-            const r = ratios[i] || 1.4;
-            return (
-              <figure className="fs-frame" key={i} style={{ flexGrow: r, flexBasis: 0 }}>
-                <div className="fs-slot" style={{ borderRadius: radius }}>
-                  <DeckImageSlot id={`${idPrefix}-${i}`} fit="cover" radius={radius}
-                                 placeholder={`IMAGE ${String(i + 1).padStart(2, '0')}`}
-                                 onAspect={(ratio) => setR(i, ratio)} />
-                </div>
-                {(showCaptions || showIndex) && (
-                  <figcaption className="fs-cap">
-                    {showIndex && <span className="fs-cap-idx">{String(i + 1).padStart(2, '0')}</span>}
-                    {showCaptions && <span className="fs-cap-txt">{captions[i] || ''}</span>}
-                  </figcaption>
-                )}
-              </figure>
-            );
-          })}
+          {Array.from({ length: n }).map((_, i) => (
+            <figure className="fs-frame" key={i}>
+              <div className="fs-slot" style={{ borderRadius: radius }}>
+                <DeckImageSlot id={`${idPrefix}-${i}`} fit="cover" radius={radius}
+                               placeholder={`IMAGE ${String(i + 1).padStart(2, '0')}`} />
+              </div>
+              {(showCaptions || showIndex) && (
+                <figcaption className="fs-cap">
+                  {showIndex && <span className="fs-cap-idx">{String(i + 1).padStart(2, '0')}</span>}
+                  {showCaptions && <span className="fs-cap-txt">{captions[i] || ''}</span>}
+                </figcaption>
+              )}
+            </figure>
+          ))}
         </div>
       )}
     </div>
@@ -78,7 +71,7 @@ function fsInjectStyle() {
   .fs-overline{font-family:var(--font-mono);font-size:26px;letter-spacing:.16em;color:var(--ds-faint,rgba(242,243,246,.42));}
   .fs-title{font-size:60px;font-weight:300;margin:16px 0 0;line-height:1.06;max-width:24ch;text-wrap:pretty;}
   .fs-strip{flex:1;min-height:0;display:flex;align-items:stretch;gap:24px;}
-  .fs-frame{margin:0;min-width:0;display:flex;flex-direction:column;}
+  .fs-frame{margin:0;min-width:0;flex:1 1 0;display:flex;flex-direction:column;}
   .fs-slot{position:relative;flex:1;min-height:0;overflow:hidden;}
   .fs-cap{margin-top:18px;display:flex;align-items:baseline;gap:14px;}
   .fs-cap-idx{font-family:var(--font-mono);font-size:24px;letter-spacing:.06em;color:var(--ds-accent,#6f9bd8);}
@@ -96,7 +89,7 @@ SlideFilmstrip.META = {
   defaults: { imageCount: 3, showCaptions: true, showIndex: true, radius: 14 },
   controls: [
     { key: 'imageCount', type: 'slider', label: '影像数量', default: 3, min: 0, max: 5, step: 1,
-      description: '横排影像框数量（0 为留空提示态）。各框按图片真实比例自适应宽度。' },
+      description: '横排影像框数量（0 为留空提示态）。各框按数量均分宽度，图片在槽内裁切填满。' },
     { key: 'showCaptions', type: 'toggle', label: '图注', default: true,
       description: '每帧下方的说明文字。' },
     { key: 'showIndex', type: 'toggle', label: '编号', default: true,

@@ -84,7 +84,7 @@ SlideCoverHorizon.META = {
     { key: 'theme', type: 'select', label: '地平线色', default: 'dawn',
       options: [{ value: 'dawn', label: '晨曦' }, { value: 'dusk', label: '暮蓝' }, { value: 'ember', label: '余烬' }],
       description: '地平线下方辉带的配色。' },
-    { key: 'horizon', type: 'slider', label: '地平线高度', default: 68, min: 56, max: 76, step: 2, unit: '%',
+    { key: 'horizon', type: 'slider', label: '地平线高度', default: 68, min: 56, max: 76, step: 1, unit: '%',
       description: '夜空占整页的高度（地平线的位置）。' },
     { key: 'showRule', type: 'toggle', label: '强调横条', default: true, description: '标题上方的强调色横条。' },
     { key: 'showFooter', type: 'toggle', label: '页脚信息', default: true, description: '辉带底部的页脚信息行。' },

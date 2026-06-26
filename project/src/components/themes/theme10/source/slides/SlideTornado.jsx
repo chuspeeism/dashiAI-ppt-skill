@@ -35,7 +35,7 @@ function SlideTornado({
   factorCount = 6, showValues = true, showBaseline = true, focus = false, focusIndex = 1,
 }) {
   React.useEffect(() => { trnInjectStyle(); }, []);
-  const n = Math.max(4, Math.min(factors.length, factorCount));
+  const n = Math.max(2, Math.min(factors.length, factorCount));
   const rows = factors.slice(0, n).slice().sort((a, b) => (b.down + b.up) - (a.down + a.up));
   const maxAbs = Math.max(...rows.map((r) => Math.max(r.down, r.up)), 1);
   const fIdx = focus ? Math.max(0, Math.min(n - 1, focusIndex - 1)) : -1;
@@ -118,7 +118,7 @@ SlideTornado.META = {
   id: 'tornado', title: '敏感性龙卷风图',
   defaults: { factorCount: 6, showValues: true, showBaseline: true, focus: false, focusIndex: 1 },
   controls: [
-    { key: 'factorCount', type: 'slider', label: '变量数量', default: 6, min: 4, max: 7, step: 1,
+    { key: 'factorCount', type: 'slider', label: '变量数量', default: 6, min: 2, max: 7, step: 1,
       description: '参与敏感性分析的驱动变量条数（自动按总摆幅排序）。' },
     { key: 'showValues', type: 'toggle', label: '数值标注', default: true,
       description: '每根条形末端显示 ± 影响幅度。' },

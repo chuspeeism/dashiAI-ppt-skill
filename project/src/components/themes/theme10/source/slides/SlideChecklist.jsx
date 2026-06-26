@@ -34,11 +34,12 @@ function SlideChecklist({
   const n = Math.max(3, Math.min(items.length, itemCount));
   const used = items.slice(0, n);
   const cols = Math.max(1, Math.min(2, columns));
+  const compactSingle = cols === 1 && n > 5;
   const isDone = (it) => checkedMode === 'all' ? true : checkedMode === 'none' ? false : !!it.done;
   const doneCount = used.filter(isDone).length;
 
   return (
-    <div className="ckl-root">
+    <div className={`ckl-root ${compactSingle ? 'is-single-compact' : ''}`}>
       <div className="ckl-head">
         <div className="ckl-overline">{overline}</div>
         <div className="ckl-topline">
@@ -96,6 +97,17 @@ function cklInjectStyle() {
   .ckl-tag{font-family:var(--font-mono);font-size:24px;letter-spacing:.06em;white-space:nowrap;padding:5px 14px;border-radius:999px;
     color:var(--ds-faint,rgba(242,243,246,.5));box-shadow:inset 0 0 0 1px var(--ds-line,rgba(242,243,246,.18));}
   .ckl-item.is-done .ckl-tag{color:var(--ds-accent,#6f9bd8);box-shadow:inset 0 0 0 1px color-mix(in srgb,var(--ds-accent,#6f9bd8) 55%,transparent);}
+  .ckl-root.is-single-compact .ckl-head{margin-bottom:24px;}
+  .ckl-root.is-single-compact .ckl-title{font-size:52px;}
+  .ckl-root.is-single-compact .ckl-counter-num{font-size:44px;}
+  .ckl-root.is-single-compact .ckl-counter-sl{font-size:24px;}
+  .ckl-root.is-single-compact .ckl-counter-lab{font-size:20px;}
+  .ckl-root.is-single-compact .ckl-grid{gap:8px;align-content:center;}
+  .ckl-root.is-single-compact .ckl-item{gap:18px;padding:10px 4px;}
+  .ckl-root.is-single-compact .ckl-box{width:34px;height:34px;border-radius:9px;font-size:21px;}
+  .ckl-root.is-single-compact .ckl-task{font-size:26px;line-height:1.08;}
+  .ckl-root.is-single-compact .ckl-outcome{font-size:18px;line-height:1.1;}
+  .ckl-root.is-single-compact .ckl-tag{font-size:19px;line-height:1.1;padding:4px 11px;}
   `;
   document.head.appendChild(s);
 }

@@ -49,7 +49,7 @@ function SlideTeam({
           <figure className="tm-cell" key={i}>
             <div className="tm-slot" style={{ borderRadius: radius }}>
               <DeckImageSlot id={`${idPrefix}-${i}`} fit="cover" radius={radius}
-                             placeholder={`PORTRAIT ${String(i + 1).padStart(2, '0')}`} />
+                             placeholder={`MEDIA ${String(i + 1).padStart(2, '0')}`} />
             </div>
             <figcaption className="tm-cap">
               {showIndex && <span className="tm-idx">{String(i + 1).padStart(2, '0')}</span>}
@@ -84,17 +84,17 @@ function tmInjectStyle() {
 }
 
 SlideTeam.META = {
-  id: 'team', title: '团队墙',
+  id: 'team', title: '内容墙',
   defaults: { memberCount: 4, showRole: true, showIndex: false, radius: 12 },
   controls: [
-    { key: 'memberCount', type: 'slider', label: '成员数量', default: 4, min: 2, max: 6, step: 1,
-      description: '团队成员肖像格数量（自动分列填满版面）。' },
-    { key: 'showRole', type: 'toggle', label: '职务', default: true,
-      description: '姓名下方的职务说明。' },
+    { key: 'memberCount', type: 'slider', label: '内容数量', default: 4, min: 2, max: 6, step: 1,
+      description: '内容卡片数量（自动分列填满版面）。' },
+    { key: 'showRole', type: 'toggle', label: '副标签', default: true,
+      description: '主标签下方的辅助说明。' },
     { key: 'showIndex', type: 'toggle', label: '编号', default: false,
       description: '姓名上方的 01/02… 序号。' },
     { key: 'radius', type: 'slider', label: '圆角', default: 12, min: 0, max: 28, step: 2, unit: 'px',
-      description: '肖像格的圆角半径。' },
+      description: '图片格的圆角半径。' },
   ],
 };
 

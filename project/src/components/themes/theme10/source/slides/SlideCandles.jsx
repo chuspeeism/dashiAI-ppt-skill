@@ -82,10 +82,7 @@ function SlideCandles({
             </linearGradient>
           </defs>
           {gridVals.map((v, i) => (
-            <g key={i}>
-              <line x1="0" x2={W} y1={Y(v)} y2={Y(v)} className="cdl-grid" />
-              <text x="4" y={Y(v) - 8} className="cdl-gridlab">{v.toFixed(0)}{unit}</text>
-            </g>
+            <line key={i} x1="0" x2={W} y1={Y(v)} y2={Y(v)} className="cdl-grid" />
           ))}
 
           {showMA && <path d={maPath} className="cdl-ma" vectorEffect="non-scaling-stroke" />}
@@ -113,6 +110,14 @@ function SlideCandles({
             );
           })}
         </svg>
+
+        {gridVals.length > 0 && (
+          <div className="cdl-gridlabs">
+            {gridVals.map((v, i) => (
+              <span key={i} className="cdl-gridlab" style={{ top: `${(Y(v) / H) * 100}%` }}>{v.toFixed(0)}{unit}</span>
+            ))}
+          </div>
+        )}
 
         {tagLast && (
           <div className="cdl-tag" style={{ top: `${(Y(last.close) / H) * 100}%` }}>
@@ -143,7 +148,9 @@ function cdlInjectStyle() {
   .cdl-stage{position:relative;flex:1;min-height:0;}
   .cdl-svg{width:100%;height:100%;display:block;overflow:visible;}
   .cdl-grid{stroke:var(--ds-line,rgba(242,243,246,.1));stroke-width:1;}
-  .cdl-gridlab{fill:var(--ds-faint,rgba(242,243,246,.4));font-family:var(--font-mono);font-size:18px;letter-spacing:.06em;}
+  .cdl-gridlabs{position:absolute;inset:0;pointer-events:none;}
+  .cdl-gridlab{position:absolute;left:0;transform:translateY(-100%);padding-bottom:6px;line-height:1;
+    color:var(--ds-faint,rgba(242,243,246,.4));font-family:var(--font-mono);font-size:22px;letter-spacing:.06em;}
   .cdl-wick{stroke:currentColor;stroke-opacity:.5;stroke-width:1.5;}
   .cdl-candle.is-up .cdl-wick,.cdl-candle.is-up .cdl-body{color:var(--ds-c3);}
   .cdl-candle.is-down .cdl-wick,.cdl-candle.is-down .cdl-body{color:var(--ds-c5);}

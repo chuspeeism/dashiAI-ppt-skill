@@ -251,7 +251,7 @@ function createMediaApi(slide, baseProps) {
     window.__markOverviewThumbDirty?.(slide);
     renderImportedThemeSlide(slide, nextProps);
     window.__initEditableText?.(slide);
-    window.__syncActiveEffects?.(slide);
+    window.__syncActiveEffects?.(slide, { skipMotion: true });
   }
 
   async function acceptFile(key, index, file) {
@@ -477,9 +477,25 @@ function createTheme11ImageBridge(mediaApi) {
 
 function createKeyedImageBridge(mediaApi) {
   const indexes = new Map();
+  const usedIndexes = new Set();
+  let nextIndex = 0;
+
+  const assignIndex = () => {
+    while (usedIndexes.has(nextIndex)) nextIndex += 1;
+    const index = nextIndex;
+    usedIndexes.add(index);
+    nextIndex += 1;
+    return index;
+  };
+
   const resolveIndex = (slotKey, fallbackIndex = 0) => {
+    const stableIndex = stableImageSlotIndex(slotKey);
+    if (stableIndex !== null) {
+      usedIndexes.add(stableIndex);
+      return stableIndex;
+    }
     const key = String(slotKey || `slot-${fallbackIndex}`);
-    if (!indexes.has(key)) indexes.set(key, indexes.size);
+    if (!indexes.has(key)) indexes.set(key, assignIndex());
     return indexes.get(key);
   };
   return {
@@ -488,6 +504,43 @@ function createKeyedImageBridge(mediaApi) {
     pick: (slotKey, fallbackIndex) => mediaApi.pick('images', resolveIndex(slotKey, fallbackIndex)),
     drop: (slotKey, fallbackIndex, file) => mediaApi.acceptFile('images', resolveIndex(slotKey, fallbackIndex), file),
   };
+}
+
+const NAMED_IMAGE_SLOT_INDEXES = new Map([
+  ['left', 0],
+  ['right', 1],
+  ['top', 0],
+  ['bottom', 1],
+  ['hero', 0],
+  ['bg', 0],
+  ['background', 0],
+  ['portrait', 0],
+  ['main', 0],
+  ['media', 0],
+  ['img', 0],
+  ['image', 0],
+  ['photo', 0],
+  ['shot', 0],
+  ['poster', 0],
+  ['cover', 0],
+  ['qr', 0],
+  ['avatar', 0],
+  ['inset', 1],
+  ['detail', 1],
+  ['thumb', 1],
+]);
+
+function stableImageSlotIndex(slotKey) {
+  const key = String(slotKey || '').trim();
+  if (!key) return null;
+  const parts = key.split(/[-_:]/).filter(Boolean);
+  const tail = parts[parts.length - 1] || key;
+  const numeric = parts.length > 1 || /^\d+$/.test(tail)
+    ? tail.match(/^(?:[a-z]+)?(\d+)$/i)
+    : null;
+  if (numeric) return Number(numeric[1]);
+  const named = NAMED_IMAGE_SLOT_INDEXES.get(tail.toLowerCase());
+  return Number.isInteger(named) ? named : null;
 }
 
 function getGxnSlotIndex(root, slot) {

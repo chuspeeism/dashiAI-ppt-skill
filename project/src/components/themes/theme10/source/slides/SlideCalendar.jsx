@@ -36,6 +36,7 @@ function SlideCalendar({
 
   const cellStyle = (v) => {
     const t = Math.abs(v) / maxAbs;
+    if (v < 0 && !accentLoss) return { background: 'var(--ds-card,rgba(255,255,255,.045))', opacity: 1 };
     const hue = v >= 0 ? 'var(--ds-c3)' : 'var(--ds-c5)';
     return { background: `linear-gradient(150deg, color-mix(in srgb, ${hue} ${Math.round((0.45 + t * 0.4) * 100)}%, #fff) 0%, ${hue} 100%)`, opacity: 0.5 + t * 0.5 };
   };
@@ -49,17 +50,20 @@ function SlideCalendar({
 
       <div className="cal-body">
         <div className="cal-grid" style={{ gridTemplateColumns: `repeat(${cols}, 1fr)` }}>
-          {months.map((mm, i) => (
-            <div className="cal-cell" key={i}>
-              <span className="cal-fill" style={cellStyle(mm.v)} />
-              <span className="cal-m">{mm.m}</span>
-              {showValues && (
-                <span className={`cal-v ${mm.v >= 0 ? 'is-up' : 'is-down'}`}>
-                  {mm.v >= 0 ? '+' : '−'}{Math.abs(mm.v).toFixed(1)}%
-                </span>
-              )}
-            </div>
-          ))}
+          {months.map((mm, i) => {
+            const mutedLoss = mm.v < 0 && !accentLoss;
+            return (
+              <div className={`cal-cell ${mutedLoss ? 'is-loss-muted' : ''}`} key={i}>
+                <span className="cal-fill" style={cellStyle(mm.v)} />
+                <span className="cal-m">{mm.m}</span>
+                {showValues && (
+                  <span className={`cal-v ${mm.v >= 0 ? 'is-up' : 'is-down'}`}>
+                    {mm.v >= 0 ? '+' : '−'}{Math.abs(mm.v).toFixed(1)}%
+                  </span>
+                )}
+              </div>
+            );
+          })}
         </div>
 
         {showSummary && (
@@ -109,6 +113,8 @@ function calInjectStyle() {
   .cal-v.is-up{color:#fff;}
   .cal-v.is-down{color:#fff;}
   .cal-m{color:rgba(255,255,255,.82);}
+  .cal-cell.is-loss-muted .cal-m{color:var(--ds-muted,rgba(242,243,246,.74));}
+  .cal-cell.is-loss-muted .cal-v{color:var(--ds-ink,#f2f3f6);}
   .cal-side{display:flex;flex-direction:column;gap:30px;justify-content:center;}
   .cal-ytd{display:flex;flex-direction:column;gap:10px;padding:36px 38px;border-radius:20px;
     background:var(--ds-card,rgba(255,255,255,.045));box-shadow:inset 0 0 0 1px var(--ds-line,rgba(242,243,246,.13));}

@@ -17,18 +17,31 @@
 
 import React from 'react';
 
+const DEFAULT_LEFT = {
+  name: '主动择时',
+  weight: '高成本',
+  items: ['交易摩擦与税负', '依赖个人判断', '业绩难以复制', '择时窗口难把握'],
+};
+const DEFAULT_RIGHT = {
+  name: '被动核心',
+  weight: '高胜率',
+  items: ['费率低、可解释', '纪律替代情绪', '长期跑赢多数主动', '配置透明可回溯'],
+};
+
 function SlideBalance({
   overline = '权衡 · WHAT TIPS THE SCALE',
   title = '为什么我们偏向被动核心',
-  left = { name: '主动择时', weight: '高成本', items: ['交易摩擦与税负', '依赖个人判断', '业绩难以复制'] },
-  right = { name: '被动核心', weight: '高胜率', items: ['费率低、可解释', '纪律替代情绪', '长期跑赢多数主动'] },
+  left = DEFAULT_LEFT,
+  right = DEFAULT_RIGHT,
   verdict = '长期看，结构与纪律的重量，胜过对市场的短期押注。',
   tilt = 'right', itemCount = 3, showWeights = true, showVerdict = true,
 }) {
   React.useEffect(() => { balInjectStyle(); }, []);
   const angle = tilt === 'left' ? -7 : tilt === 'right' ? 7 : 0;
-  const nL = Math.max(2, Math.min((left.items || []).length, itemCount));
-  const nR = Math.max(2, Math.min((right.items || []).length, itemCount));
+  const leftItems = (left.items || []).concat(DEFAULT_LEFT.items.slice((left.items || []).length));
+  const rightItems = (right.items || []).concat(DEFAULT_RIGHT.items.slice((right.items || []).length));
+  const nL = Math.max(2, Math.min(4, leftItems.length, itemCount));
+  const nR = Math.max(2, Math.min(4, rightItems.length, itemCount));
   const heavy = tilt === 'left' ? 'left' : tilt === 'right' ? 'right' : null;
 
   const Pan = (side, data, dropDelta) => (
@@ -66,14 +79,14 @@ function SlideBalance({
           <div className={`bal-col ${heavy === 'left' ? 'is-heavy' : ''}`}>
             <span className="bal-cname">{left.name}</span>
             <ul className="bal-list">
-              {left.items.slice(0, nL).map((it, i) => <li key={i}>{it}</li>)}
+              {leftItems.slice(0, nL).map((it, i) => <li key={i}>{it}</li>)}
             </ul>
           </div>
           <div className="bal-vs">VS</div>
           <div className={`bal-col is-right ${heavy === 'right' ? 'is-heavy' : ''}`}>
             <span className="bal-cname">{right.name}</span>
             <ul className="bal-list">
-              {right.items.slice(0, nR).map((it, i) => <li key={i}>{it}</li>)}
+              {rightItems.slice(0, nR).map((it, i) => <li key={i}>{it}</li>)}
             </ul>
           </div>
         </div>

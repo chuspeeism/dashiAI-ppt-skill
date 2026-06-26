@@ -43,7 +43,7 @@ function SlideTestimonials({
         <div className="tst-who">
           {showAvatar && (
             <span className="tst-avatar tst-avatar-lg">
-              <DeckImageSlot id={`${idPrefix}-a${lead}`} fit="cover" radius={999} placeholder="头像" />
+              <DeckImageSlot id={`${idPrefix}-a${lead}`} fit="cover" radius={999} placeholder="图片" />
             </span>
           )}
           <span className="tst-id">
@@ -59,7 +59,7 @@ function SlideTestimonials({
           <div className="tst-row" key={i}>
             {showAvatar && (
               <span className="tst-avatar tst-avatar-sm">
-                <DeckImageSlot id={`${idPrefix}-a${i}`} fit="cover" radius={999} placeholder="头像" />
+                <DeckImageSlot id={`${idPrefix}-a${i}`} fit="cover" radius={999} placeholder="图片" />
               </span>
             )}
             <div className="tst-rowtext">
@@ -108,15 +108,15 @@ function tstInjectStyle() {
 }
 
 SlideTestimonials.META = {
-  id: 'testimonials', title: '客户实证',
+  id: 'testimonials', title: '引述清单',
   defaults: { cardCount: 4, focusIndex: 1, showAvatar: true },
   controls: [
-    { key: 'cardCount', type: 'slider', label: '实证数量', default: 4, min: 2, max: 4, step: 1,
-      description: '客户实证总数（1 条放大为主引述，其余进入右侧清单）。' },
-    { key: 'focusIndex', type: 'slider', label: '主引述', default: 1, min: 1, max: 4, step: 1,
-      description: '被放大为左侧大引述的那一条（1 起）。' },
-    { key: 'showAvatar', type: 'toggle', label: '圆形头像', default: true,
-      description: '主引述与清单中的圆形头像图片槽（可拖入图片）。' },
+    { key: 'cardCount', type: 'slider', label: '内容数量', default: 4, min: 2, max: 4, step: 1,
+      description: '条目总数（1 条放大，其余进入右侧清单）。' },
+    { key: 'focusIndex', type: 'slider', label: '重点内容', default: 1, min: 1, max: 4, step: 1,
+      description: '被放大为左侧重点内容的那一条（1 起）。' },
+    { key: 'showAvatar', type: 'toggle', label: '圆形图片', default: true,
+      description: '重点内容与清单中的圆形图片槽（可拖入媒体）。' },
   ],
 };
 

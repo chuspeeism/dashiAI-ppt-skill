@@ -102,7 +102,7 @@ SlideMegaFigure.META = {
       options: [
         { value: 'dusk', label: '暮蓝' }, { value: 'midnight', label: '午夜' },
         { value: 'graphite', label: '石墨' }, { value: 'dawn', label: '晨曦' },
-        { value: 'vapor', label: '雾岚' }, { value: 'paper', label: '纸白' },
+        { value: 'vapor', label: '雾光' }, { value: 'paper', label: '纸白' },
       ], description: '整页背景渐变情绪（来自 DECK_THEMES）。' },
     { key: 'align', type: 'radio', label: '对齐', default: 'left',
       options: [{ value: 'left', label: '左对齐' }, { value: 'center', label: '居中' }],

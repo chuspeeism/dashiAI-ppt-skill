@@ -47,7 +47,7 @@ function SlideJourney({
 
       <div className={`jr-rail jr-${layout}`}>
         <div className="jr-line" style={{ left: `${startPct}%`, right: `${startPct}%` }} />
-        {showProgress && <div className="jr-fill" style={{ left: `${startPct}%`, width: `${curPct - startPct}%` }} />}
+        {showProgress && <div className="jr-fill" style={{ left: `${startPct}%`, width: `${Math.max(curPct - startPct, 3)}%` }} />}
         <div className="jr-cols" style={{ gridTemplateColumns: `repeat(${n}, 1fr)` }}>
           {used.map((st, i) => {
             const state = i < cur ? 'past' : i === cur ? 'now' : 'future';

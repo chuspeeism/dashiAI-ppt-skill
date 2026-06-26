@@ -53,7 +53,7 @@ function SlideVenn({
         <h2 className="vnn-title">{title}</h2>
       </div>
 
-      <div className="vnn-body">
+      <div className={`vnn-body ${showLegend ? '' : 'vnn-body-solo'}`}>
         <div className="vnn-stage" style={{ width: STAGE, height: STAGE }}>
           {discs.map((d, i) => {
             const hot = fIdx < 0 || fIdx === i;
@@ -123,6 +123,7 @@ function vnnInjectStyle() {
   .vnn-overline{font-family:var(--font-mono);font-size:26px;letter-spacing:.16em;color:var(--ds-faint,rgba(242,243,246,.42));}
   .vnn-title{font-size:58px;font-weight:300;margin:16px 0 0;line-height:1.12;text-wrap:balance;max-width:1280px;}
   .vnn-body{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr;gap:90px;align-items:center;}
+  .vnn-body-solo{grid-template-columns:1fr;justify-items:center;}
   .vnn-stage{position:relative;flex:0 0 auto;}
   .vnn-disc{position:absolute;border-radius:50%;border:2px solid currentColor;transition:opacity .3s ease;}
   .vnn-center{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:12px;}

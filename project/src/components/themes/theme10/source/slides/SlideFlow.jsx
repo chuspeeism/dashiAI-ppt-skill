@@ -160,7 +160,7 @@ SlideFlow.META = {
       description: '每条流向上的百分比标签。' },
     { key: 'showSource', type: 'toggle', label: '资金源面板', default: true,
       description: '左侧的资金总额来源条。' },
-    { key: 'curveAmt', type: 'slider', label: '曲线弯度', default: 70, min: 0, max: 100, step: 10, unit: '%',
+    { key: 'curveAmt', type: 'slider', label: '曲线弯度', default: 70, min: 0, max: 100, step: 1, unit: '%',
       description: '流带的弯曲程度，0 为直线。' },
     { key: 'focus', type: 'toggle', label: '重点聚焦', default: false,
       description: '高亮某一条流向，其余弱化。' },

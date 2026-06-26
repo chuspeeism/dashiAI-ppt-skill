@@ -7,8 +7,7 @@
 // Token-driven. CSS scoped under `.vs-`.
 //
 // ── Props (canonical list in SlideVersus.META.controls) ───────────────────────
-//   pointCount  number 2..5          bullet points shown per side          (4)
-//   focusSide   'left'|'right'       which stance is emphasised            ('right')
+//   pointCount  number 1..5          bullet points shown per side          (4)
 //   splitBias   number 42..60        seam position (% from left)           (52)
 //   showStat    boolean              the hero figure per side              (true)
 //   showPoints  boolean              the bullet list per side              (true)
@@ -29,14 +28,14 @@ function SlideVersus({
     label: '自主指数', head: '规则先行，纪律自动执行',
     stat: '+10.4%', points: ['情绪不参与决策', '到点自动再平衡', '成本一目了然', '你只管过好生活'],
   },
-  pointCount = 4, focusSide = 'right', splitBias = 52, showStat = true, showPoints = true,
+  pointCount = 4, splitBias = 52, showStat = true, showPoints = true,
 }) {
   React.useEffect(() => { vsInjectStyle(); }, []);
   const split = Math.max(42, Math.min(60, splitBias));
-  const pc = Math.max(2, Math.min(5, pointCount));
+  const pc = Math.max(1, Math.min(5, pointCount));
   const sideData = (d, key) => ({
     label: d.label, head: d.head, stat: d.stat,
-    points: (d.points || []).slice(0, pc), hot: focusSide === key,
+    points: (d.points || []).slice(0, pc), hot: key === 'right',
   });
   const L = sideData(left, 'left'), Rt = sideData(right, 'right');
 
@@ -90,8 +89,9 @@ function vsInjectStyle() {
   .vs-side{display:flex;flex-direction:column;min-height:0;
     padding:calc(var(--pad-y,96px) + 70px) var(--pad-x,120px) var(--pad-y,96px);}
   .vs-side-l{padding-right:90px;}
-  .vs-side-r{padding-left:96px;}
+  .vs-side-r{padding-left:96px;color:#fff;}
   .vs-side.is-cool{color:var(--ds-muted,rgba(242,243,246,.56));}
+  .vs-side-r.is-cool{color:#fff;}
   .vs-tag{font-family:var(--font-mono);font-size:24px;letter-spacing:.14em;text-transform:uppercase;
     color:var(--ds-faint,rgba(242,243,246,.5));}
   .vs-side.is-hot .vs-tag{color:#f3e7d8;}
@@ -114,13 +114,10 @@ function vsInjectStyle() {
 
 SlideVersus.META = {
   id: 'versus', title: '抉择双栏',
-  defaults: { pointCount: 4, focusSide: 'right', splitBias: 52, showStat: true, showPoints: true },
+  defaults: { pointCount: 4, splitBias: 52, showStat: true, showPoints: true },
   controls: [
-    { key: 'pointCount', type: 'slider', label: '每侧条目', default: 4, min: 2, max: 5, step: 1,
+    { key: 'pointCount', type: 'slider', label: '每侧条目', default: 4, min: 1, max: 5, step: 1,
       description: '每一侧展示的要点条目数量。' },
-    { key: 'focusSide', type: 'radio', label: '强调一侧', default: 'right',
-      options: [{ value: 'left', label: '左侧' }, { value: 'right', label: '右侧' }],
-      description: '被点亮强调的一侧（另一侧弱化为对照）。' },
     { key: 'splitBias', type: 'slider', label: '分割位置', default: 52, min: 42, max: 60, step: 1, unit: '%',
       description: '对角分割线距左边的位置。' },
     { key: 'showStat', type: 'toggle', label: '主数字', default: true,

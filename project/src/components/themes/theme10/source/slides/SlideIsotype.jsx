@@ -52,7 +52,7 @@ function SlideIsotype({
         <h2 className="iso-title">{title}</h2>
       </div>
 
-      <div className="iso-body">
+      <div className={`iso-body ${showLegend ? '' : 'iso-body-solo'}`}>
         <div className="iso-gridwrap">
           <div className="iso-grid">
             {owner.map((ci, i) => {
@@ -99,6 +99,8 @@ function isoInjectStyle() {
   .iso-overline{font-family:var(--font-mono);font-size:26px;letter-spacing:.16em;color:var(--ds-faint,rgba(242,243,246,.42));}
   .iso-title{font-size:68px;font-weight:300;margin:18px 0 0;line-height:1.08;}
   .iso-body{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr;gap:96px;align-items:center;}
+  .iso-body-solo{grid-template-columns:1fr;justify-items:center;}
+  .iso-body-solo .iso-gridwrap{align-items:center;}
   .iso-gridwrap{display:flex;flex-direction:column;gap:24px;}
   .iso-grid{display:grid;grid-template-columns:repeat(10,46px);grid-auto-rows:46px;gap:10px;}
   .iso-cell{display:block;width:46px;height:46px;border-radius:7px;transition:opacity .35s ease;}

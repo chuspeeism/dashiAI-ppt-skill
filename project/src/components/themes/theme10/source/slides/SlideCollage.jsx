@@ -53,7 +53,7 @@ function SlideCollage({
           const ar = aspects[key] || 1.32;
           const w = Math.max(200, Math.min(h * ar, 560));
           return (
-            <figure className="clg-frame" key={i}
+            <figure className={`clg-frame ${showCaptions ? '' : 'is-no-caption'}`} key={i}
                      style={{ left: `${x}%`, top: `${y}%`, width: w, transform: `translate(-50%,-50%) rotate(${tilt ? rot : 0}deg)` }}>
               {showIndex && <span className="clg-tab">{String(i + 1).padStart(2, '0')}</span>}
               <div className="clg-slot" style={{ height: h }}>
@@ -81,6 +81,7 @@ function clgInjectStyle() {
   .clg-stage{position:absolute;left:0;right:0;bottom:0;top:calc(var(--pad-y,96px) + 150px);}
   .clg-frame{position:absolute;margin:0;padding:14px 14px 0;background:var(--ds-panel,#f3f3f0);
     box-shadow:inset 0 0 0 1px rgba(0,0,0,.14);}
+  .clg-frame.is-no-caption{padding-bottom:14px;}
   .clg-slot{position:relative;width:100%;overflow:hidden;background:var(--ds-bg-soft,#16181d);}
   .clg-tab{position:absolute;top:-14px;left:-14px;z-index:3;width:46px;height:46px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;background:var(--ds-accent,#5479e8);color:#1a1206;

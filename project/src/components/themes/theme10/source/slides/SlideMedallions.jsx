@@ -53,13 +53,13 @@ function SlideMedallions({
       </div>
 
       {n === 0 ? (
-        <div className="mdl-empty">将「勋章数量」调到 1–6，拖入图片即可</div>
+        <div className="mdl-empty">将「内容数量」调到 1–6，拖入图片即可</div>
       ) : (
         <div className="mdl-row">
           {used.map((it, i) => (
             <div className="mdl-cell" key={i} style={{ transform: `translateY(${-lift(i)}px)` }}>
               <div className="mdl-coin" style={{ width: size, height: size }}>
-                <DeckImageSlot id={`${idPrefix}-med-${i}`} idPrefix={idPrefix} placeholder={`PORTRAIT ${i + 1}`}
+                <DeckImageSlot id={`${idPrefix}-med-${i}`} idPrefix={idPrefix} placeholder={`MEDIA ${i + 1}`}
                                fit="cover" radius={size / 2} />
               </div>
               {showLabels && (
@@ -102,15 +102,15 @@ function mdlInjectStyle() {
 }
 
 SlideMedallions.META = {
-  id: 'medallions', title: '影像勋章',
+  id: 'medallions', title: '圆形图集',
   defaults: { imageCount: 5, arc: true, showLabels: true, showLead: true },
   controls: [
-    { key: 'imageCount', type: 'slider', label: '勋章数量', default: 5, min: 0, max: 6, step: 1,
-      description: '圆形图片勋章的数量（0 为空态提示）；数量越少单枚越大。' },
+    { key: 'imageCount', type: 'slider', label: '内容数量', default: 5, min: 0, max: 6, step: 1,
+      description: '圆形内容项的数量（0 为空态提示）；数量越少单项越大。' },
     { key: 'arc', type: 'toggle', label: '弧形排布', default: true,
-      description: '让中间的勋章微微抬起，形成弧线；关则平排。' },
-    { key: 'showLabels', type: 'toggle', label: '名称标注', default: true,
-      description: '每枚勋章下方的名称 + 角色。' },
+      description: '让中间内容项微微抬起，形成弧线；关则平排。' },
+    { key: 'showLabels', type: 'toggle', label: '标题标注', default: true,
+      description: '每个内容项下方的主标签 + 副标签。' },
     { key: 'showLead', type: 'toggle', label: '引导段落', default: true,
       description: '标题右侧的一段引导说明。' },
   ],

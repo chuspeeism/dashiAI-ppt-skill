@@ -19,21 +19,25 @@
 
 import React from 'react';
 
+const DEFAULT_RINGS = [
+  { name: '目标达成率', value: 92, note: '年度净值 vs 计划' },
+  { name: '风险预算占用', value: 64, note: '已用 / 上限' },
+  { name: '再平衡纪律', value: 88, note: '按时执行比例' },
+  { name: '现金覆盖月数', value: 76, note: '24 个月为满分' },
+  { name: '成本控制', value: 81, note: '费率与滑点约束' },
+];
+
 function SlideRadialStack({
   overline = '运作健康度 · ON A 0–100 SCALE',
-  title = '一眼看清四项核心比率',
+  title = '一眼看清核心比率',
   center = { value: '92', label: '综合评分' },
-  rings = [
-    { name: '目标达成率', value: 92, note: '年度净值 vs 计划' },
-    { name: '风险预算占用', value: 64, note: '已用 / 上限' },
-    { name: '再平衡纪律', value: 88, note: '按时执行比例' },
-    { name: '现金覆盖月数', value: 76, note: '24 个月为满分' },
-  ],
+  rings = DEFAULT_RINGS,
   ringCount = 4, showTrack = true, showCenter = true, showLegend = true, focus = false, focusIndex = 1,
 }) {
   React.useEffect(() => { rdsInjectStyle(); }, []);
-  const n = Math.max(3, Math.min(rings.length, ringCount));
-  const used = rings.slice(0, n);
+  const availableRings = rings.concat(DEFAULT_RINGS.slice(rings.length));
+  const n = Math.max(3, Math.min(5, availableRings.length, ringCount));
+  const used = availableRings.slice(0, n);
   const fIdx = focus ? Math.max(0, Math.min(n - 1, focusIndex - 1)) : -1;
 
   const SZ = 520, CX = SZ / 2, CY = SZ / 2;
@@ -50,7 +54,7 @@ function SlideRadialStack({
         <h2 className="rds-title">{title}</h2>
       </div>
 
-      <div className="rds-body">
+      <div className={`rds-body ${showLegend ? '' : 'is-solo'}`}>
         <div className="rds-chart" style={{ width: SZ, height: SZ }}>
           <svg viewBox={`0 0 ${SZ} ${SZ}`} width={SZ} height={SZ}>
             <g transform={`rotate(-90 ${CX} ${CY})`}>
@@ -114,6 +118,7 @@ function rdsInjectStyle() {
   .rds-overline{font-family:var(--font-mono);font-size:26px;letter-spacing:.16em;color:var(--ds-faint,rgba(242,243,246,.42));}
   .rds-title{font-size:64px;font-weight:300;margin:16px 0 0;line-height:1.08;}
   .rds-body{flex:1;min-height:0;display:grid;grid-template-columns:auto 1fr;gap:110px;align-items:center;}
+  .rds-body.is-solo{grid-template-columns:1fr;justify-items:center;}
   .rds-chart{flex:0 0 auto;}
   .rds-cval{fill:var(--ds-ink,#f2f3f6);font-family:var(--font-mono);font-size:96px;font-weight:300;font-variant-numeric:tabular-nums;}
   .rds-clabel{fill:var(--ds-faint,rgba(242,243,246,.5));font-family:var(--font-mono);font-size:26px;letter-spacing:.12em;}

@@ -118,7 +118,7 @@ SlideChapterIndex.META = {
       options: [
         { value: 'midnight', label: '午夜' }, { value: 'dusk', label: '暮光' },
         { value: 'graphite', label: '石墨' }, { value: 'dawn', label: '晨光' },
-        { value: 'vapor', label: '垂直渐变' }, { value: 'paper', label: '纸白' },
+        { value: 'vapor', label: '雾光' }, { value: 'paper', label: '纸白' },
       ], description: '分章页的背景渐变与配色基调。' },
     { key: 'align', type: 'radio', label: '标题对齐', default: 'left',
       options: [{ value: 'left', label: '左对齐' }, { value: 'center', label: '居中' }],
@@ -127,7 +127,7 @@ SlideChapterIndex.META = {
       description: '指定“当前”章节，主标题与右侧目录的高亮会同步跟随。' },
     { key: 'showIndex', type: 'toggle', label: '章节目录', default: true,
       description: '右侧的全章节列表，显示阅读进度。' },
-    { key: 'showProgress', type: 'toggle', label: '进度计数', default: true,
+    { key: 'showProgress', type: 'toggle', label: '页码', default: true,
       description: '右上角的「当前 / 总数」计数标记。' },
   ],
 };

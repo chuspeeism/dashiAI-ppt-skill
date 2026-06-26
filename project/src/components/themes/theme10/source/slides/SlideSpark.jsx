@@ -9,7 +9,6 @@
 //   cardCount   number 3..8        how many holding cards                  (6)
 //   trendStyle  'area'|'line'      sparkline rendering                     ('area')
 //   showDelta   boolean            the delta chip on each card             (true)
-//   showAxis    boolean            a faint zero baseline in each spark     (true)
 //   focus       boolean            emphasise one card, dim the rest        (false)
 //   focusIndex  number 1..8        which card is emphasised (1-based)      (1)
 //
@@ -30,7 +29,7 @@ function SlideSpark({
     { label: '海外成长', value: '+9.4%', delta: '分散地域', up: true, data: [2, 2.6, 3, 3.8, 4.2, 5, 5.6, 6.5] },
     { label: '信用债券', value: '+3.7%', delta: '票息为主', up: true, data: [3, 3.2, 3.1, 3.5, 3.6, 3.9, 4.1, 4.3] },
   ],
-  cardCount = 6, trendStyle = 'area', showDelta = true, showAxis = false, focus = true, focusIndex = 1,
+  cardCount = 6, trendStyle = 'area', showDelta = true, focus = true, focusIndex = 1,
 }) {
   React.useEffect(() => { spkInjectStyle(); }, []);
   const n = Math.max(3, Math.min(cards.length, cardCount));
@@ -67,7 +66,6 @@ function SlideSpark({
               </div>
               <span className="spk-val">{c.value}</span>
               <svg className="spk-spark" viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true">
-                {showAxis && <line x1="0" y1={sp.baseY} x2="100" y2={sp.baseY} className="spk-axis" />}
                 {trendStyle === 'area' && <path d={sp.area} className="spk-area" style={{ fill: `color-mix(in srgb, ${HUE[i % HUE.length]} 18%, transparent)` }} />}
                 {trendStyle === 'bars' && sp.pts.map((p, k) => {
                   const slot = 100 / c.data.length;
@@ -106,7 +104,6 @@ function spkInjectStyle() {
   .spk-card.is-up .spk-val{color:var(--ds-ink,#f2f3f6);}
   .spk-card.is-down .spk-val{color:var(--ds-muted,rgba(242,243,246,.55));}
   .spk-spark{margin-top:auto;margin-left:-32px;margin-right:-32px;width:calc(100% + 64px);height:78px;display:block;}
-  .spk-axis{stroke:var(--ds-line,rgba(242,243,246,.16));stroke-width:.5;vector-effect:non-scaling-stroke;}
   .spk-line{fill:none;stroke-width:2;vector-effect:non-scaling-stroke;stroke-linecap:round;stroke-linejoin:round;}
   .spk-card.is-up .spk-line{stroke:var(--ds-accent,#6f9bd8);}
   .spk-card.is-down .spk-line{stroke:var(--ds-faint,rgba(242,243,246,.45));}
@@ -119,7 +116,7 @@ function spkInjectStyle() {
 
 SlideSpark.META = {
   id: 'spark', title: '持仓小图集',
-  defaults: { cardCount: 6, trendStyle: 'area', showDelta: true, showAxis: false, focus: true, focusIndex: 1 },
+  defaults: { cardCount: 6, trendStyle: 'area', showDelta: true, focus: true, focusIndex: 1 },
   controls: [
     { key: 'cardCount', type: 'slider', label: '卡片数量', default: 6, min: 3, max: 8, step: 1,
       description: '展示的持仓小卡数量（自动分列）。' },
@@ -128,8 +125,6 @@ SlideSpark.META = {
       description: '迷你走势图是填充面积还是纯折线。' },
     { key: 'showDelta', type: 'toggle', label: '角标', default: true,
       description: '每张卡右上角的说明角标。' },
-    { key: 'showAxis', type: 'toggle', label: '基线', default: false,
-      description: '迷你走势图的浅色基线。' },
     { key: 'focus', type: 'toggle', label: '重点聚焦', default: false,
       description: '高亮某一张卡片，其余弱化。' },
     { key: 'focusIndex', type: 'slider', label: '聚焦第几项', default: 1, min: 1, max: 8, step: 1,

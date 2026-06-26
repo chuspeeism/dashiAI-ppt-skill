@@ -125,7 +125,7 @@ function tmpInjectStyle() {
     align-items:center;text-align:center;padding:18px 22px;container-type:size;}
   .tmp-tile::after{content:'';position:absolute;inset:0;pointer-events:none;
     background:linear-gradient(150deg,rgba(255,255,255,.14),rgba(255,255,255,0) 42%);}
-  .tmp-tile.tier-tiny{padding:0 16px;align-items:baseline;flex-direction:row;justify-content:space-between;}
+  .tmp-tile.tier-tiny{padding:0 16px;align-items:center;flex-direction:row;justify-content:space-between;}
   .tmp-tile.is-dim{opacity:.4;}
   .tmp-tile.is-focus{box-shadow:inset 0 0 0 3px #0c1118;z-index:2;}
   .tmp-tile-top{display:flex;flex-direction:column;gap:4px;min-width:0;align-items:center;}

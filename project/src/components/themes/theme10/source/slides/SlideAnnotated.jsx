@@ -31,6 +31,7 @@ function SlideAnnotated({
     { x: 68, y: 22, title: '卫星增强', note: '小仓位博取超额，严格止损。' },
     { x: 40, y: 64, title: '对冲腿', note: '在回撤里贡献正收益的保险。' },
     { x: 78, y: 70, title: '现金缓冲', note: '随时可动用的机会与防御储备。' },
+    { x: 52, y: 42, title: '再平衡纪律', note: '触发阈值后自动校准各腿权重。' },
   ],
   markerCount = 4, imageSide = 'left', showPins = true, showLegend = true, radius = 14,
   focus = false, focusIndex = 1,
@@ -40,10 +41,12 @@ function SlideAnnotated({
   const used = markers.slice(0, n);
   const fIdx = focus ? Math.max(0, Math.min(n - 1, focusIndex - 1)) : -1;
   const HUE = ['var(--ds-c1)', 'var(--ds-c4)', 'var(--ds-c3)', 'var(--ds-c5)', 'var(--ds-c6)'];
+  const fullImage = !showLegend;
+  const pictureRadius = fullImage ? 0 : radius;
 
   const Picture = (
-    <div className="ann-pic" style={{ borderRadius: radius }}>
-      <DeckImageSlot id={`${idPrefix}-main`} fit="cover" radius={radius} placeholder="ANNOTATED IMAGE" />
+    <div className="ann-pic" style={{ borderRadius: pictureRadius }}>
+      <DeckImageSlot id={`${idPrefix}-main`} fit="cover" radius={pictureRadius} placeholder="ANNOTATED IMAGE" />
       {showPins && used.map((m, i) => {
         const hot = fIdx < 0 || fIdx === i;
         return (
@@ -78,7 +81,7 @@ function SlideAnnotated({
   );
 
   return (
-    <div className={`ann-root ${imageSide === 'right' ? 'is-imgright' : 'is-imgleft'}`}>
+    <div className={`ann-root ${imageSide === 'right' ? 'is-imgright' : 'is-imgleft'} ${fullImage ? 'is-fullimage' : ''}`}>
       {imageSide === 'right' ? <>{Legend}{Picture}</> : <>{Picture}{Legend}</>}
     </div>
   );
@@ -91,6 +94,7 @@ function annInjectStyle() {
   .ann-root{position:relative;width:100%;height:100%;background:var(--ds-bg,#0d0e11);color:var(--ds-ink,#f2f3f6);
     padding:var(--pad-y,96px) var(--pad-x,120px);display:grid;grid-template-columns:1.18fr .82fr;gap:84px;
     align-items:stretch;font-family:var(--font-sans);}
+  .ann-root.is-fullimage{padding:0;grid-template-columns:1fr;gap:0;}
   .ann-pic{position:relative;min-height:0;overflow:hidden;}
   .ann-pin{position:absolute;transform:translate(-50%,-50%);width:60px;height:60px;border-radius:50%;
     display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:30px;

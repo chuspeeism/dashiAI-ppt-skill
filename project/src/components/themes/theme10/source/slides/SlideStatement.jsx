@@ -94,7 +94,7 @@ SlideStatement.META = {
       options: [
         { value: 'graphite', label: '石墨' }, { value: 'midnight', label: '午夜' },
         { value: 'dusk', label: '暮光' }, { value: 'dawn', label: '晨光' },
-        { value: 'vapor', label: '垂直渐变' }, { value: 'paper', label: '纸白' },
+        { value: 'vapor', label: '雾光' }, { value: 'paper', label: '纸白' },
       ], description: '整页背景渐变与配色基调。' },
     { key: 'mode', type: 'radio', label: '版式模式', default: 'quote',
       options: [{ value: 'quote', label: '金句' }, { value: 'figure', label: '大数字' }],

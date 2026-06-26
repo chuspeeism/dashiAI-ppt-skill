@@ -84,7 +84,7 @@ SlideDivider.META = {
       options: [
         { value: 'midnight', label: '午夜' }, { value: 'dusk', label: '暮蓝' },
         { value: 'graphite', label: '石墨' }, { value: 'dawn', label: '晨曦' },
-        { value: 'vapor', label: '雾岚' }, { value: 'paper', label: '纸白' },
+        { value: 'vapor', label: '雾光' }, { value: 'paper', label: '纸白' },
       ], description: '整页背景渐变情绪（来自 DECK_THEMES）。' },
     { key: 'numberSide', type: 'radio', label: '序号位置', default: 'left',
       options: [{ value: 'left', label: '左侧' }, { value: 'right', label: '右侧' }],
