@@ -122,6 +122,49 @@ ensureCertificate();
 
 const serveRequest = async (req, res) => {
   const requestUrl = new URL(req.url || '/', 'https://local.invalid');
+  if (req.method === 'GET' && requestUrl.pathname === '/api/list-decks') {
+    const { readdirSync, existsSync, readFileSync } = await import('node:fs');
+    try {
+      const dirs = readdirSync(SERVE_ROOT, { withFileTypes: true });
+      const decks = [];
+      for (const dir of dirs) {
+        if (dir.isDirectory()) {
+          const pptPath = path.join(SERVE_ROOT, dir.name, 'ppt');
+          const indexPath = path.join(pptPath, 'index.html');
+          const goalPath = path.join(SERVE_ROOT, dir.name, 'goal.json');
+          if (existsSync(indexPath)) {
+            let title = dir.name;
+            let slideCount = 0;
+            let themePack = 'unknown';
+            if (existsSync(goalPath)) {
+              try {
+                const goal = JSON.parse(readFileSync(goalPath, 'utf8'));
+                themePack = goal.themePack || themePack;
+                slideCount = goal.slides?.length || 0;
+                const cover = goal.slides?.find(s => s.id === 'cover' || s.layout?.includes('page001'));
+                if (cover && cover.props) {
+                  title = cover.props.title || cover.props.titleLine1 || title;
+                }
+              } catch {}
+            }
+            decks.push({
+              id: dir.name,
+              title,
+              themePack,
+              slideCount,
+              path: `${dir.name}/ppt/index.html`
+            });
+          }
+        }
+      }
+      res.writeHead(200, { 'content-type': 'application/json;charset=utf-8', 'cache-control': 'no-store' });
+      res.end(JSON.stringify({ ok: true, decks }));
+    } catch (e) {
+      res.writeHead(500, { 'content-type': 'text/plain;charset=utf-8' });
+      res.end('Error listing decks');
+    }
+    return;
+  }
   if (req.method === 'POST' && requestUrl.pathname === '/api/export-editable-pptx') {
     await handleEditablePptxExport(req, res);
     return;

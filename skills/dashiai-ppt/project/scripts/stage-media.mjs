@@ -21,7 +21,7 @@ const PLACEHOLDER_POSTER_B64 = '/9j/4AAQSkZJRgABAgAAAQABAAD//gAQTGF2YzYyLjI4LjEw
 // Only run the CLI when invoked directly (`node scripts/stage-media.mjs ...`).
 // When imported (e.g. unit tests), expose the helpers without executing.
 const isMainModule = Boolean(process.argv[1])
-  && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);
+  && path.basename(process.argv[1]).toLowerCase() === path.basename(fileURLToPath(import.meta.url)).toLowerCase();
 
 if (isMainModule) {
   runCli(process.argv.slice(2));

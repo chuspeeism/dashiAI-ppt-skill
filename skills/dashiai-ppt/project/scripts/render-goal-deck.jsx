@@ -30,6 +30,11 @@ try {
 
   renderDeck(deck, { outFile });
   copyGoalSpec(specPath, outFile);
+  if (fs.existsSync(outFile)) {
+    let content = fs.readFileSync(outFile, 'utf8');
+    content = content.replace(/\s*data-prop-controls="[^"]*"/g, '');
+    fs.writeFileSync(outFile, content, 'utf8');
+  }
   console.log(`Rendered ${deck.slides.length} slide(s): ${displayPath(outFile)}`);
 } catch (error) {
   console.error(`Could not render goal deck: ${scrubLocalPaths(error?.message || error)}`);

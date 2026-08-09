@@ -24,7 +24,7 @@ const portScanLimit = Math.max(40, Number(process.env.DASHI_PPT_PREVIEW_PORT_SCA
 const lockDir = process.env.DASHI_PPT_PREVIEW_LOCK_DIR || path.join(os.tmpdir(), 'dashiai-ppt-preview-ports');
 const incompleteStartLockStaleMs = 1000;
 
-const isDirectRun = Boolean(process.argv[1]) && path.resolve(process.argv[1]) === path.resolve(import.meta.filename);
+const isDirectRun = Boolean(process.argv[1]) && path.basename(process.argv[1]).toLowerCase() === path.basename(import.meta.filename).toLowerCase();
 
 if (isDirectRun) {
   process.on('uncaughtException', error => exitWithError(error));
