@@ -38,13 +38,22 @@ The skill shows you theme previews to pick from, and you can ask the agent to re
 
 ## Get Started in 30 Seconds
 
-**One command to install or update** (it detects common skills directories automatically, installs into every one it finds, and keeps already-installed dependencies):
+**One command to install or update** (it detects common skills directories automatically and keeps already-installed dependencies):
 
 ```bash
 npx dashi-ppt-skill@latest
 ```
 
-Use `--dir <path>` to target a specific skills directory (e.g. `--dir ~/.claude/skills`). Install and update are the same command — re-running it updates in place.
+For a fresh install, the installer prefers the shared `~/.agents/skills` directory. If exactly one copy of `dashi-ppt` is already installed, it updates that copy in place. When multiple existing copies or multiple ambiguous host-specific directories are detected, it stops and asks for an explicit choice without overwriting or deleting anything.
+
+Use `--dir <path>` to target a specific skills directory, or `--all` to install into every detected directory:
+
+```bash
+npx dashi-ppt-skill@latest --dir ~/.codex/skills
+npx dashi-ppt-skill@latest --all
+```
+
+Install and update use the same command; re-running it updates the selected installation in place.
 
 Or hand this to your AI agent:
 

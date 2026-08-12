@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 // dashi-ppt-skill 的 npx 安装器:把包内 skill/ 目录复制到本机技能目录。
 // 用法:
-//   npx dashi-ppt-skill@latest                  # 探测常见技能目录,全部安装/更新
+//   npx dashi-ppt-skill@latest                  # 自动选择唯一安装目录
 //   npx dashi-ppt-skill@latest --dir <path>     # 显式指定技能根目录
+//   npx dashi-ppt-skill@latest --all            # 安装/更新全部探测到的技能目录
 //   npx dashi-ppt-skill@latest --list           # 只列出探测到的候选目录
 //
 // 关键行为:
@@ -20,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 const PKG_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SKILL_SOURCE = path.join(PKG_ROOT, 'skill');
 const SKILL_NAME = 'dashi-ppt';
+const LEGACY_SKILL_NAME = 'dashiai-ppt';
 const MIRROR_REGISTRY = 'https://registry.npmmirror.com';
 const PROBED_MARK = '# dashi-registry-probed';
 
@@ -30,11 +32,17 @@ if (dirFlagIndex >= 0 && (!explicitDir || explicitDir.startsWith('--'))) {
   console.error('--dir 需要一个路径参数,例如 --dir ~/.claude/skills');
   process.exit(2);
 }
+const installAll = args.includes('--all');
+if (explicitDir && installAll) {
+  console.error('--dir 与 --all 不能同时使用。');
+  process.exit(2);
+}
 const listOnly = args.includes('--list');
 
 const home = os.homedir();
+const sharedSkillRoot = path.join(home, '.agents', 'skills');
 const candidates = [
-  path.join(home, '.agents', 'skills'),
+  sharedSkillRoot,
   path.join(home, '.claude', 'skills'),
   path.join(home, '.codex', 'skills'),
   path.join(home, '.config', 'agents', 'skills'),
@@ -42,6 +50,48 @@ const candidates = [
 
 function detectSkillRoots() {
   return candidates.filter((dir) => existsSync(dir));
+}
+
+function resolveTargetRoots(detected) {
+  if (explicitDir) return { roots: [path.resolve(explicitDir)] };
+  if (installAll) return { roots: detected };
+
+  const installedPaths = detected.flatMap((root) =>
+    [SKILL_NAME, LEGACY_SKILL_NAME]
+      .map((name) => path.join(root, name))
+      .filter((skillPath) => existsSync(skillPath)),
+  );
+  const installed = [...new Set(installedPaths.map((skillPath) => path.dirname(skillPath)))];
+  if (installed.length === 1) return { roots: installed };
+  if (installed.length > 1) {
+    return {
+      error: [
+        '检测到多份 dashi-ppt 安装,为避免更新错误的副本,本次未执行:',
+        ...installedPaths.map((skillPath) => `  ${skillPath}`),
+        '请用 --dir <技能根目录> 选择一处更新,或用 --all 明确更新全部。',
+      ].join('\n'),
+    };
+  }
+
+  // 全新安装优先使用跨宿主共享目录;若它尚不存在,才考虑已有的宿主专用目录。
+  if (detected.includes(sharedSkillRoot)) return { roots: [sharedSkillRoot] };
+  if (detected.length === 1) return { roots: detected };
+  if (detected.length > 1) {
+    return {
+      error: [
+        '检测到多个技能目录,无法确定当前宿主,本次未执行:',
+        ...detected.map((root) => `  ${root}`),
+        '请用 --dir <技能根目录> 选择一处安装,或用 --all 明确安装到全部。',
+      ].join('\n'),
+    };
+  }
+  return {
+    error: [
+      '未探测到技能目录。请显式指定,例如:',
+      '  npx dashi-ppt-skill --dir ~/.claude/skills',
+      `常见位置:\n  ${candidates.join('\n  ')}`,
+    ].join('\n'),
+  };
 }
 
 function installerRegistryChoice() {
@@ -75,7 +125,7 @@ function installInto(targetRoot, version) {
   // 0.4.0 改名迁移:旧目录 dashiai-ppt 存在时,仅把旧依赖 node_modules
   // rename 进新目录(同盘瞬时;后续正常安装流程会照常保留它),然后整体
   // 移除旧目录,避免宿主把新旧两个目录双注册。
-  const legacyDir = path.join(targetRoot, 'dashiai-ppt');
+  const legacyDir = path.join(targetRoot, LEGACY_SKILL_NAME);
   if (existsSync(legacyDir) && legacyDir !== dest) {
     const legacyModules = path.join(legacyDir, 'project', 'node_modules');
     const destModules = path.join(destProject, 'node_modules');
@@ -137,13 +187,14 @@ function main() {
     console.log(detected.length ? detected.join('\n') : '(未探测到常见技能目录,请用 --dir 指定)');
     return;
   }
-  // 未显式 --dir 时安装到所有探测到的技能目录:Claude Code 与其它宿主并存的
-  // 机器上,只装一处会让另一处残留旧版。
-  const targetRoots = explicitDir ? [path.resolve(explicitDir)] : detected;
+  const selection = resolveTargetRoots(detected);
+  if (selection.error) {
+    console.error(selection.error);
+    process.exit(2);
+  }
+  const targetRoots = selection.roots;
   if (!targetRoots.length) {
-    console.error('未探测到技能目录。请显式指定,例如:');
-    console.error('  npx dashi-ppt-skill --dir ~/.claude/skills');
-    console.error(`常见位置:\n  ${candidates.join('\n  ')}`);
+    console.error('--all 未探测到可安装的技能目录,请先创建目录或使用 --dir 指定。');
     process.exit(2);
   }
 
