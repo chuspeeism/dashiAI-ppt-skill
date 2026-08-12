@@ -48,6 +48,15 @@ npx dashi-ppt-skill@latest
 npx --registry=https://registry.npmmirror.com dashi-ppt-skill@latest
 ```
 安装和更新是同一条命令,重跑即原地更新(已装依赖自动保留)。
+全新安装会优先使用通用目录 `~/.agents/skills`;如果已经只有一份 `dashi-ppt`，则继续在原目录更新。检测到多份已有安装或多个无法判断的宿主目录时，安装器会停止并提示选择，不会覆盖或删除任何副本。
+
+指定某个技能目录，或明确安装到所有已探测目录：
+
+```bash
+npx dashi-ppt-skill@latest --dir ~/.codex/skills
+npx dashi-ppt-skill@latest --all
+```
+
 让 AI Agent 帮你安装：
 
 ```text
